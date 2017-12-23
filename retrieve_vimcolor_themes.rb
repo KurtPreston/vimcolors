@@ -67,4 +67,4 @@ end
 
 # Copy files into the colors directory
 Dir.chdir ".."
-system("cp repos/*/colors/*.vim colors/")
+system("ls ./repos | sort -z | xargs -L 1 -i find ./repos/{}colors -name \"*.vim\" -type f -print0 | xargs -L 1 -r0 cp -t \"./colors/\"")
