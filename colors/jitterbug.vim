@@ -6,89 +6,176 @@ if exists("syntax_on")
 endif
   
 let colors_name = "jitterbug"
-hi Normal     cterm=NONE ctermbg=235 ctermfg=250 
-  \ guibg=#1c1c1c
-hi Statement  cterm=None ctermfg=243 
-    \guifg=#767676
-hi Type       cterm=bold ctermfg=245 
-    \guifg=#767676
-hi Identifier cterm=NONE ctermfg=138 
-    \guifg=#D78787
-hi Constant   cterm=NONE ctermfg=109 
-    \guifg=#87AfAf
 
-hi Comment    cterm=NONE ctermfg=73  
-hi Comment guifg=#666666 gui=italic
+hi Normal
+  \ cterm=NONE ctermbg=235 ctermfg=250
+  \ gui=NONE guibg=#1c1c1c
 
-hi Special    cterm=NONE ctermfg=103 
-    \guifg=#87AFAF
-hi PreProc    cterm=NONE ctermfg=96  
-    \guifg=#AF5FAF
-hi Title      cterm=bold ctermfg=255 
-    \gui=bold guifg=#FFFFFF
-hi Error      cterm=NONE ctermbg=52  ctermfg=218 
-    \guifg=#FFAFD7
+hi Statement
+  \ cterm=None ctermfg=243
+  \ guifg=#767676
+
+hi Type
+  \ cterm=bold ctermfg=245
+  \ guifg=#767676
+
+hi Identifier
+  \ cterm=NONE ctermfg=138
+  \ guifg=#D78787
+
+hi Constant
+  \ cterm=NONE ctermfg=109
+  \ guifg=#87AfAf
+
+hi Comment
+  \ cterm=NONE ctermfg=73
+  \ guisp=NONE guifg=#525252 gui=italic
+
+hi Special
+  \ cterm=NONE ctermfg=103
+  \ guifg=#87AFAF
+
+hi PreProc
+  \ cterm=NONE ctermfg=96
+  \ guifg=#926D92
+
+hi Title
+  \ cterm=bold ctermfg=255
+  \ gui=bold guifg=#FFFFFF
+
+hi Error
+  \ cterm=NONE ctermbg=52  ctermfg=218
+  \ guifg=#FFAFD7
+
 hi Directory  cterm=NONE ctermfg=67  
-    \guifg=#5F87AF
+  \ guifg=#5F87AF
+
 hi Underlined cterm=underline ctermfg=67 
-    \gui=underline 
+  \ gui=underline
 
 "Furniture
-hi VertSplit  cterm=NONE ctermbg=235 ctermfg=0 
-    \gui=none guibg=none
+"
+hi VertSplit
+  \ cterm=NONE ctermbg=235 ctermfg=0
+  \ gui=none guibg=none guifg=#383737
+
+
 hi LineNr     cterm=NONE ctermfg=241 
-    \guifg=#626262
+  \ guifg=#626262
+
 hi NonText    cterm=NONE ctermfg=16 
-    \guifg=#000000
+  \ guifg=#000000
+
 hi Visual     cterm=NONE ctermbg=238 
-    \guibg=#444444
+  \ guibg=#444444
+
 hi CursorLine cterm=NONE ctermbg=236 
-    \guibg=#303030
+  \ guibg=#303030
+
 hi CursorColumn cterm=NONE ctermbg=236 
-    \guibg=#303030 
-hi CursorLineNr cterm=NONE ctermbg=236 ctermfg=249 
-    \guibg=#303030 guifg=#B2B2B2
-hi SignColumn   cterm=NONE ctermbg=235 
-    \guibg=Normal
-hi ColorColumn  cterm=NONE ctermbg=236
-hi ErrorMsg     cterm=bold ctermbg=124 ctermfg=235
+  \ guibg=#303030
+
+hi CursorLineNr
+  \ cterm=NONE ctermbg=236 ctermfg=249
+  \ guibg=#303030 guifg=#B2B2B2
+
+hi SignColumn
+  \ cterm=NONE ctermbg=235
+  \ guisp=NONE guibg=Normal
+
+hi ColorColumn
+  \ cterm=NONE ctermbg=236
+
+hi ErrorMsg
+  \ cterm=bold ctermbg=124 ctermfg=235
+
+" No special treament for concealed symbols
+hi Conceal none
 
 hi link SpecialKey Ignore
 
-"Tabs
-hi TabLine ctermbg=233 ctermfg=242 cterm=NONE
-hi TabLineSel ctermbg=235 ctermfg=248 cterm=NONE
-hi TabLineFill ctermbg=233 ctermfg=246 cterm=NONE
+" Tabs
+"
+hi TabLine
+  \ ctermbg=233 ctermfg=242 cterm=NONE
+
+hi TabLineSel
+  \ ctermbg=235 ctermfg=248 cterm=NONE
+
+hi TabLineFill
+  \ ctermbg=233 ctermfg=246 cterm=NONE
 
 " Search
-hi IncSearch  cterm=bold ctermbg=243 ctermfg=214
+"
+hi IncSearch
+  \ cterm=bold ctermbg=243 ctermfg=214
 
-hi Search     cterm=None ctermbg=237 ctermfg=NONE
-hi Search     guibg=#333311 guifg=none
+hi Search
+  \ cterm=None ctermbg=237 ctermfg=NONE
+  \ guibg=#333311 guifg=none
 
-"Folding
-hi FoldColumn cterm=NONE ctermbg=235 ctermfg=243
-hi Folded     cterm=NONE ctermbg=234 ctermfg=243
+" Folding
+"
+hi FoldColumn
+  \ cterm=NONE ctermbg=235 ctermfg=243
+  \ gui=NONE guibg=#161616
 
-"Diff
-hi DiffDelete cterm=NONE ctermbg=233 ctermfg=233
-hi DiffAdd    cterm=NONE ctermbg=237 
-hi DiffText   cterm=bold ctermbg=240 ctermfg=15
-hi DiffChange cterm=NONE ctermbg=238
-hi DiffRemoved ctermbg=234 ctermfg=124
-hi DiffAdded ctermbg=237 ctermfg=76
+hi Folded
+  \ cterm=NONE ctermbg=234 ctermfg=243
+  \ guisp=NONE guibg=#1C1C1C guifg=#767676
 
-hi MatchParen cterm=bold ctermbg=235 ctermfg=227
+hi LineNr
+  \ gui=none guibg=#161616 guifg=#404040
+
+" Diff
+"
+hi DiffDelete
+  \ cterm=NONE ctermbg=233 ctermfg=233
+  \ guibg=#201111 guifg=#201111
+
+hi DiffAdd
+  \ cterm=NONE ctermbg=237
+  \ guisp=NONE guibg=#202620 guifg=202620
+
+hi DiffText
+  \ cterm=bold ctermbg=240 ctermfg=15
+  \ guisp=bold   guibg=#333350 guifg=none
+
+hi DiffChange
+  \ cterm=NONE ctermbg=238
+  \ guisp=NONE guibg=#16161a
+
+hi DiffRemoved
+  \ ctermbg=234 ctermfg=124
+  \ guisp=NONE guibg=#1C1C1C guifg=#991F1F
+
+hi DiffAdded
+  \ ctermbg=237 ctermfg=76
+  \ guisp=NONE guibg=#3A3A3A guifg=#5FD700
+
+
+" Matched parenthesis
+hi MatchParen
+  \ cterm=bold ctermbg=235 ctermfg=227
+
 
 "popup menus
-hi Pmenu      cterm=NONE ctermbg=241 ctermfg=248 
-    \guibg=#626262 guifg=#A8A8A8
-hi PmenuSel   cterm=NONE ctermbg=246 ctermfg=255 
-    \guibg=#949494 guifg=#ffffff
-hi PmenuSbar  cterm=NONE ctermbg=240 ctermfg=236 
-    \guibg=#585858 guifg=#303030
-hi PmenuThumb cterm=NONE ctermbg=246 ctermfg=240 
-    \guibg=#949494 guifg=#585858
+hi Pmenu
+  \ cterm=NONE ctermbg=241 ctermfg=248
+  \ guibg=#626262 guifg=#A8A8A8
+
+hi PmenuSel
+  \ cterm=NONE ctermbg=246 ctermfg=255
+  \ guibg=#949494 guifg=#ffffff
+
+hi PmenuSbar
+  \ cterm=NONE ctermbg=240 ctermfg=236
+  \ guibg=#585858 guifg=#303030
+
+hi PmenuThumb
+  \ cterm=NONE ctermbg=246 ctermfg=240
+  \ guibg=#949494 guifg=#585858
+
 
 " Sepll errors
 if has("spell")
@@ -109,11 +196,24 @@ hi NeomakeErrorDefault ctermfg=None
 
 
 " Error symbols in ALE
-highlight ALEErrorSign ctermfg=88
+highlight ALEErrorSign
+  \ ctermfg=88
+  \ guifg=#6D3C3C
+
 highlight ALEErrorLine none
+      \ guibg=#241916
 
-highlight ALEWarningSign ctermfg=94
-highlight ALEWarning cterm=underline ctermfg=172
+highlight ALEWarningSign
+  \ ctermfg=94
+  \ guifg=#927749
+
+highlight ALEWarning
+  \ cterm=underline ctermfg=172
+
 highlight ALEWarningLine none
+  \ guibg=#241E0B
 
 
+" Vim colorscheme files
+" hi link vimHiKeyList Title
+hi link vimHiGroup Title
