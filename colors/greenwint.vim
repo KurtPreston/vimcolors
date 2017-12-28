@@ -1,6 +1,6 @@
 "
 " Name: greenwint
-" Version: 0.3.2
+" Version: 0.3.3
 " Maintainer: https://www.github.com/preocanin
 " Licence: The MIT Licence (MIT)
 " 
@@ -123,11 +123,20 @@ hi pythonInclude guifg=#BBFFDD ctermfg=158
 hi link verilogOperator Type
 hi link verilogConstant PreProc
 
-" -- Javascript ---
+" --- Javascript ---
 hi link javaScriptBraces      javaScriptParens
+hi link javaScriptFunction    Statement
 hi link javaScriptIdentifier  Type
 hi link javaScriptMember      javaScriptOperator
 hi link javaScriptNumber      Number
 hi link javaScriptOperator    Identifier 
 hi link javaScriptParens      hsDelimiter 
-hi link javaScriptFunction    Statement
+
+" --- Typescript ---
+hi link typescriptBraces       javaScriptBraces
+hi link typescriptDotNotation  typescriptBraces
+hi link typescriptEndColons    Normal
+hi link typescriptFuncKeyword  javaScriptFunction
+hi link typescriptIdentifier   javaScriptIdentifier
+hi typescriptLogicSymbols guifg=#BBFFDD ctermfg=158 gui=bold cterm=bold
+hi link typescriptParens javaScriptBraces
