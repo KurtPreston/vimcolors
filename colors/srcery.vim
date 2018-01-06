@@ -19,10 +19,10 @@ endif
 " Palette {{{
 
 let s:black          = ["#1C1B19", 0]
-let s:red            = ["#FF3128", 1]
+let s:red            = ["#EF2F27", 1]
 let s:green          = ["#519F50", 2]
 let s:yellow         = ["#FBB829", 3]
-let s:blue           = ["#5573A3", 4]
+let s:blue           = ["#2C78BF", 4]
 let s:magenta        = ["#E02C6D", 5]
 let s:cyan           = ["#0AAEB3", 6]
 let s:white          = ["#918175", 7]
@@ -30,12 +30,12 @@ let s:bright_black   = ["#2D2C29", 8]
 let s:bright_red     = ["#F75341", 9]
 let s:bright_green   = ["#98BC37", 10]
 let s:bright_yellow  = ["#FED06E", 11]
-let s:bright_blue    = ["#8EB2F7", 12]
-let s:bright_magenta = ["#E35682", 13]
+let s:bright_blue    = ["#68A8E4", 12]
+let s:bright_magenta = ["#FF5C8F", 13]
 let s:bright_cyan    = ["#53FDE9", 14]
 let s:bright_white   = ["#FCE8C3", 15]
 
-" default xterm colors.
+" xterm colors.
 let s:orange        = ['#D75F00', 166]  
 let s:bright_orange = ['#FF8700', 208]
 let s:hard_black    = ['#080808', 232]
@@ -72,6 +72,10 @@ endif
 
 if !exists('g:srcery_inverse')
   let g:srcery_inverse=1
+endif
+
+if !exists('g:srcery_strong_match_paren')
+  let g:srcery_strong_match_paren=0
 endif
 
 " }}}
@@ -150,12 +154,13 @@ call s:HL('SrceryBlue', s:blue)
 call s:HL('SrceryMagenta', s:magenta)
 call s:HL('SrceryCyan', s:cyan)
 call s:HL('SrceryBlack', s:black)
-call s:HL('SrceryRedbold', s:red, s:none, s:bold)
-call s:HL('SrceryGreenbold', s:green, s:none, s:bold)
-call s:HL('SrceryYellowbold', s:yellow, s:none, s:bold)
-call s:HL('SrceryBluebold', s:blue, s:none, s:bold)
-call s:HL('SrceryMagentabold', s:magenta, s:none, s:bold)
-call s:HL('SrceryCyanbold', s:cyan, s:none, s:bold)
+
+call s:HL('SrceryRedBold', s:red, s:none, s:bold)
+call s:HL('SrceryGreenBold', s:green, s:none, s:bold)
+call s:HL('SrceryYellowBold', s:yellow, s:none, s:bold)
+call s:HL('SrceryBlueBold', s:blue, s:none, s:bold)
+call s:HL('SrceryMagentaBold', s:magenta, s:none, s:bold)
+call s:HL('SrceryCyanBold', s:cyan, s:none, s:bold)
 
 call s:HL('SrceryBrightRed', s:bright_red, s:none)
 call s:HL('SrceryBrightGreen', s:bright_green, s:none)
@@ -198,7 +203,12 @@ if version >= 700
   hi! link TabLine TabLineFill
 
   " Match paired bracket under the cursor
-  call s:HL('MatchParen', s:yellow, s:bright_black, s:bold)
+  "
+  if g:srcery_strong_match_paren == 1 
+    call s:HL('MatchParen', s:none, s:black, s:inverse)
+  else
+    call s:HL('MatchParen', s:bright_yellow, s:none, s:bold)
+  endif
 endif
 
 if version >= 703
@@ -218,8 +228,8 @@ hi! link SpecialKey SrceryWhiteAlt
 call s:HL('Visual',    s:none,  s:black, s:inverse)
 hi! link VisualNOS Visual
 
-call s:HL('Search',    s:black, s:yellow)
-call s:HL('IncSearch', s:black, s:yellow)
+call s:HL('Search',    s:bright_white, s:magenta)
+call s:HL('IncSearch', s:bright_white, s:magenta)
 
 call s:HL('Underlined', s:blue, s:none, s:underline)
 
@@ -305,7 +315,7 @@ hi! link Keyword SrceryRed
 " Variable name
 hi! link Identifier SrceryBlue
 " Function name
-hi! link Function SrceryGreenBold
+hi! link Function SrceryYellow
 
 " Generic preprocessor
 hi! link PreProc SrceryCyan
@@ -330,13 +340,13 @@ hi! link Number SrceryBrightMagenta
 hi! link Float SrceryBrightMagenta
 
 " Generic type
-hi! link Type SrceryYellow
+hi! link Type SrceryBrightBlue
 " static, register, volatile, etc
 hi! link StorageClass SrceryOrange
 " struct, union, enum, etc.
 hi! link Structure SrceryCyan
 " typedef
-hi! link Typedef SrceryYellow
+hi! link Typedef SrceryMagenta
 
 " }}}
 " Completion Menu: {{{
@@ -390,13 +400,13 @@ hi! link SneakStreakStatusLine Search
 if !exists('g:rbpt_colorpairs')
   let g:rbpt_colorpairs =
     \ [
-      \ ['blue', '#458588'], ['magenta', '#b16286'],
-      \ ['red',  '#cc241d'], ['166',     '#d65d0e']
+      \ ['blue', '#2C78BF'], ['yellow', '#FBB829'],
+      \ ['red',  '#EF2F27'], ['green',    '#519F50']
     \ ]
 endif
-
-let g:rainbow_guifgs = [ '#d65d0e', '#cc241d', '#b16286', '#458588' ]
-let g:rainbow_ctermfgs = [ '166', 'red', 'magenta', 'blue' ]
+                          
+let g:rainbow_guifgs = [ '#519F50', '#EF2F27', '#FBB829', '#2C78BF']
+let g:rainbow_ctermfgs = [ 'green', 'red', 'yellow', 'blue' ]
 
 if !exists('g:rainbow_conf')
    let g:rainbow_conf = {}
@@ -415,15 +425,26 @@ let g:niji_light_colours = g:rbpt_colorpairs
 " GitGutter: {{{
 
 hi! link GitGutterAdd SrceryGreen
-hi! link GitGutterChange SrceryCyan
+hi! link GitGutterChange SrceryYellow
 hi! link GitGutterDelete SrceryRed
-hi! link GitGutterChangeDelete SrceryCyan
+hi! link GitGutterChangeDelete SrceryYellow
 
 " }}}
 " GitCommit: "{{{
 
 hi! link gitcommitSelectedFile SrceryGreen
 hi! link gitcommitDiscardedFile SrceryRed
+
+" }}}
+" Asynchronous Lint Engine: {{{
+
+call s:HL('ALEError', s:none, s:none, s:undercurl, s:red)
+call s:HL('ALEWarning', s:none, s:none, s:undercurl, s:yellow)
+call s:HL('ALEInfo', s:none, s:none, s:undercurl, s:blue)
+
+hi! link ALEErrorSign SrceryRed
+hi! link ALEWarningSign SrceryYellow
+hi! link ALEInfoSign SrceryBlue
 
 " }}}
 
@@ -506,9 +527,9 @@ hi! link vimContinue SrceryBrightWhite
 " Clojure: {{{
 
 hi! link clojureKeyword SrceryBlue
-hi! link clojureCond SrceryOrange
-hi! link clojureSpecial SrceryOrange
-hi! link clojureDefine SrceryOrange
+hi! link clojureCond SrceryBrightRed
+hi! link clojureSpecial SrceryBrightRed
+hi! link clojureDefine SrceryBrightRed
 
 hi! link clojureFunc SrceryYellow
 hi! link clojureRepeat SrceryYellow
@@ -522,10 +543,10 @@ call s:HL('clojureRegexpCharClass', s:bright_white, s:none, s:bold)
 hi! link clojureRegexpMod clojureRegexpCharClass
 hi! link clojureRegexpQuantifier clojureRegexpCharClass
 
-hi! link clojureParen SrceryFg3
+hi! link clojureParen SrceryBrightBlue
 hi! link clojureAnonArg SrceryYellow
 hi! link clojureVariable SrceryBlue
-hi! link clojureMacro SrceryOrange
+hi! link clojureMacro SrceryBrightRed
 
 hi! link clojureMeta SrceryYellow
 hi! link clojureDeref SrceryYellow
@@ -822,5 +843,8 @@ hi! link jsonBraces SrceryFg1
 hi! link jsonString SrceryFg1
 
 " }}}
-
+" Rust: {{{
+"https://github.com/rust-lang/rust.vim/blob/master/syntax/rust.vim
+hi! link rustCommentLineDoc SrceryGreen
+" }}}
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker:
