@@ -4,7 +4,7 @@
 " Maintainer:   Lifepillar <lifepillar@lifepillar.me>
 " Website:      https://github.com/lifepillar/vim-wwdc17-theme
 " License:      This file is placed in the public domain
-" Last Updated: Sun Nov 26 14:14:00 2017
+" Last Updated: Wed Jan 10 20:24:20 2018
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < (get(g:, 'wwdc17_use16', 0) ? 16 : 256))
@@ -50,6 +50,7 @@ if !get(g:, 'wwdc17_use16', 0)
     hi CursorLineNr ctermfg=173 ctermbg=NONE guifg=#e4753e guibg=NONE guisp=NONE cterm=NONE gui=NONE
     hi Folded ctermfg=102 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE,italic
     hi LineNr ctermfg=102 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+    hi FoldColumn ctermfg=102 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE
     hi Terminal ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE
   else
     hi Normal ctermfg=241 ctermbg=231 guifg=#656567 guibg=#f8f8f8 guisp=NONE cterm=NONE gui=NONE
@@ -57,6 +58,7 @@ if !get(g:, 'wwdc17_use16', 0)
     hi CursorLineNr ctermfg=173 ctermbg=255 guifg=#e4753e guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
     hi Folded ctermfg=102 ctermbg=255 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE,italic
     hi LineNr ctermfg=102 ctermbg=255 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
+    hi FoldColumn ctermfg=102 ctermbg=255 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
     hi Terminal ctermfg=fg ctermbg=255 guifg=fg guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
   endif
   hi ColorColumn ctermfg=NONE ctermbg=255 guifg=NONE guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
@@ -70,7 +72,6 @@ if !get(g:, 'wwdc17_use16', 0)
   hi Directory ctermfg=36 ctermbg=NONE guifg=#00a995 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi EndOfBuffer ctermfg=173 ctermbg=NONE guifg=#e4753e guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi ErrorMsg ctermfg=167 ctermbg=231 guifg=#e8503f guibg=#f8f8f8 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
-  hi FoldColumn ctermfg=102 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi IncSearch ctermfg=173 ctermbg=231 guifg=#e4753e guibg=#f8f8f8 guisp=NONE cterm=NONE,reverse gui=NONE,standout
   hi MatchParen ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#656567 cterm=NONE,bold,underline gui=NONE,bold,underline
   hi ModeMsg ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -290,27 +291,9 @@ if !get(g:, 'wwdc17_use16', 0)
     let g:terminal_color_14='#23bce1'
     let g:terminal_color_15='#f8f8f8'
   endif
-  hi vimCommentTitle ctermfg=197 ctermbg=NONE guifg=#db2d45 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi vimMapModKey ctermfg=178 ctermbg=NONE guifg=#e1ad0b guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi vimMapMod ctermfg=178 ctermbg=NONE guifg=#e1ad0b guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi vimBracket ctermfg=38 ctermbg=NONE guifg=#1faed0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi vimNotation ctermfg=38 ctermbg=NONE guifg=#1faed0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi! link vimUserFunc Function
-  hi gitcommitComment ctermfg=102 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE,italic
-  hi markdownHeadingDelimiter ctermfg=178 ctermbg=NONE guifg=#e1ad0b guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi markdownURL ctermfg=97 ctermbg=NONE guifg=#8c61a6 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi htmlItalic ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE,italic
-  hi htmlBold ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
-  hi htmlBoldItalic ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
-  hi! link javascriptBraces Delimiter
-  hi SyntasticErrorSign ctermfg=167 ctermbg=NONE guifg=#e8503f guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi SyntasticWarningSign ctermfg=178 ctermbg=NONE guifg=#e1ad0b guibg=NONE guisp=NONE cterm=NONE gui=NONE
   if get(g:, "wwdc17_term_italics", 1)
     hi Comment cterm=italic
     hi Folded cterm=italic
-    hi htmlItalic cterm=italic
-    hi htmlBoldItalic cterm=NONE,bold,italic
-    hi gitcommitComment cterm=italic
   endif
   finish
 endif
@@ -326,6 +309,7 @@ if !has('gui_running') && get(g:, 'wwdc17_transp_bg', 0)
   hi CursorLineNr ctermfg=9 ctermbg=NONE guifg=#e4753e guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Folded ctermfg=8 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE,italic
   hi LineNr ctermfg=8 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi FoldColumn ctermfg=8 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Terminal ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE
 else
   hi Normal ctermfg=0 ctermbg=15 guifg=#656567 guibg=#f8f8f8 guisp=NONE cterm=NONE gui=NONE
@@ -333,6 +317,7 @@ else
   hi CursorLineNr ctermfg=9 ctermbg=7 guifg=#e4753e guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
   hi Folded ctermfg=8 ctermbg=7 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE,italic
   hi LineNr ctermfg=8 ctermbg=7 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
+  hi FoldColumn ctermfg=8 ctermbg=7 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
   hi Terminal ctermfg=fg ctermbg=7 guifg=fg guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
 endif
 hi ColorColumn ctermfg=NONE ctermbg=7 guifg=NONE guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
@@ -346,7 +331,6 @@ hi DiffText ctermfg=6 ctermbg=15 guifg=#1faed0 guibg=#f8f8f8 guisp=NONE cterm=NO
 hi Directory ctermfg=2 ctermbg=NONE guifg=#00a995 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi EndOfBuffer ctermfg=9 ctermbg=NONE guifg=#e4753e guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi ErrorMsg ctermfg=1 ctermbg=15 guifg=#e8503f guibg=#f8f8f8 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
-hi FoldColumn ctermfg=8 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi IncSearch ctermfg=9 ctermbg=15 guifg=#e4753e guibg=#f8f8f8 guisp=NONE cterm=NONE,reverse gui=NONE,standout
 hi MatchParen ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#656567 cterm=NONE,bold,underline gui=NONE,bold,underline
 hi ModeMsg ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -566,27 +550,9 @@ if has('nvim')
   let g:terminal_color_14='#23bce1'
   let g:terminal_color_15='#f8f8f8'
 endif
-hi vimCommentTitle ctermfg=5 ctermbg=NONE guifg=#db2d45 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi vimMapModKey ctermfg=3 ctermbg=NONE guifg=#e1ad0b guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi vimMapMod ctermfg=3 ctermbg=NONE guifg=#e1ad0b guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi vimBracket ctermfg=6 ctermbg=NONE guifg=#1faed0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi vimNotation ctermfg=6 ctermbg=NONE guifg=#1faed0 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi! link vimUserFunc Function
-hi gitcommitComment ctermfg=8 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE,italic
-hi markdownHeadingDelimiter ctermfg=3 ctermbg=NONE guifg=#e1ad0b guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi markdownURL ctermfg=12 ctermbg=NONE guifg=#8c61a6 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi htmlItalic ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE,italic
-hi htmlBold ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
-hi htmlBoldItalic ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
-hi! link javascriptBraces Delimiter
-hi SyntasticErrorSign ctermfg=1 ctermbg=NONE guifg=#e8503f guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi SyntasticWarningSign ctermfg=3 ctermbg=NONE guifg=#e1ad0b guibg=NONE guisp=NONE cterm=NONE gui=NONE
 if get(g:, "wwdc17_term_italics", 1)
   hi Comment cterm=italic
   hi Folded cterm=italic
-  hi htmlItalic cterm=italic
-  hi htmlBoldItalic cterm=NONE,bold,italic
-  hi gitcommitComment cterm=italic
 endif
 finish
 
@@ -612,12 +578,14 @@ finish
 "     CursorLineNr     brightred         none
 "     Folded           brightblack       none              g=italic
 "     LineNr           brightblack       none
+"     FoldColumn       brightblack       none
 "     Terminal         fg                none
 "     Normal black brightwhite
 "     CursorLine       none              white
 "     CursorLineNr     brightred         white
 "     Folded           brightblack       white             g=italic
 "     LineNr           brightblack       white
+"     FoldColumn       brightblack       white
 "     Terminal         fg                white
 " ColorColumn          none              white
 " Conceal              green             none
@@ -630,7 +598,6 @@ finish
 " Directory            green             none
 " EndOfBuffer          brightred         none
 " ErrorMsg             red               brightwhite       reverse
-" FoldColumn           brightblack       none
 " IncSearch            brightred         brightwhite       t=reverse g=standout
 " MatchParen           none              none              bold,underline s=black
 " ModeMsg              fg                none
@@ -813,18 +780,3 @@ finish
 " CommandMode          magenta           brightwhite       reverse
 " TermCursor        -> Cursor
 " TermCursorNC         brightwhite       black
-" vimCommentTitle      magenta           none
-" vimMapModKey         yellow            none
-" vimMapMod            yellow            none
-" vimBracket           cyan              none
-" vimNotation          cyan              none
-" vimUserFunc       -> Function
-" gitcommitComment     brightblack       none              g=italic
-" markdownHeadingDelimiter yellow        none
-" markdownURL          brightblue        none
-" htmlItalic           fg                none              g=italic
-" htmlBold             fg                none              bold
-" htmlBoldItalic       fg                none              bold
-" javascriptBraces  -> Delimiter
-" SyntasticErrorSign   red               none
-" SyntasticWarningSign yellow            none
