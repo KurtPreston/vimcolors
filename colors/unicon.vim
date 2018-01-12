@@ -117,7 +117,7 @@ call s:HL('Todo', s:magenta, s:none, 'bold')
 ""}}}
 "" Extended highlighting "{{{
 "" ---------------------------------------------------------------------
-call s:HL('SpecialKey', s:base4, s:base2, 'bold')
+call s:HL('SpecialKey', s:base3, s:none, 'bold')
 call s:HL('NonText', s:base3, s:none, 'bold')
 call s:HL('StatusLine', s:base6, s:base2, 'reverse')
 call s:HL('StatusLineNC', s:base4, s:base2, 'reverse')
