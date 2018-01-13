@@ -21,6 +21,14 @@ if ! exists("g:materialmonokai_italic")
     let g:materialmonokai_italic = 0
 endif
 
+if ! exists("g:materialmonokai_subtle_spell")
+    let g:materialmonokai_subtle_spell = 0
+endif
+
+if ! exists("g:materialmonokai_custom_lint_indicators")
+    let g:materialmonokai_custom_lint_indicators = 1
+endif
+
 let g:materialmonokai_termcolors = 256 " does not support 16 color term right now.
 
 set background=dark
@@ -121,9 +129,13 @@ call s:h("VertSplit",     { "fg": s:grey,       "bg": s:darkgrey })
 call s:h("LineNr",        { "fg": s:grey,       "bg": s:darkgrey })
 call s:h("CursorLineNr",  { "fg": s:aqua,       "bg": s:darkblack })
 call s:h("SignColumn",    {                     "bg": s:lightblack })
-call s:h("SpellBad",      { "fg": s:red,        "bg": s:yellow })
 call s:h("SpellCap",      {                                           "format": "underline"})
 call s:h("SpellLocal",    { "fg": s:yellow,                           "format": "underline"})
+if g:materialmonokai_subtle_spell == 1
+  call s:h("SpellBad",    {                                           "format": "underline"})
+else
+  call s:h("SpellBad",    { "fg": s:red,        "bg": s:yellow })
+endif
 
 " misc
 call s:h("SpecialKey",    { "fg": s:coolgrey })
@@ -186,12 +198,31 @@ call s:h("SpecialComment",{ "fg": s:aqua })
 call s:h("Tag",           { "fg": s:pink })
 "        Debug"
 
-call s:h("Todo",          { "fg": s:aqua,   "format": "bold,italic" })
+call s:h("Todo",          { "fg": s:aqua,     "format": "bold,italic" })
 call s:h("Comment",       { "fg": s:coolgrey, "format": "italic" })
 
 call s:h("Underlined",    { "fg": s:green })
 call s:h("Ignore",        {})
 call s:h("Error",         { "fg": s:red, "bg": s:darkred })
+
+" ALE
+" ---
+
+if g:materialmonokai_custom_lint_indicators == 1
+  call s:h("ALEErrorSign",   { "fg": s:red,    "bg": s:darkgrey })
+  call s:h("ALEWarningSign", { "fg": s:yellow, "bg": s:darkgrey })
+
+  let g:ale_sign_error = '●'
+  let g:ale_sign_warning = '●'
+endif
+
+" Git Gutter
+" ---------
+
+call s:h("GitGutterAdd",          { "fg": s:green,  "bg": s:darkgrey})
+call s:h("GitGutterChange",       { "fg": s:yellow, "bg": s:darkgrey })
+call s:h("GitGutterDelete",       { "fg": s:red,    "bg": s:darkgrey })
+call s:h("GitGutterChangeDelete", { "fg": s:yellow, "bg": s:darkgrey })
 
 " NerdTree
 " --------
