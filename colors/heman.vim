@@ -12,73 +12,77 @@ if version > 580
 	endif
 endif
 
-if has('gui_running') || &t_Co != 256
+if !has('gui_running') && &t_Co != 256
 	finish
 endif
 
 let g:colors_name="heman"
 
-" selfnote: 235=#262626
-highlight Normal		ctermfg=253	ctermbg=235	cterm=none
-hi LineNr			ctermfg=10	ctermbg=none	cterm=none
 
-" visual
-hi Todo				ctermfg=11	ctermbg=0	cterm=standout
-hi Error			ctermfg=9	ctermbg=15	cterm=reverse
+hi Normal			ctermfg=253	ctermbg=235	cterm=NONE	guifg=#dadada	guibg=#262626	gui=NONE
+hi LineNr			ctermfg=10	ctermbg=NONE	cterm=NONE	guifg=#00ff00	guibg=NONE	gui=NONE
 
-" variable types
-hi Constant			ctermfg=69	ctermbg=none	cterm=none
-hi String			ctermfg=93b4ff	ctermbg=none	cterm=none
-hi Number			ctermfg=69	ctermbg=none	cterm=none
+hi Statement			ctermfg=220	ctermbg=NONE	cterm=bold	guifg=#ffd700	guibg=NONE	gui=bold
+hi Conditional			ctermfg=10	ctermbg=NONE	cterm=bold	guifg=#00ff00	guibg=NONE	gui=bold
+hi Repeat			ctermfg=208	ctermbg=NONE	cterm=bold	guifg=#ff8700	guibg=NONE	gui=bold
+hi Include			ctermfg=208	ctermbg=NONE	cterm=NONE	guifg=#ff8700	guibg=NONE	gui=NONE
+hi Constant			ctermfg=69	ctermbg=NONE	cterm=NONE	guifg=#5f87ff	guibg=NONE	gui=NONE
+hi PreProc			ctermfg=201	ctermbg=NONE	cterm=NONE	guifg=#ff00ff	guibg=NONE	gui=NONE
+hi Special			ctermfg=51	ctermbg=NONE	cterm=NONE	guifg=#00ffff	guibg=NONE	gui=NONE
+hi Label			ctermfg=215	ctermbg=NONE	cterm=NONE	guifg=#ffaf5f	guibg=NONE	gui=NONE
+hi StorageClass			ctermfg=9	ctermbg=NONE	cterm=NONE	guifg=#ff0000	guibg=NONE	gui=NONE
+hi Structure			ctermfg=215	ctermbg=NONE	cterm=bold	guifg=#ffaf5f	guibg=NONE	gui=bold
+hi Todo				ctermfg=220	ctermbg=0	cterm=standout	guifg=#ffd700	guibg=#000000	gui=standout
+hi Comment			ctermfg=244	ctermbg=NONE	cterm=italic	guifg=#808080	guibg=NONE	gui=italic
+hi type				ctermfg=171	ctermbg=NONE	cterm=bold	guifg=#d75fff	guibg=NONE	gui=bold
+hi String			ctermfg=93	ctermbg=NONE	cterm=NONE	guifg=#8700ff	guibg=NONE	gui=NONE
 
-hi Function			ctermfg=171	ctermbg=none	cterm=bold
 
-" language
-" TODO: bash, java, ...
-hi Statement			ctermfg=11	ctermbg=none	cterm=bold
-hi Conditional			ctermfg=10	ctermbg=none	cterm=bold
-hi Repeat			ctermfg=208	ctermbg=none	cterm=bold
-hi Label			ctermfg=215	ctermbg=none	cterm=none
-hi Comment			ctermfg=244	ctermbg=none	cterm=none
+" sets the color of ^I and $ when :set list is active
+hi SpecialKey			ctermfg=white	ctermbg=NONE	cterm=NONE	guifg=#ffffff	guibg=NONE	gui=NONE
+hi NonText			ctermfg=white	ctermbg=NONE	cterm=NONE	guifg=#ffffff	guibg=NONE	gui=NONE
 
-hi Special			ctermfg=51	ctermbg=none	cterm=none
 
 " c
-hi cPreCondit			ctermfg=201	ctermbg=none	cterm=none
-hi cType			ctermfg=171	ctermbg=none	cterm=bold
-hi cConstant			ctermfg=69	ctermbg=none	cterm=none
-hi cIncluded			ctermfg=220	ctermbg=none	cterm=none
-hi cInclude			ctermfg=208	ctermbg=none	cterm=bold
-hi cDefine			ctermfg=10	ctermbg=none	cterm=bold
-hi cNumbers			ctermfg=69	ctermbg=none	cterm=none
-hi cNumber			ctermfg=69	ctermbg=none	cterm=none
-hi cString			ctermfg=93b4ff	ctermbg=none	cterm=none
-hi cFormat			ctermfg=201	ctermbg=none	cterm=none
-hi cSpecial			ctermfg=51	ctermbg=none	cterm=none
-hi cStructure			ctermfg=215	ctermbg=none	cterm=bold
-hi cLabel			ctermfg=215	ctermbg=none	cterm=none
-hi cStorageClass		ctermfg=9	ctermbg=none	cterm=none
-hi cComment			ctermfg=244	ctermbg=none	cterm=none
-hi cRepeat			ctermfg=208	ctermbg=none	cterm=bold
-hi cConditional			ctermfg=10	ctermbg=none	cterm=bold
-hi cStatement			ctermfg=11	ctermbg=none	cterm=bold
-hi cTodo			ctermfg=11	ctermbg=0	cterm=standout
+hi cIncluded			ctermfg=220	ctermbg=NONE	cterm=bold	guifg=#ffd700	guibg=NONE	gui=bold
+hi cDefine			ctermfg=10	ctermbg=NONE	cterm=bold	guifg=#00ff00	guibg=NONE	gui=bold
 
-" ruby
-hi rubyInclude			ctermfg=208	ctermbg=none	cterm=bold
-hi rubyModule			ctermfg=10	ctermbg=none	cterm=bold
-hi rubyClass			ctermfg=215	ctermbg=none	cterm=bold
-hi rubyClassDeclaration		ctermfg=215	ctermbg=none	cterm=none
-hi rubyModuleDeclaration	ctermfg=220	ctermbg=none	cterm=none
-hi rubyConstant			ctermfg=69	ctermbg=none	cterm=none
-hi rubyLocalVariableOrMethod	ctermfg=171	ctermbg=none	cterm=none
-hi rubyRegexp			ctermfg=93b4ff	ctermbg=none	cterm=none
-hi rubyRegexpAnchor		ctermfg=215	ctermbg=none	cterm=none
-hi rubyRegexpCharClass		ctermfg=51	ctermbg=none	cterm=none
-hi rubyBoolean			ctermfg=9	ctermbg=none	cterm=none
-hi rubySymbol			ctermfg=201	ctermbg=none	cterm=none
-hi rubyDefine			ctermfg=10	ctermbg=none	cterm=bold
-hi rubyfloat			ctermfg=51	ctermbg=none	cterm=none
-hi rubyCurlyBlock		ctermfg=215	ctermbg=none	cterm=none
-hi rubyTodo			ctermfg=11	ctermbg=0	cterm=standout
-hi rubyInteger			ctermfg=69	ctermbg=none	cterm=none
+
+" links
+hi link cConditional		Conditional
+hi link cStatement		Statement
+hi link cRepeat			Repeat
+hi link cInclude		Include
+hi link cConstant		Constant
+hi link cType			Type
+hi link cString			String
+hi link cPreCondit		PreProc
+hi link Format			PreProc
+hi link cFormat			Format
+hi link cSpecial		Special
+hi link cLabel			Label
+hi link cNumber			Constant
+hi link cNumbers		Constant
+hi link cStructure		Structure
+hi link cStorageClass		StorageClass
+hi link cTodo			Todo
+hi link cComment		Comment
+
+" TODO: update ruby support
+" minor support for rupy mostly for presentation at vimcolors.com
+hi link rubyInclude		Include
+hi link rubyModule		Conditional
+hi link rubyClass		Structure
+hi link rubyClassDeclaration	Constant
+hi link rubyConstant		Constant
+hi link rubyRegexp		String
+hi link rubyEgexpAnchor		Structure
+hi link rubyRegexpCharClass	Special
+hi link rubyBoolean		StorageClass
+hi link rubySymbol		PreProc
+hi link rubyDefine		cDefine
+hi link rubyFloat		Special
+hi link rubyCurlyBlock		Structure
+hi link rubyTodo		Todo
+hi link rubyInteger		Constant
+hi link rubyFunction		Type

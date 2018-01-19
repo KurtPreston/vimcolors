@@ -138,7 +138,7 @@ else
 endif
 
 " misc
-call s:h("SpecialKey",    { "fg": s:coolgrey })
+call s:h("SpecialKey",    { "fg": s:grey })
 call s:h("Title",         { "fg": s:yellow })
 call s:h("Directory",     { "fg": s:aqua })
 
@@ -391,3 +391,12 @@ call s:h("mkdURL",                      { "fg": s:pink })
 " Jinja
 call s:h("jinjaVarBlock",               { "fg": s:orange })
 call s:h("jinjaTagBlock",               { "fg": s:pink })
+
+" Org-mode
+call s:h("org_heading2",                { "fg": s:green })
+call s:h("org_heading3",                { "fg": s:purple })
+call s:h("org_heading7",                { "fg": s:yellow })
+call s:h("org_shade_stars",             { "fg": s:grey })
+call s:h("org_list_unordered",          { "fg": s:orange })
+call s:h("org_list_ordered",            { "fg": s:orange })
+call s:h("org_timestamp",               { "fg": s:pink })
