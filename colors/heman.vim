@@ -1,7 +1,7 @@
-" Name:			heman.vim
-" Version:		0.1
-" Maintainer: 	<https://github.com/rstdnull>
-" Notes: To check the meaning of the highlight groups, ':highlight'
+me:			heman.vim
+" Version:		0.2
+" Maintainer:		<https://github.com/rstdnull>
+
 
 set background=dark
 
@@ -19,58 +19,88 @@ endif
 let g:colors_name="heman"
 
 
-hi Normal			ctermfg=253	ctermbg=235	cterm=NONE	guifg=#dadada	guibg=#262626	gui=NONE
-hi LineNr			ctermfg=10	ctermbg=NONE	cterm=NONE	guifg=#00ff00	guibg=NONE	gui=NONE
+hi Normal			ctermfg=253	ctermbg=235	cterm=NONE	guifg=#dadada	guibg=#2b2836	gui=NONE
+hi EndOfBuffer			ctermfg=253	ctermbg=235	cterm=NONE	guifg=#dadada	guibg=#2b2836	gui=NONE
+hi LineNr			ctermfg=244	ctermbg=NONE	cterm=NONE	guifg=#808080	guibg=NONE	gui=NONE
 
+hi String			ctermfg=171	ctermbg=NONE	cterm=NONE	guifg=#d75fff	guibg=NONE	gui=NONE
+hi Define			ctermfg=118	ctermbg=NONE	cterm=NONE	guifg=#87ff00	guibg=NONE	gui=NONE
 hi Statement			ctermfg=220	ctermbg=NONE	cterm=bold	guifg=#ffd700	guibg=NONE	gui=bold
-hi Conditional			ctermfg=10	ctermbg=NONE	cterm=bold	guifg=#00ff00	guibg=NONE	gui=bold
+hi Conditional			ctermfg=118	ctermbg=NONE	cterm=bold	guifg=#87ff00	guibg=NONE	gui=bold
 hi Repeat			ctermfg=208	ctermbg=NONE	cterm=bold	guifg=#ff8700	guibg=NONE	gui=bold
 hi Include			ctermfg=208	ctermbg=NONE	cterm=NONE	guifg=#ff8700	guibg=NONE	gui=NONE
-hi Constant			ctermfg=69	ctermbg=NONE	cterm=NONE	guifg=#5f87ff	guibg=NONE	gui=NONE
-hi PreProc			ctermfg=201	ctermbg=NONE	cterm=NONE	guifg=#ff00ff	guibg=NONE	gui=NONE
-hi Special			ctermfg=51	ctermbg=NONE	cterm=NONE	guifg=#00ffff	guibg=NONE	gui=NONE
+hi Constant			ctermfg=75	ctermbg=NONE	cterm=NONE	guifg=#5fafff	guibg=NONE	gui=NONE
+hi PreProc			ctermfg=220	ctermbg=NONE	cterm=NONE	guifg=#ffd700	guibg=NONE	gui=NONE
+hi Special			ctermfg=123	ctermbg=NONE	cterm=NONE	guifg=#87ffff	guibg=NONE	gui=NONE
 hi Label			ctermfg=215	ctermbg=NONE	cterm=NONE	guifg=#ffaf5f	guibg=NONE	gui=NONE
-hi StorageClass			ctermfg=9	ctermbg=NONE	cterm=NONE	guifg=#ff0000	guibg=NONE	gui=NONE
-hi Structure			ctermfg=215	ctermbg=NONE	cterm=bold	guifg=#ffaf5f	guibg=NONE	gui=bold
+hi StorageClass			ctermfg=141	ctermbg=NONE	cterm=bold	guifg=#af87ff	guibg=NONE	gui=bold
+hi Structure			ctermfg=217	ctermbg=NONE	cterm=bold	guifg=#ffafaf	guibg=NONE	gui=bold
 hi Todo				ctermfg=220	ctermbg=0	cterm=standout	guifg=#ffd700	guibg=#000000	gui=standout
 hi Comment			ctermfg=244	ctermbg=NONE	cterm=italic	guifg=#808080	guibg=NONE	gui=italic
-hi type				ctermfg=171	ctermbg=NONE	cterm=bold	guifg=#d75fff	guibg=NONE	gui=bold
-hi String			ctermfg=93	ctermbg=NONE	cterm=NONE	guifg=#8700ff	guibg=NONE	gui=NONE
+hi Type				ctermfg=217	ctermbg=NONE	cterm=bold	guifg=#ffafaf	guibg=NONE	gui=bold
+hi Character			ctermfg=201	ctermbg=NONE	cterm=NONE	guifg=#ff00ff	guibg=NONE	gui=NONE
+hi Float			ctermfg=229	ctermbg=NONE	cterm=NONE	guifg=#ffffaf	guibg=NONE	gui=NONE
+hi Identifier			ctermfg=123	ctermbg=NONE	cterm=NONE	guifg=#87ffff	guibg=NONE	gui=NONE
 
 
 " sets the color of ^I and $ when :set list is active
-hi SpecialKey			ctermfg=white	ctermbg=NONE	cterm=NONE	guifg=#ffffff	guibg=NONE	gui=NONE
-hi NonText			ctermfg=white	ctermbg=NONE	cterm=NONE	guifg=#ffffff	guibg=NONE	gui=NONE
+hi SpecialKey			ctermfg=9	ctermbg=NONE	cterm=NONE	guifg=#ff0000	guibg=NONE	gui=NONE
+hi NonText			ctermfg=9	ctermbg=NONE	cterm=NONE	guifg=#ff0000	guibg=NONE	gui=NONE
 
 
 " c
 hi cIncluded			ctermfg=220	ctermbg=NONE	cterm=bold	guifg=#ffd700	guibg=NONE	gui=bold
-hi cDefine			ctermfg=10	ctermbg=NONE	cterm=bold	guifg=#00ff00	guibg=NONE	gui=bold
 
 
 " links
+hi link Operator		Define
+
+" c-links
 hi link cConditional		Conditional
 hi link cStatement		Statement
 hi link cRepeat			Repeat
 hi link cInclude		Include
+hi link cDefine			Define
 hi link cConstant		Constant
 hi link cType			Type
 hi link cString			String
 hi link cPreCondit		PreProc
-hi link Format			PreProc
-hi link cFormat			Format
+hi link cFormat			Character
 hi link cSpecial		Special
 hi link cLabel			Label
 hi link cNumber			Constant
 hi link cNumbers		Constant
-hi link cStructure		Structure
+hi link cStructure		StorageClass
 hi link cStorageClass		StorageClass
 hi link cTodo			Todo
 hi link cComment		Comment
+hi link cFloat			Float
 
-" TODO: update ruby support
-" minor support for rupy mostly for presentation at vimcolors.com
+
+" css
+hi cssBraces			ctermfg=253	ctermbg=NONE	cterm=NONE	guifg=#dadada	guibg=NONE	gui=NONE
+
+" TODO: update css"
+" css-links
+hi link cssTagName		Float
+hi link cssIncludeKeyword	StorageClass
+hi link cssMediaType		cIncluded
+hi link cssUnitDecorators	Character
+hi link cssClassName		Type
+hi link cssClassNamedot		Type
+hi link cssAttrRegion		Character
+hi link cssIdentifier		Repeat
+hi link cssPseudoClass		cIncluded
+hi link cssPseudoClassId	cIncluded
+hi link cssPseudoClassFn	cIncluded
+
+hi link cssProp			String
+
+
+" TODO: update ruby
+" ruby-links
 hi link rubyInclude		Include
+hi link rubyDefine		Conditional
 hi link rubyModule		Conditional
 hi link rubyClass		Structure
 hi link rubyClassDeclaration	Constant
@@ -86,3 +116,10 @@ hi link rubyCurlyBlock		Structure
 hi link rubyTodo		Todo
 hi link rubyInteger		Constant
 hi link rubyFunction		Type
+hi link rubyInstanceVariable	Identifier
+hi link rubyFloat		Float
+hi link rubyBoolean		Constant
+hi link rubySymbol		Character
+hi link rubyRegexpBrackets	Constant
+hi link rubyRegexpCharClass	Character
+hi link rubyRegexpDelimeter	Constant
