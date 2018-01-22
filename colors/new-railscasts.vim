@@ -84,29 +84,29 @@ hi Function                  guifg=#FFC66D gui=NONE guibg=NONE ctermfg=221 cterm
 " Identifier: @var, @@var, $var, etc
 hi Identifier                guifg=#d7b0fc guibg=NONE ctermfg=73 cterm=NONE
 " Include: include, autoload, extend, load, require
-hi Include                   guifg=#CC7833  guibg=NONE ctermfg=173 cterm=NONE
+hi Include                   guifg=#F07B5D guibg=NONE ctermfg=173 cterm=NONE
 " Keyword, rubyKeywordAsMethod: alias, undef, super, yield, callcc, caller, lambda, proc
-hi Keyword                   guifg=#d8690f ctermfg=172 cterm=NONE
+hi Keyword                   guifg=#CB725B ctermfg=172 cterm=NONE
 " same as define
-hi Macro                     guifg=#CC7833  guibg=NONE ctermfg=172
+hi Macro                     guifg=#F07B5D guibg=NONE ctermfg=172
 "rubyInteger
 hi Number                    guifg=#A5C261 ctermfg=107
 hi Boolean                   guifg=#47a3e5 ctermfg=107 gui=italic
 " #if, #else, #endif
-hi PreCondit                 guifg=#CC7833  guibg=NONE ctermfg=172 cterm=NONE
+hi PreCondit                 guifg=#F07B5D guibg=NONE ctermfg=172 cterm=NONE
 " generic preprocessor
-hi PreProc                   guifg=#CC7833  guibg=NONE ctermfg=103
+hi PreProc                   guifg=#F07B5D guibg=NONE ctermfg=103
 " Control, Access, Eval: case, begin, do, for, if unless, while, until else, etc.
-hi Statement                 guifg=#CC7833 guibg=NONE ctermfg=172 cterm=NONE
+hi Statement                 guifg=#F07B5D guibg=NONE ctermfg=172 cterm=NONE
 " String
 hi String                    guifg=#74d155 guibg=NONE ctermfg=107
 hi! Title                    guifg=#FFFFFF guibg=NONE ctermfg=15
 " Constant
-hi Type                      guifg=#ff5d4f guibg=NONE gui=NONE
+hi Type                      guifg=#F07B5D guibg=NONE gui=NONE
 hi PreProc                   guifg=#ff8700 guibg=NONE ctermfg=208
 hi Special                   guifg=#ff8700 guibg=NONE ctermfg=22
-hi Operator                  guifg=#CC7833 guibg=NONE ctermfg=73
-hi Tag                       guifg=#CC7833 guibg=NONE ctermfg=73
+hi Operator                  guifg=#F07B5D guibg=NONE ctermfg=73
+hi Tag                       guifg=#F07B5D guibg=NONE ctermfg=73
 hi Label                     guifg=#6D9CBE ctermfg=221 gui=bold
 
 " Indentation
@@ -130,16 +130,16 @@ hi SignifySignDelete         guifg=#ff5d4f guibg=#2d2d2d gui=NONE
 
 " Ruby
 " ----
-hi rubyTodo                  guifg=#fc5858 guibg=NONE gui=bold ctermfg=167 ctermbg=NONE cterm=bold
+hi rubyTodo                  guifg=#F07B5D guibg=NONE gui=bold ctermfg=167 ctermbg=NONE cterm=bold
 hi rubyClass                 guifg=#dd7927
-hi rubyConstant              guifg=#fc5858
+hi rubyConstant              guifg=#F07B5D
 hi rubyInterpolation         guifg=#ea8c3f
 hi rubyBlockParameter        guifg=#d7b0fc
 hi rubyPseudoVariable        guifg=#47a3e5 gui=italic,bold
 hi rubySymbol                guifg=#6D9CBE gui=bold
 hi rubyStringDelimiter       guifg=#87af5f
 hi rubyInstanceVariable      guifg=#d7b0fc
-hi rubyPredefinedConstant    guifg=#fc5858
+hi rubyPredefinedConstant    guifg=#F07B5D
 hi rubyLocalVariableOrMethod guifg=#d7b0fc
 hi rubyBoolean               guifg=#47a3e5 gui=italic
 
@@ -151,7 +151,7 @@ hi jsArrowFunction            guifg=#ff8700
 hi jsNoise                    guifg=#ff8700 gui=bold
 hi jsObjectKey                guifg=#6D9CBE gui=bold
 hi jsThis                     guifg=#d7b0fc gui=bold,italic
-hi jsStorageClass             guifg=#fc5858 gui=italic
+hi jsStorageClass             guifg=#F07B5D gui=italic
 hi jsNull                     guifg=#ff8700 gui=italic
 hi jsObjectFuncName           guifg=#FFC66D gui=bold,italic guibg=NONE
 hi link jsGlobalObjects       Type
@@ -168,7 +168,7 @@ hi typescriptObjectLabel            guifg=#6D9CBE gui=bold
 hi typescriptFuncName               guifg=#FFC66D gui=bold,italic guibg=NONE
 hi typescriptMethodName             guifg=#FFC66D gui=bold,italic guibg=NONE
 hi typescriptIdentifier             guifg=#d7b0fc gui=bold,italic
-hi typescriptVariable               guifg=#fc5858 gui=italic
+hi typescriptVariable               guifg=#CB725B gui=italic
 hi typescriptAccessibilityModifier  guifg=#ff8700 gui=italic
 
 " Python
