@@ -1,6 +1,7 @@
 me:			heman.vim
 " Version:		0.2
-" Maintainer:		<https://github.com/rstdnull>
+" Maintainer:		<https://github.com/devnul1>
+" E-mail:		<d3v000@outlook.com>
 
 
 set background=dark
