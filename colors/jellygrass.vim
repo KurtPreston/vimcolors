@@ -77,6 +77,10 @@ let s:purple = 98        " Unused
 let s:light_orange = 214 " Unused
 let s:orange = 130       " Unused
 
+" Configure colors for luochen1990/rainbow
+let g:rainbow_conf = { 'ctermfgs': [64, 214, 67, 98] }
+
+
 " Returns the palette index
 fun! s:is_empty_or_none(color)
   if empty(a:color) || a:color ==? "NONE"

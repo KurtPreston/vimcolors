@@ -16,13 +16,14 @@ endif
 let g:colors_name = 'spring-night'
 
 let s:gui_running = has('gui_running')
+let s:true_colors = has('termguicolors') && &termguicolors
+let s:undercurl = s:gui_running ? 'undercurl' : 'underline'
 
 let g:spring_night_kill_italic = get(g:, 'spring_night_kill_italic', 0)
 let g:spring_night_kill_bold = get(g:, 'spring_night_kill_bold', 0)
 let g:spring_night_high_contrast = get(g:, 'spring_night_high_contrast',
-            \ !s:gui_running && has('termguicolors') && &termguicolors ?
+            \ !s:gui_running && s:true_colors ?
             \   ['cui'] : [])
-
 let s:high_contrast =
     \ (s:gui_running && index(g:spring_night_high_contrast, 'gui') >= 0) ||
     \ (!s:gui_running && index(g:spring_night_high_contrast, 'cui') >= 0)
@@ -55,7 +56,7 @@ let s:NONE       = ['NONE', 'NONE']
 
 let s:NUMBER_TYPE = type(0)
 
-function! s:hi(name, fg, bg, attr) abort
+function! s:hi(name, fg, bg, attr, ...) abort
     let has_fg = type(a:fg) != s:NUMBER_TYPE
     let has_bg = type(a:bg) != s:NUMBER_TYPE
 
@@ -77,11 +78,17 @@ function! s:hi(name, fg, bg, attr) abort
         let attr = ''
     endif
 
+    if a:0 > 0
+        let guisp = 'guisp=' . a:1[0]
+    else
+        let guisp = ''
+    endif
+
     " XXX: term=NONE is a workaround for unintentional default values
-    exe 'hi' a:name 'term=NONE' guifg guibg ctermfg ctermbg attr
+    exe 'hi' a:name 'term=NONE' guifg guibg ctermfg ctermbg attr guisp
 endfunction
 
-"         Name,           Foreground,   Background,   Attribute
+"         Name,           Foreground,   Background,   Attribute(, Special)
 call s:hi('Boolean',      s:red,        0,            0)
 call s:hi('Character',    s:green,      0,            0)
 call s:hi('ColorColumn',  0,            s:bgstrong,   0)
@@ -116,21 +123,23 @@ call s:hi('Number',       s:red,        0,            0)
 call s:hi('Operater',     s:orange,     0,            0)
 call s:hi('Pmenu',        s:purple,     s:bgemphasis, 0)
 call s:hi('PmenuSel',     s:gold,       s:bgstrong,   0)
+call s:hi('PmenuSbar',    s:gold,       s:bgstrong,   0)
+call s:hi('PmenuThumb',   s:gold,       s:weakfg,     0)
 call s:hi('PreProc',      s:orange,     0,            0)
 call s:hi('Question',     s:skyblue,    0,            0)
 call s:hi('Search',       s:NONE,       s:sakura,     'underline')
 call s:hi('SignColumn',   0,            s:bgemphasis, 0)
 call s:hi('Special',      s:yellow,     0,            'bold')
 call s:hi('SpecialKey',   s:hiddenfg,   0,            0)
-call s:hi('SpellBad',     0,            s:mildred,    0)
-call s:hi('SpellCap',     0,            s:light,      0)
-call s:hi('SpellLocal',   0,            s:bgemphasis, 0)
-call s:hi('SpellRare',    0,            s:sakura,     0)
+call s:hi('SpellBad',     s:red,        0,            s:undercurl, s:red)
+call s:hi('SpellLocal',   s:red,        0,            s:undercurl, s:red)
+call s:hi('SpellCap',     s:purple,     0,            s:undercurl, s:purple)
+call s:hi('SpellRare',    s:yellow,     0,            s:undercurl, s:yellow)
 call s:hi('Statement',    s:skyblue,    0,            0)
 call s:hi('StatusLine',   s:fg,         s:bgstrong,   'bold')
 call s:hi('StatusLineNC', s:weakfg,     s:bgemphasis, 'NONE')
-call s:hi('StatusLineTerm',   s:fg,         s:bgstrong,   'bold')
-call s:hi('StatusLineTermNC', s:weakfg,     s:bgemphasis, 'NONE')
+call s:hi('StatusLineTerm',   s:fg,     s:bgstrong,   'bold')
+call s:hi('StatusLineTermNC', s:weakfg, s:bgemphasis, 'NONE')
 call s:hi('StorageClass', s:gold,       0,            'italic')
 call s:hi('String',       s:green,      0,            0)
 call s:hi('TabLine',      s:weakfg,     s:bgstrong,   0)
@@ -145,6 +154,8 @@ call s:hi('VertSplit',    s:bgemphasis, s:bg,         0)
 call s:hi('Visual',       0,            s:sakura,     0)
 call s:hi('WarningMsg',   s:mikan,      s:bgemphasis, 0)
 call s:hi('WildMenu',     0,            s:gold,       0)
+call s:hi('ToolbarLine',  s:weakfg,     s:bgstrong,   0)
+call s:hi('ToolbarButton',s:gold,       s:bg,         'bold')
 " TODO: call s:hi('QuickFixLine',     0,            0,       0)
 
 " Plugin specific
