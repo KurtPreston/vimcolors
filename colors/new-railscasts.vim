@@ -18,20 +18,17 @@
 " #4C4452
 " #FFFADE
 " #FFF7D0
-" #FFD975
+" #FFC66D this is the old
 " #F9F871
 " #C3A138
 " #D38E39
 " #FFBD96
 " #FFA78D
-" #F67C5C
 " #F47454
-" #F07B5D
 " #CB725B
 " #FFACC1
 " #FFAAE7
 " #30444E
-
 
 let g:colors_name = 'new-railscasts'
 hi clear
@@ -93,7 +90,7 @@ hi PMenuSbar                 guibg=#5A647E gui=NONE
 hi PMenuThumb                guibg=#AAAAAA gui=NONE
 
 " Comment
-hi Comment                   guifg=#C3A138 guibg=NONE gui=italic ctermfg=137 cterm=italic
+hi Comment                   guifg=#bc7f23 guibg=NONE gui=italic ctermfg=137 cterm=italic
 hi Todo                      guifg=#df5f5f guibg=NONE gui=bold,italic ctermfg=94
 
 "rubyPseudoVariable: nil, self, symbols, etc
@@ -106,34 +103,33 @@ hi WarningMsg                guifg=#DA4939 guibg=NONE gui=NONE
 " Error, rubyInvalidVariable
 hi Error                     guifg=#FFFFFF guibg=#990000 ctermfg=221 ctermbg=88
 " Function
-hi Function                  guifg=#FFD975 gui=NONE guibg=NONE ctermfg=221 cterm=NONE
-" #F9F871  #FFD975
+hi Function                  guifg=#FFC66D gui=NONE guibg=NONE ctermfg=221 cterm=NONE
 " Identifier: @var, @@var, $var, etc
 hi Identifier                guifg=#d7b0fc guibg=NONE ctermfg=73 cterm=NONE
 " Include: include, autoload, extend, load, require
-hi Include                   guifg=#F07B5D guibg=NONE ctermfg=173 cterm=NONE
+hi Include                   guifg=#F47454 guibg=NONE ctermfg=173 cterm=NONE
 " Keyword, rubyKeywordAsMethod: alias, undef, super, yield, callcc, caller, lambda, proc
 hi Keyword                   guifg=#CB725B ctermfg=172 cterm=NONE
 " same as define
-hi Macro                     guifg=#F07B5D guibg=NONE ctermfg=172
+hi Macro                     guifg=#F47454 guibg=NONE ctermfg=172
 "rubyInteger
 hi Number                    guifg=#A5C261 ctermfg=107
 hi Boolean                   guifg=#47a3e5 ctermfg=107 gui=italic
 " #if, #else, #endif
-hi PreCondit                 guifg=#F07B5D guibg=NONE ctermfg=172 cterm=NONE
+hi PreCondit                 guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
 " generic preprocessor
-hi PreProc                   guifg=#F07B5D guibg=NONE ctermfg=103
+hi PreProc                   guifg=#F47454 guibg=NONE ctermfg=103
 " Control, Access, Eval: case, begin, do, for, if unless, while, until else, etc.
-hi Statement                 guifg=#FFA78D guibg=NONE ctermfg=172 cterm=NONE
+hi Statement                 guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
 " String
 hi String                    guifg=#74d155 guibg=NONE ctermfg=107
 hi! Title                    guifg=#FFFFFF guibg=NONE ctermfg=15
 " Constant
-hi Type                      guifg=#F07B5D guibg=NONE gui=NONE
+hi Type                      guifg=#F47454 guibg=NONE gui=NONE
 hi PreProc                   guifg=#ff8700 guibg=NONE ctermfg=208
 hi Special                   guifg=#ff8700 guibg=NONE ctermfg=22
 hi Operator                  guifg=#F9F871 guibg=NONE ctermfg=73
-hi Tag                       guifg=#F07B5D guibg=NONE ctermfg=73
+hi Tag                       guifg=#F47454 guibg=NONE ctermfg=73
 hi Label                     guifg=#6D9CBE ctermfg=221 gui=bold
 
 " Indentation
@@ -144,7 +140,7 @@ hi IndentGuidesEven ctermbg=237 guibg=#332717
 hi DiffAdd                   guifg=#e4e4e4 guibg=#519F50 ctermfg=254 ctermbg=22
 hi DiffDelete                guifg=#e4e4e4 guibg=#660000 gui=bold ctermfg=16 ctermbg=52 cterm=bold
 hi DiffChange                guifg=#FFFFFF guibg=#870087 ctermfg=15 ctermbg=90
-hi DiffText                  guifg=#FFD975 guibg=#FF0000 gui=bold ctermfg=15 ctermbg=9 cterm=bold
+hi DiffText                  guifg=#FFC66D guibg=#FF0000 gui=bold ctermfg=15 ctermbg=9 cterm=bold
 
 hi diffAdded                 guifg=#008700 ctermfg=28
 hi diffRemoved               guifg=#800000 ctermfg=1
@@ -160,15 +156,14 @@ hi SignifySignDelete         guifg=#ff5d4f guibg=#2d2d2d gui=NONE
 hi rubyBlockParameter        guifg=#d7b0fc
 hi rubyBoolean               guifg=#47a3e5 gui=italic
 hi rubyClass                 guifg=#dd7927
-hi rubyConstant              guifg=#F07B5D
+hi rubyConstant              guifg=#F47454
 hi rubyInstanceVariable      guifg=#d7b0fc
 hi rubyInterpolation         guifg=#ea8c3f
 hi rubyLocalVariableOrMethod guifg=#d7b0fc
-hi rubyPredefinedConstant    guifg=#F07B5D
+hi rubyPredefinedConstant    guifg=#F47454
 hi rubyPseudoVariable        guifg=#47a3e5 gui=italic,bold
 hi rubyStringDelimiter       guifg=#87af5f
 hi rubySymbol                guifg=#6D9CBE gui=bold
-hi rubyTodo                  guifg=#F07B5D guibg=NONE gui=bold ctermfg=167 ctermbg=NONE cterm=bold
 " JAVASCRIPT
 "
 hi jsArrowFunction            guifg=#ff8700
@@ -176,9 +171,9 @@ hi jsFunction                 guifg=#ff8700 ctermfg=221 gui=italic
 hi jsFunctionKey              guifg=#ff8700 gui=italic
 hi jsNoise                    guifg=#ff8700 gui=bold
 hi jsNull                     guifg=#ff8700 gui=italic
-hi jsObjectFuncName           guifg=#FFD975 gui=bold,italic guibg=NONE
+hi jsObjectFuncName           guifg=#FFC66D gui=bold,italic guibg=NONE
 hi jsObjectKey                guifg=#6D9CBE gui=bold
-hi jsStorageClass             guifg=#F07B5D gui=italic
+hi jsStorageClass             guifg=#F47454 gui=italic
 hi jsThis                     guifg=#d7b0fc gui=bold,italic
 hi link jsGlobalObjects       Type
 hi link jsObjectProp          Type
@@ -190,8 +185,8 @@ hi typescriptAsyncFuncKeyword       guifg=#47a3e5 gui=italic
 hi typescriptType                   guifg=#ff8700 gui=italic
 hi typescriptPredefinedType         guifg=#ff8700 gui=italic
 hi typescriptObjectLabel            guifg=#6D9CBE gui=bold
-hi typescriptFuncName               guifg=#FFD975 gui=bold,italic guibg=NONE
-hi typescriptMethodName             guifg=#FFD975 gui=bold,italic guibg=NONE
+hi typescriptFuncName               guifg=#FFC66D gui=bold,italic guibg=NONE
+hi typescriptMethodName             guifg=#FFC66D gui=bold,italic guibg=NONE
 hi typescriptIdentifier             guifg=#d7b0fc gui=bold,italic
 hi typescriptVariable               guifg=#CB725B gui=italic
 hi typescriptAccessibilityModifier  guifg=#ff8700 gui=italic
@@ -215,7 +210,7 @@ hi elixirPrivateDefine        guifg=#CC7833 gui=bold,italic
 hi elixirModuleDefine         guifg=#CC7833 gui=bold
 
 " CSS
-hi cssClassName                 guifg=#FFD975 gui=italic
+hi cssClassName                 guifg=#FFC66D gui=italic
 hi cssIdentifier                guifg=#47a3e5 gui=italic
 hi cssProp                      guifg=#6D9CBE gui=bold
 hi cssVendor                    guifg=#6D9CBE gui=bold,italic
@@ -232,7 +227,7 @@ hi yamlKey                    guifg=#d7b0fc ctermfg=189 gui=bold
 " Mail
 " ----
 hi mailEmail                 guifg=#87af5f ctermfg=107 gui=italic cterm=underline
-hi mailHeaderKey             guifg=#FFD975 ctermfg=221
+hi mailHeaderKey             guifg=#FFC66D ctermfg=221
 hi! link mailSubject mailHeaderKey
 
 " Spell
@@ -241,14 +236,14 @@ hi! SpellBad                  guibg=#420101 gui=NONE guisp=red
 hi! SpellRare                 guibg=#420101 gui=NONE
 hi! SpellCap                  guibg=#420101 gui=NONE
 hi! SpellLocal                guibg=#420101 gui=NONE
-hi! MatchParen                guifg=#FFD975 guibg=#072f95 gui=bold
+hi! MatchParen                guifg=#FFC66D guibg=#072f95 gui=bold
 hi! Question                  guibg=#420101 gui=NONE
 
 " XML
 " ---
-hi xmlTag                    guifg=#FFD975 ctermfg=179
-hi xmlTagName                guifg=#FFD975 ctermfg=179
-hi xmlEndTag                 guifg=#FFD975 ctermfg=179
+hi xmlTag                    guifg=#FFC66D ctermfg=179
+hi xmlTagName                guifg=#FFC66D ctermfg=179
+hi xmlEndTag                 guifg=#FFC66D ctermfg=179
 
 hi link htmlTag              xmlTag
 hi link htmlTagName          xmlTagName
@@ -260,7 +255,7 @@ hi htmlArg                   guifg=#ff8700 gui=italic
 hi hbsHandles               guifg=#CC7833 gui=bold
 hi hbsArg                   guifg=#ff8700 gui=italic
 hi hbsKeyword               guifg=#dfaf5f gui=italic
-hi hbsMustacheName          guifg=#FFD975 gui=NONE
+hi hbsMustacheName          guifg=#FFC66D gui=NONE
 hi hbsPencilName            guifg=#dfaf5f gui=bold
 
 hi checkbox                 guifg=#3a3a3a guibg=NONE gui=NONE
