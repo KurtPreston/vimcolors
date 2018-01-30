@@ -128,7 +128,7 @@ hi! Title                    guifg=#FFFFFF guibg=NONE ctermfg=15
 hi Type                      guifg=#F47454 guibg=NONE gui=NONE
 hi PreProc                   guifg=#ff8700 guibg=NONE ctermfg=208
 hi Special                   guifg=#ff8700 guibg=NONE ctermfg=22
-hi Operator                  guifg=#F9F871 guibg=NONE ctermfg=73
+hi Operator                  guifg=#FFC66D guibg=NONE ctermfg=73
 hi Tag                       guifg=#F47454 guibg=NONE ctermfg=73
 hi Label                     guifg=#6D9CBE ctermfg=221 gui=bold
 
