@@ -41,16 +41,18 @@ hi PreProc
 
 hi Title
   \ cterm=bold ctermfg=255
-  \ gui=bold guifg=#FFFFFF
+  \ gui=bold guifg=#FFF2E6
 
 hi Error
   \ cterm=NONE ctermbg=52  ctermfg=218
   \ guifg=#FFAFD7
 
-hi Directory  cterm=NONE ctermfg=67  
+hi Directory
+  \ cterm=NONE ctermfg=67
   \ guifg=#5F87AF
 
-hi Underlined cterm=underline ctermfg=67 
+hi Underlined
+  \ cterm=underline ctermfg=67
   \ gui=underline
 
 "Furniture
@@ -60,19 +62,24 @@ hi VertSplit
   \ gui=none guibg=none guifg=#383737
 
 
-hi LineNr     cterm=NONE ctermfg=241 
+hi LineNr
+  \ cterm=NONE ctermfg=241
   \ guifg=#626262
 
-hi NonText    cterm=NONE ctermfg=16 
-  \ guifg=#000000
+hi NonText
+  \ cterm=NONE ctermfg=16
+  \ guibg=#161616 guifg=#000000
 
-hi Visual     cterm=NONE ctermbg=238 
+hi Visual
+  \ cterm=NONE ctermbg=238
   \ guibg=#444444
 
-hi CursorLine cterm=NONE ctermbg=236 
+hi CursorLine
+  \ cterm=NONE ctermbg=236
   \ guibg=#303030
 
-hi CursorColumn cterm=NONE ctermbg=236 
+hi CursorColumn
+  \ cterm=NONE ctermbg=236
   \ guibg=#303030
 
 hi CursorLineNr
@@ -118,7 +125,7 @@ hi Search
 "
 hi FoldColumn
   \ cterm=NONE ctermbg=235 ctermfg=243
-  \ gui=NONE guibg=#161616
+  \ gui=NONE guibg=#161616 guifg=#323232
 
 hi Folded
   \ cterm=NONE ctermbg=234 ctermfg=243
@@ -131,27 +138,27 @@ hi LineNr
 "
 hi DiffDelete
   \ cterm=NONE ctermbg=233 ctermfg=233
-  \ guibg=#201111 guifg=#201111
+  \ guibg=#1C0909 guifg=#1C0D0D
 
 hi DiffAdd
   \ cterm=NONE ctermbg=237
-  \ guisp=NONE guibg=#202620 guifg=202620
+  \ guisp=NONE guibg=#222A22 guifg=202620
 
 hi DiffText
   \ cterm=bold ctermbg=240 ctermfg=15
-  \ guisp=bold   guibg=#333350 guifg=none
+  \ gui=bold   guibg=#333350 guifg=none
 
 hi DiffChange
   \ cterm=NONE ctermbg=238
-  \ guisp=NONE guibg=#16161a
+  \ gui=NONE guibg=#20202E
 
 hi DiffRemoved
   \ ctermbg=234 ctermfg=124
-  \ guisp=NONE guibg=#1C1C1C guifg=#991F1F
+  \ guisp=NONE guibg=#1C1C1C guifg=#6D3C3C
 
 hi DiffAdded
   \ ctermbg=237 ctermfg=76
-  \ guisp=NONE guibg=#3A3A3A guifg=#5FD700
+  \ guisp=NONE guibg=#3A3A3A guifg=#476D47
 
 
 " Matched parenthesis
@@ -177,14 +184,19 @@ hi PmenuThumb
   \ guibg=#949494 guifg=#585858
 
 
-" Sepll errors
-if has("spell")
-    hi SpellBad cterm=NONE ctermbg=52  
-    hi SpellLocal cterm=NONE ctermbg=234
-    hi SpellCap ctermbg=235 ctermfg=4 cterm=underline
-endif
+" Spelling -- also used for ALE errors
+hi SpellBad
+  \ cterm=NONE ctermbg=52
+  \ gui=underline guibg=#442222
+
+hi SpellLocal
+  \ cterm=NONE ctermbg=234
+
+hi SpellCap
+  \ ctermbg=235 ctermfg=4 cterm=underline
 
 " Python
+"
 hi link pythonFunction Title
 hi LongLines ctermbg=232
 hi link pythonClass Title
@@ -213,6 +225,15 @@ highlight ALEWarning
 highlight ALEWarningLine none
   \ guibg=#241E0B
 
+
+hi GitGutterChange
+  \ gui=bold guibg=#161616 guifg=#927749
+
+hi GitGutterDelete
+  \ gui=bold guibg=#161616 guifg=#6D3C3C
+
+hi GitGutterAdd
+  \ guisp=bold guibg=#161616 guifg=#476D47
 
 " Vim colorscheme files
 " hi link vimHiKeyList Title
