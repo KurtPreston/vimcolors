@@ -198,12 +198,6 @@ hi! link vimContinue Constant
 hi! link cStructure Identifier
 
 " https://github.com/justinmk/vim-syntax-extra
-" TODO: Figure out why BadBlocks shown
-" hi! cBadBlock guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
-hi! link cBadBlock Conditional
-hi! link cErrInParen cBadBlock
-hi! link cErrInBracket cBadBlock
-hi! link cBraces cBadBlock
 hi! link cAnsiFunction Constant
 
 " }}}
