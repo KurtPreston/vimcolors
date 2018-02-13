@@ -1,204 +1,279 @@
-" --------------------------------------------------------
-" File:             heman
-" Maintainer:       devnul1 <d3v000@outlook.com>
-" Source:           https://github.com/devnul1/heman
-" Last Modified:    7 Feb 2018
-" License:          MIT-License https://choosealicense.com/licenses/mit/
-" --------------------------------------------------------
-" For more personal customization there is a color palette
-" that shows the ":highlight" groups which are linked to each color.
-" --------------------------------------------------------
-" PALETTE:
-" RED(BG)       LINKS: ErrorMsg          TO: fg:[NONE] , bg:[#ff5e5e, 203]
-" ORANGE        LINKS: PreProc           TO: fg:[#f95a00, 202]
-" SALMON        LINKS: Identifier        TO: fg:[#cf8551, 173]
-" YELLOW        LINKS: Statement         TO: fg:[#fccf2b, 220]
-" ORCHID        LINKS: Type              TO: fg:[#e79df2, 207]
-" PURPLE        LINKS: Underlined        TO: fg:[#b767fa, 135]
-" GREEN         LINKS: MoreMsg           TO: fg:[#84fba2, 120]
-" LIGHTBLUE     LINKS: Constant          TO: fg:[#638ffa, 69]
-" DARKBLUE      LINKS: Special           TO: fg:[#2f5bc4, 26]
-" BG/FG0        LINKS: Normal            TO: fg:[#babe6e8, 147] , bg:[#322f42, 236]
-" FG1           LINKS: LineNr            TO: fg:[#575675, 60]
-" FG2           LINKS: Conditional       TO: fg:[#dadada, 253]
+" File:			heman
+" Maintainer:		devnul1 <d3v000@outlook.com>
+" Source:		https://github.com/devnul1/heman
+" Last Modified:	13 Feb 2018
+" License:		MIT-License https://choosealicense.com/licenses/mit/
 "
-" VERYLIGHTCYAN LINKS: Function          TO: fg:[#56b6c2, 73]
-" --------------------------------------------------------
-" TODO: Make everything bold ..., initialize own color palette more precise
-"
-" init: {{{
+
+" Init: {{{
+
+if version > 580
+	hi clear
+	if exists("syntax_on")
+		syntax reset
+	endif
+endif
 
 if !has('gui_running') && &t_Co != 256
-    finish
+	finish
 endif
 
 set background=dark
-highlight clear
+let g:colors_name='heman'
 
-if exists ("syntax_on")
-    syntax reset
-endif
+" }}}
+" Palette: {{{
 
-let g:colors_name="heman"
+let s:heman = {}
+
+let s:heman.orange		= ['#f95a00', 202] 	" 15
+let s:heman.red			= ['#ff5e5e', 203] 	" 14
+let s:heman.yellow		= ['#fccf2b', 220] 	" 13
+let s:heman.salmon		= ['#cf8551', 173] 	" 12
+let s:heman.purple		= ['#b767fa', 135] 	" 11
+let s:heman.orchid		= ['#e79df2', 177] 	" 10
+let s:heman.green		= ['#84fba2', 120] 	"  9
+let s:heman.morchid		= ['#ff66ff', 207] 	"  8
+let s:heman.darkestblue		= ['#1a4299', 26] 	"  7
+let s:heman.turquise		= ['#56b6c2', 73] 	"  6
+let s:heman.darkblue		= ['#2f5bc4', 26] 	"  5
+let s:heman.lightblue		= ['#638ffa', 69] 	"  4
+let s:heman.fg2			= ['#dadada', 253] 	"  3
+let s:heman.fg1			= ['#575675', 60] 	"  2
+let s:heman.fg0			= ['#bab6e8', 147] 	"  1
+let s:heman.bg			= ['#322f42', 236] 	"  0
+
+" }}}
+" Emphasis: {{{
+
+let s:none = ['NONE', 'NONE']
+
+let s:bold = 'bold'
+let s:italic = 'italic'
+let s:underline = 'underline'
+let s:reverse = 'reverse'
+
+" }}}
+" Highlight: {{{
+
+function! s:HL(group, ...)
+	" Arguments: group, guifg/ctermfg, guibg/ctermbg, gui
+	" foreground
+	let fg = a:1
+
+	" background
+	if a:0 >= 2
+		let bg = a:2
+	else
+		let bg = s:none
+	endif
+
+	" emphasis
+	if a:0 >= 3 && strlen(a:3)
+		let emstr = a:3
+	else
+		let emstr = 'NONE'
+	endif
+
+	let histring = [ 'hi!', a:group,
+		\ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
+		\ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
+		\ 'gui=' . emstr, 'cterm=' . emstr
+		\ ]
+
+	execute join(histring, ' ')
+endfunction
 
 " }}}
 " General UI: {{{
 
 " Normal text + background
-hi! Normal guifg=#bab6e8 guibg=#322f42 gui=NONE ctermfg=147 ctermbg=236 cterm=NONE
-
-hi! NonText guifg=#575675 gui=NONE ctermfg=60 cterm=NONE
+call s:HL('Normal', s:heman.fg0, s:heman.bg, s:bold)
+" '~' and '@' at the end of the window, charachters from 'showbreak' and other characters that do not really exist
+call s:HL('NonText', s:heman.fg1)
+" Meta and special keys listed with ":map", also for text used
 hi! link SpecialKey NonText
 
-" Directory names, special names in listing
-hi! Directory guifg=#638ffa gui=NONE ctermfg=75 cterm=NONE
-
-" Error messages on the command line
-hi! ErrorMsg guifg=#ff5e5e guibg=NONE gui=reverse ctermfg=203 ctermbg=NONE cterm=reverse
-
-hi! Search guifg=#fccf2d guibg=NONE gui=reverse ctermfg=220 ctermbg=NONE cterm=reverse
+" Directoy names, special names in listing
+call s:HL('Directory', s:heman.lightblue)
+" Error messages
+call s:HL('ErrorMsg', s:heman.red, s:none, s:reverse)
+" Last search pattern highlighting (see 'hlsearch')
+call s:HL('Search', s:heman.yellow, s:none, s:reverse)
 
 " More prompt: -- More --
-hi! MoreMsg guifg=#84fba2 gui=NONE ctermfg=120 cterm=NONE " maybe change to 41 ?!?!
+call s:HL('MoreMsg', s:heman.green)
 " Current mode message: -- INSERT --
 hi! link ModeMsg MoreMsg
-" 'Press enter' prompt and yes/no questions
+" Questeion yes/no
 hi! link Question MoreMsg
 
 " Warning messages
-hi! link WarningMsg ErrorMsg
+call s:HL('WarningMsg', s:heman.orange, s:none, s:reverse)
 
 " Current match in wildmenu completion
 hi! link WildMenu Search
 
 " Titles for output from :set all, :autocmd, etc.
-hi! Title guifg=#f95a00 gui=NONE ctermfg=202 cterm=NONE
-hi! link Visual Title
+call s:HL('Title', s:heman.orange)
+" Visual mode selection
+call s:HL('Visual', s:heman.fg2, s:none, s:reverse)
 
-" Match paired bracket under the cursor
-hi! MatchParen guibg=#638ffa gui=NONE ctermbg=69 cterm=NONE
-
-hi! link DiffAdd Folded
-hi! link DiffChange FoldColumn
-hi! DiffDelete guifg=#1a4299 guibg=#ff5e5e gui=NONE ctermfg=26 ctermbg=203 cterm=NONE
+" Match paired bracket under cursor
+call s:HL('MatchParen', s:none,  s:heman.lightblue)
+" Diff mode: added line |diff.txt|
+call s:HL('DiffAdd', s:heman.bg, s:heman.lightblue)
+" Diff mode: changed line
+call s:HL('DiffChange', s:heman.bg, s:heman.darkblue)
+" Diff mode: deleted line
+call s:HL('DiffDelete', s:heman.darkestblue, s:heman.red)
+" Diff mode: Changed text withing a changed line
 hi! link DiffText ErrorMsg
-hi! SpellBad guifg=#ff5e5e gui=underline ctermfg=167 ctermbg=NONE cterm=underline
-hi! SpellCap guifg=#2f5bc4 gui=underline ctermfg=26 ctermbg=NONE cterm=underline
-hi! SpellRare guifg=#b767fa gui=underline ctermfg=135 ctermbg=NONE cterm=underline
-hi! SpellLocal guifg=#638ffa gui=underline ctermfg=69 ctermbg=NONE cterm=underline
-hi! Pmenu guifg=#322f42 guibg=#e79df2 gui=NONE ctermfg=236 ctermbg=207 cterm=NONE
+
+" Word that is not recognized by the spellchecker
+call s:HL('SpellBad', s:heman.red, s:none, s:underline)
+" Word that should start with a capital
+call s:HL('SpellCap', s:heman.darkblue, s:none, s:underline)
+" Word that is recognized by the spellchecker as one that is hardly ever used
+call s:HL('SpellRare', s:heman.purple, s:none, s:underline)
+" Word that is recognized by the spellchecker as one that is used in a    nother region¬
+call s:HL('SpellLocal', s:heman.lightblue, s:none, s:underline)
+
+" Popup menu: normal item
+call s:HL('Pmenu', s:heman.bg, s:heman.orchid)
+" Popup menu: scrollbar
 hi! link PmenuSbar Pmenu
+" Popup menu: selected item
 hi! link PmenuSel Pmenu
+" Popup menu: Thumb of the scrollbar
 hi! link PmenuThumb Pmenu
 
-hi! ColorColumn guibg=#ff5e5e gui=NONE ctermbg=167 cterm=NONE
-
-" Line number of CursorLine
-hi! CursorLineNr guifg=#bab6e8 guibg=NONE gui=reverse ctermfg=147 ctermbg=NONE cterm=reverse
-" Screen line that the cursor is in (OFF)
-hi! CursorLine guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
+" Line number of cursorline
+call s:HL('CursorLineNr', s:heman.fg0, s:none, s:reverse)
+" Screen line that the cursor is in (:set cursorline/nocursorline)
+"call s:HL('CursorLine', '')
 
 " }}}
 " Gutter: {{{
 
 " Line number for :number and :# commands
-hi! LineNr guifg=#575675 gui=NONE ctermfg=60 cterm=NONE " LineNr heman old 244 - #808080
+call s:HL('LineNr', s:heman.fg1)
 
-" Column where signs are displayed
-hi! SignColumn guifg=#fb9265 gui=NONE ctermfg=209 cterm=NONE
+" Column where |signs| are displayed
+call s:HL('SignColumn', s:heman.morchid)
 
 " Line used for closed folds
-hi! Folded guifg=#322f42 guibg=#638ffa gui=NONE ctermfg=236 ctermbg=69 cterm=NONE
+call s:HL('Folded', s:heman.fg2, s:heman.lightblue)
 " Column where folds are displayed
-hi! FoldColumn guifg=#322f42 guibg=#2f5bc4 gui=NONE ctermfg=236 ctermbg=26 cterm=NONE
+call s:HL('FoldColumn', s:heman.fg2, s:heman.darkblue)
 
 " }}}
 " Cursor: {{{
 
 " Character under cursor
-hi! Cursor guibg=#ffffff ctermbg=15
+" call s:HL('Cursor', ...)
 " Visual mode cursor, selection
-hi! link vCursor Cursor
-" Input moder cursor
-hi! link iCursor Cursor
+" call s:HL('vCursor', ...)
+" Input mode cursor
+" call s:HL('iCursor', ...)
 " Language mapping cursor
-hi! link lCursor Cursor
+" call s:HL('lCursor', ...)
 
 " }}}
-" Syntax highlighting: {{{
+" Syntax Highlighting: {{{
 
-hi! Special guifg=#2f5bc4 gui=NONE ctermfg=26 cterm=NONE
+" |v:false|, |v:true|, |v:none| and |v:null|
+call s:HL('Special', s:heman.morchid) " was darkblue!
+" Comments: //, /* ... */ etc.
 hi! link Comment LineNr
+" TODO FIXME XXX keywords
 hi! link Todo Search
+" Errors
 hi! link Error ErrorMsg
 
 " Generic Statement
-hi! Statement guifg=#fccf2b gui=NONE ctermfg=220 cterm=NONE
-" if, then, else, endif, switch, etc
-hi! Conditional guifg=#dadada gui=NONE ctermfg=253 cterm=NONE
+call s:HL('Statement', s:heman.yellow)
+" if, else, endif, then, switch, etc.
+call s:HL('Conditional', s:heman.fg2)
 " for, do, while, etc.
 hi! link Repeat Conditional
 " case, default, etc.
-hi! link Label Identifier
+call s:HL('Label', s:heman.salmon)
 " try, catch, throw
-" hi! link Excetpion
+" call s:HL('Exception', ...)
+
 " sizeof, "+", "*", etc.
 hi! link Operator MoreMsg
+
+call s:HL('Delimiter', s:heman.morchid)
 " Variable name
-hi! Identifier guifg=#cf8551 gui=NONE ctermfg=173 cterm=NONE " 167 ctermfg
+hi! link Identifier Label
 " Function name
-" very light cyan
-hi! Function guifg=#56b6c2 gui=NONE ctermfg=73 cterm=NONE
+call s:HL('Function', s:heman.turquise)
 
 " Generic preprocessor
-hi! PreProc guifg=#f95a00 gui=NONE ctermfg=202 cterm=NONE
-" Preprocessor #Include
+call s:HL('PreProc', s:heman.orange)
+" Preprocessor Include
 hi! link Include PreProc
-" Preprocessor #define
+" Preprocessor Define
 hi! link Define PreProc
 " Same as Define
 hi! link Macro PreProc
-" Preprocessor #if, #else, #endif, etc
+" Preprocessor #if, #else, #endif, etc.
 hi! link PreCondit PreProc
 
 " Generic Constant
-hi! Constant guifg=#638ffa gui=NONE ctermfg=69 cterm=NONE
-" Character constant: 'a', '/n'
-hi! link Character MoreMsg
-" String constant: "this is a string"
-hi! link String Underlined
+call s:HL('Constant', s:heman.lightblue)
+" Character constant: 'a', 'n'
+call s:HL('Character', s:heman.morchid)
+" Boolean constant: true, false
+hi! link Boolean Character
+" Float constant: 0.23, 7.7
+hi! link Float Character
 
-hi! EndOfBuffer guifg=#575675 guibg=#322f42 gui=NONE ctermfg=60 ctermbg=236 cterm=NONE
+" String constant: "this is a string"
+call s:HL('String', s:heman.purple)
+
+call s:HL('EndOfBuffer', s:heman.fg1, s:heman.bg)
 
 " Generic Type
-hi! Type guifg=#e79df2 gui=NONE ctermfg=207 cterm=NONE
+call s:HL('Type', s:heman.orchid)
 " Underlined text (make it have NO UNDERLINE AT ALL)
-hi! Underlined guifg=#b767fa gui=NONE ctermfg=135 cterm=NONE
+call s:HL('Underlined', s:heman.purple)
 
 " }}}
-" vim: {{{
+" Vim: {{{
 
-hi! link vimCommentTitle Conditional
-hi! link vimHighlight Include
-hi! link vimHiBang Statement
-hi! link vimString MoreMsg
-hi! link vimNumber Statement
-hi! link vimCommand String
-hi! link vimLet String
-hi! link vimOption Statement
-hi! link vimOper Constant
-hi! link vimOperParen String
-hi! link vimFunction Function
-hi! link vimUserFunc vimFunction
-hi! link vimContinue Constant
+hi! link vimLet cDelimiter
+hi! link vimUserFunc Character
+hi! link vimCommand Conditional
+hi! link vimIsCommand Conditional
+hi! link vimNotFunc Conditional
+hi! link vimParenSep Type
+hi! link vimVar Character
+hi! link vimHighlight Statement
+hi! link vimHiBang PreProc
 
 " }}}
 " C: {{{
 
+hi! link cBraces Conditional
 hi! link cStructure Identifier
+call s:HL('cDelimiter', s:heman.darkblue)
 
 " https://github.com/justinmk/vim-syntax-extra
 hi! link cAnsiFunction Constant
+
+" }}}
+" Perl: {{{
+
+hi! link perlStatementInclude PreProc
+
+" }}}
+" Php: {{{
+
+hi! link phpRegion Constant
+hi! link phpParent cDelimiter
 
 " }}}
 " CSS: {{{
@@ -235,6 +310,8 @@ hi! link jsNumber Identifier
 hi! link jsClassFuncName Constant
 hi! link jsFuncBraces Conditional
 
+call s:HL('jsNoise', s:heman.morchid)
+
 " }}}
 " ruby: {{{
 
@@ -246,6 +323,15 @@ hi! link rubyStringDelimiter MoreMsg
 
 hi! link htmlTag Conditional
 hi! link htmlEndTag htmlTag
-hi! link htmlTagName Identifier
+hi! link htmlTagName Constant
+
+" }}}
+" help {{{
+
+hi! link helpStar MoreMsg
+hi! link helpBar helpStar
+hi! link helpExample Constant
+hi! link helpVim Statement
+hi! link helpIgnore Conditional
 
 " }}}
