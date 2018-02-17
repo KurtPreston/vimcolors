@@ -4,7 +4,7 @@
 " Maintainer:   Lifepillar <lifepillar@lifepillar.me>
 " Website:      https://github.com/lifepillar/vim-wwdc17-theme
 " License:      This file is placed in the public domain
-" Last Updated: Wed Jan 10 20:24:20 2018
+" Last Updated: Fri Feb 16 20:46:42 2018
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < (get(g:, 'wwdc17_use16', 0) ? 16 : 256))
@@ -23,9 +23,8 @@ let g:colors_name = 'wwdc17'
 
 " 256-color variant
 if !get(g:, 'wwdc17_use16', 0)
-  let g:wwdc17_palette = ['#656567', '#e8503f', '#00a995', '#e1ad0b', '#3a5d6f', '#db2d45',
-        \                   '#1faed0', '#f0f0f0', '#888888', '#afc06c', '#ebb822',
-        \                   '#8c61a6', '#eb314b', '#23bce1', '#f8f8f8']
+  let g:wwdc17_palette = ['#656567', '#e8503f', '#00a995', '#e1ad0b', '#3a5d6f', '#db2d45', '#1faed0', '#f0f0f0',
+        \                 '#888888', '#e4753e', '#afc06c', '#ebb822', '#8c61a6', '#eb314b', '#23bce1', '#f8f8f8']
 
   " Color similarity table (light background)
   "   brightblack: GUI=#888888/rgb(136,136,136)  Term=102 #878787/rgb(135,135,135)  [delta=0.359050]
@@ -59,7 +58,7 @@ if !get(g:, 'wwdc17_use16', 0)
     hi Folded ctermfg=102 ctermbg=255 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE,italic
     hi LineNr ctermfg=102 ctermbg=255 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
     hi FoldColumn ctermfg=102 ctermbg=255 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
-    hi Terminal ctermfg=fg ctermbg=255 guifg=fg guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
+    hi Terminal ctermfg=241 ctermbg=231 guifg=#656567 guibg=#f8f8f8 guisp=NONE cterm=NONE gui=NONE
   endif
   hi ColorColumn ctermfg=NONE ctermbg=255 guifg=NONE guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
   hi Conceal ctermfg=36 ctermbg=NONE guifg=#00a995 guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -299,9 +298,8 @@ if !get(g:, 'wwdc17_use16', 0)
 endif
 
 " 16-color variant
-let g:wwdc17_palette = ['#656567', '#e8503f', '#00a995', '#e1ad0b', '#3a5d6f', '#db2d45',
-      \                   '#1faed0', '#f0f0f0', '#888888', '#afc06c', '#ebb822',
-      \                   '#8c61a6', '#eb314b', '#23bce1', '#f8f8f8']
+let g:wwdc17_palette = ['#656567', '#e8503f', '#00a995', '#e1ad0b', '#3a5d6f', '#db2d45', '#1faed0', '#f0f0f0',
+      \                 '#888888', '#e4753e', '#afc06c', '#ebb822', '#8c61a6', '#eb314b', '#23bce1', '#f8f8f8']
 
 if !has('gui_running') && get(g:, 'wwdc17_transp_bg', 0)
   hi Normal ctermfg=0 ctermbg=NONE guifg=#656567 guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -310,7 +308,7 @@ if !has('gui_running') && get(g:, 'wwdc17_transp_bg', 0)
   hi Folded ctermfg=8 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE,italic
   hi LineNr ctermfg=8 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi FoldColumn ctermfg=8 ctermbg=NONE guifg=#888888 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-  hi Terminal ctermfg=fg ctermbg=NONE guifg=fg guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi Terminal ctermfg=0 ctermbg=NONE guifg=#656567 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 else
   hi Normal ctermfg=0 ctermbg=15 guifg=#656567 guibg=#f8f8f8 guisp=NONE cterm=NONE gui=NONE
   hi CursorLine ctermfg=NONE ctermbg=7 guifg=NONE guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
@@ -318,7 +316,7 @@ else
   hi Folded ctermfg=8 ctermbg=7 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE,italic
   hi LineNr ctermfg=8 ctermbg=7 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
   hi FoldColumn ctermfg=8 ctermbg=7 guifg=#888888 guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
-  hi Terminal ctermfg=fg ctermbg=7 guifg=fg guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
+  hi Terminal ctermfg=0 ctermbg=15 guifg=#656567 guibg=#f8f8f8 guisp=NONE cterm=NONE gui=NONE
 endif
 hi ColorColumn ctermfg=NONE ctermbg=7 guifg=NONE guibg=#f0f0f0 guisp=NONE cterm=NONE gui=NONE
 hi Conceal ctermfg=2 ctermbg=NONE guifg=#00a995 guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -579,14 +577,14 @@ finish
 "     Folded           brightblack       none              g=italic
 "     LineNr           brightblack       none
 "     FoldColumn       brightblack       none
-"     Terminal         fg                none
-"     Normal black brightwhite
+"     Terminal         black             none
+"     Normal           black             brightwhite
 "     CursorLine       none              white
 "     CursorLineNr     brightred         white
 "     Folded           brightblack       white             g=italic
 "     LineNr           brightblack       white
 "     FoldColumn       brightblack       white
-"     Terminal         fg                white
+"     Terminal         black             brightwhite
 " ColorColumn          none              white
 " Conceal              green             none
 " Cursor               none              none              reverse
