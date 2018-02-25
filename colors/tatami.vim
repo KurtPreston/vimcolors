@@ -59,6 +59,7 @@ function! s:set() abort
   let underline      = {'gui': 'underline', 'cterm': 'underline'}
   let undercurl      = {'gui': 'undercurl', 'cterm': 'underline'}
   let boldcurl       = {'gui': 'bold,undercurl', 'cterm': 'bold,underline'}
+  let boldunderline  = {'gui': 'bold,underline', 'cterm': 'bold,underline'}
 
   let highlight_group = {}
   if &background ==# 'light'
@@ -85,6 +86,8 @@ function! s:set() abort
     let highlight_group.StatusLine   = [nanohana,     rokusho,     none,      none]
     let highlight_group.StatusLineNC = [wakatake,     rokusho,     none,      none]
     let highlight_group.WildMenu     = [rokusho,      nanohana,    bold,      none]
+    let highlight_group.StatusLineTerm = highlight_group.StatusLine
+    let highlight_group.StatusLineTermNC = highlight_group.StatusLineNC
     " Tabline
     let highlight_group.TabLine      = [wakatake,     rokusho,     none,      none]
     let highlight_group.TabLineSel   = [nanohana,     rokusho,     bold,      none]
@@ -130,7 +133,7 @@ function! s:set() abort
     let highlight_group.Todo         = [dobunezumi,   kanzo,       none,      none]
 
     "*** Settings for plugin ***"
-    let highlight_group.MatchParen   = [none,         tamago,      none,      none]
+    let highlight_group.MatchParen   = [none, none, boldunderline, none]
 
     let bg_none    = {'gui': wakame.gui, 'cterm': 'NONE'}
   else
@@ -157,6 +160,8 @@ function! s:set() abort
     let highlight_group.StatusLine   = [nanohana,     mushiao,     none,      none]
     let highlight_group.StatusLineNC = [oitake,       mushiao,     none,      none]
     let highlight_group.WildMenu     = [mushiao,      nanohana,    bold,      none]
+    let highlight_group.StatusLineTerm = highlight_group.StatusLine
+    let highlight_group.StatusLineTermNC = highlight_group.StatusLineNC
     " Tabline
     let highlight_group.TabLine      = [sakurairo,    mushiao,     none,      none]
     let highlight_group.TabLineSel   = [nanohana,     mushiao,     bold,      none]
@@ -202,7 +207,7 @@ function! s:set() abort
     let highlight_group.Todo         = [sakurairo,    tuyukusa,    none,      none]
 
     "*** Settings for plugin ***"
-    let highlight_group.MatchParen   = [none,         tuyukusa,    none,      none]
+    let highlight_group.MatchParen   = [none, none, boldunderline, none]
 
     let bg_none    = {'gui': oitake.gui, 'cterm': 'NONE'}
   endif
