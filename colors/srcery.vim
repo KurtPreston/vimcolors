@@ -173,6 +173,7 @@ call s:HL('SrceryBrightWhite', s:bright_white)
 
 " special
 call s:HL('SrceryOrange', s:orange)
+call s:HL('SrceryBrightOrange', s:bright_orange)
 call s:HL('SrceryOrangeBold', s:orange, s:none, s:bold)
 call s:HL('SrceryHardBlack', s:hard_black)
 call s:HL('SrceryXgray1', s:xgray1)
@@ -324,7 +325,7 @@ hi! link Include SrceryCyan
 " Preprocessor #define
 hi! link Define SrceryCyan
 " Same as Define
-hi! link Macro SrceryCyan
+hi! link Macro SrceryOrange
 " Preprocessor #if, #else, #endif, etc.
 hi! link PreCondit SrceryCyan
 
@@ -353,9 +354,9 @@ hi! link Typedef SrceryMagenta
 
 if version >= 700
   " Popup menu: normal item
-  call s:HL('Pmenu', s:bright_white, s:black)
+  call s:HL('Pmenu', s:bright_white, s:bright_black)
   " Popup menu: selected item
-  call s:HL('PmenuSel', s:black, s:blue, s:bold)
+  call s:HL('PmenuSel', s:bright_white, s:magenta, s:bold)
   " Popup menu: scrollbar
   call s:HL('PmenuSbar', s:none, s:black)
   " Popup menu: scrollbar thumb
@@ -613,66 +614,30 @@ hi! link cssGeneratedContentProp SrceryCyan
 " }}}
 " JavaScript: {{{
 
-hi! link javaScriptBraces SrceryBrightBlue
-hi! link javaScriptFunction SrceryYellow
-hi! link javaScriptIdentifier SrceryRed
 hi! link javaScriptMember SrceryBlue
-hi! link javaScriptNumber SrceryMagenta
 hi! link javaScriptNull SrceryMagenta
-hi! link javaScriptParens SrceryBrightWhite
 
 " }}}
 " YAJS: {{{
 
-hi! link javascriptImport SrceryCyan
-hi! link javascriptExport SrceryCyan
-hi! link javascriptClassKeyword SrceryCyan
-hi! link javascriptClassExtends SrceryCyan
-hi! link javascriptDefault SrceryCyan
-
-hi! link javascriptClassName SrceryYellow
-hi! link javascriptClassSuperName SrceryYellow
-hi! link javascriptGlobal SrceryYellow
-
-hi! link javascriptEndColons SrceryBlue
-hi! link javascriptFuncArg SrceryBlue
-hi! link javascriptGlobalMethod SrceryBlue
-hi! link javascriptNodeGlobal SrceryBlue
-
-" hi! link javascriptVariable SrceryYellow
-hi! link javascriptVariable SrceryRed
-" hi! link javascriptIdentifier SrceryYellow
-" hi! link javascriptClassSuper SrceryYellow
-hi! link javascriptIdentifier SrceryYellow
-hi! link javascriptClassSuper SrceryYellow
-
-" hi! link javascriptFuncKeyword SrceryYellow
-" hi! link javascriptAsyncFunc SrceryYellow
-hi! link javascriptFuncKeyword SrceryYellow
-hi! link javascriptAsyncFunc SrceryYellow
-hi! link javascriptClassStatic SrceryYellow
-
-hi! link javascriptOperator SrceryRed
-hi! link javascriptForOperator SrceryRed
-hi! link javascriptYield SrceryRed
-hi! link javascriptExceptions SrceryRed
-hi! link javascriptMessage SrceryRed
-
-hi! link javascriptTemplateSB SrceryCyan
-hi! link javascriptTemplateSubstitution SrceryBlue
-
-hi! link javascriptLabel SrceryBlue
+hi! link javascriptParens SrceryBrightCyan
+hi! link javascriptFuncArg Normal
+hi! link javascriptDocComment SrceryGreen
+hi! link javascriptArrayMethod Function
+hi! link javascriptReflectMethod Function
+hi! link javascriptStringMethod Function
+hi! link javascriptObjectMethod Function
+hi! link javascriptObjectStaticMethod Function
 hi! link javascriptObjectLabel SrceryBlue
-hi! link javascriptPropertyName SrceryBlue
 
-hi! link javascriptLogicSymbols SrceryBlue
-hi! link javascriptArrowFunc SrceryBlue
+hi! link javascriptProp SrceryBlue
 
-hi! link javascriptDocParamName SrceryGreen
-hi! link javascriptDocTags SrceryGreen
-hi! link javascriptDocNotation SrceryGreen
-hi! link javascriptDocParamType SrceryGreen
-hi! link javascriptDocNamedParamType SrceryGreen
+hi! link javascriptVariable SrceryBrightBlue
+hi! link javascriptOperator SrceryBrightCyan
+hi! link javascriptFuncKeyword SrceryBrightRed
+hi! link javascriptFunctionMethod SrceryYellow
+hi! link javascriptReturn SrceryBrightRed
+hi! link javascriptEndColons Normal
 
 " }}}
 " CoffeeScript: {{{
