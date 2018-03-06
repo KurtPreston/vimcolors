@@ -209,11 +209,19 @@ call s:HL('markdownUrl',                    s:purple,   '',         '')
 call s:HL('markdownUrlTitleDelimiter',      s:green,    '',         '')
 
 " Ruby
+call s:HL('rubyBlockParameter',             s:gray5,    '',         '')
+call s:HL('rubyClass',                      s:purple,   '',         '')
+call s:HL('rubyConstant',                   s:yellow,      '',         '')
+call s:HL('rubyInstanceVariable',           s:red,      '',         '')
 call s:HL('rubyInterpolation',              s:cyan,     '',         '')
 call s:HL('rubyInterpolationDelimiter',     s:indigo,   '',         '')
+call s:HL('rubyLocalVariableOrMethod',      s:red,      '',         '')
+call s:HL('rubyPredefinedConstant',         s:orange,   '',         '')
+call s:HL('rubyPseudoVariable',             s:blue,     '',         '')
 call s:HL('rubyRegexp',                     s:cyan,     '',         '')
 call s:HL('rubyRegexpDelimiter',            s:indigo,   '',         '')
 call s:HL('rubyStringDelimiter',            s:green,    '',         '')
+call s:HL('rubyTodo',                       s:gray4,    '',         '')
 
 " Sass
 call s:HL('sassAmpersand',                  s:red,      '',         '')
