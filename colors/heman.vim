@@ -52,36 +52,47 @@ let s:bold = 'bold'
 let s:italic = 'italic'
 let s:underline = 'underline'
 let s:reverse = 'reverse'
+let s:undercurl = 'undercurl'
 
 " }}}
 " Highlight: {{{
 
 function! s:HL(group, ...)
-	" Arguments: group, guifg/ctermfg, guibg/ctermbg, gui
+	" Arguments: group, guifg/ctermfg, guibg/ctermbg, gui/cterm, *guisp
+
 	" foreground
-	let fg = a:1
+	if a:0 >=# 2
+		let l:fg = a:1
+	else
+		let l:bg = s:none
+	endif
 
 	" background
-	if a:0 >= 2
-		let bg = a:2
+	if a:0 >=# 2
+		let l:bg = a:2
 	else
-		let bg = s:none
+		let l:bg = s:none
 	endif
 
-	" emphasis
-	if a:0 >= 3 && strlen(a:3)
-		let emstr = a:3
+	" attribute
+	if a:0 >=# 3 && strlen(a:3)
+		let l:attr = a:3
 	else
-		let emstr = 'NONE'
+		let l:attr = 'NONE'
 	endif
 
-	let histring = [ 'hi!', a:group,
-		\ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
-		\ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
-		\ 'gui=' . emstr, 'cterm=' . emstr
+	let l:hlstring = [ 'hi!', a:group,
+		\ 'guifg=' . l:fg[0], 'ctermfg=' . l:fg[1],
+		\ 'guibg=' . l:bg[0], 'ctermbg=' . l:bg[1],
+		\ 'gui=' . l:attr, 'cterm=' . l:attr
 		\ ]
 
-	execute join(histring, ' ')
+	" special
+	if a:0 >=# 4
+		call add(l:hlstring, 'guisp=' . a:4[0])
+	endif
+
+	execute join(l:hlstring, ' ')
 endfunction
 
 " }}}
@@ -168,6 +179,16 @@ call s:HL('Folded', s:heman.fg2, s:heman.lightblue)
 call s:HL('FoldColumn', s:heman.fg2, s:heman.darkblue)
 
 " }}}
+" Spell (GUI): {{{¬
+
+if has('gui_running') && has('spell')
+	call s:HL('SpellBad', s:heman.fg0, s:none, s:undercurl, s:heman.red)
+	call s:HL('SpellCap', s:heman.fg0, s:none, s:undercurl, s:heman.darkblue)
+	call s:HL('SpellRare', s:heman.fg0, s:none, s:undercurl, s:heman.purple)
+	call s:HL('SpellLocal', s:heman.fg0, s:none, s:undercurl, s:heman.lightblue)
+endif
+
+" }}}¬
 " Cursor: {{{
 
 " Character under cursor
