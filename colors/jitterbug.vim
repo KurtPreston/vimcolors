@@ -164,6 +164,7 @@ hi DiffAdded
 " Matched parenthesis
 hi MatchParen
   \ cterm=bold ctermbg=235 ctermfg=227
+  \ gui=bold  guibg=#444444
 
 
 "popup menus
@@ -238,3 +239,4 @@ hi GitGutterAdd
 " Vim colorscheme files
 " hi link vimHiKeyList Title
 hi link vimHiGroup Title
+
