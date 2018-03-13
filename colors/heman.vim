@@ -61,7 +61,7 @@ function! s:HL(group, ...)
 	" Arguments: group, guifg/ctermfg, guibg/ctermbg, gui/cterm, *guisp
 
 	" foreground
-	if a:0 >=# 2
+	if a:0 >=# 1
 		let l:fg = a:1
 	else
 		let l:bg = s:none

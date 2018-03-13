@@ -122,6 +122,7 @@ call s:Defn('VertSplit', s:fg('fade'), s:bg('fade-more'))
 call s:Link('StatusLineNC', 'VertSplit')
 
 call s:Defn('StatusLine', s:attr('reverse'))
+call s:Defn('StatusLineTerm', s:fg('background'), s:bg('attention'))
 call s:Defn('Visual', s:attr('reverse'))
 call s:Defn('MatchParen', s:attr('reverse'))
 
