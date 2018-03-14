@@ -11,14 +11,14 @@ let g:colors_name="xedit"
 
 hi clear Normal
 hi clear VertSplit
-hi Statement	gui=bold,italic	guifg=gray12
+hi Statement	gui=bold	guifg=gray12
 hi Number	gui=bold	guifg=OrangeRed3
-hi String	gui=italic	guifg=RoyalBlue2
-hi Constant	gui=italic	guifg=VioletRed3
+hi String			guifg=RoyalBlue2
+hi Constant			guifg=VioletRed3
 hi Comment	gui=italic	guifg=SlateBlue3
 hi PreProc			guifg=green4
 hi Type				guifg=fg
-hi Special	gui=bold,italic	guifg=RoyalBlue2
+hi Special	gui=bold	guifg=RoyalBlue2
 hi Directory			guifg=RoyalBlue4
 hi NonText			guifg=fg
 hi LineNr	gui=italic	guifg=gray
