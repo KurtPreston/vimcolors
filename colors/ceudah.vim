@@ -57,9 +57,9 @@ call s:HL('DiffAdd',                        s:green,    s:gray2,    'none')
 call s:HL('DiffChange',                     s:yellow,   s:gray2,    'none')
 call s:HL('DiffDelete',                     s:red,      s:gray2,    'none')
 call s:HL('DiffText',                       s:blue,     s:gray2,    'none')
-call s:HL('ErrorMsg',                       s:red,      s:gray1,         'bold')
-call s:HL('FoldColumn',                     s:gray4,    s:gray1,    '')
-call s:HL('Folded',                         s:gray3,    s:gray1,    '')
+call s:HL('ErrorMsg',                       s:red,      s:gray1,    'bold')
+call s:HL('FoldColumn',                     s:gray4,    s:gray2,    '')
+call s:HL('Folded',                         s:gray4,    s:gray2,    '')
 call s:HL('IncSearch',                      s:yellow,   '',         '')
 call s:HL('LineNr',                         s:gray4,    s:gray2,    '')
 call s:HL('MatchParen',                     s:cyan,     s:cyan,     'bold')
@@ -72,8 +72,8 @@ call s:HL('PmenuSbar',                      '',         s:gray2,    '')
 call s:HL('PmenuSel',                       s:gray2,    s:cyan,     '')
 call s:HL('PmenuThumb',                     '',         s:gray4,    '')
 call s:HL('Question',                       s:blue,     '',         'none')
-call s:HL('Search',                         s:gray4,    '',         '')
-call s:HL('SignColumn',                     s:gray5,    s:gray1,    '')
+call s:HL('Search',                         s:gray1,    s:yellow,   '')
+call s:HL('SignColumn',                     s:gray5,    s:gray3,    '')
 call s:HL('SpecialKey',                     s:gray4,    '',         '')
 call s:HL('SpellCap',                       s:blue,     s:gray2,    'undercurl')
 call s:HL('SpellBad',                       s:red,      s:gray2,    'undercurl')
@@ -83,14 +83,16 @@ call s:HL('TabLine',                        s:gray4,    s:gray2,    'none')
 call s:HL('TabLineFill',                    s:gray4,    s:gray2,    'none')
 call s:HL('TabLineSel',                     s:yellow,   s:gray3,    'none')
 call s:HL('Title',                          s:green,    '',         'none')
-call s:HL('VertSplit',                      s:gray2,    '',         'none')
-call s:HL('Visual',                         '',         s:gray3,    '')
+call s:HL('VertSplit',                      s:gray2,    '',    'none')
+call s:HL('Visual',                         '',    s:gray3,    '')
 call s:HL('WarningMsg',                     s:red,      '',         '')
-call s:HL('WildMenu',                       s:gray2,    s:cyan,     '')
+call s:HL('WildMenu',                       s:gray2,    s:cyan,	    '')
 hi  MatchParen      guibg=NONE
 hi  Cursor          gui=reverse         guibg=NONE      guifg=NONE
 hi  Normal          ctermbg=NONE        guibg=NONE
 hi  NonText         ctermbg=NONE        guibg=NONE
+hi link SyntasticError      SpellBad
+hi link SyntasticWarning    SpellCap
 
 " Standard Syntax
 call s:HL('Boolean',                        s:yellow,   '',         'italic')
