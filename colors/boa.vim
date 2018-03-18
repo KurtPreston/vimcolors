@@ -12,13 +12,13 @@ let g:colors_name = "boa"
 
 " ColorPallete
 " ============
-" foreground(yellowish white) = #C2B7A9
+" foreground(yellowish white) = #B4A695
 " background(browndark)       = #171202
 " string(greenish)            = #608F76
 " comment(brown)              = #725749
-" conditional(pinky)          = #E36660
-" statement(pinky)            = #E36660
-" type(blue)                  = #8797C1
+" conditional(pinky)          = #C15751
+" statement(pinky)            = #C15751
+" type(blue)                  = #8593BA
 " constant(purple)            = #A986B6
 " error(darkred)              = #611818
 " function(orange)            = #BF905F
@@ -35,21 +35,21 @@ hi String      guifg=#608F76 guibg=NONE gui=NONE
 " Number
 " Boolean
 " Float
-hi Identifier  guifg=#C2B7A9 guibg=NONE gui=NONE
+hi Identifier  guifg=#B4A695 guibg=NONE gui=NONE
 hi Function    guifg=#BF905F guibg=NONE gui=NONE
-hi Statement   guifg=#E36660 guibg=NONE gui=NONE
-hi Conditional guifg=#E36660 guibg=NONE gui=NONE
-hi Repeat      guifg=#E36660 guibg=NONE gui=NONE
-hi Label       guifg=#E36660 guibg=NONE gui=NONE
+hi Statement   guifg=#C15751 guibg=NONE gui=NONE
+hi Conditional guifg=#C15751 guibg=NONE gui=NONE
+hi Repeat      guifg=#C15751 guibg=NONE gui=NONE
+hi Label       guifg=#C15751 guibg=NONE gui=NONE
 hi Operator    guifg=#ABB6BA guibg=NONE gui=NONE
-hi Keyword     guifg=#E36660 guibg=NONE gui=NONE
-hi Exception   guifg=#E36660 guibg=NONE gui=NONE
-hi PreProc     guifg=#E36660 guibg=NONE gui=NONE
+hi Keyword     guifg=#C15751 guibg=NONE gui=NONE
+hi Exception   guifg=#C15751 guibg=NONE gui=NONE
+hi PreProc     guifg=#C15751 guibg=NONE gui=NONE
 " Include"
 " Define"
 " Macro"
 " PreCondit"
-hi Type        guifg=#8797C1 guibg=NONE gui=NONE
+hi Type        guifg=#8593BA guibg=NONE gui=NONE
 " StorageClass"
 hi Structure   guifg=#A986B6 guibg=NONE gui=NONE
 " Typedef"
@@ -72,12 +72,12 @@ hi ColorColumn  guifg=NONE guibg=#1F1B11 gui=NONE
 " CursorIM"
 hi CursorColumn guifg=NONE    guibg=#1F1B11 gui=NONE
 hi CursorLine   guifg=NONE    guibg=#1F1B11 gui=NONE
-hi Directory    guifg=#8797C1 guibg=NONE    gui=NONE
+hi Directory    guifg=#8593BA guibg=NONE    gui=NONE
 hi DiffAdd      guifg=#a8a8a8 guibg=#3f593f gui=NONE
 hi DiffChange   guifg=#a8a8a8 guibg=#3f3f59 gui=NONE
 hi DiffDelete   guifg=#b39797 guibg=#733e3e gui=NONE
 hi DiffText     guifg=#a8a8a8 guibg=#594936 gui=NONE
-hi ErrorMsg     guifg=#E36660 guibg=NONE    gui=bold
+hi ErrorMsg     guifg=#C15751 guibg=NONE    gui=bold
 hi VertSplit    guifg=NONE    guibg=#231811 gui=NONE
 hi Folded       guifg=#7D8394 guibg=#281F23 gui=NONE
 hi FoldColumn   guifg=#7D8394 guibg=#231811 gui=NONE
@@ -109,7 +109,7 @@ hi Title        guifg=#BF905F guibg=NONE    gui=NONE
 hi Visual       guifg=NONE    guibg=#283238 gui=NONE
 hi WarningMsg   guifg=#B58B4E guibg=NONE    gui=NONE
 hi WildMenu     guifg=#CBD6DB guibg=#48382f gui=bold
-hi Normal       guifg=#C2B7A9 guibg=#171202 gui=NONE
+hi Normal       guifg=#B4A695 guibg=#171202 gui=NONE
 
 " Quickfix window highlighting
 hi link qfLineNr Function
@@ -154,7 +154,7 @@ hi link pythonClass  Function
 hi link pythonCoding Comment
 hi link pythonRun    Comment
 hi pythonClassVar  guifg=#ABB6BA guibg=NONE gui=italic
-hi pythonStatement guifg=#E36660 guibg=NONE gui=underline
+" hi pythonStatement guifg=#C15751 guibg=NONE gui=bold
 hi pythonDocTest   guifg=#557796 guibg=NONE gui=NONE
 hi pythonDocTest2  guifg=#557796 guibg=NONE gui=NONE
 hi link djangoQueryObject  Function
@@ -205,10 +205,10 @@ hi cssFunctionName  guifg=#A39454 guibg=NONE gui=NONE
 " Markdown Syntax Highlighting
 " ============================
 "  https://github.com/plasticboy/vim-markdown
-hi mkdURL       guifg=#8797C1 guibg=NONE gui=underline
-hi mkdLinkDef   guifg=#E36660 guibg=NONE gui=NONE
-hi mkdLink      guifg=#E36660 guibg=NONE gui=NONE
-hi mkdDelimiter guifg=#E36660 guibg=NONE gui=NONE
+hi mkdURL       guifg=#8593BA guibg=NONE gui=underline
+hi mkdLinkDef   guifg=#C15751 guibg=NONE gui=NONE
+hi mkdLink      guifg=#C15751 guibg=NONE gui=NONE
+hi mkdDelimiter guifg=#C15751 guibg=NONE gui=NONE
 hi mkdListItem  guifg=#A986B6 guibg=NONE gui=NONE
 
 " Shell Syntax Highlighting
@@ -227,22 +227,22 @@ hi link xmlEndTag  xmlTag
 " =============================
 hi GitGutterAdd    guifg=#5E9779 guibg=#231811 gui=bold
 hi GitGutterChange guifg=#B3AF4E guibg=#231811 gui=bold
-hi GitGutterDelete guifg=#E36660 guibg=#231811 gui=bold
+hi GitGutterDelete guifg=#C15751 guibg=#231811 gui=bold
 
 " ALE Highlighting
 " =============================
-hi ALEErrorSign    guifg=#E36660 guibg=#231811 gui=bold
+hi ALEErrorSign    guifg=#C15751 guibg=#231811 gui=bold
 hi ALEWarningSign  guifg=#B3AF4E guibg=#231811 gui=bold
 
 " Syntastic Highlighting
 " =============================
-hi SyntasticErrorSign   guifg=#E36660 guibg=#231811 gui=bold
+hi SyntasticErrorSign   guifg=#C15751 guibg=#231811 gui=bold
 hi SyntasticWarningSign guifg=#B3AF4E guibg=#231811 gui=bold
 
 " Easy-Motion Highlighting
 " ===============================
 hi EasyMotionIncCursor guifg=#171202 guibg=#725749 gui=NONE
-hi EasyMotionTarget guifg=#E36660 guibg=NONE gui=bold
+hi EasyMotionTarget guifg=#C15751 guibg=NONE gui=bold
 hi EasyMotionTarget2First guifg=#BF905F guibg=NONE gui=bold
 hi EasyMotionTarget2Second guifg=#AA7B4B guibg=NONE gui=NONE
 hi EasyMotionIncSearch guifg=#608F76 guibg=NONE gui=bold
@@ -252,10 +252,6 @@ hi EasyMotionShade guifg=#666666 guibg=NONE gui=NONE
 " ============================
 hi link StartifyNumber  Repeat
 hi link StartifySection String
-
-" CtrlP Highlighting
-" ===================
-hi link CtrlPBufferHid Function
 
 " Netrw Highlighting
 " ===================
@@ -269,7 +265,7 @@ hi link NERDTreeClosable  Constant
 hi link NERDTreeHelp      Comment
 hi link NERDTreeUp        Comment
 hi NERDTreeDirSlash guifg=#947d72 guibg=NONE gui=bold
-hi NERDTreeDir      guifg=#8797C1 guibg=NONE gui=bold
+hi NERDTreeDir      guifg=#8593BA guibg=NONE gui=bold
 hi NERDTreeCWD      guifg=#848326 guibg=NONE gui=bold
 
 " Tagbar Highlighting
