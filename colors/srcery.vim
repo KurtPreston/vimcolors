@@ -38,7 +38,7 @@ let s:bright_white   = ["#FCE8C3", 15]
 " xterm colors.
 let s:orange        = ['#D75F00', 166]  
 let s:bright_orange = ['#FF8700', 208]
-let s:hard_black    = ['#080808', 232]
+let s:hard_black    = ['#121212', 233]
 let s:xgray1        = ['#262626', 235]
 let s:xgray2        = ['#303030', 236]
 let s:xgray3        = ['#3A3A3A', 237]
@@ -206,7 +206,7 @@ if version >= 700
   " Match paired bracket under the cursor
   "
   if g:srcery_strong_match_paren == 1 
-    call s:HL('MatchParen', s:none, s:black, s:inverse)
+    call s:HL('MatchParen', s:none, s:bright_white, s:inverse . s:bold)
   else
     call s:HL('MatchParen', s:bright_yellow, s:none, s:bold)
   endif
@@ -402,12 +402,12 @@ if !exists('g:rbpt_colorpairs')
   let g:rbpt_colorpairs =
     \ [
       \ ['blue',  '#2C78BF'], ['166',  '#D75F00'],
-      \ ['cyan',  '#0AAEB3'], ['magenta', '#E02C6D']
+      \ ['green',  '#EF2F27'], ['magenta', '#E02C6D']
     \ ]
 endif
                           
-let g:rainbow_guifgs = [ '#E02C6D', '#0AAEB3', '#D75F00', '#2C78BF']
-let g:rainbow_ctermfgs = [ 'magenta', 'cyan', '166', 'blue' ]
+let g:rainbow_guifgs = [ '#E02C6D', '#519F50', '#D75F00', '#2C78BF']
+let g:rainbow_ctermfgs = [ 'magenta', 'green', '166', 'blue' ]
 
 if !exists('g:rainbow_conf')
    let g:rainbow_conf = {}
