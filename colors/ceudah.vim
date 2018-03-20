@@ -15,11 +15,13 @@ let g:enable_ceudah_italics = get(g:, 'ceudah_italics', 1)
 let g:ceudah_black = get(g:, 'ceudah_black', 1)
 
 " Color Palette
-let s:gray1     = g:ceudah_black ? '#090300' : '#1D1F21'
-let s:gray2     = g:ceudah_black ? '#292929' : '#2c3a41'
-let s:gray3     = g:ceudah_black ? '#474646' : '#425762'
-let s:gray4     = g:ceudah_black ? '#6a6c6c' : '#658494'
-let s:gray5     = g:ceudah_black ? '#b7bdc0' : '#aebbc5'
+let s:black     = '#181A1F'
+let s:gray1     = '#282828'
+let s:gray2     = '#3C3836'
+let s:gray3     = '#474646'
+let s:gray4     = '#6a6c6c'
+let s:gray5     = '#b7bdc0'
+let s:gray6     = '#504945'
 let s:red       = '#f44336'
 let s:green     = '#4caf50'
 let s:yellow    = '#ff9800'
@@ -47,9 +49,14 @@ function! s:HL(group, fg, bg, attr)
 endfun
 
 " Vim Editor
-call s:HL('ColorColumn',                    '',         s:gray3,    '')
+call s:HL('ALEErrorSign',                   s:red,      s:gray6,    '')
+call s:HL('ALEStyleErrorSign',              s:red,      s:gray6,    '')
+call s:HL('ALEWarningSign',                 s:yellow,   s:gray6,    '')
+call s:HL('ALEStyleWarningSign',            s:yellow,   s:gray6,    '')
+call s:HL('ALEInfoSign',                    s:cyan,     s:gray6,    '')
+call s:HL('ColorColumn',                    '',         s:gray2,    '')
 call s:HL('Cursor',                         s:gray2,    s:gray4,    '')
-call s:HL('CursorColumn',                   '',         s:gray2,    '')
+call s:HL('CursorColumn',                   '',         s:gray2,    'none')
 call s:HL('CursorLine',                     '',         s:gray2,    'none')
 call s:HL('CursorLineNr',                   s:cyan,     s:gray2,    'none')
 call s:HL('Directory',                      s:blue,     '',         '')
@@ -58,8 +65,8 @@ call s:HL('DiffChange',                     s:yellow,   s:gray2,    'none')
 call s:HL('DiffDelete',                     s:red,      s:gray2,    'none')
 call s:HL('DiffText',                       s:blue,     s:gray2,    'none')
 call s:HL('ErrorMsg',                       s:red,      s:gray1,    'bold')
-call s:HL('FoldColumn',                     s:gray4,    s:gray2,    '')
-call s:HL('Folded',                         s:gray4,    s:gray2,    '')
+call s:HL('FoldColumn',                     s:gray4,    s:gray1,    '')
+call s:HL('Folded',                         s:gray3,    s:gray1,    '')
 call s:HL('IncSearch',                      s:yellow,   '',         '')
 call s:HL('LineNr',                         s:gray4,    s:gray2,    '')
 call s:HL('MatchParen',                     s:cyan,     s:cyan,     'bold')
@@ -73,7 +80,7 @@ call s:HL('PmenuSel',                       s:gray2,    s:cyan,     '')
 call s:HL('PmenuThumb',                     '',         s:gray4,    '')
 call s:HL('Question',                       s:blue,     '',         'none')
 call s:HL('Search',                         s:gray1,    s:yellow,   '')
-call s:HL('SignColumn',                     s:gray5,    s:gray3,    '')
+call s:HL('SignColumn',                     '',         s:gray6,    '')
 call s:HL('SpecialKey',                     s:gray4,    '',         '')
 call s:HL('SpellCap',                       s:blue,     s:gray2,    'undercurl')
 call s:HL('SpellBad',                       s:red,      s:gray2,    'undercurl')
@@ -83,16 +90,14 @@ call s:HL('TabLine',                        s:gray4,    s:gray2,    'none')
 call s:HL('TabLineFill',                    s:gray4,    s:gray2,    'none')
 call s:HL('TabLineSel',                     s:yellow,   s:gray3,    'none')
 call s:HL('Title',                          s:green,    '',         'none')
-call s:HL('VertSplit',                      s:gray2,    '',    'none')
+call s:HL('VertSplit',                      s:black,    '',    'none')
 call s:HL('Visual',                         '',    s:gray3,    '')
 call s:HL('WarningMsg',                     s:red,      '',         '')
 call s:HL('WildMenu',                       s:gray2,    s:cyan,	    '')
 hi  MatchParen      guibg=NONE
 hi  Cursor          gui=reverse         guibg=NONE      guifg=NONE
-hi  Normal          ctermbg=NONE        guibg=NONE
-hi  NonText         ctermbg=NONE        guibg=NONE
-hi link SyntasticError      SpellBad
-hi link SyntasticWarning    SpellCap
+"hi  Normal          ctermbg=NONE        guibg=NONE
+"hi  NonText         ctermbg=NONE        guibg=NONE
 
 " Standard Syntax
 call s:HL('Boolean',                        s:yellow,   '',         'italic')

@@ -38,7 +38,7 @@ hi Search ctermfg=17 ctermbg=84 cterm=none guifg=#282a36 guibg=#50fa7b gui=none
 hi Directory ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
 hi Folded ctermfg=61 ctermbg=235 cterm=NONE guifg=#6272a4 guibg=#282a36 gui=NONE
 hi SignColumn ctermfg=246 ctermbg=235 cterm=NONE guifg=#909194 guibg=#44475a gui=NONE
-hi FoldColmun ctermfg=246 ctermbg=235 cterm=NONE guifg=#909194 guibg=#44475a gui=NONE
+hi FoldColumn ctermfg=246 ctermbg=235 cterm=NONE guifg=#909194 guibg=#44475a gui=NONE
 hi Normal guifg=#f8f8f2 guibg=#282a36 gui=NONE
 hi Boolean ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
 hi Character ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
@@ -67,6 +67,7 @@ hi SpecialKey ctermfg=231 ctermbg=235 cterm=NONE guifg=#525563 guibg=NONE gui=NO
 hi Statement ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
 hi StorageClass ctermfg=117 ctermbg=NONE cterm=NONE guifg=#8be9fd guibg=NONE gui=italic
 hi String ctermfg=228 ctermbg=NONE cterm=NONE guifg=#f1fa8c guibg=NONE gui=NONE
+hi SpellBad ctermfg=red ctermbg=NONE cterm=underline
 hi Tag ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
 hi Title ctermfg=231 ctermbg=NONE cterm=bold guifg=#f8f8f2 guibg=NONE gui=bold
 hi Todo ctermfg=61 ctermbg=NONE cterm=inverse,bold guifg=#6272a4 guibg=NONE gui=inverse,bold
@@ -175,6 +176,26 @@ hi ocamlWith ctermfg=117 ctermbg=NONE cterm=NONE guifg=#8be9fd guibg=NONE gui=it
 hi ocamlUnit ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
 " }}}
 
+" Neovim Terminal Colors {{{
+if has("nvim")
+  let g:terminal_color_0 = "#000000"
+  let g:terminal_color_1 = "#FF5555"
+  let g:terminal_color_2 = "#50FA7B"
+  let g:terminal_color_3 = "#F1FA8C"
+  let g:terminal_color_4 = "#BD93F9"
+  let g:terminal_color_5 = "#FF79C6"
+  let g:terminal_color_6 = "#8BE9FD"
+  let g:terminal_color_7 = "#BFBFBF"
+  let g:terminal_color_8 = "#4D4D4D"
+  let g:terminal_color_9 = "#FF6E67"
+  let g:terminal_color_10 = "#5AF78E"
+  let g:terminal_color_11 = "#F4F99D"
+  let g:terminal_color_12 = "#CAA9FA"
+  let g:terminal_color_13 = "#FF92D0"
+  let g:terminal_color_14 = "#9AEDFE"
+  let g:terminal_color_15 = "#E6E6E6"
+endif
+" }}}
 
 "
 "cygwin has an annoying behavior where it resets background to light
