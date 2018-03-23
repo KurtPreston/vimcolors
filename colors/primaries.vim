@@ -1,6 +1,7 @@
 " Maintainer:	Simon Descarpentries <simon/\d12s.fr>
 " Licence: GPLv3
-" Commant: Good code from mango.vim, good colors inspired by mustang.vim, in good
+" Date: 2017-2018
+" Comment: Good code from mango.vim, good colors inspired by mustang.vim, in good
 " readability inspired by monochrome.vim
 
 set background=dark
@@ -13,11 +14,12 @@ endif
 
 let colors_name = "primaries"
 
-let Orange	  = "guifg=#ff9800 guibg=NONE gui=none ctermfg=203 ctermbg=none cterm=none"
+let Orange	  = "guifg=#ff5f5f guibg=NONE gui=none ctermfg=203 ctermbg=none cterm=none"
 let Lemon	  = "guifg=#ffd787 guibg=NONE gui=none ctermfg=220 ctermbg=none cterm=none"
-let Peach	  = 'guifg=#eeeeee guibg=NONE gui=none ctermfg=224 ctermbg=none cterm=none'
+let Peach	  = 'guifg=#ffd7d7 guibg=NONE gui=none ctermfg=224 ctermbg=none cterm=none'
 let Olive	  = "guifg=#b1d631 guibg=NONE gui=italic ctermfg=71 ctermbg=none cterm=none"
-let Prunus	  = "guifg=#af87ff guibg=NONE gui=none ctermfg=63 ctermbg=none cterm=none"
+" let Olive	  = "guifg=#5faf5f guibg=NONE gui=italic ctermfg=71 ctermbg=none cterm=none"
+let Prunus	  = "guifg=#af87ff guibg=NONE gui=none ctermfg=141 ctermbg=none cterm=none"
 let Snow	  = "guifg=#ffffff guibg=NONE gui=none ctermfg=255 ctermbg=none cterm=BOLD"
 let White	  = "guifg=#ffffff guibg=NONE gui=none ctermfg=255 ctermbg=none cterm=none"
 let Concrete  = "guifg=#888888 guibg=NONE gui=none ctermfg=246 ctermbg=none cterm=none"
