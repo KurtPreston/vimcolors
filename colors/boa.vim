@@ -12,7 +12,7 @@ let g:colors_name = "boa"
 
 " ColorPallete
 " ============
-" foreground(yellowish white) = #B4A695
+" foreground(yellowish white) = #B4A68D
 " background(browndark)       = #171202
 " string(greenish)            = #608F76
 " comment(brown)              = #725749
@@ -35,7 +35,7 @@ hi String      guifg=#608F76 guibg=NONE gui=NONE
 " Number
 " Boolean
 " Float
-hi Identifier  guifg=#B4A695 guibg=NONE gui=NONE
+hi Identifier  guifg=#B4A68D guibg=NONE gui=NONE
 hi Function    guifg=#BF905F guibg=NONE gui=NONE
 hi Statement   guifg=#C15751 guibg=NONE gui=NONE
 hi Conditional guifg=#C15751 guibg=NONE gui=NONE
@@ -109,7 +109,7 @@ hi Title        guifg=#BF905F guibg=NONE    gui=NONE
 hi Visual       guifg=NONE    guibg=#283238 gui=NONE
 hi WarningMsg   guifg=#B58B4E guibg=NONE    gui=NONE
 hi WildMenu     guifg=#CBD6DB guibg=#48382f gui=bold
-hi Normal       guifg=#B4A695 guibg=#171202 gui=NONE
+hi Normal       guifg=#B4A68D guibg=#171202 gui=NONE
 
 " Quickfix window highlighting
 hi link qfLineNr Function
@@ -182,10 +182,11 @@ hi link djangoStatement Constant
 " ==============================
 "  https://github.com/pangloss/vim-javascript
 "  https://github.com/othree/javascript-libraries-syntax.vim
-hi link jsStatement       pythonStatement
-hi link jsFunction        jsStatement
-hi link jsReturn          jsStatement
-hi link jsFuncCall        Function
+hi link jsFunction        Statement
+hi link jsReturn          Statement
+hi link jsThis            pythonClassVar
+hi link jsNull            Number
+hi link jsStorageClass    jsThis
 hi link jsonBraces        Operator
 hi link jsDomElemAttrs    Operator
 hi link jsDomElemFuncs    Function
@@ -274,6 +275,31 @@ hi link TagbarType            Statement
 hi link TagbarScope           Function
 hi link TagbarFoldIcon        Function
 hi link TagbarAccessProtected Type
+
+" Terminal colors
+" ===============
+function! SetTermColors()
+  let b:terminal_color_0='#171202'
+  let b:terminal_color_8='#513c32'
+  let b:terminal_color_1='#e36660'
+  let b:terminal_color_9='#e36660'
+  let b:terminal_color_2='#599161'
+  let b:terminal_color_10='#599161'
+  let b:terminal_color_3='#b58b4e'
+  let b:terminal_color_11='#b58b4e'
+  let b:terminal_color_4='#7a9ac6'
+  let b:terminal_color_12='#7a9ac6'
+  let b:terminal_color_5='#a686b2'
+  let b:terminal_color_13='#a686b2'
+  let b:terminal_color_6='#598991'
+  let b:terminal_color_14='#598991'
+  let b:terminal_color_7='#7a6559'
+  let b:terminal_color_15='#b4a695'
+endfunction
+augroup terminalcolors
+  autocmd!
+  autocmd TermOpen * call SetTermColors()
+augroup END
 
 " License
 " =======

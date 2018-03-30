@@ -18,15 +18,17 @@ let Lemon	  = "guifg=#ffd700 guibg=NONE gui=none ctermfg=220 ctermbg=none cterm=
 let Peach	  = 'guifg=#ffd7d7 guibg=NONE gui=none ctermfg=224 ctermbg=none cterm=none'
 let WaterMint = 'guifg=#afffd7 guibg=NONE gui=italic ctermfg=158 ctermbg=none cterm=italic'
 let Mint	  = 'guifg=#87ff5f guibg=NONE gui=italic ctermfg=119 ctermbg=none cterm=italic'
+" Tested many greens, hard to have it visible for one letter at first sight,
+" but not over-shinning / shadowing the white level
 let Olive	  = "guifg=#afd75f guibg=NONE gui=italic ctermfg=149 ctermbg=none cterm=italic"
-" let Olive	  = "guifg=#b1d631 guibg=NONE gui=italic ctermfg=148 ctermbg=none cterm=italic"
-" let Olive	  = "guifg=#5faf5f guibg=NONE gui=italic ctermfg=71 ctermbg=none cterm=none"
 let Prunus	  = "guifg=#5f5fff guibg=NONE gui=none ctermfg=63 ctermbg=none cterm=none"
 let Plasma	  = "guifg=#afafff guibg=NONE gui=none ctermfg=147 ctermbg=none cterm=none"
 let PlasmaG	  = "guifg=#afafff guibg=NONE gui=BOLD ctermfg=147 ctermbg=none cterm=BOLD"
 let Ice	  	  = "guifg=#d7ffff guibg=NONE gui=none ctermfg=195 ctermbg=none cterm=none"
 let Snow	  = "guifg=#ffffff guibg=NONE gui=BOLD ctermfg=255 ctermbg=none cterm=BOLD"
 let White	  = "guifg=#ffffff guibg=NONE gui=none ctermfg=255 ctermbg=none cterm=none"
+" Hard to distinguish from Anthracite ; hard to have 2 grey levels in addition
+" white and snow
 " let Concrete  = "guifg=#888888 guibg=NONE gui=none ctermfg=246 ctermbg=none cterm=none"
 let Anthracite= "guifg=#666666 guibg=NONE gui=none ctermfg=242 ctermbg=none cterm=none"
 
