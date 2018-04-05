@@ -61,10 +61,10 @@ call s:HL('CursorColumn',                   '',         s:gray2,    'none')
 call s:HL('CursorLine',                     '',         s:gray2,    'none')
 call s:HL('CursorLineNr',                   s:wheat,    s:gray2,    'none')
 call s:HL('Directory',                      s:blue,     '',         '')
-call s:HL('DiffAdd',                        s:green,    s:gray2,    'none')
-call s:HL('DiffChange',                     s:yellow,   s:gray2,    'none')
-call s:HL('DiffDelete',                     s:red,      s:gray2,    'none')
-call s:HL('DiffText',                       s:blue,     s:gray2,    'none')
+call s:HL('DiffAdd',                        s:green,    s:gray6,    'none')
+call s:HL('DiffChange',                     s:yellow,   s:gray6,    'none')
+call s:HL('DiffDelete',                     s:red,      s:gray6,    'none')
+call s:HL('DiffText',                       s:blue,     s:gray6,    'none')
 call s:HL('ErrorMsg',                       s:red,      s:gray1,    'bold')
 call s:HL('FoldColumn',                     s:gray4,    s:gray1,    '')
 call s:HL('Folded',                         s:gray3,    s:gray1,    '')
@@ -278,14 +278,14 @@ call s:HL('sassMixinName',                  s:blue,     '',         '')
 call s:HL('sassVariable',                   s:purple,   '',         '')
 
 " Vim-Fugitive
-call s:HL('diffAdded',                      s:green,    '',         '')
-call s:HL('diffRemoved',                    s:red,      '',         '')
+call s:HL('diffAdded',                      s:green,    s:gray6,    '')
+call s:HL('diffRemoved',                    s:red,      s:gray6,    '')
 
 " Vim-Gittgutter
-call s:HL('GitGutterAdd',                   s:green,    '',         '')
-call s:HL('GitGutterChange',                s:yellow,   '',         '')
-call s:HL('GitGutterChangeDelete',          s:orange,   '',         '')
-call s:HL('GitGutterDelete',                s:red,      '',         '')
+call s:HL('GitGutterAdd',                   s:green,    s:gray6,    '')
+call s:HL('GitGutterChange',                s:yellow,   s:gray6,    '')
+call s:HL('GitGutterChangeDelete',          s:orange,   s:gray6,    '')
+call s:HL('GitGutterDelete',                s:red,      s:gray6,    '')
 
 " Vim-Signify
 hi link SignifySignAdd GitGutterAdd
