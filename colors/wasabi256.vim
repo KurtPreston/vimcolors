@@ -264,10 +264,10 @@ call <SID>X("ErrorMsg"     , "ffffff" , "ff0000" , "")       " error messages on
 			"ModeMsg
 			"MoreMsg
 			"Directory
-			"DiffAdd
-			"DiffChange
-			"DiffDelete
-			"DiffText
+call <SID>X("DiffAdd"      , "ffffff" , "5e865e" , "")        "diff: added line
+call <SID>X("DiffChange"   , "ffffff" , "444444" , "none")    "diff: changed line
+call <SID>X("DiffDelete"   , "ffffff" , "a76c6e" , "")        "diff: deleted line
+call <SID>X("DiffText"     , "ffffff" , "5e865e" , "none")    "diff: deleted line
 
 " spell
 " -------
