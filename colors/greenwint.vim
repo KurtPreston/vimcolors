@@ -1,7 +1,6 @@
 "
 " Name: greenwint
-" Version: 0.3.3
-" Maintainer: https://www.github.com/preocanin
+" Version: 0.3.4 " Maintainer: https://www.github.com/preocanin
 " Licence: The MIT Licence (MIT)
 " 
 " Description:
@@ -140,3 +139,12 @@ hi link typescriptFuncKeyword  javaScriptFunction
 hi link typescriptIdentifier   javaScriptIdentifier
 hi typescriptLogicSymbols guifg=#BBFFDD ctermfg=158 gui=bold cterm=bold
 hi link typescriptParens javaScriptBraces
+
+" --- Makefile ---
+hi link makeCommands Normal
+hi link makeExport makeInclude
+hi makeIdent guifg=#BBFFDD ctermfg=158 gui=none cterm=none
+hi makeInclude guifg=#F3F3F3 ctermfg=255 gui=bold cterm=bold
+hi link makeTarget Type 
+hi link makePreCondit makeInclude 
+
