@@ -1,4 +1,4 @@
-" Dracula Theme: v1.3.2 {{{
+" Dracula Theme: v1.4.0 {{{
 "
 " https://github.com/zenorocha/dracula-theme
 "
@@ -52,6 +52,26 @@ let s:red       = ['#FF5555', 203]
 let s:yellow    = ['#F1FA8C', 228]
 
 let s:none      = ['NONE', 'NONE']
+
+let g:dracula_palette = {
+      \ 'fg': s:fg,
+      \ 'bg': s:bg,
+      \ 'selection': s:selection,
+      \ 'comment': s:comment,
+      \ 'cyan': s:cyan,
+      \ 'green': s:green,
+      \ 'orange': s:orange,
+      \ 'pink': s:pink,
+      \ 'purple': s:purple,
+      \ 'red': s:red,
+      \ 'yellow': s:yellow,
+      \
+      \ 'bglighter': s:bglighter,
+      \ 'bglight': s:bglight,
+      \ 'bgdark': s:bgdark,
+      \ 'bgdarker': s:bgdarker,
+      \ 'subtle': s:subtle,
+      \}
 
 if has('nvim')
   let g:terminal_color_0  = '#44475A'
@@ -114,7 +134,7 @@ function! s:h(scope, fg, ...) " bg, attr_list, special
   let l:fg = copy(a:fg)
   let l:bg = get(a:, 1, ['NONE', 'NONE'])
 
-  let l:attr_list = filter(get(a:, 2, ['NONE']), {idx, val -> type(val) == 1})
+  let l:attr_list = filter(get(a:, 2, ['NONE']), 'type(v:val) == 1')
   let l:attrs = len(l:attr_list) > 0 ? join(l:attr_list, ',') : 'NONE'
 
   " Falls back to coloring foreground group on terminals because

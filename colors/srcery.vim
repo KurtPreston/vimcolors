@@ -74,8 +74,16 @@ if !exists('g:srcery_inverse')
   let g:srcery_inverse=1
 endif
 
-if !exists('g:srcery_strong_match_paren')
-  let g:srcery_strong_match_paren=0
+if !exists('g:srcery_inverse_matches')
+  let g:srcery_inverse_matches=0
+endif
+
+if !exists('g:srcery_inverse_match_paren')
+  let g:srcery_inverse_match_paren=0
+endif
+
+if !exists('g:srcery_dim_lisp_paren')
+  let g:srcery_dim_lisp_paren=0
 endif
 
 " }}}
@@ -205,10 +213,10 @@ if version >= 700
 
   " Match paired bracket under the cursor
   "
-  if g:srcery_strong_match_paren == 1 
-    call s:HL('MatchParen', s:none, s:bright_white, s:inverse . s:bold)
+  if g:srcery_inverse_match_paren == 1 
+    call s:HL('MatchParen', s:bright_magenta, s:none, s:inverse . s:bold)
   else
-    call s:HL('MatchParen', s:bright_yellow, s:none, s:bold)
+    call s:HL('MatchParen', s:bright_magenta, s:none, s:bold)
   endif
 endif
 
@@ -226,11 +234,21 @@ endif
 hi! link NonText SrceryWhiteAlt
 hi! link SpecialKey SrceryWhiteAlt
 
-call s:HL('Visual',    s:none,  s:black, s:inverse)
+if g:srcery_inverse == 1
+  call s:HL('Visual', s:none, s:none, s:inverse)
+else
+  call s:HL('Visual', s:none, s:bright_black, s:bold)
+endif
+
 hi! link VisualNOS Visual
 
-call s:HL('Search',    s:bright_white, s:magenta)
-call s:HL('IncSearch', s:bright_white, s:magenta)
+if g:srcery_inverse == 1 && g:srcery_inverse_matches == 1 
+  call s:HL('Search', s:none, s:none, s:inverse)
+  call s:HL('IncSearch', s:none, s:none, s:inverse)
+else
+  call s:HL('Search', s:bright_white, s:magenta)
+  call s:HL('IncSearch', s:bright_white, s:magenta)
+endif
 
 call s:HL('Underlined', s:blue, s:none, s:underline)
 
@@ -293,7 +311,7 @@ hi! link Special SrceryOrange
 
 call s:HL('Comment', s:white, s:none, s:italic)
 call s:HL('Todo', s:bright_white, s:black, s:bold . s:italic)
-call s:HL('Error', s:red, s:black, s:bold . s:inverse)
+call s:HL('Error', s:black, s:red, s:bold)
 
 " String constant: "this is a string"
 call s:HL('String',  s:bright_green)
@@ -349,6 +367,12 @@ hi! link Structure SrceryCyan
 " typedef
 hi! link Typedef SrceryMagenta
 
+if g:srcery_dim_lisp_paren == 1 
+  hi! link Delimiter SrceryXgray5
+else
+  hi! link Delimiter SrceryWhite
+endif
+
 " }}}
 " Completion Menu: {{{
 
@@ -402,12 +426,12 @@ if !exists('g:rbpt_colorpairs')
   let g:rbpt_colorpairs =
     \ [
       \ ['blue',  '#2C78BF'], ['166',  '#D75F00'],
-      \ ['green',  '#EF2F27'], ['magenta', '#E02C6D']
+      \ ['red',  '#EF2F27'], ['magenta', '#E02C6D']
     \ ]
 endif
                           
-let g:rainbow_guifgs = [ '#E02C6D', '#519F50', '#D75F00', '#2C78BF']
-let g:rainbow_ctermfgs = [ 'magenta', 'green', '166', 'blue' ]
+let g:rainbow_guifgs = [ '#E02C6D', '#EF2F27', '#D75F00', '#2C78BF']
+let g:rainbow_ctermfgs = [ 'magenta', 'red', '166', 'blue' ]
 
 if !exists('g:rainbow_conf')
    let g:rainbow_conf = {}
@@ -525,12 +549,19 @@ hi! link vimSep SrceryBrightWhite
 hi! link vimContinue SrceryBrightWhite
 
 " }}}
-" Clojure: {{{
+" Lisp dialects: {{{
+if g:srcery_dim_lisp_paren == 1 
+  hi! link schemeParentheses SrceryXgray5
+  hi! link clojureParen SrceryXgray5
+else
+  hi! link schemeParentheses SrceryWhite
+  hi! link clojureParen SrceryWhite
+endif
 
 hi! link clojureKeyword SrceryBlue
-hi! link clojureCond SrceryBrightRed
-hi! link clojureSpecial SrceryBrightRed
-hi! link clojureDefine SrceryBrightRed
+hi! link clojureCond SrceryRed
+hi! link clojureSpecial SrceryRed
+hi! link clojureDefine SrceryRed
 
 hi! link clojureFunc SrceryYellow
 hi! link clojureRepeat SrceryYellow
@@ -544,10 +575,9 @@ call s:HL('clojureRegexpCharClass', s:bright_white, s:none, s:bold)
 hi! link clojureRegexpMod clojureRegexpCharClass
 hi! link clojureRegexpQuantifier clojureRegexpCharClass
 
-hi! link clojureParen SrceryBrightBlue
 hi! link clojureAnonArg SrceryYellow
 hi! link clojureVariable SrceryBlue
-hi! link clojureMacro SrceryBrightRed
+hi! link clojureMacro SrceryOrangeBold
 
 hi! link clojureMeta SrceryYellow
 hi! link clojureDeref SrceryYellow
