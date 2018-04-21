@@ -71,7 +71,7 @@ exe 'hi Directory guifg='s:cyan
 exe 'hi Folded guifg='s:gray72' guibg='s:dodgerblue4 
 exe 'hi FoldColumn guifg='s:gray72' guibg='s:dodgerblue4 
 exe 'hi ModeMsg guifg='s:whitesmoke
-exe 'hi MoreMsg guifg='s:whitesmoke
+exe 'hi MoreMsg guifg='s:whitesmoke' cterm=bold'
 exe 'hi Question guifg='s:whitesmoke
 exe 'hi WildMenu guifg='s:red' guibg='s:yellow' gui=bold cterm=bold'
 exe 'hi TabLine      guifg='s:bfbfbf' guibg='s:black' gui=reverse cterm=reverse'
@@ -102,6 +102,7 @@ exe 'hi Keyword guifg='s:gold'  gui=bold cterm=bold'
 exe 'hi Label guifg='s:cyan3
 exe 'hi Macro guifg='s:gold' gui=bold cterm=bold'
 exe 'hi NonText guifg='s:steelblue3' guibg='s:dodgerblue4 
+exe 'hi EndOfBuffer guifg='s:steelblue3' guibg='s:dodgerblue4 
 exe 'hi Number guifg='s:cyan  
 exe 'hi Operator guifg='s:gold  
 exe 'hi PreProc guifg='s:gold
