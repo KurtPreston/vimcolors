@@ -9,11 +9,12 @@ endif
 
 let g:colors_name = "bushfire"
 
-" Palette (from darkest to brightest)
+" Palette
 " #1c1c1c 234
 " #af5f00 130
 " #878787 102
-" #d75f00 166 base
+" #303030 206
+" #ff5f00 202 base
 " #ffaf5f 215
 " #ffd7af 223
 
@@ -26,24 +27,25 @@ hi Special      guifg=#ffffff               ctermfg=white
 hi Preproc      guifg=#ffffff               ctermfg=white
 hi Type         guifg=#ffffff               ctermfg=white
 
-hi NonText      guifg=#ffffff guibg=#000000 ctermfg=white
+hi NonText      guifg=#ffaf5f guibg=#000000 ctermfg=215
 hi Comment      guifg=#878787               ctermfg=102
-hi SpecialKey   guifg=#d75f00               ctermfg=166
+hi String       guifg=#ffaf5f               ctermfg=215
+hi SpecialKey   guifg=#878787               ctermfg=206
 
 hi LineNr       guifg=#af5f00 guibg=#000000 ctermfg=130   ctermbg=black
-hi CursorLineNr guifg=#000000 guibg=#ffd7af ctermfg=black ctermbg=223
+hi CursorLineNr guifg=#000000 guibg=#ff5f00 ctermfg=black ctermbg=202
 
 hi Cursor       guifg=#000000 guibg=#ffd7af
 hi CursorColumn               guibg=#1c1c1c               ctermbg=234
 hi! link CursorLine CursorColumn
 
-hi StatusLine   guibg=#000000 guifg=#d75f00 ctermbg=black ctermfg=166
+hi StatusLine   guibg=#000000 guifg=#ff5f00 ctermbg=black ctermfg=202
 hi StatusLineNC guibg=#ffffff guifg=#1c1c1c ctermbg=white ctermfg=234
 
-hi Search       guifg=#000000 guibg=#d75f00 ctermfg=black ctermbg=166
+hi Search       guifg=#000000 guibg=#ff5f00 ctermfg=black ctermbg=202
 
-hi Folded       guifg=#ffaf5f guibg=#1c1c1c ctermfg=215 ctermbg=234
+hi Folded       guifg=#ffaf5f guibg=#1c1c1c ctermfg=215   ctermbg=234
 
-hi MatchParen   guifg=bg      guibg=#ffd7af ctermfg=bg  ctermbg=223
+hi MatchParen   guifg=bg      guibg=#ffd7af ctermfg=bg    ctermbg=223
 
-hi Todo        guifg=black guibg=yellow ctermfg=0 ctermbg=11
+hi Todo         guifg=black   guibg=yellow  ctermfg=0     ctermbg=11

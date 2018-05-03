@@ -1,33 +1,41 @@
-syn keyword angularComponent selector template styles
-syn keyword angularRxjsSubscription subscribe unsubscribe
-syn keyword mongoOperator \$set \$and \$or \$nin \$ne \$exists \$fields \$inc
-syn keyword mongoCursorOperator sort limit count skip 
-syn keyword mongoPrototype update insert find findOne remove
-syn keyword angularType Subscription FormGroup MeteorObservable
-syn keyword angularRxjsComponent Subscription Observable Subject
-syn keyword angularForm Validators FormBuilder valid reset
-syn keyword meteorKeyword Meteor check 
-syn keyword meteorPrototype publish methods call isServer isPublic userId
-syn keyword javascriptKeyword console log new require
-syn keyword typescriptKeyword Set 
-syn match typescriptFunc /\s\=\h\+\s*(\{1}\s\=)\+\s\=/
-syn match typescriptVar /\h\+\s\+/
-syn match typescriptJSON /\s\{2,}[a-zA-Z_]\+[?]\=\s\=:/
-syn match typescriptInterface /[<]\{1}[A-Za-z]\+[^\s]\+[^\[\]]*[>]\{1}/
+if ! exists('b:current_syntax') || b:current_syntax !=# 'typescript'
+    finish
+endif
 
-hi def link typescriptInterface Label
-hi def link typescriptJSON jsonKeyword
-hi def link typescriptVar Type
-hi def link typescriptFunc Function
-hi def link angularComponent jsonKeyword
-hi def link angularRxjsSubscription Keyword
-hi def link mongoOperator Operator
-hi def link mongoPrototype Keyword
-hi def link angularType Type
-hi def link meteorPrototype shDeref
-hi def link mongoCursorOperator shDeref
-hi def link angularRxjsComponent class   
-hi def link meteorKeyword Function
-hi def link angularForm Label
-hi def link javascriptKeyword Type
-hi def link typescriptKeyword Function
+hi! link typescriptArrayMethod            DraculaCyan
+hi! link typescriptArrowFuncArg           DraculaOrangeItalic
+hi! link typescriptAssign                 Operator
+hi! link typescriptBinaryOp               Operator
+hi! link typescriptBraces                 Normal
+hi! link typescriptCall                   typescriptArrowFuncArg
+hi! link typescriptClassHeritage          Type
+hi! link typescriptClassName              Type
+hi! link typescriptDateMethod             DraculaCyan
+hi! link typescriptDateStaticMethod       Function
+hi! link typescriptDecorator              DraculaGreenItalic
+hi! link typescriptES6SetMethod           DraculaCyan
+hi! link typescriptEndColons              Normal
+hi! link typescriptEnum                   Type
+hi! link typescriptEnumKeyword            Keyword
+hi! link typescriptFuncKeyword            Keyword
+hi! link typescriptGlobal                 Type
+hi! link typescriptGlobalMethod           DraculaCyan
+hi! link typescriptGlobalObjects          Type
+hi! link typescriptIdentifier             Keyword
+hi! link typescriptInterfaceHeritage      Type
+hi! link typescriptInterfaceName          Type
+hi! link typescriptInterpolationDelimiter Keyword
+hi! link typescriptKeywordOp              Keyword
+hi! link typescriptLogicSymbols           Operator
+hi! link typescriptMember                 Normal
+hi! link typescriptMemberOptionality      Special
+hi! link typescriptObjectColon            Special
+hi! link typescriptObjectLabel            Normal
+hi! link typescriptObjectSpread           Operator
+hi! link typescriptOperator               Operator
+hi! link typescriptPredefinedType         Type
+hi! link typescriptTernaryOp              Operator
+hi! link typescriptTypeAnnotation         Special
+hi! link typescriptTypeCast               Operator
+hi! link typescriptUnaryOp                Operator
+hi! link typescriptVariable               Keyword
