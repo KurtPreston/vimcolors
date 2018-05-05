@@ -41,4 +41,4 @@ map ,tu :tabedit %:p:h/urls.py<CR>
 map ,tf :tabedit %:p:h/forms.py<CR>
 map ,ts :tabedit %:p:h/tests.py<CR>
 
-:iabbr #T # TODO(mohammad.mohtasham@openx.com):
+:iabbr #T # TODO(mohm#LSI-2014-03-25):

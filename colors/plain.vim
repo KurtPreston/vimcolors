@@ -65,6 +65,7 @@ if &background == "dark"
   let s:constant        = s:light_blue
   let s:comment         = s:light_gray
   let s:selection       = s:light_yellow
+  let s:warning         = s:yellow
 else
   let s:bg              = s:white
   let s:bg_subtle       = s:lighter_gray
@@ -83,6 +84,7 @@ else
   let s:constant        = s:dark_blue
   let s:comment         = s:light_gray
   let s:selection       = s:light_yellow
+  let s:warning         = s:yellow
 endif
 
 " https://github.com/noahfrederick/vim-hemisu/
@@ -162,7 +164,7 @@ call s:h("VertSplit",     {"bg": s:bg_very_subtle, "fg": s:bg_very_subtle})
 call s:h("Title",         {"fg": s:dark_blue})
 call s:h("Visual",        {"bg": s:visual})
 call s:h("VisualNOS",     {"bg": s:bg_subtle})
-call s:h("WarningMsg",    {"fg": s:red})
+call s:h("WarningMsg",    {"fg": s:warning})
 call s:h("WildMenu",      {"fg": s:black, "bg": s:bg_very_subtle})
 call s:h("Folded",        {"fg": s:medium_gray})
 call s:h("FoldColumn",    {"fg": s:bg_subtle})
@@ -193,10 +195,10 @@ call s:h("StatusLineNC",      {"gui": "underline", "bg": s:bg, "fg": s:status_li
 " status line.
 call s:h("StatusLineOk",      {"gui": "underline", "bg": s:bg, "fg": s:green})
 call s:h("StatusLineError",   {"gui": "underline", "bg": s:bg, "fg": s:pink})
-call s:h("StatusLineWarning", {"gui": "underline", "bg": s:bg, "fg": s:dark_yellow})
+call s:h("StatusLineWarning", {"gui": "underline", "bg": s:bg, "fg": s:warning})
 
 call s:h("Pmenu",         {"fg": s:norm, "bg": s:cursor_line})
-call s:h("PmenuSel",      {"fg": s:norm, "bg": s:blue})
+call s:h("PmenuSel",      {"fg": s:norm, "bg": s:bg_subtle, "gui": "bold"})
 call s:h("PmenuSbar",     {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuThumb",    {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("TabLine",       {"fg": s:norm, "bg": s:bg_very_subtle})
@@ -247,7 +249,7 @@ hi link markdownH3 Statement
 hi link markdownH4 Statement
 hi link markdownH5 Statement
 hi link markdownH6 Statement
-hi link markdownListMarker Statement
-hi link markdownCode Statement
-hi link markdownCodeDelimiter Statement
-hi link markdownHeadingDelimiter Statement
+hi link markdownListMarker Constant
+hi link markdownCode Constant
+hi link markdownCodeDelimiter Constant
+hi link markdownHeadingDelimiter Constant

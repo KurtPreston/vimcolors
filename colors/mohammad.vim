@@ -35,7 +35,7 @@ hi Visual     ctermbg=NONE	   cterm=reverse gui=reverse guifg=Grey guibg=fg
 hi VisualNOS  cterm=underline,bold gui=underline,bold
 hi WarningMsg ctermfg=DarkRed	   guifg=Red
 hi WildMenu   ctermfg=Black	   ctermbg=Yellow    guibg=Yellow guifg=Black
-hi ColorColumn ctermbg=0 guibg=#3d3b37
+hi ColorColumn ctermbg=8
 hi CursorLine  cterm=NONE ctermbg=Brown
 
 " syntax highlighting

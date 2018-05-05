@@ -27,10 +27,11 @@ hi Special      guifg=#ffffff               ctermfg=white
 hi Preproc      guifg=#ffffff               ctermfg=white
 hi Type         guifg=#ffffff               ctermfg=white
 
+hi Visual       guifg=#000000 guibg=#ffd7af ctermfg=black ctermfg=223
 hi NonText      guifg=#ffaf5f guibg=#000000 ctermfg=215
 hi Comment      guifg=#878787               ctermfg=102
 hi String       guifg=#ffaf5f               ctermfg=215
-hi SpecialKey   guifg=#878787               ctermfg=206
+hi SpecialKey   guifg=#878787               ctermfg=102
 
 hi LineNr       guifg=#af5f00 guibg=#000000 ctermfg=130   ctermbg=black
 hi CursorLineNr guifg=#000000 guibg=#ff5f00 ctermfg=black ctermbg=202
