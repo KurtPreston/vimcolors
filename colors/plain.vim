@@ -186,6 +186,10 @@ else
   call s:h("SpellLocal",  {"cterm": "underline", "fg": s:dark_green})
 endif
 
+""" Help
+hi link helpHyperTextEntry Title
+hi link helpHyperTextJump  String
+
 """ StatusLine
 
 call s:h("StatusLine",        {"gui": "underline", "bg": s:bg, "fg": s:status_line})
