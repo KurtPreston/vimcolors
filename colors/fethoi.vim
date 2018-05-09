@@ -163,7 +163,7 @@ call s:h('ColorColumn', '', 'color8')
 call s:h('Visual', '', 'color15')
 
 " The column separating vertical splits
-call s:h('VertSplit', 'color0', 'color8')
+call s:h('VertSplit', 'fg', 'bg')
 
 " Status line
 call s:h('StatusLine', 'color7', 'color4')

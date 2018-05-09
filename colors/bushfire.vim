@@ -11,9 +11,7 @@ let g:colors_name = "bushfire"
 
 " Palette
 " #1c1c1c 234
-" #af5f00 130
 " #878787 102
-" #303030 206
 " #ff5f00 202 base
 " #ffaf5f 215
 " #ffd7af 223
@@ -26,6 +24,7 @@ hi Constant     guifg=#ffffff               ctermfg=white
 hi Special      guifg=#ffffff               ctermfg=white
 hi Preproc      guifg=#ffffff               ctermfg=white
 hi Type         guifg=#ffffff               ctermfg=white
+hi Title                                                                cterm=bold
 
 hi Visual       guifg=#000000 guibg=#ffd7af ctermfg=black ctermfg=223
 hi NonText      guifg=#ffaf5f guibg=#000000 ctermfg=215
@@ -33,7 +32,7 @@ hi Comment      guifg=#878787               ctermfg=102
 hi String       guifg=#ffaf5f               ctermfg=215
 hi SpecialKey   guifg=#878787               ctermfg=102
 
-hi LineNr       guifg=#af5f00 guibg=#000000 ctermfg=130   ctermbg=black
+hi LineNr       guifg=#ff5f00 guibg=#000000 ctermfg=202   ctermbg=black
 hi CursorLineNr guifg=#000000 guibg=#ff5f00 ctermfg=black ctermbg=202
 
 hi Cursor       guifg=#000000 guibg=#ffd7af
@@ -42,6 +41,8 @@ hi! link CursorLine CursorColumn
 
 hi StatusLine   guibg=#000000 guifg=#ff5f00 ctermbg=black ctermfg=202
 hi StatusLineNC guibg=#ffffff guifg=#1c1c1c ctermbg=white ctermfg=234
+
+hi VertSplit    guibg=#ff5f00 guifg=#878787 ctermbg=202   ctermfg=102
 
 hi Search       guifg=#000000 guibg=#ff5f00 ctermfg=black ctermbg=202
 
