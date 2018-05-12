@@ -1,7 +1,7 @@
 " File:         perun.vim
 " URL:          https://github.com/aradunovic/perun.vim
 " Maintainer:   Aleksandar Radunovic (https://radunovic.io)
-" Version:      1.0
+" Version:      1.0.1
 " License:      MIT
 "
 " Based on desert.vim
