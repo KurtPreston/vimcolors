@@ -44,6 +44,7 @@ let s:white_pink            = { "gui": "#FEF7FE", "cterm": "231" }
 let s:white_pink_deep       = { "gui": "#FEF0FE", "cterm": "255" }
 let s:black_green           = { "gui": "#053703", "cterm": "235" }
 let s:black_green_bright    = { "gui": "#074005", "cterm": "239" }
+let s:middle_gray           = { "gui": "#8a8a8a", "cterm": "245" }
 
 let s:light_gray        = { "gui": "#E1DCDA", "cterm": "253" }
 let s:light_green       = { "gui": "#B7EFA5", "cterm": "157" }
@@ -55,7 +56,6 @@ let s:dark_gray         = { "gui": "#4D4A48", "cterm": "241" }
 let s:dark_green        = { "gui": "#09570A", "cterm": "22"  }
 let s:dark_yellow       = { "gui": "#BC922B", "cterm": "3"   }
 let s:dark_pink         = { "gui": "#B365A2", "cterm": "133" }
-"let s:dark_brown        = { "gui": "#845D18", "cterm": "94"  }
 let s:dark_red          = { "gui": "#D9372D", "cterm": "160" }
 
 " Color Alias
@@ -63,6 +63,7 @@ if &background == "light"
     let s:norm          = s:black
     let s:bg            = s:white_pink
     let s:bg_subtle     = s:white_pink_deep
+    let s:gray_fg       = s:middle_gray
     let s:green_fg      = s:green
     let s:yellow_fg     = s:dark_yellow
     let s:pink_fg       = s:dark_pink
@@ -80,6 +81,7 @@ if &background == "dark"
     let s:norm          = s:white
     let s:bg            = s:black_green
     let s:bg_subtle     = s:black_green_bright
+    let s:gray_fg       = s:middle_gray
     let s:green_fg      = s:light_green
     let s:yellow_fg     = s:light_yellow
     let s:pink_fg       = s:light_pink
@@ -122,7 +124,7 @@ endif
 "{{{ Common Highlighting
 call s:hi("Normal",         {"fg": s:norm, "bg": s:bg})
 call s:hi("Cursor",         {})
-call s:hi("Comment",        {"fg": s:blue_fg, "gui": "italic", "cterm": "italic", "term": "italic"})
+call s:hi("Comment",        {"fg": s:gray_fg, "gui": "italic", "cterm": "italic", "term": "italic"})
 
 call s:hi("Constant",       {"fg": s:pink_fg})
 hi! link String             Constant
@@ -142,7 +144,7 @@ hi! link Operator           Statement
 hi! link Keyword            Statement
 hi! link Exception          Statement
 
-call s:hi("PreProc",        {"fg": s:pink_fg})
+call s:hi("PreProc",        {"fg": s:purple})
 hi! link Include            PreProc
 hi! link Define             PreProc
 hi! link Macro              PreProc
