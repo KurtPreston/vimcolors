@@ -37,13 +37,16 @@ hi SpecialKey   ctermfg=01
 hi LineNr       ctermfg=01    ctermbg=00
 hi CursorLineNr ctermfg=00    ctermbg=01
 
+
 hi! link CursorColumn Normal
 hi! link CursorLine CursorColumn
 
 hi StatusLine   ctermbg=00    ctermfg=01     cterm=reverse
+hi! link StatusLineTerm StatusLine
 hi StatusLineNC ctermbg=07    ctermfg=00
+hi! link StatusLineTermNC StatusLineNC
 
-hi VertSplit    ctermfg=07    ctermbg=00
+hi VertSplit    ctermbg=01    ctermfg=00
 
 hi Search       ctermfg=00    ctermbg=01
 

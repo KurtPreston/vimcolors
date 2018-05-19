@@ -17,6 +17,7 @@ let g:colors_name = "bushfire"
 " #ffaf5f 215
 " #ffd7af 223
 
+
 "               guifg=        guibg=        ctermfg=      ctermbg=      cterm=        gui=
 hi Normal       guifg=white   guibg=black   ctermfg=white ctermbg=black
 hi Statement    guifg=white                 ctermfg=white               cterm=none    gui=none
@@ -41,9 +42,11 @@ hi CursorColumn               guibg=#303030               ctermbg=236
 hi! link CursorLine CursorColumn
 
 hi StatusLine   guibg=black   guifg=#ff5f00 ctermbg=black ctermfg=202
+hi! link StatusLineTerm StatusLine
 hi StatusLineNC guibg=white   guifg=#1c1c1c ctermbg=white ctermfg=234
+hi! link StatusLineTermNC StatusLineNC
 
-hi VertSplit    guibg=#ff5f00 guifg=#878787 ctermbg=202   ctermfg=102
+hi VertSplit    guibg=#ff5f00 guifg=bg      ctermbg=202   ctermfg=black
 
 hi Search       guifg=black   guibg=#ff5f00 ctermfg=black ctermbg=202
 
