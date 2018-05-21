@@ -19,9 +19,9 @@ let g:colors_name="blueprint"
 " --------------------------------
 " Editor settings
 " --------------------------------
-hi          Normal guifg=#aac6df guibg=#045ba4 gui=none
-hi          Cursor guifg=#aac6df guibg=#045ba4 gui=standout
-hi      CursorLine guifg=#aac6df guibg=#045ba4 gui=none
+hi          Normal guifg=#ffffff guibg=#045ba4 gui=none
+hi          Cursor guifg=#ffffff guibg=#045ba4 gui=standout
+hi      CursorLine guifg=#ffffff guibg=#045ba4 gui=none
 hi          LineNr guifg=#ffffff guibg=#045ba4 gui=none
 hi    CursorLineNR guifg=#aac6df guibg=#045ba4 gui=none
 
@@ -63,32 +63,32 @@ hi         MoreMsg guifg=#aac6df guibg=#045ba4 gui=none
 " --------------
 " - Visual aid -
 " --------------
-hi      MatchParen guifg=#aac6df guibg=#045ba4 gui=standout
+hi      MatchParen guifg=#ffd479 guibg=#045ba4 gui=standout
 hi          Visual guifg=#aac6df guibg=#045ba4 gui=standout
 hi       VisualNOS guifg=#aac6df guibg=#045ba4 gui=standout
-hi         NonText guifg=#ffffff guibg=#045ba4 gui=none
+hi         NonText guifg=#5992c3 guibg=#045ba4 gui=none
 
 hi            Todo guifg=#aac6df guibg=#045ba4 gui=underline
 hi      Underlined guifg=#aac6df guibg=#045ba4 gui=underline
-hi           Error guifg=#aac6df guibg=#045ba4 gui=none
-hi        ErrorMsg guifg=#aac6df guibg=#045ba4 gui=none
-hi      WarningMsg guifg=#aac6df guibg=#045ba4 gui=none
-hi          Ignore guifg=none    guibg=#045ba4 gui=none
+hi           Error guifg=#ff7e79 guibg=#045ba4 gui=none
+hi        ErrorMsg guifg=#ff7e79 guibg=#045ba4 gui=none
+hi      WarningMsg guifg=#ff7e79 guibg=#045ba4 gui=none
+hi          Ignore guifg=#045ba4 guibg=#045ba4 gui=none
 hi      SpecialKey guifg=#aac6df guibg=#045ba4 gui=none
 
 " --------------------------------
 " Variable types
 " --------------------------------
-hi        Constant guifg=#ffffff guibg=#045ba4 gui=none
-hi          String guifg=#ffffff guibg=#045ba4 gui=none
-hi StringDelimiter guifg=#ffffff guibg=#045ba4 gui=none
-hi       Character guifg=#ffffff guibg=#045ba4 gui=none
-hi          Number guifg=#ffffff guibg=#045ba4 gui=none
-hi         Boolean guifg=#ffffff guibg=#045ba4 gui=none
-hi           Float guifg=#ffffff guibg=#045ba4 gui=none
+hi        Constant guifg=#aac6df guibg=#045ba4 gui=none
+hi          String guifg=#aac6df guibg=#045ba4 gui=none
+hi StringDelimiter guifg=#aac6df guibg=#045ba4 gui=none
+hi       Character guifg=#aac6df guibg=#045ba4 gui=none
+hi          Number guifg=#aac6df guibg=#045ba4 gui=none
+hi         Boolean guifg=#aac6df guibg=#045ba4 gui=none
+hi           Float guifg=#aac6df guibg=#045ba4 gui=none
 
-hi      Identifier guifg=#aac6df guibg=#045ba4 gui=none
-hi        Function guifg=#aac6df guibg=#045ba4 gui=none
+hi      Identifier guifg=#ffffff guibg=#045ba4 gui=none
+hi        Function guifg=#ffffff guibg=#045ba4 gui=none
 
 " --------------------------------
 " Language constructs
@@ -102,26 +102,26 @@ hi         Keyword guifg=#ffffff guibg=#045ba4 gui=none
 hi       Exception guifg=#ffffff guibg=#045ba4 gui=none
 hi         Comment guifg=#5992c3 guibg=#045ba4 gui=none
 
-hi         Special guifg=#ffffff guibg=#045ba4 gui=none
-hi     SpecialChar guifg=#ffffff guibg=#045ba4 gui=none
-hi             Tag guifg=#ffffff guibg=#045ba4 gui=none
-hi       Delimiter guifg=#ffffff guibg=#045ba4 gui=none
-hi  SpecialComment guifg=#ffffff guibg=#045ba4 gui=none
-hi           Debug guifg=#ffffff guibg=#045ba4 gui=none
+hi         Special guifg=#aac6df guibg=#045ba4 gui=none
+hi     SpecialChar guifg=#aac6df guibg=#045ba4 gui=none
+hi             Tag guifg=#aac6df guibg=#045ba4 gui=none
+hi       Delimiter guifg=#aac6df guibg=#045ba4 gui=none
+hi  SpecialComment guifg=#aac6df guibg=#045ba4 gui=none
+hi           Debug guifg=#aac6df guibg=#045ba4 gui=none
 
 " ----------
 " - C like -
 " ----------
-hi         PreProc guifg=#ffffff guibg=#045ba4 gui=none
-hi         Include guifg=#ffffff guibg=#045ba4 gui=none
-hi          Define guifg=#ffffff guibg=#045ba4 gui=none
-hi           Macro guifg=#ffffff guibg=#045ba4 gui=none
-hi       PreCondit guifg=#ffffff guibg=#045ba4 gui=none
+hi         PreProc guifg=#aac6df guibg=#045ba4 gui=none
+hi         Include guifg=#aac6df guibg=#045ba4 gui=none
+hi          Define guifg=#aac6df guibg=#045ba4 gui=none
+hi           Macro guifg=#aac6df guibg=#045ba4 gui=none
+hi       PreCondit guifg=#aac6df guibg=#045ba4 gui=none
 
-hi            Type guifg=#aac6df guibg=#045ba4 gui=none
-hi    StorageClass guifg=#aac6df guibg=#045ba4 gui=none
-hi       Structure guifg=#aac6df guibg=#045ba4 gui=none
-hi         Typedef guifg=#aac6df guibg=#045ba4 gui=none
+hi            Type guifg=#ffffff guibg=#045ba4 gui=none
+hi    StorageClass guifg=#ffffff guibg=#045ba4 gui=none
+hi       Structure guifg=#ffffff guibg=#045ba4 gui=none
+hi         Typedef guifg=#ffffff guibg=#045ba4 gui=none
 
 " --------------------------------
 " Diff
@@ -138,10 +138,10 @@ hi            link diffRemoved      DiffDelete
 " --------------------------------
 " Completion menu
 " --------------------------------
-hi           Pmenu guifg=#aac6df guibg=#045ba4 gui=standout
-hi        PmenuSel guifg=#aac6df guibg=#045ba4 gui=none
-hi       PmenuSbar guifg=#aac6df guibg=#045ba4 gui=none
-hi      PmenuThumb guifg=#aac6df guibg=#045ba4 gui=none
+hi           Pmenu guifg=#acc2df guibg=#5992c3 gui=none
+hi        PmenuSel guifg=#ffffff guibg=#5992c3 gui=none
+hi       PmenuSbar guifg=#aac2df guibg=#5992c3 gui=none
+hi      PmenuThumb guifg=#aac2df guibg=#5992c3 gui=none
 
 " --------------------------------
 " Spelling
