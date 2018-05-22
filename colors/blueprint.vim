@@ -68,11 +68,11 @@ hi          Visual guifg=#aac6df guibg=#045ba4 gui=standout
 hi       VisualNOS guifg=#aac6df guibg=#045ba4 gui=standout
 hi         NonText guifg=#5992c3 guibg=#045ba4 gui=none
 
-hi            Todo guifg=#aac6df guibg=#045ba4 gui=underline
+hi            Todo guifg=#aac6df guibg=#045ba4 gui=none
 hi      Underlined guifg=#aac6df guibg=#045ba4 gui=underline
-hi           Error guifg=#ff7e79 guibg=#045ba4 gui=none
-hi        ErrorMsg guifg=#ff7e79 guibg=#045ba4 gui=none
-hi      WarningMsg guifg=#ff7e79 guibg=#045ba4 gui=none
+hi           Error guifg=#ff9179 guibg=#045ba4 gui=none
+hi        ErrorMsg guifg=#ff9179 guibg=#045ba4 gui=none
+hi      WarningMsg guifg=#ff9179 guibg=#045ba4 gui=none
 hi          Ignore guifg=#045ba4 guibg=#045ba4 gui=none
 hi      SpecialKey guifg=#aac6df guibg=#045ba4 gui=none
 
@@ -126,11 +126,11 @@ hi         Typedef guifg=#ffffff guibg=#045ba4 gui=none
 " --------------------------------
 " Diff
 " --------------------------------
-hi         DiffAdd guifg=#76d6ff guibg=#045ba4 gui=none
+hi         DiffAdd guifg=#73fa79 guibg=#045ba4 gui=none
 hi      DiffChange guifg=#ffd479 guibg=#045ba4 gui=none
-hi      DiffDelete guifg=#ff7e79 guibg=#045ba4 gui=none
-hi        DiffText guifg=#aac6df guibg=#045ba4 gui=none
-hi        DiffFile guifg=#aac6df guibg=#045ba4 gui=underline
+hi      DiffDelete guifg=#ff9179 guibg=#045ba4 gui=none
+hi        DiffText guifg=#ffffff guibg=#045ba4 gui=none
+hi        DiffFile guifg=#76d6ff guibg=#045ba4 gui=none
 
 hi            link diffAdded           DiffAdd
 hi            link diffRemoved      DiffDelete
@@ -146,10 +146,10 @@ hi      PmenuThumb guifg=#aac2df guibg=#5992c3 gui=none
 " --------------------------------
 " Spelling
 " --------------------------------
-hi        SpellBad guifg=red     guibg=#045ba4 gui=underline
-hi        SpellCap guifg=red     guibg=#045ba4 gui=underline
-hi      SpellLocal guifg=red     guibg=#045ba4 gui=underline
-hi       SpellRare guifg=red     guibg=#045ba4 gui=underline
+hi        SpellBad guifg=#ff9179 guibg=#045ba4 gui=none
+hi        SpellCap guifg=#ff9179 guibg=#045ba4 gui=none
+hi      SpellLocal guifg=#ff9179 guibg=#045ba4 gui=none
+hi       SpellRare guifg=#ff9179 guibg=#045ba4 gui=none
 
 "--------------------------------------------------------------------
 " Specific settings                                                 |
