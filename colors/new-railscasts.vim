@@ -1,9 +1,8 @@
 " Vim color scheme
 "
 " Name:        railscast.vim
-" Maintainer:  Josh O'Rourke <joshorourke@me.com>
 " Modified:    Carlos Ramos, carakan
-" License:     public domain
+" License:     MIT
 "
 " Theme Color scheme
 " #00BBEF
@@ -164,19 +163,22 @@ hi rubyPredefinedConstant    guifg=#F47454
 hi rubyPseudoVariable        guifg=#47a3e5 gui=italic,bold
 hi rubyStringDelimiter       guifg=#87af5f
 hi rubySymbol                guifg=#6D9CBE gui=bold
-" JAVASCRIPT
-"
+
+" Javascript https://github.com/pangloss/vim-javascript
+
 hi jsArrowFunction            guifg=#FFA78D
 hi jsFunction                 guifg=#FFA78D ctermfg=221 gui=italic
 hi jsFunctionKey              guifg=#FFA78D gui=italic
 hi jsNoise                    guifg=#CB725B gui=bold
 hi jsNull                     guifg=#FFA78D gui=italic
+hi jsOperatorKeyword          guifg=#F9F871 gui=italic
 hi jsObjectFuncName           guifg=#FFC66D gui=bold,italic guibg=NONE
 hi jsObjectKey                guifg=#6D9CBE gui=bold
 hi jsStorageClass             guifg=#F47454 gui=italic
 hi jsThis                     guifg=#d7b0fc gui=bold,italic
 hi link jsGlobalObjects       Type
 hi link jsObjectProp          Type
+
 " Typescript
 "
 hi typescriptArrowFunc              guifg=#FFA78D gui=italic
