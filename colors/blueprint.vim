@@ -31,7 +31,7 @@ hi    CursorLineNR guifg=#aac6df guibg=#045ba4 gui=none
 hi    CursorColumn guifg=#aac6df guibg=#045ba4 gui=none
 hi      FoldColumn guifg=#aac6df guibg=#045ba4 gui=none
 hi      SignColumn guifg=#aac6df guibg=#045ba4 gui=none
-hi          Folded guifg=#aac6df guibg=#045ba4 gui=none
+hi          Folded guifg=#ffffff guibg=#045ba4 gui=none
 
 " -------------------------
 " - Window/Tab delimiters - 
