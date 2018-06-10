@@ -1,6 +1,6 @@
 " Tigrana 256 Light
 "  Author: Joseph Carter
-"     URL: https://github.com/iKarith/tigrana
+"     URL: https://gitlab.com/iKarith/tigrana
 " Created: 2017
 " Version: 0.4
 "
