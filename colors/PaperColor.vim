@@ -1746,14 +1746,25 @@ fun! s:apply_syntax_highlightings()
   exec 'hi rubyBoolean' . s:fg_green . s:ft_bold
 
   " Fortran Highlighting
-  exec 'hi fortranUnitHeader' . s:fg_aqua . s:ft_bold
+  exec 'hi fortranUnitHeader' . s:fg_blue . s:ft_bold
+  exec 'hi fortranIntrinsic' . s:fg_blue . s:bg_background . s:ft_none
   exec 'hi fortranType' . s:fg_pink . s:ft_bold
-  exec 'hi fortranStructure' . s:fg_blue . s:ft_bold
+  exec 'hi fortranTypeOb' . s:fg_pink . s:ft_bold
+  exec 'hi fortranStructure' . s:fg_aqua
   exec 'hi fortranStorageClass' . s:fg_navy . s:ft_bold
   exec 'hi fortranStorageClassR' . s:fg_navy . s:ft_bold
   exec 'hi fortranKeyword' . s:fg_pink
-  exec 'hi fortranReadWrite' . s:fg_blue
+  exec 'hi fortranReadWrite' . s:fg_aqua . s:ft_bold
   exec 'hi fortranIO' . s:fg_navy
+  exec 'hi fortranOperator' . s:fg_aqua . s:ft_bold
+  exec 'hi fortranCall' . s:fg_aqua . s:ft_bold
+  exec 'hi fortranContinueMark' . s:fg_green
+
+  " ALGOL Highlighting (Plugin: https://github.com/sterpe/vim-algol68)
+  exec 'hi algol68Statement' . s:fg_blue . s:ft_bold
+  exec 'hi algol68Operator' . s:fg_aqua . s:ft_bold
+  exec 'hi algol68PreProc' . s:fg_green
+  exec 'hi algol68Function' . s:fg_blue
 
   " R Highlighting
   exec 'hi rType' . s:fg_blue
