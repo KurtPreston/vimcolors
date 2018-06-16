@@ -1,6 +1,6 @@
 " File:			skeletor.vim
-" Maintainer:		Lukas Moeller (https://github.com/salttt)
-" Source:		https://github.com/salttt/skeletor
+" Maintainer:		Lukas Moeller (https://github.com/skreek)
+" Source:		https://github.com/skreek/skeletor.vim
 " Last Modified:	March 23, 2018
 " License:		MIT-Licence
 "
