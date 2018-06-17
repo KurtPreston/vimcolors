@@ -36,7 +36,8 @@ let s:green             = { "gui": "#30B536", "cterm": "34"  }
 let s:pink              = { "gui": "#D36DD3", "cterm": "170" }
 let s:orange            = { "gui": "#FC923F", "cterm": "208" }
 let s:purple            = { "gui": "#B586E7", "cterm": "141" }
-let s:blue              = { "gui": "#255DE7", "cterm": "27"  }
+let s:light_cyan        = { "gui": "#D7FFFF", "cterm": "195" }
+let s:dark_cyan         = { "gui": "#00AF87", "cterm": "36"  }
 let s:ultramarine       = { "gui": "#229EC0", "cterm": "38"  }
 let s:skyblue           = { "gui": "#34D0F1", "cterm": "45"  }
 
@@ -67,12 +68,14 @@ if &background == "light"
     let s:green_fg      = s:green
     let s:yellow_fg     = s:dark_yellow
     let s:pink_fg       = s:dark_pink
+    let s:cyan_fg       = s:dark_cyan
     let s:blue_fg       = s:ultramarine
     let s:red_fg        = s:dark_red
     let s:gray_bg       = s:light_gray
     let s:green_bg      = s:light_green
     let s:yellow_bg     = s:light_yellow
     let s:pink_bg       = s:light_pink
+    let s:cyan_bg       = s:light_cyan
     let s:blue_bg       = s:skyblue
     let s:red_bg        = s:light_red
 endif
@@ -85,12 +88,14 @@ if &background == "dark"
     let s:green_fg      = s:light_green
     let s:yellow_fg     = s:light_yellow
     let s:pink_fg       = s:light_pink
+    let s:cyan_fg       = s:light_cyan
     let s:blue_fg       = s:skyblue
     let s:red_fg        = s:light_red
     let s:gray_bg       = s:dark_gray
     let s:green_bg      = s:green
     let s:yellow_bg     = s:dark_yellow
     let s:pink_bg       = s:pink
+    let s:cyan_bg       = s:dark_cyan
     let s:blue_bg       = s:ultramarine
     let s:red_bg        = s:dark_red
 endif
@@ -144,7 +149,7 @@ hi! link Operator           Statement
 hi! link Keyword            Statement
 hi! link Exception          Statement
 
-call s:hi("PreProc",        {"fg": s:purple})
+call s:hi("PreProc",        {"fg": s:blue_fg})
 hi! link Include            PreProc
 hi! link Define             PreProc
 hi! link Macro              PreProc
@@ -169,8 +174,8 @@ call s:hi("Todo",            {"bg": s:yellow_bg, "gui": "bold", "cterm": "bold"}
 
 "}}}
 "{{{ Semi-Common Highlighting
-call s:hi("SpecialKey",     {"fg": s:blue, "gui": "bold", "cterm": "bold", "term": "bold"})
-call s:hi("NonText",        {"fg": s:blue, "gui": "bold", "cterm": "bold", "term": "bold"})
+call s:hi("SpecialKey",     {"fg": s:purple, "gui": "bold", "cterm": "bold", "term": "bold"})
+call s:hi("NonText",        {"fg": s:cyan_bg, "gui": "bold", "cterm": "bold", "term": "bold"})
 call s:hi("Directory",      {"fg": s:blue_fg, "gui": "bold", "cterm": "bold", "term": "bold"})
 call s:hi("ErrorMsg",       {"fg": s:red_fg, "gui": "bold", "cterm": "bold", "term": "bold"})
 call s:hi("IncSearch",      {"gui": "reverse", "cterm": "reverse", "term": "reverse"})
