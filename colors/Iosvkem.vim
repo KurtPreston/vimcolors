@@ -4,7 +4,7 @@
 " Maintainer:   neutaaaaan
 " Website:      github.com/neutaaaaan/iosvkem
 " License:      Vim License (see `:help license`)
-" Last Updated: Wed 06 Jun 2018 01:27:41 AM CEST
+" Last Updated: Mon 18 Jun 2018 12:01:31 AM CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -86,19 +86,19 @@ hi SpellBad ctermfg=199 ctermbg=234 guifg=#fc20bb guibg=#1b1d1e guisp=#d02b61 ct
 hi SpellCap ctermfg=39 ctermbg=234 guifg=#20bbfc guibg=#1b1d1e guisp=#6c9ef8 cterm=NONE gui=NONE
 hi SpellLocal ctermfg=129 ctermbg=234 guifg=#bb20fc guibg=#1b1d1e guisp=#b77fdb cterm=NONE gui=NONE
 hi SpellRare ctermfg=49 ctermbg=234 guifg=#20fcbb guibg=#1b1d1e guisp=#00aa80 cterm=NONE,reverse gui=NONE,reverse
-hi StatusLine ctermfg=253 ctermbg=234 guifg=#dddddd guibg=#1b1d1e guisp=NONE cterm=NONE gui=NONE
+hi StatusLine ctermfg=253 ctermbg=236 guifg=#dddddd guibg=#303030 guisp=NONE cterm=NONE gui=NONE
 hi StatusLineNC ctermfg=253 ctermbg=234 guifg=#dddddd guibg=#1b1d1e guisp=NONE cterm=NONE gui=NONE
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
-hi TabLine ctermfg=253 ctermbg=234 guifg=#dddddd guibg=#1b1d1e guisp=NONE cterm=NONE gui=NONE
-hi TabLineFill ctermfg=253 ctermbg=234 guifg=#dddddd guibg=#1b1d1e guisp=NONE cterm=NONE gui=NONE
-hi TabLineSel ctermfg=253 ctermbg=234 guifg=#dddddd guibg=#1b1d1e guisp=NONE cterm=NONE gui=NONE
+hi TabLine ctermfg=253 ctermbg=236 guifg=#dddddd guibg=#303030 guisp=NONE cterm=NONE gui=NONE
+hi TabLineFill ctermfg=253 ctermbg=236 guifg=#dddddd guibg=#303030 guisp=NONE cterm=NONE gui=NONE
+hi TabLineSel ctermfg=253 ctermbg=239 guifg=#dddddd guibg=#505050 guisp=NONE cterm=NONE gui=NONE
 hi Title ctermfg=253 ctermbg=234 guifg=#dddddd guibg=#1b1d1e guisp=NONE cterm=NONE gui=NONE
 hi VertSplit ctermfg=239 ctermbg=234 guifg=#505050 guibg=#1b1d1e guisp=NONE cterm=NONE gui=NONE
 hi Visual ctermfg=NONE ctermbg=236 guifg=NONE guibg=#303030 guisp=NONE cterm=NONE gui=NONE
 hi VisualNOS ctermfg=NONE ctermbg=236 guifg=NONE guibg=#303030 guisp=NONE cterm=NONE gui=NONE
 hi WarningMsg ctermfg=253 ctermbg=234 guifg=#dddddd guibg=#1b1d1e guisp=NONE cterm=NONE gui=NONE
-hi WildMenu ctermfg=39 ctermbg=234 guifg=#20bbfc guibg=#1b1d1e guisp=NONE cterm=NONE gui=NONE
+hi WildMenu ctermfg=39 ctermbg=236 guifg=#20bbfc guibg=#303030 guisp=NONE cterm=NONE gui=NONE
 hi! link Boolean Constant
 hi! link Character Constant
 hi Comment ctermfg=244 ctermbg=NONE guifg=#808080 guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
@@ -219,19 +219,19 @@ finish
 " SpellCap             uiblue            black             s=blue
 " SpellLocal           uipurple          black             s=purple
 " SpellRare            uiteal            black             s=teal reverse
-" StatusLine           white             black
+" StatusLine           white             uiblack           
 " StatusLineNC         white             black
 " StatusLineTerm    -> StatusLine
 " StatusLineTermNC  -> StatusLineNC
-" TabLine              white             black
-" TabLineFill          white             black
-" TabLineSel           white             black
+" TabLine              white             uiblack
+" TabLineFill          white             uiblack
+" TabLineSel           white             greyblack
 " Title                white             black
 " VertSplit            greyblack         black
 " Visual               none              uiblack 
 " VisualNOS            none              uiblack
 " WarningMsg           white             black
-" WildMenu             uiblue            black
+" WildMenu             uiblue            uiblack
 " Boolean           -> Constant
 " Character         -> Constant
 " Comment              brightblack       none              t=italic g=italic
