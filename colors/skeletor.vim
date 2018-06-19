@@ -205,6 +205,10 @@ call s:hi('Todo', s:pink)
 " }}}
 " General UI: {{{
 
+call s:hi('MatchParen', s:orange, s:none, s:reverse)
+" The character under the cursor or just before it,
+" if it is a paired bracket, and its match.
+ 
 hi! link NonText Comment
 " '~' and '@' at the end of the window,
 " characters from 'showbreak' and other character
@@ -241,7 +245,7 @@ call s:hi('CursorColumn', s:none, s:c)
 " the screen column that the cursor is in when
 " 'cursorcolumn' is set
 
-call s:hi('CursorLineNr', s:fg0, s:c)
+call s:hi('CursorLineNr', s:fg0, s:bg)
 " Like LineNr when 'cursorline' or 'relativenumber' is set for
 " the cursor line
 
@@ -400,7 +404,7 @@ hi! link jsRegexpQuantifier htmlTagName
 call s:hi('jsSpecial', s:bluegray)
 
 " }}}
-" Sass: {{{#
+" Sass: {{{
 
 hi! link sassInclude htmlTagName
 hi! link sassClass htmlArg
@@ -508,10 +512,20 @@ hi! link netrwExe Underlined
 hi! link netrwHelpCmd Special
 
 " }}}
+" Vim: {{{
+
+hi! link vimVar Underlined 
+hi! link vimFunc Underlined
+hi! link vimFuncName Underlined
+hi! link vimHiBang Error
+
+" }}}
 " C: {{{
 
 " XXX https://github.com/justinmk/vim-syntax-extra XXX
 " NOTE: extra syntax files needed to get full C support
+hi! link cAnsiFunction Underlined
+hi! link cUserFunction Underlined
 
 " }}}
 " XXX TODO: add more language support!
