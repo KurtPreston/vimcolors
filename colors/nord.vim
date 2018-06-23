@@ -103,6 +103,10 @@ if !exists("g:nord_uniform_diff_background")
   let g:nord_uniform_diff_background = 0
 endif
 
+if !exists("g:nord_cursor_line_number_background")
+  let g:nord_cursor_line_number_background = 0
+endif
+
 function! s:hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
   if a:guifg != ""
     exec "hi " . a:group . " guifg=" . a:guifg
@@ -181,7 +185,11 @@ endif
 
 "+--- Gutter ---+
 call s:hi("CursorColumn", "", s:nord1_gui, "NONE", s:nord1_term, "", "")
-call s:hi("CursorLineNr", s:nord3_gui, s:nord0_gui, "NONE", "", "", "")
+if g:nord_cursor_line_number_background == 0
+  call s:hi("CursorLineNr", s:nord4_gui, s:nord0_gui, "NONE", "", "", "")
+else
+  call s:hi("CursorLineNr", s:nord4_gui, s:nord1_gui, "NONE", s:nord1_term, "", "")
+endif
 call s:hi("Folded", s:nord3_gui, s:nord1_gui, s:nord3_term, s:nord1_term, "bold", "")
 call s:hi("FoldColumn", s:nord3_gui, s:nord0_gui, s:nord3_term, "NONE", "", "")
 call s:hi("SignColumn", s:nord1_gui, s:nord0_gui, s:nord1_term, "NONE", "", "")
@@ -554,6 +562,25 @@ hi! link mkdLinkDef mkdLink
 hi! link mkdLinkDefTarget mkdURL
 hi! link mkdLinkTitle mkdInlineURL
 hi! link mkdDelimiter Keyword
+
+" Vimwiki
+" > vimwiki/vimwiki
+if !exists("g:vimwiki_hl_headers") || g:vimwiki_hl_headers == 0
+  for s:i in range(1,6)
+    call s:hi("VimwikiHeader".s:i, s:nord8_gui, "", s:nord8_term, "", "bold", "")
+  endfor
+else
+  let s:vimwiki_hcolor_guifg = [s:nord7_gui, s:nord8_gui, s:nord9_gui, s:nord10_gui, s:nord14_gui, s:nord15_gui]
+  let s:vimwiki_hcolor_ctermfg = [s:nord7_term, s:nord8_term, s:nord9_term, s:nord10_term, s:nord14_term, s:nord15_term]
+  for s:i in range(1,6)
+    call s:hi("VimwikiHeader".s:i, s:vimwiki_hcolor_guifg[s:i-1] , "", s:vimwiki_hcolor_ctermfg[s:i-1], "", "bold", "")
+  endfor
+endif
+
+call s:hi("VimwikiLink", s:nord8_gui, "", s:nord8_term, "", "underline", "")
+hi! link VimwikiHeaderChar markdownHeadingDelimiter
+hi! link VimwikiHR Keyword
+hi! link VimwikiList markdownListMarker
 
 " YAML
 " > stephpy/vim-yaml
