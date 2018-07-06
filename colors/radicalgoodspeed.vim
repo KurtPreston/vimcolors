@@ -61,7 +61,7 @@ endif
 let colors_name = "radicalgoodspeed"
 
 " Current Line
-set cursorline
+"set cursorline
 hi clear CursorLine
 hi CursorLine                   ctermbg=0   guibg=#000000
 
