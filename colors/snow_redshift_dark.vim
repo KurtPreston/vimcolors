@@ -1,12 +1,12 @@
-let s:gry0 = "#1f262c"
-let s:gry1 = "#2f3a45"
-let s:gry2 = "#818e9b"
-let s:gry3 = "#a0acba"
-let s:gry4 = "#eaeff5"
-let s:red_ = "#be8693"
-let s:yllw = "#d8c165"
+let s:gry0 = "#1e2630"
+let s:gry1 = "#27313e"
+let s:gry2 = "#818da0"
+let s:gry3 = "#a1abbc"
+let s:gryy = "#1e2630"
+let s:red_ = "#bd8696"
+let s:yllw = "#e2bd67"
 let s:gren = "#8b9b70"
-let s:blue = "#669eb7"
+let s:blue = "#6a9db9"
 
 let s:p = { "normal" : {} , "inactive": {} , "insert"  : {} ,
           \ "replace": {} , "visual"  : {} , "tabline" : {} }
@@ -33,7 +33,7 @@ let s:p.tabline.tabsel  = copy(s:p.normal.middle)
 let s:p.tabline.right   = [[ s:gry0, s:gry2 ]]
 
 let s:p.normal.error    = [[ s:red_, s:gry0 ]]
-let s:p.normal.warning  = [[ s:yllw, s:gry4 ]]
+let s:p.normal.warning  = [[ s:yllw, s:gryy ]]
 
 let g:lightline#colorscheme#snow_redshift_dark#palette =
   \ lightline#colorscheme#fill(s:p)
