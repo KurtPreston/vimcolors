@@ -192,7 +192,7 @@ hi link helpHyperTextJump  String
 
 """ StatusLine
 
-call s:h("StatusLine",        {"gui": "underline", "bg": s:bg, "fg": s:status_line})
+call s:h("StatusLine",        {"gui": "underline,bold", "bg": s:bg, "fg": s:status_line})
 call s:h("StatusLineNC",      {"gui": "underline", "bg": s:bg, "fg": s:status_line_nc})
 
 " Those are not standard but are useful to emphasis different parts of the
@@ -258,3 +258,6 @@ hi link markdownCode Constant
 hi link markdownCodeBlock Constant
 hi link markdownCodeDelimiter Constant
 hi link markdownHeadingDelimiter Constant
+
+hi link yamlBlockMappingKey Statement
+hi link pythonOperator Statement
