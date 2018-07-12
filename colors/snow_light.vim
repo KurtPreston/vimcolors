@@ -1,12 +1,12 @@
 let s:gry0 = "#ffffff"
-let s:gry1 = "#ebeff3"
-let s:gry2 = "#748599"
-let s:gry3 = "#57687a"
-let s:gryy = "#242f3a"
-let s:red_ = "#c94e3b"
+let s:gry1 = "#eef1f4"
+let s:gry2 = "#8397ad"
+let s:gry3 = "#64788d"
+let s:gryy = "#1b2530"
+let s:red_ = "#c15542"
 let s:yllw = "#ffd300"
-let s:gren = "#288821"
-let s:blue = "#0078d2"
+let s:gren = "#37862d"
+let s:blue = "#007aca"
 
 let s:p = { "normal" : {} , "inactive": {} , "insert"  : {} ,
           \ "replace": {} , "visual"  : {} , "tabline" : {} }
