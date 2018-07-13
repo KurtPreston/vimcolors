@@ -1,19 +1,19 @@
 let s:gry0 = "#ffffff"
-let s:gry1 = "#eef1f4"
+let s:gry1 = "#edf2f8"
 let s:gry2 = "#8397ad"
-let s:gry3 = "#64788d"
-let s:gryy = "#1b2530"
-let s:red_ = "#c8487a"
+let s:gry3 = "#5d7186"
+let s:gryy = "#1b2733"
+let s:red_ = "#d13c7b"
 let s:yllw = "#ffd300"
-let s:gren = "#588218"
-let s:blue = "#007cbd"
+let s:gren = "#528400"
+let s:blue = "#007bc4"
 
 let s:p = { "normal" : {} , "inactive": {} , "insert"  : {} ,
           \ "replace": {} , "visual"  : {} , "tabline" : {} }
 
-let s:p.normal.left     = [[ s:gry0, s:gry2 ], [ s:gry3, s:gry1 ]]
+let s:p.normal.left     = [[ s:gry0, s:gry3 ], [ s:gry3, s:gry1 ]]
 let s:p.normal.middle   = [[ s:gry3, s:gry1 ]]
-let s:p.normal.right    = [[ s:gry0, s:gry2 ], [ s:gry0, s:gry2 ]]
+let s:p.normal.right    = [[ s:gry0, s:gry3 ], [ s:gry0, s:gry3 ]]
 
 let s:p.inactive.left   = copy(s:p.normal.middle)
 let s:p.inactive.middle = copy(s:p.normal.middle)
@@ -28,9 +28,9 @@ let s:p.visual.right    = [[ s:gry0, s:blue ], [ s:gry0, s:blue ]]
 let s:p.replace.left    = [[ s:gry0, s:red_ ]]
 let s:p.replace.right   = [[ s:gry0, s:red_ ], [ s:gry0, s:red_ ]]
 
-let s:p.tabline.left    = [[ s:gry0, s:gry2 ]]
+let s:p.tabline.left    = [[ s:gry0, s:gry3 ]]
 let s:p.tabline.tabsel  = copy(s:p.normal.middle)
-let s:p.tabline.right   = [[ s:gry0, s:gry2 ]]
+let s:p.tabline.right   = [[ s:gry0, s:gry3 ]]
 
 let s:p.normal.error    = [[ s:red_, s:gry0 ]]
 let s:p.normal.warning  = [[ s:yllw, s:gryy ]]
