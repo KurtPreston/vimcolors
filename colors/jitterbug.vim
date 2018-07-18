@@ -214,6 +214,9 @@ highlight ALEErrorSign
   \ guifg=#6D3C3C
 
 highlight ALEErrorLine none
+"      \ guibg=#241916
+
+highlight ALEError none
       \ guibg=#241916
 
 highlight ALEWarningSign
