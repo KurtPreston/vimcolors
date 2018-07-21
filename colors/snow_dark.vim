@@ -1,9 +1,9 @@
-let s:gry0 = "#2a2e34"
-let s:gry1 = "#31363e"
-let s:gry2 = "#768294"
-let s:gry3 = "#9daabd"
-let s:red_ = "#c6837c"
-let s:gold = "#b8a06d"
+let s:gry0 = "#222d3d"
+let s:gry1 = "#283647"
+let s:gry2 = "#748196"
+let s:gry3 = "#a4afc0"
+let s:red_ = "#c1867f"
+let s:mgnt = "#b289ab"
 let s:gren = "#7f9d77"
 let s:cyan = "#5da19f"
 
@@ -32,7 +32,7 @@ let s:p.tabline.tabsel  = copy(s:p.normal.middle)
 let s:p.tabline.right   = [[ s:gry0, s:gry3 ]]
 
 let s:p.normal.error    = [[ s:red_, s:gry0 ]]
-let s:p.normal.warning  = [[ s:gold, s:gry0 ]]
+let s:p.normal.warning  = [[ s:mgnt, s:gry0 ]]
 
 let g:lightline#colorscheme#snow_dark#palette =
   \ lightline#colorscheme#fill(s:p)
