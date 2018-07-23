@@ -2,10 +2,10 @@ let s:gry0 = "#e9f3ff"
 let s:gry1 = "#d6e2f7"
 let s:gry2 = "#728199"
 let s:gry3 = "#4b5a70"
-let s:red_ = "#d64747"
-let s:mgnt = "#bc3eb0"
-let s:gren = "#008706"
-let s:cyan = "#008d90"
+let s:red_ = "#c84c49"
+let s:mgnt = "#af56a4"
+let s:gren = "#438638"
+let s:blue = "#007ed4"
 
 let s:p = { "normal" : {} , "inactive": {} , "insert"  : {} ,
           \ "replace": {} , "visual"  : {} , "tabline" : {} }
@@ -21,8 +21,8 @@ let s:p.inactive.right  = copy(s:p.normal.middle)
 let s:p.insert.left     = [[ s:gry0, s:gren ]]
 let s:p.insert.right    = [[ s:gry0, s:gren ], [ s:gry0, s:gren ]]
 
-let s:p.visual.left     = [[ s:gry0, s:cyan ]]
-let s:p.visual.right    = [[ s:gry0, s:cyan ], [ s:gry0, s:cyan ]]
+let s:p.visual.left     = [[ s:gry0, s:blue ]]
+let s:p.visual.right    = [[ s:gry0, s:blue ], [ s:gry0, s:blue ]]
 
 let s:p.replace.left    = [[ s:gry0, s:red_ ]]
 let s:p.replace.right   = [[ s:gry0, s:red_ ], [ s:gry0, s:red_ ]]
