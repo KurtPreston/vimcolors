@@ -1,10 +1,10 @@
-let s:gry0 = "#fcf0e1"
-let s:gry1 = "#ede0d0"
-let s:gry3 = "#4a4b5e"
-let s:red_ = "#c84c49"
-let s:mgnt = "#af56a4"
-let s:gren = "#3e8633"
-let s:blue = "#007ecf"
+let s:gry0 = [ "#fff3e2", 255 ]
+let s:gry1 = [ "#f4e1d1", 254 ]
+let s:gry3 = [ "#585c6f", 59 ]
+let s:red_ = [ "#c34853", 131 ]
+let s:mgnt = [ "#a454ad", 133 ]
+let s:gren = [ "#1a8536", 28 ]
+let s:blue = [ "#007ad0", 32 ]
 
 let s:p = { "normal" : {} , "inactive": {} , "insert"  : {} ,
           \ "replace": {} , "visual"  : {} , "tabline" : {} }
@@ -34,5 +34,5 @@ let s:p.normal.error    = [[ s:red_, s:gry0 ]]
 let s:p.normal.warning  = [[ s:mgnt, s:gry0 ]]
 
 let g:lightline#colorscheme#stellarized_light#palette =
-  \ lightline#colorscheme#fill(s:p)
+  \ lightline#colorscheme#flatten(s:p)
 
