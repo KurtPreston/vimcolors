@@ -952,6 +952,11 @@ hi! link jsonString SrceryBlue
 hi! link rustCommentLineDoc SrceryGreen
 hi! link rustModPathSep SrceryWhite
 " }}}
+" Make: {{{
+hi! link makePreCondit SrceryRed
+hi! link makeCommands SrceryBrightWhite
+hi! link makeTarget SrceryYellow
+" }}}
 " Misc: {{{
 call s:HL('shParenError', s:bright_white, s:bright_red)
 " }}}
