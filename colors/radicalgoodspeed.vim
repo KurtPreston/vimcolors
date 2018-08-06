@@ -49,6 +49,7 @@
 "   35     135     #ae5ff2
 "   36     161     #dc2677
 "   37     106     #99bb26
+"   38     220     #f9d749
 
 set background=dark
 
@@ -207,3 +208,7 @@ hi link cssFontAttr Constant
 "nathanaelkane/vim-indent-guides
 hi IndentGuidesOdd  ctermbg=236 guibg=#090909
 hi IndentGuidesEven ctermbg=237 guibg=#000000
+
+" for spell check function
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=220 gui=underline guifg=#f9d749
