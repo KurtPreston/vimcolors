@@ -86,7 +86,7 @@ if &background ==# 'dark'
   hi Tag ctermfg=136 ctermbg=NONE guifg=#ad9151 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi DiffChanged ctermfg=136 ctermbg=236 guifg=#ad9151 guibg=#282e36 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
   hi DiffText ctermfg=136 ctermbg=236 guifg=#ad9151 guibg=#282e36 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
-  hi Search ctermfg=94 ctermbg=254 guifg=#867040 guibg=#dee3eb guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+  hi Search ctermfg=136 ctermbg=236 guifg=#ad9151 guibg=#282e36 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
   hi Conditional ctermfg=71 ctermbg=NONE guifg=#64a369 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Exception ctermfg=71 ctermbg=NONE guifg=#64a369 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Keyword ctermfg=71 ctermbg=NONE guifg=#64a369 guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -323,8 +323,8 @@ finish
 " Color:      gry2 #748296 ~
 " Color:      gry3 #9fadc2 ~
 " Color:      gryc #dee3eb ~
-" Color:      srch #867040 ~
-" Color:      grys #dee3eb ~
+" Color:      srch #ad9151 ~
+" Color:      grys #282e36 ~
 " Color:      gryp #505d70 ~
 " Color:      sprd #ff5f5f ~
 " Color:      spbl #5fafff ~
