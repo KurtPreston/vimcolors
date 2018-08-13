@@ -14,6 +14,7 @@ set t_Co=256
 let g:colors_name = "miniml"
 
 hi ColorColumn ctermbg=8 guibg=Grey
+hi Comment ctermfg=8 guifg=Grey
 hi CursorLine term=none cterm=none
 hi LineNr ctermfg=7 guifg=Grey
 hi Normal ctermbg=0 ctermfg=15 guibg=Black guifg=White
