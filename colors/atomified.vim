@@ -1,7 +1,7 @@
 " Vim color file
 " Maintainer:	Siphalor
 " Last Change:	$Date: 2018/06/20 $
-" Version:	0.2
+" Version:	0.3
 
 
 " cool help screens
@@ -24,7 +24,7 @@ hi Normal       guifg=White guibg=grey18
 hi Normal       ctermfg=White ctermbg=Black
 
 " highlight groups
-hi Cursor       guibg=White guifg=grey18
+hi Cursor       guifg=NONE guibg=NONE gui=reverse
 hi Cursor       ctermfg=Black ctermbg=White
 hi CursorColumn guibg=grey28
 hi CursorLine   guibg=grey28
@@ -100,3 +100,8 @@ hi Error        guifg=#c90808 guibg=grey18 gui=bold
 hi Error        ctermfg=Red ctermbg=DarkGray
 hi Todo         guifg=#77e02c guibg=grey18 gui=bold
 hi Todo         ctermfg=LightGreen
+
+" plugin highlights
+" -> MatchTagAlways
+"  (for this you may want to `let g:mta_use_matchparen_group=0` in your vimrc)
+hi MatchTag     guibg=grey28 gui=none
