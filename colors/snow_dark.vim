@@ -1,8 +1,8 @@
-let s:gry0 = [ "#272e39", 236 ]
+let s:gry0 = [ "#272e37", 236 ]
 let s:gry1 = [ "#303a48", 237 ]
-let s:gry3 = [ "#b1bfd4", 153 ]
-let s:red_ = [ "#df7579", 174 ]
-let s:mgnt = [ "#c782cd", 176 ]
+let s:gry3 = [ "#b0bed4", 110 ]
+let s:red_ = [ "#e4797d", 174 ]
+let s:mgnt = [ "#cc87d2", 176 ]
 let s:gren = [ "#62b06a", 71 ]
 let s:blue = [ "#57a0eb", 75 ]
 
