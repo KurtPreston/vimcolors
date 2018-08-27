@@ -4,7 +4,7 @@
 " Maintainer:   neutaaaaan
 " Website:      github.com/neutaaaaan/monosvkem
 " License:      Vim License (see `:help license`)
-" Last Updated: Sun 26 Aug 2018 11:20:50 AM CEST
+" Last Updated: Sun 26 Aug 2018 10:05:06 PM CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -156,18 +156,17 @@ if get(g:, "Monosvkem_disable_italic", 0)
 endif
 if get(g:, "Monosvkem_enable_func_defs", 0)
 
-  hi pythonfunction                     guifg=#b77fdb 
-  hi pythonDecorator                    guifg=#b77fdb cterm=bold gui=bold
-  hi pythonDecoratorName                guifg=#b77fdb cterm=bold gui=bold
-  hi rubyfunction                       guifg=#b77fdb
-  hi rustFuncName                       guifg=#b77fdb
+  hi pythonfunction                     guifg=#b77fdb ctermfg=140  
+  hi pythonDecorator                    guifg=#b77fdb ctermfg=140  cterm=bold gui=bold
+  hi pythonDecoratorName                guifg=#b77fdb ctermfg=140  cterm=bold gui=bold
+  hi rubyfunction                       guifg=#b77fdb ctermfg=140  
+  hi rustFuncName                       guifg=#b77fdb ctermfg=140  
 
-  hi pythonDottedName                   guifg=#b77fdb cterm=bold gui=bold
-  hi luafuncname                        guifg=#b77fdb 
-  hi jsfunctionkey                      guifg=#b77fdb 
-  hi cCustomFunc                        guifg=#b77fdb 
-  hi nimFunction                        guifg=#b77fdb 
-  hi elixirFunctionDeclaration          guifg=#b77fdb 
+  hi pythonDottedName                   guifg=#b77fdb ctermfg=140  cterm=bold gui=bold
+  hi luafuncname                        guifg=#b77fdb ctermfg=140  
+  hi jsfunctionkey                      guifg=#b77fdb ctermfg=140  
+  hi nimFunction                        guifg=#b77fdb ctermfg=140  
+  hi elixirFunctionDeclaration          guifg=#b77fdb ctermfg=140  
 
 endif
 finish

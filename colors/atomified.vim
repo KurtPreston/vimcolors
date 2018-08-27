@@ -53,7 +53,7 @@ hi Question     guifg=springgreen
 hi Search       guibg=grey28 gui=none guifg=grey80
 hi Search       ctermfg=White ctermbg=DarkGray
 hi SignColumn   guibg=grey28 guifg=White gui=bold
-hi SpecialKey   guifg=yellowgreen
+hi SpecialKey   guifg=#f88262
 hi StatusLine   guibg=grey36 guifg=White gui=none
 hi StatusLine   ctermfg=Black ctermbg=White cterm=none
 hi StatusLineNC guibg=grey28 guifg=White gui=none
@@ -103,5 +103,12 @@ hi Todo         ctermfg=LightGreen
 
 " plugin highlights
 " -> MatchTagAlways
-"  (for this you may want to `let g:mta_use_matchparen_group=0` in your vimrc)
-hi MatchTag     guibg=grey28 gui=none
+"  NOTE: (for this you may want to `let g:mta_use_matchparen_group=0` and `g:mta_set_default_matchtag_color=0` in your vimrc)
+hi MatchTag guibg=grey28 gui=none
+
+" -> Tagbar
+hi TagbarSignature           guifg=grey75
+hi TagbarVisibilityProtected guifg=#42d6d6 gui=bold
+hi TagbarVisibilityPrivate   guifg=#D83638 gui=bold
+hi TagbarVisibilityPublic    guifg=#50D432 gui=bold
+hi TagbarPseudoID            gui=none
