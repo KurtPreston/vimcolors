@@ -1,8 +1,7 @@
 " Vim color file
 " Maintainer:	Siphalor
-" Last Change:	$Date: 2018/06/20 $
-" Version:	0.3
-
+" Last Change:	$Date: 2018/08/27 $
+" Version:	0.4
 
 " cool help screens
 " :he group-name
