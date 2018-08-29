@@ -17,7 +17,7 @@ let g:colors_name='vimgnome'
 "RED    = #DB4437
 "GREEN  = #34A16C
 "YELLOW = #FFF8B2
-"BLUE   = #2196F3
+"BLUE   = #2196F3  changed to #64B5F6
 "BLACK  = #333333
 "DGREY  = #656565
 "LGREY  = #EEEEEE
@@ -40,13 +40,13 @@ hi Keyword                          guifg=#DB4437   gui=bold        ctermfg=red 
 hi Exception                        guifg=#DB4437   gui=bold        ctermfg=red  cterm=bold
 
 
-hi Identifier                       guifg=#2196F3   gui=bold        ctermfg=blue  cterm=bold    
-hi Function                         guifg=#2196F3   gui=bold        ctermfg=blue  cterm=bold  
-hi Special                          guifg=#2196F3   gui=none        ctermfg=blue
-hi Delimiter                        guifg=#2196F3   gui=none        ctermfg=blue
-hi Debug                            guifg=#2196F3   gui=none        ctermfg=blue
-hi SpecialChar                      guifg=#2196F3   gui=none        ctermfg=blue
-hi Title                            guifg=#2196F3   gui=none        ctermfg=blue
+hi Identifier                       guifg=#64B5F6   gui=bold        ctermfg=blue  cterm=bold    
+hi Function                         guifg=#64B5F6   gui=bold        ctermfg=blue  cterm=bold  
+hi Special                          guifg=#64B5F6   gui=none        ctermfg=blue
+hi Delimiter                        guifg=#64B5F6   gui=none        ctermfg=blue
+hi Debug                            guifg=#64B5F6   gui=none        ctermfg=blue
+hi SpecialChar                      guifg=#64B5F6   gui=none        ctermfg=blue
+hi Title                            guifg=#64B5F6   gui=none        ctermfg=blue
 
 
 hi Typedef                          guifg=#34A16C   gui=italic      ctermfg=darkgreen  cterm=italic
@@ -104,10 +104,10 @@ hi CursorLineNr     guibg=#30474f   guifg=#EEEEEE   gui=bold
 hi LineNr	          guibg=#202f36   guifg=#90f020	gui=bold	ctermfg=green cterm=none
 hi Titled           guifg=#EEEEEE   gui=none
 
-hi Pmenu            guibg=#2196F3   guifg=#EEEEEE
-hi PmenuSel         guibg=#f9cd63   guifg=#2196F3
+hi Pmenu            guibg=#64B5F6   guifg=#EEEEEE
+hi PmenuSel         guibg=#f9cd63   guifg=#64B5F6
 hi PmenuSBar        guibg=#ffffff   guifg=#EEEEEE
-hi PmenuThumb       guibg=#2196F3   guifg=#EEEEEE
+hi PmenuThumb       guibg=#64B5F6   guifg=#EEEEEE
 
 
 hi Visual           guibg=#4E6068   guifg=white     gui=bold 
