@@ -2,7 +2,7 @@
 " Name: greent.vim
 " Description: A colorscheme for vim
 " Author: Aaron Moser
-" -------------------------------------
+
 
 " Clear highlights
 highlight clear
@@ -22,7 +22,7 @@ function! s:set() abort
     let palegreen = {'gui': '#5fd75f', 'cterm': '77'}
     let deepskyblue = {'gui': '#005f5f', 'cterm': '23'}
     let lightgreen = {'gui': '#87ff87' , 'cterm': '120'}
-    let darkseagreen = {'gui': '#afffaf', 'cterm': '157'}
+    let darkseagreen = {'gui': '#d7ffaf', 'cterm': '193'}
     let honeydew = {'gui': '#d7ffd7', 'cterm': '194'}
     let lightseagreen = {'gui': '#00afaf', 'cterm': '37'}
     let hotpink = {'gui': '#d75f5f', 'cterm': '168'}
@@ -43,6 +43,11 @@ function! s:set() abort
     let mediumturquoise = {'gui': '#5fd7d7', 'cterm': '80'}
     let cornflowerblue = {'gui': '#5f87ff', 'cterm': '69'}
     let khaki = {'gui': '#d7d75f', 'cterm': '185'}
+    let salmon = {'gui': '#ff875f', 'cterm': '209'}
+    let darkerseagreen = {'gui': '#afd787', 'cterm': '150'}
+    let springgreen = {'gui': '#00af5f', 'cterm': '35'}
+    let lightyellow = {'gui': '#d7d7af', 'cterm': '187'}
+    let lightsalmon = {'gui': '#ffaf87', 'cterm': '175'}
 
     let none           = {'gui': 'NONE',      'cterm': 'NONE'}
     let bold           = {'gui': 'bold',      'cterm': 'bold'}
@@ -59,11 +64,15 @@ function! s:set() abort
     let highlight_group.Visual = [none, palegreen, none, none]
     " Cursor
     let highlight_group.Cursor = [deepskyblue, lightcoral, none, none]
-    let highlight_group.CursorLine = [none, lightgreen, none, none]
+    if &cursorline
+        let highlight_group.CursorLine = [none, lightyellow, none, none]
+        let highlight_group.CursorLineNr = [lightcoral, lightyellow, bolditalic, none]
+    else
+        let highlight_group.CursorLineNr = [lightcoral, none, bolditalic, none]
+    endif
 
     " Sidebar
-    let highlight_group.LineNr = [lightcyan, turquoise, bold, none]
-    let highlight_group.CursorLineNr = [deepskyblue, none, bolditalic, none]
+    let highlight_group.LineNr = [salmon, darkerseagreen, bold, none]
 
     " Folds
     let highlight_group.Folded = [cadetblue, honeydew, none, none]
@@ -78,12 +87,13 @@ function! s:set() abort
     let highlight_group.Constant = [steelblue, none, none, none]
     let highlight_group.String = [cornflowerblue, none, italic, none]
     let highlight_group.Number = [chartreuse, none, none, none]
-    let highlight_group.Type = [orangered, none, none, none]
-    let highlight_group.Special = [plum, none, none, none]
-    let highlight_group.PreProc = [indianred, none, italic, none]
-    let highlight_group.Todo = [hotpink, lightcyan, bold, none]
+    let highlight_group.Type = [lightsalmon, none, none, none]
+    let highlight_group.Special = [hotpink, none, none, none]
+    let highlight_group.PreProc = [salmon, none, bold, none]
+    let highlight_group.Todo = [cadetblue, honeydew, bold, none]
     let highlight_group.Error = [honeydew, deeppink, bold, none]
     let highlight_group.Underlined = [khaki, none, underline, none]
+ 
 
     let highlight_group.ModeMsg = [lightcoral, none, bold, none]
     let highlight_group.SpecialKey = [deepskyblue, none, none, none]
