@@ -1,13 +1,14 @@
 " Author: Vu Le <thenewvu@gmail.com>
 " Maintainer: Vu Le <thenewvu@gmail.com>
+" License: MIT
 " Thanks to @ggalindezb for the template.
-
-set background=light
 
 highlight clear
 
+set background=dark
+
 if exists("syntax_on")
-    syntax reset
+  syntax reset
 endif
 
 let g:colors_name="blueprint"
@@ -19,118 +20,118 @@ let g:colors_name="blueprint"
 " --------------------------------
 " Editor settings
 " --------------------------------
-hi          Normal guifg=#ffffff guibg=#045ba4 gui=none
-hi          Cursor guifg=#ffffff guibg=#045ba4 gui=standout
-hi      CursorLine guifg=#ffffff guibg=#045ba4 gui=none
-hi          LineNr guifg=#ffffff guibg=#045ba4 gui=none
-hi    CursorLineNR guifg=#aac6df guibg=#045ba4 gui=none
+hi          Normal guifg=#ffffff guibg=#0051A8 gui=none
+hi          Cursor guifg=#0051A8 guibg=#ffffff gui=none
+hi      CursorLine guifg=none    guibg=#003E7F gui=none
+hi          LineNr guifg=#5992c3 guibg=none    gui=none
+hi    CursorLineNR guifg=none    guibg=#003E7F gui=none
 
 " -----------------
 " - Number column -
 " -----------------
-hi    CursorColumn guifg=#aac6df guibg=#045ba4 gui=none
-hi      FoldColumn guifg=#aac6df guibg=#045ba4 gui=none
-hi      SignColumn guifg=#aac6df guibg=#045ba4 gui=none
-hi          Folded guifg=#ffffff guibg=#045ba4 gui=none
+hi    CursorColumn guifg=none    guibg=#003E7F gui=none
+hi      FoldColumn guifg=#5992c3 guibg=none    gui=none
+hi      SignColumn guifg=#5992c3 guibg=none    gui=none
+hi          Folded guifg=none    guibg=none    gui=none
 
 " -------------------------
 " - Window/Tab delimiters - 
 " -------------------------
-hi       VertSplit guifg=#aac6df guibg=#045ba4 gui=none
-hi     ColorColumn guifg=#aac6df guibg=#045ba4 gui=none
-hi         TabLine guifg=#aac6df guibg=#5992c3 gui=none
-hi     TabLineFill guifg=#aac6df guibg=#5992c3 gui=none
-hi      TabLineSel guifg=#ffffff guibg=#5992c3 gui=none
+hi       VertSplit guifg=#5992c3 guibg=none    gui=none
+hi     ColorColumn guifg=none    guibg=#003E7F gui=none
+hi         TabLine guifg=#5992c3 guibg=#003E7F gui=none
+hi     TabLineFill guifg=#5992c3 guibg=#003E7F gui=none
+hi      TabLineSel guifg=none    guibg=#003E7F gui=none
 
 " -------------------------------
 " - File Navigation / Searching -
 " -------------------------------
-hi       Directory guifg=#aac6df guibg=#045ba4 gui=none
-hi          Search guifg=#aac6df guibg=#045ba4 gui=standout
-hi       IncSearch guifg=#aac6df guibg=#045ba4 gui=standout
+hi       Directory guifg=none    guibg=none    gui=bold,underline
+hi          Search guifg=#FF7D7F guibg=none    gui=none
+hi       IncSearch guifg=#FF7D7F guibg=none    gui=none
 
 " -----------------
 " - Prompt/Status -
 " -----------------
-hi      StatusLine guifg=#aac6df guibg=#5992c3 gui=none
-hi    StatusLineNC guifg=#aac6df guibg=#5992c3 gui=none
-hi        WildMenu guifg=#aac6df guibg=#5992c3 gui=none
-hi        Question guifg=#aac6df guibg=#045ba4 gui=none
-hi           Title guifg=#aac6df guibg=#045ba4 gui=none
-hi         ModeMsg guifg=#aac6df guibg=#045ba4 gui=none
-hi         MoreMsg guifg=#aac6df guibg=#045ba4 gui=none
+hi      StatusLine guifg=#5992c3 guibg=#003E7F gui=none
+hi    StatusLineNC guifg=#5992c3 guibg=#003E7F gui=none
+hi        WildMenu guifg=#5992c3 guibg=#003E7F gui=none
+hi        Question guifg=#4FF796 guibg=none    gui=none
+hi           Title guifg=none    guibg=none    gui=none
+hi         ModeMsg guifg=none    guibg=none    gui=none
+hi         MoreMsg guifg=none    guibg=none    gui=none
 
 " --------------
 " - Visual aid -
 " --------------
-hi      MatchParen guifg=#ffd479 guibg=#045ba4 gui=standout
-hi          Visual guifg=#aac6df guibg=#045ba4 gui=standout
-hi       VisualNOS guifg=#aac6df guibg=#045ba4 gui=standout
-hi         NonText guifg=#5992c3 guibg=#045ba4 gui=none
-
-hi            Todo guifg=#aac6df guibg=#045ba4 gui=none
-hi      Underlined guifg=#aac6df guibg=#045ba4 gui=underline
-hi           Error guifg=#ff9179 guibg=#045ba4 gui=none
-hi        ErrorMsg guifg=#ff9179 guibg=#045ba4 gui=none
-hi      WarningMsg guifg=#ff9179 guibg=#045ba4 gui=none
-hi          Ignore guifg=#045ba4 guibg=#045ba4 gui=none
-hi      SpecialKey guifg=#aac6df guibg=#045ba4 gui=none
+hi      MatchParen guifg=none    guibg=none    gui=bold,underline
+hi          Visual guifg=none    guibg=#003E7F gui=none
+hi       VisualNOS guifg=none    guibg=#003E7F gui=none
+hi         NonText guifg=#5992c3 guibg=none    gui=none
+hi            Todo guifg=#4FF796 guibg=none    gui=bold,underline
+hi      Underlined guifg=none    guibg=none    gui=bold,underline
+hi           Error guifg=#FF7D7F guibg=none    gui=none
+hi        ErrorMsg guifg=#FF7D7F guibg=none    gui=none
+hi      WarningMsg guifg=#FF7D7F guibg=none    gui=none
+hi          Ignore guifg=#0051A8 guibg=none    gui=none
+hi      SpecialKey guifg=#4FF796 guibg=none    gui=none
 
 " --------------------------------
 " Variable types
 " --------------------------------
-hi        Constant guifg=#aac6df guibg=#045ba4 gui=none
-hi          String guifg=#aac6df guibg=#045ba4 gui=none
-hi StringDelimiter guifg=#aac6df guibg=#045ba4 gui=none
-hi       Character guifg=#aac6df guibg=#045ba4 gui=none
-hi          Number guifg=#aac6df guibg=#045ba4 gui=none
-hi         Boolean guifg=#aac6df guibg=#045ba4 gui=none
-hi           Float guifg=#aac6df guibg=#045ba4 gui=none
+hi        Constant guifg=none    guibg=none    gui=none
+hi          String guifg=none    guibg=none    gui=none
+hi StringDelimiter guifg=#5992c3 guibg=none    gui=none
+hi       Character guifg=none    guibg=none    gui=none
+hi          Number guifg=none    guibg=none    gui=none
+hi         Boolean guifg=none    guibg=none    gui=none
+hi           Float guifg=none    guibg=none    gui=none
 
-hi      Identifier guifg=#ffffff guibg=#045ba4 gui=none
-hi        Function guifg=#ffffff guibg=#045ba4 gui=none
+hi      Identifier guifg=none    guibg=none    gui=none
+hi        Function guifg=none    guibg=none    gui=none
 
 " --------------------------------
 " Language constructs
 " --------------------------------
-hi       Statement guifg=#ffffff guibg=#045ba4 gui=none
-hi     Conditional guifg=#ffffff guibg=#045ba4 gui=none
-hi          Repeat guifg=#ffffff guibg=#045ba4 gui=none
-hi           Label guifg=#ffffff guibg=#045ba4 gui=none
-hi        Operator guifg=#ffffff guibg=#045ba4 gui=none
-hi         Keyword guifg=#ffffff guibg=#045ba4 gui=none
-hi       Exception guifg=#ffffff guibg=#045ba4 gui=none
-hi         Comment guifg=#5992c3 guibg=#045ba4 gui=none
+hi         Comment guifg=#5992c3 guibg=none    gui=italic
 
-hi         Special guifg=#aac6df guibg=#045ba4 gui=none
-hi     SpecialChar guifg=#aac6df guibg=#045ba4 gui=none
-hi             Tag guifg=#aac6df guibg=#045ba4 gui=none
-hi       Delimiter guifg=#aac6df guibg=#045ba4 gui=none
-hi  SpecialComment guifg=#aac6df guibg=#045ba4 gui=none
-hi           Debug guifg=#aac6df guibg=#045ba4 gui=none
+hi       Statement guifg=#4FF796 guibg=none    gui=none
+hi     Conditional guifg=#4FF796 guibg=none    gui=none
+hi          Repeat guifg=#4FF796 guibg=none    gui=none
+hi           Label guifg=none    guibg=none    gui=none
+hi        Operator guifg=none    guibg=none    gui=none
+hi         Keyword guifg=#4FF796 guibg=none    gui=none
+hi       Exception guifg=#4FF796 guibg=none    gui=none
+
+hi         Special guifg=none    guibg=none    gui=none
+hi     SpecialChar guifg=none    guibg=none    gui=none
+hi             Tag guifg=#5992c3 guibg=none    gui=none
+hi       Delimiter guifg=#5992c3 guibg=none    gui=none
+hi  SpecialComment guifg=#4FF796 guibg=none    gui=italic
+hi           Debug guifg=#4FF796 guibg=none    gui=none
 
 " ----------
 " - C like -
 " ----------
-hi         PreProc guifg=#aac6df guibg=#045ba4 gui=none
-hi         Include guifg=#aac6df guibg=#045ba4 gui=none
-hi          Define guifg=#aac6df guibg=#045ba4 gui=none
-hi           Macro guifg=#aac6df guibg=#045ba4 gui=none
-hi       PreCondit guifg=#aac6df guibg=#045ba4 gui=none
+hi         PreProc guifg=#4FF796 guibg=none    gui=none
+hi         Include guifg=#4FF796 guibg=none    gui=none
+hi          Define guifg=#4FF796 guibg=none    gui=none
+hi           Macro guifg=#4FF796 guibg=none    gui=none
+hi       PreCondit guifg=#4FF796 guibg=none    gui=none
 
-hi            Type guifg=#ffffff guibg=#045ba4 gui=none
-hi    StorageClass guifg=#ffffff guibg=#045ba4 gui=none
-hi       Structure guifg=#ffffff guibg=#045ba4 gui=none
-hi         Typedef guifg=#ffffff guibg=#045ba4 gui=none
+hi            Type guifg=none    guibg=none    gui=none
+hi    StorageClass guifg=none    guibg=none    gui=none
+hi       Structure guifg=#4FF796 guibg=none    gui=none
+hi         Typedef guifg=#4FF796 guibg=none    gui=none
 
 " --------------------------------
 " Diff
 " --------------------------------
-hi         DiffAdd guifg=#73fa79 guibg=#045ba4 gui=none
-hi      DiffChange guifg=#ffd479 guibg=#045ba4 gui=none
-hi      DiffDelete guifg=#ff9179 guibg=#045ba4 gui=none
-hi        DiffText guifg=#ffffff guibg=#045ba4 gui=none
-hi        DiffFile guifg=#76d6ff guibg=#045ba4 gui=none
+hi         DiffAdd guifg=#4FF796 guibg=none    gui=none
+hi      DiffChange guifg=none    guibg=none    gui=none
+hi      DiffDelete guifg=#FF7D7F guibg=none    gui=none
+hi        DiffText guifg=#FF7D7F guibg=none    gui=none
+hi        DiffFile guifg=none    guibg=none    gui=bold,underline
 
 hi            link diffAdded           DiffAdd
 hi            link diffRemoved      DiffDelete
@@ -138,20 +139,19 @@ hi            link diffRemoved      DiffDelete
 " --------------------------------
 " Completion menu
 " --------------------------------
-hi           Pmenu guifg=#acc2df guibg=#5992c3 gui=none
-hi        PmenuSel guifg=#ffffff guibg=#5992c3 gui=none
-hi       PmenuSbar guifg=#aac2df guibg=#5992c3 gui=none
-hi      PmenuThumb guifg=#aac2df guibg=#5992c3 gui=none
+hi           Pmenu guifg=#5992c3 guibg=#003E7F gui=none
+hi        PmenuSel guifg=none    guibg=#003E7F gui=none
+hi       PmenuSbar guifg=#5992c3 guibg=#003E7F gui=none
+hi      PmenuThumb guifg=#5992c3 guibg=#003E7F gui=none
 
 " --------------------------------
 " Spelling
 " --------------------------------
-hi        SpellBad guifg=#ff9179 guibg=#045ba4 gui=none
-hi        SpellCap guifg=#ff9179 guibg=#045ba4 gui=none
-hi      SpellLocal guifg=#ff9179 guibg=#045ba4 gui=none
-hi       SpellRare guifg=#ff9179 guibg=#045ba4 gui=none
+hi        SpellBad guifg=none    guibg=none    gui=bold,underline
+hi        SpellCap guifg=none    guibg=none    gui=bold,underline
+hi      SpellLocal guifg=none    guibg=none    gui=bold,underline
+hi       SpellRare guifg=none    guibg=none    gui=bold,underline
 
 "--------------------------------------------------------------------
 " Specific settings                                                 |
 "--------------------------------------------------------------------
-
