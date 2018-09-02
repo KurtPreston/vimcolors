@@ -20,8 +20,8 @@ let g:colors_name="blueprint"
 " --------------------------------
 " Editor settings
 " --------------------------------
-hi          Normal guifg=#ffffff guibg=#0051A8 gui=none
-hi          Cursor guifg=#0051A8 guibg=#ffffff gui=none
+hi          Normal guifg=#f0f0f0 guibg=#0051A8 gui=none
+hi          Cursor guifg=#0051A8 guibg=#f0f0f0 gui=none
 hi      CursorLine guifg=none    guibg=#003E7F gui=none
 hi          LineNr guifg=#5992c3 guibg=none    gui=none
 hi    CursorLineNR guifg=none    guibg=#003E7F gui=none
@@ -155,3 +155,21 @@ hi       SpellRare guifg=none    guibg=none    gui=bold,underline
 "--------------------------------------------------------------------
 " Specific settings                                                 |
 "--------------------------------------------------------------------
+
+hi       htmlTag                  guifg=#4FF796 guibg=none    gui=none
+hi       htmlLink                 guifg=#4FF796 guibg=none    gui=none
+
+hi       markdownH1               guifg=#4FF796 guibg=none    gui=none
+hi       markdownH2               guifg=#4FF796 guibg=none    gui=none
+hi       markdownH3               guifg=#4FF796 guibg=none    gui=none
+hi       markdownH5               guifg=#4FF796 guibg=none    gui=none
+hi       markdownH5               guifg=#4FF796 guibg=none    gui=none
+hi       markdownH6               guifg=#4FF796 guibg=none    gui=none
+
+hi       markdownRule             guifg=#4FF796 guibg=none    gui=none
+hi       markdownHeadingDelimiter guifg=#4FF796 guibg=none    gui=none
+
+hi       markdownBold             guifg=#4FF796 guibg=none    gui=none
+hi       markdownItalic           guifg=#4FF796 guibg=none    gui=italic
+hi       markdownBoldItalic       guifg=#4FF796 guibg=none    gui=italic
+hi       markdownCode             guifg=#4FF796 guibg=none    gui=none

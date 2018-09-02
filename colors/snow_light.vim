@@ -2,7 +2,7 @@ let s:gry0 = [ "#ffffff", 231 ]
 let s:gry1 = [ "#e9edf3", 255 ]
 let s:gry3 = [ "#4e5a6b", 240 ]
 let s:red_ = [ "#d14354", 167 ]
-let s:mgnt = [ "#a54aaf", 133 ]
+let s:mgnt = [ "#a84db3", 133 ]
 let s:gren = [ "#00872c", 28 ]
 let s:blue = [ "#006ecd", 25 ]
 
