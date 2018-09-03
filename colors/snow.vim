@@ -61,10 +61,10 @@ if &background ==# 'dark'
   hi TabLineFill ctermfg=237 ctermbg=237 guifg=#303945 guibg=#303945 guisp=NONE cterm=NONE gui=NONE
   hi ToolbarLine ctermfg=237 ctermbg=237 guifg=#303945 guibg=#303945 guisp=NONE cterm=NONE gui=NONE
   hi VertSplit ctermfg=240 ctermbg=240 guifg=#4e5a6b guibg=#4e5a6b guisp=NONE cterm=NONE gui=NONE
-  hi SpellBad ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#ff707e cterm=NONE,underline gui=NONE,undercurl
-  hi SpellCap ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#00b4ff cterm=NONE,underline gui=NONE,undercurl
-  hi SpellLocal ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#00c8d9 cterm=NONE,underline gui=NONE,undercurl
-  hi SpellRare ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#ee81f9 cterm=NONE,underline gui=NONE,undercurl
+  hi SpellBad ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#ff7a83 cterm=NONE,underline gui=NONE,undercurl
+  hi SpellCap ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#2db3ff cterm=NONE,underline gui=NONE,undercurl
+  hi SpellLocal ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#00c5d3 cterm=NONE,underline gui=NONE,undercurl
+  hi SpellRare ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#e787f0 cterm=NONE,underline gui=NONE,undercurl
   hi StorageClass ctermfg=139 ctermbg=NONE guifg=#bb82bf guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Structure ctermfg=139 ctermbg=NONE guifg=#bb82bf guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Type ctermfg=139 ctermbg=NONE guifg=#bb82bf guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -172,15 +172,15 @@ hi DiffDelete ctermfg=167 ctermbg=231 guifg=#d14354 guibg=#ffffff guisp=NONE cte
 hi DiffRemoved ctermfg=167 ctermbg=231 guifg=#d14354 guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi Error ctermfg=167 ctermbg=231 guifg=#d14354 guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi ErrorMsg ctermfg=167 ctermbg=231 guifg=#d14354 guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
-hi Debug ctermfg=94 ctermbg=NONE guifg=#936f00 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Delimiter ctermfg=94 ctermbg=NONE guifg=#936f00 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Special ctermfg=94 ctermbg=NONE guifg=#936f00 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi SpecialChar ctermfg=94 ctermbg=NONE guifg=#936f00 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi SpecialComment ctermfg=94 ctermbg=NONE guifg=#936f00 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi SpecialKey ctermfg=94 ctermbg=NONE guifg=#936f00 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Tag ctermfg=94 ctermbg=NONE guifg=#936f00 guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi DiffChanged ctermfg=94 ctermbg=231 guifg=#936f00 guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
-hi DiffText ctermfg=94 ctermbg=231 guifg=#936f00 guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+hi Debug ctermfg=94 ctermbg=NONE guifg=#957100 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Delimiter ctermfg=94 ctermbg=NONE guifg=#957100 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Special ctermfg=94 ctermbg=NONE guifg=#957100 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi SpecialChar ctermfg=94 ctermbg=NONE guifg=#957100 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi SpecialComment ctermfg=94 ctermbg=NONE guifg=#957100 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi SpecialKey ctermfg=94 ctermbg=NONE guifg=#957100 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Tag ctermfg=94 ctermbg=NONE guifg=#957100 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi DiffChanged ctermfg=94 ctermbg=231 guifg=#957100 guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+hi DiffText ctermfg=94 ctermbg=231 guifg=#957100 guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi Search ctermfg=220 ctermbg=237 guifg=#ffd506 guibg=#303945 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi Conditional ctermfg=28 ctermbg=NONE guifg=#00872c guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Exception ctermfg=28 ctermbg=NONE guifg=#00872c guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -197,13 +197,13 @@ hi Macro ctermfg=30 ctermbg=NONE guifg=#007f8f guibg=NONE guisp=NONE cterm=NONE 
 hi PreCondit ctermfg=30 ctermbg=NONE guifg=#007f8f guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi PreProc ctermfg=30 ctermbg=NONE guifg=#007f8f guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Todo ctermfg=30 ctermbg=231 guifg=#007f8f guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
-hi Boolean ctermfg=25 ctermbg=NONE guifg=#006ecd guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Character ctermfg=25 ctermbg=NONE guifg=#006ecd guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Constant ctermfg=25 ctermbg=NONE guifg=#006ecd guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Float ctermfg=25 ctermbg=NONE guifg=#006ecd guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Number ctermfg=25 ctermbg=NONE guifg=#006ecd guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi String ctermfg=25 ctermbg=NONE guifg=#006ecd guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi Visual ctermfg=25 ctermbg=231 guifg=#006ecd guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+hi Boolean ctermfg=25 ctermbg=NONE guifg=#006ccb guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Character ctermfg=25 ctermbg=NONE guifg=#006ccb guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Constant ctermfg=25 ctermbg=NONE guifg=#006ccb guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Float ctermfg=25 ctermbg=NONE guifg=#006ccb guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Number ctermfg=25 ctermbg=NONE guifg=#006ccb guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi String ctermfg=25 ctermbg=NONE guifg=#006ccb guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi Visual ctermfg=25 ctermbg=231 guifg=#006ccb guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 finish
 
 " Background: light
@@ -220,10 +220,10 @@ finish
 " Color:      spcy #0093b3 ~
 " Color:      spmg #c709dd ~
 " Color:      red_ #d14354 ~
-" Color:      gold #936f00 ~
+" Color:      gold #957100 ~
 " Color:      gren #00872c ~
 " Color:      cyan #007f8f ~
-" Color:      blue #006ecd ~
+" Color:      blue #006ccb ~
 " Color:      mgnt #a84db3 ~
 " Bold               none   none   bold
 " Conceal            none   none
@@ -326,10 +326,10 @@ finish
 " Color:      srch #867040 ~
 " Color:      grys #e9edf3 ~
 " Color:      gryp #4e5a6b ~
-" Color:      sprd #ff707e ~
-" Color:      spbl #00b4ff ~
-" Color:      spcy #00c8d9 ~
-" Color:      spmg #ee81f9 ~
+" Color:      sprd #ff7a83 ~
+" Color:      spbl #2db3ff ~
+" Color:      spcy #00c5d3 ~
+" Color:      spmg #e787f0 ~
 " Color:      red_ #d37b7d ~
 " Color:      gold #b89b5a ~
 " Color:      gren #67a66c ~
