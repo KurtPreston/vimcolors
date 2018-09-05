@@ -1,10 +1,10 @@
 let s:gry0 = [ "#ffffff", 231 ]
-let s:gry1 = [ "#e9edf3", 255 ]
-let s:gry3 = [ "#4e5a6b", 240 ]
-let s:red_ = [ "#d14354", 167 ]
-let s:mgnt = [ "#a84db3", 133 ]
-let s:gren = [ "#00872c", 28 ]
-let s:blue = [ "#006ccb", 25 ]
+let s:gry1 = [ "#eceef2", 255 ]
+let s:gry3 = [ "#505966", 240 ]
+let s:red_ = [ "#b25d60", 131 ]
+let s:mgnt = [ "#97609c", 96 ]
+let s:gren = [ "#43814a", 65 ]
+let s:blue = [ "#3975b0", 32 ]
 
 let s:p = { "normal" : {} , "inactive": {} , "insert"  : {} ,
           \ "replace": {} , "visual"  : {} , "tabline" : {} }
