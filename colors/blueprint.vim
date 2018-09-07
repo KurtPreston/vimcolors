@@ -159,17 +159,17 @@ hi       SpellRare guifg=none    guibg=none    gui=bold,underline
 hi       htmlTag                  guifg=#4FF796 guibg=none    gui=none
 hi       htmlLink                 guifg=#4FF796 guibg=none    gui=none
 
-hi       markdownH1               guifg=#4FF796 guibg=none    gui=none
-hi       markdownH2               guifg=#4FF796 guibg=none    gui=none
-hi       markdownH3               guifg=#4FF796 guibg=none    gui=none
-hi       markdownH5               guifg=#4FF796 guibg=none    gui=none
-hi       markdownH5               guifg=#4FF796 guibg=none    gui=none
-hi       markdownH6               guifg=#4FF796 guibg=none    gui=none
+hi       markdownH1               guifg=#4FF796 guibg=none    gui=bold
+hi       markdownH2               guifg=#4FF796 guibg=none    gui=bold
+hi       markdownH3               guifg=#4FF796 guibg=none    gui=bold
+hi       markdownH4               guifg=#4FF796 guibg=none    gui=bold
+hi       markdownH5               guifg=#4FF796 guibg=none    gui=bold
+hi       markdownH6               guifg=#4FF796 guibg=none    gui=bold
 
-hi       markdownRule             guifg=#4FF796 guibg=none    gui=none
-hi       markdownHeadingDelimiter guifg=#4FF796 guibg=none    gui=none
+hi       markdownRule             guifg=#4FF796 guibg=none    gui=bold
+hi       markdownHeadingDelimiter guifg=#4FF796 guibg=none    gui=bold
 
-hi       markdownBold             guifg=#4FF796 guibg=none    gui=none
+hi       markdownBold             guifg=#4FF796 guibg=none    gui=bold
 hi       markdownItalic           guifg=#4FF796 guibg=none    gui=italic
-hi       markdownBoldItalic       guifg=#4FF796 guibg=none    gui=italic
+hi       markdownBoldItalic       guifg=#4FF796 guibg=none    gui=bold,italic
 hi       markdownCode             guifg=#4FF796 guibg=none    gui=none
