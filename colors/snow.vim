@@ -86,7 +86,7 @@ if &background ==# 'dark'
   hi Tag ctermfg=137 ctermbg=NONE guifg=#a6936c guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi DiffChanged ctermfg=137 ctermbg=236 guifg=#a6936c guibg=#2b2e32 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
   hi DiffText ctermfg=137 ctermbg=236 guifg=#a6936c guibg=#2b2e32 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
-  hi Search ctermfg=101 ctermbg=255 guifg=#83714c guibg=#eceef2 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+  hi Search ctermfg=137 ctermbg=236 guifg=#a6936c guibg=#2b2e32 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
   hi Conditional ctermfg=108 ctermbg=NONE guifg=#799e7a guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Exception ctermfg=108 ctermbg=NONE guifg=#799e7a guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Keyword ctermfg=108 ctermbg=NONE guifg=#799e7a guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -181,7 +181,7 @@ hi SpecialKey ctermfg=94 ctermbg=NONE guifg=#8d7334 guibg=NONE guisp=NONE cterm=
 hi Tag ctermfg=94 ctermbg=NONE guifg=#8d7334 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi DiffChanged ctermfg=94 ctermbg=231 guifg=#8d7334 guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi DiffText ctermfg=94 ctermbg=231 guifg=#8d7334 guibg=#ffffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
-hi Search ctermfg=222 ctermbg=237 guifg=#fada96 guibg=#35383e guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+hi Search ctermfg=179 ctermbg=238 guifg=#ddbe7b guibg=#414956 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi Conditional ctermfg=65 ctermbg=NONE guifg=#45834c guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Exception ctermfg=65 ctermbg=NONE guifg=#45834c guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Keyword ctermfg=65 ctermbg=NONE guifg=#45834c guibg=NONE guisp=NONE cterm=NONE gui=NONE
@@ -212,8 +212,8 @@ finish
 " Color:      gry2 #6e7785 ~
 " Color:      gry3 #535c6a ~
 " Color:      gryc #414956 ~
-" Color:      srch #fada96 ~
-" Color:      grys #35383e ~
+" Color:      srch #ddbe7b ~
+" Color:      grys #414956 ~
 " Color:      gryp #aeb8c7 ~
 " Color:      sprd #cb3e50 ~
 " Color:      spbl #007bdc ~
@@ -323,8 +323,8 @@ finish
 " Color:      gry2 #8c96a4 ~
 " Color:      gry3 #aeb8c7 ~
 " Color:      gryc #c9d3e2 ~
-" Color:      srch #83714c ~
-" Color:      grys #eceef2 ~
+" Color:      srch #a6936c ~
+" Color:      grys #2b2e32 ~
 " Color:      gryp #535c6a ~
 " Color:      sprd #d49b9b ~
 " Color:      spbl #91add4 ~
