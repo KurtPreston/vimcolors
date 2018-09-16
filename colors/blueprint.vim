@@ -120,7 +120,7 @@ hi           Macro guifg=#4FF796 guibg=none    gui=none
 hi       PreCondit guifg=#4FF796 guibg=none    gui=none
 
 hi            Type guifg=none    guibg=none    gui=none
-hi    StorageClass guifg=none    guibg=none    gui=none
+hi    StorageClass guifg=#4FF796 guibg=none    gui=none
 hi       Structure guifg=#4FF796 guibg=none    gui=none
 hi         Typedef guifg=#4FF796 guibg=none    gui=none
 
