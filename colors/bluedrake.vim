@@ -1,7 +1,7 @@
 "" bluedrake.vim
 ""
 "" Designer: Michael Malick
-"" Version:  1.0
+"" Version:  1.1
 ""
 "" For details of highlight groups see :h syntax
 "" To inspect filetype syntax files use :e $VIMRUNTIME/syntax/html.vim
@@ -142,6 +142,25 @@ if has('nvim')
     let g:terminal_color_13 = '#'.s:Gmagenta
     let g:terminal_color_14 = '#'.s:Gbase1
     let g:terminal_color_15 = '#'.s:Gbase3
+endif
+
+if has('terminal')
+    let g:terminal_ansi_colors = ['#'.s:Gbase02,
+                                \ '#'.s:Gred,
+                                \ '#'.s:Ggreen,
+                                \ '#'.s:Gyellow,
+                                \ '#'.s:Gblue,
+                                \ '#'.s:Gviolet,
+                                \ '#'.s:Gcyan,
+                                \ '#'.s:Gbase2,
+                                \ '#'.s:Gbase03,
+                                \ '#'.s:Gorange,
+                                \ '#'.s:Gbase01,
+                                \ '#'.s:Gbase00,
+                                \ '#'.s:Gbase0,
+                                \ '#'.s:Gmagenta,
+                                \ '#'.s:Gbase1,
+                                \ '#'.s:Gbase3]
 endif
 
 
@@ -321,6 +340,8 @@ endif
 
 if has('terminal')
     call <SID>Hi_all("Terminal", "blue", "base03", "none")
+    call <SID>Hi_all("StatusLineTerm", "base02", "base1", "reverse")
+    call <SID>Hi_all("StatusLineTermNC", "base02", "base01", "reverse")
 endif
 
 
@@ -454,7 +475,7 @@ call <SID>Hi_all("texRefZone", "violet", "", "none")
 
 "" ctrlp ---------------------------------------------------
 call <SID>Hi_all("CtrlPNoEntries", "red", "", "")
-call <SID>Hi_all("CtrlPMatch", "yellow", "", "")
+call <SID>Hi_all("CtrlPMatch", "base03", "yellow", "")
 call <SID>Hi_all("CtrlPMode1", "green", "base02", "")
 call <SID>Hi_all("CtrlPMode2", "base00", "base02", "")
 
