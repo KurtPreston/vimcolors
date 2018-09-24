@@ -58,7 +58,8 @@ if &background == "dark"
   let s:cursor_line      = s:subtle_black
   let s:constant         = s:light_blue
   let s:comment          = s:light_gray
-  let s:selection        = s:light_yellow
+  let s:selection        = s:dark_yellow
+  let s:selection_fg     = s:black
   let s:ok               = s:light_green
   let s:warning          = s:yellow
   let s:error            = s:light_red
@@ -79,6 +80,7 @@ else
   let s:constant         = s:dark_blue
   let s:comment          = s:light_gray
   let s:selection        = s:light_yellow
+  let s:selection_fg     = s:light_black
   let s:ok               = s:light_green
   let s:warning          = s:yellow
   let s:error            = s:dark_red
@@ -119,10 +121,15 @@ function! s:h(group, style)
 endfunction
 
 " __Normal__
-call s:h("Normal",        {"fg": s:norm})
+if has("gui")
+    call s:h("Normal",        {"fg": s:norm, "bg": s:bg})
+    call s:h("Cursor",        {"fg": s:bg, "bg": s:norm})
+else
+    call s:h("Normal",        {"fg": s:norm})
+    hi! link Cursor           Identifier
+endif
 hi! link Identifier       Normal
 hi! link Function         Identifier
-hi! link Cursor           Identifier
 hi! link Include          Statement
 hi! link Type             Normal
 hi! link StorageClass     Type
@@ -140,8 +147,8 @@ hi! link Define           PreProc
 hi! link Macro            PreProc
 hi! link PreCondit        PreProc
 
-" __Noise__
-call s:h("Noise",     {"fg": s:bg_very_subtle, "gui": "NONE"})
+" __Operator__
+call s:h("Noise",     {"fg": s:norm_subtle, "gui": "NONE"})
 hi! link Operator     Noise
 hi! link LineNr       Noise
 hi! link CursorLineNr LineNr
@@ -185,7 +192,7 @@ hi! link Folded   NonText
 hi! link qfLineNr NonText
 
 " __Search__
-call s:h("Search",        {"bg": s:selection, "fg": s:norm})
+call s:h("Search",        {"bg": s:selection, "fg": s:selection_fg})
 hi! link IncSearch Search
 
 " __Visual__
