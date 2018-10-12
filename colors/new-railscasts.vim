@@ -89,15 +89,15 @@ hi PMenuSbar                 guibg=#5A647E gui=NONE
 hi PMenuThumb                guibg=#AAAAAA gui=NONE
 
 " Comment
-hi Comment                   guifg=#bc7f23 guibg=NONE gui=italic ctermfg=137 cterm=italic
-hi Todo                      guifg=#df5f5f guibg=NONE gui=bold,italic ctermfg=94
+hi Comment                   guifg=#bc7f23 guibg=NONE gui=italic
+hi Todo                      guifg=#D38E39 guibg=NONE gui=bold,italic
 
 "rubyPseudoVariable: nil, self, symbols, etc
-hi Constant                  guifg=#0095CB ctermfg=73
+hi Constant                  guifg=#0095CB guibg=NONE gui=NONE
 " rubyClass, rubyModule, rubyDefine def, end, include, etc
-hi Define                    guifg=#D38E39 ctermfg=173
+hi Define                    guifg=#D38E39 guibg=NONE gui=NONE
 " Interpolation
-hi Delimiter                 guifg=#519F50
+hi Delimiter                 guifg=#519F50 guibg=NONE gui=NONE
 hi WarningMsg                guifg=#DA4939 guibg=NONE gui=NONE
 " Error, rubyInvalidVariable
 hi Error                     guifg=#FFFFFF guibg=#990000 ctermfg=221 ctermbg=88
@@ -136,22 +136,21 @@ hi IndentGuidesOdd  ctermbg=239 guibg=#282828
 hi IndentGuidesEven ctermbg=237 guibg=#332717
 
 " Diffs
+
 hi DiffAdd                   guifg=#e4e4e4 guibg=#519F50 ctermfg=254 ctermbg=22
-hi DiffDelete                guifg=#e4e4e4 guibg=#660000 gui=bold ctermfg=16 ctermbg=52 cterm=bold
 hi DiffChange                guifg=#FFFFFF guibg=#870087 ctermfg=15 ctermbg=90
+hi DiffDelete                guifg=#e4e4e4 guibg=#660000 gui=bold ctermfg=16 ctermbg=52 cterm=bold
 hi DiffText                  guifg=#FFC66D guibg=#FF0000 gui=bold ctermfg=15 ctermbg=9 cterm=bold
-
-hi diffAdded                 guifg=#008700 ctermfg=28
-hi diffRemoved               guifg=#800000 ctermfg=1
-hi diffNewFile               guifg=#FFFFFF guibg=NONE gui=bold ctermfg=15 ctermbg=NONE cterm=bold
-hi diffFile                  guifg=#FFFFFF guibg=NONE gui=bold ctermfg=15 ctermbg=NONE cterm=bold
-
 hi SignifySignAdd            guifg=#008700 guibg=#2d2d2d gui=NONE
 hi SignifySignChange         guifg=#c643c6 guibg=#2d2d2d gui=NONE
 hi SignifySignDelete         guifg=#ff5d4f guibg=#2d2d2d gui=NONE
+hi diffAdded                 guifg=#008700 ctermfg=28
+hi diffFile                  guifg=#FFFFFF guibg=NONE gui=bold ctermfg=15 ctermbg=NONE cterm=bold
+hi diffNewFile               guifg=#FFFFFF guibg=NONE gui=bold ctermfg=15 ctermbg=NONE cterm=bold
+hi diffRemoved               guifg=#800000 ctermfg=1
 
 " Ruby
-" ----
+
 hi rubyBlockParameter        guifg=#d7b0fc
 hi rubyBoolean               guifg=#47a3e5 gui=italic
 hi rubyClass                 guifg=#D38E39
@@ -171,53 +170,59 @@ hi jsFunction                 guifg=#FFA78D ctermfg=221 gui=italic
 hi jsFunctionKey              guifg=#FFA78D gui=italic
 hi jsNoise                    guifg=#CB725B gui=bold
 hi jsNull                     guifg=#FFA78D gui=italic
-hi jsOperatorKeyword          guifg=#F9F871 gui=italic
 hi jsObjectFuncName           guifg=#FFC66D gui=bold,italic guibg=NONE
 hi jsObjectKey                guifg=#6D9CBE gui=bold
-hi jsStorageClass             guifg=#F47454 gui=italic
+hi jsOperatorKeyword          guifg=#F9F871 gui=italic
+hi jsStorageClass             guifg=#FFAAE7 gui=italic
 hi jsThis                     guifg=#d7b0fc gui=bold,italic
 hi link jsGlobalObjects       Type
 hi link jsObjectProp          Type
 
-" Typescript
-"
+" Typescript https://github.com/HerringtonDarkholme/yats.vim
+
+hi typescriptAccessibilityModifier  guifg=#FFAAE7 gui=italic
 hi typescriptArrowFunc              guifg=#FFA78D gui=italic
-hi typescriptVariable               guifg=#d7b0fc gui=italic
 hi typescriptAsyncFuncKeyword       guifg=#47a3e5 gui=italic
-hi typescriptType                   guifg=#FFA78D gui=italic
-hi typescriptPredefinedType         guifg=#FFA78D gui=italic
-hi typescriptObjectLabel            guifg=#6D9CBE gui=bold
+hi typescriptEndColons              guifg=#F47454 gui=bold
+hi typescriptObjectColon            guifg=#F47454 guibg=NONE gui=bold
+hi typescriptBraces                 guifg=#F47454 guibg=NONE gui=bold
+hi typescriptExport                 guifg=#F47454 guibg=NONE gui=NONE
 hi typescriptFuncName               guifg=#FFC66D gui=bold,italic guibg=NONE
-hi typescriptMethodName             guifg=#FFC66D gui=bold,italic guibg=NONE
 hi typescriptIdentifier             guifg=#d7b0fc gui=bold,italic
-hi typescriptVariable               guifg=#CB725B gui=italic
-hi typescriptAccessibilityModifier  guifg=#FFA78D gui=italic
+hi typescriptImport                 guifg=#F47454 guibg=NONE gui=NONE
+hi typescriptMethodName             guifg=#FFC66D gui=bold,italic guibg=NONE
+hi typescriptObjectLabel            guifg=#6D9CBE gui=bold
+hi typescriptPredefinedType         guifg=#F47454 gui=italic
+hi typescriptType                   guifg=#F47454 gui=italic
+hi typescriptReserved               guifg=#F47454 gui=italic
+hi typescriptVariable               guifg=#FFAAE7 gui=italic
 
 " Python
-" ------
-hi pythonExceptions            guifg=#ffaf87 ctermfg=216
+
 hi pythonDoctest               guifg=#8787ff ctermfg=105
 hi pythonDoctestValue          guifg=#87d7af ctermfg=115
+hi pythonExceptions            guifg=#ffaf87 ctermfg=216
 
 " Elixir
-"
+
 hi elixirAtom                 guifg=#6D9CBE gui=bold
-hi elixirMapDelimiter         guifg=#D38E39 gui=bold
-hi elixirTupleDelimiter       guifg=#D38E39 gui=bold
-hi elixirMap                  guifg=#FFA78D gui=bold
-hi elixirTuple                guifg=#FFA78D gui=bold
-hi elixirOperator             guifg=#FFC66D
 hi elixirDefine               guifg=#D38E39 gui=bold
-hi elixirPrivateDefine        guifg=#D38E39 gui=bold,italic
+hi elixirMap                  guifg=#FFA78D gui=bold
+hi elixirMapDelimiter         guifg=#D38E39 gui=bold
 hi elixirModuleDefine         guifg=#D38E39 gui=bold
+hi elixirOperator             guifg=#FFC66D
+hi elixirPrivateDefine        guifg=#D38E39 gui=bold,italic
+hi elixirTuple                guifg=#FFA78D gui=bold
+hi elixirTupleDelimiter       guifg=#D38E39 gui=bold
 
 " CSS
+
 hi cssClassName                 guifg=#FFC66D gui=italic
 hi cssIdentifier                guifg=#47a3e5 gui=italic
+hi cssImportant                 guifg=#47a3e5 gui=italic
+hi cssIncludeKeyword            guifg=#d7b0fc gui=bold,italic
 hi cssProp                      guifg=#6D9CBE gui=bold
 hi cssVendor                    guifg=#6D9CBE gui=bold,italic
-hi cssIncludeKeyword            guifg=#d7b0fc gui=bold,italic
-hi cssImportant                 guifg=#47a3e5 gui=italic
 
 " JSON
 hi jsonBoolean                 guifg=#47a3e5 gui=italic
@@ -253,9 +258,9 @@ hi link htmlEndTag           xmlEndTag
 hi htmlArg                   guifg=#ff8700 gui=italic
 
 " HBS
-" ---
-hi hbsHandles               guifg=#D38E39 gui=bold
+
 hi hbsArg                   guifg=#F47454 gui=italic
+hi hbsHandles               guifg=#D38E39 gui=bold
 hi hbsKeyword               guifg=#0095CB gui=italic
 hi hbsMustacheName          guifg=#FFC66D gui=NONE
 hi hbsPencilName            guifg=#D38E39 gui=bold
