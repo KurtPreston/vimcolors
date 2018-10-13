@@ -182,19 +182,21 @@ hi link jsObjectProp          Type
 
 hi typescriptAccessibilityModifier  guifg=#FFAAE7 gui=italic
 hi typescriptArrowFunc              guifg=#FFA78D gui=italic
+hi typescriptArrowFuncDef           guifg=#FFC66D gui=bold,italic guibg=NONE
 hi typescriptAsyncFuncKeyword       guifg=#47a3e5 gui=italic
-hi typescriptEndColons              guifg=#F47454 gui=bold
-hi typescriptObjectColon            guifg=#F47454 guibg=NONE gui=bold
-hi typescriptBraces                 guifg=#F47454 guibg=NONE gui=bold
+hi typescriptBraces                 guifg=#D38E39 guibg=NONE gui=bold
+hi typescriptComputedPropertyName   guifg=#FFC66D gui=bold,italic guibg=NONE
+hi typescriptEndColons              guifg=#D38E39 gui=bold
 hi typescriptExport                 guifg=#F47454 guibg=NONE gui=NONE
 hi typescriptFuncName               guifg=#FFC66D gui=bold,italic guibg=NONE
 hi typescriptIdentifier             guifg=#d7b0fc gui=bold,italic
 hi typescriptImport                 guifg=#F47454 guibg=NONE gui=NONE
 hi typescriptMethodName             guifg=#FFC66D gui=bold,italic guibg=NONE
+hi typescriptObjectColon            guifg=#D38E39 guibg=NONE gui=bold
 hi typescriptObjectLabel            guifg=#6D9CBE gui=bold
 hi typescriptPredefinedType         guifg=#F47454 gui=italic
-hi typescriptType                   guifg=#F47454 gui=italic
 hi typescriptReserved               guifg=#F47454 gui=italic
+hi typescriptType                   guifg=#F47454 gui=italic
 hi typescriptVariable               guifg=#FFAAE7 gui=italic
 
 " Python
