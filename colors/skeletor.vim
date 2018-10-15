@@ -22,6 +22,10 @@ set background=dark
 
 let g:colors_name='skeletor'
 
+if !exists("g:no_bg")
+	let g:no_bg = 0
+endif
+
 " }}}
 " Color Palette: {{{
 
@@ -55,6 +59,11 @@ let s:green = s:skeletor.green
 let s:vlgray = s:skeletor.verylightgray
 let s:fg1 = s:skeletor.comments
 let s:fg0 = s:skeletor.lightblue
+if g:no_bg == 0
+	let s:bg = s:skeletor.background
+else
+	let s:bg = ['NONE', 'NONE']
+endif
 let s:bg = s:skeletor.background
 let s:c = s:skeletor.cursor
 let s:c2 = s:skeletor.cursor2

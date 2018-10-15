@@ -88,10 +88,6 @@ exe 'hi Constant guifg='s:cyan
 exe 'hi Debug guifg='s:whitesmoke 
 exe 'hi Define guifg='s:gold 
 exe 'hi Delimiter guifg='s:whitesmoke 
-exe 'hi DiffAdd guifg=#f8f8f8 guibg=#46830c gui=bold cterm=bold'
-exe 'hi DiffDelete guifg=#ff0000'  
-exe 'hi DiffChange guifg='s:whitesmoke' guibg='s:cyan3 
-exe 'hi DiffText guifg='s:whitesmoke' guibg='s:wheat' gui=bold cterm=bold'
 exe 'hi ErrorMsg guifg='s:whitesmoke' guibg='s:red' gui=bold cterm=bold'
 exe 'hi WarningMsg guifg='s:gold' gui=bold cterm=bold' 
 exe 'hi Exception guifg='s:gold
@@ -123,6 +119,11 @@ exe 'hi Todo guifg='s:wheat'  guibg='s:dodgerblue4' gui=bold cterm=bold'
 exe 'hi Type guifg='s:type 
 exe 'hi Typedef guifg='s:type
 exe 'hi Underlined   gui=underline'
+
+exe 'hi DiffAdd guifg='s:func' guibg='s:dodgerblue4' gui=bold cterm=bold'
+exe 'hi DiffDelete guifg='s:tomato' guibg='s:dodgerblue4' gui=NONE cterm=NONE'
+exe 'hi DiffChange guifg='s:whitesmoke' guibg='s:cyan3 
+exe 'hi DiffText guifg='s:whitesmoke' guibg='s:steelblue3' gui=bold cterm=bold'
 
 " Ruby Highlighting
 exe 'hi rubyAttribute guifg='s:wheat
