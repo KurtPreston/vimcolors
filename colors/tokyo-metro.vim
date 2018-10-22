@@ -20,12 +20,21 @@ function! s:create_context() abort
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Comment', {
+        \   'cterm': 'italic',
         \   'ctermfg': c.comment_fg,
+        \   'gui': 'italic',
         \   'guifg': g.comment_fg,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Constant', {
         \   'ctermfg': c.hanzomon,
+        \   'guifg': g.hanzomon,
+        \ }))
+  call extend(rules, pgmnt#hi#group(
+        \ 'XMLConstant', {
+        \   'cterm': 'italic',
+        \   'ctermfg': c.hanzomon,
+        \   'gui': 'italic',
         \   'guifg': g.hanzomon,
         \ }))
   call extend(rules, pgmnt#hi#group(
@@ -187,6 +196,13 @@ function! s:create_context() abort
         \   'guifg': g.yurakucho,
         \ }))
   call extend(rules, pgmnt#hi#group(
+        \ 'PreProcItalic', {
+        \   'cterm': 'italic',
+        \   'ctermfg': c.yurakucho,
+        \   'gui': 'italic',
+        \   'guifg': g.yurakucho,
+        \ }))
+  call extend(rules, pgmnt#hi#group(
         \ 'Question', {
         \   'ctermfg': c.yurakucho,
         \   'guifg': g.yurakucho,
@@ -283,6 +299,13 @@ function! s:create_context() abort
   call extend(rules, pgmnt#hi#group(
         \ 'Structure', {
         \   'ctermfg': c.chiyoda,
+        \   'guifg': g.chiyoda,
+        \ }))
+  call extend(rules, pgmnt#hi#group(
+        \ 'JSSpecial', {
+        \   'cterm': 'italic',
+        \   'ctermfg': c.chiyoda,
+        \   'gui': 'italic',
         \   'guifg': g.chiyoda,
         \ }))
   call extend(rules, pgmnt#hi#group(
@@ -425,7 +448,7 @@ function! s:create_context() abort
   call add(links, pgmnt#hi#link('vimVar', 'Normal'))
 
   " xml
-  call add(links, pgmnt#hi#link('xmlAttrib', 'Constant'))
+  call add(links, pgmnt#hi#link('xmlAttrib', 'XMLConstant'))
   call add(links, pgmnt#hi#link('xmlAttribPunct', 'Statement'))
   call add(links, pgmnt#hi#link('xmlEndTag', 'Statement'))
   call add(links, pgmnt#hi#link('xmlNamespace', 'Statement'))
@@ -488,8 +511,11 @@ function! s:create_context() abort
 
   " [vim-flow](https://github.com/flowtype/vim-flow)
   call add(links, pgmnt#hi#link('jsFlowMaybe', 'Normal'))
+  call add(links, pgmnt#hi#link('jsFlowClassGroup', 'PreProcItalic'))
   call add(links, pgmnt#hi#link('jsFlowObject', 'Normal'))
-  call add(links, pgmnt#hi#link('jsFlowType', 'PreProc'))
+  call add(links, pgmnt#hi#link('jsFlowObjectKey', 'Normal'))
+  call add(links, pgmnt#hi#link('jsFlowType', 'PreProcItalic'))
+  call add(links, pgmnt#hi#link('jsFlowTypeStatement', 'Identifier'))
 
   " [vim-graphql](https://github.com/jparise/vim-graphql)
   call add(links, pgmnt#hi#link('graphqlName', 'Normal'))
@@ -521,13 +547,20 @@ function! s:create_context() abort
   " [vim-javascript](https://github.com/pangloss/vim-javascript)
   call add(links, pgmnt#hi#link('jsArrowFunction', 'Operator'))
   call add(links, pgmnt#hi#link('jsClassDefinition', 'Normal'))
+  call add(links, pgmnt#hi#link('jsDestructuringBraces', 'Comment'))
+  call add(links, pgmnt#hi#link('jsFuncParens', 'Comment'))
   call add(links, pgmnt#hi#link('jsClassFuncName', 'Title'))
   call add(links, pgmnt#hi#link('jsExport', 'Statement'))
+  call add(links, pgmnt#hi#link('jsImport', 'JSSpecial'))
+  call add(links, pgmnt#hi#link('jsModuleAs', 'JSSpecial'))
+  call add(links, pgmnt#hi#link('jsExtendsKeyword', 'JSSpecial'))
+  call add(links, pgmnt#hi#link('jsFrom', 'JSSpecial'))
   call add(links, pgmnt#hi#link('jsFuncName', 'Title'))
   call add(links, pgmnt#hi#link('jsFuncCall', 'Normal'))
   call add(links, pgmnt#hi#link('jsGlobalObjects', 'Statement'))
   call add(links, pgmnt#hi#link('jsModuleKeywords', 'Statement'))
   call add(links, pgmnt#hi#link('jsModuleOperators', 'Statement'))
+  call add(links, pgmnt#hi#link('jsModuleBraces', 'Comment'))
   call add(links, pgmnt#hi#link('jsNull', 'Constant'))
   call add(links, pgmnt#hi#link('jsObjectFuncName', 'Title'))
   call add(links, pgmnt#hi#link('jsObjectKey', 'Identifier'))
