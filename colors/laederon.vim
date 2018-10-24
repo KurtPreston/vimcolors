@@ -6,7 +6,7 @@
 " Whereas Ubaryd was warm colors on a dark background, Laederon is the 
 " opposite: cold colors on a white background. This theme's name also 
 " comes from Steven Erikson's Malazan world where Laederon is a land of 
-" pine woods, lakes and snow. So, lot's of grey, green and all sorts of 
+" pine woods, lakes and snow. So, lot's of greys, greens and all sorts of 
 " blue/azure colours.
 "
 " }}}
@@ -15,7 +15,7 @@
 "
 " Maintainer:	Gianluca Fiore <forod.g@gmail.com>
 " Inspiration:	https://github.com/sjl/badwolf/
-" Last Change:	October 2014
+" Last Change:	October 2018
 " License:		MIT
 "
 " }}}
@@ -78,20 +78,20 @@ let s:lac.deeplake = ['003b7f', 20]
 let s:lac.wintrygray = ['354d4f', 59]
 " Actually, a purple kind of a raspberry
 let s:lac.raspberry = ['ab3e5b', 161]
-let s:lac.oakleaf = ['233e09', 22]
+let s:lac.oakleaf = ['005f00', 22]
 let s:lac.crystallake = ['1693a5', 62]
 let s:lac.tundrariver = ['325a73', 24]
-let s:lac.trunk = ['594512', 94]
+let s:lac.trunk = ['594512', 64]
 
 " Sky-inspired colours. Did I tell you I love astronomy?
 let s:lac.coldsky = ['081c8c', 18]
 let s:lac.darkestnight = ['2f3a78', 19]
 
 " Imagine a dark green paint diluted in too much water
-let s:lac.dilutedpaint = ['90a680', 64]
+let s:lac.dilutedpaint = ['90a680', 66]
 
 " Basically, a dark gray
-let s:lac.stainonsnow = ['403131', 88]
+let s:lac.stainonsnow = ['403131', 244]
 
 " }}}
 " Highlighting Function {{{
@@ -241,7 +241,6 @@ call s:HL('PreCondit', 'crystallake', '', 'bold')
 call s:HL('Constant',  'dilutedpaint', '', 'bold')
 call s:HL('Character', 'dilutedpaint', '', 'bold')
 call s:HL('Boolean',   'dilutedpaint', '', 'bold')
-
 call s:HL('Number', 'dilutedpaint', '', 'bold')
 call s:HL('Float',  'dilutedpaint', '', 'bold')
 
@@ -291,6 +290,43 @@ endif
 
 " }}}
 " Plugins {{{
+
+" Airline {{{
+
+" Visual mode
+let s:lac.V1 = [ '#005f00', '#f8f6f2','22','15']
+let s:lac.V2 = [ '#f8f6f2', '#005f00','15','22']
+let s:lac.V3 = [ '#594512', '#f8f6f2','64','15']
+
+" Replace mode
+let s:lac.R1 = [ '#90a680' , '#f8f6f2','66','15']
+let s:lac.R2 = [ '#90a680' , '#242321','66','235']
+let s:lac.R3 = [ '#f8f6f2' , '#90a680','15','66']
+
+let g:airline#themes#laederon#palette = {}
+
+let s:StatusLine = airline#themes#get_highlight('StatusLine')
+let s:StatusLineNC = airline#themes#get_highlight('StatusLineNC')
+let s:lac.I1 = [ '#f8f6f2', '#ab3e5b','15','161']
+let s:lac.I2 = [ '#242321', '#ab3e5b','235','161']
+let s:lac.I3 = [ '#1693a5', '#f8f6f2', '62', '15']
+
+" Normal mode
+let s:lac.N1 = [ '#081c8c' , '#f8f6f2','18','15']
+let s:lac.N2 = [ '#1693a5' , '#f8f6f2','62','15']
+let s:lac.N3 = s:StatusLine
+
+let g:airline#themes#laederon#palette.normal = airline#themes#generate_color_map(s:lac.N1, s:lac.N2, s:lac.N3)
+let g:airline#themes#laederon#palette.visual = airline#themes#generate_color_map(s:lac.V1, s:lac.V2, s:lac.V3)
+let g:airline#themes#laederon#palette.insert = airline#themes#generate_color_map(s:lac.I1, s:lac.I2, s:lac.I3)
+let g:airline#themes#laederon#palette.replace = airline#themes#generate_color_map(s:lac.R1, s:lac.R2, s:lac.R3)
+
+" Inactive Mode
+let s:IA = airline#themes#get_highlight('StatusLineNC')
+let g:airline#themes#laederon#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
+let g:airline#themes#laederon#palette.inactive_modified = {
+      \ 'airline_c':  ['#908571', s:IA[1],'252',s:IA[3]],
+      \ }
 
 " CtrlP {{{
 
@@ -432,7 +468,6 @@ call s:HL('fsMountPoint', 'crystallake', '')
 
 " }}}
 " Go {{{
-
 call s:HL('goType', 'oakleaf', '')
 call s:HL('goDeclaration', 'tundrariver', '')
 call s:HL('goStatement', 'raspberry', '')
@@ -487,8 +522,7 @@ call s:HL('javaDocTags', 'wetcoldterrain', '', 'none')
 call s:HL('javaDocParam', 'raspberry', '', '')
 
 " }}}
-" Javascript {{{
-
+" JavaScript {{{
 call s:HL('javascriptStatement', 'raspberry', '', '')
 call s:HL('javaScriptStringD', 'deepgravel', '')
 call s:HL('javaScriptStringS', 'deepgravel', '')

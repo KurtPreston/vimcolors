@@ -17,7 +17,7 @@
 "
 " Maintainer:	Gianluca Fiore <forod.g@gmail.com>
 " Inspiration:	https://github.com/sjl/badwolf/
-" Last Change:	October 2014
+" Last Change:	October 2018
 " License:		MIT
 "
 " }}}
@@ -305,6 +305,43 @@ endif
 
 " }}}
 " Plugins {{{
+
+" Airline {{{
+
+" Visual mode
+let s:ubc.V1 = [ '#416389', '#f8f6f2','18','15']
+let s:ubc.V2 = [ '#416389', '#f4cf86','18','222']
+let s:ubc.V3 = [ '#9a4820' , '#f8f6f2','88','15']
+
+" Replace mode
+let s:ubc.R1 = [ '#242321' , '#f8f6f2','235','15']
+let s:ubc.R2 = [ '#ffa724' , '#666462','214','241']
+let s:ubc.R3 = [ '#f8f6f2' , '#ff7400','15','215']
+
+let g:airline#themes#ubaryd#palette = {}
+
+let s:StatusLine = airline#themes#get_highlight('StatusLine')
+let s:StatusLineNC = airline#themes#get_highlight('StatusLineNC')
+let s:ubc.I1 = [ '#f8f6f2', '#e25a74','15','161']
+let s:ubc.I2 = [ '#242321', '#c14c3d','235','160']
+let s:ubc.I3 = s:StatusLine
+
+" Normal mode
+let s:ubc.N1 = [ '#005f00' , '#f8f6f2','22','15']
+let s:ubc.N2 = [ '#f8f6f2' , '#005f00','15','22']
+let s:ubc.N3 = s:StatusLine
+
+let g:airline#themes#ubaryd#palette.normal = airline#themes#generate_color_map(s:ubc.N1, s:ubc.N2, s:ubc.N3)
+let g:airline#themes#ubaryd#palette.visual = airline#themes#generate_color_map(s:ubc.V1, s:ubc.V2, s:ubc.V3)
+let g:airline#themes#ubaryd#palette.insert = airline#themes#generate_color_map(s:ubc.I1, s:ubc.I2, s:ubc.I3)
+let g:airline#themes#ubaryd#palette.replace = airline#themes#generate_color_map(s:ubc.R1, s:ubc.R2, s:ubc.R3)
+
+" Inactive Mode
+let s:IA = airline#themes#get_highlight('StatusLineNC')
+let g:airline#themes#ubaryd#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
+let g:airline#themes#ubaryd#palette.inactive_modified = {
+      \ 'airline_c':  ['#f9ef6d', s:IA[1],'154',s:IA[3]],
+      \ }
 
 " CtrlP {{{
 
