@@ -292,41 +292,44 @@ endif
 " Plugins {{{
 
 " Airline {{{
+if exists('g:airline_theme')
+	" vim-airline installed, enable the colors
 
-" Visual mode
-let s:lac.V1 = [ '#005f00', '#f8f6f2','22','15']
-let s:lac.V2 = [ '#f8f6f2', '#005f00','15','22']
-let s:lac.V3 = [ '#594512', '#f8f6f2','64','15']
+	" Visual mode
+	let s:lac.V1 = [ '#005f00', '#f8f6f2','22','15']
+	let s:lac.V2 = [ '#f8f6f2', '#005f00','15','22']
+	let s:lac.V3 = [ '#594512', '#f8f6f2','64','15']
 
-" Replace mode
-let s:lac.R1 = [ '#90a680' , '#f8f6f2','66','15']
-let s:lac.R2 = [ '#90a680' , '#242321','66','235']
-let s:lac.R3 = [ '#f8f6f2' , '#90a680','15','66']
+	" Replace mode
+	let s:lac.R1 = [ '#90a680' , '#f8f6f2','66','15']
+	let s:lac.R2 = [ '#90a680' , '#242321','66','235']
+	let s:lac.R3 = [ '#f8f6f2' , '#90a680','15','66']
 
-let g:airline#themes#laederon#palette = {}
+	let g:airline#themes#laederon#palette = {}
 
-let s:StatusLine = airline#themes#get_highlight('StatusLine')
-let s:StatusLineNC = airline#themes#get_highlight('StatusLineNC')
-let s:lac.I1 = [ '#f8f6f2', '#ab3e5b','15','161']
-let s:lac.I2 = [ '#242321', '#ab3e5b','235','161']
-let s:lac.I3 = [ '#1693a5', '#f8f6f2', '62', '15']
+	let s:StatusLine = airline#themes#get_highlight('StatusLine')
+	let s:StatusLineNC = airline#themes#get_highlight('StatusLineNC')
+	let s:lac.I1 = [ '#f8f6f2', '#ab3e5b','15','161']
+	let s:lac.I2 = [ '#242321', '#ab3e5b','235','161']
+	let s:lac.I3 = [ '#1693a5', '#f8f6f2', '62', '15']
 
-" Normal mode
-let s:lac.N1 = [ '#081c8c' , '#f8f6f2','18','15']
-let s:lac.N2 = [ '#1693a5' , '#f8f6f2','62','15']
-let s:lac.N3 = s:StatusLine
+	" Normal mode
+	let s:lac.N1 = [ '#081c8c' , '#f8f6f2','18','15']
+	let s:lac.N2 = [ '#1693a5' , '#f8f6f2','62','15']
+	let s:lac.N3 = s:StatusLine
 
-let g:airline#themes#laederon#palette.normal = airline#themes#generate_color_map(s:lac.N1, s:lac.N2, s:lac.N3)
-let g:airline#themes#laederon#palette.visual = airline#themes#generate_color_map(s:lac.V1, s:lac.V2, s:lac.V3)
-let g:airline#themes#laederon#palette.insert = airline#themes#generate_color_map(s:lac.I1, s:lac.I2, s:lac.I3)
-let g:airline#themes#laederon#palette.replace = airline#themes#generate_color_map(s:lac.R1, s:lac.R2, s:lac.R3)
+	let g:airline#themes#laederon#palette.normal = airline#themes#generate_color_map(s:lac.N1, s:lac.N2, s:lac.N3)
+	let g:airline#themes#laederon#palette.visual = airline#themes#generate_color_map(s:lac.V1, s:lac.V2, s:lac.V3)
+	let g:airline#themes#laederon#palette.insert = airline#themes#generate_color_map(s:lac.I1, s:lac.I2, s:lac.I3)
+	let g:airline#themes#laederon#palette.replace = airline#themes#generate_color_map(s:lac.R1, s:lac.R2, s:lac.R3)
 
-" Inactive Mode
-let s:IA = airline#themes#get_highlight('StatusLineNC')
-let g:airline#themes#laederon#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
-let g:airline#themes#laederon#palette.inactive_modified = {
-      \ 'airline_c':  ['#908571', s:IA[1],'252',s:IA[3]],
-      \ }
+	" Inactive Mode
+	let s:IA = airline#themes#get_highlight('StatusLineNC')
+	let g:airline#themes#laederon#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
+	let g:airline#themes#laederon#palette.inactive_modified = {
+		  \ 'airline_c':  ['#908571', s:IA[1],'252',s:IA[3]],
+		  \ }
+endif
 
 " CtrlP {{{
 

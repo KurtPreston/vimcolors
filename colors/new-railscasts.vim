@@ -37,8 +37,8 @@ endif
 highlight clear SignColumn
 set background=dark
 
-hi Normal                    guifg=#E6E1DC guibg=#212121 ctermfg=white ctermbg=234
-hi Cursor                    guifg=#000000 guibg=#FFFFFF ctermfg=0 ctermbg=15
+hi Normal                    guifg=#FEF9E1 guibg=#202020
+hi Cursor                    guifg=#000000 guibg=#EAE3D9
 hi CursorLine                guibg=#2D2720
 hi ColorColumn               guibg=#2D2720
 hi Search                    guifg=#FFC66D guibg=#072f95 gui=bold
@@ -100,7 +100,7 @@ hi Define                    guifg=#D38E39 guibg=NONE gui=NONE
 hi Delimiter                 guifg=#519F50 guibg=NONE gui=NONE
 hi WarningMsg                guifg=#DA4939 guibg=NONE gui=NONE
 " Error, rubyInvalidVariable
-hi Error                     guifg=#FFFFFF guibg=#990000 ctermfg=221 ctermbg=88
+hi Error                     guifg=#EAE3D9 guibg=#990000 ctermfg=221 ctermbg=88
 " Function
 hi Function                  guifg=#FFC66D gui=NONE guibg=NONE ctermfg=221 cterm=NONE
 " Identifier: @var, @@var, $var, etc
@@ -122,14 +122,14 @@ hi PreProc                   guifg=#F47454 guibg=NONE ctermfg=103
 hi Statement                 guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
 " String
 hi String                    guifg=#74d155 guibg=NONE ctermfg=107
-hi! Title                    guifg=#FFFFFF guibg=NONE ctermfg=15
+hi! Title                    guifg=#E9E1D7 guibg=NONE ctermfg=15
 " Constant
 hi Type                      guifg=#F47454 guibg=NONE gui=NONE
 hi PreProc                   guifg=#FFA78D guibg=NONE ctermfg=208
 hi Special                   guifg=#FFA78D guibg=NONE ctermfg=22
 hi Operator                  guifg=#FFC66D guibg=NONE ctermfg=73
 hi Tag                       guifg=#F47454 guibg=NONE ctermfg=73
-hi Label                     guifg=#6D9CBE ctermfg=221 gui=bold
+hi Label                     guifg=#6D9CBE gui=bold
 
 " Indentation
 hi IndentGuidesOdd  ctermbg=239 guibg=#282828
@@ -138,15 +138,15 @@ hi IndentGuidesEven ctermbg=237 guibg=#332717
 " Diffs
 
 hi DiffAdd                   guifg=#e4e4e4 guibg=#519F50 ctermfg=254 ctermbg=22
-hi DiffChange                guifg=#FFFFFF guibg=#870087 ctermfg=15 ctermbg=90
+hi DiffChange                guifg=#EAE3D9 guibg=#870087 ctermfg=15 ctermbg=90
 hi DiffDelete                guifg=#e4e4e4 guibg=#660000 gui=bold ctermfg=16 ctermbg=52 cterm=bold
 hi DiffText                  guifg=#FFC66D guibg=#FF0000 gui=bold ctermfg=15 ctermbg=9 cterm=bold
 hi SignifySignAdd            guifg=#008700 guibg=#2d2d2d gui=NONE
 hi SignifySignChange         guifg=#c643c6 guibg=#2d2d2d gui=NONE
 hi SignifySignDelete         guifg=#ff5d4f guibg=#2d2d2d gui=NONE
 hi diffAdded                 guifg=#008700 ctermfg=28
-hi diffFile                  guifg=#FFFFFF guibg=NONE gui=bold ctermfg=15 ctermbg=NONE cterm=bold
-hi diffNewFile               guifg=#FFFFFF guibg=NONE gui=bold ctermfg=15 ctermbg=NONE cterm=bold
+hi diffFile                  guifg=#EAE3D9 guibg=NONE gui=bold ctermfg=15 ctermbg=NONE cterm=bold
+hi diffNewFile               guifg=#EAE3D9 guibg=NONE gui=bold ctermfg=15 ctermbg=NONE cterm=bold
 hi diffRemoved               guifg=#800000 ctermfg=1
 
 " Ruby https://github.com/vim-ruby/vim-ruby
@@ -219,12 +219,15 @@ hi elixirTupleDelimiter       guifg=#D38E39 gui=bold
 
 " CSS
 
-hi cssClassName                 guifg=#FFC66D gui=italic
-hi cssIdentifier                guifg=#47a3e5 gui=italic
-hi cssImportant                 guifg=#47a3e5 gui=italic
-hi cssIncludeKeyword            guifg=#d7b0fc gui=bold,italic
-hi cssProp                      guifg=#6D9CBE gui=bold
-hi cssVendor                    guifg=#6D9CBE gui=bold,italic
+hi cssAttr            guifg=#FFC66D
+hi cssClassName       guifg=#FFAAE7 gui=italic
+hi cssColor           guifg=#FFC66D
+hi cssIdentifier      guifg=#47a3e5 gui=italic
+hi cssImportant       guifg=#47a3e5 gui=italic
+hi cssIncludeKeyword  guifg=#d7b0fc gui=bold,italic
+hi cssNoise           guifg=#D38E39 gui=bold
+hi cssProp            guifg=#6D9CBE gui=bold
+hi cssVendor          guifg=#6D9CBE gui=bold,italic
 
 " JSON
 hi jsonBoolean                 guifg=#47a3e5 gui=italic
