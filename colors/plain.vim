@@ -193,7 +193,7 @@ hi! link qfLineNr NonText
 
 " __Search__
 call s:h("Search",        {"bg": s:selection, "fg": s:selection_fg})
-hi! link IncSearch Search
+call s:h("IncSearch",     {"bg": s:selection, "fg": s:selection_fg, "gui": "bold"})
 
 " __Visual__
 call s:h("Visual",        {"bg": s:visual})
