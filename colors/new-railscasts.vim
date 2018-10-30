@@ -92,7 +92,7 @@ hi Identifier  guifg=#D7B0FC guibg=NONE ctermfg=73 cterm=NONE
 hi Include     guifg=#F47454 guibg=NONE ctermfg=173 cterm=NONE
 hi Keyword     guifg=#FFA78D ctermfg=172 cterm=NONE
 hi Macro       guifg=#F47454 guibg=NONE ctermfg=172
-hi Number      guifg=#A5C261 ctermfg=107
+hi Number      guifg=#bde04c ctermfg=107
 hi Boolean     guifg=#47A3E5 ctermfg=107 gui=italic
 hi PreCondit   guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
 hi PreProc     guifg=#F47454 guibg=NONE ctermfg=103
