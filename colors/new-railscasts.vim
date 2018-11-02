@@ -83,7 +83,7 @@ hi PMenuThumb  guibg=#AAAAAA gui=NONE
 hi Comment     guifg=#BC7F23 guibg=NONE gui=italic
 hi Todo        guifg=#D38E39 guibg=NONE gui=bold,italic
 hi Constant    guifg=#0095CB guibg=NONE gui=NONE
-hi Define      guifg=#D38E39 guibg=NONE gui=NONE
+hi Define      guifg=#FFA78D guibg=NONE gui=NONE
 hi Delimiter   guifg=#519F50 guibg=NONE gui=NONE
 hi WarningMsg  guifg=#DA4939 guibg=NONE gui=NONE
 hi Error       guifg=#EAE3D9 guibg=#990000 ctermfg=221 ctermbg=88
@@ -93,7 +93,7 @@ hi Include     guifg=#F47454 guibg=NONE ctermfg=173 cterm=NONE
 hi Keyword     guifg=#FFA78D ctermfg=172 cterm=NONE
 hi Macro       guifg=#F47454 guibg=NONE ctermfg=172
 hi Number      guifg=#bde04c ctermfg=107
-hi Boolean     guifg=#47A3E5 ctermfg=107 gui=italic
+hi Boolean     guifg=#9F7BC3 ctermfg=107 gui=italic,bold
 hi PreCondit   guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
 hi PreProc     guifg=#F47454 guibg=NONE ctermfg=103
 hi Statement   guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
@@ -125,11 +125,10 @@ hi diffRemoved       guifg=#800000 ctermfg=1
 
 " Ruby https://github.com/vim-ruby/vim-ruby
 hi rubyBlockParameter        guifg=#D7B0FC
-hi rubyBoolean               guifg=#47A3E5 gui=italic
-hi rubyClass                 guifg=#D38E39
+hi rubyClass                 guifg=#F47454 gui=bold
 hi rubyConstant              guifg=#F47454
 hi rubyInstanceVariable      guifg=#D7B0FC
-hi rubyInterpolation         guifg=#EA8C3F
+hi rubyInterpolation         guifg=#D7B0FC
 hi rubyLocalVariableOrMethod guifg=#D7B0FC
 hi rubyPredefinedConstant    guifg=#F47454
 hi rubyPseudoVariable        guifg=#47A3E5 gui=italic,bold
@@ -189,6 +188,7 @@ hi elixirTupleDelimiter guifg=#D38E39 gui=bold
 " CSS
 hi cssAttr            guifg=#FFC66D
 hi cssClassName       guifg=#FFAAE7 gui=italic
+hi scssSelectorName   guifg=#FFAAE7 gui=italic
 hi cssColor           guifg=#FFC66D
 hi cssIdentifier      guifg=#47A3E5 gui=italic
 hi cssImportant       guifg=#47A3E5 gui=italic
