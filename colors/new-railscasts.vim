@@ -17,7 +17,7 @@
 " #4C4452
 " #FFFADE
 " #FFF7D0
-" #FFC66D this is the old
+" #FFC66D
 " #F9F871
 " #C3A138
 " #D38E39
@@ -184,6 +184,9 @@ hi elixirOperator       guifg=#FFC66D
 hi elixirPrivateDefine  guifg=#D38E39 gui=bold,italic
 hi elixirTuple          guifg=#FFA78D gui=bold
 hi elixirTupleDelimiter guifg=#D38E39 gui=bold
+hi elixirExUnitAssert   guifg=#FFC66D gui=bold,italic
+hi elixirExUnitMacro    guifg=#F47454 gui=bold
+hi elixirDocString      guifg=#f7c588 gui=NONE
 
 " CSS
 hi cssAttr            guifg=#FFC66D
