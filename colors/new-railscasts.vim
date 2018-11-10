@@ -69,17 +69,14 @@ hi Folded                    guifg=#F6F3E8 guibg=#444444 gui=NONE
 hi NonText                   guifg=#777777 gui=NONE
 hi SpecialKey                guifg=#777777 gui=NONE
 
-" Misc
-" ----
-" directory names and other special names in listings
+" Misc directory names and other special names in listings
 hi Directory                 guifg=#A5C261 gui=NONE
 
 " Popup Menu
-" ----------
 hi Pmenu       guifg=#F6F3E8 guibg=#444444 gui=NONE
 hi PmenuSel    guifg=#000000 guibg=#A5C261 gui=NONE
-hi PMenuSbar   guibg=#5A647E gui=NONE
-hi PMenuThumb  guibg=#AAAAAA gui=NONE
+hi PmenuSbar   guibg=#5A647E gui=NONE
+hi PmenuThumb  guibg=#AAAAAA gui=NONE
 hi Comment     guifg=#BC7F23 guibg=NONE gui=italic
 hi Todo        guifg=#D38E39 guibg=NONE gui=bold,italic
 hi Constant    guifg=#0095CB guibg=NONE gui=NONE
