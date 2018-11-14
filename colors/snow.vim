@@ -2,9 +2,10 @@
 " Author:       nightsense
 " Maintainer:   nightsense
 " License:      MIT
+" Last Updated: Tue Nov 13 12:57:13 2018
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
-   \ && (!exists('&t_Co') || &t_Co < 256)
+      \ && (!exists('&t_Co') || &t_Co < 256)
   echoerr '[snow] There are not enough colors.'
   finish
 endif
@@ -109,6 +110,43 @@ if &background ==# 'dark'
   hi Number ctermfg=110 ctermbg=NONE guifg=#759abd guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi String ctermfg=110 ctermbg=NONE guifg=#759abd guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi Visual ctermfg=110 ctermbg=236 guifg=#759abd guibg=#2c2d30 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+  if has("nvim")
+    let g:terminal_color_0 = "#2c2d30"
+    let g:terminal_color_1 = "#be868c"
+    let g:terminal_color_2 = "#7f9d77"
+    let g:terminal_color_3 = "#ab916d"
+    let g:terminal_color_4 = "#759abd"
+    let g:terminal_color_5 = "#a88cb3"
+    let g:terminal_color_6 = "#5da19f"
+    let g:terminal_color_7 = "#afb7c0"
+    let g:terminal_color_8 = "#363a3e"
+    let g:terminal_color_9 = "#be868c"
+    let g:terminal_color_10 = "#7f9d77"
+    let g:terminal_color_11 = "#ab916d"
+    let g:terminal_color_12 = "#759abd"
+    let g:terminal_color_13 = "#a88cb3"
+    let g:terminal_color_14 = "#5da19f"
+    let g:terminal_color_15 = "#cbd2d9"
+  elseif has("terminal")
+    let g:terminal_ansi_colors = [
+          \ "#2c2d30",
+          \ "#be868c",
+          \ "#7f9d77",
+          \ "#ab916d",
+          \ "#759abd",
+          \ "#a88cb3",
+          \ "#5da19f",
+          \ "#afb7c0",
+          \ "#363a3e",
+          \ "#be868c",
+          \ "#7f9d77",
+          \ "#ab916d",
+          \ "#759abd",
+          \ "#a88cb3",
+          \ "#5da19f",
+          \ "#cbd2d9"
+          \ ]
+  endif
   finish
 endif
 
@@ -204,6 +242,43 @@ hi Float ctermfg=32 ctermbg=NONE guifg=#2b7ab2 guibg=NONE guisp=NONE cterm=NONE 
 hi Number ctermfg=32 ctermbg=NONE guifg=#2b7ab2 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi String ctermfg=32 ctermbg=NONE guifg=#2b7ab2 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Visual ctermfg=32 ctermbg=231 guifg=#2b7ab2 guibg=#fbffff guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+if has("nvim")
+  let g:terminal_color_0 = "#fbffff"
+  let g:terminal_color_1 = "#ae5865"
+  let g:terminal_color_2 = "#4d7f43"
+  let g:terminal_color_3 = "#906c33"
+  let g:terminal_color_4 = "#2b7ab2"
+  let g:terminal_color_5 = "#8f63a2"
+  let g:terminal_color_6 = "#008483"
+  let g:terminal_color_7 = "#535c65"
+  let g:terminal_color_8 = "#e5ebf1"
+  let g:terminal_color_9 = "#ae5865"
+  let g:terminal_color_10 = "#4d7f43"
+  let g:terminal_color_11 = "#906c33"
+  let g:terminal_color_12 = "#2b7ab2"
+  let g:terminal_color_13 = "#8f63a2"
+  let g:terminal_color_14 = "#008483"
+  let g:terminal_color_15 = "#434951"
+elseif has("terminal")
+  let g:terminal_ansi_colors = [
+        \ "#fbffff",
+        \ "#ae5865",
+        \ "#4d7f43",
+        \ "#906c33",
+        \ "#2b7ab2",
+        \ "#8f63a2",
+        \ "#008483",
+        \ "#535c65",
+        \ "#e5ebf1",
+        \ "#ae5865",
+        \ "#4d7f43",
+        \ "#906c33",
+        \ "#2b7ab2",
+        \ "#8f63a2",
+        \ "#008483",
+        \ "#434951"
+        \ ]
+endif
 finish
 
 " Background: light

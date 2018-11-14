@@ -110,6 +110,43 @@ hi Float ctermfg=25 ctermbg=NONE guifg=#3c5a89 guibg=NONE guisp=NONE cterm=NONE 
 hi Number ctermfg=25 ctermbg=NONE guifg=#3c5a89 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi String ctermfg=25 ctermbg=NONE guifg=#3c5a89 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi Visual ctermfg=25 ctermbg=252 guifg=#3c5a89 guibg=#d3d2ce guisp=NONE cterm=NONE,reverse gui=NONE,reverse
+if has("nvim")
+  let g:terminal_color_0 = "#d3d2ce"
+  let g:terminal_color_1 = "#834742"
+  let g:terminal_color_2 = "#2c633f"
+  let g:terminal_color_3 = "#645826"
+  let g:terminal_color_4 = "#3c5a89"
+  let g:terminal_color_5 = "#784872"
+  let g:terminal_color_6 = "#006470"
+  let g:terminal_color_7 = "#444136"
+  let g:terminal_color_8 = "#c3c0ba"
+  let g:terminal_color_9 = "#834742"
+  let g:terminal_color_10 = "#2c633f"
+  let g:terminal_color_11 = "#645826"
+  let g:terminal_color_12 = "#3c5a89"
+  let g:terminal_color_13 = "#784872"
+  let g:terminal_color_14 = "#006470"
+  let g:terminal_color_15 = "#312d23"
+elseif has("terminal")
+  let g:terminal_ansi_colors = [
+     \ "#d3d2ce",
+     \ "#834742",
+     \ "#2c633f",
+     \ "#645826",
+     \ "#3c5a89",
+     \ "#784872",
+     \ "#006470",
+     \ "#444136",
+     \ "#c3c0ba",
+     \ "#834742",
+     \ "#2c633f",
+     \ "#645826",
+     \ "#3c5a89",
+     \ "#784872",
+     \ "#006470",
+     \ "#312d23"
+     \ ]
+endif
 finish
 
 " Background: light

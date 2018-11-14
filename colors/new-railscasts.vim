@@ -90,7 +90,7 @@ hi Include     guifg=#F47454 guibg=NONE ctermfg=173 cterm=NONE
 hi Keyword     guifg=#FFA78D ctermfg=172 cterm=NONE
 hi Macro       guifg=#F47454 guibg=NONE ctermfg=172
 hi Number      guifg=#bde04c ctermfg=107
-hi Boolean     guifg=#9F7BC3 ctermfg=107 gui=italic,bold
+hi Boolean     guifg=#D7B0FC ctermfg=107 gui=italic,bold
 hi PreCondit   guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
 hi PreProc     guifg=#F47454 guibg=NONE ctermfg=103
 hi Statement   guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
@@ -124,6 +124,9 @@ hi diffRemoved       guifg=#800000 ctermfg=1
 hi rubyBlockParameter        guifg=#D7B0FC
 hi rubyClass                 guifg=#F47454 gui=bold
 hi rubyConstant              guifg=#F47454
+hi rubyDefine                guifg=#F47454 gui=bold
+hi rspecMatchers             guifg=#FFC66D gui=bold
+hi rubyGemfileMethod         guifg=#F47454 gui=bold
 hi rubyInstanceVariable      guifg=#D7B0FC
 hi rubyInterpolation         guifg=#D7B0FC
 hi rubyLocalVariableOrMethod guifg=#D7B0FC
@@ -172,18 +175,20 @@ hi pythonDoctestValue guifg=#87d7af ctermfg=115
 hi pythonExceptions   guifg=#ffaf87 ctermfg=216
 
 " Elixir https://github.com/elixir-editors/vim-elixir
-hi elixirAtom           guifg=#6D9CBE gui=bold
-hi elixirDefine         guifg=#D38E39 gui=bold
-hi elixirMap            guifg=#FFA78D gui=bold
-hi elixirMapDelimiter   guifg=#D38E39 gui=bold
-hi elixirModuleDefine   guifg=#D38E39 gui=bold
-hi elixirOperator       guifg=#FFC66D
-hi elixirPrivateDefine  guifg=#D38E39 gui=bold,italic
-hi elixirTuple          guifg=#FFA78D gui=bold
-hi elixirTupleDelimiter guifg=#D38E39 gui=bold
-hi elixirExUnitAssert   guifg=#FFC66D gui=bold,italic
-hi elixirExUnitMacro    guifg=#F47454 gui=bold
-hi elixirDocString      guifg=#f7c588 gui=NONE
+hi elixirAtom             guifg=#6D9CBE gui=bold
+hi elixirBlockDefinition  guifg=#F47454 gui=bold
+hi elixirDefine           guifg=#F47454 gui=bold
+hi elixirDocString        guifg=#FEF9E1 gui=NONE
+hi elixirExUnitAssert     guifg=#FFC66D gui=bold
+hi elixirExUnitMacro      guifg=#F47454 gui=bold
+hi elixirInclude          guifg=#F47454 gui=bold,italic
+hi elixirMap              guifg=#D38E39 gui=bold
+hi elixirMapDelimiter     guifg=#D38E39 gui=bold
+hi elixirModuleDefine     guifg=#F47454 gui=bold
+hi elixirOperator         guifg=#FFC66D
+hi elixirPrivateDefine    guifg=#F47454 gui=bold,italic
+hi elixirTuple            guifg=#D38E39 gui=bold
+hi elixirTupleDelimiter   guifg=#D38E39 gui=bold
 
 " CSS
 hi cssAttr            guifg=#FFC66D
