@@ -60,48 +60,40 @@ hi User8        guifg=#E4E4E4 guibg=#606060 gui=bold
 hi User9        guifg=#E4E4E4 guibg=#606060 gui=bold
 hi! link        CursorColumn ColorColumn
 
-" Folds
 " -----
-hi Folded                    guifg=#F6F3E8 guibg=#444444 gui=NONE
-
-" Invisible Characters
-" ------------------
-hi NonText                   guifg=#777777 gui=NONE
-hi SpecialKey                guifg=#777777 gui=NONE
-
-" Misc directory names and other special names in listings
-hi Directory                 guifg=#A5C261 gui=NONE
-
-" Popup Menu
-hi Pmenu       guifg=#F6F3E8 guibg=#444444 gui=NONE
-hi PmenuSel    guifg=#000000 guibg=#A5C261 gui=NONE
-hi PmenuSbar   guibg=#5A647E gui=NONE
-hi PmenuThumb  guibg=#AAAAAA gui=NONE
+hi Boolean     guifg=#D7B0FC ctermfg=107 gui=italic,bold
 hi Comment     guifg=#BC7F23 guibg=NONE gui=italic
-hi Todo        guifg=#D38E39 guibg=NONE gui=bold,italic
 hi Constant    guifg=#0095CB guibg=NONE gui=NONE
 hi Define      guifg=#FFA78D guibg=NONE gui=NONE
 hi Delimiter   guifg=#519F50 guibg=NONE gui=NONE
-hi WarningMsg  guifg=#DA4939 guibg=NONE gui=NONE
+hi Directory   guifg=#A5C261 gui=NONE
 hi Error       guifg=#EAE3D9 guibg=#990000 ctermfg=221 ctermbg=88
+hi Folded      guifg=#F6F3E8 guibg=#444444 gui=NONE
 hi Function    guifg=#FFC66D gui=NONE guibg=NONE ctermfg=221 cterm=NONE
 hi Identifier  guifg=#D7B0FC guibg=NONE ctermfg=73 cterm=NONE
 hi Include     guifg=#F47454 guibg=NONE ctermfg=173 cterm=NONE
 hi Keyword     guifg=#FFA78D ctermfg=172 cterm=NONE
+hi Label       guifg=#6D9CBE gui=bold
 hi Macro       guifg=#F47454 guibg=NONE ctermfg=172
+hi NonText     guifg=#777777 gui=NONE
 hi Number      guifg=#bde04c ctermfg=107
-hi Boolean     guifg=#D7B0FC ctermfg=107 gui=italic,bold
+hi Operator    guifg=#FFC66D guibg=NONE ctermfg=73
+hi Pmenu       guifg=#F6F3E8 guibg=#444444 gui=NONE
+hi PmenuSbar   guibg=#5A647E gui=NONE
+hi PmenuSel    guifg=#000000 guibg=#A5C261 gui=NONE
+hi PmenuThumb  guibg=#AAAAAA gui=NONE
 hi PreCondit   guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
 hi PreProc     guifg=#F47454 guibg=NONE ctermfg=103
-hi Statement   guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
-hi String      guifg=#74D155 guibg=NONE ctermfg=107
-hi Title       guifg=#E9E1D7 guibg=NONE ctermfg=15
-hi Type        guifg=#F47454 guibg=NONE gui=NONE
 hi PreProc     guifg=#FFA78D guibg=NONE ctermfg=208
 hi Special     guifg=#FFA78D guibg=NONE ctermfg=22
-hi Operator    guifg=#FFC66D guibg=NONE ctermfg=73
+hi SpecialKey  guifg=#777777 gui=NONE
+hi Statement   guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
+hi String      guifg=#74D155 guibg=NONE ctermfg=107
 hi Tag         guifg=#F47454 guibg=NONE ctermfg=73
-hi Label       guifg=#6D9CBE gui=bold
+hi Title       guifg=#E9E1D7 guibg=NONE ctermfg=15
+hi Todo        guifg=#D38E39 guibg=NONE gui=bold,italic
+hi Type        guifg=#F47454 guibg=NONE gui=NONE
+hi WarningMsg  guifg=#DA4939 guibg=NONE gui=NONE
 
 " Indentation
 hi IndentGuidesOdd  ctermbg=239 guibg=#282828
@@ -121,11 +113,11 @@ hi diffNewFile       guifg=#EAE3D9 guibg=NONE gui=bold ctermfg=15 ctermbg=NONE c
 hi diffRemoved       guifg=#800000 ctermfg=1
 
 " Ruby https://github.com/vim-ruby/vim-ruby
+hi rspecMatchers             guifg=#FFC66D gui=bold
 hi rubyBlockParameter        guifg=#D7B0FC
 hi rubyClass                 guifg=#F47454 gui=bold
 hi rubyConstant              guifg=#F47454
 hi rubyDefine                guifg=#F47454 gui=bold
-hi rspecMatchers             guifg=#FFC66D gui=bold
 hi rubyGemfileMethod         guifg=#F47454 gui=bold
 hi rubyInstanceVariable      guifg=#D7B0FC
 hi rubyInterpolation         guifg=#D7B0FC
@@ -182,10 +174,11 @@ hi elixirDocString        guifg=#FEF9E1 gui=NONE
 hi elixirExUnitAssert     guifg=#FFC66D gui=bold
 hi elixirExUnitMacro      guifg=#F47454 gui=bold
 hi elixirInclude          guifg=#F47454 gui=bold,italic
+hi elixirKeyword          guifg=#F47454 gui=bold
 hi elixirMap              guifg=#D38E39 gui=bold
 hi elixirMapDelimiter     guifg=#D38E39 gui=bold
 hi elixirModuleDefine     guifg=#F47454 gui=bold
-hi elixirOperator         guifg=#FFC66D
+hi elixirOperator         guifg=#FFC66D gui=bold
 hi elixirPrivateDefine    guifg=#F47454 gui=bold,italic
 hi elixirTuple            guifg=#D38E39 gui=bold
 hi elixirTupleDelimiter   guifg=#D38E39 gui=bold
@@ -193,7 +186,6 @@ hi elixirTupleDelimiter   guifg=#D38E39 gui=bold
 " CSS
 hi cssAttr            guifg=#FFC66D
 hi cssClassName       guifg=#FFAAE7 gui=italic
-hi scssSelectorName   guifg=#FFAAE7 gui=italic
 hi cssColor           guifg=#FFC66D
 hi cssIdentifier      guifg=#47A3E5 gui=italic
 hi cssImportant       guifg=#47A3E5 gui=italic
@@ -201,6 +193,7 @@ hi cssIncludeKeyword  guifg=#D7B0FC gui=bold,italic
 hi cssNoise           guifg=#D38E39 gui=bold
 hi cssProp            guifg=#6D9CBE gui=bold
 hi cssVendor          guifg=#6D9CBE gui=bold,italic
+hi scssSelectorName   guifg=#FFAAE7 gui=italic
 
 " JSON
 hi jsonBoolean        guifg=#47A3E5 gui=italic
@@ -215,12 +208,12 @@ hi mailHeaderKey      guifg=#FFC66D ctermfg=221
 hi! link mailSubject mailHeaderKey
 
 " Spell
-hi SpellBad   guibg=#420101 gui=NONE guisp=red
-hi SpellRare  guibg=#420101 gui=NONE
-hi SpellCap   guibg=#420101 gui=NONE
-hi SpellLocal guibg=#420101 gui=NONE
 hi MatchParen guifg=#FFC66D guibg=#072f95 gui=bold
 hi Question   guibg=#420101 gui=NONE
+hi SpellBad   guibg=#420101 gui=NONE guisp=red
+hi SpellCap   guibg=#420101 gui=NONE
+hi SpellLocal guibg=#420101 gui=NONE
+hi SpellRare  guibg=#420101 gui=NONE
 
 " XML
 hi xmlTag           guifg=#FFC66D ctermfg=179
@@ -243,3 +236,6 @@ hi hbsPencilName    guifg=#D38E39 gui=bold
 hi checkbox         guifg=#3A3A3A guibg=NONE gui=NONE
 hi checkboxDone     guifg=#15D300 guibg=NONE gui=BOLD
 hi checkboxNotDone  guifg=#005FDF guibg=NONE gui=BOLD
+hi BookmarkSign     guibg=#2D2D2D guifg=#FFC66D gui=NONE
+hi ALEErrorSign     guibg=#2D2D2D guifg=#D80A0A gui=NONE
+hi ALEWarningSign   guibg=#2D2D2D guifg=#FFC66D gui=NONE

@@ -223,7 +223,7 @@ call s:HL('iCursor', 'coal', 'warmadobe', 'none')
 call s:HL('Special', 'plain')
 
 call s:HL('Comment',        'gravel')
-call s:HL('Todo',           'barcared', 'snow', 'bold')
+call s:HL('Todo',           'snow', 'beachblue', 'bold')
 call s:HL('SpecialComment', 'snow', 'bg', 'bold')
 
 " Strings are a nice, pale straw color.  Nothing too fancy.
