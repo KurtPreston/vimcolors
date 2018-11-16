@@ -150,15 +150,15 @@ endif
 
 call s:HL('Normal', 'blackestgravel', 'plain')
 
-call s:HL('Folded', 'coldair', 'bg', 'none')
+call s:HL('Folded', 'snow', 'wetcoldterrain', 'none')
 
-call s:HL('VertSplit', 'wetcoldterrain', 'bg', 'none')
+call s:HL('VertSplit', 'wetcoldterrain', 'gravel', 'none')
 
-call s:HL('CursorLine',   '', 'darkgravel', 'none')
+call s:HL('CursorLine',   '', 'winterterrain', 'none')
 call s:HL('CursorColumn', '', 'darkgravel')
 call s:HL('ColorColumn',  '', 'darkgravel')
 
-call s:HL('MatchParen', 'crystallake', 'darkgravel', 'bold')
+call s:HL('MatchParen', 'crystallake', 'winterterrain', 'bold')
 
 call s:HL('NonText',    'deepgravel', 'bg')
 call s:HL('SpecialKey', 'deepgravel', 'bg')
@@ -172,13 +172,13 @@ call s:HL('IncSearch', 'coal', 'darkbark',    'bold')
 call s:HL('Underlined', 'fg', '', 'underline')
 
 call s:HL('StatusLine',   'snow', 'deepgravel',     'bold')
-call s:HL('StatusLineNC', 'wetcoldterrain', 'deepgravel', 'bold')
+call s:HL('StatusLineNC', 'coldair', 'winterterrain', 'bold')
 
 call s:HL('Directory', 'tundrariver', '', 'bold')
 
 call s:HL('Title', 'crystallake')
 
-call s:HL('ErrorMsg',   'wintrygray',       '', 'bold')
+call s:HL('ErrorMsg',   'snow',        'raspberry', 'bold')
 call s:HL('MoreMsg',    'raspberry',   '',   'bold')
 call s:HL('ModeMsg',    'tundrariver', '',   'bold')
 call s:HL('Question',   'tundrariver', '',   'bold')
@@ -190,9 +190,9 @@ call s:HL('Tag', '', '', 'bold')
 " }}}
 " Gutter {{{
 
-call s:HL('LineNr',     'coldair', s:gutter)
-call s:HL('SignColumn', '',             s:gutter)
-call s:HL('FoldColumn', 'coldair', s:gutter)
+call s:HL('LineNr',     'coldair', 'plain', 'none')
+call s:HL('SignColumn', 'coldair', 'winterterrain', 'none')
+call s:HL('FoldColumn', 'coldair', 'winterterrain', 'none')
 
 " }}}
 " Cursor {{{
@@ -209,7 +209,7 @@ call s:HL('Special', 'tundrariver')
 
 " Comments are slightly brighter than folds, to make 'headers' easier to see.
 call s:HL('Comment',        'gravel')
-call s:HL('Todo',           'wintrygray', 'snow', 'bold')
+call s:HL('Todo',           'snow',        'tundrariver', 'bold')
 call s:HL('SpecialComment', 'crystallake', 'bg', 'bold')
 
 call s:HL('String', 'tundrariver')
