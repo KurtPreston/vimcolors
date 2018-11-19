@@ -788,11 +788,11 @@ endfunction
 
 call pgmnt#compile(
       \ s:create_xline_context(), {
-      \   'output': '../autoload/airline/themes/tokyo-metro.vim',
+      \   'output': '../autoload/airline/themes/tokyometro.vim',
       \   'template': './template-airline.vim',
       \ })
 call pgmnt#compile(
       \ s:create_xline_context(), {
-      \   'output': '../autoload/lightline/colorscheme/tokyo-metro.vim',
+      \   'output': '../autoload/lightline/colorscheme/tokyometro.vim',
       \   'template': './template-lightline.vim',
       \ })

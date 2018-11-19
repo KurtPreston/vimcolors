@@ -29,7 +29,7 @@ hi Constant
 
 hi Comment
   \ cterm=NONE ctermfg=73
-  \ guisp=NONE guifg=#525252 gui=italic
+  \ guisp=NONE guifg=#888866 gui=italic
 
 hi Special
   \ cterm=NONE ctermfg=103
