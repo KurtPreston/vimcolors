@@ -2,10 +2,9 @@
 " Author:       nightsense
 " Maintainer:   nightsense
 " License:      MIT
-" Last Updated: Tue Nov 13 12:57:13 2018
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
-      \ && (!exists('&t_Co') || &t_Co < 256)
+    \ && (!exists('&t_Co') || &t_Co < 256)
   echoerr '[snow] There are not enough colors.'
   finish
 endif
@@ -129,23 +128,23 @@ if &background ==# 'dark'
     let g:terminal_color_15 = "#cbd2d9"
   elseif has("terminal")
     let g:terminal_ansi_colors = [
-          \ "#2c2d30",
-          \ "#be868c",
-          \ "#7f9d77",
-          \ "#ab916d",
-          \ "#759abd",
-          \ "#a88cb3",
-          \ "#5da19f",
-          \ "#afb7c0",
-          \ "#363a3e",
-          \ "#be868c",
-          \ "#7f9d77",
-          \ "#ab916d",
-          \ "#759abd",
-          \ "#a88cb3",
-          \ "#5da19f",
-          \ "#cbd2d9"
-          \ ]
+        \ "#2c2d30",
+        \ "#be868c",
+        \ "#7f9d77",
+        \ "#ab916d",
+        \ "#759abd",
+        \ "#a88cb3",
+        \ "#5da19f",
+        \ "#afb7c0",
+        \ "#363a3e",
+        \ "#be868c",
+        \ "#7f9d77",
+        \ "#ab916d",
+        \ "#759abd",
+        \ "#a88cb3",
+        \ "#5da19f",
+        \ "#cbd2d9"
+        \ ]
   endif
   finish
 endif
@@ -261,23 +260,23 @@ if has("nvim")
   let g:terminal_color_15 = "#434951"
 elseif has("terminal")
   let g:terminal_ansi_colors = [
-        \ "#fbffff",
-        \ "#ae5865",
-        \ "#4d7f43",
-        \ "#906c33",
-        \ "#2b7ab2",
-        \ "#8f63a2",
-        \ "#008483",
-        \ "#535c65",
-        \ "#e5ebf1",
-        \ "#ae5865",
-        \ "#4d7f43",
-        \ "#906c33",
-        \ "#2b7ab2",
-        \ "#8f63a2",
-        \ "#008483",
-        \ "#434951"
-        \ ]
+      \ "#fbffff",
+      \ "#ae5865",
+      \ "#4d7f43",
+      \ "#906c33",
+      \ "#2b7ab2",
+      \ "#8f63a2",
+      \ "#008483",
+      \ "#535c65",
+      \ "#e5ebf1",
+      \ "#ae5865",
+      \ "#4d7f43",
+      \ "#906c33",
+      \ "#2b7ab2",
+      \ "#8f63a2",
+      \ "#008483",
+      \ "#434951"
+      \ ]
 endif
 finish
 

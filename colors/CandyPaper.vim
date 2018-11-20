@@ -235,6 +235,12 @@ endfunction "}
     call s:fg("pythonExceptions", 210, 60, 75)
 " }
 
+" Go:
+" {
+    call s:fg("goBuiltins", 210, 30, 75)
+    call s:fg("goFunctionCall", 211, 30, 75)
+" }
+
 " Markdown:
 " {
     call s:fg("markdownHeadingDelimiter", 120, 45, 75)

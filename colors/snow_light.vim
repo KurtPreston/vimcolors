@@ -35,4 +35,3 @@ let s:p.normal.warning  = [[ s:mgnt, s:gry0 ]]
 
 let g:lightline#colorscheme#snow_light#palette =
   \ lightline#colorscheme#flatten(s:p)
-
