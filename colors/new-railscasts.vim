@@ -215,15 +215,15 @@ hi SpellCap   guibg=#420101 gui=NONE
 hi SpellLocal guibg=#420101 gui=NONE
 hi SpellRare  guibg=#420101 gui=NONE
 
-" XML
-hi xmlTag           guifg=#FFC66D ctermfg=179
-hi xmlTagName       guifg=#FFC66D ctermfg=179
-hi xmlEndTag        guifg=#FFC66D ctermfg=179
-
-hi link htmlTag     xmlTag
-hi link htmlTagName xmlTagName
-hi link htmlEndTag  xmlEndTag
+" HTML - XML
 hi htmlArg          guifg=#FF8700 gui=italic
+hi link htmlEndTag  xmlEndTag
+hi link htmlTag     xmlTag
+hi link htmlTagN    xmlTag
+hi link htmlTagName xmlTagName
+hi xmlEndTag        guifg=#FFC66D
+hi xmlTag           guifg=#FFC66D
+hi xmlTagName       guifg=#FFC66D
 
 " HBS https://github.com/joukevandermaas/vim-ember-hbs
 hi hbsArg           guifg=#F47454 gui=italic
