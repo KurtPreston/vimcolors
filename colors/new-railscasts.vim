@@ -227,11 +227,12 @@ hi xmlTagName       guifg=#FFC66D
 
 " HBS https://github.com/joukevandermaas/vim-ember-hbs
 hi hbsArg           guifg=#F47454 gui=italic
-hi hbsBuiltInHelper guifg=#FFA78D gui=bold,italic
+hi hbsBuiltInHelper guifg=#F47454 gui=bold,italic
 hi hbsHandles       guifg=#D38E39 gui=bold
 hi hbsKeyword       guifg=#0095CB gui=italic
 hi hbsMustacheName  guifg=#FFC66D gui=NONE
 hi hbsPencilName    guifg=#D38E39 gui=bold
+hi link erubyDelimiter hbsHandles
 
 hi ALEErrorSign        guibg=#202020 guifg=#F47454 gui=NONE
 hi ALEInfoSign         guibg=#202020 guifg=#0095CB gui=NONE

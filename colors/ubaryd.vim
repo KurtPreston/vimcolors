@@ -314,11 +314,13 @@ if exists('g:airline_theme')
 	let s:ubc.V1 = [ '#416389', '#f8f6f2','18','15']
 	let s:ubc.V2 = [ '#416389', '#f4cf86','18','222']
 	let s:ubc.V3 = [ '#9a4820' , '#f8f6f2','88','15']
+	let s:ubc.V4 = [ '#9a4820', '88' ]
 
 	" Replace mode
 	let s:ubc.R1 = [ '#242321' , '#f8f6f2','235','15']
 	let s:ubc.R2 = [ '#ffa724' , '#666462','214','241']
 	let s:ubc.R3 = [ '#f8f6f2' , '#ff7400','15','215']
+	let s:ubc.R4 = [ '#ffa724' , '214' ]
 
 	let g:airline#themes#ubaryd#palette = {}
 
@@ -331,7 +333,8 @@ if exists('g:airline_theme')
 	" Normal mode
 	let s:ubc.N1 = [ '#005f00' , '#f8f6f2','22','15']
 	let s:ubc.N2 = [ '#f8f6f2' , '#005f00','15','22']
-	let s:ubc.N3 = s:StatusLine
+	let s:ubc.N3 = [ '#b88853' , '#242321','137','235']
+	let s:ubc.N4 = [ '#005f00' , '22' ]
 
 	let g:airline#themes#ubaryd#palette.normal = airline#themes#generate_color_map(s:ubc.N1, s:ubc.N2, s:ubc.N3)
 	let g:airline#themes#ubaryd#palette.visual = airline#themes#generate_color_map(s:ubc.V1, s:ubc.V2, s:ubc.V3)
