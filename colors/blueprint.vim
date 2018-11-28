@@ -74,6 +74,7 @@ hi           Error guifg=#ff6681 guibg=none    gui=none
 hi        ErrorMsg guifg=#ff6681 guibg=none    gui=none
 hi      WarningMsg guifg=#f9f871 guibg=none    gui=none
 hi          Ignore guifg=#335b7e guibg=none    gui=none
+hi         Conceal guifg=none    guibg=none    gui=none
 hi      SpecialKey guifg=#97e483 guibg=none    gui=none
 
 " --------------------------------
