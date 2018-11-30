@@ -82,15 +82,15 @@ hi Pmenu       guifg=#F6F3E8 guibg=#444444 gui=NONE
 hi PmenuSbar   guibg=#5A647E gui=NONE
 hi PmenuSel    guifg=#000000 guibg=#A5C261 gui=NONE
 hi PmenuThumb  guibg=#AAAAAA gui=NONE
-hi PreCondit   guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
-hi PreProc     guifg=#F47454 guibg=NONE ctermfg=103
-hi PreProc     guifg=#FFA78D guibg=NONE ctermfg=208
-hi Special     guifg=#FFA78D guibg=NONE ctermfg=22
+hi PreCondit   guifg=#F47454 guibg=NONE
+hi PreProc     guifg=#F47454 guibg=NONE
+hi PreProc     guifg=#FFA78D guibg=NONE
+hi Special     guifg=#FFA78D guibg=NONE
 hi SpecialKey  guifg=#777777 gui=NONE
-hi Statement   guifg=#F47454 guibg=NONE ctermfg=172 cterm=NONE
-hi String      guifg=#74D155 guibg=NONE ctermfg=107
-hi Tag         guifg=#F47454 guibg=NONE ctermfg=73
-hi Title       guifg=#E9E1D7 guibg=NONE ctermfg=15
+hi Statement   guifg=#F47454 guibg=NONE
+hi String      guifg=#74D155 guibg=NONE
+hi Tag         guifg=#F47454 guibg=NONE
+hi Title       guifg=#E9E1D7 guibg=NONE
 hi Todo        guifg=#D38E39 guibg=NONE gui=bold,italic
 hi Type        guifg=#F47454 guibg=NONE gui=NONE
 hi WarningMsg  guifg=#DA4939 guibg=NONE gui=NONE
@@ -129,13 +129,20 @@ hi rubySymbol                guifg=#6D9CBE gui=bold
 
 " Javascript https://github.com/pangloss/vim-javascript
 hi jsArrowFunction      guifg=#FFA78D
+hi jsBrackets           guifg=#D38E39 gui=bold
+hi jsFuncBraces         guifg=#D38E39 gui=bold
 hi jsFunction           guifg=#FFA78D ctermfg=221 gui=italic
 hi jsFunctionKey        guifg=#FFA78D gui=italic
+hi jsIfElseBraces       guifg=#D38E39 gui=bold
+hi jsModuleBraces       guifg=#D38E39 gui=bold
 hi jsNoise              guifg=#CB725B gui=bold
 hi jsNull               guifg=#FFA78D gui=italic
+hi jsObjectBraces       guifg=#D38E39 gui=bold
 hi jsObjectFuncName     guifg=#FFC66D gui=bold,italic guibg=NONE
 hi jsObjectKey          guifg=#6D9CBE gui=bold
+hi jsObjectSeparator    guifg=#F47454 gui=bold
 hi jsOperatorKeyword    guifg=#F9F871 gui=italic
+hi jsParens             guifg=#D38E39 gui=bold
 hi jsStorageClass       guifg=#FFAAE7 gui=italic
 hi jsThis               guifg=#d7b0fc gui=bold,italic
 hi link jsGlobalObjects Type
@@ -162,9 +169,9 @@ hi typescriptType                  guifg=#F47454 gui=italic
 hi typescriptVariable              guifg=#FFAAE7 gui=italic
 
 " Python
-hi pythonDoctest      guifg=#8787ff ctermfg=105
-hi pythonDoctestValue guifg=#87d7af ctermfg=115
-hi pythonExceptions   guifg=#ffaf87 ctermfg=216
+hi pythonDoctest      guifg=#00869A
+hi pythonDoctestValue guifg=#D7B0FC
+hi pythonExceptions   guifg=#FFBD96
 
 " Elixir https://github.com/elixir-editors/vim-elixir
 hi elixirAtom             guifg=#6D9CBE gui=bold
@@ -224,6 +231,7 @@ hi link htmlTagName xmlTagName
 hi xmlEndTag        guifg=#FFC66D
 hi xmlTag           guifg=#FFC66D
 hi xmlTagName       guifg=#FFC66D
+hi mkdHeading       guifg=#D38E39 gui=bold
 
 " HBS https://github.com/joukevandermaas/vim-ember-hbs
 hi hbsArg           guifg=#F47454 gui=italic
