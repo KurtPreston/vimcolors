@@ -580,9 +580,16 @@ hi! link pythonParam       SublimeContextParam
 " XXX: pythonStatement covers a bit too much...unfortunately, this means that
 " some keywords, like `def`, can't be highlighted like in Sublime yet.
 hi! link pythonStatement   Keyword
-" FIXME: Python special regexp sequences aren't highlighted. :\
+" XXX: Other noted deficiencies:
+" * Python special regexp sequences aren't highlighted. :\
+" * Function cals aren't highlighted like they are in Sublime.
+" * Keyword args aren't highlighted at all like in Sublime.
+"
+" Most of the above really are just because I haven't found a syntax that
+" supports these distinctions yet.
 
 " QuickScope plugin
+
 call s:h('QuickScopePrimary',   { 'bg': s:lightgrey, 'fg': s:black,     'format': 'underline' })
 call s:h('QuickScopeSecondary', { 'bg': s:black,     'fg': s:lightgrey, 'format': 'underline' })
 
