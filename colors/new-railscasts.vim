@@ -128,25 +128,30 @@ hi rubyStringDelimiter       guifg=#87AF5F
 hi rubySymbol                guifg=#6D9CBE gui=bold
 
 " Javascript https://github.com/pangloss/vim-javascript
-hi jsArrowFunction      guifg=#FFA78D
-hi jsBrackets           guifg=#D38E39 gui=bold
-hi jsFuncBraces         guifg=#D38E39 gui=bold
-hi jsFunction           guifg=#FFA78D ctermfg=221 gui=italic
-hi jsFunctionKey        guifg=#FFA78D gui=italic
-hi jsIfElseBraces       guifg=#D38E39 gui=bold
-hi jsModuleBraces       guifg=#D38E39 gui=bold
-hi jsNoise              guifg=#CB725B gui=bold
-hi jsNull               guifg=#FFA78D gui=italic
-hi jsObjectBraces       guifg=#D38E39 gui=bold
-hi jsObjectFuncName     guifg=#FFC66D gui=bold,italic guibg=NONE
-hi jsObjectKey          guifg=#6D9CBE gui=bold
-hi jsObjectSeparator    guifg=#F47454 gui=bold
-hi jsOperatorKeyword    guifg=#F9F871 gui=italic
-hi jsParens             guifg=#D38E39 gui=bold
-hi jsStorageClass       guifg=#FFAAE7 gui=italic
-hi jsThis               guifg=#d7b0fc gui=bold,italic
-hi link jsGlobalObjects Type
-hi link jsObjectProp    Type
+hi jsArrowFunction       guifg=#FFA78D gui=bold
+hi jsBrackets            guifg=#D38E39 gui=bold
+hi jsDestructuringBraces guifg=#D38E39 gui=bold
+hi jsExceptions          guifg=#F47454 gui=bold,italic
+hi jsFuncBraces          guifg=#D38E39 gui=bold
+hi jsFuncParens          guifg=#D38E39 gui=bold
+hi jsFunction            guifg=#FFAAE7 gui=italic
+hi jsFunctionKey         guifg=#FFA78D gui=italic
+hi jsGlobalNodeObjects   guifg=#F47454 gui=bold,italic
+hi jsIfElseBraces        guifg=#D38E39 gui=bold
+hi jsModuleBraces        guifg=#D38E39 gui=bold
+hi jsNoise               guifg=#CB725B gui=bold
+hi jsNull                guifg=#FFA78D gui=italic
+hi jsObjectBraces        guifg=#D38E39 gui=bold
+hi jsObjectFuncName      guifg=#FFC66D gui=bold,italic guibg=NONE
+hi jsObjectKey           guifg=#6D9CBE gui=bold
+hi jsObjectSeparator     guifg=#F47454 gui=bold
+hi jsOperatorKeyword     guifg=#FFAAE7 gui=italic
+hi jsParens              guifg=#D38E39 gui=bold
+hi jsStorageClass        guifg=#FFAAE7 gui=italic
+hi jsTemplateBraces      guifg=#D38E39 gui=bold
+hi jsThis                guifg=#d7b0fc gui=bold,italic
+hi link jsGlobalObjects  Type
+hi link jsObjectProp     Type
 
 " Typescript https://github.com/HerringtonDarkholme/yats.vim
 hi typescriptAccessibilityModifier guifg=#FFAAE7 gui=italic
@@ -169,49 +174,53 @@ hi typescriptType                  guifg=#F47454 gui=italic
 hi typescriptVariable              guifg=#FFAAE7 gui=italic
 
 " Python
-hi pythonDoctest      guifg=#00869A
-hi pythonDoctestValue guifg=#D7B0FC
-hi pythonExceptions   guifg=#FFBD96
+hi pythonDoctest      guifg=#00869A guibg=NONE
+hi pythonDoctestValue guifg=#D7B0FC guibg=NONE
+hi pythonExceptions   guifg=#FFBD96 guibg=NONE
+hi vimHiAttrib        guifg=#FFF7D0 guibg=NONE
+hi vimHiGroup         guifg=#FFC66D guibg=NONE
 
 " Elixir https://github.com/elixir-editors/vim-elixir
-hi elixirAtom             guifg=#6D9CBE gui=bold
-hi elixirBlockDefinition  guifg=#F47454 gui=bold
-hi elixirDefine           guifg=#F47454 gui=bold
-hi elixirDocString        guifg=#FEF9E1 gui=NONE
-hi elixirExUnitAssert     guifg=#FFC66D gui=bold
-hi elixirExUnitMacro      guifg=#F47454 gui=bold
-hi elixirInclude          guifg=#F47454 gui=bold,italic
-hi elixirKeyword          guifg=#F47454 gui=bold
-hi elixirMap              guifg=#D38E39 gui=bold
-hi elixirMapDelimiter     guifg=#D38E39 gui=bold
-hi elixirModuleDefine     guifg=#F47454 gui=bold
-hi elixirOperator         guifg=#FFC66D gui=bold
-hi elixirPrivateDefine    guifg=#F47454 gui=bold,italic
-hi elixirTuple            guifg=#D38E39 gui=bold
-hi elixirTupleDelimiter   guifg=#D38E39 gui=bold
+hi elixirAtom            guifg=#6D9CBE gui=bold
+hi elixirBlockDefinition guifg=#F47454 gui=bold
+hi elixirDefine          guifg=#F47454 gui=bold
+hi elixirDocString       guifg=#FEF9E1 guibg=#383838 gui=bold,italic
+hi elixirExUnitAssert    guifg=#D38E39 gui=bold
+hi elixirExUnitMacro     guifg=#F47454 gui=bold
+hi elixirInclude         guifg=#F47454 gui=bold,italic
+hi elixirKeyword         guifg=#F47454 gui=bold
+hi elixirMap             guifg=#D38E39 gui=bold
+hi elixirMapDelimiter    guifg=#D38E39 gui=bold
+hi elixirModuleDefine    guifg=#F47454 gui=bold
+hi elixirOperator        guifg=#FFC66D gui=bold
+hi elixirPrivateDefine   guifg=#F47454 gui=bold,italic
+hi elixirStructDelimiter guifg=#D38E39 gui=bold
+hi elixirTuple           guifg=#D38E39 gui=bold
+hi elixirTupleDelimiter  guifg=#D38E39 gui=bold
+hi elixirStringDelimiter guifg=#74D155 gui=bold
 
 " CSS
-hi cssAttr            guifg=#FFC66D
-hi cssClassName       guifg=#FFAAE7 gui=italic
-hi cssColor           guifg=#FFC66D
-hi cssIdentifier      guifg=#47A3E5 gui=italic
-hi cssImportant       guifg=#47A3E5 gui=italic
-hi cssIncludeKeyword  guifg=#D7B0FC gui=bold,italic
-hi cssNoise           guifg=#D38E39 gui=bold
-hi cssProp            guifg=#6D9CBE gui=bold
-hi cssVendor          guifg=#6D9CBE gui=bold,italic
-hi scssSelectorName   guifg=#FFAAE7 gui=italic
+hi cssAttr           guifg=#FFC66D
+hi cssClassName      guifg=#FFAAE7 gui=italic
+hi cssColor          guifg=#FFC66D
+hi cssIdentifier     guifg=#47A3E5 gui=italic
+hi cssImportant      guifg=#47A3E5 gui=italic
+hi cssIncludeKeyword guifg=#D7B0FC gui=bold,italic
+hi cssNoise          guifg=#D38E39 gui=bold
+hi cssProp           guifg=#6D9CBE gui=bold
+hi cssVendor         guifg=#6D9CBE gui=bold,italic
+hi scssSelectorName  guifg=#FFAAE7 gui=italic
 
 " JSON
-hi jsonBoolean        guifg=#47A3E5 gui=italic
-hi jsonNull           guifg=#47A3E5 gui=italic
+hi jsonBoolean       guifg=#47A3E5 gui=italic
+hi jsonNull          guifg=#47A3E5 gui=italic
 
 " yaml
-hi yamlKey            guifg=#D7B0FC ctermfg=189 gui=bold
+hi yamlKey           guifg=#D7B0FC ctermfg=189 gui=bold
 
 " Mail
-hi mailEmail          guifg=#87AF5F ctermfg=107 gui=italic cterm=underline
-hi mailHeaderKey      guifg=#FFC66D ctermfg=221
+hi mailEmail         guifg=#87AF5F ctermfg=107 gui=italic cterm=underline
+hi mailHeaderKey     guifg=#FFC66D ctermfg=221
 hi! link mailSubject mailHeaderKey
 
 " Spell
