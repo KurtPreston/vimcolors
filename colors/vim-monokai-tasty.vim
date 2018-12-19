@@ -57,15 +57,9 @@ function! Highlight(group, fg, bg, style)
         \ . " gui=" . a:style["gui"]
 endfunction
 
-call Highlight("vimParenSep", s:white, s:none, s:bold)
-call Highlight("vimOperParen", s:light_blue, s:none, s:italic)
-call Highlight("vimUserFunc", s:purple, s:none, s:none)
-call Highlight("vimFunction", s:orange, s:none, s:none)
+call Highlight("Normal", s:white, s:charcoal, s:none)
 
 call Highlight("Cursor", s:charcoal, s:light_blue, s:none)
-
-call Highlight("Normal", s:white, s:charcoal, s:none)
-call Highlight("Normal", s:white, s:charcoal, s:none)
 call Highlight("Special", s:purple, s:none, s:none)
 call Highlight("Title", s:white, s:none, s:bold)
 
@@ -79,13 +73,15 @@ call Highlight("ErrorMsg", s:white, s:danger, s:none)
 call Highlight("WarningMsg", s:white, s:danger, s:none)
 call Highlight("SpellBad", s:white, s:danger, s:none)
 call Highlight("SpellRare", s:white, s:danger, s:none)
+call Highlight("SpellCap", s:charcoal, s:orange, s:italic)
+call Highlight("SpellLocal", s:charcoal, s:orange, s:italic)
 
 call Highlight("CursorLineNR", s:yellow, s:none, s:none)
 
-call Highlight("CursorColumn", s:none, s:none, s:none)
+call Highlight("CursorColumn", s:none, s:darker_grey, s:none)
 call Highlight("ColorColumn", s:none, s:none, s:none)
 call Highlight("Conceal", s:none, s:none, s:none)
-call Highlight("CursorLine", s:none, s:none, s:none)
+call Highlight("CursorLine", s:none, s:darker_grey, s:none)
 call Highlight("Type", s:none, s:none, s:none)
 
 call Highlight("Visual", s:none, s:dark_grey, s:none)
@@ -103,7 +99,7 @@ call Highlight("StatusLine", s:white, s:dark_grey, s:none)
 call Highlight("StatusLineNC", s:light_grey, s:darker_grey, s:none)
 
 call Highlight("Exception", s:magenta, s:none, s:bold)
-call Highlight("MatchParen", s:magenta, s:none, s:underline)
+call Highlight("MatchParen", s:magenta, s:none, s:bold_underline)
 call Highlight("Include", s:magenta, s:none, s:none)
 call Highlight("Conditional", s:magenta, s:none, s:none)
 call Highlight("Define", s:magenta, s:none, s:none)
@@ -291,12 +287,19 @@ hi def link jsHtmlElemAttrs        Label
 hi def link jsHtmlElemFuncs        PreProc
 hi def link jsCssStyles            Label
 
+" vim
+call Highlight("vimParenSep", s:white, s:none, s:bold)
+call Highlight("vimOperParen", s:light_blue, s:none, s:italic)
+call Highlight("vimUserFunc", s:purple, s:none, s:none)
+call Highlight("vimFunction", s:orange, s:none, s:none)
+
 " XML highlighting.
 hi def link xmlTodo   Todo
 call Highlight("xmlTag", s:light_blue, s:none, s:none)
 call Highlight("xmlTagName", s:light_blue, s:none, s:none)
 call Highlight("xmlEndTag", s:light_blue, s:none, s:none)
 call Highlight("xmlEqual", s:magenta, s:none, s:none)
+call Highlight("styledXmlRegionNoise", s:white, s:none, s:none)
 
 " JSON highlighting
 call Highlight("jsonKeyword", s:light_blue, s:none, s:none)
@@ -306,7 +309,6 @@ call Highlight("jsonString", s:yellow, s:none, s:none)
 call Highlight("NERDTreeClosable", s:yellow, s:none, s:none)
 call Highlight("NERDTreeOpenable", s:yellow, s:none, s:none)
 call Highlight("NERDTreeDirSlash", s:light_blue, s:none, s:none)
-
 
 " Must be at the end, because of ctermbg=234 bug.
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
