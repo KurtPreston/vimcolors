@@ -24,6 +24,7 @@
 " #FFBD96
 " #FFA78D
 " #F47454
+" #FC623B
 " #CB725B
 " #FFACC1
 " #FFAAE7
@@ -116,14 +117,14 @@ hi diffRemoved       guifg=#800000 ctermfg=1
 hi rspecMatchers             guifg=#FFC66D gui=bold
 hi rubyBlockParameter        guifg=#D7B0FC
 hi rubyClass                 guifg=#F47454 gui=bold
-hi rubyConstant              guifg=#F47454
+hi rubyConstant              guifg=#FC623B
 hi rubyDefine                guifg=#F47454 gui=bold
 hi rubyGemfileMethod         guifg=#F47454 gui=bold
 hi rubyInstanceVariable      guifg=#D7B0FC
 hi rubyInterpolation         guifg=#D7B0FC
 hi rubyLocalVariableOrMethod guifg=#D7B0FC
 hi rubyPredefinedConstant    guifg=#F47454
-hi rubyPseudoVariable        guifg=#47A3E5 gui=italic,bold
+hi rubyPseudoVariable        guifg=#DD75C9 gui=italic,bold
 hi rubyStringDelimiter       guifg=#87AF5F
 hi rubySymbol                guifg=#6D9CBE gui=bold
 
@@ -181,23 +182,24 @@ hi vimHiAttrib        guifg=#FFF7D0 guibg=NONE
 hi vimHiGroup         guifg=#FFC66D guibg=NONE
 
 " Elixir https://github.com/elixir-editors/vim-elixir
-hi elixirAtom            guifg=#6D9CBE gui=bold
-hi elixirBlockDefinition guifg=#F47454 gui=bold
-hi elixirDefine          guifg=#F47454 gui=bold
-hi elixirDocString       guifg=#FEF9E1 guibg=#383838 gui=bold,italic
-hi elixirExUnitAssert    guifg=#D38E39 gui=bold
-hi elixirExUnitMacro     guifg=#F47454 gui=bold
-hi elixirInclude         guifg=#F47454 gui=bold,italic
-hi elixirKeyword         guifg=#F47454 gui=bold
-hi elixirMap             guifg=#D38E39 gui=bold
-hi elixirMapDelimiter    guifg=#D38E39 gui=bold
-hi elixirModuleDefine    guifg=#F47454 gui=bold
-hi elixirOperator        guifg=#FFC66D gui=bold
-hi elixirPrivateDefine   guifg=#F47454 gui=bold,italic
-hi elixirStructDelimiter guifg=#D38E39 gui=bold
-hi elixirTuple           guifg=#D38E39 gui=bold
-hi elixirTupleDelimiter  guifg=#D38E39 gui=bold
-hi elixirStringDelimiter guifg=#74D155 gui=bold
+hi elixirModuleDeclaration guifg=#FC623B
+hi elixirAtom              guifg=#6D9CBE gui=bold
+hi elixirBlockDefinition   guifg=#F47454 gui=bold
+hi elixirDefine            guifg=#F47454 gui=bold
+hi elixirDocString         guifg=#FEF9E1 guibg=#383838 gui=bold,italic
+hi elixirExUnitAssert      guifg=#D38E39 gui=bold
+hi elixirExUnitMacro       guifg=#F47454 gui=bold
+hi elixirInclude           guifg=#F47454 gui=bold,italic
+hi elixirKeyword           guifg=#F47454 gui=bold
+hi elixirMap               guifg=#D38E39 gui=bold
+hi elixirMapDelimiter      guifg=#D38E39 gui=bold
+hi elixirModuleDefine      guifg=#F47454 gui=bold
+hi elixirOperator          guifg=#FFC66D gui=bold
+hi elixirPrivateDefine     guifg=#F47454 gui=bold,italic
+hi elixirStructDelimiter   guifg=#D38E39 gui=bold
+hi elixirTuple             guifg=#D38E39 gui=bold
+hi elixirTupleDelimiter    guifg=#D38E39 gui=bold
+hi elixirStringDelimiter   guifg=#74D155 gui=bold
 
 " CSS
 hi cssAttr           guifg=#FFC66D
@@ -250,6 +252,7 @@ hi hbsKeyword       guifg=#0095CB gui=italic
 hi hbsMustacheName  guifg=#FFC66D gui=NONE
 hi hbsPencilName    guifg=#D38E39 gui=bold
 hi link erubyDelimiter hbsHandles
+hi link eelixirDelimiter hbsHandles
 
 hi ALEErrorSign        guibg=#202020 guifg=#F47454 gui=NONE
 hi ALEInfoSign         guibg=#202020 guifg=#0095CB gui=NONE

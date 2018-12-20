@@ -21,8 +21,8 @@ else
   let s:italic = { "cterm": "NONE", "gui": "NONE" }
 endif
 
-let s:yellow = { "cterm": 228, "gui": "#E7DC6D" }
-let s:purple = { "cterm": 141, "gui": "#AC7CFF" }
+let s:yellow = { "cterm": 228, "gui": "#ffff87" }
+let s:purple = { "cterm": 141, "gui": "#af87ff" }
 let s:light_green = { "cterm": 148, "gui": "#A4E400" }
 let s:light_blue = { "cterm": 81, "gui": "#62D8F1" }
 let s:magenta = { "cterm": 197, "gui": "#FC1A70" }
@@ -286,6 +286,14 @@ hi def link jsHtmlEvents           Special
 hi def link jsHtmlElemAttrs        Label
 hi def link jsHtmlElemFuncs        PreProc
 hi def link jsCssStyles            Label
+
+" JSX highlighting
+call Highlight("jsxTagName", s:purple, s:none, s:none)
+call Highlight("jsxComponentName", s:light_blue, s:none, s:none)
+call Highlight("jsxEqual", s:magenta, s:none, s:none)
+call Highlight("jsxPunct", s:grey, s:none, s:none)
+call Highlight("jsxCloseString", s:grey, s:none, s:none)
+call Highlight("jsxAttrib", s:white, s:none, s:italic)
 
 " vim
 call Highlight("vimParenSep", s:white, s:none, s:bold)
