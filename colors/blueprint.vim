@@ -23,7 +23,7 @@ let g:colors_name="blueprint"
 hi          Normal guifg=#f1f6f9 guibg=#335b7e gui=none
 hi          Cursor guifg=#335b7e guibg=#f1f6f9 gui=none
 hi      CursorLine guifg=none    guibg=#2c4e6c gui=none
-hi          LineNr guifg=#74a0c7 guibg=none    gui=none
+hi          LineNr guifg=#74a0c7 guibg=#2c4e6c gui=none
 hi    CursorLineNR guifg=none    guibg=#2c4e6c gui=none
 
 " -----------------
@@ -32,7 +32,7 @@ hi    CursorLineNR guifg=none    guibg=#2c4e6c gui=none
 hi    CursorColumn guifg=none    guibg=#2c4e6c gui=none
 hi      FoldColumn guifg=#74a0c7 guibg=none    gui=none
 hi      SignColumn guifg=#74a0c7 guibg=none    gui=none
-hi          Folded guifg=none    guibg=none    gui=none
+hi          Folded guifg=#74a0c7 guibg=none    gui=none
 
 " -------------------------
 " - Window/Tab delimiters - 
