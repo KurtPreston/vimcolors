@@ -43,7 +43,7 @@ let s:green = {"cterm": "2", "gui": "#87af87"}
 let s:aqua = {"cterm": "6", "gui": "#5fafaf"}
 let s:blue = {"cterm": "4", "gui": "#6E88A6"}
 let s:purple = {"cterm": "5", "gui": "#D18EC2"} 
-let s:dark_purple = {"cterm": "103", "gui": "#8787af"}
+let s:dark_purple = {"cterm": "13", "gui": "#875faf"} "Xterm color palette 97
 let s:beige = {"cterm": "3", "gui": "#D7AFAF"} 
 
 "Special text properties
@@ -85,15 +85,21 @@ call Highlight("NonText", s:dark_grey, s:none, s:none)
 
 " Completion Menu
 call Highlight("Pmenu", s:light_grey, s:dark_grey, s:none)
-call Highlight("PmenuSel", s:black, s:blue, s:none)
+call Highlight("PmenuSel", s:black, s:aqua, s:none)
 call Highlight("PmenuSbar", s:none, s:grey, s:none)
-call Highlight("PmenuThumb", s:blue, s:green, s:none)
+call Highlight("PmenuThumb", s:blue, s:beige, s:none)
 
 " Git diff output
 call Highlight("DiffChange", s:dark_purple, s:black, s:reverse)
 call Highlight("DiffText", s:orange, s:black, s:reverse)
 call Highlight("DiffDelete", s:dark_red, s:black, s:reverse)
 call Highlight("DiffAdd", s:green, s:black, s:reverse)
+
+" Git Gutter
+
+call Highlight("GitGutterAdd", s:green, s:black, s:none)
+call Highlight("GitGutterChange", s:dark_purple, s:black, s:none)
+call Highlight("GitGutterDelete", s:dark_red, s:black, s:none)
 
 " Errors and warnings
 call Highlight("Error", s:light_red, s:none, s:reverse)
@@ -121,20 +127,20 @@ call Highlight("VertSplit", s:dark_grey, s:dark_grey, s:none)
 call Highlight("WildMenu", s:black, s:orange, s:none)
 
 call Highlight("IncSearch", s:black, s:dark_red, s:bold_underline)
-call Highlight("Search", s:black, s:beige, s:bold_underline)
+call Highlight("Search", s:black, s:aqua, s:bold_underline)
 
 
 call Highlight("Comment", s:grey, s:none, s:none)
 call Highlight("Constant", s:orange, s:black, s:none)
-call Highlight("Identifier", s:beige, s:black, s:none)
-call Highlight("Function", s:blue, s:black, s:none)
+call Highlight("Identifier", s:blue, s:black, s:none)
+call Highlight("Function", s:beige, s:black, s:none)
 call Highlight("Ignore", s:none, s:none, s:none)
 call Highlight("PreProc", s:aqua, s:black, s:none)
-call Highlight("Special", s:beige, s:black, s:none)
+call Highlight("Special", s:green, s:black, s:none)
 call Highlight("Statement", s:dark_red, s:black, s:none)
 call Highlight("String", s:green, s:black, s:none)
 call Highlight("Todo", s:purple, s:black, s:reverse)
-call Highlight("Type", s:purple, s:black, s:none)
+call Highlight("Type", s:dark_purple, s:black, s:none)
 call Highlight("StorageClass", s:light_red, s:black, s:none)
 call Highlight("TypeDef", s:purple, s:black, s:none)
 call Highlight("Underlined", s:aqua, s:black, s:underline)
@@ -158,6 +164,9 @@ call Highlight("StartifyHeader", s:green, s:black, s:none)
 "NERDTree
 call Highlight("NERDTreeDir", s:blue, s:black, s:none)
 call Highlight("NERDTreeUp", s:blue, s:black, s:none)
+
+"netrw
+call Highlight("netrwDir", s:blue, s:black, s:none)
 
 
 let links = [
