@@ -144,6 +144,10 @@ hi! link Question         ErrorMsg
 
 " __WarningMsg__
 call s:h("WarningMsg",    {"fg": s:warning})
+
+" __InfoMsg__
+call s:h("InfoMsg",       {"fg": s:dark_magenta, "cterm": "bold"})
+
 " __MoreMsg__
 call s:h("MoreMsg",       {"fg": s:norm_subtle, "cterm": "bold"})
 hi! link ModeMsg MoreMsg
@@ -152,10 +156,6 @@ hi! link ModeMsg MoreMsg
 call s:h("NonText",       {"fg": s:norm_subtle})
 hi! link Folded   NonText
 hi! link qfLineNr NonText
-
-" __Search__
-call s:h("Search",        {"bg": s:selection, "fg": s:selection_fg})
-hi! link IncSearch Search
 
 " __Visual__
 call s:h("Visual",        {"bg": s:visual, "fg": s:visual_fg})
@@ -264,3 +264,14 @@ hi link markdownHeadingDelimiter Constant
 
 hi link yamlBlockMappingKey Statement
 hi link pythonOperator Statement
+
+hi link ALEWarning WarningMsg
+hi link ALEWarningSign WarningMsg
+hi link ALEError ErrorMsg
+hi link ALEErrorSign ErrorMsg
+hi link ALEInfo InfoMsg
+hi link ALEInfoSign InfoMsg
+
+" __Search__ (make sure it comes after everything else)
+call s:h("Search",        {"bg": s:selection, "fg": s:selection_fg})
+hi! link IncSearch Search
