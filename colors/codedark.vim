@@ -252,9 +252,15 @@ call <sid>hi('jsVariableDef', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('jsFuncArgs', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('jsRegexpString', s:cdLightRed, {}, 'none', {})
 call <sid>hi('jsThis', s:cdBlue, {}, 'none', {})
+call <sid>hi('jsDestructuringBlock', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('jsObjectKey', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('jsGlobalObjects', s:cdBlueGreen, {}, 'none', {})
 
 " Ruby:
 call <sid>hi('rubyClassNameTag', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('rubyClassName', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('rubyModuleName', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('rubyConstant', s:cdBlueGreen, {}, 'none', {})
 
 " Golang:
 call <sid>hi('goPackage', s:cdBlue, {}, 'none', {})
