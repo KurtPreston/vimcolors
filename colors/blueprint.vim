@@ -156,21 +156,3 @@ hi       SpellRare guifg=none    guibg=none    gui=bold,underline
 "--------------------------------------------------------------------
 " Specific settings                                                 |
 "--------------------------------------------------------------------
-
-hi       htmlTag                  guifg=#97e483 guibg=none    gui=none
-hi       htmlLink                 guifg=#97e483 guibg=none    gui=none
-
-hi       markdownH1               guifg=#97e483 guibg=none    gui=bold
-hi       markdownH2               guifg=#97e483 guibg=none    gui=bold
-hi       markdownH3               guifg=#97e483 guibg=none    gui=bold
-hi       markdownH4               guifg=#97e483 guibg=none    gui=bold
-hi       markdownH5               guifg=#97e483 guibg=none    gui=bold
-hi       markdownH6               guifg=#97e483 guibg=none    gui=bold
-
-hi       markdownRule             guifg=#97e483 guibg=none    gui=bold
-hi       markdownHeadingDelimiter guifg=#97e483 guibg=none    gui=bold
-
-hi       markdownBold             guifg=#97e483 guibg=none    gui=bold
-hi       markdownItalic           guifg=#97e483 guibg=none    gui=italic
-hi       markdownBoldItalic       guifg=#97e483 guibg=none    gui=bold,italic
-hi       markdownCode             guifg=#97e483 guibg=none    gui=none
