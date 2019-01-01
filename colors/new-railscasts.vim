@@ -123,6 +123,7 @@ hi rubyGemfileMethod         guifg=#F47454 gui=bold
 hi rubyInstanceVariable      guifg=#D7B0FC
 hi rubyInterpolation         guifg=#D7B0FC
 hi rubyLocalVariableOrMethod guifg=#D7B0FC
+hi rubyMethodName            guifg=#FFC66D gui=bold
 hi rubyPredefinedConstant    guifg=#F47454
 hi rubyPseudoVariable        guifg=#DD75C9 gui=italic,bold
 hi rubyStringDelimiter       guifg=#87AF5F
@@ -196,6 +197,7 @@ hi elixirMapDelimiter      guifg=#D38E39 gui=bold
 hi elixirModuleDefine      guifg=#F47454 gui=bold
 hi elixirOperator          guifg=#FFC66D gui=bold
 hi elixirPrivateDefine     guifg=#F47454 gui=bold,italic
+hi elixirPseudoVariable    guifg=#00A1EC gui=bold
 hi elixirStructDelimiter   guifg=#D38E39 gui=bold
 hi elixirTuple             guifg=#D38E39 gui=bold
 hi elixirTupleDelimiter    guifg=#D38E39 gui=bold
