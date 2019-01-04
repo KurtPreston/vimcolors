@@ -1,7 +1,7 @@
-" File              : colors/blayu.vim
+" File              : blayu.vim
 " Author            : Tobias Jammer <tobiasjammer@gmail.com>
 " Date              : 24.08.2018
-" Last Modified Date: 24.08.2018
+" Last Modified Date: 04.01.2019
 
 " Initialisation:"{{{
 " ----------------------------------------------------------------------------
@@ -97,8 +97,9 @@ exe "hi! LineNr"        .s:fg_guide       .s:bg_none        .s:fmt_none
 
 exe "hi! Directory"     .s:fg_fg_idle     .s:bg_none        .s:fmt_none
 exe "hi! DiffAdd"       .s:fg_bg          .s:bg_panel       .s:fmt_none
-exe "hi! DiffChange"    .s:fg_tag         .s:bg_panel       .s:fmt_none
-exe "hi! DiffText"      .s:fg_fg          .s:bg_panel       .s:fmt_none
+exe "hi! DiffChange"    .s:fg_bg          .s:bg_panel       .s:fmt_none
+exe "hi! DiffText"      .s:fg_bg          .s:bg_string      .s:fmt_none
+exe "hi! DiffDelete"    .s:fg_bg          .s:bg_comment     .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_fg          .s:bg_error       .s:fmt_stnd
 exe "hi! VertSplit"     .s:fg_comment     .s:bg_none        .s:fmt_none
 exe "hi! Folded"        .s:fg_fg_idle     .s:bg_bg          .s:fmt_none

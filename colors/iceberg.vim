@@ -452,6 +452,16 @@ function! s:create_context() abort
         \   'guibg': g.linenr_bg,
         \   'guifg': g.orange,
         \ }))
+  call extend(rules, pgmnt#hi#group(
+        \ 'ALEVirtualTextError', {
+        \   'ctermfg': c.red,
+        \   'guifg': g.red,
+        \ }))
+  call extend(rules, pgmnt#hi#group(
+        \ 'ALEVirtualTextWarning', {
+        \   'ctermfg': c.orange,
+        \   'guifg': g.orange,
+        \ }))
 
   " [CtrlP](https://github.com/ctrlpvim/ctrlp.vim)
   call add(links, pgmnt#hi#link('CtrlPPrtCursor', 'Cursor'))
@@ -524,6 +534,7 @@ function! s:create_context() abort
   call add(links, pgmnt#hi#link('jsClassFuncName', 'Title'))
   call add(links, pgmnt#hi#link('jsExport', 'Statement'))
   call add(links, pgmnt#hi#link('jsFuncName', 'Title'))
+  call add(links, pgmnt#hi#link('jsFutureKeys', 'Statement'))
   call add(links, pgmnt#hi#link('jsFuncCall', 'Normal'))
   call add(links, pgmnt#hi#link('jsGlobalObjects', 'Statement'))
   call add(links, pgmnt#hi#link('jsModuleKeywords', 'Statement'))
