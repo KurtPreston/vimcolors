@@ -132,6 +132,7 @@ call <sid>hi('Normal', s:cdFront, s:cdBack, 'none', {})
 call <sid>hi('ColorColumn', {}, s:cdCursorDarkDark, 'none', {})
 call <sid>hi('Cursor', s:cdCursorDark, s:cdCursorLight, 'none', {})
 call <sid>hi('CursorLine', {}, s:cdCursorDarkDark, 'none', {})
+call <sid>hi('CursorColumn', {}, s:cdCursorDarkDark, 'none', {})
 call <sid>hi('Directory', s:cdBlue, s:cdBack, 'none', {})
 call <sid>hi('DiffAdd', {}, s:cdDiffGreenDark, 'none', {})
 call <sid>hi('DiffChange', {}, s:cdDiffRedDark, 'none', {})
@@ -215,9 +216,15 @@ call <sid>hi("Conceal", s:cdFront, s:cdBack, 'none', {})
 
 call <sid>hi('Ignore', s:cdFront, {}, 'none', {})
 
-call <sid>hi('Error', s:cdRed, {}, 'undercurl', s:cdRed)
+call <sid>hi('Error', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 
 call <sid>hi('Todo', s:cdNone, s:cdLeftMid, 'none', {})
+
+" JSON:
+call <sid>hi('jsonKeyword', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('jsonEscape', s:cdYellowOrange, {}, 'none', {})
+call <sid>hi('jsonNull', s:cdBlue, {}, 'none', {})
+call <sid>hi('jsonBoolean', s:cdBlue, {}, 'none', {})
 
 " HTML:
 call <sid>hi('htmlTag', s:cdGray, {}, 'none', {})
