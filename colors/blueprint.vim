@@ -99,7 +99,7 @@ hi         Comment guifg=#74a0c7 guibg=none    gui=italic
 hi       Statement guifg=#97e483 guibg=none    gui=none
 hi     Conditional guifg=#97e483 guibg=none    gui=none
 hi          Repeat guifg=#97e483 guibg=none    gui=none
-hi           Label guifg=none    guibg=none    gui=none
+hi           Label guifg=#97e483 guibg=none    gui=none
 hi        Operator guifg=#97e483 guibg=none    gui=none
 hi         Keyword guifg=#97e483 guibg=none    gui=none
 hi       Exception guifg=#97e483 guibg=none    gui=none
@@ -148,10 +148,10 @@ hi      PmenuThumb guifg=#74a0c7 guibg=#2c4e6c gui=none
 " --------------------------------
 " Spelling
 " --------------------------------
-hi        SpellBad guifg=none    guibg=none    gui=bold,underline
-hi        SpellCap guifg=none    guibg=none    gui=bold,underline
-hi      SpellLocal guifg=none    guibg=none    gui=bold,underline
-hi       SpellRare guifg=none    guibg=none    gui=bold,underline
+hi        SpellBad guifg=#ff6681 guibg=none    gui=none
+hi        SpellCap guifg=#ff6681 guibg=none    gui=none
+hi      SpellLocal guifg=#ff6681 guibg=none    gui=none
+hi       SpellRare guifg=#ff6681 guibg=none    gui=none
 
 "--------------------------------------------------------------------
 " Specific settings                                                 |
