@@ -47,8 +47,8 @@ hi      TabLineSel guifg=none    guibg=#2c4e6c gui=none
 " - File Navigation / Searching -
 " -------------------------------
 hi       Directory guifg=none    guibg=none    gui=underline
-hi          Search guifg=#2c4e6c guibg=#f9f871 gui=none
-hi       IncSearch guifg=#2c4e6c guibg=#f9f871 gui=none
+hi          Search guifg=none    guibg=none    gui=standout
+hi       IncSearch guifg=none    guibg=none    gui=standout
 
 " -----------------
 " - Prompt/Status -
@@ -67,12 +67,12 @@ hi         MoreMsg guifg=none    guibg=none    gui=none
 hi      MatchParen guifg=none    guibg=none    gui=underline
 hi          Visual guifg=none    guibg=#2c4e6c gui=none
 hi       VisualNOS guifg=none    guibg=#2c4e6c gui=none
-hi         NonText guifg=#74a0c7 guibg=none    gui=none
+hi         NonText guifg=#2c4e6c guibg=none    gui=none
 hi            Todo guifg=#97e483 guibg=none    gui=underline
 hi      Underlined guifg=none    guibg=none    gui=underline
-hi           Error guifg=#ff6681 guibg=none    gui=none
-hi        ErrorMsg guifg=#ff6681 guibg=none    gui=none
-hi      WarningMsg guifg=#f9f871 guibg=none    gui=none
+hi           Error guifg=#2c4e6c guibg=#ff6681 gui=none
+hi        ErrorMsg guifg=#2c4e6c guibg=#ff6681 gui=none
+hi      WarningMsg guifg=#2c4e6c guibg=#f9f871 gui=none
 hi          Ignore guifg=#335b7e guibg=none    gui=none
 hi         Conceal guifg=none    guibg=none    gui=none
 hi      SpecialKey guifg=#97e483 guibg=none    gui=none
@@ -128,10 +128,10 @@ hi         Typedef guifg=#97e483 guibg=none    gui=none
 " --------------------------------
 " Diff
 " --------------------------------
-hi         DiffAdd guifg=#2c4e6c guibg=#97e483 gui=none
+hi         DiffAdd guifg=none    guibg=#3d8b83 gui=none
 hi      DiffChange guifg=none    guibg=#305575 gui=none
 hi      DiffDelete guifg=#497296 guibg=#25415a gui=none
-hi        DiffText guifg=#2c4e6c guibg=#f9f871 gui=none
+hi        DiffText guifg=none    guibg=#a25588 gui=none
 hi        DiffFile guifg=none    guibg=none    gui=underline
 
 " --------------------------------
@@ -145,10 +145,10 @@ hi      PmenuThumb guifg=#74a0c7 guibg=#2c4e6c gui=none
 " --------------------------------
 " Spelling
 " --------------------------------
-hi        SpellBad guifg=#ff6681 guibg=none    gui=none
-hi        SpellCap guifg=#ff6681 guibg=none    gui=none
-hi      SpellLocal guifg=#ff6681 guibg=none    gui=none
-hi       SpellRare guifg=#ff6681 guibg=none    gui=none
+hi        SpellBad guifg=#2c4e6c guibg=#ff6681 gui=none
+hi        SpellCap guifg=#2c4e6c guibg=#ff6681 gui=none
+hi      SpellLocal guifg=#2c4e6c guibg=#ff6681 gui=none
+hi       SpellRare guifg=#2c4e6c guibg=#ff6681 gui=none
 
 "--------------------------------------------------------------------
 " Specific settings                                                 |
@@ -178,7 +178,7 @@ hi! link gitDiffAdded            diffAdded
 hi! link gitDiffRemoved          diffRemoved
 hi! link gitcommitDiscardedFile  diffRemoved
 hi! link gitcommitSelectedFile   diffAdded
-hi! link gitcommitUnmergedFile   WarningMsg
+hi! link gitcommitUnmergedFile   ErrorMsg
 hi! link gitcommitDiscardedArrow gitcommitDiscardedFile
 hi! link gitcommitSelectedArrow  gitcommitSelectedFile
 hi! link gitcommitUnmergedArrow  gitcommitUnmergedFile
