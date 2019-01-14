@@ -98,8 +98,8 @@ let s:cdDiffRedLightLight = {'gui': '#FB0101', 'cterm': s:cterm08, 'cterm256': '
 let s:cdDiffGreenDark = {'gui': '#373D29', 'cterm': s:cterm0B, 'cterm256': '237'}
 let s:cdDiffGreenLight = {'gui': '#4B5632', 'cterm': s:cterm09, 'cterm256': '58'}
 
-let s:cdSearchCurrent = {'gui': '#49545F', 'cterm': s:cterm09, 'cterm256': '239'}
-let s:cdSearch = {'gui': '#4C4E50', 'cterm': s:cterm0A, 'cterm256': '239'}
+let s:cdSearchCurrent = {'gui': '#49545F', 'cterm': s:cterm09, 'cterm256': '236'}
+let s:cdSearch = {'gui': '#4C4E50', 'cterm': s:cterm0A, 'cterm256': '236'}
 
 " Syntax colors:
 
@@ -218,6 +218,18 @@ call <sid>hi('Ignore', s:cdFront, {}, 'none', {})
 call <sid>hi('Error', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 
 call <sid>hi('Todo', s:cdNone, s:cdLeftMid, 'none', {})
+
+" Markdown:
+call <sid>hi('markdownBold', s:cdBlue, {}, 'bold', {})
+call <sid>hi('markdownCode', s:cdOrange, {}, 'none', {})
+call <sid>hi('markdownRule', s:cdBlue, {}, 'bold', {})
+call <sid>hi('markdownCodeDelimiter', s:cdOrange, {}, 'none', {})
+call <sid>hi('markdownHeadingDelimiter', s:cdBlue, {}, 'none', {})
+call <sid>hi('markdownFootnote', s:cdOrange, {}, 'none', {})
+call <sid>hi('markdownFootnoteDefinition', s:cdOrange, {}, 'none', {})
+call <sid>hi('markdownUrl', s:cdLightBlue, {}, 'underline', {})
+call <sid>hi('markdownLinkText', s:cdOrange, {}, 'none', {})
+call <sid>hi('markdownEscape', s:cdYellowOrange, {}, 'none', {})
 
 " JSON:
 call <sid>hi('jsonKeyword', s:cdLightBlue, {}, 'none', {})
