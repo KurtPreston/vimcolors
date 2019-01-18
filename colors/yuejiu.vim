@@ -8,9 +8,9 @@
 "           \/__/               \/___/           
 "      
 " 
-" Name: YuèJiǔ (yuejiu)
+" Name: 月酒 YuèJiǔ (yuejiu)
 " Maintainer: Duncan Marsh (slugbyte@slugbyte.com)
-" Credit: yuejiu is a modified version moonshine by Karolis Koncevicius
+" Credit: yuejiu is a modified version moonshine by Karolis Koncevicius " Repository: https://github.com/slugbyte/yuejiu
 " Inspirations: Moonshine, Jellybeans, Apprentice, Twilight, Gruvbox
 
 hi clear
@@ -24,10 +24,6 @@ set background=dark
 let g:colors_name = 'yuejiu'
 
 if &t_Co >= 256
-
-function Rand()
-  return str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:])
-endfunction
 
   hi Normal           ctermbg=232  ctermfg=217  cterm=NONE
   set background=dark
@@ -54,8 +50,8 @@ endfunction
   hi SpecialKey       ctermbg=NONE ctermfg=240  cterm=NONE
   hi ColorColumn      ctermbg=236  ctermfg=NONE cterm=NONE
   hi SignColumn       ctermbg=233  ctermfg=242  cterm=NONE
-  hi Folded           ctermbg=NONE ctermfg=88   cterm=NONE
-  hi FoldColumn       ctermbg=NONE ctermfg=88   cterm=NONE
+  hi Folded           ctermbg=NONE ctermfg=104  cterm=NONE
+  hi FoldColumn       ctermbg=NONE ctermfg=104   cterm=NONE
 
   hi Directory        ctermbg=NONE ctermfg=143  cterm=NONE
   hi Underlined       ctermbg=NONE ctermfg=NONE cterm=UNDERLINE
