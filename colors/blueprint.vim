@@ -183,3 +183,37 @@ hi! link gitcommitDiscardedArrow gitcommitDiscardedFile
 hi! link gitcommitSelectedArrow  gitcommitSelectedFile
 hi! link gitcommitUnmergedArrow  gitcommitUnmergedFile
 
+let g:terminal_color_background = "#335b7e"
+let g:terminal_color_foreground = "#f1f6f9"
+
+" dark0 + gray
+let g:terminal_color_0 = "#E1DFE4"
+let g:terminal_color_8 = "#E1DFE4"
+
+" neutral_red + bright_red
+let g:terminal_color_1 = "#FEBFAB"
+let g:terminal_color_9 = "#FEBFAB"
+
+" neutral_green + bright_green
+let g:terminal_color_2 = "#83E487"
+let g:terminal_color_10 = "#83E487"
+
+" neutral_yellow + bright_yellow
+let g:terminal_color_3  = "#FFFA53"
+let g:terminal_color_11 = "#FFFA53"
+
+" neutral_blue + bright_blue
+let g:terminal_color_4 = "#92E4FE"
+let g:terminal_color_12 = "#92E4FE"
+
+" neutral_purple + bright_purple
+let g:terminal_color_5 = "#DDC5FE"
+let g:terminal_color_13 = "#DDC5FE"
+
+" neutral_aqua + faded_aqua
+let g:terminal_color_6 = "#92E4FE"
+let g:terminal_color_14 = "#92E4FE"
+
+" light4 + light1
+let g:terminal_color_7 = "#f1f6f9"
+let g:terminal_color_15 = "#f1f6f9"
