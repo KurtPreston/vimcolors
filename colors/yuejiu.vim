@@ -28,14 +28,19 @@ if &t_Co >= 256
   hi Normal           ctermbg=232  ctermfg=217  cterm=NONE
   set background=dark
 
+
+
   hi Special          ctermbg=NONE ctermfg=217   cterm=NONE
   hi Comment          ctermbg=NONE ctermfg=242   cterm=NONE
   hi Statement        ctermbg=NONE ctermfg=94    cterm=NONE 
   hi Identifier       ctermbg=NONE ctermfg=131   cterm=NONE
+  autocmd FileType haskell hi Identifier ctermfg=130
   hi Type             ctermbg=NONE ctermfg=131   cterm=NONE
   hi Function         ctermbg=NONE ctermfg=131   cterm=NONE
   hi PreProc          ctermbg=NONE ctermfg=130   cterm=NONE
-
+  hi Delimiter        ctermbg=NONE ctermfg=130   cterm=NONE
+  hi Structure        ctermbg=NONE ctermfg=94    cterm=NONE
+   
   hi Number           ctermbg=NONE ctermfg=186  cterm=NONE
   hi Operator         ctermbg=NONE ctermfg=214  cterm=NONE
   hi Constant         ctermbg=NONE ctermfg=217  cterm=NONE
@@ -112,7 +117,7 @@ hi link Character          Constant
 hi link Conditional        Statement
 hi link Debug              Special
 hi link Define             PreProc
-hi link Delimiter          Special
+"hi link Delimiter          Special
 hi link Exception          Statement
 hi link Float              Number
 hi link HelpCommand        Statement
@@ -127,7 +132,7 @@ hi link Repeat             Statement
 hi link SpecialChar        Special
 hi link SpecialComment     Special
 hi link StorageClass       Type
-hi link Structure          Type
+"hi link Structure          Type
 hi link Tag                Special
 hi link Typedef            Type
 
