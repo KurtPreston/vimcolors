@@ -48,7 +48,7 @@ function! s:set() abort
 
     " General
     let highlight_group.Normal       = [deepskyblue, darkseagreen, none, none]
-    let highlight_group.Visual       = [darkestseagreen, honeydew, bold, none]
+    let highlight_group.Visual       = [honeydew, darkestseagreen, bold, none]
     let highlight_group.ColorColumn  = [none, honeydew, none, none]
     let highlight_group.SignColumn   = [deeppink, none, none, none]
     let highlight_group.IncSearch    = [deepskyblue, hotpink, none, none]
@@ -91,8 +91,8 @@ function! s:set() abort
 
     " Tabs
     let highlight_group.TabLineSel   = [deepskyblue, honeydew, bold, none]
-    let highlight_group.TabLineFill  = [none, darkerseagreen, none, none]
-    let highlight_group.TabLine      = [none, darkseagreen, none, none]
+    let highlight_group.TabLineFill  = [deepskyblue, darkerseagreen, none, none]
+    let highlight_group.TabLine      = [deepskyblue, darkseagreen, none, none]
  
     " Diff
     let highlight_group.DiffAdd     = [deepskyblue, chartreuse, none, none]
