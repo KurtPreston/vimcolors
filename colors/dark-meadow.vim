@@ -126,10 +126,10 @@ call s:highlight('vimOption',                 s:DarkViolet,         s:clear,    
 " Elm syntax highlighting
 " Requires plug: ElmCast/Magenta2-vim
 "
-call s:highlight('Magenta2TypeDef',           s:MediumOrchid1,      s:clear,    s:bold      )
-call s:highlight('Magenta2Alias',             s:Grey66,             s:clear,    s:none      )
-call s:highlight('Magenta2TopLevelDecl',      s:SkyBlue1,           s:clear,    s:bold      )
-call s:highlight('Magenta2Braces',            s:DarkMagenta,        s:clear,    s:none      )
+call s:highlight('elmTypeDef',           s:MediumOrchid1,      s:clear,    s:bold      )
+call s:highlight('elmAlias',             s:Grey66,             s:clear,    s:none      )
+call s:highlight('elmTopLevelDecl',      s:SkyBlue1,           s:clear,    s:bold      )
+call s:highlight('elmBraces',            s:DarkMagenta,        s:clear,    s:none      )
 
 
 " Elixir syntax highlighting
