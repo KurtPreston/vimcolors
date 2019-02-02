@@ -37,7 +37,7 @@ hi          Folded guifg=none    guibg=none    gui=none
 " -------------------------
 " - Window/Tab delimiters - 
 " -------------------------
-hi       VertSplit guifg=#74a0c7 guibg=none    gui=none
+hi       VertSplit guifg=#2c4e6c guibg=none    gui=none
 hi     ColorColumn guifg=none    guibg=#2c4e6c gui=none
 hi         TabLine guifg=#74a0c7 guibg=#2c4e6c gui=none
 hi     TabLineFill guifg=#74a0c7 guibg=#2c4e6c gui=none
@@ -68,7 +68,7 @@ hi      MatchParen guifg=none    guibg=none    gui=underline
 hi          Visual guifg=none    guibg=#2c4e6c gui=none
 hi       VisualNOS guifg=none    guibg=#2c4e6c gui=none
 hi         NonText guifg=#2c4e6c guibg=none    gui=none
-hi            Todo guifg=#97e483 guibg=none    gui=underline
+hi            Todo guifg=#74a0c7 guibg=none    gui=none
 hi      Underlined guifg=none    guibg=none    gui=underline
 hi           Error guifg=#2c4e6c guibg=#ff6681 gui=none
 hi        ErrorMsg guifg=#2c4e6c guibg=#ff6681 gui=none
@@ -145,10 +145,10 @@ hi      PmenuThumb guifg=#74a0c7 guibg=#2c4e6c gui=none
 " --------------------------------
 " Spelling
 " --------------------------------
-hi        SpellBad guifg=#2c4e6c guibg=#ff6681 gui=none
-hi        SpellCap guifg=#2c4e6c guibg=#ff6681 gui=none
-hi      SpellLocal guifg=#2c4e6c guibg=#ff6681 gui=none
-hi       SpellRare guifg=#2c4e6c guibg=#ff6681 gui=none
+hi        SpellBad guifg=#ff6681 guibg=none    gui=none
+hi        SpellCap guifg=#f9f871 guibg=none    gui=none
+hi      SpellLocal guifg=#f9f871 guibg=none    gui=none
+hi       SpellRare guifg=#f9f871 guibg=none    gui=none
 
 "--------------------------------------------------------------------
 " Specific settings                                                 |
@@ -187,8 +187,8 @@ let g:terminal_color_background = "#335b7e"
 let g:terminal_color_foreground = "#f1f6f9"
 
 " dark0 + gray
-let g:terminal_color_0 = "#E1DFE4"
-let g:terminal_color_8 = "#E1DFE4"
+let g:terminal_color_0 = "#2c4e6c"
+let g:terminal_color_8 = "#2c4e6c"
 
 " neutral_red + bright_red
 let g:terminal_color_1 = "#FEBFAB"

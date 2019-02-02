@@ -107,7 +107,7 @@ call s:create_palette_color('changebg',    { 'gui': '#5f5f87', 'cterm': '60'  })
 " link` command, and use more semantic names for the colors we want to assign
 " to groups
 
-call s:h('SublimeBrightWhite', { 'fg': s:brightwhite })
+call s:h('SublimeBrightWhite', { 'fg': s:brightwhite  })
 call s:h('SublimeWhite',       { 'fg': s:white        })
 call s:h('SublimeBlack',       { 'fg': s:black        })
 call s:h('SublimeLightBlack',  { 'fg': s:lightblack   })
@@ -144,7 +144,7 @@ hi! link FoldColumn SublimeDarkBlack
 call s:h('Folded',       { 'fg': s:warmgrey,    'bg': s:darkblack                          })
 call s:h('Incsearch',    {                                                                 })
 call s:h('LineNr',       { 'fg': s:grey,        'bg': s:lightblack                         })
-call s:h('MatchParen',   { 'format': 'reverse'                                             })
+call s:h('MatchParen',   { 'format': 'underline'                                           })
 hi! link ModeMsg SublimeYellow
 hi! link MoreMsg SublimeYellow
 hi! link NonText SublimeLightGrey
@@ -161,7 +161,7 @@ call s:h('StatusLine',   { 'fg': s:warmgrey,    'bg': s:black,    'format': 'rev
 call s:h('StatusLineNC', { 'fg': s:darkgrey,    'bg': s:warmgrey, 'format': 'reverse'      })
 call s:h('TabLine',      { 'fg': s:white,       'bg': s:darkgrey                           })
 call s:h('TabLineFill',  { 'fg': s:grey,        'bg': s:darkgrey                           })
-call s:h('TabLineSel',   { 'fg': s:brightwhite, 'bg': s:white                              })
+call s:h('TabLineSel',   { 'fg': s:black,       'bg': s:white                              })
 hi! link Title SublimeYellow
 call s:h('VertSplit',    { 'fg': s:darkgrey,    'bg': s:darkblack                          })
 call s:h('Visual',       { 'bg': s:lightgrey                                               })
@@ -226,7 +226,8 @@ hi! link shLoop        Keyword
 hi! link shQuote       String
 hi! link shSet         Keyword
 hi! link shStatement   SublimePink
-" XXX: Other noted deficiencies
+" XXX: Other known deficiencies:
+"
 " * Can't highlight POSIX builtins right because shStatement is later in the
 "     highlight stack
 " * Can't override shOption to be "normal" because it could be within a string
@@ -269,6 +270,7 @@ hi! link cStorageClass     SublimePink
 hi! link cStructure        SublimeType
 hi! link cType             SublimeType
 " XXX: Other known deficiencies:
+"
 " * There's no way to distinguish between function calls and
 "     definitions/declarations. :( If you prefer both to be colored, then you
 "     can use `hi! link cCustom <color>`.
@@ -314,6 +316,7 @@ hi! link cppSTLios       SublimeAqua
 hi! link cppSTLnamespace SublimePurple
 hi! link cppType         SublimeType
 " XXX: Other known deficiencies:
+"
 " * There's no way to distinguish between function calls and
 "     definitions/declarations. :( If you prefer both to be colored, then you
 "     can use `hi! link cCustom <color>`.
@@ -330,7 +333,8 @@ hi! link csType                 SublimeType
 hi! link csUnspecifiedStatement Keyword
 hi! link csXmlTag               xmlTagName
 hi! link csXmlComment           SublimeDocumentation
-" XXX: Other noted deficiencies:
+" XXX: Other known deficiencies:
+"
 " *  Need some local links for XML getting set to the right color
 " *  Operators aren't red in Vim, but are in Sublime.
 " *  Function arguments aren't distinguished with their own highlight group
@@ -393,7 +397,8 @@ hi! link dotBrackEncl Normal
 " definitions.
 hi! link dotKeyChar Keyword
 hi! link dotKeyword SublimeType
-" XXX: Other noted deficiencies:
+" XXX: Other known deficiencies:
+"
 " * `graph` keyword isn't correctly classified into a keyword, Sublime does.
 "     This can be fixed with `syn keyword dotKeyword graph`.
 " * Neither Sublime nor Vim highlight `--` in undirected graphs.
@@ -444,16 +449,59 @@ hi! link htmlTagName        Keyword
 
 " Java
 
+"   Common groups
+hi! link javaAssert           SublimeFunctionCall
+hi! link javaClassDecl        SublimeType
 hi! link javaConditional      Keyword
-" FIXME: Javadoc @... doesn't work?
 hi! link javaExceptions       Keyword
-hi! link javaFunction         SublimeAqua
-" FIXME: This isn't a builtin...don't other languages use italics for types?
-hi! link javaNonPrimitiveType SublimeType
 hi! link javaRepeat           Keyword
 hi! link javaSpecialChar      Special
 hi! link javaStatement        Keyword
 hi! link javaType             SublimeType
+hi! link javaTypedef          SublimeContextParam
+hi! link javaUserLabel        Normal
+hi! link javaUserLabelRef     Normal
+" XXX: Other known deficiencies:
+"
+" * There's currently no highlight group for user-defined type names. Weird.
+" * `javaClassDecl`, which is the stuff that can go around a class name in a
+"     class declaration, doesn't distinguish like Sublime does between the `class`
+"     keyword and the `extends`/`implements` keywords.
+" * There's a LOT of operators that don't have a good group. :(
+" * No nice highlight groups exist for lambdas yet. Mainline `vim` has one,
+"     but it highlights the entire span of the lambda.
+
+
+"   Mainline vim distro
+
+" Variation: I actually like keeping this a separate color -- it's kind of
+" nice.
+" XXX: Sublime distinguishes between @param names and other tags, but this
+" doesn't.
+hi! link javaCommentTitle     SublimeDocumentation
+hi! link javaDocParam         SublimeAqua
+hi! link javaDocTags          Keyword
+hi! link javaFuncDef          Tag
+hi! link javaC_JavaLang       SublimeType
+hi! link javaE_JavaLang       SublimeType
+hi! link javaR_JavaLang       SublimeType
+hi! link javaX_JavaLang       SublimeType
+hi! link javaVarArg           Keyword
+" XXX: Other known deficiencies (mainline vim):
+"
+" * javaFuncDef is way too inclusive -- even the args and its parens are
+"     highlighted!
+" * java*_JavaLang isn't really up-to-date.
+
+"   vim-java
+
+hi! link javaDeclType         SublimeType
+" XXX: Currently unable to distinguish function calls from function definitions.
+hi! link javaFunction         SublimeAqua
+hi! link javaMapType          SublimeType
+" XXX: This isn't a builtin...don't other languages use italics for types?
+hi! link javaNonPrimitiveType SublimeType
+
 call s:h('jpropertiesIdentifier', { 'fg': s:pink })
 
 " JavaScript
@@ -552,7 +600,8 @@ hi! link phpParent          Normal
 call s:h('phpStaticClasses', { 'fg': s:aqua, 'format': 'italic' })
 " Variation: I actually like linking this against `Keyword` instead.
 hi! link phpVarSelector     Identifier
-" XXX: Other noted deficiencies:
+" XXX: Other known deficiencies:
+"
 " * Links in doc comments are highlighted aqua in Sublime, but there's no
 "     distinguishing right now with php.vim.
 " * `phpKeyword` is used as a blanket group for several things that Sublime
@@ -581,7 +630,8 @@ hi! link pythonParam       SublimeContextParam
 " XXX: pythonStatement covers a bit too much...unfortunately, this means that
 " some keywords, like `def`, can't be highlighted like in Sublime yet.
 hi! link pythonStatement   Keyword
-" XXX: Other noted deficiencies:
+" XXX: Other known deficiencies:
+"
 " * Python special regexp sequences aren't highlighted. :\
 " * Function cals aren't highlighted like they are in Sublime.
 " * Keyword args aren't highlighted at all like in Sublime.
@@ -640,9 +690,10 @@ hi! link rustModPathSep     Normal
 hi! link rustQuestionMark   Keyword
 hi! link rustRepeat         Keyword
 hi! link rustSelf           SublimeContextParam
-" XXX: Deficiencies:
-" * In Sublime, `fn` and `let` keywords are highlighted, but Vim lumps them
-"     with all other keywords
+" XXX: Other known deficiencies:
+"
+" * In Sublime, `fn` and `let` keywords are highlighted with italicized aqua,
+"     but Vim lumps them with all other keywords
 " * Crate names after `extern crate` are included in `rustIdentifier`, which
 "     is technically more inclusive than Sublime's definition group but not so
 "     bad I don't think it's an okay default.
@@ -731,7 +782,8 @@ hi! link yamlFlowIndicator            Normal
 hi! link yamlFlowMappingKey           Keyword
 hi! link yamlKeyValueDelimiter        Normal
 hi! link yamlPlainScalar              String
-" XXX: Other noted deficiencies:
+" XXX: Other known deficiencies:
+"
 " A good place to see these in action is: http://www.yaml.org/start.html
 " * "yes"/"no" values are actually not recognized as yamlBool groups in Vim.
 " * Literal/folded block scalars don't have their own group right now in Vim.
@@ -739,7 +791,9 @@ hi! link yamlPlainScalar              String
 "     scalars in Vim.
 " * References aren't handled at all by Vim, it seems.
 " * Vim incorrectly highlights for comments after a scalar value has started.
+"
 " Other noted deficiencies when using YAML to manually analyze binary files:
+"
 " * Hex literals as map keys are highlighted in Sublime, not in Vim.
 " * Sublime is more permissive about what it highlights for keys, but Sublime
 "     may reject them as invalid; i.e., "???" (minus quotes)
@@ -760,8 +814,8 @@ hi! link zshQuoted   Special
 hi! link zshSubst    String
 " Variation: I actually like keeping this as Type.
 hi! link zshTypes    Keyword
-" Other variations:
-" XXX: Other noted deficiencies:
+" XXX: Other known deficiencies:
+"
 " * Semicolons in `if` blocks are `Keyword`ed in Sublime but not distinct in
 "     Vim
 " * Commands aren't distinct from builtins and keywords in Vim
