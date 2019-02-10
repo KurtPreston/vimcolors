@@ -73,6 +73,7 @@ function! s:h(group, style)
     \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "NONE")
     \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "NONE")
     \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
+    \ "guisp="   (has_key(a:style, "guisp") ? a:style.guisp    : "NONE")
     \ "guifg=NONE"
     \ "guibg=NONE"
     \ "gui=NONE"
@@ -188,16 +189,35 @@ endif
 hi! link helpHyperTextEntry Title
 hi! link helpHyperTextJump  String
 
-" __StatusLine__
-call s:h("StatusLine",        {"cterm": "underline", "bg": s:bg, "fg": s:dark_black})
-" __StatusLineNC__
-call s:h("StatusLineNC",      {"cterm": "underline", "bg": s:bg, "fg": s:bg_subtle})
-" __WildMenu__
-call s:h("WildMenu",          {"cterm": "underline,bold", "bg": s:bg, "fg": s:norm})
+call s:h("StatusLine", {
+      \"cterm": "bold,underline",
+      \"bg": s:bg,
+      \"fg": s:norm
+      \})
+call s:h("StatusLineNC", {
+      \"cterm": "bold,underline",
+      \"bg": s:bg,
+      \"fg": s:bg_subtle
+      \})
 
-call s:h("StatusLineOk",      {"cterm": "underline", "bg": s:bg, "fg": s:ok})
-call s:h("StatusLineError",   {"cterm": "underline", "bg": s:bg, "fg": s:error})
-call s:h("StatusLineWarning", {"cterm": "underline", "bg": s:bg, "fg": s:warning})
+" Semantic status line highlights
+call s:h("StatusLineOk", {
+      \"cterm": "bold,underline",
+      \"bg": s:bg,
+      \"fg": s:ok
+      \})
+call s:h("StatusLineError", {
+      \"cterm": "bold,underline",
+      \"bg": s:bg,
+      \"fg": s:error
+      \})
+call s:h("StatusLineWarning", {
+      \"cterm": "bold,underline",
+      \"bg": s:bg,
+      \"fg": s:warning
+      \})
+
+call s:h("WildMenu",          {"cterm": "underline,bold", "bg": s:bg, "fg": s:norm})
 
 " __Pmenu__
 call s:h("Pmenu",         {"fg": s:norm, "bg": s:cursor_line})
