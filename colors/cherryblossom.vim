@@ -103,9 +103,12 @@ endif
 "{{{ Highlight Function
 " shamelessly stolen from pencil: https://github.com/reedes/vim-colors-pencil
 function! s:hi(group, style)
-    if ! g:terminal_italics
+    if g:terminal_italics == 0
         if has_key(a:style, "cterm") && a:style["cterm"] == "italic"
             unlet a:style.cterm
+        endif
+        if has_key(a:style, "term") && a:style["term"] == "italic"
+            unlet a:style.term
         endif
     endif
     execute "highlight" a:group
@@ -231,7 +234,7 @@ function! s:changebg(group, color)
     execute "highlight" a:group "guibg=" a:color.gui "ctermbg=" a:color.cterm
 endfunction
 
-if g:switch_statusline_bg_in_insert
+if g:switch_statusline_bg_in_insert == 1
     "" Change Color when entering Insert Mode
     autocmd InsertEnter * call s:changebg("StatusLine", s:pink_bg)
     "" Revert Color to default when leaving Insert Mode
