@@ -60,7 +60,7 @@ if &background ==# 'dark'
   hi PmenuThumb ctermfg=145 ctermbg=145 guifg=#abb0c0 guibg=#abb0c0 guisp=NONE cterm=NONE gui=NONE
   hi TabLineFill ctermfg=237 ctermbg=237 guifg=#2b3740 guibg=#2b3740 guisp=NONE cterm=NONE gui=NONE
   hi ToolbarLine ctermfg=237 ctermbg=237 guifg=#2b3740 guibg=#2b3740 guisp=NONE cterm=NONE gui=NONE
-  hi VertSplit ctermfg=240 ctermbg=240 guifg=#4c5764 guibg=#4c5764 guisp=NONE cterm=NONE gui=NONE
+  hi VertSplit ctermfg=237 ctermbg=237 guifg=#2b3740 guibg=#2b3740 guisp=NONE cterm=NONE gui=NONE
   hi SpellBad ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#c17b8d cterm=NONE,underline gui=NONE,undercurl
   hi SpellCap ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#5496bd cterm=NONE,underline gui=NONE,undercurl
   hi SpellLocal ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#459d90 cterm=NONE,underline gui=NONE,undercurl
@@ -192,7 +192,7 @@ hi PmenuSbar ctermfg=144 ctermbg=144 guifg=#b1b4a2 guibg=#b1b4a2 guisp=NONE cter
 hi PmenuThumb ctermfg=240 ctermbg=240 guifg=#485a62 guibg=#485a62 guisp=NONE cterm=NONE gui=NONE
 hi TabLineFill ctermfg=254 ctermbg=254 guifg=#efe4d2 guibg=#efe4d2 guisp=NONE cterm=NONE gui=NONE
 hi ToolbarLine ctermfg=254 ctermbg=254 guifg=#efe4d2 guibg=#efe4d2 guisp=NONE cterm=NONE gui=NONE
-hi VertSplit ctermfg=144 ctermbg=144 guifg=#b1b4a2 guibg=#b1b4a2 guisp=NONE cterm=NONE gui=NONE
+hi VertSplit ctermfg=254 ctermbg=254 guifg=#efe4d2 guibg=#efe4d2 guisp=NONE cterm=NONE gui=NONE
 hi SpellBad ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#ff0056 cterm=NONE,underline gui=NONE,undercurl
 hi SpellCap ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#0096ff cterm=NONE,underline gui=NONE,undercurl
 hi SpellLocal ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=#00a6c0 cterm=NONE,underline gui=NONE,undercurl
@@ -342,7 +342,7 @@ finish
 " PmenuThumb         gry3   gry3
 " TabLineFill        gry1   gry1
 " ToolbarLine        gry1   gry1
-" VertSplit          gryp   gryp
+" VertSplit          gry1   gry1
 " SpellBad           none   none   g=undercurl   s=sprd   t=underline
 " SpellCap           none   none   g=undercurl   s=spbl   t=underline
 " SpellLocal         none   none   g=undercurl   s=spcy   t=underline
@@ -453,7 +453,7 @@ finish
 " PmenuThumb         gry3   gry3
 " TabLineFill        gry1   gry1
 " ToolbarLine        gry1   gry1
-" VertSplit          gryp   gryp
+" VertSplit          gry1   gry1
 " SpellBad           none   none   g=undercurl   s=sprd   t=underline
 " SpellCap           none   none   g=undercurl   s=spbl   t=underline
 " SpellLocal         none   none   g=undercurl   s=spcy   t=underline
