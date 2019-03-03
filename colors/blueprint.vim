@@ -68,7 +68,7 @@ hi      MatchParen guifg=none    guibg=none    gui=underline
 hi          Visual guifg=none    guibg=#2c4e6c gui=none
 hi       VisualNOS guifg=none    guibg=#2c4e6c gui=none
 hi         NonText guifg=#2c4e6c guibg=none    gui=none
-hi            Todo guifg=#74a0c7 guibg=none    gui=none
+hi            Todo guifg=#74a0c7 guibg=none    gui=underline
 hi      Underlined guifg=none    guibg=none    gui=underline
 hi           Error guifg=#2c4e6c guibg=#ff6681 gui=none
 hi        ErrorMsg guifg=#2c4e6c guibg=#ff6681 gui=none
@@ -99,7 +99,7 @@ hi         Comment guifg=#74a0c7 guibg=none    gui=none
 hi       Statement guifg=#97e483 guibg=none    gui=none
 hi     Conditional guifg=#97e483 guibg=none    gui=none
 hi          Repeat guifg=#97e483 guibg=none    gui=none
-hi           Label guifg=#97e483 guibg=none    gui=none
+hi           Label guifg=none    guibg=none    gui=none
 hi        Operator guifg=#97e483 guibg=none    gui=none
 hi         Keyword guifg=#97e483 guibg=none    gui=none
 hi       Exception guifg=#97e483 guibg=none    gui=none
@@ -145,10 +145,10 @@ hi      PmenuThumb guifg=#74a0c7 guibg=#2c4e6c gui=none
 " --------------------------------
 " Spelling
 " --------------------------------
-hi        SpellBad guifg=#ff6681 guibg=none    gui=none
-hi        SpellCap guifg=#f9f871 guibg=none    gui=none
-hi      SpellLocal guifg=#f9f871 guibg=none    gui=none
-hi       SpellRare guifg=#f9f871 guibg=none    gui=none
+hi        SpellBad guifg=#2c4e6c guibg=#ff6681 gui=none
+hi        SpellCap guifg=#2c4e6c guibg=#f9f871 gui=none
+hi      SpellLocal guifg=#2c4e6c guibg=#f9f871 gui=none
+hi       SpellRare guifg=#2c4e6c guibg=#f9f871 gui=none
 
 "--------------------------------------------------------------------
 " Specific settings                                                 |
