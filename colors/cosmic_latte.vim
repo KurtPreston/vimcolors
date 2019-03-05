@@ -118,7 +118,7 @@ if &background ==# 'dark'
     let g:terminal_color_5 = "#9b85bb"
     let g:terminal_color_6 = "#459d90"
     let g:terminal_color_7 = "#abb0c0"
-    let g:terminal_color_8 = "#2b3740"
+    let g:terminal_color_8 = "#898f9e"
     let g:terminal_color_9 = "#c17b8d"
     let g:terminal_color_10 = "#7d9761"
     let g:terminal_color_11 = "#b28761"
@@ -136,7 +136,7 @@ if &background ==# 'dark'
         \ "#9b85bb",
         \ "#459d90",
         \ "#abb0c0",
-        \ "#2b3740",
+        \ "#898f9e",
         \ "#c17b8d",
         \ "#7d9761",
         \ "#b28761",
@@ -250,7 +250,7 @@ if has("nvim")
   let g:terminal_color_5 = "#a154ae"
   let g:terminal_color_6 = "#007f8a"
   let g:terminal_color_7 = "#485a62"
-  let g:terminal_color_8 = "#efe4d2"
+  let g:terminal_color_8 = "#63757e"
   let g:terminal_color_9 = "#c44756"
   let g:terminal_color_10 = "#1f8332"
   let g:terminal_color_11 = "#916d03"
@@ -268,7 +268,7 @@ elseif has("terminal")
       \ "#a154ae",
       \ "#007f8a",
       \ "#485a62",
-      \ "#efe4d2",
+      \ "#63757e",
       \ "#c44756",
       \ "#1f8332",
       \ "#916d03",
