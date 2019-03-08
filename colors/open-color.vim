@@ -2,7 +2,7 @@
 " (https://yeun.github.io/open-color/)
 " Maintainer: Chayoung You <yousbe@gmail.com>
 " URL: https://github.com/yous/vim-open-color
-" Version: 2.2.0
+" Version: 2.3.0
 " License: The MIT License (MIT)
 
 let s:save_cpo = &cpoptions
@@ -127,6 +127,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " Identifier
     call s:Hi('Identifier', s:oc['yellow'][2], '')
+    highlight Identifier gui=bold
 
     " Statement
     call s:Hi('Statement', s:oc['violet'][2], '')
@@ -142,7 +143,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " Special
     call s:Hi('Special', s:oc['yellow'][2], '')
-    call s:Hi('Delimiter', s:oc['gray'][2], '')
 
     " Underlined
     call s:Hi('Underlined', s:oc['cyan'][2], '')
@@ -225,12 +225,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][9])
 
     " syntax/ruby.vim
-    call s:Hi('rubyRegexp', s:oc['lime'][4], '')
-    call s:Hi('rubyRegexpDelimiter', s:oc['lime'][4], '')
-    call s:Hi('rubyArrayDelimiter', s:oc['gray'][2], '')
-    call s:Hi('rubyBlockParameterList', s:oc['gray'][2], '')
-    call s:Hi('rubyCurlyBlockDelimiter', s:oc['gray'][2], '')
-    call s:Hi('rubyInterpolationDelimiter', s:oc['orange'][4], '')
+    " .each { |value| ... }
+    call s:Hi('rubyBlockParameter', s:oc['yellow'][2], '')
     " ARGV, $stdout
     call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
 
@@ -251,15 +247,16 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Comment', s:oc['gray'][6], '')
 
     " Constant
-    call s:Hi('Constant', s:oc['yellow'][8], '')
+    call s:Hi('Constant', s:oc['pink'][6], '')
     call s:Hi('String', s:oc['lime'][8], '')
-    call s:Hi('Character', s:oc['orange'][7], '')
-    call s:Hi('Number', s:oc['orange'][7], '')
-    call s:Hi('Boolean', s:oc['orange'][7], '')
-    call s:Hi('Float', s:oc['orange'][7], '')
+    call s:Hi('Character', s:oc['orange'][8], '')
+    call s:Hi('Number', s:oc['orange'][8], '')
+    call s:Hi('Boolean', s:oc['orange'][8], '')
+    call s:Hi('Float', s:oc['orange'][8], '')
 
     " Identifier
     call s:Hi('Identifier', s:oc['yellow'][7], '')
+    highlight Identifier cterm=bold gui=bold
 
     " Statement
     call s:Hi('Statement', s:oc['violet'][6], '')
@@ -275,7 +272,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " Special
     call s:Hi('Special', s:oc['yellow'][7], '')
-    call s:Hi('Delimiter', s:oc['gray'][8], '')
 
     " Underlined
     call s:Hi('Underlined', s:oc['cyan'][5], '')
@@ -324,7 +320,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " Press ENTER or type command to continue
     call s:Hi('Question', s:oc['lime'][8], '')
     " Search hit bottom
-    call s:Hi('WarningMsg', s:oc['red'][5], '')
+    call s:Hi('WarningMsg', s:oc['red'][7], '')
 
     " let &showbreak = '> '
     call s:Hi('NonText', s:oc['gray'][6], '')
@@ -335,7 +331,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('PmenuSbar', '', s:oc['gray'][4])
     call s:Hi('PmenuThumb', '', s:oc['gray'][8])
 
-    call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][2])
+    call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][3])
     " call s:Hi('IncSearch', '', '')
 
     " :map, listchars
@@ -357,14 +353,10 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][1])
 
     " syntax/ruby.vim
-    call s:Hi('rubyRegexp', s:oc['lime'][8], '')
-    call s:Hi('rubyRegexpDelimiter', s:oc['lime'][8], '')
-    call s:Hi('rubyArrayDelimiter', s:oc['gray'][8], '')
-    call s:Hi('rubyBlockParameterList', s:oc['gray'][8], '')
-    call s:Hi('rubyCurlyBlockDelimiter', s:oc['gray'][8], '')
-    call s:Hi('rubyInterpolationDelimiter', s:oc['orange'][6], '')
+    " .each { |value| ... }
+    call s:Hi('rubyBlockParameter', s:oc['yellow'][7], '')
     " ARGV, $stdout
-    call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
+    call s:Hi('rubyPredefinedIdentifier', s:oc['red'][7], '')
 
     " vim-gitgutter
     call s:Hi('GitGutterAdd', s:oc['lime'][8], '')
