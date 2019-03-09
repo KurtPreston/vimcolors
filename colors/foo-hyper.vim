@@ -4,7 +4,7 @@ if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = 'foo-mrrobot'
+let g:colors_name = 'foo-hyper'
 set background=dark
 
 
@@ -25,20 +25,20 @@ let s:none        =   'NONE'
 
 
 " Background
-let s:bg = '#121212'
+let s:bg = '#000000'
 
 
 " Colors base
-let s:primary       =   '#afff87'
-let s:secondary     =   '#262626'
+let s:primary       =   '#d55fde'
+let s:secondary     =   '#d55fde'
 
-let s:source        =   '#bcbcbc'
-let s:keyword       =   s:primary
+let s:source        =   '#bbbbbb'
+let s:keyword       =   s:secondary
 let s:structure     =   s:primary
-let s:scalar        =   '#ff87fc'
-let s:string        =   '#fffe7a'
+let s:scalar        =   '#d8985f'
+let s:string        =   '#89ca78'
 
-let s:comment       =   '#4e4e4e'
+let s:comment       =   '#5c6370'
 
 
 " Syntax highlighting groups
@@ -51,14 +51,14 @@ call s:hi('Boolean', s:scalar, s:bg, s:none)
 call s:hi('Float', s:scalar, s:bg, s:none)
 
 call s:hi('Identifier', s:primary, s:bg, s:none)
-call s:hi('Function', s:keyword, s:bg, s:none)
+call s:hi('Function', s:primary, s:bg, s:none)
 
-call s:hi('Statement', s:keyword, s:bg, s:none)
+call s:hi('Statement', s:secondary, s:bg, s:none)
 call s:hi('Conditional', s:keyword, s:bg, s:none)
 call s:hi('Repeat', s:keyword, s:bg, s:none)
 call s:hi('Label', s:primary, s:bg, s:none)
 call s:hi('Operator', s:primary, s:bg, s:none)
-call s:hi('Keyword', s:keyword, s:bg, s:none)
+call s:hi('Keyword', s:source, s:bg, s:none)
 call s:hi('Exception', s:primary, s:bg, s:italic)
 
 call s:hi('PreProc', s:source, s:bg, s:italic)
@@ -67,7 +67,7 @@ call s:hi('Define', s:source, s:bg, s:italic)
 call s:hi('Macro', s:source, s:bg, s:italic)
 call s:hi('PreCondit', s:primary, s:bg, s:italic)
 
-call s:hi('Type', s:primary, s:bg, s:none)
+call s:hi('Type', '#e5c07b', s:bg, s:none)
 call s:hi('StorageClass', s:primary, s:bg, s:none)
 call s:hi('Structure', s:primary, s:bg, s:none)
 call s:hi('Typedef', s:primary, s:bg, s:none)
@@ -81,10 +81,10 @@ call s:hi('Underlined', s:source, s:bg, s:underline)
 call s:hi('Error', s:primary, s:bg, s:underline)
 call s:hi('Todo', s:primary, s:bg, s:none)
 
-call s:hi('Directory', 'White', s:bg, s:none)
-call s:hi('CursorLine', s:primary, s:secondary, s:none)
+call s:hi('Directory', s:primary, s:bg, s:none)
+call s:hi('CursorLine', s:none, '#1a1a1a', s:none)
 call s:hi('MatchParen', 'White', s:bg, s:none)
-call s:hi('ColorColumn', s:primary, s:secondary, s:none)
+call s:hi('ColorColumn', s:source, '#1a1a1a', s:none)
 
 
 " Interface highlighting
@@ -92,10 +92,11 @@ call s:hi('Normal', s:source, s:bg, s:none)
 call s:hi('Visual', s:none, s:comment, s:none)
 call s:hi('Cursor', s:none, s:bg, s:none)
 call s:hi('iCursor', s:none, s:bg, s:none)
-call s:hi('LineNr', s:comment, s:bg, s:none)
+call s:hi('LineNr', '#495162', s:bg, s:none)
 call s:hi('NonText', s:comment, s:bg, s:none)
 call s:hi('CursorLineNr', s:source, s:bg, s:none)
-call s:hi('VertSplit', s:secondary, s:bg, s:none)
+call s:hi('VertSplit', '#1a1a1a', s:bg, s:none)
+call s:hi('Title', s:scalar, s:bg, s:none)
 
 
 " Git Gutter
@@ -107,8 +108,8 @@ call s:hi('SignColumn', s:source, s:bg, s:none)
 
 
 " Python syntax highlighting
-call s:hi('pythonFunction', 'white', s:bg, s:none)
-call s:hi('pythonBuiltin', 'white', s:bg, s:italic)
+call s:hi('pythonFunction', '#52adf2', s:bg, s:none)
+call s:hi('pythonBuiltin', '#2bbac5', s:bg, s:italic)
 call s:hi('pythonDecoratorName', s:scalar, s:bg, s:italic)
 call s:hi('pythonDecorator', s:scalar, s:bg, s:italic)
 
@@ -153,3 +154,4 @@ if has("gui_win32")
     call s:hi('CursorLine', s:source, s:secondary, s:none)
     call s:hi('Cursor', s:none, s:primary, s:none)
 endif
+

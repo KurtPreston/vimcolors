@@ -58,9 +58,9 @@ Cursor               almostwhite              black
 CursorColumn         almostwhite              black
 CursorLine           almostwhite              black
 CursorLineNr         almostwhite              black
-DiffAdd              almostwhite              black             reverse
-DiffChange           almostwhite              black             reverse
-DiffDelete           almostwhite              black             reverse
+DiffAdd              green                    black             reverse
+DiffChange           yellow                   black             reverse
+DiffDelete           red                      black             reverse
 DiffText             almostwhite              black             bold,reverse
 Directory            almostwhite              black
 EndOfBuffer          almostwhite              black
@@ -82,10 +82,10 @@ QuickFixLine     ->  Search
 Search               green                    black
 SignColumn           almostwhite              black
 SpecialKey           beige                    black
-SpellBad             almostwhite              black             s=red
-SpellCap             almostwhite              black             s=blue
-SpellLocal           almostwhite              black             s=darkstone
-SpellRare            almostwhite              black             s=beige reverse
+SpellBad             red                      black             s=red
+SpellCap             red                      black             s=blue
+SpellLocal           red                      black             s=darkstone
+SpellRare            beige                    black             s=beige reverse
 StatusLine           almostwhite              black
 StatusLineNC         almostwhite              black
 StatusLineTerm    -> StatusLine
