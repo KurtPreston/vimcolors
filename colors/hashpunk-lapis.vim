@@ -9,7 +9,7 @@ if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = 'hashpunk'
+let g:colors_name = 'hashpunk-lapis'
 set background=dark
 
 " Dark Meadow Legacy
@@ -21,8 +21,8 @@ let s:Magenta2        =  ['165' , '#d700ff']
 let s:MediumOrchid1   =  ['207' , '#ff5faf']
 
 " Hashpunk
-let s:MainColor = ['197', '#ff3366']
-let s:ComplementaryColor = ['198', '#fe0040']
+let s:MainColor = ['110', '#875fff']
+let s:ComplementaryColor = ['111', '#8787ff']
 
 let s:Grey0 = ['16', '#000000']
 let s:Grey7 = ['233', '#121212']
