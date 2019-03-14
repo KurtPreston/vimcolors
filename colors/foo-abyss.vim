@@ -33,7 +33,7 @@ let s:primary       =   '#9966b8'
 let s:secondary     =   '#225588'
 
 let s:source        =   '#bbbbbb'
-let s:keyword       =   s:secondary
+let s:keyword       =   s:primary
 let s:structure     =   s:primary
 let s:scalar        =   '#f280d0'
 let s:string        =   '#22aa44'
@@ -58,7 +58,7 @@ call s:hi('Conditional', s:keyword, s:bg, s:none)
 call s:hi('Repeat', s:keyword, s:bg, s:none)
 call s:hi('Label', s:primary, s:bg, s:none)
 call s:hi('Operator', s:primary, s:bg, s:none)
-call s:hi('Keyword', s:source, s:bg, s:none)
+call s:hi('Keyword', s:primary, s:bg, s:none)
 call s:hi('Exception', s:primary, s:bg, s:italic)
 
 call s:hi('PreProc', s:source, s:bg, s:italic)

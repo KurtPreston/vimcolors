@@ -215,5 +215,5 @@ let g:terminal_color_6 = "#92E4FE"
 let g:terminal_color_14 = "#92E4FE"
 
 " light4 + light1
-let g:terminal_color_7 = "#f1f6f9"
+let g:terminal_color_7 = "#74a0c7"
 let g:terminal_color_15 = "#f1f6f9"
