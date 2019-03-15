@@ -14,7 +14,6 @@ if exists("syntax on")
 syntax reset
 endif
 
-set t_Co=256
 let g:colors_name = "blue-mood"
 
 
@@ -31,9 +30,8 @@ let s:gold="#ffd700"
 let s:wheat="#f5deb3"
 let s:cyan= "#00ffff"
 let s:gray72="#b8b8b8"
-let s:func="#7fff00"
+let s:chartreusegreen="#7fff00"
 let s:tomato="#ff6347"
-let s:type="#7fff00"
 let s:cyan3="#00cdcd"
 let s:red="#ff0000"
 let s:warning2="#ff8800"
@@ -92,7 +90,7 @@ exe 'hi ErrorMsg guifg='s:whitesmoke' guibg='s:red' gui=bold cterm=bold'
 exe 'hi WarningMsg guifg='s:gold' gui=bold cterm=bold' 
 exe 'hi Exception guifg='s:gold
 exe 'hi Float guifg='s:cyan  
-exe 'hi Function guifg='s:func' gui=bold cterm=bold'  
+exe 'hi Function guifg='s:chartreusegreen' gui=bold cterm=bold'  
 exe 'hi Identifier guifg='s:gold' gui=bold cterm=bold'
 exe 'hi Keyword guifg='s:gold'  gui=bold cterm=bold'
 exe 'hi Label guifg='s:cyan3
@@ -110,17 +108,17 @@ exe 'hi SpecialChar guifg='s:whitesmoke
 exe 'hi SpecialComment guifg='s:gray72' gui=bold cterm=bold'
 exe 'hi SpecialKey guifg='s:steelblue3' guibg='s:dodgerblue4 
 exe 'hi Statement guifg='s:gold  
-exe 'hi StorageClass guifg='s:type
+exe 'hi StorageClass guifg='s:chartreusegreen
 exe 'hi String guifg='s:tomato 
-exe 'hi Structure guifg='s:type 
+exe 'hi Structure guifg='s:chartreusegreen 
 exe 'hi Tag guifg='s:gold  
-exe 'hi Title guifg='s:func'  gui=bold cterm=bold'
+exe 'hi Title guifg='s:chartreusegreen'  gui=bold cterm=bold'
 exe 'hi Todo guifg='s:wheat'  guibg='s:dodgerblue4' gui=bold cterm=bold'
-exe 'hi Type guifg='s:type 
-exe 'hi Typedef guifg='s:type
+exe 'hi Type guifg='s:chartreusegreen 
+exe 'hi Typedef guifg='s:chartreusegreen
 exe 'hi Underlined   gui=underline'
 
-exe 'hi DiffAdd guifg='s:func' guibg='s:dodgerblue4' gui=bold cterm=bold'
+exe 'hi DiffAdd guifg='s:chartreusegreen' guibg='s:dodgerblue4' gui=bold cterm=bold'
 exe 'hi DiffDelete guifg='s:tomato' guibg='s:dodgerblue4' gui=NONE cterm=NONE'
 exe 'hi DiffChange guifg='s:whitesmoke' guibg='s:cyan3 
 exe 'hi DiffText guifg='s:whitesmoke' guibg='s:steelblue3' gui=bold cterm=bold'
@@ -145,7 +143,7 @@ exe 'hi goBuiltins guifg='s:wheat
 " Javascript Highlighting
 exe 'hi jsBuiltins guifg='s:wheat
 exe 'hi jsFunction guifg='s:gold' gui=bold cterm=bold'
-exe 'hi jsGlobalObjects guifg='s:type
+exe 'hi jsGlobalObjects guifg='s:chartreusegreen
 exe 'hi jsAssignmentExps guifg='s:cyan3
 
 " Html Highlighting
