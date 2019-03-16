@@ -85,7 +85,7 @@ let s:ds = {}
 " fill it with absolute colors
 let s:ds.dark0       = ['#2C323B', 235]     " 40-40-40 Background
 let s:ds.dark1       = ['#3c3836', 237]     " 60-56-54
-let s:ds.dark2       = ['#2C313A', 239]     " 80-73-69
+let s:ds.dark2       = ['#242a32', 239]     " 80-73-69
 let s:ds.dark3       = ['#665c54', 241]     " 102-92-84
 let s:ds.dark4       = ['#7c6f64', 243]     " 124-111-100
 let s:ds.dark4_256   = ['#7c6f64', 243]     " 124-111-100
@@ -217,7 +217,7 @@ if exists('g:deus_hls_cursor')
 endif
 
 let s:number_column = s:bg4
-let s:sign_column = s:bg1
+let s:sign_column = s:bg2
 
 if exists('g:gitgutter_override_sign_column_highlight') &&
       \ g:gitgutter_override_sign_column_highlight == 1
@@ -588,6 +588,16 @@ endif
 " }}}
 
 " Plugin specific -------------------------------------------------------------
+" Cocnvim: {{{
+" Symbols
+highlight link CocErrorSign deusRedSign
+highlight link CocWarningSign deusOrangeSign
+highlight link CocInfoSign deusAquaSign
+highlight link CocHintSign deusGreenSign
+
+" Text highlights
+call s:HL('CocHighlightText', s:fg1, s:bg2)
+"}}}
 " EasyMotion: {{{
 
 hi! link EasyMotionTarget Search

@@ -4,7 +4,7 @@
 " Maintainer:   Liu-Cheng Xu <xuliuchengxlc@gmail.com>
 " Website:      https://github.com/liuchengxu/space-vim-theme
 " License:      Vim License (see `:help license`)
-" Last Updated: Wed Mar 13 15:25:28 2019
+" Last Updated: Sat Mar 16 09:16:45 2019
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -62,6 +62,7 @@ if &background ==# 'dark'
   hi PmenuThumb ctermfg=NONE ctermbg=60 guifg=NONE guibg=#5d4d7a guisp=NONE cterm=NONE gui=NONE
   hi Question ctermfg=173 ctermbg=NONE guifg=#e18254 guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
   hi! link QuickFixLine Search
+  hi! link qfLineNr Type
   hi Search ctermfg=70 ctermbg=235 guifg=#67b11d guibg=#292b2e guisp=NONE cterm=NONE,bold,reverse gui=NONE,bold,reverse
   hi SpecialKey ctermfg=170 ctermbg=NONE guifg=#bc6ec5 guibg=NONE guisp=NONE cterm=NONE gui=NONE
   hi SpellBad ctermfg=196 ctermbg=NONE guifg=#f2241f guibg=NONE guisp=#f2241f cterm=NONE,underline gui=NONE,italic,undercurl
@@ -276,6 +277,10 @@ if &background ==# 'dark'
     hi multiple_cursors_visual ctermfg=NONE ctermbg=232 guifg=NONE guibg=#100a14 guisp=NONE cterm=NONE gui=NONE
     hi CurrentWord ctermfg=NONE ctermbg=60 guifg=NONE guibg=#544a65 guisp=NONE cterm=NONE,underline gui=NONE,underline
     hi CurrentWordTwins ctermfg=NONE ctermbg=60 guifg=NONE guibg=#544a65 guisp=NONE cterm=NONE gui=NONE
+    hi! link WhichKey Function
+    hi WhichKeySeperator ctermfg=70 ctermbg=NONE guifg=#67b11d guibg=NONE guisp=NONE cterm=NONE gui=NONE
+    hi! link WhichKeyGroup Keyword
+    hi! link WhichKeyDesc Identifier
     let g:vimshell_escape_colors = [
           \ '#34323e', '#f2241f', '#67b11d', '#b1951d',
           \ '#4f97d7', '#bc6ec5', '#2d9574', '#5b5b5b',
@@ -663,6 +668,7 @@ hi PmenuSel ctermfg=NONE ctermbg=189 guifg=NONE guibg=#c8c6dd guisp=NONE cterm=N
 hi PmenuThumb ctermfg=NONE ctermbg=189 guifg=NONE guibg=#d3d3e7 guisp=NONE cterm=NONE gui=NONE
 hi Question ctermfg=166 ctermbg=NONE guifg=#b46843 guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi! link QuickFixLine Search
+hi! link qfLineNr Type
 hi Search ctermfg=70 ctermbg=231 guifg=#67b11d guibg=#fbf8ef guisp=NONE cterm=NONE,bold,reverse gui=NONE,bold,reverse
 hi SpecialKey ctermfg=89 ctermbg=NONE guifg=#6c3163 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi SpellBad ctermfg=196 ctermbg=NONE guifg=#f2241f guibg=NONE guisp=#f2241f cterm=NONE,underline gui=NONE,italic,undercurl
@@ -877,6 +883,10 @@ if get(g:, "space_vim_plugin_hi_groups", 0)
   hi multiple_cursors_visual ctermfg=NONE ctermbg=254 guifg=NONE guibg=#e3dedd guisp=NONE cterm=NONE gui=NONE
   hi CurrentWord ctermfg=NONE ctermbg=60 guifg=NONE guibg=#544a65 guisp=NONE cterm=NONE,underline gui=NONE,underline
   hi CurrentWordTwins ctermfg=NONE ctermbg=60 guifg=NONE guibg=#544a65 guisp=NONE cterm=NONE gui=NONE
+  hi! link WhichKey Function
+  hi WhichKeySeperator ctermfg=70 ctermbg=NONE guifg=#67b11d guibg=NONE guisp=NONE cterm=NONE gui=NONE
+  hi! link WhichKeyGroup Keyword
+  hi! link WhichKeyDesc Identifier
   let g:vimshell_escape_colors = [
         \ '#a8a4ae', '#f2241f', '#67b11d', '#b1951d',
         \ '#3a81c3', '#6c3163', '#24775c', '#463a4e',
@@ -1313,6 +1323,7 @@ finish
 " PmenuThumb                       none     purple2
 " Question                         orange   none    bold
 " QuickFixLine                  -> Search
+" qfLineNr                      -> Type
 " Search                           green    bg0     bold,reverse
 " SpecialKey                       purple   none
 " SpellBad                         red      none    t=underline g=italic,undercurl s=red
@@ -1459,6 +1470,10 @@ finish
 " multiple_cursors_visual          none   bg2
 " CurrentWord                   none   purple3   underline
 " CurrentWordTwins              none   purple3
+" WhichKey                     -> Function
+" WhichKeySeperator               green none
+" WhichKeyGroup                -> Keyword
+" WhichKeyDesc                 -> Identifier
 " diffAdded                        green      none
 " diffRemoved                      red        none
 " diffChanged                      aqua       none
@@ -1874,6 +1889,7 @@ finish
 " PmenuThumb                       none     purple2
 " Question                         orange   none    bold
 " QuickFixLine                  -> Search
+" qfLineNr                      -> Type
 " Search                           green    bg0     bold,reverse
 " SpecialKey                       purple   none
 " SpellBad                         red      none    t=underline g=italic,undercurl s=red
@@ -2020,6 +2036,10 @@ finish
 " multiple_cursors_visual          none   bg2
 " CurrentWord                   none   purple3   underline
 " CurrentWordTwins              none   purple3
+" WhichKey                     -> Function
+" WhichKeySeperator               green none
+" WhichKeyGroup                -> Keyword
+" WhichKeyDesc                 -> Identifier
 " diffAdded                        green      none
 " diffRemoved                      red        none
 " diffChanged                      aqua       none
