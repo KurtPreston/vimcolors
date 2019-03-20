@@ -13,6 +13,24 @@ endif
 
 let g:colors_name="blueprint"
 
+" black   = #25415a
+" white   = #74a0c7
+" yellow  = #a0a054 hsla( 60, 31%, 48%, 1)
+" green   = #54a054 hsla(120, 31%, 48%, 1)
+" cyan    = #54a0a0 hsla(180, 31%, 48%, 1)
+" blue    = #5454a0 hsla(240, 31%, 48%, 1)
+" magenta = #a054a0 hsla(300, 31%, 48%, 1)
+" red     = #a05454 hsla(360, 31%, 48%, 1)
+"
+" black   = #305575
+" white   = #f1f6f9
+" yellow  = #e3d082 hsla( 48, 64%, 70%, 1)
+" green   = #97e483 hsla(108, 64%, 70%, 1)
+" cyan    = #82e3d0 hsla(168, 64%, 70%, 1)
+" blue    = #8295e3 hsla(228, 64%, 70%, 1)
+" magenta = #d082e3 hsla(288, 64%, 70%, 1)
+" red     = #e38295 hsla(348, 64%, 70%, 1)
+
 "----------------------------------------------------------------
 " General settings                                              |
 "----------------------------------------------------------------
@@ -70,9 +88,9 @@ hi       VisualNOS guifg=none    guibg=#2c4e6c gui=none
 hi         NonText guifg=#2c4e6c guibg=none    gui=none
 hi            Todo guifg=#74a0c7 guibg=none    gui=underline
 hi      Underlined guifg=none    guibg=none    gui=underline
-hi           Error guifg=#2c4e6c guibg=#ff6681 gui=none
-hi        ErrorMsg guifg=#2c4e6c guibg=#ff6681 gui=none
-hi      WarningMsg guifg=#2c4e6c guibg=#f9f871 gui=none
+hi           Error guifg=#2c4e6c guibg=#e38295 gui=none
+hi        ErrorMsg guifg=#2c4e6c guibg=#e38295 gui=none
+hi      WarningMsg guifg=#2c4e6c guibg=#e3d082 gui=none
 hi          Ignore guifg=#335b7e guibg=none    gui=none
 hi         Conceal guifg=none    guibg=none    gui=none
 hi      SpecialKey guifg=#97e483 guibg=none    gui=none
@@ -128,11 +146,12 @@ hi         Typedef guifg=#97e483 guibg=none    gui=none
 " --------------------------------
 " Diff
 " --------------------------------
-hi         DiffAdd guifg=none    guibg=#3d8b83 gui=none
+hi         DiffAdd guifg=none    guibg=#54a054 gui=none
 hi      DiffChange guifg=none    guibg=#305575 gui=none
 hi      DiffDelete guifg=#497296 guibg=#25415a gui=none
-hi        DiffText guifg=none    guibg=#a25588 gui=none
+hi        DiffText guifg=none    guibg=#a05454 gui=none
 hi        DiffFile guifg=none    guibg=none    gui=underline
+
 
 " --------------------------------
 " Completion menu
@@ -145,10 +164,10 @@ hi      PmenuThumb guifg=#74a0c7 guibg=#2c4e6c gui=none
 " --------------------------------
 " Spelling
 " --------------------------------
-hi        SpellBad guifg=#2c4e6c guibg=#ff6681 gui=none
-hi        SpellCap guifg=#2c4e6c guibg=#f9f871 gui=none
-hi      SpellLocal guifg=#2c4e6c guibg=#f9f871 gui=none
-hi       SpellRare guifg=#2c4e6c guibg=#f9f871 gui=none
+hi        SpellBad guifg=#2c4e6c guibg=#e38295 gui=none
+hi        SpellCap guifg=#2c4e6c guibg=#e3d082 gui=none
+hi      SpellLocal guifg=#2c4e6c guibg=#e3d082 gui=none
+hi       SpellRare guifg=#2c4e6c guibg=#e3d082 gui=none
 
 "--------------------------------------------------------------------
 " Specific settings                                                 |
@@ -187,33 +206,33 @@ let g:terminal_color_background = "#335b7e"
 let g:terminal_color_foreground = "#f1f6f9"
 
 " dark0 + gray
-let g:terminal_color_0 = "#2c4e6c"
-let g:terminal_color_8 = "#2c4e6c"
+let g:terminal_color_0 = "#25415a"
+let g:terminal_color_8 = "#25415a"
 
 " neutral_red + bright_red
-let g:terminal_color_1 = "#FEBFAB"
-let g:terminal_color_9 = "#FEBFAB"
+let g:terminal_color_1 = "#e38295"
+let g:terminal_color_9 = "#e38295"
 
 " neutral_green + bright_green
-let g:terminal_color_2 = "#83E487"
-let g:terminal_color_10 = "#83E487"
+let g:terminal_color_2 = "#97e483"
+let g:terminal_color_10 = "#97e483"
 
 " neutral_yellow + bright_yellow
-let g:terminal_color_3  = "#FFFA53"
-let g:terminal_color_11 = "#FFFA53"
+let g:terminal_color_3  = "#e3d082"
+let g:terminal_color_11 = "#e3d082"
 
 " neutral_blue + bright_blue
-let g:terminal_color_4 = "#92E4FE"
-let g:terminal_color_12 = "#92E4FE"
+let g:terminal_color_4 = "#8295e3"
+let g:terminal_color_12 = "#8295e3"
 
 " neutral_purple + bright_purple
-let g:terminal_color_5 = "#DDC5FE"
-let g:terminal_color_13 = "#DDC5FE"
+let g:terminal_color_5 = "#d082e3"
+let g:terminal_color_13 = "#d082e3"
 
 " neutral_aqua + faded_aqua
-let g:terminal_color_6 = "#92E4FE"
-let g:terminal_color_14 = "#92E4FE"
+let g:terminal_color_6 = "#82e3d0"
+let g:terminal_color_14 = "#82e3d0"
 
 " light4 + light1
-let g:terminal_color_7 = "#74a0c7"
+let g:terminal_color_7 = "#f1f6f9"
 let g:terminal_color_15 = "#f1f6f9"
