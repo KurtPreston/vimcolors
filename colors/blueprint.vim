@@ -13,14 +13,16 @@ endif
 
 let g:colors_name="blueprint"
 
+" bg      = #335b7e
+
 " black   = #25415a
 " white   = #74a0c7
-" yellow  = #a0a054 hsla( 60, 31%, 48%, 1)
-" green   = #54a054 hsla(120, 31%, 48%, 1)
-" cyan    = #54a0a0 hsla(180, 31%, 48%, 1)
-" blue    = #5454a0 hsla(240, 31%, 48%, 1)
-" magenta = #a054a0 hsla(300, 31%, 48%, 1)
-" red     = #a05454 hsla(360, 31%, 48%, 1)
+" yellow  = #7f7f43 hsla( 60, 31%, 38%, 1)
+" green   = #437f43 hsla(120, 31%, 38%, 1)
+" cyan    = #437f7f hsla(180, 31%, 38%, 1)
+" blue    = #43437f hsla(240, 31%, 38%, 1)
+" magenta = #7f437f hsla(300, 31%, 38%, 1)
+" red     = #a05454 hsla(360, 31%, 38%, 1)
 "
 " black   = #305575
 " white   = #f1f6f9
@@ -135,7 +137,7 @@ hi           Debug guifg=#97e483 guibg=none    gui=none
 hi         PreProc guifg=#97e483 guibg=none    gui=none
 hi         Include guifg=#97e483 guibg=none    gui=none
 hi          Define guifg=#97e483 guibg=none    gui=none
-hi           Macro guifg=#97e483 guibg=none    gui=none
+hi           Macro guifg=none    guibg=none    gui=none
 hi       PreCondit guifg=#97e483 guibg=none    gui=none
 
 hi            Type guifg=none    guibg=none    gui=none
@@ -146,10 +148,10 @@ hi         Typedef guifg=#97e483 guibg=none    gui=none
 " --------------------------------
 " Diff
 " --------------------------------
-hi         DiffAdd guifg=none    guibg=#54a054 gui=none
+hi         DiffAdd guifg=none    guibg=#437f43 gui=none
 hi      DiffChange guifg=none    guibg=#305575 gui=none
 hi      DiffDelete guifg=#497296 guibg=#25415a gui=none
-hi        DiffText guifg=none    guibg=#a05454 gui=none
+hi        DiffText guifg=none    guibg=#7f4343 gui=none
 hi        DiffFile guifg=none    guibg=none    gui=underline
 
 
