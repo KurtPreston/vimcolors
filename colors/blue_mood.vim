@@ -53,8 +53,8 @@ let s:p.insert.left     = [[s:black, s:chartreusegreen], [s:black, s:bfbfbf]]
 let s:p.insert.middle   = [[s:black, s:bfbfbf]]
 let s:p.insert.right    = [[s:black, s:bfbfbf], [s:black, s:bfbfbf]]
 
-" intended look here: Left: 1st set of brackets: red background with whitesmoke letters, 2nd set of brackets: bfbfbf gray background with black letters. Rest of the line also bfbfbf bg - black fg.
-let s:p.replace.left    = [[s:whitesmoke, s:red], [s:black, s:bfbfbf]]
+" intended look here: Left: 1st set of brackets: tomato background with black letters, 2nd set of brackets: bfbfbf gray background with black letters. Rest of the line also bfbfbf bg - black fg.
+let s:p.replace.left    = [[s:black, s:tomato], [s:black, s:bfbfbf]]
 let s:p.replace.middle  = [[s:black, s:bfbfbf]]
 let s:p.replace.right   = [[s:black, s:bfbfbf], [s:black, s:bfbfbf]]
 

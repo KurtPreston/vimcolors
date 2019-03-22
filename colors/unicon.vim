@@ -14,7 +14,7 @@ else
     let s:true_color = 0
 endif
 
-if !s:true_color && &t_Co < 256
+if !s:true_color && executable('tput') && system('tput colors') < 256
     finish
 endif
 
