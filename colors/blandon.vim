@@ -23,7 +23,7 @@
 " labor would mainly be in using cterm instead of gui everywhere. I lack the
 " time to do this properly.
 
-if !has('termguicolors') || !&termguicolors
+if !(has('termguicolors') || has('gui_running'))
   echohl ErrorMsg
   echomsg 'This color scheme may only be used with termguicolors enabled.'
   echohl None

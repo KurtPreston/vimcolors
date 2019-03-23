@@ -45,14 +45,14 @@ if &background == "light"
     let s:blue    = {'gui': '#3352ce', 'cterm':  62} " 228 75 40
     let s:violet  = {'gui': '#7635d6', 'cterm':  56} " 264 75 40
     let s:magenta = {'gui': '#9e289e', 'cterm': 127} " 300 75 40
-    let s:pale_red     = {'gui': '#efcbd6', 'cterm': 124} " 342 15 85
-    let s:pale_orange  = {'gui': '#e7d0c4', 'cterm': 130} "  20 15 85
-    let s:pale_yellow  = {'gui': '#d7d6b7', 'cterm':  58} "  58 15 85
-    let s:pale_green   = {'gui': '#bcddbc', 'cterm':  22} " 120 15 85
-    let s:pale_cyan    = {'gui': '#badbdb', 'cterm':  23} " 180 15 85
-    let s:pale_blue    = {'gui': '#ccd3f0', 'cterm':  62} " 228 15 85
-    let s:pale_violet  = {'gui': '#ddcef3', 'cterm':  56} " 264 15 85
-    let s:pale_magenta = {'gui': '#edc9ed', 'cterm': 127} " 300 15 85
+    let s:pale_red     = {'gui': '#efcbd6', 'cterm': 224} " 342 15 85
+    let s:pale_orange  = {'gui': '#e7d0c4', 'cterm': 223} "  20 15 85
+    let s:pale_yellow  = {'gui': '#d7d6b7', 'cterm': 187} "  58 15 85
+    let s:pale_green   = {'gui': '#bcddbc', 'cterm': 151} " 120 15 85
+    let s:pale_cyan    = {'gui': '#badbdb', 'cterm': 152} " 180 15 85
+    let s:pale_blue    = {'gui': '#ccd3f0', 'cterm': 189} " 228 15 85
+    let s:pale_violet  = {'gui': '#ddcef3', 'cterm': 183} " 264 15 85
+    let s:pale_magenta = {'gui': '#edc9ed', 'cterm': 225} " 300 15 85
 " if &background == "dark"
 else
     let s:base1   = {'gui': '#111111', 'cterm': 233}
@@ -71,14 +71,14 @@ else
     let s:blue    = {'gui': '#748be8', 'cterm': 69}   " 228 50 60
     let s:violet  = {'gui': '#a878f0', 'cterm': 140}  " 264 50 60
     let s:magenta = {'gui': '#d168d1', 'cterm': 170}  " 300 50 60
-    let s:pale_red     = {'gui': '#5b2d3b', 'cterm': 204}  " 342 50 25
-    let s:pale_orange  = {'gui': '#503528', 'cterm': 173}  "  20 50 25
-    let s:pale_yellow  = {'gui': '#3e3d1f', 'cterm': 143}  "  58 50 25
-    let s:pale_green   = {'gui': '#214321', 'cterm': 71}   " 120 50 25
-    let s:pale_cyan    = {'gui': '#204141', 'cterm': 73}   " 180 50 25
-    let s:pale_blue    = {'gui': '#303960', 'cterm': 69}   " 228 50 25
-    let s:pale_violet  = {'gui': '#453163', 'cterm': 140}  " 264 50 25
-    let s:pale_magenta = {'gui': '#562b56', 'cterm': 170}  " 300 50 25
+    let s:pale_red     = {'gui': '#5b2d3b', 'cterm': 52}  " 342 50 25
+    let s:pale_orange  = {'gui': '#503528', 'cterm': 94}  "  20 50 25
+    let s:pale_yellow  = {'gui': '#3e3d1f', 'cterm': 58}  "  58 50 25
+    let s:pale_green   = {'gui': '#214321', 'cterm': 22}  " 120 50 25
+    let s:pale_cyan    = {'gui': '#204141', 'cterm': 23}  " 180 50 25
+    let s:pale_blue    = {'gui': '#303960', 'cterm': 60}  " 228 50 25
+    let s:pale_violet  = {'gui': '#453163', 'cterm': 54}  " 264 50 25
+    let s:pale_magenta = {'gui': '#562b56', 'cterm': 53}  " 300 50 25
 endif
 "}}}
 
