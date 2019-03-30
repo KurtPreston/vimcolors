@@ -4,7 +4,7 @@
 " Maintainer:   Gil Goncalves @lurst
 " Website:      https://github.com/LuRsT/austere.vim
 " License:      MIT License
-" Last Updated: Sun 24 Mar 2019 10:21:41 GMT
+" Last Updated: Fri 29 Mar 2019 12:16:06 GMT
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -43,7 +43,7 @@ hi EndOfBuffer ctermfg=250 ctermbg=233 guifg=#b9b9b9 guibg=#101010 guisp=NONE ct
 hi ErrorMsg ctermfg=167 ctermbg=233 guifg=#ce5252 guibg=#101010 guisp=NONE cterm=NONE,reverse gui=NONE,reverse
 hi FoldColumn ctermfg=250 ctermbg=235 guifg=#b9b9b9 guibg=#252525 guisp=NONE cterm=NONE gui=NONE
 hi Folded ctermfg=250 ctermbg=235 guifg=#b9b9b9 guibg=#252525 guisp=NONE cterm=NONE,italic gui=NONE,italic
-hi IncSearch ctermfg=254 ctermbg=233 guifg=#e3e3e3 guibg=#101010 guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi IncSearch ctermfg=100 ctermbg=233 guifg=#8c9440 guibg=#101010 guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi LineNr ctermfg=250 ctermbg=233 guifg=#b9b9b9 guibg=#101010 guisp=NONE cterm=NONE gui=NONE
 hi MatchParen ctermfg=250 ctermbg=233 guifg=#b9b9b9 guibg=#101010 guisp=NONE cterm=NONE gui=NONE
 hi ModeMsg ctermfg=250 ctermbg=233 guifg=#b9b9b9 guibg=#101010 guisp=NONE cterm=NONE gui=NONE
@@ -141,6 +141,7 @@ hi ALEVirtualTextWarning ctermfg=222 ctermbg=235 guifg=#f0c674 guibg=#252525 gui
 hi ALEVirtualTextInfo ctermfg=67 ctermbg=235 guifg=#5f819d guibg=#252525 guisp=NONE cterm=NONE gui=NONE
 hi ALEVirtualTextStyleError ctermfg=167 ctermbg=235 guifg=#ce5252 guibg=#252525 guisp=NONE cterm=NONE gui=NONE
 hi ALEVirtualTextStyleWarning ctermfg=222 ctermbg=235 guifg=#f0c674 guibg=#252525 guisp=NONE cterm=NONE gui=NONE
+hi HighlightedyankRegion ctermfg=231 ctermbg=254 guifg=#f7f7f7 guibg=#e3e3e3 guisp=NONE cterm=NONE gui=NONE
 finish
 
 " Background: dark
@@ -174,12 +175,12 @@ finish
 " ErrorMsg             red                      black             reverse
 " FoldColumn           almostwhite              darkgrey
 " Folded               almostwhite              darkgrey          italic
-" IncSearch            beige                    black             bold
+" IncSearch            green                    black             bold
 " LineNr               almostwhite              black
 " MatchParen           almostwhite              black
 " ModeMsg              almostwhite              black
 " MoreMsg              almostwhite              black
-" NonText              beige                     none
+" NonText              beige                    none
 " Pmenu                almostwhite              darkgrey
 " PmenuSbar            almostwhite              darkgrey
 " PmenuSel             white                    darkgrey
@@ -272,3 +273,4 @@ finish
 " ALEVirtualTextInfo          blue             darkgrey
 " ALEVirtualTextStyleError    red              darkgrey
 " ALEVirtualTextStyleWarning  yellow           darkgrey
+" HighlightedyankRegion white            beige

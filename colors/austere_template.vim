@@ -67,12 +67,12 @@ EndOfBuffer          almostwhite              black
 ErrorMsg             red                      black             reverse
 FoldColumn           almostwhite              darkgrey
 Folded               almostwhite              darkgrey          italic
-IncSearch            beige                    black             bold
+IncSearch            green                    black             bold
 LineNr               almostwhite              black
 MatchParen           almostwhite              black
 ModeMsg              almostwhite              black
 MoreMsg              almostwhite              black
-NonText              beige                     none
+NonText              beige                    none
 Pmenu                almostwhite              darkgrey
 PmenuSbar            almostwhite              darkgrey
 PmenuSel             white                    darkgrey
@@ -195,5 +195,8 @@ ALEVirtualTextWarning       yellow           darkgrey
 ALEVirtualTextInfo          blue             darkgrey
 ALEVirtualTextStyleError    red              darkgrey
 ALEVirtualTextStyleWarning  yellow           darkgrey
+
+# For https://github.com/machakann/vim-highlightedyank
+HighlightedyankRegion white            beige
 
 # }}}
