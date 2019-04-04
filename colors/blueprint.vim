@@ -95,7 +95,7 @@ hi        ErrorMsg guifg=#2c4e6c guibg=#e38295 gui=none
 hi      WarningMsg guifg=#2c4e6c guibg=#e3d082 gui=none
 hi          Ignore guifg=#335b7e guibg=none    gui=none
 hi         Conceal guifg=none    guibg=none    gui=none
-hi      SpecialKey guifg=#97e483 guibg=none    gui=none
+hi      SpecialKey guifg=#82e3d0 guibg=none    gui=none
 
 " --------------------------------
 " Variable types
@@ -109,7 +109,7 @@ hi         Boolean guifg=none    guibg=none    gui=none
 hi           Float guifg=none    guibg=none    gui=none
 
 hi      Identifier guifg=none    guibg=none    gui=none
-hi        Function guifg=none    guibg=none    gui=none
+hi        Function guifg=#97e483 guibg=none    gui=none
 
 " --------------------------------
 " Language constructs
@@ -119,17 +119,17 @@ hi         Comment guifg=#74a0c7 guibg=none    gui=none
 hi       Statement guifg=#97e483 guibg=none    gui=none
 hi     Conditional guifg=#97e483 guibg=none    gui=none
 hi          Repeat guifg=#97e483 guibg=none    gui=none
-hi           Label guifg=none    guibg=none    gui=none
-hi        Operator guifg=#97e483 guibg=none    gui=none
+hi           Label guifg=#97e483 guibg=none    gui=none
+hi        Operator guifg=#82e3d0 guibg=none    gui=none
 hi         Keyword guifg=#97e483 guibg=none    gui=none
 hi       Exception guifg=#97e483 guibg=none    gui=none
 
-hi         Special guifg=none    guibg=none    gui=none
-hi     SpecialChar guifg=none    guibg=none    gui=none
-hi             Tag guifg=#74a0c7 guibg=none    gui=none
+hi         Special guifg=#82e3d0 guibg=none    gui=none
+hi     SpecialChar guifg=#82e3d0 guibg=none    gui=none
+hi             Tag guifg=#82e3d0 guibg=none    gui=none
 hi       Delimiter guifg=#74a0c7 guibg=none    gui=none
-hi  SpecialComment guifg=#97e483 guibg=none    gui=none
-hi           Debug guifg=#97e483 guibg=none    gui=none
+hi  SpecialComment guifg=#82e3d0 guibg=none    gui=none
+hi           Debug guifg=#82e3d0 guibg=none    gui=none
 
 " ----------
 " - C like -
@@ -137,7 +137,7 @@ hi           Debug guifg=#97e483 guibg=none    gui=none
 hi         PreProc guifg=#97e483 guibg=none    gui=none
 hi         Include guifg=#97e483 guibg=none    gui=none
 hi          Define guifg=#97e483 guibg=none    gui=none
-hi           Macro guifg=none    guibg=none    gui=none
+hi           Macro guifg=#97e483 guibg=none    gui=none
 hi       PreCondit guifg=#97e483 guibg=none    gui=none
 
 hi            Type guifg=none    guibg=none    gui=none
