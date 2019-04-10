@@ -65,7 +65,8 @@ let g:base16_color_dict = {
       \ 'aqua':   '#38bfee',
       \ 'blue':   '#4193d6',
       \ 'purple': '#6679cc',
-      \ 'brown':  '#a95878'}
+      \ 'brown':  '#a95878',
+      \ 'cursor': '#e6e0ce'}
 
 " The extra colors that you have at your disposal are:
 " base similar3 similar2, similar1, contrast1, contrast2, contrast3 antibase.
@@ -328,7 +329,7 @@ let s:specs['Folded']        = 'fg=contrast1 bg=similar3 underline bold'
 let s:specs['FoldColumn']    = 'fg=contrast1 bg=similar3'
 "   Cursor     reverse
 "   TermCursor reverse
-let s:specs['Cursor']        = 'reverse'
+let s:specs['Cursor']        = 'bg=cursor'
 let s:specs['TermCursor']    = 'fg=white bg=red'
 let s:specs['iCursor']       = 'bg=green'
 " highlight link TermCursor Cursor
