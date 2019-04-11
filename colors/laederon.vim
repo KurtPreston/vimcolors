@@ -690,3 +690,5 @@ call s:HL('VimBracket', 'wintrygray', '', 'none')
 
 endif
 " }}}
+
+unlet s:lac
