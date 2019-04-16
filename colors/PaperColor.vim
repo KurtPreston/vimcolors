@@ -1130,6 +1130,7 @@ fun! s:apply_syntax_highlightings()
     " Switching between dark & light variant through `set background`
     if s:is_dark " DARK VARIANT
       set background=dark
+      exec 'hi EndOfBuffer' . s:fg_cursor_fg  . s:ft_none
     else " LIGHT VARIANT
       set background=light
     endif
@@ -1522,7 +1523,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi mkdLink' . s:fg_blue . s:ft_bold
   exec 'hi mkdURL' . s:fg_comment
   exec 'hi mkdString' . s:fg_foreground
-  exec 'hi mkdBlockQuote' . s:fg_foreground . s:bg_popupmenu_bg
+  exec 'hi mkdBlockQuote' . s:fg_pink
   exec 'hi mkdLinkTitle' . s:fg_pink
   exec 'hi mkdDelimiter' . s:fg_aqua
   exec 'hi mkdRule' . s:fg_pink
