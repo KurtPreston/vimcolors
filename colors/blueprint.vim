@@ -141,7 +141,7 @@ hi           Macro guifg=#97e483 guibg=none    gui=none
 hi       PreCondit guifg=#97e483 guibg=none    gui=none
 
 hi            Type guifg=none    guibg=none    gui=none
-hi    StorageClass guifg=#97e483 guibg=none    gui=none
+hi    StorageClass guifg=#82e3d0 guibg=none    gui=none
 hi       Structure guifg=#97e483 guibg=none    gui=none
 hi         Typedef guifg=#97e483 guibg=none    gui=none
 
@@ -152,7 +152,7 @@ hi         DiffAdd guifg=none    guibg=#437f43 gui=none
 hi      DiffChange guifg=none    guibg=#305575 gui=none
 hi      DiffDelete guifg=#497296 guibg=#25415a gui=none
 hi        DiffText guifg=none    guibg=#7f4343 gui=none
-hi        DiffFile guifg=none    guibg=none    gui=underline
+hi        DiffFile guifg=#e3d082 guibg=none    gui=none
 
 
 " --------------------------------
@@ -177,6 +177,9 @@ hi       SpellRare guifg=#2c4e6c guibg=#e3d082 gui=none
 
 hi  link diffAdded               DiffAdd
 hi  link diffRemoved             DiffDelete
+hi  link diffLine                DiffFile
+hi  link diffIndexLine           DiffFile
+hi  link diffSubName             DiffFile
 
 hi! link gitDateHeader           gitIdentityHeader
 hi! link gitIdentityHeader       gitIdentityKeyword
