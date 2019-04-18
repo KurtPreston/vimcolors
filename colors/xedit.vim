@@ -32,3 +32,7 @@ hi Search						guibg=LightYellow
 hi Title			guifg=gray12
 hi StatusLine			guifg=RoyalBlue4
 hi StatusLineNC			guifg=gray40
+hi SpellBad	gui=undercurl
+hi SpellCap	gui=undercurl
+hi SpellRare	gui=undercurl
+hi SpellLocal	gui=undercurl
