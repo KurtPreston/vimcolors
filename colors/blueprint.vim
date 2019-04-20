@@ -109,7 +109,7 @@ hi         Boolean guifg=none    guibg=none    gui=none
 hi           Float guifg=none    guibg=none    gui=none
 
 hi      Identifier guifg=none    guibg=none    gui=none
-hi        Function guifg=#97e483 guibg=none    gui=none
+hi        Function guifg=#82e3d0 guibg=none    gui=none
 
 " --------------------------------
 " Language constructs
