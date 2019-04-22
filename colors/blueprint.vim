@@ -52,7 +52,7 @@ hi    CursorLineNR guifg=none    guibg=none    gui=none
 hi    CursorColumn guifg=none    guibg=#2c4e6c gui=none
 hi      FoldColumn guifg=#74a0c7 guibg=none    gui=none
 hi      SignColumn guifg=#74a0c7 guibg=none    gui=none
-hi          Folded guifg=none    guibg=none    gui=none
+hi          Folded guifg=none    guibg=#305575 gui=none
 
 " -------------------------
 " - Window/Tab delimiters - 

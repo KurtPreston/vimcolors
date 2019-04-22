@@ -2,9 +2,9 @@
 " Description:  Iosvkem + Monosvkem + procrastination
 " Author:       neutaaaaan
 " Maintainer:   neutaaaaan
-" Website:      github.com/neutaaaaan/monosvkem
+" Website:      github.com/neutaaaaan/blaaark
 " License:      Vim License (see `:help license`)
-" Last Updated: Fri 19 Apr 2019 08:42:20 PM CEST
+" Last Updated: Mon 22 Apr 2019 10:34:25 AM CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -122,7 +122,7 @@ hi markdownH5 ctermfg=253 ctermbg=NONE guifg=#dddddd guibg=NONE guisp=NONE cterm
 hi markdownH6 ctermfg=253 ctermbg=NONE guifg=#dddddd guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi markdownLinkTextDelimiter ctermfg=161 ctermbg=NONE guifg=#d13a6f guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi markdownLinkDelimiter ctermfg=161 ctermbg=NONE guifg=#d13a6f guibg=NONE guisp=NONE cterm=NONE gui=NONE
-hi markdownListMarker ctermfg=140 ctermbg=NONE guifg=#b77fdb guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
+hi markdownListMarker ctermfg=134 ctermbg=NONE guifg=#a76fcb guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi markdownLinkText ctermfg=74 ctermbg=NONE guifg=#57aadd guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi markdownUrl ctermfg=239 ctermbg=NONE guifg=#505050 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi markdownRule ctermfg=161 ctermbg=NONE guifg=#d13a6f guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
@@ -137,26 +137,30 @@ hi markdownBoldItalicDelimiter ctermfg=161 ctermbg=NONE guifg=#d13a6f guibg=NONE
 hi rstSections ctermfg=253 ctermbg=NONE guifg=#dddddd guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
 hi rstEmphasis ctermfg=253 ctermbg=NONE guifg=#dddddd guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi rstStrongEmphasis ctermfg=253 ctermbg=NONE guifg=#dddddd guibg=NONE guisp=NONE cterm=NONE,bold gui=NONE,bold
-hi rstInterpretedTextOrHyperlinkReference ctermfg=140 ctermbg=NONE guifg=#b77fdb guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi rstInterpretedTextOrHyperlinkReference ctermfg=134 ctermbg=NONE guifg=#a76fcb guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi rstStandAloneHyperlink ctermfg=74 ctermbg=NONE guifg=#57aadd guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi rstHyperlinktarget ctermfg=74 ctermbg=NONE guifg=#57aadd guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi rstCitationReference ctermfg=42 ctermbg=NONE guifg=#11c98e guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi diffFile ctermfg=67 ctermbg=NONE guifg=#5e90b7 guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi diffAdded ctermfg=42 ctermbg=NONE guifg=#11c98e guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi diffRemoved ctermfg=161 ctermbg=NONE guifg=#d13a6f guibg=NONE guisp=NONE cterm=NONE gui=NONE
+hi diffLine ctermfg=134 ctermbg=NONE guifg=#a76fcb guibg=NONE guisp=NONE cterm=NONE gui=NONE
 let g:terminal_ansi_colors = [
       \ '#1b1d1e',
-      \ '#d01b61',
-      \ '#60aa00',
+      \ '#d13a6f',
+      \ '#11c98e',
       \ '#d08928',
-      \ '#6c9ef8',
-      \ '#b77fdb',
-      \ '#00aa80',
+      \ '#5e90b7',
+      \ '#a76fcb',
+      \ '#20aabb',
       \ '#dddddd',
-      \ '#808080',
-      \ '#d01b61',
-      \ '#60aa00',
+      \ '#606060',
+      \ '#d13a6f',
+      \ '#11c98e',
       \ '#d08928',
-      \ '#6c9ef8',
-      \ '#b77fdb',
-      \ '#00aa80',
+      \ '#5e90b7',
+      \ '#a76fcb',
+      \ '#20aabb',
       \ '#ffffff'
       \ ]
 if get(g:, "Blaaark_disable_italic", 0)
@@ -175,12 +179,12 @@ finish
 " Color: white                #dddddd     ~   
 " Color: brightwhite          #ffffff     ~   
 " Color: red                  #d13a6f     ~   
-" Color: green                #60aa00     ~   
+" Color: green                #11c98e     ~   
 " Color: yellow               #d08928     ~   
 " Color: blue                 #57aadd     ~   
-" Color: purple               #b77fdb     ~   
+" Color: purple               #a76fcb     ~   
 " Color: greyblue             #5e90b7     ~   
-" Color: teal                 #11c98e     ~   
+" Color: teal                 #20aabb     ~   
 " Color: diffred              #cc4040     ~   
 " Color: diffgreen            #40bb40     ~   
 " Color: diffblue             #80aacc     ~   
@@ -248,7 +252,7 @@ finish
 " Character         -> Constant
 " Comment              brightblack       none              t=italic g=italic
 " Conditional       -> Statement
-" Constant             teal             none
+" Constant             green             none
 " Define            -> PreProc
 " Debug             -> Special
 " Delimiter         -> Special
@@ -295,8 +299,8 @@ finish
 " markdownLinkText     blue           none
 " markdownUrl          greyblack      none
 " markdownRule	     red none t=bold g=bold
-" markdownId	teal none
-" markdownIdDeclaration	teal none
+" markdownId	green none
+" markdownIdDeclaration	green none
 " markdownBold	white none t=bold g=bold
 " markdownItalic	white none t=italic g=italic
 " markdownBoldItalic white none t=bold,italic g=bold,italic
@@ -309,4 +313,8 @@ finish
 " rstInterpretedTextOrHyperlinkReference purple none
 " rstStandAloneHyperlink blue none
 " rstHyperlinktarget blue none
-" rstCitationReference teal none
+" rstCitationReference green none
+" diffFile greyblue none
+" diffAdded green none
+" diffRemoved red none
+" diffLine purple none
