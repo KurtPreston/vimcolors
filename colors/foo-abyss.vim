@@ -112,17 +112,27 @@ call s:hi('pythonFunction', '#ddbb88', s:bg, s:none)
 call s:hi('pythonBuiltin', '#ddbb88', s:bg, s:italic)
 call s:hi('pythonDecoratorName', s:scalar, s:bg, s:italic)
 call s:hi('pythonDecorator', s:scalar, s:bg, s:italic)
+call s:hi('jinjaStatement', s:scalar, s:bg, s:none)
+call s:hi('jinjaTagDelim', s:scalar, s:bg, s:none)
+call s:hi('jinjaBlockName', s:source, s:bg, s:none)
+call s:hi('jinjaVariable', s:source, s:bg, s:none)
+call s:hi('jinjaString', s:string, s:bg, s:none)
 
 
 " PHP
 call s:hi('phpDefine', s:primary, s:bg, s:italic)
 call s:hi('phpIdentifier', s:source, s:bg, s:italic)
+call s:hi('bladeKeyword', s:scalar, s:bg, s:none)
 
 
 " Javascript
 call s:hi('javaScriptNull', s:scalar, s:bg, s:italic)
 call s:hi('javaScriptBraces', s:source, s:bg, s:italic)
 call s:hi('javaScriptNumber', s:scalar, s:bg, s:italic)
+
+
+" HTML
+call s:hi('htmlTagName', s:secondary, s:bg, s:none)
 
 
 " CSS
