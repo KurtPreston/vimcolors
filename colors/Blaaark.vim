@@ -4,7 +4,7 @@
 " Maintainer:   neutaaaaan
 " Website:      github.com/neutaaaaan/blaaark
 " License:      Vim License (see `:help license`)
-" Last Updated: Mon 22 Apr 2019 10:34:25 AM CEST
+" Last Updated: Tue 30 Apr 2019 09:21:25 PM CEST
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -77,7 +77,7 @@ hi WarningMsg ctermfg=253 ctermbg=234 guifg=#dddddd guibg=#1b1d1e guisp=NONE cte
 hi WildMenu ctermfg=39 ctermbg=236 guifg=#20bbfc guibg=#303030 guisp=NONE cterm=NONE gui=NONE
 hi! link Boolean Constant
 hi! link Character Constant
-hi Comment ctermfg=59 ctermbg=NONE guifg=#606060 guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
+hi Comment ctermfg=242 ctermbg=NONE guifg=#707070 guibg=NONE guisp=NONE cterm=NONE,italic gui=NONE,italic
 hi! link Conditional Statement
 hi Constant ctermfg=42 ctermbg=NONE guifg=#11c98e guibg=NONE guisp=NONE cterm=NONE gui=NONE
 hi! link Define PreProc
@@ -175,7 +175,7 @@ finish
 " Background: dark
 " Color: black                #1b1d1e     ~   
 " Color: greyblack            #505050     ~   
-" Color: brightblack          #606060     ~   
+" Color: brightblack          #707070     ~   
 " Color: white                #dddddd     ~   
 " Color: brightwhite          #ffffff     ~   
 " Color: red                  #d13a6f     ~   

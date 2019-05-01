@@ -66,5 +66,6 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'martinda/jenkinsfile-vim-syntax'
 
 Plugin 'fatih/vim-go'
+Plugin 'w0rp/ale'
 
 call vundle#end()
