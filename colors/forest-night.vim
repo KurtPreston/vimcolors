@@ -1,11 +1,10 @@
-" ============================================================
-" forest-night
-" 
-" URL: https://github.com/sainnhe/vim-color-forest-night
+" =============================================================================
+" URL: https://github.com/sainnhe/vim-color-forest-night/
+" Filename: forest-night.vim
 " Author: Sainnhepark
-" License: MIT
-" Last Change: 2019/03/03 15:16
-" ============================================================
+" Email: sainnhe@gmail.com
+" License: MIT License & Anti-996 License
+" =============================================================================
 
 if &background !=# 'dark'
     set background=dark
@@ -208,7 +207,7 @@ if g:forest_night_highlight_terminal
             let g:terminal_color_5 = '#605779'
             let g:terminal_color_6 = '#a8d2eb'
             let g:terminal_color_7 = '#fffeeb'
-            let g:terminal_color_8 = '#4c5866'
+            let g:terminal_color_8 = '#8d9eb2'
             let g:terminal_color_9 = '#fd8489'
             let g:terminal_color_10 = '#c9fd88'
             let g:terminal_color_11 = '#f0eaaa'
@@ -225,7 +224,7 @@ if g:forest_night_highlight_terminal
             let g:terminal_color_5 = 60
             let g:terminal_color_6 = 153
             let g:terminal_color_7 = 231
-            let g:terminal_color_8 = 235
+            let g:terminal_color_8 = 103
             let g:terminal_color_9 = 210
             let g:terminal_color_10 = 149
             let g:terminal_color_11 = 229
@@ -235,6 +234,6 @@ if g:forest_night_highlight_terminal
             let g:terminal_color_15 = 231
         endif
     elseif (s:gui_running || s:true_colors) && exists('*term_setansicolors')
-        let g:terminal_ansi_colors = ['#132132', '#ff6a6f', '#a9dd9d', '#f0c38a', '#7098e6', '#605779', '#a8d2eb', '#fffeeb', '#4c5866', '#fd8489', '#c9fd88', '#f0eaaa', '#98b8e6', '#e7d5ff', '#a8d2eb', '#ffffff']
+        let g:terminal_ansi_colors = ['#132132', '#ff6a6f', '#a9dd9d', '#fedf81', '#7098e6', '#605779', '#a8d2eb', '#fffeeb', '#8d9eb2', '#fd8489', '#c9fd88', '#f0eaaa', '#98b8e6', '#e7d5ff', '#a8d2eb', '#ffffff']
     endif
 endif
