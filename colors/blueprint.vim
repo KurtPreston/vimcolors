@@ -15,7 +15,7 @@ let g:colors_name="blueprint"
 
 " bg      = #335b7e
 
-" black   = #25415a
+" black   = #2c4e6c
 " white   = #74a0c7
 " yellow  = #7f7f43 hsla( 60, 31%, 38%, 1)
 " green   = #437f43 hsla(120, 31%, 38%, 1)
@@ -85,8 +85,8 @@ hi         MoreMsg guifg=none    guibg=none    gui=none
 " - Visual aid -
 " --------------
 hi      MatchParen guifg=none    guibg=none    gui=underline
-hi          Visual guifg=none    guibg=#2c4e6c gui=none
-hi       VisualNOS guifg=none    guibg=#2c4e6c gui=none
+hi          Visual guifg=none    guibg=#25415a gui=none
+hi       VisualNOS guifg=none    guibg=#25415a gui=none
 hi         NonText guifg=#2c4e6c guibg=none    gui=none
 hi            Todo guifg=#74a0c7 guibg=none    gui=underline
 hi      Underlined guifg=none    guibg=none    gui=underline
@@ -211,8 +211,8 @@ let g:terminal_color_background = "#335b7e"
 let g:terminal_color_foreground = "#f1f6f9"
 
 " dark0 + gray
-let g:terminal_color_0 = "#25415a"
-let g:terminal_color_8 = "#25415a"
+let g:terminal_color_0 = "#2c4e6c"
+let g:terminal_color_8 = "#2c4e6c"
 
 " neutral_red + bright_red
 let g:terminal_color_1 = "#e38295"
