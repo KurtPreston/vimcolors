@@ -288,20 +288,20 @@ function! s:create_context() abort
   call extend(rules, pgmnt#hi#group(
         \ 'TabLine', {
         \   'cterm': 'NONE',
-        \   'ctermbg': c.statusline_bg,
-        \   'ctermfg': c.statusline_fg,
+        \   'ctermbg': c.statuslinenc_bg,
+        \   'ctermfg': c.statuslinenc_fg,
         \   'gui': 'NONE',
-        \   'guibg': g.statusline_bg,
-        \   'guifg': g.statusline_fg,
+        \   'guibg': g.statuslinenc_bg,
+        \   'guifg': g.statuslinenc_fg,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'TabLineFill', {
         \   'cterm': 'reverse',
-        \   'ctermbg': c.statusline_fg,
-        \   'ctermfg': c.statusline_bg,
+        \   'ctermbg': c.statuslinenc_fg,
+        \   'ctermfg': c.statuslinenc_bg,
         \   'gui': 'reverse',
-        \   'guibg': g.statusline_fg,
-        \   'guifg': g.statusline_bg,
+        \   'guibg': g.statuslinenc_fg,
+        \   'guifg': g.statuslinenc_bg,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'TabLineSel', {
@@ -311,6 +311,14 @@ function! s:create_context() abort
         \   'gui': 'NONE',
         \   'guibg': g.tablinesel_bg,
         \   'guifg': g.tablinesel_fg,
+        \ }))
+  call add(links, pgmnt#hi#link('TermCursor', 'Cursor'))
+  call extend(rules, pgmnt#hi#group(
+        \ 'TermCursorNC', {
+        \   'ctermbg': c.comment_fg,
+        \   'ctermfg': c.normal_bg,
+        \   'guibg': g.comment_fg,
+        \   'guifg': g.normal_bg,
         \ }))
   call extend(rules, pgmnt#hi#group(
         \ 'Title', {
@@ -495,6 +503,20 @@ function! s:create_context() abort
         \   'ctermfg': c.orange,
         \   'guifg': g.orange,
         \ }))
+
+  " [vim-elixir](https://github.com/elixir-editors/vim-elixir)
+  call add(links, pgmnt#hi#link('elixirBlockDefinition', 'Statement'))
+  call add(links, pgmnt#hi#link('elixirDefine', 'Statement'))
+  call add(links, pgmnt#hi#link('elixirDocSigilDelimiter', 'String'))
+  call add(links, pgmnt#hi#link('elixirDocTest', 'String'))
+  call add(links, pgmnt#hi#link('elixirExUnitMacro', 'Statement'))
+  call add(links, pgmnt#hi#link('elixirExceptionDefine', 'Statement'))
+  call add(links, pgmnt#hi#link('elixirFunctionDeclaration', 'Title'))
+  call add(links, pgmnt#hi#link('elixirKeyword', 'Statement'))
+  call add(links, pgmnt#hi#link('elixirModuleDeclaration', 'Normal'))
+  call add(links, pgmnt#hi#link('elixirModuleDefine', 'Statement'))
+  call add(links, pgmnt#hi#link('elixirPrivateDefine', 'Statement'))
+  call add(links, pgmnt#hi#link('elixirStringDelimiter', 'String'))
 
   " [vim-flow](https://github.com/flowtype/vim-flow)
   call add(links, pgmnt#hi#link('jsFlowMaybe', 'Normal'))

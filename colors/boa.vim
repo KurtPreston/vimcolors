@@ -1,324 +1,506 @@
-" 'boa' theme for vim and neovim
+" Initialisation: {{{
 
-" Initialisation
-" ==============
+if exists("g:boa_colors")
+  finish
+endif
+let g:boa_colors = 1
 set background=dark
-hi clear
-
+highlight clear
 if exists("syntax_on")
   syntax reset
 endif
-let g:colors_name = "boa"
+let g:colors_name='boa'
 
-" ColorPallete
-" ============
-" foreground(yellowish white) = #B4A68D
-" background(browndark)       = #171202
-" string(greenish)            = #608F76
-" comment(brown)              = #725749
-" conditional(pinky)          = #C15751
-" statement(pinky)            = #C15751
-" type(blue)                  = #8593BA
-" constant(purple)            = #A986B6
-" error(darkred)              = #611818
-" function(orange)            = #BF905F
-" operator(bluish white)      = #ABB6BA
-" todo(bright green)          = #90C777
-" special(yellow-green)       = #848326
+" }}}
+" Syntax Highlighting: {{{
+hi Normal      guifg=#b8af96 guibg=#26201c gui=NONE
+hi BoaRed      guifg=#d35b4b guibg=NONE    gui=NONE
+hi BoaGreen    guifg=#8f9e44 guibg=NONE    gui=NONE
+hi BoaYellow   guifg=#caa247 guibg=NONE    gui=NONE
+hi BoaBlue     guifg=#919697 guibg=NONE    gui=NONE
+hi BoaDarkBlue guifg=#898fac guibg=NONE    gui=NONE
+hi BoaPurple   guifg=#b2809f guibg=NONE    gui=NONE
+hi BoaAqua     guifg=#70a17c guibg=NONE    gui=NONE
+hi BoaOrange   guifg=#c57c41 guibg=NONE    gui=NONE
+hi BoaGray     guifg=#817466 guibg=NONE    gui=NONE
+hi BoaBrown    guifg=#826a33 guibg=NONE    gui=NONE
+hi BoaLight1   guifg=#b8af96 guibg=NONE    gui=NONE
 
-" Basic Highlighting (see :help group-name)
-" =========================================
-hi Comment     guifg=#725749 guibg=NONE gui=italic
-hi Constant    guifg=#A986B6 guibg=NONE gui=NONE
-hi String      guifg=#608F76 guibg=NONE gui=NONE
-" Character
-" Number
-" Boolean
-" Float
-hi Identifier  guifg=#B4A68D guibg=NONE gui=NONE
-hi Function    guifg=#BF905F guibg=NONE gui=NONE
-hi Statement   guifg=#C15751 guibg=NONE gui=NONE
-hi Conditional guifg=#C15751 guibg=NONE gui=NONE
-hi Repeat      guifg=#C15751 guibg=NONE gui=NONE
-hi Label       guifg=#C15751 guibg=NONE gui=NONE
-hi Operator    guifg=#ABB6BA guibg=NONE gui=NONE
-hi Keyword     guifg=#C15751 guibg=NONE gui=NONE
-hi Exception   guifg=#C15751 guibg=NONE gui=NONE
-hi PreProc     guifg=#C15751 guibg=NONE gui=NONE
-" Include"
-" Define"
-" Macro"
-" PreCondit"
-hi Type        guifg=#8593BA guibg=NONE gui=NONE
-" StorageClass"
-hi Structure   guifg=#A986B6 guibg=NONE gui=NONE
-" Typedef"
-hi Special     guifg=#848326 guibg=NONE gui=NONE
-" SpecialChar"
-" Tag"
-" Delimiter"
-" SpecialComment"
-" Debug"
-hi Underlined  guifg=NONE    guibg=NONE    gui=underline
+" see :help group-name
+hi! link Comment BoaGray
+hi! link Constant BoaPurple
+" Character Number Boolean Float
+hi! link String BoaGreen
+hi! link Identifier BoaBlue
+hi! link Function BoaDarkBlue
+hi! link Statement BoaRed
+" Conditional Repeat Label Operator Keyword Exception
+hi! link PreProc BoaAqua
+" Include Define Macro PreCondit
+hi! link Type BoaYellow
+" Typedef
+hi! link StorageClass BoaOrange
+hi! link Structure BoaAqua
+hi! link Special BoaOrange
+" SpecialChar Tag Delimiter SpecialComment Debug
+hi Underlined guifg=#919697 guibg=NONE gui=underline
 " Ignore
-hi Error       guifg=NONE    guibg=#611818 gui=NONE
-hi Todo        guifg=#90C777 guibg=NONE    gui=bold
+hi Error guifg=#d35b4b guibg=bg gui=bold,inverse
+hi Todo guifg=fg guibg=NONE gui=bold,underline
 
-" Extended Highlighting (see :help highlight-default)
-" ====================================================
-hi ColorColumn  guifg=NONE guibg=#1F1B11 gui=NONE
-" Conceal"
-" Cursor"
-" CursorIM"
-hi CursorColumn guifg=NONE    guibg=#1F1B11 gui=NONE
-hi CursorLine   guifg=NONE    guibg=#1F1B11 gui=NONE
-hi Directory    guifg=#8593BA guibg=NONE    gui=NONE
-hi DiffAdd      guifg=#a8a8a8 guibg=#3f593f gui=NONE
-hi DiffChange   guifg=#a8a8a8 guibg=#3f3f59 gui=NONE
-hi DiffDelete   guifg=#b39797 guibg=#733e3e gui=NONE
-hi DiffText     guifg=#a8a8a8 guibg=#594936 gui=NONE
-hi ErrorMsg     guifg=#C15751 guibg=NONE    gui=bold
-hi VertSplit    guifg=NONE    guibg=#231811 gui=NONE
-hi Folded       guifg=#7D8394 guibg=#281F23 gui=NONE
-hi FoldColumn   guifg=#7D8394 guibg=#231811 gui=NONE
-hi SignColumn   guifg=NONE    guibg=#231811 gui=NONE
-" Incsearch"
-hi LineNr       guifg=#5A4C44 guibg=#231811 gui=NONE
-hi CursorLineNr guifg=#8A744F guibg=#1F1B11 gui=NONE
-hi MatchParen   guifg=#DBD3C9 guibg=#503C39 gui=NONE
-hi ModeMsg      guifg=#608F76 guibg=NONE    gui=NONE
-hi MoreMsg      guifg=#608F76 guibg=NONE    gui=NONE
-hi NonText      guifg=#494949 guibg=NONE    gui=NONE
-hi Pmenu        guifg=#947D72 guibg=#292621 gui=NONE
-hi PmenuSel     guifg=#96A6CF guibg=#252B2F gui=NONE
-hi PmenuSbar    guifg=NONE    guibg=#232019 gui=NONE
-hi PmenuThumb   guifg=NONE    guibg=#283238 gui=NONE
-hi Question     guifg=#608F76 guibg=NONE    gui=NONE
-hi Search       guifg=NONE    guibg=#0A3615 gui=NONE
-hi SpecialKey   guifg=#636373 guibg=NONE    gui=NONE
-hi SpellCap     guifg=NONE    guibg=#42421b gui=NONE
-hi SpellLocal   guifg=NONE    guibg=#42421b gui=NONE
-hi SpellRare    guifg=NONE    guibg=#42421b gui=NONE
-hi SpellBad     guifg=NONE    guibg=#4d1313 gui=NONE
-hi StatusLine   guifg=NONE    guibg=#48382f gui=NONE
-hi StatusLineNC guifg=#5A4C44 guibg=#231811 gui=NONE
-hi TabLine      guifg=#5A4C44 guibg=#231811 gui=NONE
-hi TabLineFill  guifg=#5A4C44 guibg=#231811 gui=NONE
-" TabLineSel"
-hi Title        guifg=#BF905F guibg=NONE    gui=NONE
-hi Visual       guifg=NONE    guibg=#283238 gui=NONE
-hi WarningMsg   guifg=#B58B4E guibg=NONE    gui=NONE
-hi WildMenu     guifg=#CBD6DB guibg=#48382f gui=bold
-hi Normal       guifg=#B4A68D guibg=#171202 gui=NONE
+" see :help highlight-default
+hi CursorLine guifg=NONE guibg=#2b2927 gui=NONE
+hi! link CursorColumn CursorLine
+hi! link ColorColumn CursorLine
+hi! link Conceal BoaBlue
+hi Cursor guifg=NONE guibg=NONE gui=inverse
+" CursorIM
+hi CursorLineNr   guifg=#caa247 guibg=#2b2927    gui=NONE
+hi Directory  guifg=#8f9e44 guibg=NONE gui=bold
+hi DiffAdd    guifg=#8f9e44 guibg=NONE gui=inverse
+hi DiffChange guifg=#70a17c guibg=NONE gui=inverse
+hi DiffDelete guifg=#d35b4b guibg=NONE gui=inverse
+hi DiffText   guifg=#826a33 guibg=NONE gui=inverse
+" EndOfBuffer
+" TermCursor
+" TermCursorNC
+hi ErrorMsg guifg=#d35b4b guibg=NONE gui=bold
+hi VertSplit guifg=#48382f guibg=NONE gui=NONE
+hi Folded     guifg=#817466 guibg=#2b2927    gui=NONE
+hi! link FoldColumn Folded
+hi SignColumn guifg=NONE guibg=NONE
+hi IncSearch guifg=#518233 guibg=bg gui=inverse
+" Substitute
+hi NonText guifg=#453f3b guibg=NONE gui=NONE
+hi! link LineNr NonText
+hi MatchParen   guifg=#cc752f guibg=NONE    gui=bold
+hi ModeMsg   guifg=#caa247 guibg=NONE    gui=bold
+" MsgArea
+" MsgSeparator
+hi! link MoreMsg ModeMsg
+hi NormalFloat guifg=NONE guibg=#272E22 gui=NONE
+hi NormalNC guifg=#A8A089 guibg=#1C1815 gui=NONE
+hi! link Question BoaGreen
+hi QuickFixLine guifg=NONE guibg=#453f3b gui=NONE
+hi Search    guifg=#26201c guibg=#826a33 gui=NONE
+hi! link SpecialKey VertSplit
+hi SpellBad guifg=NONE guibg=NONE gui=undercurl guisp=#d33e2a
+hi SpellCap guifg=NONE guibg=NONE gui=undercurl guisp=#a0b82e
+hi! link SpellLocal SpellCap
+hi! link SpellRare SpellCap
+hi StatusLine guifg=#b8af96 guibg=#48382f gui=NONE
+hi StatusLineNC guifg=#948774 guibg=#48382f gui=NONE
+hi TabLine    guifg=#7c6f64 guibg=#2b2927    gui=NONE
+hi TabLineSel    guifg=#8f9e44 guibg=#2b2927    gui=NONE
+hi! link TabLineFill Tabline
+hi Title    guifg=#8f9e44 guibg=NONE    gui=bold
+hi Visual guifg=NONE guibg=#453f3b gui=NONE
+hi! link VisualNOS Visual
+hi! link WarningMsg BoaOrange
+" Whitespace
+hi WildMenu     guifg=#919697 guibg=#453f3b    gui=bold
+hi Pmenu guifg=#b8af96 guibg=#453f3b gui=NONE
+hi PmenuSel guifg=#453f3b guibg=#919697 gui=bold
+hi! link  PmenuSbar Visual
+hi PmenuThumb guifg=NONE guibg=#7c6f64 gui=NONE
 
-" Quickfix window highlighting
-hi link qfLineNr Function
-hi link qfError  Repeat
+hi User1 guifg=#221111 guibg=#7c7e1d
+hi User2 guifg=#d35b4b guibg=#48382f gui=bold
+" qfLineNr
+" qfError
 " qfFileName"
 
-hi link diffAdded   Special
-hi link diffRemoved Repeat
-hi link diffChanged Function
-hi link diffSubName Identifier
-hi link diffLine    Constant
+" }}}
 
-hi link yamlFlowMappingKey    Function
-hi link yamlBlockMappingKey   Function
-hi link yamlKeyValueDelimiter Operator
-hi link dosiniLabel           Function
-hi rstHyperlinkTarget guifg=#608F76 guibg=NONE gui=underline
+" Plugin specific -------------------------------------------------------------
+" EasyMotion: {{{
 
-" Vim Syntax Highlighting
-" =======================
-hi link vimVar            Identifier
-hi link vimFunc           Function
-hi link vimSetSep         Normal
-hi link vimEnvvar         Type
-hi link vimOption         Type
-hi link vimCommand        Repeat
-hi link vimUserFunc       Function
-hi link vimHiAttrib       Constant
-hi link vimFgBgAttrib     Constant
-hi link helpHeadline      Repeat
-hi link helpHyperTextJump Type
-hi helpURL            guifg=#608F76 guibg=NONE    gui=underline
-hi helpExample        guifg=#806456 guibg=NONE    gui=NONE
-hi helpCommand        guifg=#8A8A8A guibg=NONE    gui=NONE
-hi helpHyperTextEntry guifg=#89A1DE guibg=#13181D gui=NONE
+" hi! link EasyMotionTarget Search
+hi EasyMotionTarget guifg=#d35b4b guibg=NONE gui=bold
+hi! link EasyMotionTarget2First EasyMotionTarget
+hi EasyMotionTarget2Second guifg=#c57c41 guibg=NONE gui=bold
+hi! link EasyMotionShade Comment
 
-" Python Syntax Highlighting
-" ==========================
-"  https://github.com/vim-python/python-syntax
-"  https://github.com/tweekmonster/django-plus.vim
-hi link pythonClass  Function
-hi link pythonCoding Comment
-hi link pythonRun    Comment
-hi pythonClassVar  guifg=#ABB6BA guibg=NONE gui=italic
-" hi pythonStatement guifg=#C15751 guibg=NONE gui=bold
-hi pythonDocTest   guifg=#557796 guibg=NONE gui=NONE
-hi pythonDocTest2  guifg=#557796 guibg=NONE gui=NONE
-hi link djangoQueryObject  Function
-hi link djangoModelField   Function
-hi link djangoModelsModule Normal
-hi link jediFat            Constant
+" }}}
+" Netrw: {{{
 
-" Lua Syntax Highlighting
-" =======================
-hi link luaStatement pythonStatement
-hi link luaFunction  luaStatement
-hi link luaFunc      Function
+hi! link netrwDir BoaAqua
+hi! link netrwClassify BoaAqua
+hi! link netrwLink BoaGray
+hi! link netrwSymLink BoaLight1
+hi! link netrwExe BoaYellow
+hi! link netrwComment BoaGray
+hi! link netrwList BoaBlue
+hi! link netrwHelpCmd BoaAqua
+hi! link netrwCmdSep BoaLight1
+hi! link netrwVersion BoaGreen
 
-" HTML Syntax Highlighting
-" ========================
-"  https://github.com/othree/html5.vim
-hi htmlTag     guifg=#7E7779 guibg=NONE gui=NONE
-hi htmlEndTag  guifg=#7E7779 guibg=NONE gui=NONE
-hi link htmlTagName     Repeat
-hi link djangoVarBlock  Normal
-hi link djangoTagBlock  Normal
-hi link djangoStatement Constant
+" }}}
+" NERDTree: {{{
 
-" JavaScript Syntax Highlighting
-" ==============================
-"  https://github.com/pangloss/vim-javascript
-"  https://github.com/othree/javascript-libraries-syntax.vim
-hi link jsFunction        Statement
-hi link jsReturn          Statement
-hi link jsThis            pythonClassVar
-hi link jsNull            Number
-hi link jsStorageClass    jsThis
-hi link jsonBraces        Operator
-hi link jsDomElemAttrs    Operator
-hi link jsDomElemFuncs    Function
-hi link jsHtmlElemAttrs   Operator
-hi link jsHtmlElemFuncs   Function
-hi link jsCssStyles       Operator
-hi link jsRegexpOr        SpecialChar
-hi link jsRegexpCharClass SpecialChar
+hi! link NERDTreeDir BoaAqua
+hi! link NERDTreeDirSlash BoaAqua
 
-" CSS Syntax Highlighting
-" =======================
-"  https://github.com/hail2u/vim-css3-syntax
-" hi lessClass
-" hi LessVariable
-hi cssFunctionName  guifg=#A39454 guibg=NONE gui=NONE
+hi! link NERDTreeOpenable BoaOrange
+hi! link NERDTreeClosable BoaOrange
 
-" Markdown Syntax Highlighting
-" ============================
-"  https://github.com/plasticboy/vim-markdown
-hi mkdURL       guifg=#8593BA guibg=NONE gui=underline
-hi mkdLinkDef   guifg=#C15751 guibg=NONE gui=NONE
-hi mkdLink      guifg=#C15751 guibg=NONE gui=NONE
-hi mkdDelimiter guifg=#C15751 guibg=NONE gui=NONE
-hi mkdListItem  guifg=#A986B6 guibg=NONE gui=NONE
+hi! link NERDTreeFile BoaLight1
+hi! link NERDTreeExecFile BoaYellow
 
-" Shell Syntax Highlighting
-" =============================
-hi link shLoop           shConditional
-hi link shShellVariables Type
-hi link shFunction       Function
+hi! link NERDTreeUp BoaGray
+hi! link NERDTreeCWD BoaGreen
+hi! link NERDTreeHelp BoaLight1
 
-" XML Syntax Highlighting
-" =============================
-hi link xmlTag     Repeat
-hi link xmlTagName xmlTag
-hi link xmlEndTag  xmlTag
+hi! link NERDTreeToggleOn BoaGreen
+hi! link NERDTreeToggleOff BoaRed
 
-" GitGutter Highlighting
-" =============================
-hi GitGutterAdd    guifg=#5E9779 guibg=#231811 gui=bold
-hi GitGutterChange guifg=#B3AF4E guibg=#231811 gui=bold
-hi GitGutterDelete guifg=#C15751 guibg=#231811 gui=bold
+" }}}
+" Coc: {{{
 
-" ALE Highlighting
-" =============================
-hi ALEErrorSign    guifg=#C15751 guibg=#231811 gui=bold
-hi ALEWarningSign  guifg=#B3AF4E guibg=#231811 gui=bold
+hi! link CocErrorSign BoaRed
+hi! link CocWarningSign BoaYellow
+hi! link CocInfoSign BoaGreen
+hi! link CocHintSign BoaAqua
+hi! CocHighlightText guifg=NONE guibg=#363D45 gui=NONE
+hi! CocHoverRange guifg=NONE guibg=#2F3829 gui=NONE
+hi! link CocCursorRange CocHoverRange
+hi! link HighlightedyankRegion CocHoverRange
+hi! link CocFloating NormalFloat
+hi! link CocOutlineName BoaLight1
+hi! link CocListPath StatusLineNC
+hi CocListMode  guifg=#8f9e44 guibg=#48382f gui=bold
+hi CocErrorHighlight guifg=NONE guibg=NONE gui=undercurl guisp=#d33e2a
+hi CocWarningHighlight guifg=NONE guibg=NONE gui=undercurl guisp=#dac230
+hi CocInfoHighlight guifg=NONE guibg=NONE gui=undercurl guisp=#a0b82e
+hi CocHintHighlight guifg=NONE guibg=NONE gui=undercurl guisp=#70a17c
+hi CocGitRemovedSign guifg=#d35b4b guibg=NONE gui=bold
+hi CocGitTopRemovedSign guifg=#d35b4b guibg=NONE gui=bold
+hi CocGitChangedSign guifg=#70a17c guibg=NONE gui=bold
+hi CocGitChangeRemovedSign guifg=#70a17c guibg=NONE gui=bold
+hi CocGitAddedSign guifg=#8f9e44 guibg=NONE gui=bold
 
-" Syntastic Highlighting
-" =============================
-hi SyntasticErrorSign   guifg=#C15751 guibg=#231811 gui=bold
-hi SyntasticWarningSign guifg=#B3AF4E guibg=#231811 gui=bold
+" }}}
 
-" Easy-Motion Highlighting
-" ===============================
-hi EasyMotionIncCursor guifg=#171202 guibg=#725749 gui=NONE
-hi EasyMotionTarget guifg=#C15751 guibg=NONE gui=bold
-hi EasyMotionTarget2First guifg=#BF905F guibg=NONE gui=bold
-hi EasyMotionTarget2Second guifg=#AA7B4B guibg=NONE gui=NONE
-hi EasyMotionIncSearch guifg=#608F76 guibg=NONE gui=bold
-hi EasyMotionShade guifg=#666666 guibg=NONE gui=NONE
+" Filetype specific -----------------------------------------------------------
+" Diff: {{{
 
-" Startify Highlighting
-" ============================
-hi link StartifyNumber  Repeat
-hi link StartifySection String
+hi! link diffAdded BoaGreen
+hi! link diffRemoved BoaRed
+hi! link diffChanged BoaAqua
 
-" Netrw Highlighting
-" ===================
-hi link NetrwList    Type
-hi link NetrwHidePat Special
+hi! link diffFile BoaOrange
+hi! link diffNewFile BoaYellow
 
-" NERDTree Highlighting
-" =====================
-hi link NERDTreeOpenable  String
-hi link NERDTreeClosable  Constant
-hi link NERDTreeHelp      Comment
-hi link NERDTreeUp        Comment
-hi NERDTreeDirSlash guifg=#947d72 guibg=NONE gui=bold
-hi NERDTreeDir      guifg=#8593BA guibg=NONE gui=bold
-hi NERDTreeCWD      guifg=#848326 guibg=NONE gui=bold
+hi! link diffLine BoaBlue
 
-" Tagbar Highlighting
-" ===================
-hi link TagbarType            Statement
-hi link TagbarScope           Function
-hi link TagbarFoldIcon        Function
-hi link TagbarAccessProtected Type
+" }}}
+" Html: {{{
 
-" Terminal colors
-" ===============
-function! SetTermColors()
-  let b:terminal_color_0='#171202'
-  let b:terminal_color_8='#513c32'
-  let b:terminal_color_1='#e36660'
-  let b:terminal_color_9='#e36660'
-  let b:terminal_color_2='#599161'
-  let b:terminal_color_10='#599161'
-  let b:terminal_color_3='#b58b4e'
-  let b:terminal_color_11='#b58b4e'
-  let b:terminal_color_4='#7a9ac6'
-  let b:terminal_color_12='#7a9ac6'
-  let b:terminal_color_5='#a686b2'
-  let b:terminal_color_13='#a686b2'
-  let b:terminal_color_6='#598991'
-  let b:terminal_color_14='#598991'
-  let b:terminal_color_7='#7a6559'
-  let b:terminal_color_15='#b4a695'
-endfunction
-augroup terminalcolors
-  autocmd!
-  autocmd TermOpen * call SetTermColors()
-augroup END
+hi! link htmlTag BoaBlue
+hi! link htmlEndTag BoaBlue
 
-" License
-" =======
-" Copyright (c) 2016 monkoose
+hi htmlTagName guifg=#70a17c guibg=none gui=bold
+hi! link htmlArg BoaAqua
+
+hi! link htmlScriptTag BoaPurple
+hi! link htmlTagN BoaLight1
+hi! link htmlSpecialTagName htmlTagName
+
+hi htmlLink guifg=#a89984 guibg=none gui=underline
+
+hi! link htmlSpecialChar BoaOrange
+
+hi htmlBold guifg=fg guibg=none gui=bold
+hi htmlBoldUnderline guifg=fg guibg=none gui=bold,underline
+hi htmlBoldItalic guifg=fg guibg=none gui=bold,italic
+hi htmlBoldUnderlineItalic guifg=fg guibg=none gui=bold,underline,italic
+hi htmlUnderline guifg=fg guibg=none gui=underline
+hi htmlUnderlineItalic guifg=fg guibg=none gui=underline,italic
+hi htmlItalic guifg=fg guibg=none gui=italic
+
+" }}}
+" Xml: {{{
+
+hi! link xmlTag BoaBlue
+hi! link xmlEndTag BoaBlue
+hi! link xmlTagName BoaBlue
+hi! link xmlEqual BoaBlue
+hi! link docbkKeyword htmlTagName
+
+hi! link xmlDocTypeDecl BoaGray
+hi! link xmlDocTypeKeyword BoaPurple
+hi! link xmlCdataStart BoaGray
+hi! link xmlCdataCdata BoaPurple
+hi! link dtdFunction BoaGray
+hi! link dtdTagName BoaPurple
+
+hi! link xmlAttrib BoaAqua
+hi! link xmlProcessingDelim BoaGray
+hi! link dtdParamEntityPunct BoaGray
+hi! link dtdParamEntityDPunct BoaGray
+hi! link xmlAttribPunct BoaGray
+
+hi! link xmlEntity BoaOrange
+hi! link xmlEntityPunct BoaOrange
+" }}}
+" Vim: {{{
+
+hi vimCommentTitle guifg=#a89984 guibg=none gui=bold
+
+hi! link vimNotation BoaOrange
+hi! link vimBracket BoaOrange
+hi! link vimMapModKey BoaOrange
+hi! link vimFuncSID BoaLight1
+hi! link vimSetSep BoaLight1
+hi! link vimSep BoaLight1
+hi! link vimContinue BoaLight1
+
+" }}}
+" C: {{{
+
+hi! link cOperator BoaPurple
+hi! link cStructure BoaOrange
+
+" }}}
+" Python: {{{
+
+hi! link pythonBuiltin BoaOrange
+hi! link pythonBuiltinObj BoaOrange
+hi! link pythonBuiltinFunc BoaOrange
+hi! link pythonFunction BoaAqua
+hi! link pythonDecorator BoaRed
+hi! link pythonInclude BoaBlue
+hi! link pythonImport BoaBlue
+hi! link pythonRun BoaBlue
+hi! link pythonCoding BoaBlue
+hi! link pythonOperator BoaRed
+hi! link pythonException BoaRed
+hi! link pythonExceptions BoaPurple
+hi! link pythonBoolean BoaPurple
+hi! link pythonDot BoaLight1
+hi! link pythonConditional BoaRed
+hi! link pythonRepeat BoaRed
+hi! link pythonDottedName BoaDarkBlue
+
+" }}}
+" CSS: {{{
+
+hi! link cssBraces BoaBlue
+hi! link cssFunctionName BoaYellow
+hi! link cssIdentifier BoaOrange
+hi! link cssClassName BoaGreen
+hi! link cssColor BoaBlue
+hi! link cssSelectorOp BoaBlue
+hi! link cssSelectorOp2 BoaBlue
+hi! link cssImportant BoaGreen
+hi! link cssVendor BoaLight1
+
+hi! link cssTextProp BoaAqua
+hi! link cssAnimationProp BoaAqua
+hi! link cssUIProp BoaYellow
+hi! link cssTransformProp BoaAqua
+hi! link cssTransitionProp BoaAqua
+hi! link cssPrintProp BoaAqua
+hi! link cssPositioningProp BoaYellow
+hi! link cssBoxProp BoaAqua
+hi! link cssFontDescriptorProp BoaAqua
+hi! link cssFlexibleBoxProp BoaAqua
+hi! link cssBorderOutlineProp BoaAqua
+hi! link cssBackgroundProp BoaAqua
+hi! link cssMarginProp BoaAqua
+hi! link cssListProp BoaAqua
+hi! link cssTableProp BoaAqua
+hi! link cssFontProp BoaAqua
+hi! link cssPaddingProp BoaAqua
+hi! link cssDimensionProp BoaAqua
+hi! link cssRenderProp BoaAqua
+hi! link cssColorProp BoaAqua
+hi! link cssGeneratedContentProp BoaAqua
+
+" }}}
+" JavaScript: {{{
+
+hi! link javaScriptBraces BoaLight1
+hi! link javaScriptFunction BoaAqua
+hi! link javaScriptIdentifier BoaRed
+hi! link javaScriptMember BoaBlue
+hi! link javaScriptNumber BoaPurple
+hi! link javaScriptNull BoaPurple
+hi! link javaScriptParens BoaLight1
+
+" }}}
+" PanglossJS: {{{
+
+hi! link jsClassKeyword BoaAqua
+hi! link jsExtendsKeyword BoaAqua
+hi! link jsExportDefault BoaAqua
+hi! link jsTemplateBraces BoaAqua
+hi! link jsGlobalNodeObjects BoaLight1
+hi! link jsGlobalObjects BoaLight1
+hi! link jsFunction BoaAqua
+hi! link jsFuncParens BoaLight1
+hi! link jsParens BoaLight1
+hi! link jsNull BoaPurple
+hi! link jsUndefined BoaPurple
+hi! link jsClassDefinition BoaYellow
+
+" }}}
+" TypeScript: {{{
+
+hi! link typeScriptReserved BoaAqua
+hi! link typeScriptLabel BoaAqua
+hi! link typeScriptFuncKeyword BoaAqua
+hi! link typeScriptIdentifier BoaOrange
+hi! link typeScriptBraces BoaLight1
+hi! link typeScriptEndColons BoaLight1
+hi! link typeScriptDOMObjects BoaLight1
+hi! link typeScriptAjaxMethods BoaLight1
+hi! link typeScriptLogicSymbols BoaLight1
+hi! link typeScriptDocSeeTag Comment
+hi! link typeScriptDocParam Comment
+hi! link typeScriptDocTags vimCommentTitle
+hi! link typeScriptGlobalObjects BoaLight1
+hi! link typeScriptParens BoaLight1
+hi! link typeScriptOpSymbols BoaLight1
+hi! link typeScriptHtmlElemProperties BoaLight1
+hi! link typeScriptNull BoaPurple
+hi! link typeScriptInterpolationDelimiter BoaAqua
+
+" }}}
+" PureScript: {{{
+
+hi! link purescriptModuleKeyword BoaAqua
+hi! link purescriptModuleName BoaLight1
+hi! link purescriptWhere BoaAqua
+hi! link purescriptDelimiter BoaLight1
+hi! link purescriptType BoaLight1
+hi! link purescriptImportKeyword BoaAqua
+hi! link purescriptHidingKeyword BoaAqua
+hi! link purescriptAsKeyword BoaAqua
+hi! link purescriptStructure BoaAqua
+hi! link purescriptOperator BoaBlue
+
+hi! link purescriptTypeVar BoaLight1
+hi! link purescriptConstructor BoaLight1
+hi! link purescriptFunction BoaLight1
+hi! link purescriptConditional BoaOrange
+hi! link purescriptBacktick BoaOrange
+
+" }}}
+" Go: {{{
+
+hi! link goDirective BoaAqua
+hi! link goConstants BoaPurple
+hi! link goDeclaration BoaRed
+hi! link goDeclType BoaBlue
+hi! link goBuiltins BoaOrange
+
+" }}}
+" Lua: {{{
+
+hi! link luaIn BoaRed
+hi! link luaFunction BoaAqua
+hi! link luaFunction BoaAqua
+hi! link luaFuncCall BoaDarkBlue
+hi! link luaTable BoaOrange
+
+" }}}
+" Markdown: {{{
+
+hi markdownItalic guifg=#b8af96 guibg=none gui=italic
+
+hi! link markdownH1 Directory
+hi! link markdownH2 Directory
+hi markdownH3 guifg=#caa247 guibg=none gui=bold
+hi! link markdownH4 markdownH3
+hi! link markdownH5 BoaYellow
+hi! link markdownH6 BoaYellow
+
+hi! link markdownCode BoaAqua
+hi! link markdownCodeBlock BoaAqua
+hi! link markdownCodeDelimiter BoaAqua
+
+hi! link markdownBlockquote BoaGray
+hi! link markdownListMarker BoaGray
+hi! link markdownOrderedListMarker BoaGray
+hi! link markdownRule BoaGray
+hi! link markdownHeadingRule BoaGray
+
+hi! link markdownUrlDelimiter BoaLight1
+hi! link markdownLinkDelimiter BoaLight1
+hi! link markdownLinkTextDelimiter BoaLight1
+
+hi! link markdownHeadingDelimiter BoaOrange
+hi! link markdownUrl BoaPurple
+hi! link markdownUrlTitleDelimiter BoaGreen
+
+hi markdownLinkText guifg=#817466 guibg=none gui=underline
+hi! link markdownIdDeclaration markdownLinkText
+
+" }}}
+" Haskell: {{{
+
+hi! link haskellType BoaYellow
+hi! link haskellIdentifier BoaLight1
+hi! link haskellSeparator BoaLight1
+hi! link haskellDelimiter BoaLight1
+hi! link haskellOperators BoaDarkBlue
 "
-" Permission is hereby granted, free of charge, to any person obtaining a copy
-" of this software and associated documentation files (the "Software"), to deal
-" in the Software without restriction, including without limitation the rights
-" to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-" copies of the Software, and to permit persons to whom the Software is
-" furnished to do so, subject to the following conditions:
-"
-" The above copyright notice and this permission notice shall be included in
-" all copies or substantial portions of the Software.
-"
-" THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-" IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-" FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-" AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-" LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-" OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-" THE SOFTWARE.
+hi! link haskellBacktick BoaOrange
+hi! link haskellStatement BoaOrange
+hi! link haskellConditional BoaOrange
+
+hi! link haskellLet BoaAqua
+hi! link haskellDefault BoaAqua
+hi! link haskellWhere BoaAqua
+hi! link haskellBottom BoaAqua
+hi! link haskellBlockKeywords BoaAqua
+hi! link haskellImportKeywords BoaAqua
+hi! link haskellDeclKeyword BoaAqua
+hi! link haskellDeriving BoaAqua
+hi! link haskellAssocType BoaAqua
+
+hi! link haskellNumber BoaPurple
+hi! link haskellPragma BoaPurple
+
+hi! link haskellString BoaGreen
+hi! link haskellChar BoaGreen
+
+" }}}
+" Json: {{{
+
+hi! link jsonKeyword BoaGreen
+hi! link jsonQuote BoaGreen
+hi! link jsonBraces BoaLight1
+hi! link jsonString BoaLight1
+
+" }}}
+" Terminal Colors: {{{
+
+let g:terminal_color_0 = '#26201c'
+let g:terminal_color_8 = '#6e685a'
+
+let g:terminal_color_1 = '#d35b4b'
+let g:terminal_color_9 = '#d35b4b'
+
+let g:terminal_color_2 = '#8f9e44'
+let g:terminal_color_10 = '#8f9e44'
+
+let g:terminal_color_3 = '#c57c41'
+let g:terminal_color_11 = '#caa247'
+
+let g:terminal_color_4 = '#7680ac'
+let g:terminal_color_12 = '#7680ac'
+
+let g:terminal_color_5 = '#b2809f'
+let g:terminal_color_13 = '#b2809f'
+
+let g:terminal_color_6 = '#70a195'
+let g:terminal_color_14 = '#70a195'
+
+let g:terminal_color_7 = '#8c8572'
+let g:terminal_color_15 = '#b8af96'
+
+" }}}
+
+" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker:

@@ -19,7 +19,7 @@ hi Normal           ctermbg=0    ctermfg=7    cterm=NONE           guibg=#24364b
 hi Title            ctermbg=NONE ctermfg=7    cterm=BOLDUNDERLINE  guibg=NONE     guifg=#e4e4dd  gui=BOLDUNDERLINE
 hi Comment          ctermbg=NONE ctermfg=8    cterm=NONE           guibg=NONE     guifg=#6194ba  gui=NONE
 hi SpecialComment   ctermbg=NONE ctermfg=12   cterm=NONE           guibg=NONE     guifg=#9fcce7  gui=NONE
-hi Todo             ctermbg=NONE ctermfg=4    cterm=UNDERLINE      guibg=NONE     guifg=#65baf5  gui=UNDERLINE
+hi Todo             ctermbg=NONE ctermfg=4    cterm=BOLDUNDERLINE  guibg=NONE     guifg=#65baf5  gui=BOLDUNDERLINE
 hi Directory        ctermbg=NONE ctermfg=6    cterm=NONE           guibg=NONE     guifg=#69c5b4  gui=NONE
 
 hi LineNr           ctermbg=NONE ctermfg=8    cterm=NONE           guibg=NONE     guifg=#6194ba  gui=NONE
@@ -87,24 +87,31 @@ hi clear Constant
 hi clear Boolean
 hi clear String
 hi clear Delimiter
+hi clear Conceal
 
 " Links ------------------------------------------------------------------------
 
 " R
 hi link rOKeyword  SpecialComment
+hi link rOTag      SpecialComment
+hi link rOTitleTag SpecialComment
+hi link rOExamples Comment
+hi link rOTitle    Comment
 
 " markdown
 hi link markdownHeadingDelimiter Title
+hi link markdownCodeDelimiter    SpecialComment
 
 " rmarkdown
+hi link rmdCodeDelim       SpecialComment
 hi link rmdRChunkDelim     SpecialComment
 hi link rmdInlineDelim     SpecialComment
 hi link rmdYamlBlockDelim  SpecialComment
 
 hi link SpecialChar        Normal
 hi link SpecialKey         SpecialComment
+hi link Conceal            SpecialComment
 hi link NonText            Comment
-hi link Conceal            Comment
 hi link Whitespace         Comment
 
 " quick fix window
@@ -141,13 +148,13 @@ hi link plugName     SpecialComment
 hi link plugBracket  Comment
 hi link plugDash     Comment
 hi link plugDeleted  WarningMsg
+hi plugInstall       ctermbg=0  ctermfg=2 cterm=NONE  guibg=#24364b  guifg=#88c563  gui=NONE
 
 " git-gutter
-hi GitGutterDelete        ctermbg=0  ctermfg=1 cterm=NONE    guibg=#24364b  guifg=#e76d6d  gui=NONE
-hi GitGutterAdd           ctermbg=0  ctermfg=2 cterm=NONE    guibg=#24364b  guifg=#88c563  gui=NONE
-hi GitGutterChange        ctermbg=0  ctermfg=3 cterm=NONE    guibg=#24364b  guifg=#ecb534  gui=NONE
-hi GitGutterChangeDelete  ctermbg=0  ctermfg=9 cterm=NONE    guibg=#24364b  guifg=#edbabf  gui=NONE
-
+hi GitGutterDelete            ctermbg=0  ctermfg=1 cterm=NONE        guibg=#24364b  guifg=#e76d6d  gui=NONE
+hi GitGutterAdd               ctermbg=0  ctermfg=2 cterm=NONE        guibg=#24364b  guifg=#88c563  gui=NONE
+hi GitGutterChange            ctermbg=0  ctermfg=3 cterm=NONE        guibg=#24364b  guifg=#ecb534  gui=NONE
+hi GitGutterChangeDelete      ctermbg=0  ctermfg=9 cterm=NONE        guibg=#24364b  guifg=#edbabf  gui=NONE
 hi GitGutterDeleteLine        ctermbg=1  ctermfg=0 cterm=NONE        guibg=#e76d6d  guifg=#24364b  gui=NONE
 hi GitGutterAddLine           ctermbg=2  ctermfg=0 cterm=NONE        guibg=#88c563  guifg=#24364b  gui=NONE
 hi GitGutterChangeLine        ctermbg=0  ctermfg=3 cterm=UNDERLINE   guibg=#24364b  guifg=#ecb534  gui=UNDERLINE

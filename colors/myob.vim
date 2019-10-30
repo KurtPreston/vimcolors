@@ -152,7 +152,8 @@ highlight SignatureMarkText guifg=#ffdc4b guibg=#2e3e4f
 
 " Terminal (make it stand out a little)
 " --------
-highlight Terminal guibg=#2e3e4f
+highlight Terminal guibg=#061718
+"highlight Terminal guibg=#2e3e4f
 
 
 " NERDTree
@@ -163,3 +164,17 @@ highlight link NERDTreeCWD Keyword
 highlight link NERDTreeUp SpecialKey
 highlight link NERDTreeHelp SpecialKey
 highlight NERDTreeDirSlash guifg=#444444
+
+
+" Tagbar
+" ------
+highlight link TagbarComment SpecialKey
+highlight link TagbarHelp SpecialKey
+highlight link TagbarFoldIcon Normal
+highlight link TagbarHighlight Matchmaker
+
+
+" Python.vim
+" ----------
+highlight pythonStrInterpRegion guifg=#77dfe7 guibg=#1b2830 gui=italic
+

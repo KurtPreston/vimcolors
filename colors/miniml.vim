@@ -26,5 +26,7 @@ hi Todo cterm=NONE ctermfg=white ctermbg=128 gui=NONE guifg=White guibg=Purple
 hi Type ctermfg=126 guifg=Pink
 hi Visual term=reverse ctermbg=15 ctermfg=0 guibg=White guifg=Black
 
+hi! link SignColumn Normal
+
 set bg=dark
 

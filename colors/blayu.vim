@@ -108,7 +108,7 @@ exe "hi! SignColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
 "   Incsearch"
 
 exe "hi! MatchParen"    .s:fg_fg          .s:bg_bg          .s:fmt_undr
-exe "hi! ModeMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
+exe "hi! ModeMsg"       .s:fg_fg          .s:bg_none        .s:fmt_bold
 exe "hi! MoreMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_comment     .s:bg_none        .s:fmt_none
 exe "hi! Pmenu"         .s:fg_bg          .s:bg_keyword     .s:fmt_none
@@ -123,7 +123,7 @@ exe "hi! SpellLocal"    .s:fg_keyword     .s:bg_none        .s:fmt_undr
 exe "hi! SpellBad"      .s:fg_error       .s:bg_none        .s:fmt_undr
 exe "hi! SpellRare"     .s:fg_regexp      .s:bg_none        .s:fmt_undr
 exe "hi! StatusLine"    .s:fg_fg          .s:fg_function    .s:fmt_none
-exe "hi! StatusLineNC"  .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
+exe "hi! StatusLineNC"  .s:fg_fg_idle     .s:bg_bg          .s:fmt_none
 exe "hi! WildMenu"      .s:fg_bg          .s:bg_markup      .s:fmt_none
 exe "hi! TabLine"       .s:fg_fg          .s:bg_panel       .s:fmt_revr
 "   TabLineFill"

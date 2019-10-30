@@ -2,14 +2,14 @@
 "  Author: Joseph Carter
 "     URL: https://gitlab.com/iKarith/tigrana
 " Created: 2017
-" Version: 0.4
+" Version: 0.6
 "
 " Based on https://github.com/baskerville/bubblegum
 
 hi clear
 
 if exists("syntax_on")
-    syntax reset
+  syntax reset
 endif
 
 let g:colors_name="tigrana-256-dark"
@@ -21,44 +21,44 @@ hi Comment ctermfg=244 cterm=none guifg=#808080 gui=none
 " Constant
 hi Constant ctermfg=229 cterm=none guifg=#FFFFAF gui=none
 hi link String Constant
-hi Character ctermfg=187 cterm=none guifg=#D7D7AF gui=none
+hi link Character Constant
+hi link Boolean Constant
 hi Number ctermfg=180 cterm=none guifg=#D7AF87 gui=none
-hi Boolean ctermfg=187 cterm=none guifg=#D7D7AF gui=none
-hi Float ctermfg=180 cterm=none guifg=#D7AF87 gui=none
+hi link Float Number
 
 " Variable Name
 hi Identifier ctermfg=182 cterm=none guifg=#D7AFD7 gui=none
-hi Function ctermfg=182 cterm=none guifg=#D7AFD7 gui=none
+hi link Function Identifier
 
 " Statement
-hi Statement ctermfg=110 cterm=none guifg=#87AFD7 gui=none
-hi Conditional ctermfg=110 cterm=none guifg=#87AFD7 gui=none
-hi Repeat ctermfg=110 cterm=none guifg=#87AFD7 gui=none
-hi Label ctermfg=110 cterm=none guifg=#87AFD7 gui=none
-hi Operator ctermfg=110 cterm=none guifg=#87AFD7 gui=none
-hi Keyword ctermfg=110 cterm=none guifg=#87AFD7 gui=none
-hi Exception ctermfg=110 cterm=none guifg=#87AFD7 gui=none
+hi Statement Ctermfg=110 cterm=none guifg=#87AFD7 gui=none
+hi link Conditional Statement
+hi link Repeat Statement
+hi link Label Statement
+hi link Operator Statement
+hi link Keyword Statement
+hi link Exception Statement
 
 " Preprocessor
-hi PreProc ctermfg=150 cterm=none guifg=#AFD787 gui=none
-hi Include ctermfg=150 cterm=none guifg=#AFD787 gui=none
-hi Define ctermfg=150 cterm=none guifg=#AFD787 gui=none
-hi Macro ctermfg=150 cterm=none guifg=#AFD787 gui=none
-hi PreCondit ctermfg=150 cterm=none guifg=#AFD787 gui=none
+hi PreProc Ctermfg=150 cterm=none guifg=#AFD787 gui=none
+hi link Include PreProc
+hi link Define PreProc
+hi link Macro PreProc
+hi link PreCondit PreProc
 
 " Type
 hi Type ctermfg=146 cterm=none guifg=#AFAFD7 gui=none
-hi StorageClass ctermfg=146 cterm=none guifg=#AFAFD7 gui=none
-hi Structure ctermfg=146 cterm=none guifg=#AFAFD7 gui=none
-hi Typedef ctermfg=146 cterm=none guifg=#AFAFD7 gui=none
+hi link StorageClass Type
+hi link Structure Type
+hi link Typedef Type
 
 " Special
 hi Special ctermfg=174 cterm=none guifg=#D78787 gui=none
-hi SpecialChar ctermfg=174 cterm=none guifg=#D78787 gui=none
-hi Tag ctermfg=174 cterm=none guifg=#D78787 gui=none
-hi Delimiter ctermfg=174 cterm=none guifg=#D78787 gui=none
-hi SpecialComment ctermfg=174 cterm=none guifg=#D78787 gui=none
-hi Debug ctermfg=174 cterm=none guifg=#D78787 gui=none
+hi link SpecialChar Special
+hi link Tag Special
+hi link Delimiter Special
+hi link SpecialComment Special
+hi link Debug Special
 hi Underlined ctermfg=249 cterm=underline guifg=#B2B2B2 gui=underline
 hi Ignore ctermfg=235 cterm=none guifg=#262626 gui=none
 hi Error ctermfg=231 ctermbg=167 cterm=none guifg=#FFFFFF guibg=#D75F5F gui=none
@@ -136,7 +136,7 @@ hi javaScriptNumber ctermfg=179 cterm=none guifg=#D7AF5F gui=none
 hi htmlTag ctermfg=147 cterm=none guifg=#AFAFFF gui=none
 hi htmlEndTag ctermfg=147 cterm=none guifg=#AFAFFF gui=none
 hi htmlTagName ctermfg=175 cterm=none guifg=#D787AF gui=none
-hi htmlString ctermfg=187 cterm=none guifg=#D7D7AF gui=none
+hi link htmlString Constant
 
 " Vim
 hi vimFold ctermfg=244 cterm=none guifg=#808080 gui=none
@@ -161,4 +161,4 @@ hi markdownCodeBlock ctermfg=244 cterm=none guifg=#808080 gui=none
 hi markdownItalic ctermfg=252 cterm=none guifg=#D0D0D0 gui=none
 
 " Trailing whitespace (vim-scripts/ShowTrailingWhitespace)
-hi ShowTrailingWhitespace ctermbg=240 guibg=#585858
+hi ShowTrailingWhitespace ctermbg=241 guibg=#626262

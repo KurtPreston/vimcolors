@@ -222,7 +222,7 @@ let s:specs['Todo']        = 'fg=purple bg=white reverse'
 let s:specs['SpecialKey']   = 'fg=similar1 bold'
 let s:specs['NonText']      = 'fg=similar2'
 let s:specs['Conceal']      = 'fg=contrast1 bg=similar3'
-let s:specs['MatchParen']   = 'fg=aqua reverse'
+let s:specs['MatchParen']   = 'fg=aqua'
 
 " Next up: highlighting for the various kinds of messages, questions, and
 " prompts that nvim throws at you.

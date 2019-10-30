@@ -42,9 +42,9 @@ hi PmenuThumb                          guibg=White                           cte
 hi TabLine           guifg=White       guibg=DarkGray    ctermfg=White       ctermbg=DarkGray    gui=NONE      cterm=NONE
 hi TabLineSel        guifg=Black       guibg=Gray        ctermfg=Black       ctermbg=Gray        gui=NONE      cterm=NONE
 hi TabLineFill                         guibg=DarkGray                        ctermbg=DarkGray    gui=NONE      cterm=NONE
-hi CursorColumn NONE                                                                             gui=reverse   cterm=reverse
-hi CursorLine   NONE                                                                             gui=reverse   cterm=reverse
-hi ColorColumn  NONE                                                                             gui=reverse   cterm=reverse
+hi CursorColumn      guifg=White       guibg=DarkGray    ctermfg=White       ctermbg=DarkGray    gui=NONE      cterm=NONE
+hi CursorLine        guifg=White       guibg=DarkGray    ctermfg=White       ctermbg=DarkGray    gui=NONE      cterm=NONE
+hi ColorColumn       guifg=White       guibg=DarkGray    ctermfg=White       ctermbg=DarkGray    gui=NONE      cterm=NONE
 hi MatchParen        guifg=LightBlue   guibg=Black       ctermfg=LightBlue   ctermbg=Black       gui=NONE      cterm=NONE
 hi Normal            guifg=White       guibg=Black       ctermfg=White       ctermbg=Black       gui=NONE      cterm=NONE
 hi Comment           guifg=DarkGray    guibg=Black       ctermfg=DarkGray    ctermbg=Black       gui=NONE      cterm=NONE

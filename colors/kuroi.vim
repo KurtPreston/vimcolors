@@ -63,7 +63,7 @@ let s:cterm_selection  = "237"
 let s:cterm_line       = "235"
 let s:cterm_comment    = "243"
 
-let s:palette.cterm.background   = { 'dark' : "0"                , 'light' : "254" }
+let s:palette.cterm.background   = { 'dark' : "234"              , 'light' : "254" }
 let s:palette.cterm.foreground   = { 'dark' : s:cterm_foreground , 'light' : "16"  }
 let s:palette.cterm.window       = { 'dark' : "236"              , 'light' : "247" }
 let s:palette.cterm.selection    = { 'dark' : s:cterm_selection  , 'light' : "250" }
@@ -225,7 +225,7 @@ exe "hi! ErrorMsg"      .s:fg_background  .s:bg_red         .s:fmt_stnd
 exe "hi! VertSplit"     .s:fg_window      .s:bg_none        .s:fmt_none
 exe "hi! Folded"        .s:fg_comment     .s:bg_darkcolumn  .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
-exe "hi! SignColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
+exe "hi! SignColumn"    .s:fg_none        .s:bg_background  .s:fmt_none
 "   Incsearch"
 exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_none
@@ -237,26 +237,28 @@ exe "hi! Pmenu"         .s:fg_foreground  .s:bg_selection   .s:fmt_none
 exe "hi! PmenuSel"      .s:fg_foreground  .s:bg_selection   .s:fmt_revr
 "   PmenuSbar"
 "   PmenuThumb"
-exe "hi! Question"      .s:fg_green       .s:bg_none          .s:fmt_none
-exe "hi! Search"        .s:fg_background  .s:bg_yellow        .s:fmt_none
-exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none          .s:fmt_none
-exe "hi! SpellCap"      .s:fg_blue        .s:bg_darkblue      .s:fmt_undr
-exe "hi! SpellLocal"    .s:fg_aqua        .s:bg_darkcyan      .s:fmt_undr
-exe "hi! SpellBad"      .s:fg_red         .s:bg_darkred       .s:fmt_undr
-exe "hi! SpellRare"     .s:fg_purple      .s:bg_darkpurple    .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_gray        .s:bg_statusline    .s:fmt_revr
-exe "hi! StatusLineNC"  .s:fg_gray        .s:bg_statuslinenc  .s:fmt_revr
-exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn    .s:fmt_revr
-exe "hi! TabLineFill"   .s:fg_background  .s:bg_background    .s:fmt_revr
-exe "hi! EndOfBuffer"   .s:fg_background  .s:bg_background    .s:fmt_revr
+exe "hi! Question"          .s:fg_green       .s:bg_none          .s:fmt_none
+exe "hi! Search"            .s:fg_background  .s:bg_yellow        .s:fmt_none
+exe "hi! SpecialKey"        .s:fg_selection   .s:bg_none          .s:fmt_none
+exe "hi! SpellCap"          .s:fg_blue        .s:bg_darkblue      .s:fmt_undr
+exe "hi! SpellLocal"        .s:fg_aqua        .s:bg_darkcyan      .s:fmt_undr
+exe "hi! SpellBad"          .s:fg_red         .s:bg_darkred       .s:fmt_undr
+exe "hi! SpellRare"         .s:fg_purple      .s:bg_darkpurple    .s:fmt_undr
+exe "hi! StatusLine"        .s:fg_gray        .s:bg_statusline    .s:fmt_revr
+exe "hi! StatusLineNC"      .s:fg_gray        .s:bg_statuslinenc  .s:fmt_revr
+exe "hi! StatusLineTerm"    .s:fg_gray        .s:bg_statusline    .s:fmt_revr
+exe "hi! StatusLineTermNC"  .s:fg_gray        .s:bg_statuslinenc  .s:fmt_revr
+exe "hi! TabLine"           .s:fg_foreground  .s:bg_darkcolumn    .s:fmt_revr
+exe "hi! TabLineFill"       .s:fg_background  .s:bg_background    .s:fmt_revr
+exe "hi! EndOfBuffer"       .s:fg_background  .s:bg_background    .s:fmt_revr
 "   TabLineSel"
-exe "hi! Title"         .s:fg_yellow      .s:bg_none        .s:fmt_none
-exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
+exe "hi! Title"             .s:fg_yellow      .s:bg_none        .s:fmt_none
+exe "hi! Visual"            .s:fg_none        .s:bg_selection   .s:fmt_none
 "   VisualNos"
-exe "hi! WarningMsg"    .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! WarningMsg"        .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! WildMenu"          .s:fg_selection   .s:bg_orange      .s:fmt_none
 " FIXME LongLineWarning to use variables instead of hardcoding
 hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
-"   WildMenu"
 
 exe "hi! Normal"        .s:fg_foreground  .s:bg_background    .s:fmt_none
 
@@ -335,6 +337,17 @@ hi! link diffAdded Special
 "   diffLine
 "   diffSubname
 "   diffComment
+
+"}}}
+" True Color Terminal Colorscheme:"{{{
+" ----------------------------------------------------------------------------
+"  This is atelierforest-dark color palette
+let g:terminal_ansi_colors = [
+      \ "#1b1918", "#f22c40", "#5ab738", "#d5911a",
+      \ "#407ee7", "#6666ea", "#00ad9c", "#a8a19f",
+      \ "#766e6b", "#f22c40", "#5ab738", "#d78700",
+      \ "#407ee7", "#6666ea", "#00ad9c", "#f1efee"
+      \]
 
 "}}}
 " GitGutter Sign Highlighting:"{{{

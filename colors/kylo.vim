@@ -133,21 +133,20 @@ hi link jsSuper Special
 hi link jsExceptions Special
 hi link jsTaggedTemplate Special
 hi link jsBuiltins Special
+hi link jsSpreadOperator Normal
 
 " Mail {{{1
 hi link mailUrl Statement
+hi link mailQuoted1 Comment
 
 " Markdown {{{1
-" hi markdownHeadingDelimiter ctermfg=150 ctermbg=none cterm=NONE
-" hi markdownH1 ctermfg=150 ctermbg=none cterm=NONE
-" hi markdownH2 ctermfg=150 ctermbg=none cterm=NONE
-" hi markdownH1 ctermfg=white ctermbg=none cterm=bold
-" hi markdownH2 ctermfg=white ctermbg=none cterm=bold
 hi link markdownHeadingDelimiter Constant
 hi link markdownH1 Constant
 hi link markdownH2 Constant
 hi link markdownH3 Constant
 hi link markdownH4 Constant
+hi link markdownAutomaticLink Statement
+hi link markdownUrlDelimiter Statement
 hi link markdownListMarker Special
 hi link markdownCodeBlock Special
 hi link markdownCode Special
@@ -174,6 +173,7 @@ hi link phpInclude phpFunctions
 hi link phpSpecialFunction Type
 hi link PhpLocalVarCheckError Comment
 hi link phpClasses Type
+hi link phpDocTags Comment
 
 " Plugins {{{1
 highlight ExtraWhitespace guibg=#ff0000 ctermbg=red
@@ -182,6 +182,13 @@ highlight SignifySignAdd cterm=bold ctermbg=234 ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=234 ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=234 ctermfg=227
 highlight CocErrorFloat cterm=bold ctermbg=darkred ctermfg=white
+highlight lspReference ctermfg=lightred ctermbg=NONE
+highlight LspInformationText ctermfg=lightred ctermbg=NONE
+" highlight link LspInformationText lspReference
+" highlight link LspHintText Comment
+hi link ALEVirtualTextError Error
+hi link ALEVirtualTextInfo Comment
+highlight LspHintText ctermfg=238 ctermbg=NONE cterm=italic
 
 " SH {{{1
 hi link shQuote Constant

@@ -5,11 +5,11 @@ highlight clear
 
 set background=dark
 
-if exists("syntax_on")
+if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = "evokai"
+let g:colors_name = 'evokai'
 
 " ================================= "
 " === Base Vim Highlight Groups === "
@@ -28,6 +28,7 @@ hi Boolean               guifg=#c500ff   guibg=NONE      gui=NONE
 hi Float                 guifg=#c500ff   guibg=NONE      gui=NONE
 hi Identifier            guifg=#00d5dd   guibg=NONE      gui=NONE
 hi Function              guifg=#00d5dd   guibg=NONE      gui=NONE
+hi WildMenu              guifg=#000000   guibg=#FFFF00   gui=NONE
 
 hi Statement             guifg=#ff027f   guibg=NONE      gui=NONE
 hi Conditional           guifg=#e60000   guibg=NONE      gui=NONE
@@ -43,6 +44,7 @@ hi Define                guifg=#75715e   guibg=NONE   gui=NONE
 hi Macro                 guifg=#75715e   guibg=NONE   gui=NONE
 hi PreCondit             guifg=#75715e   guibg=NONE   gui=NONE
 
+hi MoreMsg               guifg=#3cff00   guibg=NONE      gui=NONE
 hi Type                  guifg=#3cff00   guibg=NONE      gui=NONE
 hi StorageClass          guifg=#ff4b00   guibg=NONE      gui=NONE
 hi Structure             guifg=#3cff00   guibg=NONE      gui=NONE
@@ -77,8 +79,10 @@ hi PmenuSel              guifg=#000000   guibg=#72faff   gui=NONE
 hi PmenuSbar             guifg=NONE      guibg=NONE      gui=NONE
 hi PmenuThumb            guifg=#ff0000
 hi SpecialKey            guifg=#444444   guibg=NONE      gui=NONE
-hi StatusLine            guifg=NONE      guibg=#262626   gui=bold
-hi StatusLineNC          guifg=#444444   guibg=#262626   gui=NONE
+hi StatusLine            guifg=NONE      guibg=#262622   gui=bold
+hi StatusLineNC          guifg=#444444   guibg=#262622   gui=NONE
+hi StatusLineTerm        guifg=NONE      guibg=#262622   gui=NONE
+hi StatusLineTermNC      guifg=#444444   guibg=#262622   gui=NONE
 hi CursorLine            guifg=NONE      guibg=NONE      gui=NONE cterm=NONE
 hi CursorLineNr          guifg=#ff027f   guibg=NONE      gui=BOLD
 hi CursorColumn          guifg=NONE      guibg=#000000   gui=NONE
@@ -226,7 +230,6 @@ hi cssNumberNoise        guifg=#ff027f   guibg=NONE      gui=NONE
 
 hi cssFunction           guifg=#66d9ef   guibg=NONE      gui=NONE
 hi cssFunctionName       guifg=#cefdff   guibg=#000000   gui=NONE
-hi cssFunctionDelimiters guifg=#cefdff   guibg=NONE      gui=NONE
 
 hi cssFunctionComma      guifg=#397d80   guibg=NONE      gui=NONE
 hi cssMediaComma         guifg=#ff4b00   guibg=NONE      gui=NONE
@@ -301,6 +304,14 @@ hi SpellCap    guisp=#7070F0 gui=undercurl
 hi SpellLocal  guisp=#70F0F0 gui=undercurl
 hi SpellRare   guisp=#FFFFFF gui=undercurl
 
+hi CocUnderline guisp=#FF0000 gui=undercurl
+hi CocErrorFloat guifg=#75715e
+hi CocWarningFloat guifg=#75715e
+hi CocCodeLens guifg=#75715e
+hi CocFloating guifg=#75715e guibg=#121212
+
+hi graphqlTemplateString guifg=#fff600 guibg=NONE
+
 " Overlength?
 hi OverLength  guifg=#ff0000
 
@@ -320,6 +331,9 @@ hi LocalIndentGuide guifg=#333333   guibg=NONE      gui=inverse
 " Vim Highlighting
 hi vimOperParen     guifg=#8200a8   guibg=NONE       gui=NONE
 hi vimSep           guifg=#8200a8   guibg=NONE       gui=NONE
+
+" Lightline Groups
+hi lightlineModInactive  guifg=#fff600   guibg=#262622   gui=BOLD
 
 " Terminal Colors
 " Bright Colors

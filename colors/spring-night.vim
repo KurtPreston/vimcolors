@@ -16,10 +16,10 @@ endif
 
 " Optimization:
 " `:hi clear` takes a lot of time since it clears all highlights and set default
-" highlights. This guard avoids `:hi clear` on loading vimrc since in almost
-" all cases no additional highlight is set at start up. Almost all additional
-" highlights are set by Vim plugins.
-if !has('vim_starting')
+" highlights. This guard avoids `:hi clear` if spring-night is the first colorscheme.
+" applied in vimrc. In almost all cases no additional highlights are set at start
+" up since they are set by Vim plugins.
+if exists('g:colors_name')
     " Remove all existing user-defined highlights and set the defaults.
     hi clear
 endif
@@ -52,6 +52,7 @@ else
 endif
 
 let s:bg_gui = g:spring_night_high_contrast ? '#132132' : '#334152'
+let s:bgweaker_gui = g:spring_night_high_contrast ? '#213243' : '#3a4b5c'
 let s:darkgold_gui = g:spring_night_high_contrast ? '#484000' : '#685800'
 let s:fg_cterm = g:spring_night_high_contrast ? 231 : 230
 
@@ -72,7 +73,7 @@ hi EndOfBuffer term=NONE guifg=#536273 ctermfg=238
 exe 'hi' 'Error' 'term=NONE' 'guifg=#fd8489' 'ctermfg=210' 'guibg=#3a4b5c' 'ctermbg=235' s:bold_attr
 exe 'hi' 'ErrorMsg' 'term=NONE' 'guifg=#fd8489' 'ctermfg=210' 'guibg='.s:bg_gui 'ctermbg=233' s:bold_attr
 hi Float term=NONE guifg=#fd8489 ctermfg=210
-exe 'hi' 'FloatNormal' 'term=NONE' 'guifg=#fffeeb' 'ctermfg='.s:fg_cterm 'guibg=#3a4b5c' 'ctermbg=235'
+exe 'hi' 'NormalFloat' 'term=NONE' 'guifg=#fffeeb' 'ctermfg='.s:fg_cterm 'guibg='.s:bgweaker_gui 'ctermbg=235'
 hi FoldColumn term=NONE guifg=#e7d5ff ctermfg=189 guibg=#3a4b5c ctermbg=235
 hi Folded term=NONE guifg=#e7d5ff ctermfg=189 guibg=#646f7c ctermbg=60
 hi Function term=NONE guifg=#f0aa8a ctermfg=216
@@ -81,7 +82,7 @@ hi IncSearch term=NONE guifg=NONE ctermfg=NONE guibg=#a9667a ctermbg=132 gui=und
 exe 'hi' 'Keyword' 'term=NONE' 'guifg=#f0eaaa' 'ctermfg=229' s:bold_attr
 hi Label term=NONE guifg=#a8d2eb ctermfg=153
 hi LineNr term=NONE guifg=#788898 ctermfg=102 guibg=#3a4b5c ctermbg=235
-exe 'hi' 'MatchParen' 'term=NONE' 'guifg='.s:bg_gui 'ctermfg=233' 'guibg=#a9667a' 'ctermbg=132' 'gui=underline cterm=underline'
+exe 'hi' 'MatchParen' 'term=NONE' 'guifg='.s:bg_gui 'ctermfg=233' 'guibg=#a9667a' 'ctermbg=132' s:bold_attr
 hi ModeMsg term=NONE guifg=#fedf81 ctermfg=222
 hi MoreMsg term=NONE guifg=#a9dd9d ctermfg=150
 hi NonText term=NONE guifg=#646f7c ctermfg=60
@@ -98,10 +99,26 @@ hi Search term=NONE guifg=NONE ctermfg=NONE guibg=#605779 ctermbg=60 gui=underli
 hi SignColumn term=NONE guibg=#3a4b5c ctermbg=235
 exe 'hi' 'Special' 'term=NONE' 'guifg=#f0eaaa' 'ctermfg=229' s:bold_attr
 hi SpecialKey term=NONE guifg=#607080 ctermfg=60
-exe 'hi' 'SpellBad' 'term=NONE' 'guifg=#fd8489' 'ctermfg=210' 'guisp=#fd8489' s:undercurl_attr
-exe 'hi' 'SpellCap' 'term=NONE' 'guifg=#e7d5ff' 'ctermfg=189' 'guisp=#e7d5ff' s:undercurl_attr
-exe 'hi' 'SpellLocal' 'term=NONE' 'guifg=#fd8489' 'ctermfg=210' 'guisp=#fd8489' s:undercurl_attr
-exe 'hi' 'SpellRare' 'term=NONE' 'guifg=#f0eaaa' 'ctermfg=229' 'guisp=#f0eaaa' s:undercurl_attr
+if s:gui_running
+    exe 'hi' 'SpellBad' 'term=NONE' 'guifg=#fd8489' 'ctermfg=210' 'guisp=#fd8489' s:undercurl_attr
+else
+    exe 'hi' 'SpellBad' 'term=NONE' 'guifg=#fd8489' 'ctermfg=210' 'guibg=NONE' 'ctermbg=NONE' 'guisp=#fd8489' s:undercurl_attr
+endif
+if s:gui_running
+    exe 'hi' 'SpellCap' 'term=NONE' 'guifg=#e7d5ff' 'ctermfg=189' 'guisp=#e7d5ff' s:undercurl_attr
+else
+    exe 'hi' 'SpellCap' 'term=NONE' 'guifg=#e7d5ff' 'ctermfg=189' 'guibg=NONE' 'ctermbg=NONE' 'guisp=#e7d5ff' s:undercurl_attr
+endif
+if s:gui_running
+    exe 'hi' 'SpellLocal' 'term=NONE' 'guifg=#fd8489' 'ctermfg=210' 'guisp=#fd8489' s:undercurl_attr
+else
+    exe 'hi' 'SpellLocal' 'term=NONE' 'guifg=#fd8489' 'ctermfg=210' 'guibg=NONE' 'ctermbg=NONE' 'guisp=#fd8489' s:undercurl_attr
+endif
+if s:gui_running
+    exe 'hi' 'SpellRare' 'term=NONE' 'guifg=#f0eaaa' 'ctermfg=229' 'guisp=#f0eaaa' s:undercurl_attr
+else
+    exe 'hi' 'SpellRare' 'term=NONE' 'guifg=#f0eaaa' 'ctermfg=229' 'guibg=NONE' 'ctermbg=NONE' 'guisp=#f0eaaa' s:undercurl_attr
+endif
 hi Statement term=NONE guifg=#a8d2eb ctermfg=153
 exe 'hi' 'StatusLine' 'term=NONE' 'guifg=#fffeeb' 'ctermfg='.s:fg_cterm 'guibg=#536273' 'ctermbg=238' s:bold_attr
 hi StatusLineNC term=NONE guifg=#8d9eb2 ctermfg=103 guibg=#3a4b5c ctermbg=235 gui=NONE cterm=NONE
@@ -134,7 +151,7 @@ hi diffFile term=NONE guifg=#f0eaaa ctermfg=229
 hi diffIndexLine term=NONE guifg=#fedf81 ctermfg=222
 hi diffNewFile term=NONE guifg=#f0eaaa ctermfg=229
 hi diffRemoved term=NONE guifg=#fd8489 ctermfg=210
-hi gitCommitOverflow term=NONE guibg=#fd8489 ctermbg=210
+hi gitCommitOverflow term=NONE guibg=#ab6560 ctermbg=167
 hi gitCommitSummary term=NONE guifg=#f0eaaa ctermfg=229
 hi gitCommitSelectedFile term=NONE guifg=#a8d2eb ctermfg=153
 exe 'hi' 'gitconfigSection' 'term=NONE' 'guifg=#a8d2eb' 'ctermfg=153' s:bold_attr
@@ -177,11 +194,22 @@ hi wastUnnamedVar term=NONE guifg=#e7d5ff ctermfg=189
 hi zshDelimiter term=NONE guifg=#a8d2eb ctermfg=153
 hi zshPrecommand term=NONE guifg=#fd8489 ctermfg=210
 hi ghaworkflowAttrName term=NONE guifg=#f0eaaa ctermfg=229
+exe 'hi' 'debugPC' 'term=NONE' 'guifg='.s:bg_gui 'ctermfg=233' 'guibg=#a8d2eb' 'ctermbg=153'
+exe 'hi' 'debugBreakPoint' 'term=NONE' 'guifg='.s:bg_gui 'ctermfg=233' 'guibg=#fedf81' 'ctermbg=222'
 exe 'hi' 'ALEWarningSign' 'term=NONE' 'guifg=#f0aa8a' 'ctermfg=216' 'guibg=#3a4b5c' 'ctermbg=235' s:bold_attr
 exe 'hi' 'ALEErrorSign' 'term=NONE' 'guifg=#3a4b5c' 'ctermfg=235' 'guibg=#ab6560' 'ctermbg=167' s:bold_attr
 hi ALEInfoSign term=NONE guibg=#646f7c ctermbg=60
 hi ALEError term=NONE guibg=#ab6560 ctermbg=167
 exe 'hi' 'ALEWarning' 'term=NONE' 'guibg='.s:darkgold_gui 'ctermbg=58'
+hi Flake8_Error term=NONE guifg=#fd8489 ctermfg=210 guibg=#3a4b5c ctermbg=235
+hi Flake8_Warning term=NONE guifg=#f0eaaa ctermfg=229 guibg=#3a4b5c ctermbg=235
+hi Flake8_PyFlake term=NONE guifg=#a8d2eb ctermfg=153 guibg=#3a4b5c ctermbg=235
+hi Flake8_Complexity term=NONE guifg=#a8d2eb ctermfg=153 guibg=#3a4b5c ctermbg=235
+hi Flake8_Naming term=NONE guifg=#a8d2eb ctermfg=153 guibg=#3a4b5c ctermbg=235
+hi SignifySignAdd term=NONE guifg=#a9dd9d ctermfg=150 guibg=#3a4b5c ctermbg=235
+hi SignifySignChange term=NONE guifg=#f0eaaa ctermfg=229 guibg=#3a4b5c ctermbg=235
+hi SignifySignChangeDelete term=NONE guifg=#fedf81 ctermfg=222 guibg=#3a4b5c ctermbg=235
+hi SignifySignDelete term=NONE guifg=#fd8489 ctermfg=210 guibg=#3a4b5c ctermbg=235
 exe 'hi' 'CleverFChar' 'term=NONE' 'guifg='.s:bg_gui 'ctermfg=233' 'guibg=#fd8489' 'ctermbg=210'
 exe 'hi' 'DirvishArg' 'term=NONE' 'guifg=#f0eaaa' 'ctermfg=229' s:bold_attr
 exe 'hi' 'EasyMotionTarget' 'term=NONE' 'guifg=#fd8489' 'ctermfg=210' s:bold_attr
@@ -196,6 +224,8 @@ if s:gui_running
 else
     hi EasyMotionIncCursor term=NONE gui=reverse cterm=reverse
 endif
+hi plugDeleted term=NONE guifg=#8d9eb2 ctermfg=103
+hi ConflictMarker term=NONE guibg=#ab6560 ctermbg=167
 
 if g:spring_night_highlight_terminal
     if has('nvim')
@@ -234,6 +264,8 @@ if g:spring_night_highlight_terminal
             let g:terminal_color_14 = 153
             let g:terminal_color_15 = 231
         endif
+        let g:terminal_color_background = g:terminal_color_0
+        let g:terminal_color_foreground = g:terminal_color_7
     elseif (s:gui_running || s:true_colors) && exists('*term_setansicolors')
         let g:terminal_ansi_colors = ['#132132', '#ff6a6f', '#a9dd9d', '#fedf81', '#7098e6', '#605779', '#a8d2eb', '#fffeeb', '#8d9eb2', '#fd8489', '#c9fd88', '#f0eaaa', '#98b8e6', '#e7d5ff', '#a8d2eb', '#ffffff']
     endif

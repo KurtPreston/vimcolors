@@ -52,3 +52,4 @@ hi diffRemoved    guifg=#e5786d gui=none
 hi diffAdded      guifg=#95e454 gui=none
 hi diffLine       guifg=#8ac6f2 gui=bold
 hi diffSubname    guifg=#8ac6f2 gui=none
+hi pythonInclude  guifg=#8ac6f2 gui=none

@@ -5,6 +5,8 @@
 
 scriptencoding utf-8
 
+set background=dark
+
 if v:version > 580
   hi clear
   if exists('syntax_on')
@@ -38,7 +40,7 @@ let s:bright_cyan    = ['#53FDE9', 14]
 let s:bright_white   = ['#FCE8C3', 15]
 
 " xterm colors.
-let s:orange        = ['#D75F00', 166]
+let s:orange        = ['#FF5F00', 202]
 let s:bright_orange = ['#FF8700', 208]
 let s:hard_black    = ['#121212', 233]
 let s:xgray1        = ['#262626', 235]
@@ -197,6 +199,35 @@ call s:HL('SrceryXgray4', s:xgray4)
 call s:HL('SrceryXgray5', s:xgray5)
 
 " }}}
+" Setup Terminal Colors For Neovim: {{{
+
+if has('nvim')
+  let g:terminal_color_0 = s:black[0]
+  let g:terminal_color_8 = s:bright_black[0]
+
+  let g:terminal_color_1 = s:red[0]
+  let g:terminal_color_9 = s:bright_red[0]
+
+  let g:terminal_color_2 = s:green[0]
+  let g:terminal_color_10 = s:bright_green[0]
+
+  let g:terminal_color_3 = s:yellow[0]
+  let g:terminal_color_11 = s:bright_yellow[0]
+
+  let g:terminal_color_4 = s:blue[0]
+  let g:terminal_color_12 = s:bright_blue[0]
+
+  let g:terminal_color_5 = s:magenta[0]
+  let g:terminal_color_13 = s:bright_magenta[0]
+
+  let g:terminal_color_6 = s:cyan[0]
+  let g:terminal_color_14 = s:bright_cyan[0]
+
+  let g:terminal_color_7 = s:white[0]
+  let g:terminal_color_15 = s:bright_white[0]
+endif
+
+" }}}
 
 " Vanilla colorscheme ---------------------------------------------------------
 " General UI: {{{
@@ -254,8 +285,8 @@ if v:version >= 703
 
 endif
 
-hi! link NonText SrceryWhiteAlt
-hi! link SpecialKey SrceryWhiteAlt
+hi! link NonText SrceryXgray3
+hi! link SpecialKey SrceryXgray3
 
 if g:srcery_inverse == 1
   call s:HL('Visual', s:none, s:none, s:inverse)
@@ -496,13 +527,13 @@ hi! link SneakStreakStatusLine Search
 if !exists('g:rbpt_colorpairs')
   let g:rbpt_colorpairs =
     \ [
-      \ ['blue',  '#2C78BF'], ['166',  '#D75F00'],
+      \ ['blue',  '#2C78BF'], ['202',  '#FF5F00'],
       \ ['red',  '#EF2F27'], ['magenta', '#E02C6D']
     \ ]
 endif
 
 let g:rainbow_guifgs = [ '#E02C6D', '#EF2F27', '#D75F00', '#2C78BF']
-let g:rainbow_ctermfgs = [ 'magenta', 'red', '166', 'blue' ]
+let g:rainbow_ctermfgs = [ 'magenta', 'red', '202', 'blue' ]
 
 if !exists('g:rainbow_conf')
   let g:rainbow_conf = {}

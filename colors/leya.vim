@@ -147,6 +147,8 @@ hi link jsThis Special
 hi link jsGlobalObjects Special
 hi link jsGlobalNodeObjects Special
 hi link jsImport Special
+hi link jsTaggedTemplate Normal
+hi jsTemplateString ctermfg=28 ctermbg=NONE cterm=NONE
 
 " CSS
 hi link cssClassName Normal
@@ -204,6 +206,8 @@ hi markdownH2 cterm=bold
 hi markdownH3 cterm=bold
 hi markdownItalic cterm=italic
 hi markdownBold cterm=bold
+hi link markdownCode PreProc
+hi link markdownCodeDelimiter PreProc
 
 " Jinja
 hi link JinjaTagBlock Normal

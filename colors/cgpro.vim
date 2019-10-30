@@ -19,6 +19,7 @@ hi Comment         guifg=#30b6b6 gui=italic
 hi Conditional     guifg=#ffff7f
 hi Constant        guifg=#c94242 gui=bold
 hi Cursor          guifg=#ffffff guibg=#8faf9f gui=bold
+hi CursorLine      guibg=#40403f
 hi Debug           guifg=#c94242 gui=bold
 hi ErrorMsg        guifg=#80d4aa guibg=#2f2f2f gui=bold
 hi Exception       guifg=#c94242

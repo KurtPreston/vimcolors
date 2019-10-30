@@ -43,12 +43,12 @@ hi Cursor       guifg=#000000 guibg=#EAE3D9
 hi CursorLine   guibg=#2D2720
 hi ColorColumn  guibg=#2D2720
 hi Search       guifg=#FFC66D guibg=#072f95 gui=bold
-hi Visual       guibg=#004568 ctermbg=60
-hi LineNr       guifg=#707070 guibg=#2d2d2d ctermfg=242
+hi Visual       guibg=#003f72 gui=NONE
+hi LineNr       guifg=#707070 guibg=#2d2d2d
 hi StatusLine   guifg=#E4E4E4 guibg=#606060 gui=NONE ctermfg=254 ctermbg=241 cterm=NONE
 hi StatusLineNC guifg=#585858 guibg=#303030 gui=NONE ctermfg=240 ctermbg=236 cterm=NONE
 hi VertSplit    guibg=#212121 gui=bold guifg=#444444 ctermfg=white ctermbg=234
-hi CursorLineNr guifg=#D7B0FC guibg=#2d2d2d ctermfg=248
+hi CursorLineNr guifg=#D7B0FC guibg=#2d2d2d gui=bold
 hi SignColumn   guibg=#2D2D2D
 hi User1        guifg=#EEEEEE guibg=#606060 gui=bold
 hi User2        guifg=#FFAF00 guibg=#606060 gui=bold
@@ -68,7 +68,7 @@ hi Constant    guifg=#0095CB guibg=NONE gui=NONE
 hi Define      guifg=#FFA78D guibg=NONE gui=NONE
 hi Delimiter   guifg=#519F50 guibg=NONE gui=NONE
 hi Directory   guifg=#A5C261 gui=NONE
-hi Error       guifg=#EAE3D9 guibg=#990000 ctermfg=221 ctermbg=88
+hi Error       guifg=NONE guibg=#662121 gui=NONE
 hi Folded      guifg=#F6F3E8 guibg=#444444 gui=NONE
 hi Function    guifg=#FFC66D gui=NONE guibg=NONE ctermfg=221 cterm=NONE
 hi Identifier  guifg=#D7B0FC guibg=NONE ctermfg=73 cterm=NONE
@@ -76,9 +76,9 @@ hi Include     guifg=#F47454 guibg=NONE ctermfg=173 cterm=NONE
 hi Keyword     guifg=#FFA78D ctermfg=172 cterm=NONE
 hi Label       guifg=#6D9CBE gui=bold
 hi Macro       guifg=#F47454 guibg=NONE ctermfg=172
-hi NonText     guifg=#777777 gui=NONE
-hi Number      guifg=#bde04c ctermfg=107
-hi Operator    guifg=#FFC66D guibg=NONE ctermfg=73
+hi NonText     guifg=#777777 gui=bold,italic
+hi Number      guifg=#bde04c guibg=NONE
+hi Operator    guifg=#FFC66D guibg=NONE
 hi Pmenu       guifg=#F6F3E8 guibg=#444444 gui=NONE
 hi PmenuSbar   guibg=#5A647E gui=NONE
 hi PmenuSel    guifg=#000000 guibg=#A5C261 gui=NONE
@@ -87,7 +87,7 @@ hi PreCondit   guifg=#F47454 guibg=NONE
 hi PreProc     guifg=#F47454 guibg=NONE
 hi PreProc     guifg=#FFA78D guibg=NONE
 hi Special     guifg=#FFA78D guibg=NONE
-hi SpecialKey  guifg=#777777 gui=NONE
+hi SpecialKey  guifg=#777777 guibg=NONE gui=NONE
 hi Statement   guifg=#F47454 guibg=NONE
 hi String      guifg=#74D155 guibg=NONE
 hi Tag         guifg=#F47454 guibg=NONE
@@ -101,34 +101,45 @@ hi IndentGuidesOdd  ctermbg=239 guibg=#282828
 hi IndentGuidesEven ctermbg=237 guibg=#332717
 
 " Diffs
-hi DiffAdd           guifg=#E4E4E4 guibg=#519F50 ctermfg=254 ctermbg=22
-hi DiffChange        guifg=#EAE3D9 guibg=#870087 ctermfg=15 ctermbg=90
-hi DiffDelete        guifg=#E4E4E4 guibg=#660000 gui=bold ctermfg=16 ctermbg=52 cterm=bold
-hi DiffText          guifg=#FFC66D guibg=#FF0000 gui=bold ctermfg=15 ctermbg=9 cterm=bold
+hi DiffAdd           guifg=#E4E4E4 guibg=#519F50
+hi DiffChange        guifg=#EAE3D9 guibg=#870087
+hi DiffDelete        guifg=#E4E4E4 guibg=#660000 gui=bold
+hi DiffText          guifg=#FFC66D guibg=#FF0000 gui=bold
 hi SignifySignAdd    guifg=#008700 guibg=#2d2d2d gui=NONE
 hi SignifySignChange guifg=#C643C6 guibg=#2d2d2d gui=NONE
 hi SignifySignDelete guifg=#FF5D4F guibg=#2d2d2d gui=NONE
-hi diffAdded         guifg=#008700 ctermfg=28
-hi diffFile          guifg=#EAE3D9 guibg=NONE gui=bold ctermfg=15 ctermbg=NONE cterm=bold
-hi diffNewFile       guifg=#EAE3D9 guibg=NONE gui=bold ctermfg=15 ctermbg=NONE cterm=bold
-hi diffRemoved       guifg=#800000 ctermfg=1
+hi diffAdded         guifg=#519F50 gui=bold
+hi diffFile          guifg=#EAE3D9 guibg=NONE gui=bold
+hi diffNewFile       guifg=#EAE3D9 guibg=NONE gui=bold
+hi diffRemoved       guifg=#F47454 gui=italic
 
 " Ruby https://github.com/vim-ruby/vim-ruby
-hi rspecMatchers             guifg=#FFC66D gui=bold
-hi rubyBlockParameter        guifg=#D7B0FC
-hi rubyClass                 guifg=#F47454 gui=bold
-hi rubyConstant              guifg=#FC623B
-hi rubyDefine                guifg=#F47454 gui=bold
-hi rubyGemfileMethod         guifg=#F47454 gui=bold
-hi rubyInstanceVariable      guifg=#D7B0FC
-hi rubyInterpolation         guifg=#D7B0FC
-hi rubyLocalVariableOrMethod guifg=#D7B0FC
-hi rubyMethodName            guifg=#FFC66D gui=bold
-hi rubyPredefinedConstant    guifg=#F47454
-hi rubyPseudoVariable        guifg=#DD75C9 gui=italic,bold
-hi rubyStringDelimiter       guifg=#87AF5F
-hi rubySymbol                guifg=#6D9CBE gui=bold
-
+hi rspecMatchers             guifg=#FFC66D guibg=NONE
+hi rubyBlockParameter        guifg=#D7B0FC guibg=NONE
+hi rubyClass                 guifg=#F47454 guibg=NONE gui=bold
+hi rubyConstant              guifg=#FC623B guibg=NONE gui=bold
+hi rubyMethodName            guifg=#FFC66D guibg=NONE gui=bold
+hi rubyPredefinedConstant    guifg=#F47454 guibg=NONE
+hi rubyPseudoVariable        guifg=#DD75C9 guibg=NONE gui=italic,bold
+hi rubyStringDelimiter       guifg=#87AF5F guibg=NONE
+hi rubyHeredocDelimiter      guifg=#519F50 guibg=NONE gui=italic,bold
+hi rubySymbol                guifg=#6D9CBE guibg=NONE gui=bold
+hi rubyCurlyBlockDelimiter   guifg=#D38E39 guibg=NONE gui=bold
+hi rubyInterpolation         guifg=#f9f3d6 guibg=NONE guibg=#2d2d2d
+hi link rubyArrayDelimiter   rubyCurlyBlockDelimiter
+hi link rubyBracketOperator  rubyCurlyBlockDelimiter
+hi link rubyLambdaOperator   rubyCurlyBlockDelimiter
+hi link rubyPercentSymbolDelimiter  rubyCurlyBlockDelimiter
+hi link rubyPercentStringDelimiter  rubyCurlyBlockDelimiter
+hi link rubyPercentRegexpDelimiter  rubyCurlyBlockDelimiter
+hi link rubySuperClassOperator      rubyMethodName
+hi link rubyProcOperator            rubyMethodName
+hi link rubyDotOperator             rspecMatchers
+hi link rubyBlockParameterList      rubyBlockParameter
+hi link rubyInstanceVariable        rubyBlockParameter
+hi link rubyLocalVariableOrMethod   rubyBlockParameter
+hi link rubyDefine                  rubyClass
+hi link rubyGemfileMethod           rubyClass
 " Javascript https://github.com/pangloss/vim-javascript
 hi jsArrowFunction       guifg=#FFA78D gui=bold
 hi jsBrackets            guifg=#D38E39 gui=bold
@@ -150,10 +161,14 @@ hi jsObjectSeparator     guifg=#F47454 gui=bold
 hi jsOperatorKeyword     guifg=#FFAAE7 gui=italic
 hi jsParens              guifg=#D38E39 gui=bold
 hi jsStorageClass        guifg=#FFAAE7 gui=italic
-hi jsTemplateBraces      guifg=#D38E39 gui=bold
+hi jsTemplateBraces      guifg=#519F50 gui=bold
 hi jsThis                guifg=#d7b0fc gui=bold,italic
 hi link jsGlobalObjects  Type
 hi link jsObjectProp     Type
+hi link javaScriptNumber Number
+hi link javaScriptFunction jsFunction
+hi link javaScriptBraces jsBrackets
+hi link javaScriptParens jsBrackets
 
 " Typescript https://github.com/HerringtonDarkholme/yats.vim
 hi typescriptAccessibilityModifier guifg=#FFAAE7 gui=italic
@@ -197,7 +212,7 @@ hi elixirMapDelimiter      guifg=#D38E39 gui=bold
 hi elixirModuleDefine      guifg=#F47454 gui=bold
 hi elixirOperator          guifg=#FFC66D gui=bold
 hi elixirPrivateDefine     guifg=#F47454 gui=bold,italic
-hi elixirPseudoVariable    guifg=#00A1EC gui=bold
+hi elixirPseudoVariable    guifg=#e2ae5f gui=bold
 hi elixirStructDelimiter   guifg=#D38E39 gui=bold
 hi elixirTuple             guifg=#D38E39 gui=bold
 hi elixirTupleDelimiter    guifg=#D38E39 gui=bold
@@ -211,9 +226,11 @@ hi cssIdentifier     guifg=#47A3E5 gui=italic
 hi cssImportant      guifg=#47A3E5 gui=italic
 hi cssIncludeKeyword guifg=#D7B0FC gui=bold,italic
 hi cssNoise          guifg=#D38E39 gui=bold
+hi scssSemicolon     guifg=#D38E39 gui=bold
 hi cssProp           guifg=#6D9CBE gui=bold
 hi cssVendor         guifg=#6D9CBE gui=bold,italic
 hi scssSelectorName  guifg=#FFAAE7 gui=italic
+hi cssAttributeSelector guifg=#FFC66D gui=italic
 
 " JSON
 hi jsonBoolean       guifg=#47A3E5 gui=italic
@@ -256,12 +273,23 @@ hi hbsPencilName    guifg=#D38E39 gui=bold
 hi link erubyDelimiter hbsHandles
 hi link eelixirDelimiter hbsHandles
 
-hi ALEErrorSign        guibg=#202020 guifg=#F47454 gui=NONE
-hi ALEInfoSign         guibg=#202020 guifg=#0095CB gui=NONE
-hi ALEStyleErrorSign   guibg=#202020 guifg=#F47454 gui=NONE
-hi ALEStyleWarningSign guibg=#202020 guifg=#FFC66D gui=NONE
-hi ALEWarningSign      guibg=#202020 guifg=#FFC66D gui=NONE
+hi ALEErrorSign        guibg=#2d2d2d guifg=#F47454 gui=NONE
+hi ALEInfoSign         guibg=#2d2d2d guifg=#0095CB gui=NONE
+hi ALEStyleErrorSign   guibg=#2d2d2d guifg=#F47454 gui=NONE
+hi ALEStyleWarningSign guibg=#2d2d2d guifg=#FFC66D gui=NONE
+hi ALEWarningSign      guibg=#2d2d2d guifg=#FFC66D gui=NONE
+hi ALEWarningSignLineNr  gui=NONE
+hi ALEErrorSignLineNr  gui=NONE
+hi ALEInfoSignLineNr  gui=NONE
+hi ALEStyleWarningSignLineNr  gui=NONE
+hi ALEStyleErrorSignLineNr  gui=NONE
+
 hi BookmarkSign        guibg=#202020 guifg=#FFC66D gui=NONE
 hi checkbox            guifg=#3A3A3A guibg=NONE gui=NONE
 hi checkboxDone        guifg=#15D300 guibg=NONE gui=BOLD
 hi checkboxNotDone     guifg=#005FDF guibg=NONE gui=BOLD
+
+" Specific to PMV.vim
+hi PMVname        guifg=#79AFD7 guibg=NONE gui=bold,italic
+hi PMVstring      guifg=#74D155 guibg=NONE gui=bold
+hi PMVvalueNumber guifg=#FFC66D guibg=NONE gui=italic

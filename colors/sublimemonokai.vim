@@ -142,7 +142,7 @@ hi! link Directory SublimeAqua
 call s:h('ErrorMsg',     { 'fg': s:black,       'bg': s:red,      'format': 'standout'     })
 hi! link FoldColumn SublimeDarkBlack
 call s:h('Folded',       { 'fg': s:warmgrey,    'bg': s:darkblack                          })
-call s:h('Incsearch',    {                                                                 })
+call s:h('IncSearch',    { 'format': 'reverse,underline'                                   })
 call s:h('LineNr',       { 'fg': s:grey,        'bg': s:lightblack                         })
 call s:h('MatchParen',   { 'format': 'underline'                                           })
 hi! link ModeMsg SublimeYellow
@@ -450,10 +450,12 @@ hi! link htmlTagName        Keyword
 " Java
 
 "   Common groups
+hi! link javaAnnotation       SublimeAqua
 hi! link javaAssert           SublimeFunctionCall
 hi! link javaClassDecl        SublimeType
 hi! link javaConditional      Keyword
 hi! link javaExceptions       Keyword
+hi! link javaExternal         Keyword
 hi! link javaRepeat           Keyword
 hi! link javaSpecialChar      Special
 hi! link javaStatement        Keyword

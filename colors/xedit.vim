@@ -21,7 +21,7 @@ hi Type				guifg=fg
 hi Special	gui=bold	guifg=RoyalBlue2
 hi Directory			guifg=RoyalBlue4
 hi NonText			guifg=fg
-hi LineNr	gui=italic	guifg=gray
+hi LineNr			guifg=gray
 hi Pmenu						guibg=LightYellow
 hi PmenuSel						guibg=LightGoldenrod1
 hi Todo				guifg=fg		guibg=PaleGreen

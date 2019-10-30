@@ -2,11 +2,11 @@
 " File: deus.vim
 " Description: a retro-modern colorscheme in Vim
 " Author: ajmwagar
-" Source: https://github.com/ajmwagar/deus
-" Last Modified: 14 Nov 2017
+" Source: https://github.com/ajmwagar/vim-deus
+" Last Modified: 21 June 2019
 " -----------------------------------------------------------------------------
 
-" Supporting code -------------------------------------------------------------
+" Setup Colors/Palette {{{
 " Initialisation: {{{
 
 if version > 580
@@ -208,7 +208,6 @@ let s:ds.aqua   = s:aqua
 let s:ds.orange = s:orange
 
 " }}}
-
 " Overload Setting: {{{
 
 let s:hls_cursor = s:orange
@@ -363,8 +362,8 @@ call s:HL('deusPurpleSign', s:purple, s:sign_column, s:invert_signs)
 call s:HL('deusAquaSign', s:aqua, s:sign_column, s:invert_signs)
 
 " }}}
-
-" Vanilla colorscheme ---------------------------------------------------------
+" }}}
+" Vanilla colorscheme {{{
 " General UI: {{{
 
 " Normal text
@@ -410,6 +409,7 @@ endif
 
 " Weird black color breaks 
 hi! link NonText deusGreen 
+hi! link Ignore deusPurple 
 hi! link SpecialKey deusOrange
 
 call s:HL('Visual',    s:none,  s:bg3, s:invert_selection)
@@ -588,8 +588,8 @@ if has("spell")
 endif
 
 " }}}
-
-" Plugin specific -------------------------------------------------------------
+" }}}
+" Plugin specific {{{
 " Cocnvim: {{{
 " Symbols
 highlight link CocErrorSign deusRedSign
@@ -729,6 +729,24 @@ call s:HL('CtrlPMode2', s:bg0, s:blue, s:bold)
 call s:HL('CtrlPStats', s:fg4, s:bg2, s:bold)
 
 " }}}
+" FZF: {{{
+let g:fzf_colors =
+      \ {
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
+
+call s:HL('NormalFloat', s:fg1, s:bg2)
+"
+" }}}
 " Startify: {{{
 
 hi! link StartifyBracket deusFg3
@@ -759,9 +777,12 @@ call s:HL('BufTabLineActive', s:fg4, s:bg2)
 call s:HL('BufTabLineHidden', s:fg1, s:bg2)
 call s:HL('BufTabLineFill', s:bg0, s:bg2)
 
-" }}}
+hi StatusLine ctermbg=10 ctermfg=10 cterm=bold guibg=NONE guifg=NONE gui=NONE
+hi StatusLineNC ctermbg=10 ctermfg=10 cterm=NONE guibg=NONE guifg=NONE gui=NONE
 
-" Filetype specific -----------------------------------------------------------
+" }}}
+" }}}
+" Language syntax {{{
 " Diff: {{{
 
 hi! link diffAdded deusGreen
@@ -873,7 +894,6 @@ hi! link cOperator deusPurple
 hi! link cStructure deusOrange
 
 " }}}
-
 " C++ {{{
 
 hi! link  NamespaceTag deusPurpleBold
@@ -899,7 +919,6 @@ hi! link  UsingDeclarationTag deusOrange
 
 
 " }}}
-
 " Python: {{{
 
 hi! link pythonBuiltin deusOrange
@@ -1184,9 +1203,8 @@ hi! link jsonBraces deusFg1
 hi! link jsonString deusFg1
 
 " }}}
-
-
-" Functions -------------------------------------------------------------------
+" }}}
+" Utility Functions {{{
 " Search Highlighting Cursor {{{
 
 function! DeusHlsShowCursor()
@@ -1198,7 +1216,6 @@ function! DeusHlsHideCursor()
 endfunction
 
 " }}}
-
-
+" }}}
 
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker:

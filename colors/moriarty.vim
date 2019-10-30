@@ -4,6 +4,8 @@
 "          "      | |  | | (_) | |  | | (_| | |  | |_| |_| |      "
 "          "      |_|  |_|\___/|_|  |_|\__,_|_|   \__|\__, |      "
 "          "                                          |___/       "
+"          "                                                      "
+"          "                                               v0.1.0 "
 "
 "   I've given you a glimpse, Sherlock. Just a tinsy glimspe of what I've got
 "   going on out there in the big bad world. I'm a specialist you see, like you.
@@ -13,18 +15,18 @@
 " Supporting code -------------------------------------------------------------
 " Preamble {{{
 
-if !has("gui_running") && &t_Co != 88 && &t_Co != 256
+if !has('gui_running') && &t_Co != 88 && &t_Co != 256
   finish
 endif
 
 set background=dark
 highlight clear
 
-if exists("syntax_on")
+if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = "moriarty"
+let g:colors_name = 'moriarty'
 
 " }}}
 " Palette {{{
@@ -73,10 +75,12 @@ let s:mc.dress          = ['ff9eb8', 211]
 let s:mc.jellygreen     = ['99ad6a', 150]
 
 " The diff colors from jellybeans.
-let s:mc.leaf           = ['437019', 77]
-let s:mc.fadedblue      = ['8fbfdc', 111]
-let s:mc.plainblue      = ['2b5b77', 69]
 let s:mc.hotred         = ['700009', 196]
+
+" Diff colors from hybrid.
+let s:mc.hybridgreen    = ['5F875F', 65]
+let s:mc.hybridblue     = ['5F5F87', 60]
+let s:mc.hybridred      = ['CC6666', 167]
 
 " Also based on that Clouds Midnight brown.
 let s:mc.coffee         = ['c7915b', 173]
@@ -87,38 +91,38 @@ let s:mc.darkroast      = ['88633f', 95]
 function! s:HL(group, fg, ...)
   " Arguments: group, guifg, guibg, gui, guisp
 
-  let histring = 'hi ' . a:group . ' '
+  let l:histring = 'hi ' . a:group . ' '
 
   if strlen(a:fg)
-    if a:fg == 'fg'
-      let histring .= 'guifg=fg ctermfg=fg '
+    if a:fg ==# 'fg'
+      let l:histring .= 'guifg=fg ctermfg=fg '
     else
-      let c = get(s:mc, a:fg)
-      let histring .= 'guifg=#' . c[0] . ' ctermfg=' . c[1] . ' '
+      let l:c = get(s:mc, a:fg)
+      let l:histring .= 'guifg=#' . l:c[0] . ' ctermfg=' . l:c[1] . ' '
     endif
   endif
 
   if a:0 >= 1 && strlen(a:1)
-    if a:1 == 'bg'
-      let histring .= 'guibg=bg ctermbg=bg '
+    if a:1 ==# 'bg'
+      let l:histring .= 'guibg=bg ctermbg=bg '
     else
-      let c = get(s:mc, a:1)
-      let histring .= 'guibg=#' . c[0] . ' ctermbg=' . c[1] . ' '
+      let l:c = get(s:mc, a:1)
+      let l:histring .= 'guibg=#' . l:c[0] . ' ctermbg=' . l:c[1] . ' '
     endif
   endif
 
   if a:0 >= 2 && strlen(a:2)
-    let histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
+    let l:histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
   endif
 
   if a:0 >= 3 && strlen(a:3)
-    let c = get(s:mc, a:3)
-    let histring .= 'guisp=#' . c[0] . ' '
+    let l:c = get(s:mc, a:3)
+    let l:histring .= 'guisp=#' . l:c[0] . ' '
   endif
 
-  " echom histring
+  " echom l:histring
 
-  execute histring
+  execute l:histring
 endfunction
 " }}}
 
@@ -154,8 +158,8 @@ call s:HL('IncSearch', 'black', 'dirtyblonde', 'bold')
 
 call s:HL('Underlined', 'fg', '', 'underline')
 
-call s:HL('StatusLine',   'black', 'tardis',     'bold')
-call s:HL('StatusLineNC', 'white', 'deepgravel', 'bold')
+call s:HL('StatusLine',   'black', 'tardis',     'none')
+call s:HL('StatusLineNC', 'white', 'deepgravel', 'none')
 
 call s:HL('Directory', 'tardis', '', 'bold')
 
@@ -194,9 +198,9 @@ call s:HL('SpecialComment', 'tardis', 'bg', 'bold')
 
 call s:HL('String', 'jellygreen')
 
-call s:HL('Statement',   'base0E', '', 'bold')
-call s:HL('Keyword',     'base0E', '', 'bold')
-call s:HL('Conditional', 'base0E', '', 'bold')
+call s:HL('Statement',   'base0E', '', 'none')
+call s:HL('Keyword',     'base0E', '', 'none')
+call s:HL('Conditional', 'base0E', '', 'none')
 call s:HL('Operator',    'base0E', '', 'none')
 call s:HL('Label',       'base0E', '', 'none')
 call s:HL('Repeat',      'base0E', '', 'none')
@@ -209,24 +213,24 @@ call s:HL('Macro',     'notquitered', '', 'none')
 call s:HL('Define',    'notquitered', '', 'none')
 call s:HL('PreCondit', 'notquitered', '', 'bold')
 
-call s:HL('Constant',  'lime', '', 'bold')
-call s:HL('Character', 'lime', '', 'bold')
-call s:HL('Boolean',   'lime', '', 'bold')
+call s:HL('Constant',  'lime', '', 'none')
+call s:HL('Character', 'lime', '', 'none')
+call s:HL('Boolean',   'lime', '', 'none')
 
-call s:HL('Number', 'tardis', '', 'bold')
-call s:HL('Float',  'tardis', '', 'bold')
+call s:HL('Number', 'tardis', '', 'none')
+call s:HL('Float',  'tardis', '', 'none')
 
-call s:HL('SpecialChar', 'dress', '', 'bold')
+call s:HL('SpecialChar', 'dress', '', 'none')
 
 call s:HL('Type',         'dress',       '', 'none')
 call s:HL('StorageClass', 'notquitered', '', 'none')
 call s:HL('Structure',    'notquitered', '', 'none')
-call s:HL('Typedef',      'notquitered', '', 'bold')
+call s:HL('Typedef',      'notquitered', '', 'none')
 
-call s:HL('Exception', 'lime', '', 'bold')
+call s:HL('Exception', 'lime', '', 'none')
 
-call s:HL('Error',  'white',   'notquitered', 'bold')
-call s:HL('Debug',  'white',   '',            'bold')
+call s:HL('Error',  'white',   'notquitered', 'none')
+call s:HL('Debug',  'white',   '',            'none')
 call s:HL('Ignore', 'gravel',  '',            '')
 
 " }}}
@@ -240,10 +244,10 @@ call s:HL('PmenuThumb', 'brightgravel')
 " }}}
 " Diffs {{{
 
-call s:HL('DiffAdd',    'plain', 'leaf')
-call s:HL('DiffDelete', 'black', 'hotred')
-call s:HL('DiffChange', '',      'plainblue')
-call s:HL('DiffText',   'black', 'fadedblue', 'bold')
+call s:HL('DiffAdd',    'plain', 'hybridgreen')
+call s:HL('DiffDelete', 'black', 'hybridred')
+call s:HL('DiffChange', 'plain', 'hybridblue')
+call s:HL('DiffText',   'black', 'hybridblue', 'bold')
 
 " }}}
 " Spelling {{{
@@ -290,6 +294,14 @@ call s:HL('CtrlPMode2', 'black', 'tardis', 'bold')
 call s:HL('CtrlPStats', 'black', 'tardis', 'bold')
 
 " }}}
+
+" GitGutter {{{
+call s:HL('GitGutterAdd', 'hybridgreen')
+call s:HL('GitGutterDelete', 'hybridred')
+call s:HL('GitGutterChange', 'hybridblue')
+call s:HL('GitGutterChangeDelete', 'hybridblue')
+" }}}
+
 
 " }}}
 " Filetype-specific {{{
@@ -350,3 +362,5 @@ call s:HL('VimBracket', 'dress', '', 'none')
 " }}}
 
 " }}}
+
+" vim:foldmethod=marker

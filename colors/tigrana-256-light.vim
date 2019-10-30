@@ -2,18 +2,17 @@
 "  Author: Joseph Carter
 "     URL: https://gitlab.com/iKarith/tigrana
 " Created: 2017
-" Version: 0.4
+" Version: 0.6
 "
 " Based on https://github.com/baskerville/bubblegum
 
 hi clear
 
 if exists("syntax_on")
-    syntax reset
+  syntax reset
 endif
 
 let g:colors_name="tigrana-256-light"
-
 
 " Main
 hi Normal ctermfg=235 ctermbg=253 cterm=none guifg=#626262 guibg=#DADADA gui=none
@@ -21,45 +20,45 @@ hi Comment ctermfg=246 cterm=none guifg=#949494 gui=none
 
 " Constant
 hi Constant ctermfg=130 cterm=none guifg=#AF5F00 gui=none
-hi String ctermfg=136 cterm=none guifg=#AF8700 gui=none
-hi Character ctermfg=136 cterm=none guifg=#AF8700 gui=none
+hi link String Constant
+hi link Character Constant
+hi link Boolean Constant
 hi Number ctermfg=131 cterm=none guifg=#AF5F5F gui=none
-hi Boolean ctermfg=136 cterm=none guifg=#AF8700 gui=none
-hi Float ctermfg=131 cterm=none guifg=#AF5F5F gui=none
+hi link Float Number
 
 " Variable Name
 hi Identifier ctermfg=133 cterm=none guifg=#AF5FAF gui=none
-hi Function ctermfg=133 cterm=none guifg=#AF5FAF gui=none
+hi link Function Identifier
 
 " Statement
 hi Statement ctermfg=32 cterm=none guifg=#0087D7 gui=none
-hi Conditional ctermfg=32 cterm=none guifg=#0087D7 gui=none
-hi Repeat ctermfg=32 cterm=none guifg=#0087D7 gui=none
-hi Label ctermfg=32 cterm=none guifg=#0087D7 gui=none
-hi Operator ctermfg=32 cterm=none guifg=#0087D7 gui=none
-hi Keyword ctermfg=32 cterm=none guifg=#0087D7 gui=none
-hi Exception ctermfg=32 cterm=none guifg=#0087D7 gui=none
+hi link Conditional Statement
+hi link Repeat Statement
+hi link Label Statement
+hi link Operator Statement
+hi link Keyword Statement
+hi link Exception Statement
 
 " Preprocessor
 hi PreProc ctermfg=28 cterm=none guifg=#008700 gui=none
-hi Include ctermfg=28 cterm=none guifg=#008700 gui=none
-hi Define ctermfg=28 cterm=none guifg=#008700 gui=none
-hi Macro ctermfg=28 cterm=none guifg=#008700 gui=none
-hi PreCondit ctermfg=28 cterm=none guifg=#008700 gui=none
+hi link Include PreProc
+hi link Define PreProc
+hi link Macro PreProc
+hi link PreCondit PreProc
 
 " Type
 hi Type ctermfg=61 cterm=none guifg=#5F5FAF gui=none
-hi StorageClass ctermfg=61 cterm=none guifg=#5F5FAF gui=none
-hi Structure ctermfg=61 cterm=none guifg=#5F5FAF gui=none
-hi Typedef ctermfg=61 cterm=none guifg=#5F5FAF gui=none
+hi link StorageClass Type
+hi link Structure Type
+hi link Typedef Type
 
 " Special
 hi Special ctermfg=167 cterm=none guifg=#D75F5F gui=none
-hi SpecialChar ctermfg=167 cterm=none guifg=#D75F5F gui=none
-hi Tag ctermfg=167 cterm=none guifg=#D75F5F gui=none
-hi Delimiter ctermfg=167 cterm=none guifg=#D75F5F gui=none
-hi SpecialComment ctermfg=167 cterm=none guifg=#D75F5F gui=none
-hi Debug ctermfg=167 cterm=none guifg=#D75F5F gui=none
+hi link SpecialChar Special
+hi link Tag Special
+hi link Delimiter Special
+hi link SpecialComment Special
+hi link Debug Special
 hi Underlined ctermfg=241 cterm=underline guifg=#626262 gui=underline
 hi Ignore ctermfg=231 cterm=none guifg=#FFFFFF gui=none
 hi Error ctermfg=231 ctermbg=160 cterm=none guifg=#FFFFFF guibg=#D70000 gui=none
