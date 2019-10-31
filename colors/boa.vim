@@ -74,7 +74,7 @@ hi IncSearch guifg=#518233 guibg=bg gui=inverse
 hi NonText guifg=#453f3b guibg=NONE gui=NONE
 hi! link LineNr NonText
 hi MatchParen   guifg=#cc752f guibg=NONE    gui=bold
-hi ModeMsg   guifg=#caa247 guibg=NONE    gui=bold
+hi ModeMsg   guifg=#26201c guibg=#7c7e1d gui=bold
 " MsgArea
 " MsgSeparator
 hi! link MoreMsg ModeMsg
@@ -168,7 +168,7 @@ hi! link HighlightedyankRegion CocHoverRange
 hi! link CocFloating NormalFloat
 hi! link CocOutlineName BoaLight1
 hi! link CocListPath StatusLineNC
-hi CocListMode  guifg=#8f9e44 guibg=#48382f gui=bold
+" hi CocListMode  guifg=#8f9e44 guibg=#48382f gui=bold
 hi CocErrorHighlight guifg=NONE guibg=NONE gui=undercurl guisp=#d33e2a
 hi CocWarningHighlight guifg=NONE guibg=NONE gui=undercurl guisp=#dac230
 hi CocInfoHighlight guifg=NONE guibg=NONE gui=undercurl guisp=#a0b82e
@@ -254,6 +254,7 @@ hi! link vimFuncSID BoaLight1
 hi! link vimSetSep BoaLight1
 hi! link vimSep BoaLight1
 hi! link vimContinue BoaLight1
+hi! link vimCommentString vimComment
 
 " }}}
 " C: {{{

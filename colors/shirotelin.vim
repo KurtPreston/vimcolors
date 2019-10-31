@@ -82,7 +82,7 @@ hi Cursor term=NONE cterm=NONE ctermfg=231 ctermbg=0 gui=NONE guifg=bg guibg=fg
 " hi lCursor
 " hi CursorIM
 hi clear CursorColumn
-hi CursorLine term=NONE cterm=NONE ctermbg=230 gui=NONE guibg=#FFFFD7
+hi CursorLine term=NONE cterm=NONE ctermbg=255 gui=NONE guibg=#EEEEEE
 hi Directory term=NONE cterm=NONE ctermfg=17 gui=NONE guifg=#00005f
 hi DiffAdd term=NONE cterm=NONE ctermbg=194 guibg=#C8FFC8
 hi DiffChange term=NONE cterm=NONE ctermbg=194 guibg=#C8FFC8
@@ -178,7 +178,14 @@ hi CocHighlightText term=NONE cterm=NONE ctermbg=255 gui=NONE guibg=#eeeeee
 hi CocFloating term=NONE cterm=NONE ctermbg=229 gui=NONE guibg=#ffffaf
 
 """"""""""""""""""""""
+" coc-flutter
+""""""""""""""""""""""
+
+hi FlutterClosingLabel term=NONE cterm=NONE ctermfg=146 gui=NONE guifg=#AFAFD7
+
+""""""""""""""""""""""
 " dart-vim-plugin
 """"""""""""""""""""""
 
 hi dartTypeName term=bold cterm=bold ctermfg=23 gui=bold guifg=#005f5f
+
