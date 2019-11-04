@@ -52,7 +52,7 @@ hi    CursorLineNR guifg=none    guibg=none    gui=none
 hi    CursorColumn guifg=none    guibg=#2c4e6c gui=none
 hi      FoldColumn guifg=#74a0c7 guibg=none    gui=none
 hi      SignColumn guifg=#74a0c7 guibg=none    gui=none
-hi          Folded guifg=none    guibg=#305575 gui=none
+hi          Folded guifg=none    guibg=none    gui=none
 
 " -------------------------
 " - Window/Tab delimiters - 
@@ -87,14 +87,14 @@ hi         MoreMsg guifg=none    guibg=none    gui=none
 hi      MatchParen guifg=none    guibg=none    gui=underline
 hi          Visual guifg=none    guibg=#25415a gui=none
 hi       VisualNOS guifg=none    guibg=#25415a gui=none
-hi         NonText guifg=#335b7e guibg=none    gui=none
+hi         NonText guifg=#2c4e6c guibg=none    gui=none
 hi            Todo guifg=#74a0c7 guibg=none    gui=underline
 hi      Underlined guifg=none    guibg=none    gui=underline
 hi           Error guifg=#335b7e guibg=#edabb8 gui=none
 hi        ErrorMsg guifg=#335b7e guibg=#edabb8 gui=none
 hi      WarningMsg guifg=#335b7e guibg=#ede0ab gui=none
 hi          Ignore guifg=#335b7e guibg=none    gui=none
-hi         Conceal guifg=none    guibg=none    gui=none
+hi         Conceal guifg=#abede0 guibg=none    gui=none
 hi      SpecialKey guifg=#abede0 guibg=none    gui=none
 
 " --------------------------------
@@ -140,7 +140,7 @@ hi          Define guifg=#b8edab guibg=none    gui=none
 hi           Macro guifg=#b8edab guibg=none    gui=none
 hi       PreCondit guifg=#b8edab guibg=none    gui=none
 
-hi            Type guifg=none    guibg=none    gui=none
+hi            Type guifg=#b8edab guibg=none    gui=none
 hi    StorageClass guifg=#b8edab guibg=none    gui=none
 hi       Structure guifg=#b8edab guibg=none    gui=none
 hi         Typedef guifg=#b8edab guibg=none    gui=none
@@ -149,9 +149,9 @@ hi         Typedef guifg=#b8edab guibg=none    gui=none
 " Diff
 " --------------------------------
 hi         DiffAdd guifg=none    guibg=#437f43 gui=none
-hi      DiffChange guifg=none    guibg=#305575 gui=none
-hi      DiffDelete guifg=#497296 guibg=#25415a gui=none
-hi        DiffText guifg=none    guibg=#7f4343 gui=none
+hi      DiffChange guifg=none    guibg=#2c4e6c gui=none
+hi      DiffDelete guifg=none    guibg=#a05454 gui=none
+hi        DiffText guifg=none    guibg=none    gui=standout
 hi        DiffFile guifg=#ede0ab guibg=none    gui=none
 
 
