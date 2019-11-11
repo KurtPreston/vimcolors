@@ -39,8 +39,8 @@ let s:palette.color11 = '#F8D2A4'
 let s:palette.color12 = '#508EA5'
 let s:palette.color13 = '#625260'
 let s:palette.color14 = '#828871'
-let s:palette.color15 = '#E1E0DB'
-let s:palette.foreground = '#C6C1AD'
+let s:palette.color15 = '#FBF5D9'
+let s:palette.foreground = '#E8E5D5'
 let s:palette.background = '#10100E'
 let s:palette.cursorbackground = '#171714'
 
@@ -80,7 +80,7 @@ let s:theme = {
     \   'popupmenu_select'       : ['color15', 'color07', 'bold'],
     \   'search'                 : ['.', '.', 'reverse'],
     \   'linenumber'             : ['color06', 'background'],
-    \   'vertsplit'              : ['background', 'color07'],
+    \   'vertsplit'              : ['background', 'color06'],
     \   'statusline_active'      : ['color11', 'color02', 'none'],
     \   'statusline_inactive'    : ['color06', 'none', 'underline'],
     \   'matchparen'             : ['color03', 'color02', 'underline'],
@@ -107,7 +107,7 @@ let s:theme = {
     \   'conceal_bg'             : '',
     \   'foldcolumn_fg'          : '',
     \   'foldcolumn_bg'          : '',
-    \   'specialkey'             : ['color06', 'none', 'none'],
+    \   'specialkey'             : ['color07', 'color06', 'none'],
     \   'directory'              : ['color03', 'none', 'none'],
     \   'modemsg'                : '',
     \   'moremsg'                : '',
@@ -144,7 +144,7 @@ let s:theme = {
     \   'ignore'                 : ['none', 'none'],
     \   'error'                  : ['color01', 'none', 'none'],
     \   'todo'                   : ['color15', 'none', 'bold'],
-    \   'colorcolumn'            : ['none', 'color02', 'none'],
+    \   'colorcolumn'            : ['none', 'color08', 'none'],
     \   'title'                  : ['color12', 'none', 'bold'],
     \   'attr'                   : ['color06', 'none', 'italic'],
     \   'htmlTagName'            : ['color03', 'none', 'none'],
@@ -156,6 +156,8 @@ let s:theme = {
     \   'typescriptRegexpString' : ['color03', 'none', 'bold'],
     \   'typescriptExceptions'   : ['color01', 'none'],
     \   'rustMacro'              : ['color04', 'none', 'italic'],
+    \   'jsxIfOperator'          : ['color09', 'none'],
+    \   'jsxElseOperator'        : ['color09', 'none']
     \   }
 
 function! s:hi(group, colors)
@@ -274,6 +276,10 @@ function! s:apply_theme()
     call s:hi('typescriptNull', s:theme.typescriptNull)
     call s:hi('typescriptRegexpString', s:theme.typescriptRegexpString)
     call s:hi('typescriptExceptions', s:theme.typescriptExceptions)
+
+    " JSX
+    call s:hi('jsxIfOperator', s:theme.jsxIfOperator)
+    call s:hi('jsxElseOperator', s:theme.jsxElseOperator)
 
     " Vim
     call s:hi('vimOption',         s:theme.vimOption)
