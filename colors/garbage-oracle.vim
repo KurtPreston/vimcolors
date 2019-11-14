@@ -41,7 +41,7 @@
   let s:accent4 = "#3f59b7"
   let s:accent5 = "#684f54"
   let s:accent6 = "#5d5255"
-  let s:accent7 = "#7b3e19"
+  let s:accent7 = "#ffc6fd"
 
   endif
 
@@ -80,22 +80,22 @@
 
   " Default
 
-  exec "hi Comment guifg=".s:shade2." gui=italic cterm=italic"
+  exec "hi Comment guifg=".s:shade1." gui=italic cterm=italic"
   exec "hi Constant guifg=".s:accent3
   exec "hi Character guifg=".s:accent4
   exec "hi Identifier guifg=".s:accent2." gui=none cterm=none"
   exec "hi Statement guifg=".s:accent5
   exec "hi PreProc guifg=".s:accent6
-  exec "hi Type guifg=".s:accent7
+  exec "hi Type guifg=".s:accent6
   exec "hi Special guifg=".s:accent4
   exec "hi Underlined guifg=".s:accent5
-  exec "hi Error guifg=".s:accent0." guibg=".s:shade1
+  exec "hi Error guifg=".s:shade0." guibg=".s:shade1
   exec "hi Todo guifg=".s:accent0." guibg=".s:shade1
 
   " GitGutter
 
   exec "hi GitGutterAdd guifg=".s:accent3
-  exec "hi GitGutterChange guifg=".s:accent2
+  exec "hi GitGutterChange guifg=".s:accent7
   exec "hi GitGutterChangeDelete guifg=".s:accent2
   exec "hi GitGutterDelete guifg=".s:accent0
 
@@ -117,10 +117,10 @@
 
   " Default
 
-  exec "hi ColorColumn guibg=".s:shade1
+  exec "hi ColorColumn guibg=".s:accent7
   exec "hi Conceal guifg=".s:shade2
-  exec "hi Cursor guifg=".s:shade0
-  exec "hi CursorColumn guibg=".s:shade1
+  exec "hi Cursor guifg=".s:shade0." guibg=".s:shade0
+  exec "hi CursorColumn guifg=".s:shade0." guibg=".s:shade1
   exec "hi CursorLine guibg=".s:shade1." cterm=none"
   exec "hi Directory guifg=".s:accent5
   exec "hi DiffAdd guifg=".s:accent3." guibg=".s:shade1
@@ -138,8 +138,8 @@
   exec "hi MatchParen guibg=".s:shade2
   exec "hi MoreMsg guifg=".s:shade0." guibg=".s:accent4
   exec "hi NonText guifg=".s:shade2." guibg=".s:shade0
-  exec "hi Pmenu guifg=".s:shade6." guibg=".s:shade1
-  exec "hi PmenuSel guifg=".s:accent4." guibg=".s:shade1
+  exec "hi Pmenu guifg=".s:shade0." guibg=".s:shade1
+  exec "hi PmenuSel guifg=".s:shade1." guibg=".s:shade0
   exec "hi PmenuSbar guifg=".s:accent3." guibg=".s:shade1
   exec "hi PmenuThumb guifg=".s:accent0." guibg=".s:shade2
   exec "hi Question guifg=".s:shade7." guibg=".s:shade1
@@ -149,14 +149,14 @@
   exec "hi SpellCap guifg=".s:accent2
   exec "hi SpellLocal guifg=".s:accent4
   exec "hi SpellRare guifg=".s:accent1
-  exec "hi StatusLine guifg=".s:shade4." guibg=".s:shade1." gui=none cterm=none"
+  exec "hi StatusLine guifg=".s:shade0." guibg=".s:shade1." gui=none cterm=none"
   exec "hi TabLine guifg=".s:shade5." guibg=".s:shade1
-  exec "hi TabLineFill guibg=".s:shade1
+  exec "hi TabLineFill guibg=".s:shade0
   exec "hi TabLineSel guifg=".s:shade6." guibg=".s:shade0
   exec "hi Title guifg=".s:accent5
-  exec "hi Visual guibg=".s:shade1
-  exec "hi VisualNOS guifg=".s:accent0." guibg=".s:shade1
-  exec "hi WarningMsg guifg=".s:accent0
+  exec "hi Visual guifg=".s:shade0." guibg=".s:shade1
+  exec "hi VisualNOS guifg=".s:shade0." guibg=".s:shade1
+  exec "hi WarningMsg guifg=".s:shade1
   exec "hi WildMenu guifg=".s:accent4." guibg=".s:shade1
 
   " NERDTree
