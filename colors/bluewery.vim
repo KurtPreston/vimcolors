@@ -17,8 +17,8 @@
 " Below are visual identity of this color scheme
 "
 
-let n_black   = [0, '#072429']
-let n_red     = [1, '#fc5185']
+let n_black   = [0, '#07242c']
+let n_red     = [1, '#fc6195']
 let n_green   = [2, '#5AC6A1']
 let n_yellow  = [3, '#fff1ac']
 let n_blue    = [4, '#296873']
@@ -26,7 +26,7 @@ let n_magenta = [5, '#85919b']
 let n_cyan    = [6, '#04a7a7']
 let n_white   = [7, '#c4c7c7']
 
-let b_black   = [8, '#142c30']
+let b_black   = [8, '#142c35']
 let b_red     = [9, '#fc81a5']
 let b_green   = [10, '#233439']
 let b_yellow  = [11, '#DF7353']
@@ -88,6 +88,8 @@ call s:my_hi('Search'     , '' , ''        , n_yellow)
 call s:my_hi('Special'    , '' , b_yellow  , '')
 call s:my_hi('Visual'     , '' , ''        , b_magenta)
 
+call s:my_hi('Folded'     , '' , b_yellow        , n_blue)
+
 call s:my_hi('StatusLine' , '' , b_green   , b_cyan)
 call s:my_hi('WildMenu'   , '' , b_green   , n_magenta)
 
@@ -97,7 +99,7 @@ call s:my_hi('CursorColumn'     , '' , ''        , n_black)
 
 call s:my_hi('SignColumn'       , '' , ''        , n_black)
 
-call s:my_hi('LineNr'           , '' , b_magenta , '')
+call s:my_hi('LineNr'           , '' , n_blue , n_black)
 call s:my_hi('CursorLineNr'     , '' , n_white   , '')
 call s:my_hi('VertSplit'        , '' , n_black   , '')
 
