@@ -26,12 +26,12 @@ let s:palette = {}
 let s:palette.none = 'NONE'
 let s:palette.color00 = '#10100E'
 let s:palette.color01 = '#792423'
-let s:palette.color02 = '#005A46'
+let s:palette.color02 = '#006952'
 let s:palette.color03 = '#9E7D57'
 let s:palette.color04 = '#1D5064'
 let s:palette.color05 = '#5A2A1D'
 let s:palette.color06 = '#363F37'
-let s:palette.color07 = '#C6C1AD'
+let s:palette.color07 = '#B7B4A6'
 let s:palette.color08 = '#141412'
 let s:palette.color09 = '#F1A19B'
 let s:palette.color10 = '#47C1A8'
@@ -81,7 +81,7 @@ let s:theme = {
     \   'search'                 : ['.', '.', 'reverse'],
     \   'linenumber'             : ['color06', 'background'],
     \   'vertsplit'              : ['background', 'color06'],
-    \   'statusline_active'      : ['color11', 'color02', 'none'],
+    \   'statusline_active'      : ['color07', 'color06', 'none'],
     \   'statusline_inactive'    : ['color06', 'none', 'underline'],
     \   'matchparen'             : ['color03', 'color02', 'underline'],
     \   'visual'                 : ['color15', 'color02', 'bold'],
@@ -134,7 +134,7 @@ let s:theme = {
     \   'exception'              : ['color01', 'none', 'none'],
     \   'preproc'                : ['color05', 'none', 'none'],
     \   'type'                   : ['color12', 'none', 'none'],
-    \   'special'                : ['color15', 'none', 'none'],
+    \   'special'                : ['color07', 'none', 'none'],
     \   'specialchar'            : ['color15', 'none', 'bold'],
     \   'tag'                    : ['color04', 'none', 'underline'],
     \   'delimiter'              : ['color06', 'none', 'none'],
@@ -272,13 +272,13 @@ function! s:apply_theme()
     call s:hi('javaScriptBraces',  s:theme.delimiter)
 
     " TypeScript
-    call s:hi('typescriptEndColons', s:theme.typescriptEndColons)
-    call s:hi('typescriptNull', s:theme.typescriptNull)
+    call s:hi('typescriptEndColons',    s:theme.typescriptEndColons)
+    call s:hi('typescriptNull',         s:theme.typescriptNull)
     call s:hi('typescriptRegexpString', s:theme.typescriptRegexpString)
-    call s:hi('typescriptExceptions', s:theme.typescriptExceptions)
+    call s:hi('typescriptExceptions',   s:theme.typescriptExceptions)
 
     " JSX
-    call s:hi('jsxIfOperator', s:theme.jsxIfOperator)
+    call s:hi('jsxIfOperator',   s:theme.jsxIfOperator)
     call s:hi('jsxElseOperator', s:theme.jsxElseOperator)
 
     " Vim
