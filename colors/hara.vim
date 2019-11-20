@@ -7,11 +7,13 @@ let g:colors_name = "hara"
 let s:colors.black       = ['#000000', 000]
 let s:colors.deepgrey    = ['#1c1c1c', 234]
 let s:colors.darkgrey    = ['#262626', 235]
-let s:colors.grey        = ['#6c6c6c', 242]
+let s:colors.grey        = ['#808080', 244]
+let s:colors.faint       = ['#eeeeee', 255]
 let s:colors.white       = ['#ffffff', 231]
-let s:colors.rose        = ['#d7afaf', 181]
+let s:colors.rose        = ['#ff5f87', 204]
 let s:colors.blue        = ['#0087af', 32]
 let s:colors.red         = ['#d70000', 160]
+let s:colors.spell       = ['#ff5f87', 204]
 
 " Highlighting function
 " Cribbed from badwolf, gruvbox.
@@ -41,7 +43,7 @@ endfunction
 function! s:setLight()
   set background=light
   " Base colors.
-  call s:highlight('Normal', 'deepgrey', 'white')
+  call s:highlight('Normal', 'grey', 'white')
   call s:highlight('NonText', 'darkgrey')
   call s:highlight('comment', 'grey')
   call s:highlight('constant', 'black', 'white', 'bold')
@@ -55,7 +57,7 @@ function! s:setLight()
   call s:highlight('Underlined', 'darkgrey')
   call s:highlight('label', 'darkgrey')
   call s:highlight('operator', 'rose')
-  call s:highlight('delimiter', 'rose')
+  call s:highlight('delimiter', 'grey')
   
   " Inline notifications. 
   call s:highlight('Todo', 'black', 'white', 'bold')
@@ -66,14 +68,14 @@ function! s:setLight()
   " CursorLine
   call s:highlight('Cursor', 'darkgrey')
   call s:highlight('CursorLine', 'black', 'white', 'NONE')
-  call s:highlight('CursorLineNr', 'rose')
+  call s:highlight('CursorLineNr', 'blue')
 
   " Status line
   call s:highlight('StatusLine', 'white', 'deepgrey')
   call s:highlight('StatusLineNC', 'black', 'grey')
   
   " Windows
-  call s:highlight('VertSplit', 'black')
+  call s:highlight('VertSplit', 'white')
 
   " Diff 
   call s:highlight('DiffChange', 'black', 'white')
@@ -101,7 +103,7 @@ function! s:setLight()
 
   " Spelling
   call s:highlight('SpellLocal', 'black', 'white', 'italic')
-  call s:highlight('SpellBad', 'black', 'white', 'underline')
+  call s:highlight('SpellBad', 'spell', 'white', 'underline')
   call s:highlight('SpellCap', 'black', 'white', 'underline')
 
   " Markdown
@@ -109,12 +111,12 @@ function! s:setLight()
   call s:highlight('markdownHeadingDelimiter', 'black', '', 'bold')
   call s:highlight('markdownListMarker', 'black', '', 'bold')
   call s:highlight('markdownCodeDelimiter', 'black', '', 'bold')
-  call s:highlight('markdownH1', 'black', '', 'bold')
-  call s:highlight('markdownH2', 'black', '', 'bold')
-  call s:highlight('markdownH3', 'black', '', 'bold')
-  call s:highlight('markdownH4', 'black', '', 'bold')
-  call s:highlight('markdownH5', 'black', '', 'bold')
-  call s:highlight('markdownH6', 'black', '', 'bold')
+  call s:highlight('markdownH1', 'deepgrey', '', 'bold')
+  call s:highlight('markdownH2', 'deepgrey', '', 'bold')
+  call s:highlight('markdownH3', 'deepgrey', '', 'bold')
+  call s:highlight('markdownH4', 'deepgrey', '', 'bold')
+  call s:highlight('markdownH5', 'deepgrey', '', 'bold')
+  call s:highlight('markdownH6', 'deepgrey', '', 'bold')
 
 endfunction
 
