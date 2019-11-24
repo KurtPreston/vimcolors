@@ -145,8 +145,8 @@ hi DiffAdd
   \ guisp=NONE guibg=#222A22 guifg=202620
 
 hi DiffText
-  \ cterm=bold ctermbg=240 ctermfg=15
-  \ gui=bold   guibg=#333350 guifg=none
+  \ cterm=NONE ctermbg=240 ctermfg=15
+  \ gui=NONE   guibg=#333350 guifg=none
 
 hi DiffChange
   \ cterm=NONE ctermbg=238
@@ -195,6 +195,9 @@ hi SpellLocal
 
 hi SpellCap
   \ ctermbg=235 ctermfg=4 cterm=underline
+
+hi ALEWarning
+  \ guibg=#40400A
 
 " Python
 "

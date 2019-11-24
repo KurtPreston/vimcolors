@@ -9,7 +9,7 @@ highlight clear
 if exists("syntax_on")
   syntax reset
 endif
-let g:colors_name='boa'
+let g:colors_name ='boa'
 
 " }}}
 " Syntax Highlighting: {{{
@@ -48,63 +48,63 @@ hi Error guifg=#d35b4b guibg=bg gui=bold,inverse
 hi Todo guifg=fg guibg=NONE gui=bold,underline
 
 " see :help highlight-default
-hi CursorLine guifg=NONE guibg=#2b2927 gui=NONE
+hi CursorLine guifg=NONE guibg=#242220 gui=NONE
 hi! link CursorColumn CursorLine
 hi! link ColorColumn CursorLine
 hi! link Conceal BoaBlue
 hi Cursor guifg=NONE guibg=NONE gui=inverse
 " CursorIM
-hi CursorLineNr   guifg=#caa247 guibg=#2b2927    gui=NONE
+hi CursorLineNr   guifg=#caa247 guibg=#242220    gui=NONE
 hi Directory  guifg=#8f9e44 guibg=NONE gui=bold
-hi DiffAdd    guifg=NONE guibg=#354a22 gui=NONE
-hi DiffChange guifg=NONE guibg=#324540 gui=NONE
-hi DiffDelete guifg=NONE guibg=#593935 gui=NONE
-hi DiffText   guifg=NONE guibg=#524831 gui=NONE
+hi DiffAdd    guifg=NONE guibg=#2b4018 gui=NONE
+hi DiffChange guifg=NONE guibg=#263840 gui=NONE
+hi DiffDelete guifg=#1a1a1a guibg=#4d2f2b gui=NONE
+hi DiffText   guifg=NONE guibg=#453b24 gui=NONE
 " EndOfBuffer
 " TermCursor
 " TermCursorNC
 hi ErrorMsg guifg=#d35b4b guibg=NONE gui=bold
-hi VertSplit guifg=#48382f guibg=NONE gui=NONE
+hi VertSplit guifg=#40322b guibg=NONE gui=NONE
 hi Folded     guifg=#817466 guibg=#2b2927    gui=NONE
 hi! link FoldColumn Folded
 hi SignColumn guifg=NONE guibg=NONE
 hi IncSearch guifg=#518233 guibg=bg gui=inverse
 " Substitute
-hi NonText guifg=#453f3b guibg=NONE gui=NONE
+hi NonText guifg=#3d3834 guibg=NONE gui=NONE
 hi! link LineNr NonText
 hi MatchParen   guifg=#cc752f guibg=NONE    gui=bold
-hi ModeMsg   guifg=#26201c guibg=#7c7e1d gui=bold
+hi ModeMsg   guifg=#14110f guibg=#7c7e1d gui=bold
 " MsgArea
 " MsgSeparator
 hi MoreMsg   guifg=#caa247 guibg=NONE    gui=bold
-hi NormalFloat guifg=NONE guibg=#272E22 gui=NONE
-hi NormalNC guifg=#A8A089 guibg=#1C1815 gui=NONE
+hi NormalFloat guifg=NONE guibg=#21261d gui=NONE
+hi NormalNC guifg=#A8A089 guibg=#1f1a17 gui=NONE
 hi! link Question BoaGreen
-hi QuickFixLine guifg=NONE guibg=#453f3b gui=NONE
-hi Search    guifg=#26201c guibg=#826a33 gui=NONE
+hi QuickFixLine guifg=NONE guibg=#3d3834 gui=NONE
+hi Search    guifg=#14110f guibg=#826a33 gui=NONE
 hi! link SpecialKey VertSplit
-hi SpellBad guifg=NONE guibg=NONE gui=undercurl guisp=#d33e2a
-hi SpellCap guifg=NONE guibg=NONE gui=undercurl guisp=#a0b82e
+hi SpellBad guifg=NONE guibg=NONE gui=underline guisp=#e62922
+hi SpellCap guifg=NONE guibg=NONE gui=underline guisp=#a0b82e
 hi! link SpellLocal SpellCap
 hi! link SpellRare SpellCap
-hi StatusLine guifg=#b8af96 guibg=#48382f gui=NONE
-hi StatusLineNC guifg=#948774 guibg=#48382f gui=NONE
-hi TabLine    guifg=#7c6f64 guibg=#2b2927    gui=NONE
-hi TabLineSel    guifg=#8f9e44 guibg=#2b2927    gui=NONE
+hi StatusLine guifg=#b8af96 guibg=#40322b gui=NONE
+hi StatusLineNC guifg=#948774 guibg=#40322b gui=NONE
+hi TabLine    guifg=#7c6f64 guibg=#242220    gui=NONE
+hi TabLineSel    guifg=#8f9e44 guibg=#242220    gui=bold
 hi! link TabLineFill Tabline
 hi Title    guifg=#8f9e44 guibg=NONE    gui=bold
-hi Visual guifg=NONE guibg=#453f3b gui=NONE
+hi Visual guifg=NONE guibg=#3d3834 gui=NONE
 hi! link VisualNOS Visual
 hi! link WarningMsg BoaOrange
 " Whitespace
-hi WildMenu     guifg=#919697 guibg=#453f3b    gui=bold
-hi Pmenu guifg=#b8af96 guibg=#453f3b gui=NONE
-hi PmenuSel guifg=#453f3b guibg=#919697 gui=bold
+hi WildMenu     guifg=#919697 guibg=#3d3834    gui=bold
+hi Pmenu guifg=#b8af96 guibg=#3d3834 gui=NONE
+hi PmenuSel guifg=#3d3834 guibg=#919697 gui=bold
 hi! link  PmenuSbar Visual
 hi PmenuThumb guifg=NONE guibg=#7c6f64 gui=NONE
 
 hi User1 guifg=#221111 guibg=#7c7e1d
-hi User2 guifg=#d35b4b guibg=#48382f gui=bold
+hi User2 guifg=#d35b4b guibg=#40322b gui=bold
 " qfLineNr
 " qfError
 " qfFileName"
@@ -167,11 +167,10 @@ hi! link HighlightedyankRegion CocHoverRange
 hi! link CocFloating NormalFloat
 hi! link CocOutlineName Normal
 hi! link CocListPath StatusLineNC
-" hi CocListMode  guifg=#8f9e44 guibg=#48382f gui=bold
-hi CocErrorHighlight guifg=NONE guibg=NONE gui=undercurl guisp=#d33e2a
-hi CocWarningHighlight guifg=NONE guibg=NONE gui=undercurl guisp=#dac230
-hi CocInfoHighlight guifg=NONE guibg=NONE gui=undercurl guisp=#a0b82e
-hi CocHintHighlight guifg=NONE guibg=NONE gui=undercurl guisp=#70a17c
+hi CocErrorHighlight guifg=NONE guibg=NONE gui=underline guisp=#d33e2a
+hi CocWarningHighlight guifg=NONE guibg=NONE gui=underline guisp=#dea91d
+hi CocInfoHighlight guifg=NONE guibg=NONE gui=underline guisp=#9dcc1f
+hi CocHintHighlight guifg=NONE guibg=NONE gui=underline guisp=#50bf7b
 hi CocGitRemovedSign guifg=#d35b4b guibg=NONE gui=bold
 hi CocGitTopRemovedSign guifg=#d35b4b guibg=NONE gui=bold
 hi CocGitChangedSign guifg=#70a17c guibg=NONE gui=bold
@@ -482,7 +481,7 @@ hi! link jsonString Normal
 " }}}
 " Terminal Colors: {{{
 
-let g:terminal_color_0 = '#26201c'
+let g:terminal_color_0 = '#14110f'
 let g:terminal_color_8 = '#6e685a'
 
 let g:terminal_color_1 = '#d35b4b'

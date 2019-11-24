@@ -105,6 +105,7 @@ hi yardGenericTag           cterm=bold           ctermfg=10   ctermbg=NONE gui=b
 hi yardGenericDirective     cterm=bold           ctermfg=10   ctermbg=NONE gui=bold           guifg=#586e75 guibg=NONE    
 hi yardType                 cterm=bold           ctermfg=10   ctermbg=NONE gui=bold           guifg=#586e75 guibg=NONE    
 hi! link rubyClassName Typedef
+hi! link rubyModuleName Typedef
 hi! link rubyMethodName Typedef
 hi! link rubyEval Normal
 hi! link rubyEnglishBooleanOperator Keyword
