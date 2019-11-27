@@ -131,14 +131,16 @@ hi! link crystalStringDelimiter crystalString
 hi! link crystalRegexpDelimiter crystalRegexp
 hi! link crystalInterpolationDelim SpecialChar
 hi! link crystalInclude Statement
-hi! link crystalConstant Normal
+hi! link crystalConstant Identifier
 hi! link crystalSymbol Special
 hi! link crystalInstanceVariable Identifier
 hi! link crystalClassVariable Identifier
+hi! link crystalFunction Typedef
 hi! link crystalClassName Typedef
 hi! link crystalModuleName Typedef
 hi! link crystalMethodName Typedef
 hi! link crystalEnumName Typedef
+hi! link crystalBlockParameter Normal
 " 2}}}
 
 " csv {{{2

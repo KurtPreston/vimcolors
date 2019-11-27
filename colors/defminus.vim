@@ -338,6 +338,7 @@ hi link markdownCodeDelimiter markdownCode
 hi link asciidoctorListMarker Special
 hi link asciidoctorOption Special
 hi link asciidoctorMacro Special
+hi asciidoctorIndented guifg=#875f5f ctermfg=95
 
 "" Diff
 hi diffAdd guibg=#c9f9c9 ctermbg=194
