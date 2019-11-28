@@ -24,24 +24,24 @@ command! -nargs=0 Mogao :call g:Mogao()
 
 let s:palette = {}
 let s:palette.none = 'NONE'
-let s:palette.color00 = '#10100E'
+let s:palette.color00 = '#071014'
 let s:palette.color01 = '#792423'
-let s:palette.color02 = '#006952'
-let s:palette.color03 = '#9E7D57'
-let s:palette.color04 = '#1D5064'
-let s:palette.color05 = '#5A2A1D'
-let s:palette.color06 = '#363F37'
-let s:palette.color07 = '#B7B4A6'
-let s:palette.color08 = '#141412'
-let s:palette.color09 = '#F1A19B'
-let s:palette.color10 = '#47C1A8'
-let s:palette.color11 = '#F8D2A4'
-let s:palette.color12 = '#508EA5'
-let s:palette.color13 = '#625260'
-let s:palette.color14 = '#828871'
-let s:palette.color15 = '#FBF5D9'
-let s:palette.foreground = '#E8E5D5'
-let s:palette.background = '#10100E'
+let s:palette.color02 = '#1b8c73'
+let s:palette.color03 = '#9e7d57'
+let s:palette.color04 = '#aad2f1'
+let s:palette.color05 = '#675e71'
+let s:palette.color06 = '#363f37'
+let s:palette.color07 = '#bbf2db'
+let s:palette.color08 = '#081d22'
+let s:palette.color09 = '#f1a19b'
+let s:palette.color10 = '#93d672'
+let s:palette.color11 = '#f8d2a4'
+let s:palette.color12 = '#508ea5'
+let s:palette.color13 = '#c38eac'
+let s:palette.color14 = '#809594'
+let s:palette.color15 = '#fbf5d9'
+let s:palette.foreground = '#adccc6'
+let s:palette.background = s:palette.color00
 let s:palette.cursorbackground = '#171714'
 
 " Neovim terminal colors
@@ -76,14 +76,14 @@ let s:theme = {
     \   'cursorline'             : ['none', 'cursorbackground', 'none'],
     \   'cursorcolumn'           : ['none', 'cursorbackground', 'none'],
     \   'cursorlinenr'           : ['color03', '.'],
-    \   'popupmenu'              : ['color11', 'color08'],
-    \   'popupmenu_select'       : ['color15', 'color07', 'bold'],
+    \   'popupmenu'              : ['color06', 'foreground'],
+    \   'popupmenu_select'       : ['color15', 'color14'],
     \   'search'                 : ['.', '.', 'reverse'],
     \   'linenumber'             : ['color06', 'background'],
     \   'vertsplit'              : ['background', 'color06'],
-    \   'statusline_active'      : ['color07', 'color06', 'none'],
+    \   'statusline_active'      : ['none', 'color08', 'none'],
     \   'statusline_inactive'    : ['color06', 'none', 'underline'],
-    \   'matchparen'             : ['color03', 'color02', 'underline'],
+    \   'matchparen'             : ['color07', 'color08', 'bold'],
     \   'visual'                 : ['color15', 'color02', 'bold'],
     \   'folded'                 : ['color14', 'none', 'italic'],
     \   'wildmenu'               : ['color11', 'color08', 'underline'],
@@ -97,9 +97,9 @@ let s:theme = {
     \   'diffdelete_bg'          : '',
     \   'difftext_fg'            : '',
     \   'difftext_bg'            : '',
-    \   'tabline_bg'             : ['color06', 'color08', 'none'],
+    \   'tabline_bg'             : ['color14', 'color08', 'none'],
     \   'tabline_active'         : ['color03', 'background', 'bold'],
-    \   'tabline_inactive'       : ['color06', 'color08', 'none'],
+    \   'tabline_inactive'       : ['color14', 'color08', 'none'],
     \   'normal'                 : ['foreground', 'background'],
     \   'nontext'                : ['color06', 'background'],
     \   'endofbuffer'            : ['background', 'background'],
@@ -117,26 +117,26 @@ let s:theme = {
     \   'conceal'                : '',
     \   'signcolumn'             : ['color10', 'background', 'none'],
     \   'comment'                : ['color14', 'none', 'italic'],
-    \   'constant'               : ['color02', 'none'],
-    \   'string'                 : ['color02', 'none', 'italic'],
-    \   'character'              : ['color02', 'none', 'italic'],
-    \   'number'                 : ['color02'],
-    \   'boolean'                : ['color02', 'none', 'bold'],
-    \   'float'                  : ['color02'],
-    \   'identifier'             : ['color03', 'none', 'none'],
+    \   'constant'               : ['color04', 'none'],
+    \   'string'                 : ['color04', 'none', 'italic'],
+    \   'character'              : ['color04', 'none', 'italic'],
+    \   'number'                 : ['color07'],
+    \   'boolean'                : ['color07', 'none', 'bold'],
+    \   'float'                  : ['color07'],
+    \   'identifier'             : ['color02', 'none', 'none'],
     \   'function'               : ['color03', 'none', 'none'],
-    \   'statement'              : ['color10', 'none', 'none'],
+    \   'statement'              : ['color11', 'none', 'none'],
     \   'conditional'            : ['color09', 'none', 'none'],
     \   'repeat'                 : ['color10', 'none', 'none'],
-    \   'label'                  : ['color11', 'none', 'italic'],
+    \   'label'                  : ['color13', 'none', 'italic'],
     \   'operator'               : ['color14', 'none', 'none'],
-    \   'keyword'                : ['color13', 'none', 'none'],
+    \   'keyword'                : ['color12', 'none', 'italic'],
     \   'exception'              : ['color01', 'none', 'none'],
     \   'preproc'                : ['color05', 'none', 'none'],
-    \   'type'                   : ['color12', 'none', 'none'],
-    \   'special'                : ['color07', 'none', 'none'],
+    \   'type'                   : ['color12', 'color08', 'none'],
+    \   'special'                : ['color14', 'none', 'none'],
     \   'specialchar'            : ['color15', 'none', 'bold'],
-    \   'tag'                    : ['color04', 'none', 'underline'],
+    \   'tag'                    : ['color12', 'none', 'underline'],
     \   'delimiter'              : ['color06', 'none', 'none'],
     \   'specialcomment'         : ['color14', 'color08', 'bold'],
     \   'debug'                  : ['color07', 'color01', 'bold'],
@@ -145,17 +145,17 @@ let s:theme = {
     \   'error'                  : ['color01', 'none', 'none'],
     \   'todo'                   : ['color15', 'none', 'bold'],
     \   'colorcolumn'            : ['none', 'color08', 'none'],
-    \   'title'                  : ['color12', 'none', 'bold'],
+    \   'title'                  : ['color04', 'none', 'bold'],
     \   'attr'                   : ['color06', 'none', 'italic'],
     \   'htmlTagName'            : ['color03', 'none', 'none'],
     \   'embed'                  : ['color13', 'none', 'none'],
-    \   'vimOption'              : ['color10', 'none', 'none'],
+    \   'vimOption'              : ['color09', 'none', 'none'],
     \   'vimHiAttrib'            : ['color01', 'none', 'none'],
     \   'typescriptEndColons'    : ['color06', 'none', 'none'],
     \   'typescriptNull'         : ['color09', 'none', 'none'],
     \   'typescriptRegexpString' : ['color03', 'none', 'bold'],
     \   'typescriptExceptions'   : ['color01', 'none'],
-    \   'rustMacro'              : ['color04', 'none', 'italic'],
+    \   'rustMacro'              : ['color05', 'none', 'italic'],
     \   'jsxIfOperator'          : ['color09', 'none'],
     \   'jsxElseOperator'        : ['color09', 'none']
     \   }

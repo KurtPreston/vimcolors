@@ -137,6 +137,7 @@ hi! link crystalInstanceVariable Identifier
 hi! link crystalClassVariable Identifier
 hi! link crystalFunction Typedef
 hi! link crystalClassName Typedef
+hi! link crystalStructname Typedef
 hi! link crystalModuleName Typedef
 hi! link crystalMethodName Typedef
 hi! link crystalEnumName Typedef
