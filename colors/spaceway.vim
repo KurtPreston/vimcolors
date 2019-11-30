@@ -65,7 +65,8 @@ hi CursorLine     ctermbg=NONE ctermfg=249  guibg=NONE    guifg=#808080 cterm=NO
 hi ColorColumn    ctermbg=235  ctermfg=NONE guibg=#303537 guifg=NONE    cterm=NONE           gui=NONE
 hi SignColumn     ctermbg=233  ctermfg=250  guibg=#141617 guifg=#B3B8C4 cterm=NONE           gui=NONE
 hi Todo           ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=reverse        gui=reverse
-hi Error          ctermbg=52   ctermfg=12   guibg=NONE    guifg=#AF5F5F cterm=underline      gui=reverse
+hi Error ctermbg=NONE ctermfg=131 cterm=reverse guibg=NONE guifg=#af5f5f gui=reverse
+hi ErrorMsg ctermbg=131 ctermfg=235 cterm=NONE guibg=#af5f5f guifg=#262626 gui=NONE
 hi Question       ctermbg=NONE ctermfg=214  guibg=NONE    guifg=#FFAF00 cterm=NONE           gui=NONE
 hi ModeMsg        ctermbg=NONE ctermfg=249  guibg=NONE    guifg=#808080 cterm=NONE           gui=NONE
 hi MoreMsg        ctermbg=NONE ctermfg=249  guibg=NONE    guifg=#808080 cterm=NONE           gui=NONE
@@ -87,8 +88,8 @@ hi StatusLine     ctermbg=145  ctermfg=235  guibg=#303537 guifg=#B3B8C4 cterm=NO
 hi StatusLineTerm ctermbg=145  ctermfg=235  guibg=#303537 guifg=#B3B8C4 cterm=NONE           gui=NONE
 hi Underlined     ctermbg=NONE ctermfg=66   guibg=NONE    guifg=#5F8787 cterm=NONE           gui=NONE
 hi ignore         ctermbg=NONE ctermfg=103  guibg=NONE    guifg=#BCBCBC cterm=NONE           gui=NONE
-hi Visual         ctermbg=232    ctermfg=NONE guibg=#404040 guifg=NONE    cterm=NONE           gui=NONE
-hi VisualNOS      ctermbg=232    ctermfg=NONE guibg=NONE    guifg=NONE    cterm=bold           gui=bold
+hi Visual ctermbg=235 ctermfg=110 cterm=reverse guibg=#262626 guifg=#8fafd7 gui=reverse
+hi VisualNOS ctermbg=NONE ctermfg=NONE cterm=underline guibg=NONE guifg=NONE gui=underline
 hi FoldColumn     ctermbg=NONE ctermfg=242  guibg=#1C1C1C guifg=#6C6C6C cterm=NONE           gui=NONE
 hi Folded         ctermbg=NONE ctermfg=242  guibg=#1C1C1C guifg=#6C6C6C cterm=NONE           gui=NONE
 hi VertSplit      ctermbg=232  ctermfg=145  guibg=#1C1F20 guifg=#1C1F20 cterm=NONE           gui=NONE
