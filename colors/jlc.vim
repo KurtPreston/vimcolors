@@ -142,6 +142,7 @@ hi! link crystalModuleName Typedef
 hi! link crystalMethodName Typedef
 hi! link crystalEnumName Typedef
 hi! link crystalBlockParameter Normal
+hi! link crystalMacro PreProc
 " 2}}}
 
 " csv {{{2
