@@ -10,6 +10,9 @@
 "            1.1 - update TabLine settings
 "            1.2 - add vim-indent-guides highlight
 "            1.3 - color modified
+"            1.4 - color modified
+"            1.5 - changed color. statement, number, javascriptObjectLabel
+"
 " Colors:
 "   type   cterm   gui
 "   1      0       #000000
@@ -50,6 +53,12 @@
 "   36     161     #dc2677
 "   37     106     #99bb26
 "   38     220     #f9d749
+"   39     111     #7fa7f8
+"   40     119     #93f369
+"   41     15      #ffffff
+"   42     199     #e7439c
+"   43     226     #fff847
+"   44     198     #f0417b
 
 set background=dark
 
@@ -155,8 +164,14 @@ hi phpFunctions                   ctermfg=252             guifg=#d3d7cf
 hi phpParent                      ctermfg=249             guifg=#888a85
 
 " JavaScript
-"hi javaScriptBraces               ctermfg=249             guifg=#888a85
-"hi javaScriptOperator             ctermfg=249             guifg=#888a85
+hi javaScriptBraces               ctermfg=199             guifg=#e7439c
+hi javaScriptOperator             ctermfg=226             guifg=#fff847
+hi javascriptObjectLabel          ctermfg=111             guifg=#7fa7f8
+hi javascriptIdentifierName       ctermfg=15              guifg=#ffffff
+hi javascriptGlobal               ctermfg=15              guifg=#ffffff
+hi javascriptBoolean              ctermfg=119             guifg=#93f369
+hi javascriptMethodName           ctermfg=198             guifg=#f0417b
+hi javascriptFuncName             ctermfg=198             guifg=#f0417b
 
 " HTML
 hi htmlTag                        ctermfg=249             guifg=#888a85
