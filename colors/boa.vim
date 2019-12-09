@@ -48,13 +48,13 @@ hi Error guifg=#d35b4b guibg=bg gui=bold,inverse
 hi Todo guifg=fg guibg=NONE gui=bold,underline
 
 " see :help highlight-default
-hi CursorLine guifg=NONE guibg=#242220 gui=NONE
+hi CursorLine guifg=NONE guibg=#292523 gui=NONE
 hi! link CursorColumn CursorLine
 hi! link ColorColumn CursorLine
 hi! link Conceal BoaBlue
 hi Cursor guifg=NONE guibg=NONE gui=inverse
 " CursorIM
-hi CursorLineNr   guifg=#caa247 guibg=#242220    gui=NONE
+hi CursorLineNr   guifg=#caa247 guibg=#292523    gui=NONE
 hi Directory  guifg=#8f9e44 guibg=NONE gui=bold
 hi DiffAdd    guifg=NONE guibg=#2b4018 gui=NONE
 hi DiffChange guifg=NONE guibg=#263840 gui=NONE
@@ -64,7 +64,7 @@ hi DiffText   guifg=NONE guibg=#453b24 gui=NONE
 " TermCursor
 " TermCursorNC
 hi ErrorMsg guifg=#d35b4b guibg=NONE gui=bold
-hi VertSplit guifg=#40322b guibg=NONE gui=NONE
+hi VertSplit guifg=#0a0707 guibg=NONE gui=NONE
 hi Folded     guifg=#817466 guibg=#2b2927    gui=NONE
 hi! link FoldColumn Folded
 hi SignColumn guifg=NONE guibg=NONE
@@ -78,19 +78,19 @@ hi ModeMsg   guifg=#14110f guibg=#7c7e1d gui=bold
 " MsgSeparator
 hi MoreMsg   guifg=#caa247 guibg=NONE    gui=bold
 hi NormalFloat guifg=NONE guibg=#21261d gui=NONE
-hi NormalNC guifg=#A8A089 guibg=#1f1a17 gui=NONE
+hi NormalNC guifg=#b0a78f guibg=#14110f gui=NONE
 hi! link Question BoaGreen
 hi QuickFixLine guifg=NONE guibg=#3d3834 gui=NONE
-hi Search    guifg=#14110f guibg=#826a33 gui=NONE
+hi Search    guifg=#1f1a17 guibg=#826a33 gui=NONE
 hi! link SpecialKey VertSplit
 hi SpellBad guifg=NONE guibg=NONE gui=underline guisp=#e62922
 hi SpellCap guifg=NONE guibg=NONE gui=underline guisp=#a0b82e
 hi! link SpellLocal SpellCap
 hi! link SpellRare SpellCap
-hi StatusLine guifg=#b8af96 guibg=#40322b gui=NONE
-hi StatusLineNC guifg=#948774 guibg=#40322b gui=NONE
-hi TabLine    guifg=#7c6f64 guibg=#242220    gui=NONE
-hi TabLineSel    guifg=#8f9e44 guibg=#242220    gui=bold
+hi StatusLine guifg=#70655c guibg=#0a0707 gui=NONE
+hi StatusLineNC guifg=#403832 guibg=#0a0707 gui=NONE
+hi TabLine    guifg=#7c6f64 guibg=#292523    gui=NONE
+hi TabLineSel    guifg=#8f9e44 guibg=#292523    gui=bold
 hi! link TabLineFill Tabline
 hi Title    guifg=#8f9e44 guibg=NONE    gui=bold
 hi Visual guifg=NONE guibg=#3d3834 gui=NONE
@@ -103,8 +103,11 @@ hi PmenuSel guifg=#3d3834 guibg=#919697 gui=bold
 hi! link  PmenuSbar Visual
 hi PmenuThumb guifg=NONE guibg=#7c6f64 gui=NONE
 
-hi User1 guifg=#221111 guibg=#7c7e1d
-hi User2 guifg=#d35b4b guibg=#40322b gui=bold
+hi User1 guifg=#628c4c guibg=#0a0707
+hi User2 guifg=#70655c guibg=#0a0707 gui=undercurl guisp=#e62922
+hi User3 guifg=#998539 guibg=#0a0707
+hi User4 guifg=#466d87 guibg=#0a0707
+hi User5 guifg=#87517f guibg=#0a0707
 " qfLineNr
 " qfError
 " qfFileName"
@@ -481,7 +484,7 @@ hi! link jsonString Normal
 " }}}
 " Terminal Colors: {{{
 
-let g:terminal_color_0 = '#14110f'
+let g:terminal_color_0 = '#1f1a17'
 let g:terminal_color_8 = '#6e685a'
 
 let g:terminal_color_1 = '#d35b4b'
