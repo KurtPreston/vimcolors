@@ -73,7 +73,7 @@ hi IncSearch guifg=#518233 guibg=bg gui=inverse
 hi NonText guifg=#3d3834 guibg=NONE gui=NONE
 hi! link LineNr NonText
 hi MatchParen   guifg=#cc752f guibg=NONE    gui=bold
-hi ModeMsg   guifg=#14110f guibg=#7c7e1d gui=bold
+hi ModeMsg      guifg=#93b329 guibg=NONE gui=bold
 " MsgArea
 " MsgSeparator
 hi MoreMsg   guifg=#caa247 guibg=NONE    gui=bold
@@ -82,17 +82,17 @@ hi NormalNC guifg=#b0a78f guibg=#14110f gui=NONE
 hi! link Question BoaGreen
 hi QuickFixLine guifg=NONE guibg=#3d3834 gui=NONE
 hi Search    guifg=#1f1a17 guibg=#826a33 gui=NONE
-hi! link SpecialKey VertSplit
+hi! link SpecialKey NonText
 hi SpellBad guifg=NONE guibg=NONE gui=underline guisp=#e62922
 hi SpellCap guifg=NONE guibg=NONE gui=underline guisp=#a0b82e
 hi! link SpellLocal SpellCap
 hi! link SpellRare SpellCap
 hi StatusLine guifg=#70655c guibg=#0a0707 gui=NONE
 hi StatusLineNC guifg=#403832 guibg=#0a0707 gui=NONE
-hi TabLine    guifg=#7c6f64 guibg=#292523    gui=NONE
-hi TabLineSel    guifg=#8f9e44 guibg=#292523    gui=bold
+hi TabLine    guifg=#7c6f64 guibg=#0a0707    gui=NONE
+hi TabLineSel    guifg=#74853c guibg=#0a0707    gui=bold
 hi! link TabLineFill Tabline
-hi Title    guifg=#8f9e44 guibg=NONE    gui=bold
+hi Title    guifg=#855c79 guibg=NONE    gui=bold
 hi Visual guifg=NONE guibg=#3d3834 gui=NONE
 hi! link VisualNOS Visual
 hi! link WarningMsg BoaOrange
@@ -170,6 +170,7 @@ hi! link HighlightedyankRegion CocHoverRange
 hi! link CocFloating NormalFloat
 hi! link CocOutlineName Normal
 hi! link CocListPath StatusLineNC
+hi CocListMode guifg=#748c20 guibg=#0a0707 gui=bold
 hi CocErrorHighlight guifg=NONE guibg=NONE gui=underline guisp=#d33e2a
 hi CocWarningHighlight guifg=NONE guibg=NONE gui=underline guisp=#dea91d
 hi CocInfoHighlight guifg=NONE guibg=NONE gui=underline guisp=#9dcc1f
