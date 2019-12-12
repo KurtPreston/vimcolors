@@ -104,10 +104,11 @@ hi! link  PmenuSbar Visual
 hi PmenuThumb guifg=NONE guibg=#7c6f64 gui=NONE
 
 hi User1 guifg=#628c4c guibg=#0a0707
-hi User2 guifg=#70655c guibg=#0a0707 gui=undercurl guisp=#e62922
+hi User2 guifg=#70655c guibg=#0a0707 gui=underline guisp=#e62922
 hi User3 guifg=#998539 guibg=#0a0707
 hi User4 guifg=#466d87 guibg=#0a0707
 hi User5 guifg=#87517f guibg=#0a0707
+hi User6 guifg=#964b44 guibg=#0a0707
 " qfLineNr
 " qfError
 " qfFileName"
