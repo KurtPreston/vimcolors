@@ -72,7 +72,7 @@ hi IncSearch guifg=#518233 guibg=bg gui=inverse
 " Substitute
 hi NonText guifg=#3d3834 guibg=NONE gui=NONE
 hi! link LineNr NonText
-hi MatchParen   guifg=#cc752f guibg=NONE    gui=bold
+hi MatchParen   guifg=#de7621 guibg=NONE    gui=bold
 hi ModeMsg      guifg=#93b329 guibg=NONE gui=bold
 " MsgArea
 " MsgSeparator
@@ -119,9 +119,9 @@ hi User6 guifg=#964b44 guibg=#0a0707
 " EasyMotion: {{{
 
 " hi! link EasyMotionTarget Search
-hi EasyMotionTarget guifg=#d35b4b guibg=NONE gui=bold
+hi EasyMotionTarget guifg=#e04c38 guibg=NONE gui=bold
 hi! link EasyMotionTarget2First EasyMotionTarget
-hi EasyMotionTarget2Second guifg=#8f9e44 guibg=NONE gui=bold
+hi EasyMotionTarget2Second guifg=#9eb339 guibg=NONE gui=bold
 hi! link EasyMotionShade Comment
 
 " }}}
