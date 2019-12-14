@@ -21,6 +21,7 @@ let g:colors_name = "darktheme"
 "  #b2b2b2 |     249 | #b2b2b2   | Hi-Mid-emphasis
 "  #8a8a8a |     245 | #8a8a8a   | Mid-emphasis
 "  #6c6c6c |     242 | #6c6c6c   | Disabled
+"  #4e4e4e |     239 | #4e4e4e   | Overlay
 "  #383838 |     237 | #3a3a3a   | Overlay
 "  #313131 |     236 | #303030   | Overlay
 "  #2a2a2a |     235 | #262626   | Overlay
@@ -96,22 +97,22 @@ hi Delimiter ctermfg=249 ctermbg=NONE cterm=NONE guifg=#b2b2b2 guibg=NONE gui=NO
 " =================
 "  Background
 " =================
-hi Normal ctermfg=254 ctermbg=234 cterm=NONE guifg=#e1e1e1 guibg=#1a1a1a gui=NONE
-hi NonText ctermfg=235 ctermbg=234 cterm=NONE guifg=#2a2a2a guibg=#1a1a1a gui=NONE
+hi Normal ctermfg=254 ctermbg=235 cterm=NONE guifg=#e1e1e1 guibg=#2a2a2a gui=NONE
+hi NonText ctermfg=236 ctermbg=235 cterm=NONE guifg=#313131 guibg=#2a2a2a gui=NONE
 
 " ============
 "  Diff
 " ============
 hi DiffAdd ctermfg=107 ctermbg=235 cterm=NONE guifg=#7CB342 guibg=#2a2a2a gui=NONE
-hi DiffText ctermfg=220 ctermbg=237 cterm=NONE guifg=#FDD835 guibg=#313131 gui=NONE
+hi DiffText ctermfg=220 ctermbg=236 cterm=NONE guifg=#FDD835 guibg=#313131 gui=NONE
 hi DiffChange ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#383838 gui=NONE
 hi DiffDelete ctermfg=196 ctermbg=235 cterm=NONE guifg=#ff4081 guibg=#2a2a2a gui=NONE
 
 " =================
 "  Line
 " =================
-hi LineNr ctermfg=254 ctermbg=236 cterm=NONE guifg=#e1e1e1 guibg=#313131 gui=NONE
-hi ColorLineNr ctermfg=254 ctermbg=236 cterm=NONE guifg=#e1e1e1 guibg=#313131 gui=NONE
+hi LineNr ctermfg=254 ctermbg=237 cterm=NONE guifg=#e1e1e1 guibg=#383838 gui=NONE
+hi ColorLineNr ctermfg=15 ctermbg=236 cterm=NONE guifg=#FFFFFF guibg=#313131 gui=NONE
 hi StatusLine ctermfg=245 ctermbg=235 cterm=bold guifg=#8a8a8a guibg=#2a2a2a gui=bold
 hi StatusLineNC ctermfg=245 ctermbg=235 cterm=NONE guifg=#8a8a8a guibg=#2a2a2a gui=NONE
 hi CursorLine ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#383838 gui=NONE
@@ -121,7 +122,7 @@ hi CursorColumn ctermfg=254 ctermbg=237 cterm=NONE guifg=#e1e1e1 guibg=#383838 g
 " =================
 "  Select
 " =================
-hi Visual ctermfg=NONE ctermbg=242 cterm=NONE guifg=NONE guibg=#6c6c6c gui=NONE
+hi Visual ctermfg=NONE ctermbg=239 cterm=NONE guifg=NONE guibg=#4e4e4e gui=NONE
 hi SignColumn ctermfg=15 ctermbg=237 cterm=NONE guifg=#FFFFFF guibg=#383838 gui=NONE
 hi SpecialKey ctermfg=15 ctermbg=237 cterm=NONE guifg=#FFFFFF guibg=#383838 gui=NONE
 hi Cursor ctermfg=15 ctermbg=249 cterm=NONE guifg=#FFFFFF guibg=#b2b2b2 gui=NONE
@@ -144,17 +145,17 @@ hi SpecialComment ctermfg=240 ctermbg=235 cterm=NONE guifg=#6c6c6c guibg=#2a2a2a
 " =================
 "  Folded and Column
 " =================
-hi Folded ctermfg=240 ctermbg=235 cterm=NONE guifg=#6c6c6c guibg=#2a2a2a gui=NONE
-hi FoldColumn ctermfg=141 ctermbg=236 cterm=NONE guifg=#8a8a8a guibg=#313131 gui=NONE
-hi ColorColumn ctermfg=NONE ctermbg=232 cterm=NONE guifg=NONE guibg=#0c0c0c gui=NONE
-hi VertSplit ctermfg=0 ctermbg=232 cterm=NONE guifg=#000000 guibg=#0c0c0c gui=NONE
+hi Folded ctermfg=240 ctermbg=236 cterm=NONE guifg=#6c6c6c guibg=#313131 gui=NONE
+hi FoldColumn ctermfg=141 ctermbg=237 cterm=NONE guifg=#bb86fc guibg=#383838 gui=NONE
+hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313131 gui=NONE
+hi VertSplit ctermfg=236 ctermbg=236 cterm=NONE guifg=#313131 guibg=#313131 gui=NONE
 
 " =================
 "  Tab
 " =================
 hi Title ctermfg=15 ctermbg=NONE cterm=bold guifg=#FFFFFF guibg=NONE gui=bold
-hi TabLine ctermfg=245 ctermbg=236 cterm=NONE guifg=#8a8a8a guibg=#313131 gui=NONE
-hi TabLineFill ctermfg=15 ctermbg=235 cterm=NONE guifg=#FFFFFF guibg=#262626 gui=NONE
+hi TabLine ctermfg=15 ctermbg=237 cterm=NONE guifg=#FFFFFF guibg=#383838 gui=NONE
+hi TabLineFill ctermfg=15 ctermbg=236 cterm=NONE guifg=#FFFFFF guibg=#313131 gui=NONE
 hi TabLineSel ctermfg=0 ctermbg=135 cterm=NONE guifg=#000000 guibg=#b26eff gui=NONE
 
 " =================

@@ -1,4 +1,9 @@
-" Vim color file - mono_red
+" File: mono_red.vim
+" Author: Michał Mikołajczyk
+" Last Modified: December 13, 2019
+"
+" A simple monochrome colorscheme with red highlights.
+"
 
 set background=dark
 if version > 580
