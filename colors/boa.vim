@@ -75,7 +75,7 @@ hi! link LineNr NonText
 hi MatchParen   guifg=#de7621 guibg=NONE    gui=bold
 hi ModeMsg      guifg=#93b329 guibg=NONE gui=bold
 " MsgArea
-" MsgSeparator
+hi MsgSeparator    guifg=NONE guibg=#263815 gui=NONE
 hi MoreMsg   guifg=#caa247 guibg=NONE    gui=bold
 hi NormalFloat guifg=NONE guibg=#21261d gui=NONE
 hi NormalNC guifg=#b0a78f guibg=#14110f gui=NONE
@@ -181,6 +181,14 @@ hi CocGitTopRemovedSign guifg=#d35b4b guibg=NONE gui=bold
 hi CocGitChangedSign guifg=#70a17c guibg=NONE gui=bold
 hi CocGitChangeRemovedSign guifg=#70a17c guibg=NONE gui=bold
 hi CocGitAddedSign guifg=#8f9e44 guibg=NONE gui=bold
+
+" }}}
+" GitGutter: {{{
+
+hi! link GitGutterAdd BoaGreen
+hi! link GitGutterChange BoaAqua
+hi! link GitGutterDelete BoaRed
+hi! link GitGutterChangeDelete BoaAqua
 
 " }}}
 
