@@ -168,13 +168,13 @@ hi MatchParen
 
 
 "popup menus
-hi Pmenu
+hi Pmenu  
   \ cterm=NONE ctermbg=241 ctermfg=248
-  \ guibg=#626262 guifg=#A8A8A8
+  \ guibg=#323232 guifg=#A8A8A8
 
 hi PmenuSel
   \ cterm=NONE ctermbg=246 ctermfg=255
-  \ guibg=#949494 guifg=#ffffff
+  \ guibg=#808080 guifg=#ffffff
 
 hi PmenuSbar
   \ cterm=NONE ctermbg=240 ctermfg=236
@@ -234,13 +234,13 @@ highlight ALEWarningLine none
 
 
 hi GitGutterChange
-  \ gui=bold guibg=#161616 guifg=#927749
+  \ gui=bold guibg=Normal guifg=#927749
 
 hi GitGutterDelete
-  \ gui=bold guibg=#161616 guifg=#6D3C3C
+  \ gui=bold guibg=Normal guifg=#6D3C3C
 
 hi GitGutterAdd
-  \ guisp=bold guibg=#161616 guifg=#476D47
+  \ guisp=bold guibg=Normal guifg=#476D47
 
 " Vim colorscheme files
 " hi link vimHiKeyList Title

@@ -43,7 +43,7 @@ endfunction
 function! s:setLight()
   set background=light
   " Base colors.
-  call s:highlight('Normal', 'grey', 'white')
+  call s:highlight('Normal', 'deepgrey', 'white')
   call s:highlight('NonText', 'darkgrey')
   call s:highlight('comment', 'grey')
   call s:highlight('constant', 'black', 'white', 'bold')
@@ -67,7 +67,7 @@ function! s:setLight()
  
   " CursorLine
   call s:highlight('Cursor', 'darkgrey')
-  call s:highlight('CursorLine', 'black', 'white', 'NONE')
+  call s:highlight('CursorLine', 'deepgrey', 'white', 'NONE')
   call s:highlight('CursorLineNr', 'blue')
 
   " Status line
