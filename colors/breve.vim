@@ -1,8 +1,8 @@
 "AUTHOR: Alessandro Yorba
 "SCRIPT: https://github.com/AlessandroYorba/Breve
 
-"UPDATED: Dec 12th, 2019
-"CHANGES: Pmenu Groups, Tabline Groups, Visual, Search
+"UPDATED: Dec 15th, 2019
+"CHANGES: Changed Silver Color
 
 "SUPPORT:
 "MacVim, gVim, or Terminal versions of Vim that support Termguicolors
@@ -24,10 +24,6 @@ highlight! link FoldColumn Black
 highlight! link ModeMsg Black
 highlight! link MoreMsg Black
 
-"BLACK HIGHLIGHTED:
-highlight! Black_Highlighted guifg=#121212 guibg=#eeeeee gui=NONE cterm=NONE
-highlight! link StatusLine Black_Highlighted
-highlight! link StatusLineTerm Black_Highlighted
 
 "BLACK REVERSE:
 highlight! Black_Reverse guifg=#121212 guibg=#eeeeee gui=reverse cterm=reverse
@@ -85,6 +81,7 @@ highlight! link Underlined Purple_Underline
 "GREY:
 highlight! Grey guifg=#838C96 guibg=NONE gui=NONE cterm=NONE
 highlight! link Comment Grey
+highlight! link VimCommentTitle Grey
 highlight! link Folded Grey
 highlight! link Pmenu Grey
 
@@ -97,7 +94,6 @@ highlight! link SignColumn Grey_Highlighted
 highlight! link CursorColumn Grey_Highlighted
 highlight! link ColorColumn Grey_Highlighted
 highlight! link ToolbarLine Grey_Highlighted
-highlight! link VimCommentTitle Grey_Highlighted
 highlight! link SpecialComment Grey_Highlighted
 highlight! link PmenuSbar Grey_Highlighted
 highlight! link PmenuThumb Grey_Highlighted
@@ -111,17 +107,20 @@ highlight! link PmenuSel Grey_Reversed
 highlight! link WildMenu Grey_Reversed
 highlight! link TabLineSel Grey_Reversed
 
-
 "SILVER:
-highlight! Silver guifg=#C4C8CD guibg=NONE gui=NONE cterm=NONE
+highlight! Silver guifg=#C2C7CB guibg=NONE gui=NONE cterm=NONE
 highlight! link NonText Silver
 highlight! link SpecialKey Silver
 highlight! link VertSplit Silver
 highlight! link LineNr Silver
-"TODO
+
+"SILVER HIGHLIGHTED:
+highlight! Silver_Highlighted guifg=#121212 guibg=#C2C7CB gui=NONE cterm=NONE
+highlight! link StatusLine Silver_Highlighted
+highlight! link StatusLineTerm Silver_Highlighted
 
 "SILVER UNDERLINE:
-highlight! Silver_Underline guifg=#C4C8CD guibg=NONE gui=Underline cterm=Underline
+highlight! Silver_Underline guifg=#C2C7CB guibg=NONE gui=Underline cterm=Underline
 highlight! link TabLineFill Silver_Underline
 
 "GREEN HIGHLIGHTED:
@@ -188,3 +187,4 @@ highlight! CursorLine guifg=NONE guibg=#FCFCFC gui=NONE cterm=NONE
 "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 "THE SOFTWARE.
+

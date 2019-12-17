@@ -252,6 +252,13 @@ hi! link xdefaultsLabel Label
 " 2}}}
 " 1}}}
 
+" php {{{2
+hi! link phpParent Delimiter
+hi! link phpVarSelector phpIdentifier
+hi! link phpSuperglobals phpIdentifier
+hi! link phpInclude phpKeyword
+" 2}}}
+
 " Plugins {{{1
 " vim-sneak {{{2
 hi! link Sneak Search
