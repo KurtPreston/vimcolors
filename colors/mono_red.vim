@@ -1,6 +1,6 @@
 " File: mono_red.vim
 " Author: Michał Mikołajczyk
-" Last Modified: December 13, 2019
+" Last Modified: December 17, 2019
 "
 " A simple monochrome colorscheme with red highlights.
 "
@@ -36,9 +36,6 @@ let g:colors_name = "mono_sw_red_modified"
 "hi SpellRare            -- no settings --
 "hi StatusLine           -- no settings --
 "hi StatusLineNC         -- no settings --
-"hi TabLine              -- no settings --
-"hi TabLineFill          -- no settings --
-"hi TabLineSel           -- no settings --
 "hi Union                -- no settings --
 "hi VisualNOS            -- no settings --
 "hi WarningMsg           -- no settings --
@@ -65,6 +62,7 @@ hi Exception             guifg=#bcbcbc  guibg=NONE     guisp=NONE     gui=NONE  
 hi Float                 guifg=#d70000  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=160   ctermbg=NONE  cterm=NONE
 hi Folded                guifg=#bcbcbc  guibg=#303030  guisp=#303030  gui=italic          ctermfg=250   ctermbg=236   cterm=italic
 hi Function              guifg=#eeeeee  guibg=NONE     guisp=NONE     gui=bold            ctermfg=255   ctermbg=NONE  cterm=bold
+hi HighlightedyankRegion guifg=#121212  guibg=#ffaf00  guisp=#767676  gui=NONE            ctermfg=214   ctermbg=243   cterm=NONE
 hi Identifier            guifg=#bcbcbc  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=250   ctermbg=NONE  cterm=NONE
 hi IncSearch             guifg=#bcbcbc  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=250   ctermbg=NONE  cterm=NONE
 hi Include               guifg=#dadada  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=253   ctermbg=NONE  cterm=NONE
@@ -84,7 +82,7 @@ hi PMenuThumb            guifg=#bcbcbc  guibg=#a8a8a8  guisp=#a8a8a8  gui=NONE  
 hi PreCondit             guifg=#8a8a8a  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=245   ctermbg=NONE  cterm=NONE
 hi PreProc               guifg=#8a8a8a  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=245   ctermbg=NONE  cterm=NONE
 hi Repeat                guifg=#dadada  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=253   ctermbg=NONE  cterm=NONE
-hi Search                guifg=#ffaf00  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=214   ctermbg=NONE  cterm=NONE
+hi Search                guifg=#ffaf00  guibg=#585858  guisp=NONE     gui=NONE            ctermfg=214   ctermbg=240   cterm=NONE
 hi SignColumn            guifg=#121212  guibg=#1c1c1c  guisp=#1c1c1c  gui=NONE            ctermfg=233   ctermbg=234   cterm=NONE
 hi Special               guifg=#d70000  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=160   ctermbg=NONE  cterm=NONE
 hi SpecialChar           guifg=#d70000  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=160   ctermbg=NONE  cterm=NONE
@@ -94,6 +92,9 @@ hi Statement             guifg=#eeeeee  guibg=NONE     guisp=NONE     gui=NONE  
 hi StorageClass          guifg=#bcbcbc  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=250   ctermbg=NONE  cterm=NONE
 hi String                guifg=#585858  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=240   ctermbg=NONE  cterm=NONE
 hi Structure             guifg=#bcbcbc  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=250   ctermbg=NONE  cterm=NONE
+hi TabLine               guifg=#c6c6c6  guibg=#4e4e4e  guisp=#4e4e4e  gui=NONE            ctermfg=251   ctermbg=239   cterm=NONE
+hi TabLineFill           guifg=#949494  guibg=#303030  guisp=#303030  gui=NONE            ctermfg=246   ctermbg=236   cterm=NONE
+hi TabLineSel            guifg=#bcbcbc  guibg=#1c1c1c  guisp=#1c1c1c  gui=NONE            ctermfg=250   ctermbg=234   cterm=NONE
 hi Tag                   guifg=#d70000  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=160   ctermbg=NONE  cterm=NONE
 hi Title                 guifg=#d70000  guibg=NONE     guisp=NONE     gui=bold            ctermfg=160   ctermbg=NONE  cterm=bold
 hi Todo                  guifg=#ffaf00  guibg=NONE     guisp=NONE     gui=underline       ctermfg=214   ctermbg=NONE  cterm=underline
@@ -101,7 +102,7 @@ hi Type                  guifg=#eeeeee  guibg=NONE     guisp=NONE     gui=NONE  
 hi Typedef               guifg=#bcbcbc  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=250   ctermbg=NONE  cterm=NONE
 hi Underlined            guifg=#d70000  guibg=NONE     guisp=NONE     gui=underline       ctermfg=160   ctermbg=NONE  cterm=underline
 hi VertSplit             guifg=#121212  guibg=#1c1c1c  guisp=#1c1c1c  gui=NONE            ctermfg=233   ctermbg=234   cterm=NONE
-hi Visual                guifg=#121212  guibg=#767676  guisp=#767676  gui=NONE            ctermfg=233   ctermbg=243   cterm=NONE
+hi Visual                guifg=#121212  guibg=#ffaf00  guisp=#767676  gui=NONE            ctermfg=214   ctermbg=243   cterm=NONE
 hi WildMenu              guifg=#d70000  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=160   ctermbg=NONE  cterm=NONE
 hi colorcolumn           guifg=NONE     guibg=#303030  guisp=#303030  gui=NONE            ctermfg=NONE  ctermbg=236   cterm=NONE
 hi cursorlinenr          guifg=#bcbcbc  guibg=#121212  guisp=#121212  gui=NONE            ctermfg=250   ctermbg=233   cterm=NONE
