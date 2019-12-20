@@ -66,7 +66,7 @@ function! s:set() abort
 
     "*** highlight groups (:h highlight-groups) ***"
     " fundamental
-    let highlight_group.Normal       = [kokutan,   wakatake,      none,      none]
+    let highlight_group.Normal       = [kokutan,   none,      none,      none]
     let highlight_group.Visual       = [none,         tanko,       none,      none]
     " Cursor
     let highlight_group.Cursor       = [sakurairo,    tekkon,      none,      none]
@@ -138,7 +138,7 @@ function! s:set() abort
 
     "*** highlight groups (:h highlight-groups) ***"
     " fundamental
-    let highlight_group.Normal       = [sakurairo,    oitake,      none,      none]
+    let highlight_group.Normal       = [sakurairo,    none,      none,      none]
     let highlight_group.Visual       = [none,         azukiiro,    none,      none]
     " Cursor
     let highlight_group.Cursor       = [dobunezumi,   sakurairo,   none,      none]
