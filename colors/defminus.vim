@@ -38,10 +38,10 @@ endif
 let g:colors_name = 'defminus'
 
 "" Helper color groups
-hi DefMinusBold guibg=NONE guifg=#000000 gui=bold ctermfg=16 ctermbg=NONE cterm=bold
+hi DefMinusBold guibg=NONE guifg=#000000 gui=bold ctermfg=0 ctermbg=NONE cterm=bold
 
 "" General
-hi Normal guibg=#ffffff guifg=#000000 gui=NONE ctermbg=15 ctermfg=16
+hi Normal guibg=#ffffff guifg=#000000 gui=NONE ctermbg=15 ctermfg=0
 hi Cursor guibg=#000000 ctermbg=0
 hi lCursor guibg=#ff0000 ctermfg=12
 hi NonText guibg=NONE guifg=#dadada gui=NONE ctermfg=253 cterm=NONE
@@ -54,8 +54,8 @@ hi! link Todo Title
 
 "" UI
 hi Statusline guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15 cterm=NONE
-hi StatuslineNC guibg=#8c8c8c guifg=#ffffff gui=NONE ctermbg=7 ctermfg=255 cterm=NONE
-hi VertSplit guibg=#8c8c8c guifg=#8c8c8c gui=NONE ctermbg=7 ctermfg=7 cterm=NONE
+hi StatuslineNC guibg=#8a8a8a guifg=#ffffff gui=NONE ctermbg=245 ctermfg=255 cterm=NONE
+hi VertSplit guibg=#8a8a8a guifg=#8a8a8a gui=NONE ctermbg=245 ctermfg=245 cterm=NONE
 hi! link TabLine StatusLineNC
 hi! link TabLineFill TabLine
 hi! link TabLineSel Normal
@@ -77,7 +77,7 @@ hi PmenuSbar guibg=#bcbcbc ctermbg=250
 hi PmenuThumb guibg=#585858 ctermbg=250
 hi QuickFixLine guibg=#eeeeee guifg=#505050 gui=none ctermbg=254 ctermfg=240
 hi! link ColorColumn CursorLine
-hi EndOfBuffer guifg=#bcbcbc ctermbg=250
+hi EndOfBuffer guibg=#ffffff guifg=#bcbcbc ctermbg=15 ctermfg=250
 hi MatchParen guibg=#d7ffd7 ctermbg=194
 
 
@@ -87,7 +87,7 @@ hi MatchParen guibg=#d7ffd7 ctermbg=194
 hi Comment guifg=#909090 gui=NONE ctermfg=246
 
 hi Constant guifg=#a04327 gui=NONE ctermfg=130
-hi String guifg=#399030 gui=NONE ctermfg=2
+hi String guifg=#399030 gui=NONE ctermfg=28
 " hi! link Character Constant
 " hi! link Number Constant
 " hi! link Boolean Constant
@@ -115,7 +115,7 @@ hi Type guifg=#000000 gui=NONE ctermfg=16 term=NONE
 " hi! link Structure Type
 " hi! link Typedef Type
 
-hi Special guifg=#00737b gui=NONE ctermfg=darkcyan
+hi Special guifg=#00737b gui=NONE ctermfg=30
 " hi! link SpecialChar Special
 " hi! link Tag Special
 " hi! link Delimiter Special
