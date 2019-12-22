@@ -46,7 +46,7 @@ hi Cursor guibg=#000000 ctermbg=0
 hi lCursor guibg=#ff0000 ctermfg=12
 hi NonText guibg=NONE guifg=#dadada gui=NONE ctermfg=253 cterm=NONE
 hi! link SpecialKey NonText
-hi Visual guibg=#add6ff guifg=NONE ctermbg=110 ctermfg=NONE
+hi Visual guibg=#afd7ff guifg=NONE ctermbg=153 ctermfg=NONE
 
 hi! link Directory DefMinusBold
 hi Title guibg=NONE guifg=#3554df gui=bold ctermfg=12 cterm=bold
