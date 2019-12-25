@@ -16,6 +16,7 @@ call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('justinmk/vim-dirvish')
 call minpac#add('Yggdroot/indentLine')
+call minpac#add('MartinDelille/vim-qmake')
 call minpac#add('mhinz/vim-signify')
 call minpac#add('majutsushi/tagbar')
 call minpac#add('mbbill/undotree')
@@ -23,6 +24,7 @@ call minpac#add('lervag/vimtex')
 " my local plugins under pack/bundle/start are not managed by minpac
 " call minpac#add('matveyt/vim-modest')
 " call minpac#add('matveyt/vim-moveit')
+" call minpac#add('matveyt/vim-ranger')
 " call minpac#add('matveyt/vim-scratch')
 " call minpac#add('matveyt/vim-stalin')
 
@@ -47,9 +49,9 @@ command! PackStatus call minpac#status()
 command! PackUpdate call minpac#update()
 
 if !exists('#vimrc#FileType#dirvish')
-    autocmd vimrc FileType dirvish nmap <buffer><BS> <Plug>(dirvish_up)
+    autocmd vimrc FileType dirvish nmap <buffer><BS> <plug>(dirvish_up)
 endif
-nmap <kMinus> <Plug>(dirvish_up)
+nmap <kMinus> <plug>(dirvish_up)
 nnoremap <Leader>g :SignifyToggle<CR>
 nnoremap <Leader>s :split +Scratch<CR>
 nnoremap <Leader>t :TagbarToggle<CR>

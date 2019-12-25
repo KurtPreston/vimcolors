@@ -3,13 +3,16 @@
 
 " term_start() compatibility wrapper
 function! term#start(cmd, ...)
-    let l:options = extend({'curwin': 0}, get(a:, 1, {}))
+    let l:opt = get(a:, 1, {})
     if exists('*term_start')
-        return term_start(a:cmd, l:options)
+        return term_start(a:cmd, l:opt)
     elseif exists('*termopen')
         try
-            execute remove(l:options, 'curwin') ? "enew" : "new"
-            call termopen(a:cmd, l:options)
+            execute get(l:opt, 'curwin') ? 'enew' :
+                \ get(l:opt, 'vertical') ? 'vnew' : 'new'
+            call termopen(a:cmd, l:opt)
+            execute 'resize' get(l:opt, 'term_rows', '+0')
+            execute 'vertical resize' get(l:opt, 'term_cols', '+0')
             return bufnr()
         catch | endtry
     endif
@@ -29,6 +32,7 @@ function! term#sendkeys(buf, keys) abort
     if !term#running(a:buf)
         return
     endif
+    let l:winid = misc#bufwinid(a:buf)
     " accept List too
     let l:keys = (type(a:keys) == v:t_list) ? join(a:keys, "\r") : a:keys
     if exists('*chansend')
@@ -39,11 +43,11 @@ function! term#sendkeys(buf, keys) abort
         call term_sendkeys(a:buf, l:keys)
     else
         " try to put it directly (works in Neovim only?)
-        call misc#win_execute(get(win_findbuf(bufnr(a:buf)), 0),
-            \ "put=" . escape(tr(string(l:keys), "\n", "\r"), '|"'))
+        call misc#win_execute(l:winid, "put =" .
+            \ escape(tr(string(l:keys), "\n", "\r"), '|"'))
     endif
     " scrolling may come in handy in Terminal-Normal mode
-    call misc#win_execute(get(win_findbuf(bufnr(a:buf)), 0), [
+    call misc#win_execute(l:winid, [
         \ 'if line("$") > line("w$")',
             \ 'normal! 999999z-',
         \ 'endif'])

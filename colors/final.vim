@@ -6,14 +6,15 @@ if get(g:, 'GuiLoaded')
         set renderoptions=type:directx
     endif
     set guifont=Inconsolata\ LGC:h14:cRUSSIAN:qDEFAULT
+    set mouse=ar
     " in case the colors were set by a desktop shortcut
     if !exists('g:colors_name')
         set background=dark
         silent! colorscheme hybrid
     endif
 elseif &t_Co >= 256
-    " assume we also have TrueColor support
-    set termguicolors
+    " assume xterm
+    set mouse=ar termguicolors
     if !has('nvim')
         set ttyfast ttymouse=xterm2
     endif
