@@ -25,8 +25,8 @@ hi LineNr              ctermfg=239  ctermbg=NONE cterm=NONE       guifg=#4e4e4e 
 hi NonText             ctermfg=241  ctermbg=NONE cterm=NONE       guifg=#626262  guibg=NONE     gui=NONE
 
 hi Statusline          ctermfg=235  ctermbg=231  cterm=NONE       guifg=#262626  guibg=#ffffff  gui=NONE
-hi StatuslineNC        ctermfg=235  ctermbg=240  cterm=NONE       guifg=#262626  guibg=#585858  gui=NONE
-hi Visual              ctermfg=235  ctermbg=240  cterm=NONE       guifg=#262626  guibg=#585858  gui=NONE
+hi StatuslineNC        ctermfg=233  ctermbg=240  cterm=NONE       guifg=#121212  guibg=#585858  gui=NONE
+hi Visual              ctermfg=233  ctermbg=240  cterm=NONE       guifg=#121212  guibg=#585858  gui=NONE
 
 hi ColorColumn         ctermfg=NONE ctermbg=NONE cterm=NONE       guifg=NONE     guibg=NONE     gui=NONE
 
