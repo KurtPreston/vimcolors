@@ -72,8 +72,8 @@ hi CurrentWordTwins ctermfg=grey  ctermbg=22   cterm=none
 hi Delimiter        ctermfg=grey  ctermbg=none cterm=none
 hi Conceal          ctermfg=108   ctermbg=none cterm=bold
 
-hi goArgumentName   ctermfg=grey  ctermbg=none cterm=bold,italic
-hi goArgumentType   ctermfg=grey  ctermbg=none cterm=none
+hi goParamName   ctermfg=grey  ctermbg=none cterm=bold,italic
+hi goParamType   ctermfg=grey  ctermbg=none cterm=none
 hi goFunctionCall   ctermfg=grey  ctermbg=none cterm=none
 
 hi texSpecialChar   ctermfg=243   ctermbg=none cterm=none
@@ -83,3 +83,13 @@ hi texSuperscript   ctermfg=108   ctermbg=none cterm=bold,italic
 hi texSubscript     ctermfg=108   ctermbg=none cterm=bold,italic
 
 hi clear SignColumn
+
+hi clear SpellBad
+hi clear SpellCap
+hi clear SpellRare
+hi clear SpellLocal
+
+hi SpellBad   ctermfg=218 cterm=underline
+hi SpellCap   cterm=underline
+hi SpellRare  cterm=underline
+hi SpellLocal cterm=underline
