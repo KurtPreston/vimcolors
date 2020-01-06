@@ -260,6 +260,21 @@ hi! link phpSuperglobals phpIdentifier
 hi! link phpInclude phpKeyword
 " 2}}}
 
+" elixir {{{2
+hi! link elixirKeyword Keyword
+hi! link elixirDefine elixirKeyword
+hi! link elixirModuleDefine elixirDefine
+hi! link elixirBlockDefinition elixirDefine
+hi! link elixirFunctionDeclaration Typedef
+hi! link elixirStringDelimiter elixirString
+hi! link elixirAlias Identifier
+hi! link elixirDocStringDelimiter elixirComment
+hi! link elixirInclude elixirKeyword
+hi! link elixirAtom Special
+hi! link elixirPrivateDefine elixirDefine
+hi! link elixirExUnitMacro elixirKeyword
+" 2}}}
+
 " Plugins {{{1
 " vim-sneak {{{2
 hi! link Sneak Search
