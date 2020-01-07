@@ -165,9 +165,8 @@ hi! link coffeeObjAssign Special
 hi! link coffeeSpecialOp coffeeOperator
 hi! link coffeeExtendedOp coffeeOperator
 hi! link coffeeObject Identifier
-hi! link coffeeSpecialVar Identifier
-hi! link coffeeGlobal Identifier
-hi! link coffeeBoolean Identifier
+hi! link coffeeSpecialVar Constant
+hi! link coffeeGlobal Constant
 hi! link coffeeEmbedDelim SpecialChar
 " 2}}}
 
