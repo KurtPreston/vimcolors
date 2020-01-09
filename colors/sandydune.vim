@@ -1,8 +1,8 @@
 " Vim color file
 " Maintainer:	David Briscoe <idbrii@gmail.com>
-" Last Change:	2018-11-21
+" Last Change:	2020-01-08
 " Origin:   Based on desert.vim
-" Version:	0.4
+" Version:	0.5
 
 " Relevant help screens
 " :h group-name
@@ -38,9 +38,9 @@ hi ModeMsg	guifg=goldenrod
 hi MoreMsg	guifg=SeaGreen
 hi NonText	guifg=LightBlue guibg=grey30
 hi Question	guifg=springgreen
-hi Search	guibg=brown guifg=wheat
-" brown is #964B00. wheat is #f5deb3. use a darker reversed version of Search.
-hi IncSearch	guibg=#6d2200 guifg=#ccb58a gui=reverse
+hi Search	guifg=SkyBlue guibg=grey10
+" SkyBlue is #87CEEB. Use a darker reversed version of Search.
+hi IncSearch	guifg=#67aecb guibg=grey10 gui=reverse
 hi SpecialKey	guifg=yellowgreen
 hi StatusLine	guibg=#c2bfa5 guifg=black gui=none
 hi StatusLineNC	guibg=#c2bfa5 guifg=grey50 gui=none
@@ -49,7 +49,7 @@ hi Visual	gui=none guifg=lightgrey guibg=black
 "hi VisualNOS
 hi WarningMsg	guifg=salmon
 hi WildMenu	guifg=Black guibg=SkyBlue
-hi QuickFixLine	guifg=SkyBlue guibg=Black
+hi QuickFixLine	guifg=SkyBlue guibg=grey15
 "hi Menu
 hi Pmenu	guifg=#f6f3e8 guibg=#444444
 hi PmenuSel	guifg=#000000 guibg=SkyBlue
