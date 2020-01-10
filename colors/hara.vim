@@ -12,10 +12,14 @@ let s:colors.faint       = ['#eeeeee', 255]
 let s:colors.white       = ['#ffffff', 231]
 let s:colors.rose        = ['#ff5f87', 204]
 let s:colors.blue        = ['#0087af', 32]
+let s:colors.corn	 = ['#ffffd7', 230]
+let s:colors.orange 	 = ['#ff8700', 208]
 let s:colors.red         = ['#d70000', 160]
 let s:colors.spell       = ['#ff5f87', 204]
+let s:colors.diffBlue    = ['#00005f', 17]
+let s:colors.diffAddBg   = ['#87d7ff', 117]
 
-" Highlighting function
+" Highlighting function change
 " Cribbed from badwolf, gruvbox.
 function! s:highlight(target, fg, ...)
   " ... = bg, style.
@@ -78,10 +82,10 @@ function! s:setLight()
   call s:highlight('VertSplit', 'white')
 
   " Diff 
-  call s:highlight('DiffChange', 'black', 'white')
-  call s:highlight('DiffText', 'black', 'white')
-  call s:highlight('DiffAdd', 'white', 'black')
-  call s:highlight('DiffDelete', 'rose', 'white')
+  call s:highlight('DiffChange', 'black', 'corn')
+  call s:highlight('DiffText', 'orange', 'corn')
+  call s:highlight('DiffAdd', 'diffBlue', 'diffAddBg')
+  call s:highlight('DiffDelete', 'rose', 'rose')
 
   " Folds
   call s:highlight('Folded', 'darkgrey')
