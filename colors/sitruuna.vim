@@ -12,22 +12,23 @@ let g:colors_name="sitruuna"
 
 " Colors {{{
 let s:col            = {}
-let s:col.foreground = ['#f1f1f1', 255]
+let s:col.foreground = ['#f1f1f1', 231]
 let s:col.lemon      = ['#FAC03B', 220]
-let s:col.darker     = ['#101010', 0]
+let s:col.darker     = ['#101010', 232]
 let s:col.background = ['#161616', 233]
 let s:col.light_bg   = ['#1D2021', 236]
 let s:col.lighter_bg = ['#2D3032', 238]
 let s:col.comment    = ['#4c5356', 244]
-let s:col.selection  = ['#2D3032', 245]
-let s:col.special    = ['#ffb354', 202]
-let s:col.preproc    = ['#a29bfe', 69]
-let s:col.function   = ['#94d0ff', 255]
-let s:col.identifier = ['#f1f1f1', 69]
-let s:col.string     = ['#26c281', 78]
-let s:col.type       = ['#65a9ff', 77]
-let s:col.constant   = ['#ca70d6', 164]
-let s:col.error      = ['#FB543F', 196]
+let s:col.selection  = ['#2D3032', 238]
+let s:col.special    = ['#ffb354', 215]
+let s:col.preproc    = ['#a29bfe', 147]
+let s:col.function   = ['#94d0ff', 117]
+let s:col.identifier = ['#f1f1f1', 231]
+let s:col.string     = ['#26c281', 36]
+let s:col.type       = ['#65a9ff', 75]
+let s:col.constant   = ['#ca70d6', 170]
+let s:col.error      = ['#FB543F', 203]
+let s:col.statusline = ['#ae7c5b', 137]
 let s:col.none       = ['NONE', 'NONE']
 " }}}
 
@@ -108,7 +109,7 @@ call s:HL('Cursor',          'none',       'foreground')
 call s:HL('CursorColumn',    'none',       'light_bg')
 call s:HL('CursorLineNr',    'special',    'darker')
 call s:HL('CursorLine',      'none',       'light_bg', 'none')
-call s:HL('StatusLine',      'special',    'background')
+call s:HL('StatusLine',      'statusline', 'background')
 call s:HL('StatusLineNC',    'light_bg',   'comment')
 call s:HL('Visual',          'none',       'selection')
 call s:HL('VisualNOS',       'foreground', 'background')
@@ -132,9 +133,9 @@ call s:HL('htmlTag',         'foreground', 'none')
 call s:HL('htmlArg',         'function',   'none')
 
 
-call s:HL('IncSearch',  'type',   'background', 'reverse,bold')
-call s:HL('Search',     'type',   'background', 'reverse,bold')
-call s:HL('Substitute', 'type',   'background', 'reverse,bold')
+call s:HL('IncSearch',  'special', 'background', 'reverse,bold')
+call s:HL('Search',     'special', 'background', 'reverse,bold')
+call s:HL('Substitute', 'special', 'background', 'reverse,bold')
 call s:HL('SpellBad',   'error',   'none',       'bold,underline')
 call s:HL('SpellCap',   'error',   'none',       'bold,underline')
 call s:HL('SpellLocal', 'special', 'none',       'bold,underline')
@@ -221,4 +222,27 @@ hi link NeomakeErrorSign ErrorMsg
 hi link NeomakeWarningSign WarningMsg
 hi link NeomakeMessageSign WarningMsg
 hi link NeomakeInfoSign Type
+
+hi link NeomakeVirtualtextError ErrorMsg
+hi link NeomakeVirtualtextWarning WarningMsg
+hi link NeomakeVirtualtextMessage WarningMsg
+hi link NeomakeVirtualtextInfo Type
+
+" Fzf
+if get(g:, 'sitruuna_fzf', 1) == 1
+  let g:fzf_colors =
+        \ { 'fg':    ['fg', 'NormalFloat'],
+        \ 'bg':      ['bg', 'NormalFloat'],
+        \ 'hl':      ['fg', 'Keyword', 'Keyword'],
+        \ 'fg+':     ['fg', 'Function'],
+        \ 'bg+':     ['bg', 'NormalFloat'],
+        \ 'hl+':     ['fg', 'Keyword'],
+        \ 'info':    ['fg', 'PreProc'],
+        \ 'border':  ['fg', 'Ignore'],
+        \ 'prompt':  ['fg', 'DiffAdded'],
+        \ 'pointer': ['fg', 'Function'],
+        \ 'marker':  ['fg', 'Keyword'],
+        \ 'spinner': ['fg', 'Label'],
+        \ 'header':  ['fg', 'Comment'] }
+endif
 " }}}
