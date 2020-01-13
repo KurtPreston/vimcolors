@@ -77,7 +77,7 @@ hi PmenuSbar guibg=#bcbcbc ctermbg=250
 hi PmenuThumb guibg=#585858 ctermbg=250
 hi QuickFixLine guibg=#eeeeee guifg=#505050 gui=none ctermbg=254 ctermfg=240
 hi! link ColorColumn CursorLine
-hi EndOfBuffer guibg=#ffffff guifg=#bcbcbc ctermbg=15 ctermfg=250
+hi EndOfBuffer guibg=NONE guifg=#bcbcbc ctermbg=15 ctermfg=250
 hi MatchParen guibg=#d7ffd7 ctermbg=194
 
 
