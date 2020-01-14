@@ -76,7 +76,7 @@ function! s:setLight()
 
   " Status line
   call s:highlight('StatusLine', 'white', 'deepgrey')
-  call s:highlight('StatusLineNC', 'black', 'grey')
+  call s:highlight('StatusLineNC', 'white', 'white')
   
   " Windows
   call s:highlight('VertSplit', 'white')

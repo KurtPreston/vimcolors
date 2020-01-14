@@ -274,6 +274,10 @@ hi! link elixirPrivateDefine elixirDefine
 hi! link elixirExUnitMacro elixirKeyword
 " 2}}}
 
+" {{{2
+hi! link csInterpolationDelimiter SpecialChar
+" 2}}}
+
 " Plugins {{{1
 " vim-sneak {{{2
 hi! link Sneak Search
