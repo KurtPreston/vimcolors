@@ -123,6 +123,7 @@ hi! link vimEnvvar Identifier
 hi! link vimParenSep Delimiter
 hi! link vimMapModKey SpecialChar
 hi! link vimNotation SpecialChar
+hi! link vimFunction Typedef
 " 2}}}
 
 " crystal {{{2
