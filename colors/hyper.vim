@@ -1,177 +1,148 @@
+" Hyper Theme v1.0
+"
+" https://github.com/jdsimcoe/hyper.vim
+"
+" Copyright 2017, All rights reserved
+"
+" Code licensed under the MIT license
+"
+" @author Jonathan Simcoe <@jdsimcoe>
+
+set background=dark
 highlight clear
 
-if exists('syntax_on')
+if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = 'hyper'
-set background=dark
+let g:colors_name = "hyper"
+
+hi Cursor ctermfg=24 ctermbg=231 cterm=NONE guifg=#cc00ff guibg=#ffffff gui=NONE
+hi Visual ctermfg=NONE ctermbg=241 cterm=NONE guifg=NONE guibg=#000000 gui=NONE
+hi CursorLine ctermbg=234 cterm=NONE guifg=NONE guibg=#000000 gui=NONE
+hi CursorColumn ctermbg=234 cterm=NONE guifg=NONE guibg=#000000 gui=NONE
+hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#333333 gui=NONE
+hi LineNr ctermfg=234 ctermbg=NONE cterm=NONE guifg=#3a3a3a guibg=#000000 gui=NONE
+hi VertSplit ctermfg=234 ctermbg=0 cterm=bold guifg=#3a3a3a guibg=#000000 gui=bold
+hi MatchParen ctermfg=96 ctermbg=NONE cterm=underline guifg=#ff0000 guibg=NONE gui=underline
+hi StatusLine ctermfg=231 ctermbg=236 cterm=bold guifg=#ffffff guibg=#333333 gui=bold
+hi StatusLineNC ctermfg=231 ctermbg=236 cterm=NONE guifg=#ffffff guibg=#333333 gui=NONE
+hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi PmenuSel ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#000000 gui=NONE
+hi IncSearch ctermfg=24 ctermbg=178 cterm=NONE guifg=#000000 guibg=#ffff00 gui=NONE
+hi Search ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
+hi Directory ctermfg=56 ctermbg=NONE cterm=NONE guifg=#cc00ff guibg=NONE gui=NONE
+hi Folded ctermfg=24 ctermbg=235 cterm=NONE guifg=#cc00ff guibg=#000000 gui=NONE
+hi SignColumn ctermfg=246 ctermbg=235 cterm=NONE guifg=#333333 guibg=#000000 gui=NONE
+hi FoldColmun ctermfg=246 ctermbg=235 cterm=NONE guifg=#333333 guibg=#000000 gui=NONE
+hi Normal guifg=#ffffff guibg=#000000 gui=NONE
+hi Boolean ctermfg=56 ctermbg=NONE cterm=NONE guifg=#cc00ff guibg=NONE gui=NONE
+hi Character ctermfg=56 ctermbg=NONE cterm=NONE guifg=#cc00ff guibg=NONE gui=NONE
+hi Comment ctermfg=238 ctermbg=NONE cterm=NONE guifg=#808080 guibg=NONE gui=NONE
+hi Conditional ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi Constant ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi Define ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi DiffAdd ctermfg=231 ctermbg=64 cterm=bold guifg=#ffffff guibg=#33ff00 gui=bold
+hi DiffDelete ctermfg=160 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi DiffChange ctermfg=231 ctermbg=23 cterm=NONE guifg=#ffffff guibg=#0066ff gui=NONE
+hi DiffText ctermfg=231 ctermbg=24 cterm=bold guifg=#ffffff guibg=#0066ff gui=bold
+hi ErrorMsg ctermfg=231 ctermbg=96 cterm=NONE guifg=#ffffff guibg=#ff0000 gui=NONE
+hi WarningMsg ctermfg=231 ctermbg=96 cterm=NONE guifg=#ffffff guibg=#ff0000 gui=NONE
+hi Float ctermfg=56 ctermbg=NONE cterm=NONE guifg=#cc00ff guibg=NONE gui=NONE
+hi Function ctermfg=70 ctermbg=NONE cterm=NONE guifg=#0066ff guibg=NONE gui=NONE
+hi Identifier ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic
+hi Keyword ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi Label ctermfg=178 ctermbg=NONE cterm=NONE guifg=#ffff00 guibg=NONE gui=NONE
+hi NonText ctermfg=231 ctermbg=NONE cterm=NONE guifg=#333333 guibg=#000000 gui=NONE
+hi Number ctermfg=56 ctermbg=NONE cterm=NONE guifg=#cc00ff guibg=NONE gui=NONE
+hi Operator ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi PreProc ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi Special ctermfg=231 ctermbg=NONE cterm=NONE guifg=#ffffff guibg=NONE gui=NONE
+hi SpecialKey ctermfg=231 ctermbg=235 cterm=NONE guifg=#333333 guibg=#000000 gui=NONE
+hi Statement ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi StorageClass ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic
+hi String ctermfg=178 ctermbg=NONE cterm=NONE guifg=#ffff00 guibg=NONE gui=NONE
+hi Tag ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi Title ctermfg=231 ctermbg=NONE cterm=bold guifg=#ffffff guibg=NONE gui=bold
+hi Todo ctermfg=24 ctermbg=NONE cterm=inverse,bold guifg=#cc00ff guibg=NONE gui=inverse,bold
+hi Type ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=NONE
+hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
+hi rubyClass ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi rubyFunction ctermfg=70 ctermbg=NONE cterm=NONE guifg=#0066ff guibg=NONE gui=NONE
+hi rubyInterpolationDelimiter ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi rubySymbol ctermfg=56 ctermbg=NONE cterm=NONE guifg=#cc00ff guibg=NONE gui=NONE
+hi rubyConstant ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic
+hi rubyStringDelimiter ctermfg=178 ctermbg=NONE cterm=NONE guifg=#ffff00 guibg=NONE gui=NONE
+hi rubyBlockParameter ctermfg=215 ctermbg=NONE cterm=NONE guifg=#ffff00 guibg=NONE gui=italic
+hi rubyInstanceVariable ctermfg=203 ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi rubyInclude ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi rubyGlobalVariable ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi rubyRegexp ctermfg=178 ctermbg=NONE cterm=NONE guifg=#ffff00 guibg=NONE gui=NONE
+hi rubyRegexpDelimiter ctermfg=178 ctermbg=NONE cterm=NONE guifg=#ffff00 guibg=NONE gui=NONE
+hi rubyEscape ctermfg=56 ctermbg=NONE cterm=NONE guifg=#cc00ff guibg=NONE gui=NONE
+hi rubyControl ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi rubyClassVariable ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi rubyOperator ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi rubyException ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi rubyPseudoVariable ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi rubyRailsUserClass ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic
+hi rubyRailsARAssociationMethod ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=NONE
+hi rubyRailsARMethod ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=NONE
+hi rubyRailsRenderMethod ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=NONE
+hi rubyRailsMethod ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=NONE
+hi erubyDelimiter ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi erubyComment ctermfg=24 ctermbg=NONE cterm=NONE guifg=#cc00ff guibg=NONE gui=NONE
+hi erubyRailsMethod ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=NONE
+hi htmlTag ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi htmlEndTag ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi htmlTagName ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi htmlArg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi htmlSpecialChar ctermfg=56 ctermbg=NONE cterm=NONE guifg=#cc00ff guibg=NONE gui=NONE
+hi javaScriptFunction ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic
+hi javaScriptRailsFunction ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=NONE
+hi javaScriptBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi yamlKey ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
+hi yamlAnchor ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi yamlAlias ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi yamlDocumentHeader ctermfg=178 ctermbg=NONE cterm=NONE guifg=#ffff00 guibg=NONE gui=NONE
+hi cssURL ctermfg=215 ctermbg=NONE cterm=NONE guifg=#ffff00 guibg=NONE gui=italic
+hi cssFunctionName ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=NONE
+hi cssColor ctermfg=56 ctermbg=NONE cterm=NONE guifg=#cc00ff guibg=NONE gui=NONE
+hi cssPseudoClassId ctermfg=70 ctermbg=NONE cterm=NONE guifg=#0066ff guibg=NONE gui=NONE
+hi cssClassName ctermfg=70 ctermbg=NONE cterm=NONE guifg=#0066ff guibg=NONE gui=NONE
+hi cssValueLength ctermfg=56 ctermbg=NONE cterm=NONE guifg=#cc00ff guibg=NONE gui=NONE
+hi cssCommonAttr ctermfg=37 ctermbg=NONE cterm=NONE guifg=#0066ff guibg=NONE gui=NONE
+hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi TabLineFill  guifg=#333333 guibg=#000000 gui=none
+hi TabLine      guifg=#666666 guibg=#000000 gui=none
+hi TabLineSel   guifg=WHITE guibg=#000000 gui=none
+
+" Elixir {{{
+hi elixirAtom ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic"
+hi elixirModuleDeclaration ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic"
+hi elixirAlias ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic"
+hi elixirInterpolationDelimiter ctermfg=70 ctermbg=NONE cterm=NONE guifg=#0066ff guibg=NONE gui=NONE
+hi elixirStringDelimiter ctermfg=178 ctermbg=NONE cterm=NONE guifg=#ffff00 guibg=NONE gui=NONE
+"}}}
+"
+" Vim Script {{{
+hi vimGroupName ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE
+hi vimGroup ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE
+hi vimOption ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE
+hi vimHiCtermFgBg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE
+hi vimHiGuiFgBg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE
+" }}}
 
 
-" Helper function to set up highlight executions
-function! s:hi(group, foreground, background, fontStyle)
-  exec  "highlight "  . a:group
-    \ . " guifg="     . a:foreground
-    \ . " guibg="     . a:background
-    \ . " gui="       . a:fontStyle
-endfunction
+"
+"cygwin has an annoying behavior where it resets background to light
+"regardless of what is set above, so we force it yet again
+"
+"add these to get cygwin shell working when used to ssh into a centos6 vm
+"this requires your TERM=xterm-256color in the guest vm
+"- one way to do this is to append to /home/vagrant/.bash_profile ala:
+"      TERM=xterm-256color
+"      export $TERM
 
-
-" Text style
-let s:italic      =   'italic'
-let s:bold        =   'bold'
-let s:underline   =   'underline'
-let s:none        =   'NONE'
-
-
-" Background
-let s:bg = '#000000'
-
-
-" Colors base
-let s:primary       =   '#d55fde'
-let s:secondary     =   '#d55fde'
-
-let s:source        =   '#bbbbbb'
-let s:keyword       =   s:primary
-let s:structure     =   s:primary
-let s:scalar        =   '#d8985f'
-let s:string        =   '#89ca78'
-
-let s:comment       =   '#737c8c'
-
-
-" Syntax highlighting groups
-call s:hi('Comment', s:comment, s:bg, s:italic)
-call s:hi('Constant', s:primary, s:bg, s:none)
-call s:hi('String', s:string, s:bg, s:none)
-call s:hi('Character', s:string, s:bg, s:none)
-call s:hi('Number', s:scalar, s:bg, s:none)
-call s:hi('Boolean', s:scalar, s:bg, s:none)
-call s:hi('Float', s:scalar, s:bg, s:none)
-
-call s:hi('Identifier', s:primary, s:bg, s:none)
-call s:hi('Function', '#52adf2', s:bg, s:none)
-
-call s:hi('Statement', s:secondary, s:bg, s:none)
-call s:hi('Conditional', s:keyword, s:bg, s:none)
-call s:hi('Repeat', s:keyword, s:bg, s:none)
-call s:hi('Label', s:primary, s:bg, s:none)
-call s:hi('Operator', s:source, s:bg, s:none)
-call s:hi('Keyword', s:primary, s:bg, s:none)
-call s:hi('Exception', s:primary, s:bg, s:italic)
-
-call s:hi('PreProc', s:source, s:bg, s:italic)
-call s:hi('Include', s:primary, s:bg, s:italic)
-call s:hi('Define', s:source, s:bg, s:italic)
-call s:hi('Macro', s:source, s:bg, s:italic)
-call s:hi('PreCondit', s:primary, s:bg, s:italic)
-
-call s:hi('Type', '#e5c07b', s:bg, s:none)
-call s:hi('StorageClass', s:primary, s:bg, s:none)
-call s:hi('Structure', s:primary, s:bg, s:none)
-call s:hi('Typedef', s:primary, s:bg, s:none)
-
-call s:hi('Special', s:source, s:bg, s:none)
-call s:hi('SpecialChar', s:primary, s:bg, s:none)
-call s:hi('Delimiter', s:source, s:bg, s:none)
-call s:hi('SpecialComment', s:comment, s:bg, s:none)
-call s:hi('Debug', s:primary, s:bg, s:none)
-call s:hi('Underlined', s:source, s:bg, s:underline)
-call s:hi('Todo', s:primary, s:bg, s:none)
-call s:hi('Error', s:primary, s:bg, s:underline)
-call s:hi('ErrorMsg', s:primary, s:bg, s:none)
-call s:hi('Question', s:string, s:bg, s:none)
-
-call s:hi('Directory', s:string, s:bg, s:none)
-call s:hi('CursorLine', s:none, '#1a1a1a', s:none)
-call s:hi('MatchParen', 'White', s:bg, s:none)
-call s:hi('ColorColumn', s:source, '#1a1a1a', s:none)
-
-
-" Interface highlighting
-call s:hi('Normal', s:source, s:bg, s:none)
-call s:hi('Visual', s:none, '#393e46', s:none)
-call s:hi('Cursor', s:none, s:bg, s:none)
-call s:hi('iCursor', s:none, s:bg, s:none)
-call s:hi('LineNr', '#495162', s:bg, s:none)
-call s:hi('NonText', s:comment, s:bg, s:none)
-call s:hi('CursorLineNr', s:source, s:bg, s:none)
-call s:hi('VertSplit', '#1a1a1a', s:bg, s:none)
-call s:hi('Title', s:scalar, s:bg, s:none)
-call s:hi('Pmenu', s:source, '#1a1a1a', s:none)
-call s:hi('PmenuSel', s:bg, s:source, s:none)
-
-
-" Git Gutter
-call s:hi('GitGutterAdd', s:source, s:bg, s:none)
-call s:hi('GitGutterChange', s:source, s:bg, s:none)
-call s:hi('GitGutterDelete', s:source, s:bg, s:none)
-call s:hi('GitGutterChangeDelete', s:source, s:bg, s:none)
-call s:hi('SignColumn', s:source, s:bg, s:none)
-
-
-" Python syntax highlighting
-call s:hi('pythonFunction', '#52adf2', s:bg, s:none)
-call s:hi('pythonBuiltin', '#2bbac5', s:bg, s:italic)
-call s:hi('pythonDecoratorName', s:scalar, s:bg, s:italic)
-call s:hi('pythonDecorator', s:scalar, s:bg, s:italic)
-call s:hi('jinjaStatement', s:scalar, s:bg, s:none)
-call s:hi('jinjaTagDelim', s:scalar, s:bg, s:none)
-call s:hi('jinjaBlockName', s:scalar, s:bg, s:none)
-call s:hi('jinjaVariable', s:source, s:bg, s:none)
-call s:hi('jinjaString', s:string, s:bg, s:none)
-
-
-" PHP
-call s:hi('phpDefine', s:primary, s:bg, s:italic)
-call s:hi('phpIdentifier', s:source, s:bg, s:italic)
-call s:hi('bladeKeyword', s:primary, s:bg, s:none)
-
-
-" Javascript
-call s:hi('javaScriptNull', s:scalar, s:bg, s:italic)
-call s:hi('javaScriptBraces', s:source, s:bg, s:italic)
-call s:hi('javaScriptNumber', s:scalar, s:bg, s:italic)
-call s:hi('jsObjectKey', '#ef596f', s:bg, s:italic)
-
-" Typescript
-call s:hi('typescriptBraces', s:source, s:bg, s:none)
-call s:hi('typescriptDecorators', '#ef596f', s:bg, s:none)
-call s:hi('typescriptEndColons', s:source, s:bg, s:none)
-
-" HTML
-call s:hi('htmlTagName', '#ef596f', s:bg, s:none)
-call s:hi('htmlTag', '#aab1c0', s:bg, s:none)
-call s:hi('Identifier', '#aab1c0', s:bg, s:none)
-call s:hi('htmlArg', s:scalar, s:bg, s:none)
-
-" CSS
-call s:hi('cssProp', s:source, s:bg, s:italic)
-call s:hi('cssBraces', s:source, s:bg, s:italic)
-
-
-" Ruby
-call s:hi('rubyModule', s:primary, s:bg, s:italic)
-call s:hi('rubyDefine', s:primary, s:bg, s:italic)
-call s:hi('rubyClass', s:primary, s:bg, s:italic)
-call s:hi('rubyFunction', s:source, s:bg, s:italic)
-
-
-" Vimscript syntax highlighting
-call s:hi('vimOption', s:source, s:bg, s:none)
-
-
-" NERDTree
-call s:hi('NERDTreeClosable', s:string, s:bg, s:none)
-call s:hi('NERDTreeOpenable', s:string, s:bg, s:none)
-
-" Hacks
-hi CursorLine cterm=none
-hi Identifier cterm=none
-
-if has("gui_win32")
-    call s:hi('CursorLine', s:source, '#1a1a1a', s:none)
-    call s:hi('Cursor', s:bg, s:string, s:none)
-endif
-
+execute "set background=dark"
+"-------------------
