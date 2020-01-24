@@ -52,7 +52,7 @@ hi Identifier guifg=#c2968c ctermfg=138
 hi Exception guifg=#b5ae7d ctermfg=144
 hi Type guifg=#b5ae7d ctermfg=144 gui=NONE cterm=NONE
 hi TypeDef guifg=#b5ae7d ctermfg=144 gui=NONE cterm=NONE
-hi PreProc guifg=#c173c1 ctermfg=170
+hi PreProc guifg=#929be5 ctermfg=104
 hi Special guifg=#c173c1 ctermfg=170
 hi SpecialKey guifg=#c173c1 ctermfg=170
 hi SpecialChar guifg=#c173c1 ctermfg=170
@@ -95,6 +95,12 @@ hi htmlSpecialTagName guifg=#c2968c ctermfg=138
 hi htmlArg guifg=#8085a6 ctermfg=103
 hi yamlBlockMappingKey guifg=#929be5 ctermfg=104
 hi yamlAnchor guifg=#c173c1 ctermfg=170
+hi pythonStatement guifg=#c2968c ctermfg=138
+hi pythonBuiltin guifg=#2aacbd ctermfg=73
+hi pythonRepeat guifg=#c2968c ctermfg=138
+hi pythonOperator guifg=#c2968c ctermfg=138
+hi pythonDecorator guifg=#c173c1 ctermfg=170
+hi pythonDecoratorName guifg=#c173c1 ctermfg=170
 hi mkdHeading guifg=#545c8c ctermfg=60
 hi mkdLink guifg=#929be5 ctermfg=104
 hi mkdCode guifg=#929be5 ctermfg=104
@@ -148,6 +154,22 @@ hi ConflictMarkerSeparator guifg=#363859 ctermfg=60 gui=bold cterm=bold
 hi EasyMotionTarget guifg=#b5ae7d ctermfg=144 gui=bold cterm=bold
 hi EasyMotionShade guifg=#545c8c ctermfg=60 guibg=#222433 ctermbg=235
 hi EasyMotionIncCursor guifg=#9ea3c0 ctermfg=146 guibg=#222433 ctermbg=235
+hi ClapInput guifg=#9ea3c0 ctermfg=146 guibg=#363e7f ctermbg=61 gui=NONE cterm=NONE
+hi ClapSelected guifg=#2aacbd ctermfg=73 gui=bold cterm=bold
+hi ClapMatches guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches1 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches2 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches3 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches4 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches5 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches6 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches7 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches8 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches9 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches10 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches11 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapFuzzyMatches12 guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
+hi ClapNoMatchesFound guifg=#c2968c ctermfg=138 gui=bold cterm=bold
 if has("nvim")
   let g:terminal_color_0 = '#111219'
   let g:terminal_color_1 = '#db5966'

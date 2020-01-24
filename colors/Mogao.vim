@@ -72,102 +72,115 @@ let s:ft.italic        = 'cterm=italic gui=italic'
 let s:ft.standout      = 'cterm=standout gui=standout'
 
 let s:theme = {
-    \   'cursor'                 : ['color15', 'color08'],
-    \   'cursorline'             : ['none', 'cursorbackground', 'none'],
-    \   'cursorcolumn'           : ['none', 'cursorbackground', 'none'],
-    \   'cursorlinenr'           : ['color03', '.'],
-    \   'popupmenu'              : ['color06', 'color14'],
-    \   'popupmenu_select'       : ['color00', 'color15', 'bold'],
-    \   'search'                 : ['.', '.', 'reverse'],
-    \   'linenumber'             : ['color06', 'background'],
-    \   'vertsplit'              : ['background', 'color06'],
-    \   'statusline_active'      : ['color07', 'color08', 'none'],
-    \   'statusline_inactive'    : ['color06', 'none', 'underline'],
-    \   'matchparen'             : ['color07', 'color08', 'bold'],
-    \   'visual'                 : ['color15', 'color02', 'bold'],
-    \   'folded'                 : ['color14', 'none', 'italic'],
-    \   'wildmenu'               : ['color11', 'color08', 'underline'],
+    \   'Boolean'                : ['color07', 'none', 'bold'],
+    \   'Character'              : ['color04', 'none', 'italic'],
+    \   'ColorColumn'            : ['none', 'color08', 'none'],
+    \   'Comment'                : ['color14', 'none', 'italic'],
+    \   'Conceal'                : '',
+    \   'Conditional'            : ['color09', 'none', 'none'],
+    \   'Constant'               : ['color04', 'none'],
+    \   'Cursor'                 : ['color15', 'color08'],
+    \   'CursorColumn'           : ['none', 'cursorbackground', 'none'],
+    \   'CursorLine'             : ['none', 'cursorbackground', 'none'],
+    \   'CursorLineNr'           : ['color03', '.'],
+    \   'Debug'                  : ['color07', 'color01', 'bold'],
+    \   'Delimiter'              : ['color14', 'none', 'none'],
+    \   'Directory'              : ['color03', 'none', 'none'],
+    \   'EndOfBuffer'            : ['background', 'background'],
+    \   'Error'                  : ['color01', 'none', 'none'],
+    \   'ErrorMsg'               : ['color15', 'color01', 'none'],
+    \   'Exception'              : ['color01', 'none', 'none'],
+    \   'Float'                  : ['color07'],
+    \   'FoldColumn'             : 'Folded',
+    \   'Folded'                 : ['color14', 'none', 'italic'],
+    \   'Function'               : ['color03', 'none', 'none'],
+    \   'Identifier'             : ['color02', 'none', 'none'],
+    \   'Ignore'                 : ['none', 'none'],
+    \   'Keyword'                : ['color12', 'none', 'italic'],
+    \   'Label'                  : ['color13', 'none', 'italic'],
+    \   'LineNr'                 : ['color06', 'background'],
+    \   'MatchParen'             : ['color07', 'color08', 'bold'],
+    \   'ModeMsg'                : '',
+    \   'MoreMsg'                : '',
+    \   'NonText'                : ['color06', 'background'],
+    \   'Normal'                 : ['foreground', 'background'],
+    \   'Number'                 : ['color07'],
+    \   'Operator'               : ['color14', 'none', 'none'],
+    \   'PMenu'                  : ['color06', 'color14'],
+    \   'PMenuSel'               : ['color00', 'color15', 'bold'],
+    \   'Preproc'                : ['color05', 'none', 'none'],
+    \   'Question'               : '',
+    \   'Repeat'                 : ['color10', 'none', 'none'],
+    \   'Search'                 : ['.', '.', 'reverse'],
+    \   'SignColumn'             : ['color10', 'background', 'none'],
+    \   'Special'                : ['color14', 'none', 'none'],
+    \   'SpecialChar'            : ['color15', 'none', 'bold'],
+    \   'SpecialComment'         : ['color14', 'color08', 'bold'],
+    \   'SpecialKey'             : ['color07', 'color06', 'none'],
+    \   'Statement'              : ['color11', 'none', 'none'],
+    \   'StatusLine'             : ['color07', 'color08', 'none'],
+    \   'StatusLineNC'           : ['color06', 'none', 'underline'],
+    \   'String'                 : ['color04', 'none', 'italic'],
+    \   'TabLine'                : ['color14', 'color08', 'none'],
+    \   'TabLineFill'            : ['color14', 'color08', 'none'],
+    \   'TabLineSel'             : ['color03', 'background', 'bold'],
+    \   'Tag'                    : ['color12', 'none', 'underline'],
+    \   'Title'                  : ['color04', 'none', 'bold'],
+    \   'Todo'                   : ['color15', 'none', 'bold'],
+    \   'Type'                   : ['color12', 'color08', 'none'],
+    \   'Underlined'             : ['color04', 'none', 'underline'],
+    \   'VertSplit'              : ['background', 'color06'],
+    \   'Visual'                 : ['color15', 'color02', 'bold'],
+    \   'WarningMsg'             : ['color09', 'none', 'none'],
+    \   'WildMenu'               : ['color11', 'color08', 'underline'],
+    \   'clojureMacro'           : 'Function',
+    \   'conceal_bg'             : '',
+    \   'conceal_fg'             : '',
+    \   'diffadd_bg'             : '',
+    \   'diffadd_fg'             : '',
+    \   'diffdelete_bg'          : '',
+    \   'diffdelete_fg'          : '',
+    \   'difftext_bg'            : '',
+    \   'difftext_fg'            : '',
+    \   'foldcolumn_bg'          : '',
+    \   'foldcolumn_fg'          : '',
+    \   'helpHeader'             : 'Title',
+    \   'htmlArg'                : ['color02', 'none', 'italic'],
+    \   'htmlTagName'            : ['color03', 'none', 'none'],
+    \   'htmlTitle'              : 'Title',
+    \   'javaScriptBraces'       : 'Delimiter',
+    \   'javaScriptEmbed'        : ['color13', 'none', 'none'],
+    \   'javaScriptParens'       : 'Delimiter',
+    \   'jsxElseOperator'        : ['color09', 'none'],
+    \   'jsxIfOperator'          : ['color09', 'none'],
+    \   'markdownH1'             : 'Title',
+    \   'markdownH2'             : 'Title',
+    \   'markdownH3'             : 'Title',
+    \   'markdownH4'             : 'Title',
+    \   'markdownH5'             : 'Title',
+    \   'markdownH6'             : 'Title',
+    \   'rustMacro'              : ['color05', 'none', 'italic'],
     \   'spellbad'               : '',
     \   'spellcap'               : '',
-    \   'spellrare'              : '',
     \   'spelllocal'             : '',
-    \   'diffadd_fg'             : '',
-    \   'diffadd_bg'             : '',
-    \   'diffdelete_fg'          : '',
-    \   'diffdelete_bg'          : '',
-    \   'difftext_fg'            : '',
-    \   'difftext_bg'            : '',
-    \   'tabline_bg'             : ['color14', 'color08', 'none'],
-    \   'tabline_active'         : ['color03', 'background', 'bold'],
-    \   'tabline_inactive'       : ['color14', 'color08', 'none'],
-    \   'normal'                 : ['foreground', 'background'],
-    \   'nontext'                : ['color06', 'background'],
-    \   'endofbuffer'            : ['background', 'background'],
-    \   'conceal_fg'             : '',
-    \   'conceal_bg'             : '',
-    \   'foldcolumn_fg'          : '',
-    \   'foldcolumn_bg'          : '',
-    \   'specialkey'             : ['color07', 'color06', 'none'],
-    \   'directory'              : ['color03', 'none', 'none'],
-    \   'modemsg'                : '',
-    \   'moremsg'                : '',
-    \   'question'               : '',
-    \   'warningmsg'             : ['color09', 'none', 'none'],
-    \   'errormsg'               : ['color15', 'color01', 'none'],
-    \   'conceal'                : '',
-    \   'signcolumn'             : ['color10', 'background', 'none'],
-    \   'comment'                : ['color14', 'none', 'italic'],
-    \   'constant'               : ['color04', 'none'],
-    \   'string'                 : ['color04', 'none', 'italic'],
-    \   'character'              : ['color04', 'none', 'italic'],
-    \   'number'                 : ['color07'],
-    \   'boolean'                : ['color07', 'none', 'bold'],
-    \   'float'                  : ['color07'],
-    \   'identifier'             : ['color02', 'none', 'none'],
-    \   'function'               : ['color03', 'none', 'none'],
-    \   'statement'              : ['color11', 'none', 'none'],
-    \   'conditional'            : ['color09', 'none', 'none'],
-    \   'repeat'                 : ['color10', 'none', 'none'],
-    \   'label'                  : ['color13', 'none', 'italic'],
-    \   'operator'               : ['color14', 'none', 'none'],
-    \   'keyword'                : ['color12', 'none', 'italic'],
-    \   'exception'              : ['color01', 'none', 'none'],
-    \   'preproc'                : ['color05', 'none', 'none'],
-    \   'type'                   : ['color12', 'color08', 'none'],
-    \   'special'                : ['color14', 'none', 'none'],
-    \   'specialchar'            : ['color15', 'none', 'bold'],
-    \   'tag'                    : ['color12', 'none', 'underline'],
-    \   'delimiter'              : ['color14', 'none', 'none'],
-    \   'specialcomment'         : ['color14', 'color08', 'bold'],
-    \   'debug'                  : ['color07', 'color01', 'bold'],
-    \   'underlined'             : ['color04', 'none', 'underline'],
-    \   'ignore'                 : ['none', 'none'],
-    \   'error'                  : ['color01', 'none', 'none'],
-    \   'todo'                   : ['color15', 'none', 'bold'],
-    \   'colorcolumn'            : ['none', 'color08', 'none'],
-    \   'title'                  : ['color04', 'none', 'bold'],
-    \   'attr'                   : ['color02', 'none', 'italic'],
-    \   'htmlTagName'            : ['color03', 'none', 'none'],
-    \   'embed'                  : ['color13', 'none', 'none'],
-    \   'vimOption'              : ['color09', 'none', 'none'],
-    \   'vimHiAttrib'            : ['color01', 'none', 'none'],
+    \   'spellrare'              : '',
     \   'typescriptEndColons'    : ['color06', 'none', 'none'],
+    \   'typescriptExceptions'   : ['color01', 'none'],
     \   'typescriptNull'         : ['color09', 'none', 'none'],
     \   'typescriptRegexpString' : ['color03', 'none', 'bold'],
-    \   'typescriptExceptions'   : ['color01', 'none'],
-    \   'rustMacro'              : ['color05', 'none', 'italic'],
-    \   'jsxIfOperator'          : ['color09', 'none'],
-    \   'jsxElseOperator'        : ['color09', 'none']
+    \   'vimHiAttrib'            : ['color01', 'none', 'none'],
+    \   'vimOption'              : ['color09', 'none', 'none'],
     \   }
 
 function! s:hi(group, colors)
-    if type(a:colors) != type([])
-        return 0
-    endif
-
     let l = len(a:colors)
     if l == 0
         return 0
+    endif
+
+    if type(a:colors) == type('')
+        exec 'hi default link ' . a:group . ' ' . a:colors
+        return
     endif
 
     let command = 'hi ' . a:group
@@ -192,124 +205,9 @@ endfunction
 function! s:apply_theme()
     set background=dark
 
-    call s:hi('Normal',            s:theme.normal)
-    call s:hi('NonText',           s:theme.nontext)
-    call s:hi('LineNr',            s:theme.linenumber)
-    call s:hi('VertSplit',         s:theme.vertsplit)
-    call s:hi('Cursor',            s:theme.cursor)
-    call s:hi('Search',            s:theme.search)
-    call s:hi('StatusLine',        s:theme.statusline_active)
-    call s:hi('StatusLineNC',      s:theme.statusline_inactive)
-    call s:hi('Visual',            s:theme.visual)
-    call s:hi('CursorLine',        s:theme.cursorline)
-    call s:hi('CursorLineNr',      s:theme.cursorlinenr)
-    call s:hi('CursorColumn',      s:theme.cursorcolumn)
-    call s:hi('PMenu',             s:theme.popupmenu)
-    call s:hi('PMenuSel',          s:theme.popupmenu_select)
-    call s:hi('TabLine',           s:theme.tabline_inactive)
-    call s:hi('TabLineFill',       s:theme.tabline_bg)
-    call s:hi('TabLineSel',        s:theme.tabline_active)
-    call s:hi('SpecialKey',        s:theme.specialkey)
-    call s:hi('ColorColumn',       s:theme.colorcolumn)
-    call s:hi('Directory',         s:theme.directory)
-
-    call s:hi('Comment',           s:theme.comment)
-
-    call s:hi('Constant',          s:theme.constant)
-    call s:hi('String',            s:theme.string)
-    call s:hi('Character',         s:theme.character)
-    call s:hi('Number',            s:theme.number)
-    call s:hi('Boolean',           s:theme.boolean)
-    call s:hi('Float',             s:theme.float)
-
-    call s:hi('Identifier',        s:theme.identifier)
-    call s:hi('Function',          s:theme.function)
-
-    call s:hi('Statement',         s:theme.statement)
-    call s:hi('Conditional',       s:theme.conditional)
-    call s:hi('Repeat',            s:theme.repeat)
-    call s:hi('Label',             s:theme.label)
-    call s:hi('Operator',          s:theme.operator)
-    call s:hi('Keyword',           s:theme.keyword)
-    call s:hi('Exception',         s:theme.exception)
-
-    call s:hi('PreProc',           s:theme.preproc)
-    call s:hi('Include',           s:theme.preproc)
-    call s:hi('Define',            s:theme.preproc)
-    call s:hi('Macro',             s:theme.preproc)
-    call s:hi('PreCondit',         s:theme.preproc)
-
-    call s:hi('Type',              s:theme.type)
-    call s:hi('StorageClass',      s:theme.type)
-    call s:hi('Structure',         s:theme.type)
-    call s:hi('Typedef',           s:theme.type)
-
-    call s:hi('Special',           s:theme.special)
-    call s:hi('SpecialChar',       s:theme.specialchar)
-    call s:hi('Tag',               s:theme.tag)
-    call s:hi('Delimiter',         s:theme.delimiter)
-    call s:hi('SpecialComment',    s:theme.specialcomment)
-    call s:hi('Debug',             s:theme.debug)
-
-    call s:hi('Underlined',        s:theme.underlined)
-    call s:hi('Ignore',            s:theme.ignore)
-    call s:hi('Error',             s:theme.error)
-    call s:hi('Todo',              s:theme.todo)
-
-    call s:hi('Title',             s:theme.title)
-    call s:hi('helpHeader',        s:theme.title)
-    call s:hi('WarningMsg',        s:theme.warningmsg)
-    call s:hi('ErrorMsg',          s:theme.errormsg)
-
-    " HTML
-    call s:hi('htmlTitle',         s:theme.title)
-    call s:hi('htmlArg',           s:theme.attr)
-    call s:hi('htmlTagName',       s:theme.htmlTagName)
-
-    " JavaScript
-    call s:hi('javaScriptEmbed',   s:theme.embed)
-    call s:hi('javaScriptParens',  s:theme.delimiter)
-    call s:hi('javaScriptBraces',  s:theme.delimiter)
-
-    " TypeScript
-    call s:hi('typescriptEndColons',    s:theme.typescriptEndColons)
-    call s:hi('typescriptNull',         s:theme.typescriptNull)
-    call s:hi('typescriptRegexpString', s:theme.typescriptRegexpString)
-    call s:hi('typescriptExceptions',   s:theme.typescriptExceptions)
-
-    " JSX
-    call s:hi('jsxIfOperator',   s:theme.jsxIfOperator)
-    call s:hi('jsxElseOperator', s:theme.jsxElseOperator)
-
-    " Vim
-    call s:hi('vimOption',         s:theme.vimOption)
-    call s:hi('vimHiAttrib',       s:theme.vimHiAttrib)
-
-    " Markdown
-    call s:hi('markdownH1',        s:theme.title)
-    call s:hi('markdownH2',        s:theme.title)
-    call s:hi('markdownH3',        s:theme.title)
-    call s:hi('markdownH4',        s:theme.title)
-    call s:hi('markdownH5',        s:theme.title)
-    call s:hi('markdownH6',        s:theme.title)
-
-    " Clojure
-    call s:hi('clojureMacro',      s:theme.function)
-
-    " Rust
-    call s:hi('rustMacro',         s:theme.rustMacro)
-
-    call s:hi('Conceal',           s:theme.conceal)
-    call s:hi('FoldColumn',        s:theme.folded)
-    call s:hi('ModeMsg',           s:theme.modemsg)
-    call s:hi('MoreMsg',           s:theme.moremsg)
-    call s:hi('Question',          s:theme.question)
-    call s:hi('MatchParen',        s:theme.matchparen)
-    call s:hi('Folded',            s:theme.folded)
-    call s:hi('WildMenu',          s:theme.wildmenu)
-    call s:hi('SignColumn',        s:theme.signcolumn)
-    call s:hi('EndOfBuffer',       s:theme.endofbuffer)
-
+    for [k, v] in items(s:theme)
+        call s:hi(k, v)
+    endfor
 endfunction
 
 " Main =========================================================================
