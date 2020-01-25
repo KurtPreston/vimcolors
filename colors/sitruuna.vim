@@ -15,19 +15,19 @@ let s:col            = {}
 let s:col.lemon      = ['#FAC03B', 220]
 let s:col.special    = ['#ffb354', 215]
 let s:col.preproc    = ['#a29bfe', 147]
-let s:col.function   = ['#94d0ff', 117]
-let s:col.foreground = ['#f1f1f1', 231]
+let s:col.function   = ['#a3db81', 117]
+let s:col.foreground = ['#d1d1d1', 231]
 let s:col.statusline = ['#34373a', 137]
 let s:col.darker     = ['#101010', 232]
-let s:col.background = ['#161616', 233]
+let s:col.background = ['#181a1b', 233]
 let s:col.light_bg   = ['#1D2021', 236]
-let s:col.lighter_bg = ['#2D3032', 238]
+let s:col.lighter_bg = ['#24292e', 238]
 let s:col.comment    = ['#4c5356', 244]
 let s:col.selection  = ['#2D3032', 238]
-let s:col.string     = ['#26c281', 36]
-let s:col.type       = ['#65a9ff', 75]
+let s:col.string     = ['#37ad82', 36]
+let s:col.type       = ['#7398dd', 75]
 let s:col.constant   = ['#ca70d6', 170]
-let s:col.error      = ['#FB543F', 203]
+let s:col.error      = ['#c15959', 203]
 let s:col.none       = ['NONE', 'NONE']
 " }}}
 
@@ -243,5 +243,31 @@ if get(g:, 'sitruuna_fzf', 1) == 1
         \ 'marker':  ['fg', 'Keyword'],
         \ 'spinner': ['fg', 'Label'],
         \ 'header':  ['fg', 'Comment'] }
+endif
+
+if has('nvim')
+  let g:terminal_color_0 = s:col.background[0]
+  let g:terminal_color_8 = s:col.lighter_bg[0]
+
+  let g:terminal_color_1 = s:col.error[0]
+  let g:terminal_color_9 = s:col.error[0]
+
+  let g:terminal_color_2 = s:col.string[0]
+  let g:terminal_color_10 = s:col.string[0]
+
+  let g:terminal_color_3 = s:col.lemon[0]
+  let g:terminal_color_11 = s:col.special[0]
+
+  let g:terminal_color_4 = s:col.type[0]
+  let g:terminal_color_12 = s:col.type[0]
+
+  let g:terminal_color_5 = s:col.constant[0]
+  let g:terminal_color_13 = s:col.preproc[0]
+
+  let g:terminal_color_6 = s:col.function[0]
+  let g:terminal_color_14 = s:col.function[0]
+
+  let g:terminal_color_7 = s:col.comment[0]
+  let g:terminal_color_15 = s:col.foreground[0]
 endif
 " }}}
