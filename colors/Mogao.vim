@@ -28,15 +28,15 @@ let s:palette.color00 = '#071014'
 let s:palette.color01 = '#792423'
 let s:palette.color02 = '#1b8c73'
 let s:palette.color03 = '#9e7d57'
-let s:palette.color04 = '#aad2f1'
+let s:palette.color04 = '#508ea5'
 let s:palette.color05 = '#675e71'
 let s:palette.color06 = '#363f37'
 let s:palette.color07 = '#bbf2db'
 let s:palette.color08 = '#081d22'
 let s:palette.color09 = '#f1a19b'
-let s:palette.color10 = '#93d672'
+let s:palette.color10 = '#b4ded5'
 let s:palette.color11 = '#f8d2a4'
-let s:palette.color12 = '#508ea5'
+let s:palette.color12 = '#1ca9c9'
 let s:palette.color13 = '#c38eac'
 let s:palette.color14 = '#809594'
 let s:palette.color15 = '#fbf5d9'
@@ -100,18 +100,18 @@ let s:theme = {
     \   'Label'                  : ['color13', 'none', 'italic'],
     \   'LineNr'                 : ['color06', 'background'],
     \   'MatchParen'             : ['color07', 'color08', 'bold'],
-    \   'ModeMsg'                : '',
-    \   'MoreMsg'                : '',
+    \   'ModeMsg'                : ['color13', 'color05'],
+    \   'MoreMsg'                : ['color13', 'color05'],
     \   'NonText'                : ['color06', 'background'],
     \   'Normal'                 : ['foreground', 'background'],
     \   'Number'                 : ['color07'],
     \   'Operator'               : ['color14', 'none', 'none'],
-    \   'PMenu'                  : ['color06', 'color14'],
-    \   'PMenuSel'               : ['color00', 'color15', 'bold'],
+    \   'PMenu'                  : ['color13', 'color05'],
+    \   'PMenuSel'               : ['color08', 'color13', 'bold'],
     \   'Preproc'                : ['color05', 'none', 'none'],
     \   'Question'               : '',
     \   'Repeat'                 : ['color10', 'none', 'none'],
-    \   'Search'                 : ['.', '.', 'reverse'],
+    \   'Search'                 : ['color11', 'color03'],
     \   'SignColumn'             : ['color10', 'background', 'none'],
     \   'Special'                : ['color14', 'none', 'none'],
     \   'SpecialChar'            : ['color15', 'none', 'bold'],
@@ -130,7 +130,7 @@ let s:theme = {
     \   'Type'                   : ['color12', 'color08', 'none'],
     \   'Underlined'             : ['color04', 'none', 'underline'],
     \   'VertSplit'              : ['background', 'color06'],
-    \   'Visual'                 : ['color15', 'color02', 'bold'],
+    \   'Visual'                 : ['color15', 'color03'],
     \   'WarningMsg'             : ['color09', 'none', 'none'],
     \   'WildMenu'               : ['color11', 'color08', 'underline'],
     \   'clojureMacro'           : 'Function',
@@ -179,11 +179,11 @@ function! s:hi(group, colors)
     endif
 
     if type(a:colors) == type('')
-        exec 'hi default link ' . a:group . ' ' . a:colors
+        exec 'hi! default link ' . a:group . ' ' . a:colors
         return
     endif
 
-    let command = 'hi ' . a:group
+    let command = 'hi! ' . a:group
 
     if a:colors[0] != ""
         let command = command . ' guifg=' . (a:colors[0] == "." ? "fg" : s:palette[a:colors[0]])

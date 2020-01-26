@@ -1,8 +1,8 @@
 "AUTHOR: Alessandro Yorba
 "SCRIPT: https://github.com/AlessandroYorba/Arcadia
 
-"UPDATED: December 9th, 2019
-"CHANGES: CursorLineNR changes
+"UPDATED: January 25th, 2020
+"CHANGES: htmlStatement, Visual, Search
 
 "TERMINAL: Michael Reinhardt https://github.com/mreinhardt
 
@@ -58,16 +58,12 @@ if !exists("g:arcadia_Pitch")
 	let g:arcadia_Pitch = 0
 endif
 
-if !exists("g:arcadia_Daybreak")
-let g:arcadia_Daybreak = 0
-endif
-
 "COMMON COLORS AND SETTINGS
 highlight PreProc guifg=#8787af guibg=NONE gui=NONE ctermfg=103 ctermbg=NONE cterm=NONE
 highlight Function guifg=#875f87 guibg=NONE gui=NONE ctermfg=96 ctermbg=NONE cterm=NONE
 highlight Identifier guifg=#875f87 guibg=NONE gui=NONE ctermfg=96 ctermbg=NONE cterm=NONE
 highlight Statement guifg=#875f87 guibg=NONE gui=NONE ctermfg=96 ctermbg=NONE cterm=NONE
-highlight Constant guifg=#5f87af guibg=NONE gui=NONE ctermfg=67 ctermbg=NONE cterm=NONE
+highlight Constant guifg=#5f5f87 guibg=NONE gui=NONE ctermfg=60 ctermbg=NONE cterm=NONE
 highlight Type guifg=#af5f87 guibg=NONE gui=NONE ctermfg=132 ctermbg=NONE cterm=NONE
 highlight Label guifg=#5f5f87 guibg=NONE gui=NONE ctermfg=60 ctermbg=NONE cterm=NONE
 highlight String guifg=#008787 guibg=NONE gui=NONE ctermfg=30 ctermbg=NONE cterm=NONE
@@ -75,7 +71,7 @@ highlight Special guifg=#5f5f87 guibg=NONE gui=NONE ctermfg=60 ctermbg=NONE cter
 highlight Operator guifg=#949494 guibg=NONE gui=NONE ctermfg=246 ctermbg=NONE cterm=NONE
 highlight Title guifg=#8787af guibg=NONE gui=NONE ctermfg=103 ctermbg=NONE cterm=NONE
 highlight StorageClass guifg=#af5f87 guibg=NONE gui=NONE ctermfg=132 ctermbg=NONE cterm=NONE
-highlight htmlStatement guifg=#5f87af guibg=NONE gui=NONE ctermfg=67 ctermbg=NONE cterm=NONE
+highlight htmlStatement guifg=#5f5f87 guibg=NONE gui=NONE ctermfg=60 ctermbg=NONE cterm=NONE
 highlight htmlArg guifg=#875f87 guibg=NONE gui=NONE ctermfg=96 ctermbg=NONE cterm=NONE
 highlight htmlItalic guifg=#af8787 guibg=NONE gui=NONE ctermfg=138 ctermbg=NONE cterm=NONE
 highlight htmlSpecialTagName guifg=#af5f87 guibg=NONE gui=NONE ctermfg=132 ctermbg=NONE cterm=NONE
@@ -99,12 +95,12 @@ highlight MoreMsg guifg=#5f87af guibg=NONE gui=NONE ctermfg=67 ctermbg=NONE cter
 highlight WarningMsg guifg=#5f87af guibg=NONE gui=NONE ctermfg=67 ctermbg=NONE cterm=NONE
 highlight SpecialComment guifg=#767676 guibg=NONE gui=reverse ctermfg=243 ctermbg=NONE cterm=reverse
 highlight VimCommentTitle guifg=#767676 guibg=NONE gui=reverse ctermfg=243 ctermbg=NONE cterm=reverse
-highlight Underlined guifg=#af005f guibg=NONE gui=underline ctermfg=125 ctermbg=NONE cterm=underline
+highlight Underlined guifg=#bcbcbc guibg=NONE gui=underline ctermfg=250 ctermbg=NONE cterm=underline
 highlight FoldColumn guifg=#8787af guibg=NONE gui=NONE ctermfg=103 ctermbg=NONE cterm=NONE
 highlight Todo guifg=#5f87af guibg=NONE gui=reverse ctermfg=67 ctermbg=NONE cterm=reverse
-highlight Visual guifg=#008787 guibg=NONE gui=reverse ctermfg=30 ctermbg=NONE cterm=reverse
+highlight Visual guifg=#878787 guibg=NONE gui=reverse ctermfg=102 ctermbg=NONE cterm=reverse
 highlight Question guifg=#dfaf00 guibg=NONE gui=NONE ctermfg=178 ctermbg=NONE cterm=NONE
-highlight Search guifg=#dfaf00 guibg=NONE gui=reverse ctermfg=178 ctermbg=NONE cterm=reverse
+highlight Search guifg=#af8700 guibg=NONE gui=reverse ctermfg=136 ctermbg=NONE cterm=reverse
 highlight MatchParen guifg=#008787 guibg=NONE gui=reverse ctermfg=30 ctermbg=NONE cterm=reverse
 highlight Error guifg=#d75f5f guibg=NONE gui=reverse ctermfg=167 ctermbg=NONE cterm=reverse
 highlight ErrorMsg guifg=#d75f5f guibg=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
@@ -199,7 +195,7 @@ endif
 "DARKEST GRAY
 if g:arcadia_Twilight
 	"COLORS
-	highlight Normal guifg=#dfdfdf guibg=#1c1c1c gui=NONE ctermfg=188 ctermbg=234 cterm=NONE
+	highlight Normal guifg=#bcbcbc guibg=#1c1c1c gui=NONE ctermfg=250 ctermbg=234 cterm=NONE
 	highlight Comment guifg=#4e4e4e guibg=NONE gui=NONE ctermfg=239 ctermbg=NONE cterm=NONE
 
 	"WINDOW UI
@@ -230,7 +226,7 @@ endif
 "ALMOST BLACK
 if g:arcadia_Midnight
 	"COLORS
-	highlight Normal guifg=#dfdfdf guibg=#121212 gui=NONE ctermfg=188 ctermbg=233 cterm=NONE
+	highlight Normal guifg=#bcbcbc guibg=#121212 gui=NONE ctermfg=250 ctermbg=233 cterm=NONE
 	highlight Comment guifg=#4e4e4e guibg=NONE gui=NONE ctermfg=239 ctermbg=NONE cterm=NONE
 
 	"WINDOW UI
@@ -261,7 +257,7 @@ endif
 "BLACK
 if g:arcadia_Pitch
 	"COLORS
-	highlight Normal guifg=#dfdfdf guibg=#080808 gui=NONE ctermfg=188 ctermbg=232 cterm=NONE
+	highlight Normal guifg=#bcbcbc guibg=#080808 gui=NONE ctermfg=250 ctermbg=232 cterm=NONE
 	highlight Comment guifg=#4e4e4e guibg=NONE gui=NONE ctermfg=239 ctermbg=NONE cterm=NONE
 
 	"WINDOW UI
@@ -290,7 +286,7 @@ if g:arcadia_Pitch
 endif
 
 "LICENSE
-"Copyright (c) 2018 Alessandro Yorba
+"Copyright (c) 2020 Alessandro Yorba
 "
 "Permission is hereby granted, free of charge, to any person obtaining a copy
 "of this software and associated documentation files (the "Software"), to deal
