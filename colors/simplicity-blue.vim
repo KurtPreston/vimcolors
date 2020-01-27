@@ -60,6 +60,11 @@ hi PmenuSel            ctermfg=44   ctermbg=237  cterm=NONE       guifg=#00d7d7 
 hi Folded              ctermfg=231  ctermbg=239  cterm=bold       guifg=#ffffff  guibg=#4e4e4e  gui=bold
 hi FoldColumn          ctermfg=231  ctermbg=239  cterm=bold       guifg=#ffffff  guibg=#4e4e4e  gui=bold
 
+hi SpellBad            ctermfg=9    ctermbg=NONE cterm=underline  guifg=#ff0000  guibg=NONE     gui=underline
+hi SpellCap            ctermfg=50   ctermbg=NONE cterm=underline  guifg=#00ffd7  guibg=NONE     gui=underline
+hi SpellRare           ctermfg=128  ctermbg=NONE cterm=underline  guifg=#af00d7  guibg=NONE     gui=underline
+hi SpellLocal          ctermfg=123  ctermbg=NONE cterm=underline  guifg=#87ffff  guibg=NONE     gui=underline
+
 hi GitGutterAdd        ctermfg=154  ctermbg=NONE cterm=NONE       guifg=#afff00  guibg=NONE     gui=NONE
 hi GitGutterChange     ctermfg=229  ctermbg=NONE cterm=NONE       guifg=#ffffaf  guibg=NONE     gui=NONE
 hi GitGutterDelete     ctermfg=197  ctermbg=NONE cterm=NONE       guifg=#ff005f  guibg=NONE     gui=NONE

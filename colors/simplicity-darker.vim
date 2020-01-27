@@ -1,4 +1,4 @@
-" File  : simplicity.vim
+" File  : simplicity-darker.vim
 " Author: Matthieu Petiteau <mpetiteau.pro@gmail.com>
 " Date  : 01.12.2019
 "
@@ -11,13 +11,13 @@ if exists("syntax on")
   syntax reset
 endif
 
-let g:colors_name="simplicity"
+let g:colors_name="simplicity-darker"
 set background=dark
 
 "
 " Colors
 "
-hi Normal              ctermfg=231  ctermbg=235  cterm=NONE       guifg=#ffffff  guibg=#262626  gui=NONE
+hi Normal              ctermfg=231  ctermbg=232  cterm=NONE       guifg=#ffffff  guibg=#080808  gui=NONE
 
 hi Comment             ctermfg=240  ctermbg=NONE cterm=NONE       guifg=#585858  guibg=NONE     gui=NONE
 hi LineNr              ctermfg=239  ctermbg=NONE cterm=NONE       guifg=#4e4e4e  guibg=NONE     gui=NONE
