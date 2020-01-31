@@ -16,18 +16,19 @@ let s:col.lemon      = ['#FAC03B', 220]
 let s:col.special    = ['#ffb354', 215]
 let s:col.preproc    = ['#a29bfe', 147]
 let s:col.function   = ['#a3db81', 117]
-let s:col.foreground = ['#d1d1d1', 231]
+let s:col.foreground = ['#d1d1d1', 188]
+let s:col.fg_alt     = ['#a1a1a1', 145]
 let s:col.statusline = ['#34373a', 137]
-let s:col.darker     = ['#101010', 232]
+let s:col.darker     = ['#101212', 232]
 let s:col.background = ['#181a1b', 233]
-let s:col.light_bg   = ['#1D2021', 236]
-let s:col.lighter_bg = ['#24292e', 238]
+let s:col.light_bg   = ['#1d2023', 236]
+let s:col.lighter_bg = ['#242629', 238]
 let s:col.comment    = ['#4c5356', 244]
 let s:col.selection  = ['#2D3032', 238]
-let s:col.string     = ['#37ad82', 36]
-let s:col.type       = ['#7398dd', 75]
+let s:col.string     = ['#37ad82', 72]
+let s:col.type       = ['#7398dd', 104]
 let s:col.constant   = ['#ca70d6', 170]
-let s:col.error      = ['#c15959', 203]
+let s:col.error      = ['#c15959', 131]
 let s:col.none       = ['NONE', 'NONE']
 " }}}
 
@@ -112,7 +113,7 @@ call s:HL('StatusLine',      'statusline', 'foreground')
 call s:HL('StatusLineNC',    'darker',     'comment')
 call s:HL('Visual',          'none',       'selection')
 call s:HL('VisualNOS',       'foreground', 'background')
-call s:HL('VertSplit',       'lighter_bg',   'lighter_bg')
+call s:HL('VertSplit',       'lighter_bg', 'lighter_bg')
 call s:HL('WildMenu',        'foreground', 'background')
 call s:HL('Function',        'function',   'none',       'none')
 call s:HL('SpecialKey',      'special',    'none')
@@ -126,7 +127,7 @@ call s:HL('debugPC',         'error',      'none')
 call s:HL('debugBreakpoint', 'error',      'none')
 call s:HL('ColorColumn',     'none',       'light_bg')
 call s:HL('Delimiter',       'none',       'none')
-call s:HL('Operator',        'lemon',      'none',       'bold')
+call s:HL('Operator',        'function',   'none',       'none')
 call s:HL('htmlTagName',     'lemon',      'none',       'bold')
 call s:HL('htmlTag',         'foreground', 'none')
 call s:HL('htmlArg',         'function',   'none')

@@ -30,7 +30,7 @@ if &t_Co >= 256
 
 
 
-  hi Special          ctermbg=NONE ctermfg=217   cterm=NONE
+  hi Special          ctermbg=NONE ctermfg=161   cterm=NONE
   hi Comment          ctermbg=NONE ctermfg=242   cterm=NONE
   hi Statement        ctermbg=NONE ctermfg=94    cterm=NONE 
   hi Identifier       ctermbg=NONE ctermfg=131   cterm=NONE
