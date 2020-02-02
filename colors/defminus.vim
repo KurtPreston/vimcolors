@@ -85,51 +85,31 @@ hi MatchParen guibg=#d7ffd7 ctermbg=194
 
 " generic group-names
 hi Comment guifg=#909090 gui=NONE ctermfg=246
+hi Conceal guifg=#909090 guibg=NONE gui=NONE ctermfg=246
 
 hi Constant guifg=#a04327 gui=NONE ctermfg=130
 hi String guifg=#399030 gui=NONE ctermfg=28
-" hi! link Character Constant
-" hi! link Number Constant
-" hi! link Boolean Constant
-" hi! link Float Constant
 
-hi Identifier guifg=#505050 gui=NONE ctermfg=darkgrey
-hi! link Function Identifier
+hi Identifier guifg=#008b8b gui=NONE ctermfg=darkcyan
 
 hi Statement guifg=#af00db gui=NONE ctermfg=128
-" hi! link Conditional Statement
-" hi! link Repeat Statement
-" hi! link Label Statement
-" hi! link Operator Statement
-" hi! link Keyword Statement
-" hi! link Exception Statement
 
-hi PreProc guifg=#000000 gui=NONE ctermfg=16 cterm=NONE
-" hi! link Include PreProc
-" hi! link Define PreProc
-" hi! link Macro PreProc
-" hi! link PreCondit PreProc
+hi PreProc guifg=#d75f00 gui=NONE ctermfg=166
 
-hi Type guifg=#000000 gui=NONE ctermfg=16 term=NONE
-" hi! link StorageClass Type
-" hi! link Structure Type
-" hi! link Typedef Type
+hi Type guifg=#af00db gui=NONE ctermfg=128
 
-hi Special guifg=#00737b gui=NONE ctermfg=30
-" hi! link SpecialChar Special
-" hi! link Tag Special
-" hi! link Delimiter Special
-" hi! link SpecialComment Special
-" hi! link Debug Special
+hi Special guifg=#008b8b gui=NONE ctermfg=darkcyan
 
 hi Underlined guifg=#5050c0 gui=underline ctermbg=15 ctermfg=61 cterm=underline
 
-hi! link Conceal Comment
+hi Error guifg=#fafafa guibg=#ca1234 gui=NONE
 
 " vim
-hi link vimFuncName Statement
+hi link vimFuncName Function
+hi link vimCommand Statement
 hi link vimHighlight Statement
 hi link vimVar Normal
+hi link vimFuncVar Normal
 hi link vimOper Normal
 hi link vimParenSep Normal
 hi link vimMapModKey Special
@@ -143,6 +123,9 @@ hi link vimCommentString Comment
 hi link vimOption Normal
 hi link vimSubstPat Normal
 hi link vimCmdSep Normal
+hi link vimHiGroup Normal
+hi link vimGroup Normal
+hi link vimHiTerm Normal
 
 " python
 hi link pythonInclude Statement
@@ -151,13 +134,18 @@ hi link pythonConditional Statement
 hi link pythonRepeat Statement
 hi link pythonOperator Statement
 hi link pythonException Statement
+hi link pythonStatement Statement
 
 " ruby
 hi link rubyInclude Statement
 hi link rubyModule Statement
 hi link rubyClass Statement
+hi link rubyClassName Function
 hi link rubyMacro Statement
+hi link rubyInstanceVariable Normal
+hi link rubyConstant Normal
 hi link rubyStringDelimiter String
+hi link rubyInterpolationDelimiter PreProc
 hi link rubyDefine Statement
 hi link rubyMethodName Normal
 
@@ -345,10 +333,16 @@ hi link markdownCodeDelimiter markdownCode
 
 " asciidoctor
 hi link asciidoctorTitle Title
-hi link asciidoctorListMarker Special
-hi link asciidoctorOption Special
 hi link asciidoctorMacro Special
-hi asciidoctorIndented guifg=#585858 ctermfg=240
+hi link asciidoctorListMarker Statement
+hi link asciidoctorCaption Identifier
+hi asciidoctorOption guifg=#909090
+hi link asciidoctorBlock asciidoctorOption
+hi link asciidoctorBlockOptions asciidoctorBlock
+hi link asciidoctorTableCell asciidoctorBlock
+hi link asciidoctorAttribute Constant
+hi asciidoctorIndented guifg=#000000 guibg=#f0f0f0 ctermfg=240
+hi asciidoctorCode guifg=#000000 guibg=#f0f0f0 ctermfg=240
 
 "" Diff
 hi diffAdd guibg=#c9f9c9 ctermbg=194
@@ -436,18 +430,20 @@ hi link qfFilename Comment
 hi link qfSeparator Special
 hi link qfLineNr Special
 
-"" fzf
-hi fzfFg ctermfg=8
-hi fzfFgPlus ctermfg=4
-hi fzfHl ctermfg=5
-hi fzfPrompt ctermfg=4
-let g:fzf_colors = { 
-  \ 'fg':      ['fg', 'fzfFg'],
-  \ 'fg+':     ['fg', 'fzfFgPlus'],
-  \ 'pointer': ['fg', 'fzfFgPlus'],
-  \ 'prompt':  ['fg', 'fzfPrompt'],
-  \ 'hl':      ['fg', 'fzfHl'],
-  \ 'hl+':     ['fg', 'fzfHl'] }
+" "" fzf
+" It should be defined differently -- for nvim g:terminal_colors(?) for vim
+" something else, dig it out.
+" hi fzfFg ctermfg=8
+" hi fzfFgPlus ctermfg=4
+" hi fzfHl ctermfg=5
+" hi fzfPrompt ctermfg=4
+" let g:fzf_colors = { 
+"   \ 'fg':      ['fg', 'fzfFg'],
+"   \ 'fg+':     ['fg', 'fzfFgPlus'],
+"   \ 'pointer': ['fg', 'fzfFgPlus'],
+"   \ 'prompt':  ['fg', 'fzfPrompt'],
+"   \ 'hl':      ['fg', 'fzfHl'],
+"   \ 'hl+':     ['fg', 'fzfHl'] }
 
 
 "" CtrlP
