@@ -102,6 +102,24 @@ hi pythonRepeat guifg=#c2968c ctermfg=138
 hi pythonOperator guifg=#c2968c ctermfg=138
 hi pythonDecorator guifg=#c173c1 ctermfg=170
 hi pythonDecoratorName guifg=#c173c1 ctermfg=170
+hi zshVariableDef guifg=#929be5 ctermfg=104
+hi zshFunction guifg=#929be5 ctermfg=104
+hi zshKSHFunction guifg=#929be5 ctermfg=104
+hi cPreCondit guifg=#c2968c ctermfg=138
+hi cIncluded guifg=#c173c1 ctermfg=170
+hi cStorageClass guifg=#c2968c ctermfg=138
+hi cppStructure guifg=#c173c1 ctermfg=170
+hi cppSTLnamespace guifg=#c2968c ctermfg=138
+hi csStorage guifg=#c2968c ctermfg=138
+hi csModifier guifg=#929be5 ctermfg=104
+hi csClass guifg=#929be5 ctermfg=104
+hi csClassType guifg=#c173c1 ctermfg=170
+hi csNewType guifg=#c2968c ctermfg=138
+hi rubyConstant guifg=#c2968c ctermfg=138
+hi rubySymbol guifg=#929be5 ctermfg=104
+hi rubyBlockParameter guifg=#929be5 ctermfg=104
+hi rubyClassName guifg=#c173c1 ctermfg=170
+hi rubyInstanceVariable guifg=#c173c1 ctermfg=170
 hi mkdHeading guifg=#545c8c ctermfg=60
 hi mkdLink guifg=#929be5 ctermfg=104
 hi mkdCode guifg=#929be5 ctermfg=104
@@ -144,6 +162,7 @@ hi GitGutterAdd guifg=#7cbe8c ctermfg=108
 hi GitGutterChange guifg=#b5ae7d ctermfg=144
 hi GitGutterDelete guifg=#c173c1 ctermfg=170
 hi GitGutterChangeDelete guifg=#685f3f ctermfg=58
+hi fugitiveHeader guifg=#73c1a9 ctermfg=79 gui=bold cterm=bold
 hi ALEWarningSign guifg=#c2968c ctermfg=138 gui=bold cterm=bold
 hi ALEInfoSign guifg=#82dabf ctermfg=115 gui=NONE cterm=NONE
 hi CocErrorSign guifg=#f56574 ctermfg=204 gui=bold cterm=bold
