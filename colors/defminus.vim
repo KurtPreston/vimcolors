@@ -39,6 +39,7 @@ let g:colors_name = 'defminus'
 
 "" Helper color groups
 hi DefMinusBold guibg=NONE guifg=#000000 gui=bold ctermfg=0 ctermbg=NONE cterm=bold
+hi DefNormal guibg=NONE guifg=#000000 gui=NONE ctermbg=NONE ctermfg=0
 
 "" General
 hi Normal guibg=#ffffff guifg=#000000 gui=NONE ctermbg=15 ctermfg=0
@@ -108,10 +109,10 @@ hi Error guifg=#fafafa guibg=#ca1234 gui=NONE
 hi link vimFuncName Function
 hi link vimCommand Statement
 hi link vimHighlight Statement
-hi link vimVar Normal
-hi link vimFuncVar Normal
-hi link vimOper Normal
-hi link vimParenSep Normal
+hi link vimVar DefNormal
+hi link vimFuncVar DefNormal
+hi link vimOper DefNormal
+hi link vimParenSep DefNormal
 hi link vimMapModKey Special
 hi link vimMapMod vimMapModKey
 hi link vimAutoEvent Constant
@@ -120,12 +121,12 @@ hi link vimHiCtermColor Constant
 hi link vimCommentTitle Constant
 hi link vimLineComment Comment
 hi link vimCommentString Comment
-hi link vimOption Normal
-hi link vimSubstPat Normal
-hi link vimCmdSep Normal
-hi link vimHiGroup Normal
-hi link vimGroup Normal
-hi link vimHiTerm Normal
+hi link vimOption DefNormal
+hi link vimSubstPat DefNormal
+hi link vimCmdSep DefNormal
+hi link vimHiGroup DefNormal
+hi link vimGroup DefNormal
+hi link vimHiTerm DefNormal
 
 " python
 hi link pythonInclude Statement
@@ -142,12 +143,12 @@ hi link rubyModule Statement
 hi link rubyClass Statement
 hi link rubyClassName Function
 hi link rubyMacro Statement
-hi link rubyInstanceVariable Normal
-hi link rubyConstant Normal
+hi link rubyInstanceVariable DefNormal
+hi link rubyConstant DefNormal
 hi link rubyStringDelimiter String
 hi link rubyInterpolationDelimiter PreProc
 hi link rubyDefine Statement
-hi link rubyMethodName Normal
+hi link rubyMethodName DefNormal
 
 " lua
 hi link luaFunction Statement
@@ -161,7 +162,7 @@ hi link elixirDefine Statement
 hi link elixirAtom Constant
 hi link elixirExUnitMacro Statement
 hi link elixirBlockDefinition Statement
-hi link elixirFunctionDeclaration Normal
+hi link elixirFunctionDeclaration DefNormal
 hi link elixirStringDelimiter String
 hi link elixirMapDelimiter Special
 hi link elixirOperator Identifier
@@ -171,11 +172,11 @@ hi link elixirDocTest Identifier
 hi link elixirVariable Constant
 hi link elixirUnusedVariable Comment
 hi link elixirKeyword Statement
-hi link elixirId Normal
+hi link elixirId DefNormal
 
 " properties
 hi link jpropertiesIdentifier Statement
-hi link jpropertiesString Normal
+hi link jpropertiesString DefNormal
 
 " kotlin
 hi link ktStructure Statement
@@ -248,7 +249,7 @@ hi link yamlDocumentStart Comment
 hi link jsonKeyword Statement
 hi link jsonKeywordMatch Statement
 hi link jsonString String
-hi link jsonQuote Normal
+hi link jsonQuote DefNormal
 hi link yamlKeyValueDelimiter Statement
 
 " sql
@@ -273,8 +274,8 @@ hi link csStorage Statement
 hi link csModifier Statement
 hi link csClass Statement
 hi link csType Statement
-hi link csOpSymbols Normal
-hi link csLogicSymbols Normal
+hi link csOpSymbols DefNormal
+hi link csLogicSymbols DefNormal
 
 " clojure
 hi link clojureMacro Statement
@@ -283,7 +284,7 @@ hi link clojureFunc Statement
 
 " groovy
 hi link groovyExternal Statement
-hi link groovyExceptions Normal
+hi link groovyExceptions DefNormal
 hi link groovyJDKbuiltin Statement
 
 " php
@@ -295,8 +296,8 @@ hi link phpStorageClass Statement
 hi link phpDefine Statement
 hi link phpVarSelector Identifier
 hi link phpSpecialFunction Identifier
-hi link phpOperator Normal
-hi link phpComparison Normal
+hi link phpOperator DefNormal
+hi link phpComparison DefNormal
 hi link phpType Constant
 
 " dos batch
@@ -305,13 +306,13 @@ hi link dosbatchImplicit Statement
 " sh
 hi link shSet Statement
 hi link shQuote Identifier
-hi link shForPP Normal
+hi link shForPP DefNormal
 
 " R
 hi link rFunction Statement
 hi link rType Statement
-hi link rOperator Normal
-hi link rAssign Normal
+hi link rOperator DefNormal
+hi link rAssign DefNormal
 
 " markdown
 hi link markdownH1 Title
@@ -341,8 +342,10 @@ hi link asciidoctorBlock asciidoctorOption
 hi link asciidoctorBlockOptions asciidoctorBlock
 hi link asciidoctorTableCell asciidoctorBlock
 hi link asciidoctorAttribute Constant
-hi asciidoctorIndented guifg=#000000 guibg=#f0f0f0 ctermfg=240
 hi asciidoctorCode guifg=#000000 guibg=#f0f0f0 ctermfg=240
+hi asciidoctorIndented guifg=#000000 guibg=#f0f0f0 ctermfg=240
+hi link asciidoctorLiteralBlock Normal
+hi link asciidoctorListingBlock Normal
 
 "" Diff
 hi diffAdd guibg=#c9f9c9 ctermbg=194
@@ -373,7 +376,7 @@ hi diffRemoved guibg=NONE guifg=#c00000 ctermfg=darkred
 hi link gitCommitSummary Title
 hi link gitCommitHeader fugitiveHeader
 hi link gitCommitSelectedType Constant
-hi link gitCommitSelectedFile Normal
+hi link gitCommitSelectedFile DefNormal
 
 "" Flog
 hi! link flogDate Identifier
@@ -397,7 +400,7 @@ hi link minpacStatus String
 hi link minpacStar Special
 
 "" UltiSnips
-hi link snipSnippetTrigger Normal
+hi link snipSnippetTrigger DefNormal
 hi link snipMirror Special
 hi link snipTabStop Special
 
@@ -412,8 +415,8 @@ hi helpSectionDelim guifg=#909090 ctermfg=246
 hi link helpOption Constant
 
 "" netrw
-hi link netrwDateSep Normal
-hi link netrwTimeSep Normal
+hi link netrwDateSep DefNormal
+hi link netrwTimeSep DefNormal
 hi link netrwExe Constant
 hi link netrwDir Directory
 hi link netrwClassify Directory
@@ -476,7 +479,7 @@ hi link plantumlPreProc Statement
 hi link plantumlKeyword Statement
 hi link plantumlTypeKeyword Statement
 hi link plantumlColonLine String
-hi link plantumlActivityLabel Normal
+hi link plantumlActivityLabel DefNormal
 hi link plantumlHorizontalArrow Special
 hi link plantumlDirectedOrVerticalArrowLR Special
 hi link plantumlDirectedOrVerticalArrowRL Special
@@ -484,8 +487,8 @@ hi link plantumlDirectedOrVerticalArrowRL Special
 "" Dart
 hi link dartType Statement
 hi link dartTypeDef Statement
-hi link dartTypeName Normal
-hi link dartCoreClass Normal
+hi link dartTypeName DefNormal
+hi link dartCoreClass DefNormal
 hi link dartStorageClass Statement
 hi link dartInterpolation Constant
 hi link dartOperator Statement
@@ -495,11 +498,11 @@ hi link DoOutlineLevel0 Title
 hi link DoOutlineLevel1 Statement
 hi link DoOutlineLevel2 Constant
 hi link DoOutlineLevel3 String
-hi link DoOutlineLevel4 Normal
+hi link DoOutlineLevel4 DefNormal
 hi link DoOutlineLevel5 Identifier
-hi link DoOutlineLevel6 Normal
+hi link DoOutlineLevel6 DefNormal
 hi link DoOutlineLevel7 Identifier
-hi link DoOutlineLevel8 Normal
+hi link DoOutlineLevel8 DefNormal
 hi link DoOutlineLevel9 Identifier
 
 "" vim-lsp
