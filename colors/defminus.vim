@@ -59,7 +59,7 @@ hi StatuslineNC guibg=#8a8a8a guifg=#ffffff gui=NONE ctermbg=245 ctermfg=255 cte
 hi VertSplit guibg=#8a8a8a guifg=#8a8a8a gui=NONE ctermbg=245 ctermfg=245 cterm=NONE
 hi! link TabLine StatusLineNC
 hi! link TabLineFill TabLine
-hi! link TabLineSel Normal
+hi! link TabLineSel DefNormal
 
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE ctermbg=11 ctermfg=16
 hi Folded guibg=#f5f5f5 guifg=#505050 gui=NONE ctermbg=255 ctermfg=238 cterm=NONE
@@ -344,8 +344,8 @@ hi link asciidoctorTableCell asciidoctorBlock
 hi link asciidoctorAttribute Constant
 hi asciidoctorCode guifg=#000000 guibg=#f0f0f0 ctermfg=240
 hi asciidoctorIndented guifg=#000000 guibg=#f0f0f0 ctermfg=240
-hi link asciidoctorLiteralBlock Normal
-hi link asciidoctorListingBlock Normal
+hi link asciidoctorLiteralBlock DefNormal
+hi link asciidoctorListingBlock DefNormal
 
 "" Diff
 hi diffAdd guibg=#c9f9c9 ctermbg=194
@@ -454,8 +454,8 @@ hi! link CtrlPMode1 StatusLine
 hi! link CtrlPMode2 StatusLine
 hi CtrlPMatch guifg=#0000af gui=bold ctermfg=19 cterm=bold
 hi link CtrlPNoEntries WarningMsg
-hi! link CtrlPPrtText Normal
-hi! link CtrlPPrtBase Normal
+hi! link CtrlPPrtText DefNormal
+hi! link CtrlPPrtBase DefNormal
 hi! link CtrlPBufname Comment
 hi! link CtrlPBufferPath Comment
 hi! link CtrlPTagKind Statement
@@ -480,6 +480,7 @@ hi link plantumlKeyword Statement
 hi link plantumlTypeKeyword Statement
 hi link plantumlColonLine String
 hi link plantumlActivityLabel DefNormal
+hi link plantumlActivityThing DefNormal
 hi link plantumlHorizontalArrow Special
 hi link plantumlDirectedOrVerticalArrowLR Special
 hi link plantumlDirectedOrVerticalArrowRL Special
@@ -547,7 +548,7 @@ hi Lf_hl_stlTotal guibg=#8c8c8c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15
 hi Lf_hl_stlBlank guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15
 
 
-hi! link Lf_hl_popup_window Normal
+hi! link Lf_hl_popup_window DefNormal
 hi! link Lf_hl_popup_inputMode StatusLine 
 hi! link Lf_hl_popup_inputText StatusLineNC
 hi! link Lf_hl_popup_prompt StatusLine
