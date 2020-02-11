@@ -345,8 +345,8 @@ hi link asciidoctorBlock asciidoctorOption
 hi link asciidoctorBlockOptions asciidoctorBlock
 hi link asciidoctorTableCell asciidoctorBlock
 hi link asciidoctorAttribute Constant
-hi asciidoctorCode guifg=#000000 guibg=#f0f0f0 ctermfg=240
-hi asciidoctorIndented guifg=#000000 guibg=#f0f0f0 ctermfg=240
+hi asciidoctorCode guifg=#000000 guibg=#f5f5f5 ctermfg=240
+hi asciidoctorIndented guifg=#000000 guibg=#f5f5f5 ctermfg=240
 hi link asciidoctorLiteralBlock DefNormal
 hi link asciidoctorListingBlock DefNormal
 

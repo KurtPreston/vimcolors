@@ -19,6 +19,7 @@ let g:colors_name = 'forest-night'
 " }}}
 " Configuration: {{{
 let s:configuration = {}
+let s:configuration.palette = get(g:, 'forest_night_palette', 'soft')
 let s:configuration.transparent_background = get(g:, 'forest_night_transparent_background', 0)
 let s:configuration.disable_italic_comment = get(g:, 'forest_night_disable_italic_comment', 0)
 let s:configuration.enable_italic = get(g:, 'forest_night_enable_italic', 0)
@@ -34,15 +35,14 @@ let s:palette = {
       \ 'bg_red':     ['#392f32',   '52',   'DarkRed'],
       \ 'bg_green':   ['#333b2f',   '22',   'DarkGreen'],
       \ 'bg_blue':    ['#203a41',   '17',   'DarkBlue'],
-      \ 'golden':     ['#d8caac',   '223',  'White'],
-      \ 'fg':         ['#d8cbb2',   '223',  'White'],
-      \ 'red':        ['#e3888a',   '167',  'Red'],
-      \ 'orange':     ['#e3a184',   '208',  'Red'],
-      \ 'yellow':     ['#d9bd87',   '214',  'Yellow'],
-      \ 'green':      ['#a7bf81',   '142',  'Green'],
-      \ 'cyan':       ['#8fc09b',   '108',   'Cyan'],
-      \ 'blue':       ['#91bebb',   '109',  'Blue'],
-      \ 'purple':     ['#d3a5be',   '175',  'Magenta'],
+      \ 'fg':         ['#d8caac',   '223',  'White'],
+      \ 'red':        ['#e68183',   '167',  'Red'],
+      \ 'orange':     ['#e39b7b',   '208',  'Red'],
+      \ 'yellow':     ['#d9bb80',   '214',  'Yellow'],
+      \ 'green':      ['#a7c080',   '142',  'Green'],
+      \ 'cyan':       ['#87c095',   '108',   'Cyan'],
+      \ 'blue':       ['#89beba',   '109',  'Blue'],
+      \ 'purple':     ['#d3a0bc',   '175',  'Magenta'],
       \ 'grey':       ['#868d80',   '245',  'LightGrey'],
       \ 'none':       ['NONE',      'NONE', 'NONE']
       \ }
@@ -162,8 +162,8 @@ call s:HL('NonText', s:palette.grey, s:palette.none)
 call s:HL('Pmenu', s:palette.fg, s:palette.bg2)
 call s:HL('PmenuSbar', s:palette.none, s:palette.bg2)
 call s:HL('PmenuThumb', s:palette.none, s:palette.grey)
-call s:HL('PmenuSel', s:palette.bg0, s:palette.golden)
-call s:HL('WildMenu', s:palette.bg0, s:palette.golden)
+call s:HL('PmenuSel', s:palette.bg0, s:palette.fg)
+call s:HL('WildMenu', s:palette.bg0, s:palette.fg)
 call s:HL('Question', s:palette.yellow, s:palette.none)
 call s:HL('SpellBad', s:palette.red, s:palette.none, 'undercurl', s:palette.red)
 call s:HL('SpellCap', s:palette.yellow, s:palette.none, 'undercurl', s:palette.yellow)
