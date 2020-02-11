@@ -37,6 +37,14 @@ def stars_count(github_path)
   repo_info["stargazers_count"]
 end
 
+def github_username
+  if ENV['GITHUB_USERNAME']
+    ENV['GITHUB_USERNAME']
+  else
+    fail "Set GITHUB_USERNAME environment variable"
+  end
+end
+
 def github_access_token
   if ENV['GITHUB_ACCESS_TOKEN']
     ENV['GITHUB_ACCESS_TOKEN']
@@ -47,7 +55,9 @@ end
 
 # Get up to 100 pages of colorschemes
 (1..100).each do |i|
-  json = JSON.parse(open("#{base_url}?page=#{i}").read)
+  json = JSON.parse(open("#{base_url}?page=#{i}",
+    http_basic_authentication: [github_username, github_access_token]
+  ).read)
 
   # Quit if at end of the list
   break if json["colorschemes"].nil?
