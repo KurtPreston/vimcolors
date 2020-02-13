@@ -1,6 +1,6 @@
 " -----------------------------------------------------------------------------
 " Name:         Edge
-" Description:  Clean & Elegant Color Scheme for Vim
+" Description:  Clean & Elegant Color Scheme inspired by Atom One and Material
 " Author:       Sainnhepark <sainnhe@gmail.com>
 " Website:      https://github.com/sainnhe/edge/
 " License:      MIT && Anti-996
@@ -42,7 +42,7 @@ if s:configuration.style ==# 'default'
           \ 'bg_green':   ['#a0c582',   '107',  'Green'],
           \ 'bg_green1':  ['#384034',   '22',   'DarkGreen'],
           \ 'bg_green2':  ['#424c3b',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#75b9ee',   '110',  'Blue'],
+          \ 'bg_blue':    ['#75b8eb',   '110',  'Blue'],
           \ 'bg_blue1':   ['#323e47',   '17',   'DarkBlue'],
           \ 'bg_blue2':   ['#394957',   '17',   'DarkBlue'],
           \ 'bg_purple':  ['#d798e9',   '176',  'Magenta'],
@@ -52,8 +52,8 @@ if s:configuration.style ==# 'default'
           \ 'red':        ['#f27a7a',   '203',  'Red'],
           \ 'yellow':     ['#d9b575',   '179',  'Yellow'],
           \ 'green':      ['#a0c582',   '107',  'Green'],
-          \ 'cyan':       ['#64c2c2',   '72',   'Cyan'],
-          \ 'blue':       ['#75b9ee',   '110',  'Blue'],
+          \ 'cyan':       ['#68c0c0',   '72',   'Cyan'],
+          \ 'blue':       ['#75b8eb',   '110',  'Blue'],
           \ 'purple':     ['#d798e9',   '176',  'Magenta'],
           \ 'grey':       ['#7f8490',   '246',  'LightGrey'],
           \ 'none':       ['NONE',      'NONE', 'NONE']
@@ -106,7 +106,7 @@ elseif s:configuration.style ==# 'proton'
           \ 'bg_green':   ['#a0c582',   '107',  'Green'],
           \ 'bg_green1':  ['#384034',   '22',   'DarkGreen'],
           \ 'bg_green2':  ['#424c3b',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#75b9ee',   '110',  'Blue'],
+          \ 'bg_blue':    ['#75b8eb',   '110',  'Blue'],
           \ 'bg_blue1':   ['#323e47',   '17',   'DarkBlue'],
           \ 'bg_blue2':   ['#394957',   '17',   'DarkBlue'],
           \ 'bg_purple':  ['#d798e9',   '176',  'Magenta'],
@@ -116,8 +116,8 @@ elseif s:configuration.style ==# 'proton'
           \ 'red':        ['#f27a7a',   '203',  'Red'],
           \ 'yellow':     ['#d9b575',   '179',  'Yellow'],
           \ 'green':      ['#a0c582',   '107',  'Green'],
-          \ 'cyan':       ['#64c2c2',   '72',   'Cyan'],
-          \ 'blue':       ['#75b9ee',   '110',  'Blue'],
+          \ 'cyan':       ['#68c0c0',   '72',   'Cyan'],
+          \ 'blue':       ['#75b8eb',   '110',  'Blue'],
           \ 'purple':     ['#d798e9',   '176',  'Magenta'],
           \ 'grey':       ['#7e8294',   '246',  'LightGrey'],
           \ 'none':       ['NONE',      'NONE', 'NONE']
@@ -170,7 +170,7 @@ elseif s:configuration.style ==# 'neon'
           \ 'bg_green':   ['#a0c582',   '107',  'Green'],
           \ 'bg_green1':  ['#384034',   '22',   'DarkGreen'],
           \ 'bg_green2':  ['#424c3b',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#75b9ee',   '110',  'Blue'],
+          \ 'bg_blue':    ['#75b8eb',   '110',  'Blue'],
           \ 'bg_blue1':   ['#323e47',   '17',   'DarkBlue'],
           \ 'bg_blue2':   ['#394957',   '17',   'DarkBlue'],
           \ 'bg_purple':  ['#d798e9',   '176',  'Magenta'],
@@ -180,8 +180,8 @@ elseif s:configuration.style ==# 'neon'
           \ 'red':        ['#f27a7a',   '203',  'Red'],
           \ 'yellow':     ['#d9b575',   '179',  'Yellow'],
           \ 'green':      ['#a0c582',   '107',  'Green'],
-          \ 'cyan':       ['#64c2c2',   '72',   'Cyan'],
-          \ 'blue':       ['#75b9ee',   '110',  'Blue'],
+          \ 'cyan':       ['#68c0c0',   '72',   'Cyan'],
+          \ 'blue':       ['#75b8eb',   '110',  'Blue'],
           \ 'purple':     ['#d798e9',   '176',  'Magenta'],
           \ 'grey':       ['#7e8294',   '246',  'LightGrey'],
           \ 'none':       ['NONE',      'NONE', 'NONE']
