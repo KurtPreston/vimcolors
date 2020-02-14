@@ -32,8 +32,10 @@ rescue OpenURI::HTTPError
 end
 
 def stars_count(github_path)
-  repo_info_url = "https://api.github.com/repos#{github_path}?access_token=#{github_access_token}"
-  repo_info = JSON.parse(open(repo_info_url).read)
+  repo_info_url = "https://api.github.com/repos#{github_path}"
+  repo_info = JSON.parse(open(repo_info_url,
+    http_basic_authentication: [github_username, github_access_token]
+  ).read)
   repo_info["stargazers_count"]
 end
 
@@ -55,9 +57,7 @@ end
 
 # Get up to 100 pages of colorschemes
 (1..100).each do |i|
-  json = JSON.parse(open("#{base_url}?page=#{i}",
-    http_basic_authentication: [github_username, github_access_token]
-  ).read)
+  json = JSON.parse(open("#{base_url}?page=#{i}").read)
 
   # Quit if at end of the list
   break if json["colorschemes"].nil?
