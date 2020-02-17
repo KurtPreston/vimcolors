@@ -32,7 +32,7 @@ function! term#sendkeys(buf, keys) abort
     if !term#running(a:buf)
         return
     endif
-    let l:winid = misc#bufwinid(a:buf)
+    let l:winid = better#bufwinid(a:buf)
     " accept List too
     let l:keys = (type(a:keys) == v:t_list) ? join(a:keys, "\r") : a:keys
     if exists('*chansend')
@@ -43,11 +43,11 @@ function! term#sendkeys(buf, keys) abort
         call term_sendkeys(a:buf, l:keys)
     else
         " try to put it directly (works in Neovim only?)
-        call misc#win_execute(l:winid, "put =" .
+        call better#win_execute(l:winid, "put =" .
             \ escape(tr(string(l:keys), "\n", "\r"), '|"'))
     endif
     " scrolling may come in handy in Terminal-Normal mode
-    call misc#win_execute(l:winid, [
+    call better#win_execute(l:winid, [
         \ 'if line("$") > line("w$")',
             \ 'normal! 999999z-',
         \ 'endif'])

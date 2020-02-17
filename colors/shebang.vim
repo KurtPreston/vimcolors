@@ -1,8 +1,51 @@
 " This is a part of my vim configuration.
 " https://github.com/matveyt/vimfiles
 
+" preprocess VimScript to allow
+" :h line-continuation and :h line-continuation-comment
+function s:preprocess(script)
+    if stridx(&cpo, 'C') < 0
+        let [l:curr, l:last] = [1, len(a:script) - 1]
+        while l:curr <= l:last
+            " match line-continuation or line-continuation-comment
+            let l:cont = matchlist(a:script[l:curr], '\v^\s*(\\|"\\ )(.*)')
+            if empty(l:cont)
+                " skip over normal line
+                let l:curr += 1
+            else
+                " join line-continuation
+                if l:cont[1] ==# '\'
+                    let a:script[l:curr - 1] .= l:cont[2]
+                endif
+                unlet a:script[l:curr]
+                let l:last -= 1
+            endif
+        endwhile
+    endif
+    return a:script
+endfunction
+
+function s:command(shebang, dosource, ...)
+    let l:cmd = matchlist(a:shebang, '\v^#!\s*(\S+)\s*(.*)')[1:2]
+    if empty(l:cmd)
+        return
+    endif
+    if empty(l:cmd[1])
+        unlet l:cmd[1]
+    endif
+    " Note: even if we're running under plain Windows
+    " there can be Cygwin/MSYS out there
+    if l:cmd[0][0] ==# '/' && !has('unix')
+        " prepend 'env'
+        call insert(l:cmd, 'env')
+    endif
+    " script file name
+    return add(l:cmd, a:dosource ? fnamemodify(a:1, ':p:S') : '-')
+endfunction
+
+" shebang#execute({buf}, {line1}, {line2} [, {win}])
 " Execute script from a buffer
-function! shebang#execute(buf, line1, line2, ...)
+function! shebang#execute(buf, line1, line2, ...) abort
     " get buffer info
     let l:bufnr = bufnr(a:buf)
     if l:bufnr == -1 || !bufloaded(l:bufnr)
@@ -10,14 +53,14 @@ function! shebang#execute(buf, line1, line2, ...)
     endif
     let l:fname = bufname(l:bufnr)
     " can we source a whole file?
-    let l:dosource = (a:line1 == 1) && (a:line2 ==# '$' || a:line2 >= 1 &&
+    let l:dosource = (a:line1 == 1) && (a:line2 is# '$' || a:line2 >= 1 &&
         \ empty(getbufline(l:bufnr, a:line2 + 1))) && !empty(l:fname) &&
         \ !getbufvar(l:bufnr, '&modified') && empty(getbufvar(l:bufnr, '&buftype'))
     " read in code snippet
     if !l:dosource
         let l:script = getbufline(l:bufnr, a:line1, a:line2)
         if empty(l:script)
-            throw 'Invalid line range'
+            throw 'Invalid line range ' . a:line1 . ',' . a:line2
         endif
     endif
     " go to target Window
@@ -32,58 +75,20 @@ function! shebang#execute(buf, line1, line2, ...)
     if getbufvar(l:bufnr, '&filetype') is# 'vim' ||
         \ getbufvar(l:bufnr, 'current_syntax') is# 'vim'
         " VimScript shall be sourced directly
-        if l:dosource
-            execute 'source' l:fname
-        else
-            " :h line-continuation support
-            if stridx(&cpo, 'C') < 0
-                let [l:curr, l:last] = [1, len(l:script) - 1]
-                while l:curr <= l:last
-                    " line-continuation or line-continuation-comment
-                    let l:cont = matchlist(l:script[l:curr], '\v^\s*(\\|"\\ )(.*)')
-                    if empty(l:cont)
-                        " skip over normal line
-                        let l:curr += 1
-                    else
-                        " join line-continuation
-                        if l:cont[1] ==# '\'
-                            let l:script[l:curr - 1] .= l:cont[2]
-                        endif
-                        call remove(l:script, l:curr)
-                        let l:last -= 1
-                    endif
-                endwhile
-            endif
-        endif
-        " execute VimScript
-        call execute(l:script, '')
+        call execute(l:dosource ? 'source '..l:fname : s:preprocess(l:script), '')
     else
-        " parse shebang line to get interpreter
-        let l:cmd = matchlist(getbufline(l:bufnr, 1), '\v^#!\s*(\S+)\s*(.*)')
+        " parse shebang line
+        let l:shebang = getbufline(l:bufnr, 1)[0]
+        if l:shebang !~# '^#!'
+            throw 'No shebang in ' . (empty(l:fname) ? 'buffer '..l:bufnr : l:fname)
+        endif
+        let l:cmd = s:command(l:shebang, l:dosource, l:fname)
         if empty(l:cmd)
-            throw 'No shebang in ' . (empty(l:fname) ? 'buffer ' . l:bufnr : l:fname)
+            return
         endif
-        " drop extra items
-        unlet l:cmd[3:]
-        " Note: even if we're running under plain Windows
-        " there can be MSYS/Cygwin out there
-        if l:cmd[1][0] ==# '/' && !has('unix')
-            " prepend 'env'
-            let l:cmd[0] = 'env'
-        else
-            " execute as is
-            unlet l:cmd[0]
-        endif
-        " drop empty shebang args
-        if empty(l:cmd[-1])
-            unlet l:cmd[-1]
-        endif
-        " append script file name
-        call add(l:cmd, l:dosource ? fnamemodify(l:fname, ':p:S') : '-')
-        " create new terminal window
         call term#start(l:cmd)
         if !l:dosource
-            " send our script through stdin
+            " send script through stdin
             call term#sendkeys('%', add(l:script, "\<C-D>"))
         endif
     endif

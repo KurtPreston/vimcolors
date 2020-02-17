@@ -1,59 +1,68 @@
 " This is a part of my vim configuration.
 " https://github.com/matveyt/vimfiles
 
-" better bufwinid()
-function! misc#bufwinid(buf)
-    let l:bufnr = bufnr(a:buf)
-    if l:bufnr == -1
-        " invalid buffer
-        return -1
-    elseif l:bufnr == bufnr()
-        " current buffer
-        return win_getid()
+" Wipe all deleted (unloaded & unlisted) or all unloaded buffers
+function! misc#bwipeout(listed) abort
+    let l:buffers = filter(getbufinfo(), {_, v -> !v.loaded && (!v.listed || a:listed)})
+    if !empty(l:buffers)
+        execute 'bwipeout' join(map(l:buffers, {_, v -> v.bufnr}))
     endif
-    " find in the current tab
-    let l:winid = bufwinid(l:bufnr)
-    if l:winid == -1
-        " find first match
-        let l:winid = get(win_findbuf(l:bufnr), 0, -1)
-    endif
-    return l:winid
 endfunction
 
-" win_execute() compatibility wrapper
-" Note: Neovim still doesn't have win_execute()
-function! misc#win_execute(id, command, ...)
-    " make use of win_execute() if possible
-    let l:silent = get(a:, 1, 'silent')
-    if exists('*win_execute')
-        return win_execute(a:id, a:command, l:silent)
-    endif
-    " try to switch current window
-    let l:wcurr = win_getid()
-    if a:id != l:wcurr && !win_gotoid(a:id)
-        return
-    endif
-    " execute command and switch window back after that
-    try | return execute(a:command, l:silent)
-    finally
-        if a:id != l:wcurr
-            call win_gotoid(l:wcurr)
+" change({line1}, {line2} [, {reg} [, {autoindent}]])
+" non-interactive :change
+" Note: the replaced text is put in the unnamed register as in :h put-Visual-mode
+function! misc#change(line1, line2, ...) abort
+    " parse args
+    let l:reg = get(a:, 1, v:register)
+    let l:how = get(a:, 2, &autoindent) ? '[P' : 'P'
+    " split {reg} to deal with ={expr}
+    let [l:reg, l:expr] = [strcharpart(l:reg, 0, 1), strcharpart(l:reg, 1)]
+    if !empty(l:expr)
+        if l:reg isnot# '='
+            " {expr} is allowed only for expression register
+            throw 'Trailing characters' "E488
         endif
-    endtry
+        call setreg(l:reg, l:expr)
+    endif
+    if !empty(l:reg) && l:reg !~# '[-"[:alnum:]:.%#=*+~_/]'
+        " invalid register specified
+        throw 'Trailing characters' "E488
+    endif
+    " force linewise mode
+    " Note: @9 will be lost after :delete anyway
+    call setreg(9, getreg(l:reg), 'l')
+    " put & delete & move to the last edited line
+    call execute([
+        \ printf('%dnormal! "9%s', a:line1, l:how),
+        \ printf('keepjumps '']+,'']++%d delete', a:line2 - a:line1),
+        \ -1])
 endfunction
 
-" Copy line range to multiple destinations
+" misc#copy({line1}, {line2} [, {address1} ...])
+" :copy to multiple destinations
 " Note: all :h {address} formats are supported
 function! misc#copy(line1, line2, ...) abort
     " save the text to be copied
     let l:text = getline(a:line1, a:line2)
     " reverse sort line numbers to prevent overlapping
     let l:lines = reverse(sort(filter(map(copy(a:000),
-        \ 'trim(execute(v:val . "=", "silent!"))'), '!empty(v:val)'), 'N'))
-    " now make all the copies
+        \ 'trim(execute(v:val.."="))'), '!empty(v:val)'), 'N'))
+    " now make all copies
     for l:lnum in l:lines
         call append(l:lnum, l:text)
     endfor
+endfunction
+
+" Logical or: returns first non-empty argument or the last one
+function! misc#or(...)
+    let l:arg = 0
+    for l:arg in a:000
+        if !empty(l:arg)
+            break
+        endif
+    endfor
+    return l:arg
 endfunction
 
 " Switch colorscheme by 'incr' positions
@@ -66,16 +75,61 @@ function! misc#switchcolor(incr) abort
     setlocal statusline=
 endfunction
 
-" Turn any :[range]command into g@{motion} operator
-" Usage: nnoremap <expr>gs misc#xoper('sort')
-function! misc#xoper(cmd)
-    " make valid opfunc name
-    let l:func = 's:xoper_' . substitute(a:cmd, '\H', '_', 'g')
-    " create opfunc calling Ex command
-    if !exists('*' . l:func)
-        execute printf("fun %s(type)\n'[,']%s\nendfun", l:func, a:cmd)
+" misc#complete({pat}, {type} [, {filtered}])
+" custom complete function
+" inoremap <C-X><C-F> <C-R>=misc#complete('[[:fname:]*?]\+', 'file')<CR>
+" :h ins-completion
+function! misc#complete(pat, type, ...)
+    let l:filtered = get(a:, 1)
+    let [_, l:lnum, l:col; _] = getcurpos()
+    " find 'word' preceding cursor position
+    " Note: respect multibyte!
+    let l:start = searchpos(a:pat..'\v%#', 'bn', l:lnum)[1]
+    let l:end = searchpos('\v.%#', 'bn', l:lnum)[1]
+    if 1 <= l:start && l:start <= l:end
+        " complete [l:start .. l:end]
+        let l:word = getline(l:lnum)[l:start - 1 : l:end - 1]
+        call complete(l:start, getcompletion(l:word, a:type, l:filtered))
+    else
+        " complete empty string just before cursor
+        call complete(l:col, getcompletion('', a:type, l:filtered))
     endif
-    " set opfunc and return 'g@' to be used by map-<expr>
-    let &opfunc = get(function(l:func), 'name')
-    return 'g@'
+    " must return empty string to show popup menu
+    return ''
+endfunction
+
+" misc#urltags({pat}, {flags}, {info})
+" custom 'tagfunc' to open URLs as tags
+" set tagfunc=misc#urltags
+" :h tag-function
+function! misc#urltags(pat, flags, info)
+    " may I use cursor context?
+    if stridx(a:flags, 'c') >= 0
+        " support :h g:netrw_gx
+        let l:url = expand(get(g:, 'netrw_gx', '<cfile>'))
+        if l:url =~# '^[[:alpha:]][-+.[:alnum:]]*://'
+            " found it
+            if has('win32')
+                let l:cmd = ['rundll32', 'url.dll,FileProtocolHandler']
+            elseif has('unix') && executable('kfmclient')
+                let l:cmd = ['kfmclient', 'openURL']
+            "TODO: more stuff here
+            endif
+            " trying to open...
+            if exists('l:cmd')
+                if has('job')
+                    silent! call job_start(add(l:cmd, l:url))
+                elseif has('nvim')
+                    silent! call jobstart(add(l:cmd, l:url))
+                else
+                    silent! call system(join(l:cmd)..' '..shellescape(l:url))
+                endif
+                " disable standard tag search
+                return []
+            endif
+        endif
+    endif
+    " fallback to default
+    " Note: Neovim doesn't like v:null here
+    return taglist(a:pat, get(a:info, 'buf_ffname', ''))
 endfunction
