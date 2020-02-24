@@ -1214,6 +1214,8 @@ highlight! link vimUserAttrb Green
 highlight! link vimAutoCmdSfxList Cyan
 highlight! link vimSynType Orange
 highlight! link vimHiBang Orange
+highlight! link vimSet Yellow
+highlight! link vimSetSep Grey
 " }}}
 " Makefile: {{{
 highlight! link makeIdent Cyan
@@ -1418,9 +1420,10 @@ highlight! link CocExplorerBufferExpandIcon Cyan
 highlight! link CocExplorerBufferBufnr Purple
 highlight! link CocExplorerBufferModified Red
 highlight! link CocExplorerBufferBufname Grey
+highlight! link CocExplorerBufferFullpath Grey
 highlight! link CocExplorerFileRoot Orange
 highlight! link CocExplorerFileExpandIcon Cyan
-highlight! link CocExplorerFileFullpath Cyan
+highlight! link CocExplorerFileFullpath Grey
 highlight! link CocExplorerFileDirectory Green
 highlight! link CocExplorerFileGitStage Purple
 highlight! link CocExplorerFileGitUnstage Yellow
@@ -1645,7 +1648,7 @@ highlight! link StartifyBracket Grey
 highlight! link StartifyFile Fg
 highlight! link StartifyNumber Red
 highlight! link StartifyPath Green
-highlight! link StartifySlash Cyan
+highlight! link StartifySlash Green
 highlight! link StartifySection Blue
 highlight! link StartifyHeader Orange
 highlight! link StartifySpecial Grey
@@ -1687,6 +1690,9 @@ highlight! link UndotreeSavedSmall Purple
 " unblevable/quick-scope {{{
 call s:HL('QuickScopePrimary', s:palette.cyan, s:palette.none, 'underline')
 call s:HL('QuickScopeSecondary', s:palette.blue, s:palette.none, 'underline')
+" }}}
+" APZelos/blamer.nvim {{{
+highlight! link Blamer Grey
 " }}}
 " }}}
 " Terminal: {{{

@@ -49,7 +49,7 @@ let s:spaceGray2 = {'gui': '#49483E', 'cterm256': '239'}
 let s:spaceGray3 = {'gui': '#6B6B6B', 'cterm256': '242'}
 let s:spaceGray4 = {'gui': '#B0B0B0', 'cterm256': '249'}
 let s:spaceSteel = {'gui': '#DEDEDE', 'cterm256': '253'}
-let s:spaceWhite = {'gui': '#F8F8F8', 'cterm256': '231'}
+let s:spaceWhite = {'gui': '#EEEEEE', 'cterm256': '255'}
 let s:spaceViolet = {'gui': '#CF73E6', 'cterm256': '170'}
 let s:spaceBlue = {'gui': '#91AADF', 'cterm256': '110'}
 let s:spaceBlue2 = {'gui': '#B7CBF4', 'cterm256': '111'}
@@ -134,6 +134,38 @@ else
   call <sid>hi('DiffDelete', s:spaceRed2, s:none, 'none')
   call <sid>hi('DiffText', s:spaceSteel, s:spaceBlue, 'none')
 endif
+
+" ------------
+" Languages
+" ------------
+
+" C
+call <sid>hi('cConstant', s:spaceOrange, s:none, 'none')
+call <sid>hi('cFormat', s:spaceSteel, s:none, 'none')
+call <sid>hi('cMulti', s:spaceViolet, s:none, 'none')
+call <sid>hi('cNumbers', s:spaceGoo, s:none, 'none')
+call <sid>hi('cOperator', s:spaceViolet, s:none, 'none')
+call <sid>hi('cSpecial', s:spaceGoo, s:none, 'none')
+call <sid>hi('cSpecialCharacter', s:spaceGoo, s:none, 'none')
+call <sid>hi('cStatement', s:spaceViolet, s:none, 'none')
+call <sid>hi('cStorageClass', s:spaceGold, s:none, 'none')
+call <sid>hi('cString', s:spaceGreen, s:none, 'none')
+call <sid>hi('cStructure', s:spaceGold, s:none, 'none')
+call <sid>hi('cType', s:spaceBlue, s:none, 'none')
+
+" C++
+call <sid>hi('cppConstant', s:spaceOrange, s:none, 'none')
+call <sid>hi('cppFormat', s:spaceSteel, s:none, 'none')
+call <sid>hi('cppMulti', s:spaceViolet, s:none, 'none')
+call <sid>hi('cppNumbers', s:spaceGoo, s:none, 'none')
+call <sid>hi('cppOperator', s:spaceViolet, s:none, 'none')
+call <sid>hi('cppSpecial', s:spaceGoo, s:none, 'none')
+call <sid>hi('cppSpecialCharacter', s:spaceGoo, s:none, 'none')
+call <sid>hi('cppStatement', s:spaceViolet, s:none, 'none')
+call <sid>hi('cppStorageClass', s:spaceGold, s:none, 'none')
+call <sid>hi('cppString', s:spaceGreen, s:none, 'none')
+call <sid>hi('cppStructure', s:spaceGold, s:none, 'none')
+call <sid>hi('cppType', s:spaceBlue, s:none, 'none')
 
 " CSS
 call <sid>hi('cssAttr', s:spaceViolet, s:none, 'none')
@@ -324,4 +356,25 @@ call <sid>hi('yamlAlias', s:spaceWhite, s:none, 'none')
 call <sid>hi('yamlAnchor', s:spaceWhite, s:none, 'none')
 call <sid>hi('yamlDocumentHeader', s:spaceGreen, s:none, 'none')
 call <sid>hi('yamlKey', s:spaceGold, s:none, 'none')
+
+
+
+" ------------
+" Plugins
+" ------------
+
+" todo.txt
+call <sid>hi('TodoContext', s:spaceOrange, s:none, 'none')
+call <sid>hi('TodoDate', s:spaceBlue, s:none, 'none')
+call <sid>hi('TodoDone', s:spaceGray3, s:none, 'none')
+call <sid>hi('TodoPriorityA', s:spaceGoo, s:none, 'none')
+call <sid>hi('TodoPriorityB', s:spaceGreen, s:none, 'none')
+call <sid>hi('TodoPriorityC', s:spaceGold, s:none, 'none')
+call <sid>hi('TodoProject', s:spaceViolet, s:none, 'none')
+
+" Buftabline
+call <sid>hi('BufTabLineActive', s:spaceSteel, s:spaceGray2, 'none')
+call <sid>hi('BufTabLineCurrent', s:spaceBlack, s:spaceGray4, 'none')
+call <sid>hi('BufTabLineFill', s:spaceBlack, s:spaceBlack, 'none')
+call <sid>hi('BufTabLineHidden', s:spaceGray3, s:spaceBlack2, 'none')
 

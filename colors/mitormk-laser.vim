@@ -28,12 +28,6 @@ syntax reset
 
 let g:colors_name = "mitormk-laser"
 
-highlight Visual ctermbg=Red ctermfg=Black
-highlight CursorLine cterm=NONE ctermbg=Red ctermfg=Black
-highlight SpellBad ctermbg=Black ctermfg=Cyan
-highlight SpellRare ctermbg=Black ctermfg=Red
-highlight SpellLocal ctermbg=Blue ctermfg=Black
-
 if &t_Co == 88 || &t_Co == 256
   " Returns an approximate grey index for the given grey level
   fun <SID>grey_number(x)
@@ -396,3 +390,9 @@ if &t_Co == 88 || &t_Co == 256
   delf <SID>grey_level
   delf <SID>grey_number
 endif
+
+highlight Visual ctermbg=Cyan ctermfg=Black
+highlight CursorLine cterm=NONE ctermbg=Red ctermfg=Black
+highlight SpellBad ctermbg=Black ctermfg=Cyan
+highlight SpellRare ctermbg=Black ctermfg=Red
+highlight SpellLocal ctermbg=Blue ctermfg=Black

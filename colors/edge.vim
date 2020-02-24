@@ -39,22 +39,22 @@ if s:configuration.style ==# 'default'
           \ 'bg_red':     ['#f27a7a',   '203',  'Red'],
           \ 'bg_red1':    ['#473536',   '52',   'DarkRed'],
           \ 'bg_red2':    ['#573c3d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#a0c582',   '107',  'Green'],
+          \ 'bg_green':   ['#a0c781',   '107',  'Green'],
           \ 'bg_green1':  ['#384034',   '22',   'DarkGreen'],
           \ 'bg_green2':  ['#424c3b',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#75b8eb',   '110',  'Blue'],
+          \ 'bg_blue':    ['#77bceb',   '110',  'Blue'],
           \ 'bg_blue1':   ['#323e47',   '17',   'DarkBlue'],
           \ 'bg_blue2':   ['#394957',   '17',   'DarkBlue'],
-          \ 'bg_purple':  ['#d798e9',   '176',  'Magenta'],
+          \ 'bg_purple':  ['#d696e9',   '176',  'Magenta'],
           \ 'bg_purple1': ['#433948',   '54',   'DarkMagenta'],
           \ 'bg_purple2': ['#514359',   '54',   'DarkMagenta'],
           \ 'fg':         ['#c5cdd9',   '250',  'White'],
           \ 'red':        ['#f27a7a',   '203',  'Red'],
-          \ 'yellow':     ['#d9b575',   '179',  'Yellow'],
-          \ 'green':      ['#a0c582',   '107',  'Green'],
-          \ 'cyan':       ['#68c0c0',   '72',   'Cyan'],
-          \ 'blue':       ['#75b8eb',   '110',  'Blue'],
-          \ 'purple':     ['#d798e9',   '176',  'Magenta'],
+          \ 'yellow':     ['#dcb776',   '179',  'Yellow'],
+          \ 'green':      ['#a0c781',   '107',  'Green'],
+          \ 'cyan':       ['#66c0c0',   '72',   'Cyan'],
+          \ 'blue':       ['#77bceb',   '110',  'Blue'],
+          \ 'purple':     ['#d696e9',   '176',  'Magenta'],
           \ 'grey':       ['#7f8490',   '246',  'LightGrey'],
           \ 'none':       ['NONE',      'NONE', 'NONE']
           \ }
@@ -103,22 +103,22 @@ elseif s:configuration.style ==# 'proton'
           \ 'bg_red':     ['#f27a7a',   '203',  'Red'],
           \ 'bg_red1':    ['#473536',   '52',   'DarkRed'],
           \ 'bg_red2':    ['#573c3d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#a0c582',   '107',  'Green'],
+          \ 'bg_green':   ['#a0c781',   '107',  'Green'],
           \ 'bg_green1':  ['#384034',   '22',   'DarkGreen'],
           \ 'bg_green2':  ['#424c3b',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#75b8eb',   '110',  'Blue'],
+          \ 'bg_blue':    ['#77bceb',   '110',  'Blue'],
           \ 'bg_blue1':   ['#323e47',   '17',   'DarkBlue'],
           \ 'bg_blue2':   ['#394957',   '17',   'DarkBlue'],
-          \ 'bg_purple':  ['#d798e9',   '176',  'Magenta'],
+          \ 'bg_purple':  ['#d696e9',   '176',  'Magenta'],
           \ 'bg_purple1': ['#433948',   '54',   'DarkMagenta'],
           \ 'bg_purple2': ['#514359',   '54',   'DarkMagenta'],
           \ 'fg':         ['#c5cdd9',   '250',  'White'],
           \ 'red':        ['#f27a7a',   '203',  'Red'],
-          \ 'yellow':     ['#d9b575',   '179',  'Yellow'],
-          \ 'green':      ['#a0c582',   '107',  'Green'],
-          \ 'cyan':       ['#68c0c0',   '72',   'Cyan'],
-          \ 'blue':       ['#75b8eb',   '110',  'Blue'],
-          \ 'purple':     ['#d798e9',   '176',  'Magenta'],
+          \ 'yellow':     ['#dcb776',   '179',  'Yellow'],
+          \ 'green':      ['#a0c781',   '107',  'Green'],
+          \ 'cyan':       ['#66c0c0',   '72',   'Cyan'],
+          \ 'blue':       ['#77bceb',   '110',  'Blue'],
+          \ 'purple':     ['#d696e9',   '176',  'Magenta'],
           \ 'grey':       ['#7e8294',   '246',  'LightGrey'],
           \ 'none':       ['NONE',      'NONE', 'NONE']
           \ }
@@ -167,22 +167,22 @@ elseif s:configuration.style ==# 'neon'
           \ 'bg_red':     ['#f27a7a',   '203',  'Red'],
           \ 'bg_red1':    ['#473536',   '52',   'DarkRed'],
           \ 'bg_red2':    ['#573c3d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#a0c582',   '107',  'Green'],
+          \ 'bg_green':   ['#a0c781',   '107',  'Green'],
           \ 'bg_green1':  ['#384034',   '22',   'DarkGreen'],
           \ 'bg_green2':  ['#424c3b',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#75b8eb',   '110',  'Blue'],
+          \ 'bg_blue':    ['#77bceb',   '110',  'Blue'],
           \ 'bg_blue1':   ['#323e47',   '17',   'DarkBlue'],
           \ 'bg_blue2':   ['#394957',   '17',   'DarkBlue'],
-          \ 'bg_purple':  ['#d798e9',   '176',  'Magenta'],
+          \ 'bg_purple':  ['#d696e9',   '176',  'Magenta'],
           \ 'bg_purple1': ['#433948',   '54',   'DarkMagenta'],
           \ 'bg_purple2': ['#514359',   '54',   'DarkMagenta'],
           \ 'fg':         ['#c5cdd9',   '250',  'White'],
           \ 'red':        ['#f27a7a',   '203',  'Red'],
-          \ 'yellow':     ['#d9b575',   '179',  'Yellow'],
-          \ 'green':      ['#a0c582',   '107',  'Green'],
-          \ 'cyan':       ['#68c0c0',   '72',   'Cyan'],
-          \ 'blue':       ['#75b8eb',   '110',  'Blue'],
-          \ 'purple':     ['#d798e9',   '176',  'Magenta'],
+          \ 'yellow':     ['#dcb776',   '179',  'Yellow'],
+          \ 'green':      ['#a0c781',   '107',  'Green'],
+          \ 'cyan':       ['#66c0c0',   '72',   'Cyan'],
+          \ 'blue':       ['#77bceb',   '110',  'Blue'],
+          \ 'purple':     ['#d696e9',   '176',  'Magenta'],
           \ 'grey':       ['#7e8294',   '246',  'LightGrey'],
           \ 'none':       ['NONE',      'NONE', 'NONE']
           \ }
@@ -991,7 +991,7 @@ highlight! link StartifyBracket Grey
 highlight! link StartifyFile Fg
 highlight! link StartifyNumber Red
 highlight! link StartifyPath Green
-highlight! link StartifySlash Cyan
+highlight! link StartifySlash Green
 highlight! link StartifySection Blue
 highlight! link StartifyHeader Purple
 highlight! link StartifySpecial Grey
@@ -1126,9 +1126,10 @@ highlight! link CocExplorerBufferExpandIcon Red
 highlight! link CocExplorerBufferBufnr Yellow
 highlight! link CocExplorerBufferModified Red
 highlight! link CocExplorerBufferBufname Grey
+highlight! link CocExplorerBufferFullpath Grey
 highlight! link CocExplorerFileRoot Purple
 highlight! link CocExplorerFileExpandIcon Red
-highlight! link CocExplorerFileFullpath Cyan
+highlight! link CocExplorerFileFullpath Grey
 highlight! link CocExplorerFileDirectory Green
 highlight! link CocExplorerFileGitStage Blue
 highlight! link CocExplorerFileGitUnstage Yellow
@@ -1193,6 +1194,9 @@ highlight! link illuminatedWord CocHighlightText
 let g:cursorword_highlight = 0
 highlight! link CursorWord0 CocHighlightText
 highlight! link CursorWord1 CocHighlightText
+" }}}
+" Blamer {{{
+highlight! link Blamer Grey
 " }}}
 " }}}
 " Terminal: {{{

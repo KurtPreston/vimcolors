@@ -37,7 +37,7 @@ else
       if &background ==# 'dark'
         let s:palette = {
               \ 'bg0':        ['#1d2021',   '234',  'Black'],
-              \ 'bg1':        ['#242525',   '235',  'DarkGrey'],
+              \ 'bg1':        ['#262727',   '235',  'DarkGrey'],
               \ 'bg2':        ['#282828',   '235',  'DarkGrey'],
               \ 'bg3':        ['#3c3836',   '237',  'DarkGrey'],
               \ 'bg4':        ['#3c3836',   '237',  'DarkGrey'],
@@ -68,7 +68,7 @@ else
       else
         let s:palette = {
               \ 'bg0':        ['#f9f5d7',   '230',  'White'],
-              \ 'bg1':        ['#f7f0ce',   '229',  'LightGrey'],
+              \ 'bg1':        ['#f5edca',   '229',  'LightGrey'],
               \ 'bg2':        ['#f3eac7',   '229',  'LightGrey'],
               \ 'bg3':        ['#f2e5bc',   '228',  'LightGrey'],
               \ 'bg4':        ['#eee0b7',   '223',  'LightGrey'],
@@ -101,7 +101,7 @@ else
       if &background ==# 'dark'
         let s:palette = {
               \ 'bg0':        ['#282828',   '235',  'Black'],
-              \ 'bg1':        ['#2e2d2d',   '236',  'DarkGrey'],
+              \ 'bg1':        ['#302f2e',   '236',  'DarkGrey'],
               \ 'bg2':        ['#32302f',   '236',  'DarkGrey'],
               \ 'bg3':        ['#45403d',   '237',  'DarkGrey'],
               \ 'bg4':        ['#45403d',   '237',  'DarkGrey'],
@@ -132,7 +132,7 @@ else
       else
         let s:palette = {
               \ 'bg0':        ['#fbf1c7',   '229',  'White'],
-              \ 'bg1':        ['#f6ebc1',   '228',  'LightGrey'],
+              \ 'bg1':        ['#f4e8be',   '228',  'LightGrey'],
               \ 'bg2':        ['#f2e5bc',   '228',  'LightGrey'],
               \ 'bg3':        ['#eee0b7',   '223',  'LightGrey'],
               \ 'bg4':        ['#e5d5ad',   '223',  'LightGrey'],
@@ -165,7 +165,7 @@ else
       if &background ==# 'dark'
         let s:palette = {
               \ 'bg0':        ['#32302f',   '236',  'Black'],
-              \ 'bg1':        ['#383533',   '237',  'DarkGrey'],
+              \ 'bg1':        ['#3a3735',   '237',  'DarkGrey'],
               \ 'bg2':        ['#3c3836',   '237',  'DarkGrey'],
               \ 'bg3':        ['#504945',   '239',  'DarkGrey'],
               \ 'bg4':        ['#504945',   '239',  'DarkGrey'],
@@ -196,7 +196,7 @@ else
       else
         let s:palette = {
               \ 'bg0':        ['#f2e5bc',   '228',  'White'],
-              \ 'bg1':        ['#efe0b7',   '223',  'LightGrey'],
+              \ 'bg1':        ['#eddeb5',   '223',  'LightGrey'],
               \ 'bg2':        ['#ebdbb2',   '228',  'LightGrey'],
               \ 'bg3':        ['#e6d5ae',   '223',  'LightGrey'],
               \ 'bg4':        ['#dac9a5',   '250',  'LightGrey'],
@@ -231,7 +231,7 @@ else
       if &background ==# 'dark'
         let s:palette = {
               \ 'bg0':        ['#1d2021',   '234',  'Black'],
-              \ 'bg1':        ['#242525',   '235',  'DarkGrey'],
+              \ 'bg1':        ['#262727',   '235',  'DarkGrey'],
               \ 'bg2':        ['#282828',   '235',  'DarkGrey'],
               \ 'bg3':        ['#3c3836',   '237',  'DarkGrey'],
               \ 'bg4':        ['#3c3836',   '237',  'DarkGrey'],
@@ -262,7 +262,7 @@ else
       else
         let s:palette = {
               \ 'bg0':        ['#f9f5d7',   '230',  'White'],
-              \ 'bg1':        ['#f7f0ce',   '229',  'LightGrey'],
+              \ 'bg1':        ['#f5edca',   '229',  'LightGrey'],
               \ 'bg2':        ['#f3eac7',   '229',  'LightGrey'],
               \ 'bg3':        ['#f2e5bc',   '228',  'LightGrey'],
               \ 'bg4':        ['#ebdbb2',   '223',  'LightGrey'],
@@ -295,7 +295,7 @@ else
       if &background ==# 'dark'
         let s:palette = {
               \ 'bg0':        ['#282828',   '235',  'Black'],
-              \ 'bg1':        ['#2e2d2d',   '236',  'DarkGrey'],
+              \ 'bg1':        ['#302f2e',   '236',  'DarkGrey'],
               \ 'bg2':        ['#32302f',   '236',  'DarkGrey'],
               \ 'bg3':        ['#45403d',   '237',  'DarkGrey'],
               \ 'bg4':        ['#45403d',   '237',  'DarkGrey'],
@@ -326,7 +326,7 @@ else
       else
         let s:palette = {
               \ 'bg0':        ['#fbf1c7',   '229',  'White'],
-              \ 'bg1':        ['#f6ebc1',   '228',  'LightGrey'],
+              \ 'bg1':        ['#f4e8be',   '228',  'LightGrey'],
               \ 'bg2':        ['#f2e5bc',   '228',  'LightGrey'],
               \ 'bg3':        ['#eee0b7',   '223',  'LightGrey'],
               \ 'bg4':        ['#e5d5ad',   '223',  'LightGrey'],
@@ -359,7 +359,7 @@ else
       if &background ==# 'dark'
         let s:palette = {
               \ 'bg0':        ['#32302f',   '236',  'Black'],
-              \ 'bg1':        ['#383533',   '237',  'DarkGrey'],
+              \ 'bg1':        ['#3a3735',   '237',  'DarkGrey'],
               \ 'bg2':        ['#3c3836',   '237',  'DarkGrey'],
               \ 'bg3':        ['#504945',   '239',  'DarkGrey'],
               \ 'bg4':        ['#504945',   '239',  'DarkGrey'],
@@ -390,7 +390,7 @@ else
       else
         let s:palette = {
               \ 'bg0':        ['#f2e5bc',   '228',  'White'],
-              \ 'bg1':        ['#efe0b7',   '223',  'LightGrey'],
+              \ 'bg1':        ['#eddeb5',   '223',  'LightGrey'],
               \ 'bg2':        ['#ebdbb2',   '228',  'LightGrey'],
               \ 'bg3':        ['#e6d5ae',   '223',  'LightGrey'],
               \ 'bg4':        ['#dac9a5',   '250',  'LightGrey'],
@@ -1622,6 +1622,8 @@ highlight! link vimUserAttrb Green
 highlight! link vimAutoCmdSfxList Aqua
 highlight! link vimSynType Orange
 highlight! link vimHiBang Orange
+highlight! link vimSet Yellow
+highlight! link vimSetSep Grey
 " }}}
 " Makefile: {{{
 highlight! link makeIdent Aqua
@@ -1844,9 +1846,10 @@ highlight! link CocExplorerBufferExpandIcon Aqua
 highlight! link CocExplorerBufferBufnr Purple
 highlight! link CocExplorerBufferModified Red
 highlight! link CocExplorerBufferBufname Grey
+highlight! link CocExplorerBufferFullpath Grey
 highlight! link CocExplorerFileRoot Orange
 highlight! link CocExplorerFileExpandIcon Aqua
-highlight! link CocExplorerFileFullpath Aqua
+highlight! link CocExplorerFileFullpath Grey
 highlight! link CocExplorerFileDirectory Green
 highlight! link CocExplorerFileGitStage Purple
 highlight! link CocExplorerFileGitUnstage Yellow
@@ -2077,7 +2080,7 @@ highlight! link StartifyBracket Grey
 highlight! link StartifyFile Fg
 highlight! link StartifyNumber Red
 highlight! link StartifyPath Green
-highlight! link StartifySlash Aqua
+highlight! link StartifySlash Green
 highlight! link StartifySection Blue
 highlight! link StartifyHeader Orange
 highlight! link StartifySpecial Grey
@@ -2119,6 +2122,9 @@ highlight! link UndotreeSavedSmall Purple
 " unblevable/quick-scope {{{
 call s:HL('QuickScopePrimary', s:palette.aqua, s:palette.none, 'underline')
 call s:HL('QuickScopeSecondary', s:palette.blue, s:palette.none, 'underline')
+" }}}
+" APZelos/blamer.nvim {{{
+highlight! link Blamer Grey
 " }}}
 " }}}
 " Terminal: {{{
