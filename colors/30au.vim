@@ -12,9 +12,7 @@ augroup vimStartup | au!
     " update timestamp before saving a buffer
     autocmd BufWrite *
         \   if &modified && &modeline && &modelines > 0
-        \ |     execute printf('Nomove call %s(%s, %s, %d)',
-        \           get(function('s:timestamp'), 'name'),
-        \           string('(Last Change|Date):'), string('%Y %b %d'), &modelines)
+        \ |     call s:timestamp('(Last Change|Date):', '%Y %b %d', &modelines)
         \ | endif
     " save session on exit
     autocmd VimLeavePre *
@@ -24,12 +22,17 @@ augroup vimStartup | au!
 augroup end
 
 function s:timestamp(text, format, lines)
-    call cursor(1, 1)
-    if search('\v\C'..a:text..'\s*\S', 'e', a:lines)
-        let l:lc_time = v:lc_time
-        language time C
-        silent! undojoin
-        execute 'normal! "_C'..strftime(a:format)
-        execute 'language time' l:lc_time
-    endif
+    let l:svpos = winsaveview()
+    try
+        call cursor(1, 1)
+        if search('\v\C'..a:text..'\s*\S', 'e', a:lines)
+            let l:lc_time = v:lc_time
+            language time C
+            silent! undojoin
+            execute 'normal! "_C'..strftime(a:format)
+            execute 'language time' l:lc_time
+        endif
+    finally
+        call winrestview(l:svpos)
+    endtry
 endfunction

@@ -16,8 +16,8 @@ let s:colors.corn	 = ['#ffffd7', 230]
 let s:colors.orange 	 = ['#ff8700', 208]
 let s:colors.red         = ['#d70000', 160]
 let s:colors.spell       = ['#ff5f87', 204]
-let s:colors.diffBlue    = ['#00005f', 17]
-let s:colors.diffAddBg   = ['#87d7ff', 117]
+let s:colors.darkGreen   = ['#00d75f', 22]
+let s:colors.paleGreen   = ['#87d787', 151]
 
 " Highlighting function change
 " Cribbed from badwolf, gruvbox.
@@ -25,15 +25,15 @@ function! s:highlight(target, fg, ...)
   " ... = bg, style.
   let histring = 'hi ' . a:target . ' '
   let fcolor = get(s:colors, a:fg)
- 
+
   if strlen(a:fg)
     let histring .= 'guifg=' . fcolor[0] . ' ctermfg=' . fcolor[1] . ' '
   end
-  
+
   if a:0 >= 1 && strlen(a:1)
     let bcolor = get(s:colors, a:1)
     let histring .= 'guibg=' . bcolor[0] . ' ctermbg=' . bcolor[1] . ' '
-  endif 
+  endif
   if a:0 >= 2 && strlen(a:2)
     let histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
   endif
@@ -62,40 +62,49 @@ function! s:setLight()
   call s:highlight('label', 'darkgrey')
   call s:highlight('operator', 'rose')
   call s:highlight('delimiter', 'grey')
-  
-  " Inline notifications. 
+
+  " End of Buffer
+  " Removes ~~~ marks denoting the end of a buffer.
+  call s:highlight('EndOfBuffer', 'white', 'white')
+
+  " Inline notifications.
   call s:highlight('Todo', 'black', 'white', 'bold')
   call s:highlight('Search', 'white', 'deepgrey')
   call s:highlight('IncSearch', 'white', 'deepgrey')
   call s:highlight('title', 'darkgrey')
- 
+
   " CursorLine
-  call s:highlight('Cursor', 'darkgrey')
-  call s:highlight('CursorLine', 'deepgrey', 'white', 'NONE')
-  call s:highlight('CursorLineNr', 'blue')
+  " Do not alter styles on the current cursor line.
+  hi clear CursorLine
+  call s:highlight('CursorLineNr', 'blue', 'white', 'bold')
+
+  " CursorColumn
+  call s:highlight('CursorColumn', 'blue', 'blue')
 
   " Status line
-  call s:highlight('StatusLine', 'white', 'deepgrey')
-  call s:highlight('StatusLineNC', 'white', 'white')
-  
-  " Windows
-  call s:highlight('VertSplit', 'white')
+  call s:highlight('StatusLine', 'faint', 'black')
+  call s:highlight('StatusLineNC', 'faint', 'grey')
 
-  " Diff 
+  " Windows
+  call s:highlight('VertSplit', 'white', 'white')
+
+  " Diff
   call s:highlight('DiffChange', 'black', 'corn')
   call s:highlight('DiffText', 'orange', 'corn')
-  call s:highlight('DiffAdd', 'diffBlue', 'diffAddBg')
+  call s:highlight('DiffAdd', 'black', 'paleGreen')
   call s:highlight('DiffDelete', 'rose', 'rose')
 
   " Folds
-  call s:highlight('Folded', 'darkgrey')
-  call s:highlight('FoldColumn', 'darkgrey')
-  
+  call s:highlight('Folded', 'blue', 'white')
+  call s:highlight('FoldColumn', 'blue', 'white')
+
   " Visual
   call s:highlight('Visual', 'red', 'white', 'underline')
-  
-  " Sign Column
+
+  " Line Numbers
   call s:highlight('LineNr', 'black', 'white')
+
+  " Sign Column
   call s:highlight('SignColumn', 'rose', 'white')
 
   " Command window

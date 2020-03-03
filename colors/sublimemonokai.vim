@@ -10,11 +10,11 @@ if !has('gui_running') && &t_Co < 256
 endif
 
 if !exists('g:sublimemonokai_gui_italic')
-    let g:sublimemonokai_gui_italic = 1
+  let g:sublimemonokai_gui_italic = 1
 endif
 
 if !exists('g:sublimemonokai_term_italic')
-    let g:sublimemonokai_term_italic = 0
+  let g:sublimemonokai_term_italic = 0
 endif
 
 let g:sublimemonokai_termcolors = 256 " does not support 16 color term right now.
@@ -32,39 +32,39 @@ fun! s:h(group, style)
   let s:ctermformat = 'NONE'
   let s:guiformat = 'NONE'
   if has_key(a:style, 'format')
-    let s:ctermformat = a:style.format
-    let s:guiformat = a:style.format
+	let s:ctermformat = a:style.format
+	let s:guiformat = a:style.format
   endif
   if g:sublimemonokai_term_italic == 0
-    let s:ctermformat = substitute(s:ctermformat, ',italic', '', '')
-    let s:ctermformat = substitute(s:ctermformat, 'italic,', '', '')
-    let s:ctermformat = substitute(s:ctermformat, 'italic', '', '')
+	let s:ctermformat = substitute(s:ctermformat, ',italic', '', '')
+	let s:ctermformat = substitute(s:ctermformat, 'italic,', '', '')
+	let s:ctermformat = substitute(s:ctermformat, 'italic', '', '')
   endif
   if g:sublimemonokai_gui_italic == 0
-    let s:guiformat = substitute(s:guiformat, ',italic', '', '')
-    let s:guiformat = substitute(s:guiformat, 'italic,', '', '')
-    let s:guiformat = substitute(s:guiformat, 'italic', '', '')
+	let s:guiformat = substitute(s:guiformat, ',italic', '', '')
+	let s:guiformat = substitute(s:guiformat, 'italic,', '', '')
+	let s:guiformat = substitute(s:guiformat, 'italic', '', '')
   endif
   if g:sublimemonokai_termcolors == 16
-    let l:ctermfg = (has_key(a:style, 'fg') ? a:style.fg.cterm16 : 'NONE')
-    let l:ctermbg = (has_key(a:style, 'bg') ? a:style.bg.cterm16 : 'NONE')
+	let l:ctermfg = (has_key(a:style, 'fg') ? a:style.fg.cterm16 : 'NONE')
+	let l:ctermbg = (has_key(a:style, 'bg') ? a:style.bg.cterm16 : 'NONE')
   else
-    let l:ctermfg = (has_key(a:style, 'fg') ? a:style.fg.cterm : 'NONE')
-    let l:ctermbg = (has_key(a:style, 'bg') ? a:style.bg.cterm : 'NONE')
+	let l:ctermfg = (has_key(a:style, 'fg') ? a:style.fg.cterm : 'NONE')
+	let l:ctermbg = (has_key(a:style, 'bg') ? a:style.bg.cterm : 'NONE')
   end
   execute 'highlight' a:group
-    \ 'guifg='   (has_key(a:style, 'fg')      ? a:style.fg.gui   : 'NONE')
-    \ 'guibg='   (has_key(a:style, 'bg')      ? a:style.bg.gui   : 'NONE')
-    \ 'guisp='   (has_key(a:style, 'sp')      ? a:style.sp.gui   : 'NONE')
-    \ 'gui='     (!empty(s:guiformat) ? s:guiformat   : 'NONE')
-    \ 'ctermfg=' . l:ctermfg
-    \ 'ctermbg=' . l:ctermbg
-    \ 'cterm='   (!empty(s:ctermformat) ? s:ctermformat   : 'NONE')
+		\ 'guifg='   (has_key(a:style, 'fg')      ? a:style.fg.gui   : 'NONE')
+		\ 'guibg='   (has_key(a:style, 'bg')      ? a:style.bg.gui   : 'NONE')
+		\ 'guisp='   (has_key(a:style, 'sp')      ? a:style.sp.gui   : 'NONE')
+		\ 'gui='     (!empty(s:guiformat) ? s:guiformat   : 'NONE')
+		\ 'ctermfg=' . l:ctermfg
+		\ 'ctermbg=' . l:ctermbg
+		\ 'cterm='   (!empty(s:ctermformat) ? s:ctermformat   : 'NONE')
 endfunction
 
 " Expose the more complicated style setting via a global function
 fun! g:SublimeMonokaiHighlight(group, style)
-	return s:h(a:group, a:style)
+  return s:h(a:group, a:style)
 endfun
 
 " Palette
@@ -72,8 +72,8 @@ endfun
 " Convenience function to have a convenient script variable name and an
 " namespaced global variable
 fun! s:create_palette_color(color_name, color_data)
-	exec 'let s:' . a:color_name . ' = a:color_data'
-	exec 'let g:sublimemonokai_' . a:color_name . ' = a:color_data'
+  exec 'let s:' . a:color_name . ' = a:color_data'
+  exec 'let g:sublimemonokai_' . a:color_name . ' = a:color_data'
 endf
 
 call s:create_palette_color('brightwhite', { 'gui': '#FFFFFF', 'cterm': '231' })
@@ -91,6 +91,7 @@ call s:create_palette_color('pink',        { 'gui': '#f92772', 'cterm': '197' })
 call s:create_palette_color('green',       { 'gui': '#a6e22d', 'cterm': '148' })
 call s:create_palette_color('aqua',        { 'gui': '#66d9ef', 'cterm': '81'  })
 call s:create_palette_color('yellow',      { 'gui': '#e6db74', 'cterm': '186' })
+call s:create_palette_color('darkyellow',  { 'gui': '#878700', 'cterm': '100' })
 call s:create_palette_color('orange',      { 'gui': '#fd9720', 'cterm': '208' })
 call s:create_palette_color('purple',      { 'gui': '#ae81ff', 'cterm': '141' })
 call s:create_palette_color('red',         { 'gui': '#e73c50', 'cterm': '196' })
@@ -129,42 +130,46 @@ call s:h('SublimeDarkRed',     { 'fg': s:darkred      })
 
 " Default highlight groups (see ':help highlight-default' or http://vimdoc.sourceforge.net/htmldoc/syntax.html#highlight-groups)
 
-call s:h('ColorColumn',  { 'bg': s:lightblack2                                             })
+call s:h('ColorColumn',  {                      'bg': s:lightblack2                            })
 hi! link Conceal SublimeLightGrey
-call s:h('CursorColumn', { 'bg': s:lightblack2                                             })
-call s:h('CursorLine',   { 'bg': s:lightblack2                                             })
-call s:h('CursorLineNr', { 'fg': s:orange,      'bg': s:lightblack                         })
-call s:h('DiffAdd',      { 'fg': s:addfg,       'bg': s:addbg                              })
-call s:h('DiffChange',   { 'fg': s:changefg,    'bg': s:changebg                           })
-call s:h('DiffDelete',   { 'fg': s:black,       'bg': s:delbg                              })
-call s:h('DiffText',     { 'fg': s:black,       'bg': s:aqua                               })
+call s:h('CursorColumn', {                      'bg': s:lightblack2                            })
+call s:h('CursorLine',   {                      'bg': s:lightblack2                            })
+call s:h('CursorLineNr', { 'fg': s:orange,      'bg': s:lightblack                             })
+call s:h('DiffAdd',      { 'fg': s:addfg,       'bg': s:addbg                                  })
+call s:h('DiffChange',   { 'fg': s:changefg,    'bg': s:changebg                               })
+call s:h('DiffDelete',   { 'fg': s:black,       'bg': s:delbg                                  })
+call s:h('DiffText',     { 'fg': s:black,       'bg': s:aqua                                   })
 hi! link Directory SublimeAqua
-call s:h('ErrorMsg',     { 'fg': s:black,       'bg': s:red,      'format': 'standout'     })
+call s:h('ErrorMsg',     { 'fg': s:black,       'bg': s:red,      'format': 'standout'         })
 hi! link FoldColumn SublimeDarkBlack
-call s:h('Folded',       { 'fg': s:warmgrey,    'bg': s:darkblack                          })
-call s:h('IncSearch',    { 'format': 'reverse,underline'                                   })
-call s:h('LineNr',       { 'fg': s:grey,        'bg': s:lightblack                         })
-call s:h('MatchParen',   { 'format': 'underline'                                           })
+call s:h('Folded',       { 'fg': s:warmgrey,    'bg': s:darkblack                              })
+call s:h('IncSearch',    {                                        'format': 'reverse,underline'})
+call s:h('LineNr',       { 'fg': s:grey,        'bg': s:lightblack                             })
+call s:h('MatchParen',   {                                        'format': 'underline'        })
 hi! link ModeMsg SublimeYellow
 hi! link MoreMsg SublimeYellow
 hi! link NonText SublimeLightGrey
-call s:h('Normal',       { 'fg': s:white,       'bg': s:black                              })
-call s:h('Pmenu',        { 'fg': s:lightblack,  'bg': s:white                              })
-call s:h('PmenuSbar',    {                                                                 })
-call s:h('PmenuSel',     { 'fg': s:aqua,        'bg': s:black,    'format': 'reverse,bold' })
-call s:h('PmenuThumb',   { 'fg': s:lightblack,  'bg': s:grey                               })
+call s:h('Normal',       { 'fg': s:white,       'bg': s:black                                  })
+call s:h('Pmenu',        { 'fg': s:lightblack,  'bg': s:white                                  })
+call s:h('PmenuSbar',    {                                                                     })
+call s:h('PmenuSel',     { 'fg': s:aqua,        'bg': s:black,    'format': 'reverse,bold'     })
+call s:h('PmenuThumb',   { 'fg': s:lightblack,  'bg': s:grey                                   })
 hi! link Question SublimeYellow
-call s:h('Search',       { 'format': 'reverse,underline'                                   })
-hi! link SignColumn SublimeLightBlack
+call s:h('Search',       {                                        'format': 'reverse,underline'})
+call s:h('SignColumn',   { 'fg': s:lightblack,  'bg': s:grey                                   })
 hi! link SpecialKey SublimeLightBlack2
-call s:h('StatusLine',   { 'fg': s:warmgrey,    'bg': s:black,    'format': 'reverse'      })
-call s:h('StatusLineNC', { 'fg': s:darkgrey,    'bg': s:warmgrey, 'format': 'reverse'      })
-call s:h('TabLine',      { 'fg': s:white,       'bg': s:darkgrey                           })
-call s:h('TabLineFill',  { 'fg': s:grey,        'bg': s:darkgrey                           })
-call s:h('TabLineSel',   { 'fg': s:black,       'bg': s:white                              })
+call s:h('SpellBad',     {                      'bg': s:darkred                                })
+call s:h('SpellCap',     {                      'bg': s:darkyellow                             })
+call s:h('SpellLocal',   {                      'bg': s:darkyellow                             })
+call s:h('SpellRare',    {                      'bg': s:darkyellow                             })
+call s:h('StatusLine',   { 'fg': s:warmgrey,    'bg': s:black,    'format': 'reverse'          })
+call s:h('StatusLineNC', { 'fg': s:darkgrey,    'bg': s:warmgrey, 'format': 'reverse'          })
+call s:h('TabLine',      { 'fg': s:white,       'bg': s:darkgrey                               })
+call s:h('TabLineFill',  { 'fg': s:grey,        'bg': s:darkgrey                               })
+call s:h('TabLineSel',   { 'fg': s:black,       'bg': s:white                                  })
 hi! link Title SublimeYellow
-call s:h('VertSplit',    { 'fg': s:darkgrey,    'bg': s:darkblack                          })
-call s:h('Visual',       { 'bg': s:lightgrey                                               })
+call s:h('VertSplit',    { 'fg': s:darkgrey,    'bg': s:darkblack                              })
+call s:h('Visual',       {                      'bg': s:lightgrey                              })
 hi! link WarningMsg SublimeRed
 
 " Generic Syntax Highlighting (see reference: 'NAMING CONVENTIONS' at http://vimdoc.sourceforge.net/htmldoc/syntax.html#group-name)
@@ -274,6 +279,228 @@ hi! link cType             SublimeType
 " * There's no way to distinguish between function calls and
 "     definitions/declarations. :( If you prefer both to be colored, then you
 "     can use `hi! link cCustom <color>`.
+
+" CMake
+
+hi! link cmakeCommand                            SublimeAqua
+hi! link cmakeKWfind_package                     SublimeContextParam
+hi! link cmakeKWproject                          SublimeContextParam
+" XXX: Variation: I actually really like making this aqua.
+hi! link cmakeVariableValue                      Normal
+
+" pboettch/vim-cmake-syntax plugin
+hi! link cmakeBracketArgument                           SublimeAqua
+hi! link cmakeKWExternalProject                         SublimeContextParam
+hi! link cmakeKWExternalProject                         SublimeContextParam
+hi! link cmakeKWadd_compile_definitions                 SublimeContextParam
+hi! link cmakeKWadd_compile_definitions                 SublimeContextParam
+hi! link cmakeKWadd_compile_options                     SublimeContextParam
+hi! link cmakeKWadd_compile_options                     SublimeContextParam
+hi! link cmakeKWadd_custom_command                      SublimeContextParam
+hi! link cmakeKWadd_custom_command                      SublimeContextParam
+hi! link cmakeKWadd_custom_target                       SublimeContextParam
+hi! link cmakeKWadd_custom_target                       SublimeContextParam
+hi! link cmakeKWadd_definitions                         SublimeContextParam
+hi! link cmakeKWadd_definitions                         SublimeContextParam
+hi! link cmakeKWadd_dependencies                        SublimeContextParam
+hi! link cmakeKWadd_dependencies                        SublimeContextParam
+hi! link cmakeKWadd_executable                          SublimeContextParam
+hi! link cmakeKWadd_executable                          SublimeContextParam
+hi! link cmakeKWadd_library                             SublimeContextParam
+hi! link cmakeKWadd_library                             SublimeContextParam
+hi! link cmakeKWadd_link_options                        SublimeContextParam
+hi! link cmakeKWadd_link_options                        SublimeContextParam
+hi! link cmakeKWadd_subdirectory                        SublimeContextParam
+hi! link cmakeKWadd_subdirectory                        SublimeContextParam
+hi! link cmakeKWadd_test                                SublimeContextParam
+hi! link cmakeKWadd_test                                SublimeContextParam
+hi! link cmakeKWbuild_command                           SublimeContextParam
+hi! link cmakeKWbuild_command                           SublimeContextParam
+hi! link cmakeKWcmake_host_system_information           SublimeContextParam
+hi! link cmakeKWcmake_host_system_information           SublimeContextParam
+hi! link cmakeKWcmake_minimum_required                  SublimeContextParam
+hi! link cmakeKWcmake_minimum_required                  SublimeContextParam
+hi! link cmakeKWcmake_parse_arguments                   SublimeContextParam
+hi! link cmakeKWcmake_parse_arguments                   SublimeContextParam
+hi! link cmakeKWcmake_policy                            SublimeContextParam
+hi! link cmakeKWcmake_policy                            SublimeContextParam
+hi! link cmakeKWconfigure_file                          SublimeContextParam
+hi! link cmakeKWconfigure_file                          SublimeContextParam
+hi! link cmakeKWconfigure_package_config_file           SublimeContextParam
+hi! link cmakeKWconfigure_package_config_file           SublimeContextParam
+hi! link cmakeKWconfigure_package_config_file_constants SublimeContextParam
+hi! link cmakeKWconfigure_package_config_file_constants SublimeContextParam
+hi! link cmakeKWcreate_test_sourcelist                  SublimeContextParam
+hi! link cmakeKWcreate_test_sourcelist                  SublimeContextParam
+hi! link cmakeKWctest_build                             SublimeContextParam
+hi! link cmakeKWctest_build                             SublimeContextParam
+hi! link cmakeKWctest_configure                         SublimeContextParam
+hi! link cmakeKWctest_configure                         SublimeContextParam
+hi! link cmakeKWctest_coverage                          SublimeContextParam
+hi! link cmakeKWctest_coverage                          SublimeContextParam
+hi! link cmakeKWctest_memcheck                          SublimeContextParam
+hi! link cmakeKWctest_memcheck                          SublimeContextParam
+hi! link cmakeKWctest_run_script                        SublimeContextParam
+hi! link cmakeKWctest_run_script                        SublimeContextParam
+hi! link cmakeKWctest_start                             SublimeContextParam
+hi! link cmakeKWctest_start                             SublimeContextParam
+hi! link cmakeKWctest_submit                            SublimeContextParam
+hi! link cmakeKWctest_submit                            SublimeContextParam
+hi! link cmakeKWctest_test                              SublimeContextParam
+hi! link cmakeKWctest_test                              SublimeContextParam
+hi! link cmakeKWctest_update                            SublimeContextParam
+hi! link cmakeKWctest_update                            SublimeContextParam
+hi! link cmakeKWctest_upload                            SublimeContextParam
+hi! link cmakeKWctest_upload                            SublimeContextParam
+hi! link cmakeKWdefine_property                         SublimeContextParam
+hi! link cmakeKWdefine_property                         SublimeContextParam
+hi! link cmakeKWenable_language                         SublimeContextParam
+hi! link cmakeKWenable_language                         SublimeContextParam
+hi! link cmakeKWenable_testing                          SublimeContextParam
+hi! link cmakeKWenable_testing                          SublimeContextParam
+hi! link cmakeKWexec_program                            SublimeContextParam
+hi! link cmakeKWexec_program                            SublimeContextParam
+hi! link cmakeKWexecute_process                         SublimeContextParam
+hi! link cmakeKWexecute_process                         SublimeContextParam
+hi! link cmakeKWexport                                  SublimeContextParam
+hi! link cmakeKWexport                                  SublimeContextParam
+hi! link cmakeKWexport_library_dependencies             SublimeContextParam
+hi! link cmakeKWexport_library_dependencies             SublimeContextParam
+hi! link cmakeKWfile                                    SublimeContextParam
+hi! link cmakeKWfile                                    SublimeContextParam
+hi! link cmakeKWfind_file                               SublimeContextParam
+hi! link cmakeKWfind_file                               SublimeContextParam
+hi! link cmakeKWfind_library                            SublimeContextParam
+hi! link cmakeKWfind_library                            SublimeContextParam
+hi! link cmakeKWfind_package                            SublimeContextParam
+hi! link cmakeKWfind_package                            SublimeContextParam
+hi! link cmakeKWfind_path                               SublimeContextParam
+hi! link cmakeKWfind_path                               SublimeContextParam
+hi! link cmakeKWfind_program                            SublimeContextParam
+hi! link cmakeKWfind_program                            SublimeContextParam
+hi! link cmakeKWfltk_wrap_ui                            SublimeContextParam
+hi! link cmakeKWfltk_wrap_ui                            SublimeContextParam
+hi! link cmakeKWforeach                                 SublimeContextParam
+hi! link cmakeKWforeach                                 SublimeContextParam
+hi! link cmakeKWfunction                                SublimeContextParam
+hi! link cmakeKWfunction                                SublimeContextParam
+hi! link cmakeKWget_cmake_property                      SublimeContextParam
+hi! link cmakeKWget_cmake_property                      SublimeContextParam
+hi! link cmakeKWget_directory_property                  SublimeContextParam
+hi! link cmakeKWget_directory_property                  SublimeContextParam
+hi! link cmakeKWget_filename_component                  SublimeContextParam
+hi! link cmakeKWget_filename_component                  SublimeContextParam
+hi! link cmakeKWget_property                            SublimeContextParam
+hi! link cmakeKWget_property                            SublimeContextParam
+hi! link cmakeKWget_source_file_property                SublimeContextParam
+hi! link cmakeKWget_source_file_property                SublimeContextParam
+hi! link cmakeKWget_target_property                     SublimeContextParam
+hi! link cmakeKWget_target_property                     SublimeContextParam
+hi! link cmakeKWget_test_property                       SublimeContextParam
+hi! link cmakeKWget_test_property                       SublimeContextParam
+hi! link cmakeKWif                                      SublimeContextParam
+hi! link cmakeKWif                                      SublimeContextParam
+hi! link cmakeKWinclude                                 SublimeContextParam
+hi! link cmakeKWinclude                                 SublimeContextParam
+hi! link cmakeKWinclude_directories                     SublimeContextParam
+hi! link cmakeKWinclude_directories                     SublimeContextParam
+hi! link cmakeKWinclude_external_msproject              SublimeContextParam
+hi! link cmakeKWinclude_external_msproject              SublimeContextParam
+hi! link cmakeKWinclude_guard                           SublimeContextParam
+hi! link cmakeKWinclude_guard                           SublimeContextParam
+hi! link cmakeKWinstall                                 SublimeContextParam
+hi! link cmakeKWinstall                                 SublimeContextParam
+hi! link cmakeKWinstall_files                           SublimeContextParam
+hi! link cmakeKWinstall_files                           SublimeContextParam
+hi! link cmakeKWinstall_programs                        SublimeContextParam
+hi! link cmakeKWinstall_programs                        SublimeContextParam
+hi! link cmakeKWinstall_targets                         SublimeContextParam
+hi! link cmakeKWinstall_targets                         SublimeContextParam
+hi! link cmakeKWlink_directories                        SublimeContextParam
+hi! link cmakeKWlink_directories                        SublimeContextParam
+hi! link cmakeKWlist                                    SublimeContextParam
+hi! link cmakeKWlist                                    SublimeContextParam
+hi! link cmakeKWload_cache                              SublimeContextParam
+hi! link cmakeKWload_cache                              SublimeContextParam
+hi! link cmakeKWload_command                            SublimeContextParam
+hi! link cmakeKWload_command                            SublimeContextParam
+hi! link cmakeKWmacro                                   SublimeContextParam
+hi! link cmakeKWmacro                                   SublimeContextParam
+hi! link cmakeKWmark_as_advanced                        SublimeContextParam
+hi! link cmakeKWmark_as_advanced                        SublimeContextParam
+hi! link cmakeKWmath                                    SublimeContextParam
+hi! link cmakeKWmath                                    SublimeContextParam
+hi! link cmakeKWmessage                                 SublimeContextParam
+hi! link cmakeKWmessage                                 SublimeContextParam
+hi! link cmakeKWoption                                  SublimeContextParam
+hi! link cmakeKWoption                                  SublimeContextParam
+hi! link cmakeKWproject                                 SublimeContextParam
+hi! link cmakeKWproject                                 SublimeContextParam
+hi! link cmakeKWqt_wrap_cpp                             SublimeContextParam
+hi! link cmakeKWqt_wrap_cpp                             SublimeContextParam
+hi! link cmakeKWqt_wrap_ui                              SublimeContextParam
+hi! link cmakeKWqt_wrap_ui                              SublimeContextParam
+hi! link cmakeKWremove                                  SublimeContextParam
+hi! link cmakeKWremove                                  SublimeContextParam
+hi! link cmakeKWseparate_arguments                      SublimeContextParam
+hi! link cmakeKWseparate_arguments                      SublimeContextParam
+hi! link cmakeKWset                                     SublimeContextParam
+hi! link cmakeKWset                                     SublimeContextParam
+hi! link cmakeKWset_directory_properties                SublimeContextParam
+hi! link cmakeKWset_directory_properties                SublimeContextParam
+hi! link cmakeKWset_property                            SublimeContextParam
+hi! link cmakeKWset_property                            SublimeContextParam
+hi! link cmakeKWset_source_files_properties             SublimeContextParam
+hi! link cmakeKWset_source_files_properties             SublimeContextParam
+hi! link cmakeKWset_target_properties                   SublimeContextParam
+hi! link cmakeKWset_target_properties                   SublimeContextParam
+hi! link cmakeKWset_target_properties                   SublimeContextParam
+hi! link cmakeKWset_tests_properties                    SublimeContextParam
+hi! link cmakeKWset_tests_properties                    SublimeContextParam
+hi! link cmakeKWsource_group                            SublimeContextParam
+hi! link cmakeKWsource_group                            SublimeContextParam
+hi! link cmakeKWstring                                  SublimeContextParam
+hi! link cmakeKWstring                                  SublimeContextParam
+hi! link cmakeKWsubdirs                                 SublimeContextParam
+hi! link cmakeKWsubdirs                                 SublimeContextParam
+hi! link cmakeKWtarget_compile_definitions              SublimeContextParam
+hi! link cmakeKWtarget_compile_definitions              SublimeContextParam
+hi! link cmakeKWtarget_compile_features                 SublimeContextParam
+hi! link cmakeKWtarget_compile_features                 SublimeContextParam
+hi! link cmakeKWtarget_compile_options                  SublimeContextParam
+hi! link cmakeKWtarget_compile_options                  SublimeContextParam
+hi! link cmakeKWtarget_include_directories              SublimeContextParam
+hi! link cmakeKWtarget_include_directories              SublimeContextParam
+hi! link cmakeKWtarget_link_directories                 SublimeContextParam
+hi! link cmakeKWtarget_link_directories                 SublimeContextParam
+hi! link cmakeKWtarget_link_libraries                   SublimeContextParam
+hi! link cmakeKWtarget_link_libraries                   SublimeContextParam
+hi! link cmakeKWtarget_link_options                     SublimeContextParam
+hi! link cmakeKWtarget_link_options                     SublimeContextParam
+hi! link cmakeKWtarget_sources                          SublimeContextParam
+hi! link cmakeKWtarget_sources                          SublimeContextParam
+hi! link cmakeKWtry_compile                             SublimeContextParam
+hi! link cmakeKWtry_compile                             SublimeContextParam
+hi! link cmakeKWtry_run                                 SublimeContextParam
+hi! link cmakeKWtry_run                                 SublimeContextParam
+hi! link cmakeKWunset                                   SublimeContextParam
+hi! link cmakeKWunset                                   SublimeContextParam
+hi! link cmakeKWuse_mangled_mesa                        SublimeContextParam
+hi! link cmakeKWuse_mangled_mesa                        SublimeContextParam
+hi! link cmakeKWvariable_requires                       SublimeContextParam
+hi! link cmakeKWvariable_requires                       SublimeContextParam
+hi! link cmakeKWvariable_watch                          SublimeContextParam
+hi! link cmakeKWvariable_watch                          SublimeContextParam
+hi! link cmakeKWwrite_basic_package_version_file        SublimeContextParam
+hi! link cmakeKWwrite_basic_package_version_file        SublimeContextParam
+hi! link cmakeKWwrite_basic_package_version_file        SublimeContextParam
+hi! link cmakeKWwrite_file                              SublimeContextParam
+hi! link cmakeKWwrite_file                              SublimeContextParam
+hi! link cmakeProperty                                  SublimeContextParam
+
+" XXX: Other known deficiencies:
+" * Some special args like `IMPORTED_TARGET` aren't recognized in Vim, but
+"     Sublime's `CMake` package recognizes them.
 
 " CSS
 
@@ -623,10 +850,12 @@ hi! link phpVarSelector     Identifier
 " Python
 
 " This configuration assumed python-mode
+hi! link pythonBuiltinFunc SublimeFunctionCall
 hi! link pythonConditional Conditional
 hi! link pythonException   Keyword
 hi! link pythonFunction    Tag
 hi! link pythonInclude     Keyword
+hi! link pythonLambdaExpr  SublimeType
 " XXX: def parens are, for some reason, included in this group.
 hi! link pythonParam       SublimeContextParam
 " XXX: pythonStatement covers a bit too much...unfortunately, this means that
@@ -699,10 +928,13 @@ hi! link rustSelf           SublimeContextParam
 " * Crate names after `extern crate` are included in `rustIdentifier`, which
 "     is technically more inclusive than Sublime's definition group but not so
 "     bad I don't think it's an okay default.
-" * Sublime does NOT have the `rustEnumVariants` distinction, which is
-"     actually a really nice feature.
+" * Sublime does NOT have the `rustEnumVariant` distinction, which is actually
+"     a really nice feature.
 " * No `fn`/lambda param highlighting is available in Vim like in Sublime
 "     here. :(
+" * `rust.vim` doesn't highlight typical attributes like in Sublime. Sublime
+"     makes this fairly nice, though I prefer to just make them look like doc
+"     comments.
 
 " SASS
 
@@ -774,6 +1006,37 @@ hi! link TagbarSignature           Comment
 hi! link TagbarVisibilityPrivate   SublimePink
 hi! link TagbarVisibilityProtected SublimeYellow
 hi! link TagbarVisibilityPublic    SublimeGreen
+
+" TypeScript
+
+" Why is this `Keyword` by default? Who knows?
+hi! link typescriptEndColons              Normal
+" XXX: This is too inclusive -- I expected this to just be the types, but it
+" includes the `throw` keyword too.
+hi! link typescriptExceptions             SublimeType
+hi! link typescriptFuncKeyword            SublimeType
+hi! link typescriptIdentifier             SublimeContextParam
+" Variation: I far prefer to let this be `Normal`...
+hi! link typescriptInterpolation          String
+" ...and have this be `Special`.
+hi! link typescriptInterpolationDelimiter String
+hi! link typescriptLogicSymbols           Keyword
+" Why is this `Keyword` by default? Who knows?
+hi! link typescriptParens                 Normal
+" Variation: I prefer to make this `Special.`, since I use the value way more
+" than `null` as a type. Sublime distinguishes, it'd be nice if we could too.
+hi! link typescriptNull                   Special
+hi! link typescriptStatement              Keyword
+hi! link typescriptType                   SublimeType
+
+" XXX: Other deficiencies:
+" * `typescriptReserved` doesn't allow some distinctions Sublime does:
+"     * globs in imports
+"     * `Tag` for things that are definitely declarations/definitions
+"     * Browser context params like `console`
+"     * Common functions like `console.debug`; I actually don't care about
+"         these, but Sublime does.
+"     * `is` keyword
 
 " VimL
 

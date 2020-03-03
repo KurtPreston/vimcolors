@@ -246,3 +246,6 @@ hi GitGutterAdd
 " hi link vimHiKeyList Title
 hi link vimHiGroup Title
 
+
+" Darken code lens in Coc
+hi CocCodeLens guifg=#443322

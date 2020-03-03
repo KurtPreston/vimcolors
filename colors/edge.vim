@@ -23,6 +23,7 @@ let s:configuration.transparent_background = get(g:, 'edge_transparent_backgroun
 let s:configuration.menu_selection_background = get(g:, 'edge_menu_selection_background', 'blue')
 let s:configuration.disable_italic_comment = get(g:, 'edge_disable_italic_comment', 0)
 let s:configuration.enable_italic = get(g:, 'edge_enable_italic', 0)
+let s:configuration.cursor = get(g:, 'edge_cursor', 0)
 let s:configuration.current_word = get(g:, 'edge_current_word', get(g:, 'edge_transparent_background', 0) == 0 ? 'grey background' : 'bold')
 " }}}
 " Palette: {{{
@@ -36,25 +37,25 @@ if s:configuration.style ==# 'default'
           \ 'bg4':        ['#3b3e48',   '237',  'Grey'],
           \ 'bg5':        ['#414550',   '238',  'Grey'],
           \ 'bg_grey':    ['#828a98',   '246',  'LightGrey'],
-          \ 'bg_red':     ['#f27a7a',   '203',  'Red'],
+          \ 'bg_red':     ['#ec7279',   '203',  'Red'],
           \ 'bg_red1':    ['#473536',   '52',   'DarkRed'],
           \ 'bg_red2':    ['#573c3d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#a0c781',   '107',  'Green'],
+          \ 'bg_green':   ['#a0c980',   '107',  'Green'],
           \ 'bg_green1':  ['#384034',   '22',   'DarkGreen'],
           \ 'bg_green2':  ['#424c3b',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#77bceb',   '110',  'Blue'],
+          \ 'bg_blue':    ['#6cb6eb',   '110',  'Blue'],
           \ 'bg_blue1':   ['#323e47',   '17',   'DarkBlue'],
           \ 'bg_blue2':   ['#394957',   '17',   'DarkBlue'],
-          \ 'bg_purple':  ['#d696e9',   '176',  'Magenta'],
+          \ 'bg_purple':  ['#d38aea',   '176',  'Magenta'],
           \ 'bg_purple1': ['#433948',   '54',   'DarkMagenta'],
           \ 'bg_purple2': ['#514359',   '54',   'DarkMagenta'],
           \ 'fg':         ['#c5cdd9',   '250',  'White'],
-          \ 'red':        ['#f27a7a',   '203',  'Red'],
-          \ 'yellow':     ['#dcb776',   '179',  'Yellow'],
-          \ 'green':      ['#a0c781',   '107',  'Green'],
-          \ 'cyan':       ['#66c0c0',   '72',   'Cyan'],
-          \ 'blue':       ['#77bceb',   '110',  'Blue'],
-          \ 'purple':     ['#d696e9',   '176',  'Magenta'],
+          \ 'red':        ['#ec7279',   '203',  'Red'],
+          \ 'yellow':     ['#deb974',   '179',  'Yellow'],
+          \ 'green':      ['#a0c980',   '107',  'Green'],
+          \ 'cyan':       ['#5dbbc1',   '72',   'Cyan'],
+          \ 'blue':       ['#6cb6eb',   '110',  'Blue'],
+          \ 'purple':     ['#d38aea',   '176',  'Magenta'],
           \ 'grey':       ['#7f8490',   '246',  'LightGrey'],
           \ 'none':       ['NONE',      'NONE', 'NONE']
           \ }
@@ -80,7 +81,7 @@ if s:configuration.style ==# 'default'
           \ 'bg_purple1': ['#f1e5f5',   '183',  'LightMagenta'],
           \ 'bg_purple2': ['#eddaf2',   '183',  'LightMagenta'],
           \ 'fg':         ['#4b505b',   '240',  'Black'],
-          \ 'red':        ['#d15f5f',   '167',  'Red'],
+          \ 'red':        ['#d15b5b',   '167',  'Red'],
           \ 'yellow':     ['#be7e05',   '172',  'Yellow'],
           \ 'green':      ['#608e32',   '107',  'Green'],
           \ 'cyan':       ['#3a8b84',   '73',   'Cyan'],
@@ -100,37 +101,37 @@ elseif s:configuration.style ==# 'proton'
           \ 'bg4':        ['#3a3e4e',   '237',  'Grey'],
           \ 'bg5':        ['#404455',   '238',  'Grey'],
           \ 'bg_grey':    ['#7e869b',   '246',  'LightGrey'],
-          \ 'bg_red':     ['#f27a7a',   '203',  'Red'],
+          \ 'bg_red':     ['#ec7279',   '203',  'Red'],
           \ 'bg_red1':    ['#473536',   '52',   'DarkRed'],
           \ 'bg_red2':    ['#573c3d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#a0c781',   '107',  'Green'],
+          \ 'bg_green':   ['#a0c980',   '107',  'Green'],
           \ 'bg_green1':  ['#384034',   '22',   'DarkGreen'],
           \ 'bg_green2':  ['#424c3b',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#77bceb',   '110',  'Blue'],
+          \ 'bg_blue':    ['#6cb6eb',   '110',  'Blue'],
           \ 'bg_blue1':   ['#323e47',   '17',   'DarkBlue'],
           \ 'bg_blue2':   ['#394957',   '17',   'DarkBlue'],
-          \ 'bg_purple':  ['#d696e9',   '176',  'Magenta'],
+          \ 'bg_purple':  ['#d38aea',   '176',  'Magenta'],
           \ 'bg_purple1': ['#433948',   '54',   'DarkMagenta'],
           \ 'bg_purple2': ['#514359',   '54',   'DarkMagenta'],
           \ 'fg':         ['#c5cdd9',   '250',  'White'],
-          \ 'red':        ['#f27a7a',   '203',  'Red'],
-          \ 'yellow':     ['#dcb776',   '179',  'Yellow'],
-          \ 'green':      ['#a0c781',   '107',  'Green'],
-          \ 'cyan':       ['#66c0c0',   '72',   'Cyan'],
-          \ 'blue':       ['#77bceb',   '110',  'Blue'],
-          \ 'purple':     ['#d696e9',   '176',  'Magenta'],
+          \ 'red':        ['#ec7279',   '203',  'Red'],
+          \ 'yellow':     ['#deb974',   '179',  'Yellow'],
+          \ 'green':      ['#a0c980',   '107',  'Green'],
+          \ 'cyan':       ['#5dbbc1',   '72',   'Cyan'],
+          \ 'blue':       ['#6cb6eb',   '110',  'Blue'],
+          \ 'purple':     ['#d38aea',   '176',  'Magenta'],
           \ 'grey':       ['#7e8294',   '246',  'LightGrey'],
           \ 'none':       ['NONE',      'NONE', 'NONE']
           \ }
   else
     let s:palette = {
           \ 'bg0':        ['#fafafa',   '231',  'White'],
-          \ 'bg1':        ['#f1f5f7',   '255',  'LightGrey'],
-          \ 'bg2':        ['#eef2f6',   '255',  'LightGrey'],
-          \ 'bg3':        ['#e7ecf1',   '254',  'LightGrey'],
-          \ 'bg4':        ['#e5eaf0',   '253',  'Grey'],
-          \ 'bg5':        ['#dde4ea',   '253',  'Grey'],
-          \ 'bg_grey':    ['#bbc7d3',   '246',  'DarkGrey'],
+          \ 'bg1':        ['#f1f4f6',   '255',  'LightGrey'],
+          \ 'bg2':        ['#eef1f4',   '255',  'LightGrey'],
+          \ 'bg3':        ['#e8ebf0',   '254',  'LightGrey'],
+          \ 'bg4':        ['#e6eaf0',   '253',  'Grey'],
+          \ 'bg5':        ['#dde3e9',   '253',  'Grey'],
+          \ 'bg_grey':    ['#bbc6d1',   '246',  'DarkGrey'],
           \ 'bg_red':     ['#e17373',   '167',  'Red'],
           \ 'bg_red1':    ['#f6e4e4',   '217',  'LightRed'],
           \ 'bg_red2':    ['#f4dada',   '217',  'LightRed'],
@@ -144,7 +145,7 @@ elseif s:configuration.style ==# 'proton'
           \ 'bg_purple1': ['#f1e5f5',   '183',  'LightMagenta'],
           \ 'bg_purple2': ['#eddaf2',   '183',  'LightMagenta'],
           \ 'fg':         ['#4b505b',   '240',  'Black'],
-          \ 'red':        ['#d15f5f',   '167',  'Red'],
+          \ 'red':        ['#d15b5b',   '167',  'Red'],
           \ 'yellow':     ['#be7e05',   '172',  'Yellow'],
           \ 'green':      ['#608e32',   '107',  'Green'],
           \ 'cyan':       ['#3a8b84',   '73',   'Cyan'],
@@ -164,25 +165,25 @@ elseif s:configuration.style ==# 'neon'
           \ 'bg4':        ['#393e53',   '237',  'Grey'],
           \ 'bg5':        ['#3f445b',   '238',  'Grey'],
           \ 'bg_grey':    ['#7a819d',   '246',  'LightGrey'],
-          \ 'bg_red':     ['#f27a7a',   '203',  'Red'],
+          \ 'bg_red':     ['#ec7279',   '203',  'Red'],
           \ 'bg_red1':    ['#473536',   '52',   'DarkRed'],
           \ 'bg_red2':    ['#573c3d',   '52',   'DarkRed'],
-          \ 'bg_green':   ['#a0c781',   '107',  'Green'],
+          \ 'bg_green':   ['#a0c980',   '107',  'Green'],
           \ 'bg_green1':  ['#384034',   '22',   'DarkGreen'],
           \ 'bg_green2':  ['#424c3b',   '22',   'DarkGreen'],
-          \ 'bg_blue':    ['#77bceb',   '110',  'Blue'],
+          \ 'bg_blue':    ['#6cb6eb',   '110',  'Blue'],
           \ 'bg_blue1':   ['#323e47',   '17',   'DarkBlue'],
           \ 'bg_blue2':   ['#394957',   '17',   'DarkBlue'],
-          \ 'bg_purple':  ['#d696e9',   '176',  'Magenta'],
+          \ 'bg_purple':  ['#d38aea',   '176',  'Magenta'],
           \ 'bg_purple1': ['#433948',   '54',   'DarkMagenta'],
           \ 'bg_purple2': ['#514359',   '54',   'DarkMagenta'],
           \ 'fg':         ['#c5cdd9',   '250',  'White'],
-          \ 'red':        ['#f27a7a',   '203',  'Red'],
-          \ 'yellow':     ['#dcb776',   '179',  'Yellow'],
-          \ 'green':      ['#a0c781',   '107',  'Green'],
-          \ 'cyan':       ['#66c0c0',   '72',   'Cyan'],
-          \ 'blue':       ['#77bceb',   '110',  'Blue'],
-          \ 'purple':     ['#d696e9',   '176',  'Magenta'],
+          \ 'red':        ['#ec7279',   '203',  'Red'],
+          \ 'yellow':     ['#deb974',   '179',  'Yellow'],
+          \ 'green':      ['#a0c980',   '107',  'Green'],
+          \ 'cyan':       ['#5dbbc1',   '72',   'Cyan'],
+          \ 'blue':       ['#6cb6eb',   '110',  'Blue'],
+          \ 'purple':     ['#d38aea',   '176',  'Magenta'],
           \ 'grey':       ['#7e8294',   '246',  'LightGrey'],
           \ 'none':       ['NONE',      'NONE', 'NONE']
           \ }
@@ -208,7 +209,7 @@ elseif s:configuration.style ==# 'neon'
           \ 'bg_purple1': ['#f1e5f5',   '183',  'LightMagenta'],
           \ 'bg_purple2': ['#eddaf2',   '183',  'LightMagenta'],
           \ 'fg':         ['#4b505b',   '240',  'Black'],
-          \ 'red':        ['#d15f5f',   '167',  'Red'],
+          \ 'red':        ['#d15b5b',   '167',  'Red'],
           \ 'yellow':     ['#be7e05',   '172',  'Yellow'],
           \ 'green':      ['#608e32',   '107',  'Green'],
           \ 'cyan':       ['#3a8b84',   '73',   'Cyan'],
@@ -309,8 +310,22 @@ else
 endif
 call s:HL('ColorColumn', s:palette.none, s:palette.bg2)
 call s:HL('Conceal', s:palette.grey, s:palette.none)
-call s:HL('Cursor', s:palette.none, s:palette.none, 'reverse')
-call s:HL('lCursor', s:palette.none, s:palette.none, 'reverse')
+if s:configuration.cursor ==# 'auto'
+  call s:HL('Cursor', s:palette.none, s:palette.none, 'reverse')
+  call s:HL('lCursor', s:palette.none, s:palette.none, 'reverse')
+elseif s:configuration.cursor ==# 'red'
+  call s:HL('Cursor', s:palette.bg0, s:palette.red)
+  call s:HL('lCursor', s:palette.bg0, s:palette.red)
+elseif s:configuration.cursor ==# 'green'
+  call s:HL('Cursor', s:palette.bg0, s:palette.green)
+  call s:HL('lCursor', s:palette.bg0, s:palette.green)
+elseif s:configuration.cursor ==# 'blue'
+  call s:HL('Cursor', s:palette.bg0, s:palette.blue)
+  call s:HL('lCursor', s:palette.bg0, s:palette.blue)
+elseif s:configuration.cursor ==# 'purple'
+  call s:HL('Cursor', s:palette.bg0, s:palette.purple)
+  call s:HL('lCursor', s:palette.bg0, s:palette.purple)
+endif
 call s:HL('CursorColumn', s:palette.none, s:palette.bg1)
 call s:HL('CursorLine', s:palette.none, s:palette.bg1)
 call s:HL('LineNr', s:palette.grey, s:palette.none)
@@ -669,6 +684,9 @@ highlight! link phpFunction Blue
 highlight! link phpType PurpleItalic
 highlight! link phpMethod Yellow
 highlight! link phpMemberSelector Green
+" }}}
+" c: {{{
+highlight! link cStatement RedItalic
 " }}}
 " csharp: {{{
 highlight! link csUnspecifiedStatement RedItalic

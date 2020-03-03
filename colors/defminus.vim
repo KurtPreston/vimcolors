@@ -427,6 +427,7 @@ hi link netrwTreeBar Delimiter
 hi link netrwMarkFile Statement
 
 "" dirvish
+hi link dirvishPathTail Directory
 hi link dirvishSuffix Identifier
 hi link dirvishColumnHead Comment
 hi link dirvishPathHead Comment
@@ -513,6 +514,37 @@ hi link DoOutlineLevel9 Identifier
 hi LspErrorHighlight gui=undercurl guisp=red ctermfg=red cterm=bold
 hi LspWarningHighlight gui=undercurl guisp=blue ctermfg=yellow
 
+"" vim-clap
+hi ClapDisplay guibg=#f9f9f9
+hi link ClapCurrentSelection CursorLine
+
+hi ClapFuzzyMatches1 guifg=#00aa00
+hi ClapFuzzyMatches2 guifg=#00aa00
+hi ClapFuzzyMatches3 guifg=#00aa00
+hi ClapFuzzyMatches4 guifg=#00aa00
+hi ClapFuzzyMatches5 guifg=#00aa00
+hi ClapFuzzyMatches6 guifg=#00aa00
+hi ClapFuzzyMatches7 guifg=#00aa00
+hi ClapFuzzyMatches8 guifg=#00aa00
+hi ClapFuzzyMatches9 guifg=#00aa00
+hi ClapFuzzyMatches10 guifg=#00aa00
+hi ClapFuzzyMatches11 guifg=#00aa00
+hi ClapFuzzyMatches12 guifg=#00aa00
+
+hi link ClapFile DefNormal
+
+" Clap grep
+hi link ClapFpath Comment
+hi link ClapLinNr Comment
+hi link ClapLinNrColumn Comment
+
+" Clap buffer
+hi link ClapBuffersNumberBracket Comment
+hi link ClapBuffersNumber Comment
+hi link ClapBuffersFsize Comment
+hi link ClapBuffersLnum Comment
+hi link ClapBuffersExtra SpecialChar
+hi link ClapBuffersFname DefNormal
 
 "" LeaderF
 hi link Lf_hl_bufDirname Comment
