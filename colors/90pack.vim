@@ -51,6 +51,11 @@ let g:signify_disable_by_default = 1
 let g:undotree_WindowLayout = 4
 let g:vimtex_compiler_method = 'arara'
 let g:vimtex_compiler_arara = {'options': []}
-let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
-let g:vimtex_view_general_viewer = (has('unix') ? '/e' : 'E:') .
-    \ '/Misc/SumatraPDF/SumatraPDF'
+if executable('zathura')
+    let g:vimtex_view_method = 'zathura'
+else
+    let g:vimtex_view_method = 'general'
+    let g:vimtex_view_general_viewer = (has('win32') ? 'E:' : '/e') .
+        \ '/Misc/SumatraPDF/SumatraPDF'
+    let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
+endif

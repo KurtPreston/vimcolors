@@ -2,14 +2,14 @@
 " https://github.com/matveyt/vimfiles
 
 if better#gui_running()
-    " directory/file Unicode glyphs
-    let g:drvo_glyph = [0x1F4C2, 0x1F4C4]
     " font setup
-    if v:lang =~? '^ru' && has('win32')
-        set guifont=Inconsolata\ LGC:h14:cRUSSIAN:qDEFAULT
-    endif
+    let &guifont = printf('Inconsolata LGC%s14', has('win32') ? ':h' : ' ')
     if has('directx')
         set renderoptions=type:directx
+    endif
+    if has('win32')
+        " directory/file Unicode glyphs
+        let g:drvo_glyph = [0x1F4C2, 0x1F4C4]
     endif
     " make sure the colors weren't set by a desktop shortcut
     if !exists('g:colors_name')

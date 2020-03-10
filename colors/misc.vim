@@ -111,9 +111,10 @@ function! misc#urltags(pat, flags, info)
             " found it
             if has('win32')
                 let l:cmd = ['rundll32', 'url.dll,FileProtocolHandler']
-            elseif has('unix') && executable('kfmclient')
+            elseif executable('kfmclient')
                 let l:cmd = ['kfmclient', 'openURL']
-            "TODO: more stuff here
+            elseif executable('xdg-open')
+                let l:cmd = ['xdg-open']
             endif
             " trying to open...
             if exists('l:cmd')

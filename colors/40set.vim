@@ -4,7 +4,7 @@
 compiler! gcc
 set fileformats=unix,dos grepprg=grep\ -nH keywordprg=:help
 set shell=bash shellcmdflag=-c shellredir=&>%s
-set shellquote= shellxescape= shellxquote=\"
+set shellquote= shellxescape= shellxquote=
 if has('win32')
     " prevent MSYS apps (Git etc.) from expanding wildcards on their own
     let $MSYS = 'noglob'
@@ -49,6 +49,7 @@ let g:sh_fold_enabled = 7
 let g:tex_conceal = ''
 let g:tex_flavor = 'latex'
 let g:vim_indent_cont = shiftwidth()
+let g:vimsyn_embed = 'lpP'
 let g:vimsyn_folding = 'af'
 let g:vimsyn_noerror = 1
 " disable some of standard plugins
