@@ -38,6 +38,17 @@ endif
 " initialize my status line
 silent! let &statusline = stalin#build('mode,buffer,,flags,ruler')
 
+" :DiffOrig stolen from $VIMRUNTIME/defaults.vim
+if exists(':DiffOrig') != 2
+    command -bar DiffOrig
+        \   vnew +set\ buftype=nofile
+        \ | read ++edit #
+        \ | 1delete_
+        \ | diffthis
+        \ | wincmd p
+        \ | diffthis
+endif
+
 " this command is required by 'spellfile' plugin
 if exists(':Nread') != 2
     command -count=1 -nargs=* Nread Nomove call netrw#NetRead(<count>, <f-args>)

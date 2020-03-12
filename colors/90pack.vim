@@ -20,7 +20,7 @@ call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('Yggdroot/indentLine')
-call minpac#add('MartinDelille/vim-qmake')
+call minpac#add('MartinDelille/vim-qmake', {'frozen': 1})
 call minpac#add('mhinz/vim-signify')
 call minpac#add('majutsushi/tagbar')
 call minpac#add('mbbill/undotree')
@@ -46,6 +46,7 @@ nnoremap <leader>u :UndotreeToggle<CR>
 " plugin-specific variables
 let g:indentLine_bufTypeExclude = ['quickfix', 'help', 'terminal', 'prompt', 'popup']
 let g:indentLine_fileTypeExclude = ['drvo']
+let g:indentLine_faster = 1
 let g:signify_vcs_list = ['git']
 let g:signify_disable_by_default = 1
 let g:undotree_WindowLayout = 4
