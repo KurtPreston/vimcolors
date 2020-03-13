@@ -55,7 +55,7 @@ hi! link Todo Title
 
 "" UI
 hi Statusline guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15 cterm=NONE
-hi StatuslineNC guibg=#8a8a8a guifg=#ffffff gui=NONE ctermbg=245 ctermfg=255 cterm=NONE
+hi StatuslineNC guibg=#8a8a8a guifg=#dedede gui=NONE ctermbg=245 ctermfg=255 cterm=NONE
 hi VertSplit guibg=#8a8a8a guifg=#8a8a8a gui=NONE ctermbg=245 ctermfg=245 cterm=NONE
 hi! link TabLine StatusLineNC
 hi! link TabLineFill TabLine
@@ -69,9 +69,6 @@ hi! link CursorColumn CursorLine
 hi LineNr guibg=NONE guifg=#909090 ctermbg=NONE ctermfg=245
 hi CursorLineNr guibg=#eeeeee guifg=#000000 gui=NONE ctermbg=NONE ctermfg=16 cterm=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
-" hi LineNr guibg=#eaeaea guifg=#909090 ctermbg=254 ctermfg=245
-" hi CursorLineNr guibg=#eaeaea guifg=#000000 gui=NONE ctermbg=254 ctermfg=16 cterm=NONE
-" hi SignColumn guibg=#eaeaea ctermbg=254
 hi Pmenu guibg=#eeeeee guifg=#3a3a3a gui=NONE ctermbg=254 ctermfg=239
 hi PmenuSel guibg=#d0d0d0 guifg=#1c1c1c gui=NONE ctermbg=252 ctermfg=234
 hi PmenuSbar guibg=#bcbcbc ctermbg=250
@@ -573,23 +570,23 @@ hi link Lf_hl_gtagsFileName Comment
 hi Lf_hl_cursorline guifg=#000000 ctermfg=0
 
 " Leaderf "chrome"
-hi Lf_hl_stlName guibg=#8c8c8c guifg=#ffffff gui=bold ctermbg=237 ctermfg=250
-hi Lf_hl_stlMode guibg=#8c8c8c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlCategory guibg=#8c8c8c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlCwd guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15
-hi Lf_hl_stlSeparator0 guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlSeparator1 guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlSeparator2 guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlSeparator3 guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlSeparator4 guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlSeparator5 guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlLineInfo guibg=#8c8c8c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlNameOnlyMode guibg=#8c8c8c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlRegexMode guibg=#8c8c8c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlFullPathMode guibg=#8c8c8c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlFuzzyMode guibg=#8c8c8c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250
-hi Lf_hl_stlTotal guibg=#8c8c8c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15
-hi Lf_hl_stlBlank guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15
+hi link Lf_hl_stlName StatuslineNC
+hi link Lf_hl_stlMode StatuslineNC
+hi link Lf_hl_stlCategory StatuslineNC
+hi link Lf_hl_stlSeparator0 StatuslineNC
+hi link Lf_hl_stlSeparator1 StatuslineNC
+hi link Lf_hl_stlSeparator2 StatuslineNC
+hi link Lf_hl_stlSeparator3 StatuslineNC
+hi link Lf_hl_stlSeparator4 StatuslineNC
+hi link Lf_hl_stlSeparator5 StatuslineNC
+hi link Lf_hl_stlLineInfo StatuslineNC
+hi link Lf_hl_stlNameOnlyMode StatuslineNC
+hi link Lf_hl_stlRegexMode StatuslineNC
+hi link Lf_hl_stlFullPathMode StatuslineNC
+hi link Lf_hl_stlFuzzyMode StatuslineNC
+hi link Lf_hl_stlCwd Statusline
+hi link Lf_hl_stlBlank Statusline
+hi link Lf_hl_stlTotal StatuslineNC
 
 
 hi! link Lf_hl_popup_window DefNormal

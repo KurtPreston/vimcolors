@@ -202,7 +202,7 @@ hi elixirModuleDeclaration guifg=#FC623B
 hi elixirAtom              guifg=#6D9CBE gui=bold
 hi elixirBlockDefinition   guifg=#F47454 gui=bold
 hi elixirDefine            guifg=#F47454 gui=bold
-hi elixirDocString         guifg=#FEF9E1 guibg=#383838 gui=bold,italic
+hi elixirDocString         guifg=#FFF7D0 guibg=#383838 gui=bold,italic
 hi elixirExUnitAssert      guifg=#D38E39 gui=bold
 hi elixirExUnitMacro       guifg=#F47454 gui=bold
 hi elixirInclude           guifg=#F47454 gui=bold,italic
@@ -217,6 +217,7 @@ hi elixirStructDelimiter   guifg=#D38E39 gui=bold
 hi elixirTuple             guifg=#D38E39 gui=bold
 hi elixirTupleDelimiter    guifg=#D38E39 gui=bold
 hi elixirStringDelimiter   guifg=#74D155 gui=bold
+hi elixirFunctionCall      guifg=#fcf3c9
 
 " CSS
 hi cssAttr           guifg=#FFC66D
