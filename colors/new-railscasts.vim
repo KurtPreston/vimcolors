@@ -117,6 +117,8 @@ hi diffRemoved       guifg=#F47454 gui=italic
 hi rspecMatchers             guifg=#FFC66D guibg=NONE
 hi rubyBlockParameter        guifg=#D7B0FC guibg=NONE
 hi rubyClass                 guifg=#F47454 guibg=NONE gui=bold
+hi rubyClassDeclaration      guifg=#F47454 gui=italic
+hi rubyModuleDeclaration     guifg=#F47454 gui=italic
 hi rubyConstant              guifg=#FC623B guibg=NONE gui=bold
 hi rubyMethodName            guifg=#FFC66D guibg=NONE gui=bold
 hi rubyPredefinedConstant    guifg=#F47454 guibg=NONE
@@ -198,7 +200,7 @@ hi vimHiAttrib        guifg=#FFF7D0 guibg=NONE
 hi vimHiGroup         guifg=#FFC66D guibg=NONE
 
 " Elixir https://github.com/elixir-editors/vim-elixir
-hi elixirModuleDeclaration guifg=#FC623B
+hi elixirModuleDeclaration guifg=#FC623B gui=italic
 hi elixirAtom              guifg=#6D9CBE gui=bold
 hi elixirBlockDefinition   guifg=#F47454 gui=bold
 hi elixirDefine            guifg=#F47454 gui=bold
