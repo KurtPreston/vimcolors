@@ -275,6 +275,7 @@ hi hbsMustacheName  guifg=#FFC66D gui=NONE
 hi hbsPencilName    guifg=#D38E39 gui=bold
 hi link erubyDelimiter hbsHandles
 hi link eelixirDelimiter hbsHandles
+hi link hamlAttributesDelimiter hbsHandles
 
 hi ALEErrorSign        guibg=#2d2d2d guifg=#F47454 gui=NONE
 hi ALEInfoSign         guibg=#2d2d2d guifg=#0095CB gui=NONE
