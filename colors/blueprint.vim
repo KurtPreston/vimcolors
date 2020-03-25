@@ -41,7 +41,7 @@ let g:colors_name="blueprint"
 " Editor settings
 " --------------------------------
 hi          Normal guifg=#ffffff guibg=#335b7e gui=none
-hi          Cursor guifg=#335b7e guibg=#ffffff gui=none
+hi          Cursor guifg=#ede0ab guibg=#335b7e gui=standout
 hi      CursorLine guifg=none    guibg=#2c4e6c gui=none
 hi          LineNr guifg=#74a0c7 guibg=none    gui=none
 hi    CursorLineNR guifg=none    guibg=none    gui=none
@@ -67,8 +67,8 @@ hi      TabLineSel guifg=none    guibg=#2c4e6c gui=none
 " - File Navigation / Searching -
 " -------------------------------
 hi       Directory guifg=none    guibg=none    gui=underline
-hi          Search guifg=none    guibg=none    gui=standout
-hi       IncSearch guifg=none    guibg=none    gui=standout
+hi          Search guifg=#2c4e6c guibg=#ffffff gui=none
+hi       IncSearch guifg=#2c4e6c guibg=#ffffff gui=none
 
 " -----------------
 " - Prompt/Status -
@@ -85,10 +85,10 @@ hi         MoreMsg guifg=none    guibg=none    gui=none
 " - Visual aid -
 " --------------
 hi      MatchParen guifg=none    guibg=none    gui=underline
-hi          Visual guifg=none    guibg=#25415a gui=none
-hi       VisualNOS guifg=none    guibg=#25415a gui=none
+hi          Visual guifg=#2c4e6c guibg=#ffffff gui=none
+hi       VisualNOS guifg=#2c4e6c guibg=#ffffff gui=none
 hi         NonText guifg=#2c4e6c guibg=none    gui=none
-hi            Todo guifg=#74a0c7 guibg=none    gui=underline
+hi            Todo guifg=#ede0ab guibg=none    gui=none
 hi      Underlined guifg=none    guibg=none    gui=underline
 hi           Error guifg=#335b7e guibg=#edabb8 gui=none
 hi        ErrorMsg guifg=#335b7e guibg=#edabb8 gui=none
@@ -148,11 +148,11 @@ hi         Typedef guifg=#b8edab guibg=none    gui=none
 " --------------------------------
 " Diff
 " --------------------------------
-hi         DiffAdd guifg=none    guibg=#437f43 gui=none
-hi      DiffChange guifg=none    guibg=#2c4e6c gui=none
-hi      DiffDelete guifg=none    guibg=#a05454 gui=none
-hi        DiffText guifg=none    guibg=none    gui=standout
-hi        DiffFile guifg=#ede0ab guibg=none    gui=none
+hi         DiffAdd guifg=#b8edab guibg=#2c4e6c gui=none
+hi      DiffChange guifg=#ede0ab guibg=#2c4e6c gui=none
+hi      DiffDelete guifg=#edabb8 guibg=#2c4e6c gui=none
+hi        DiffText guifg=#ede0ab guibg=#7f7f43 gui=none
+hi        DiffFile guifg=none    guibg=none    gui=underline
 
 
 " --------------------------------
@@ -212,32 +212,32 @@ let g:terminal_color_foreground = "#ffffff"
 
 " dark0 + gray
 let g:terminal_color_0 = "#2c4e6c"
-let g:terminal_color_8 = "#2c4e6c"
+let g:terminal_color_8 = "#305575"
 
 " neutral_red + bright_red
-let g:terminal_color_1 = "#edabb8"
+let g:terminal_color_1 = "#a05454"
 let g:terminal_color_9 = "#edabb8"
 
 " neutral_green + bright_green
-let g:terminal_color_2 = "#b8edab"
+let g:terminal_color_2 = "#437f43"
 let g:terminal_color_10 = "#b8edab"
 
 " neutral_yellow + bright_yellow
-let g:terminal_color_3  = "#ede0ab"
+let g:terminal_color_3  = "#7f7f43"
 let g:terminal_color_11 = "#ede0ab"
 
 " neutral_blue + bright_blue
-let g:terminal_color_4 = "#abb8ed"
+let g:terminal_color_4 = "#43437f"
 let g:terminal_color_12 = "#abb8ed"
 
 " neutral_purple + bright_purple
-let g:terminal_color_5 = "#e0abed"
+let g:terminal_color_5 = "#7f437f"
 let g:terminal_color_13 = "#e0abed"
 
 " neutral_aqua + faded_aqua
-let g:terminal_color_6 = "#abede0"
+let g:terminal_color_6 = "#437f7f"
 let g:terminal_color_14 = "#abede0"
 
 " light4 + light1
-let g:terminal_color_7 = "#ffffff"
+let g:terminal_color_7 = "#74a0c7"
 let g:terminal_color_15 = "#ffffff"

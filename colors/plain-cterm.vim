@@ -135,6 +135,9 @@ hi! link Label            Statement
 hi! link Keyword          Statement
 hi! link Exception        Statement
 
+" __Underlined__
+call s:h("Underlined",     {"fg": s:norm, "cterm": "underline"})
+
 " __ExtraWhitespace__
 call s:h("ExtraWhitespace",  {"bg": s:error})
 
@@ -291,6 +294,21 @@ hi link ALEInfoSign InfoMsg
 
 hi link sqlStatement Statement
 hi link sqlKeyword Keyword
+
+hi link wikiHeader1 Statement
+hi link wikiHeader2 Statement
+hi link wikiHeader3 Statement
+hi link wikiHeader4 Statement
+hi link wikiHeader5 Statement
+hi link wikiHeader6 Statement
+hi link wikiList Statement
+hi link wikiPre Constant
+hi link wikiCode Constant
+
+hi link tsxTag Constant
+hi link tsxTagName Constant
+hi link tsxCloseTagName Constant
+hi link tsxAttrib Constant
 
 " __Search__ (make sure it comes after everything else)
 call s:h("Search",        {"bg": s:selection, "fg": s:selection_fg})
