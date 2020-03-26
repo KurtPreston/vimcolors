@@ -166,10 +166,10 @@ hi      PmenuThumb guifg=#74a0c7 guibg=#2c4e6c gui=none
 " --------------------------------
 " Spelling
 " --------------------------------
-hi        SpellBad guifg=#335b7e guibg=#edabb8 gui=none
-hi        SpellCap guifg=#335b7e guibg=#ede0ab gui=none
-hi      SpellLocal guifg=#335b7e guibg=#ede0ab gui=none
-hi       SpellRare guifg=#335b7e guibg=#ede0ab gui=none
+hi        SpellBad guifg=#edabb8 guibg=none    gui=underline
+hi        SpellCap guifg=#ede0ab guibg=none    gui=underline
+hi      SpellLocal guifg=#ede0ab guibg=none    gui=underline
+hi       SpellRare guifg=#ede0ab guibg=none    gui=underline
 
 "--------------------------------------------------------------------
 " Specific settings                                                 |
@@ -212,32 +212,32 @@ let g:terminal_color_foreground = "#ffffff"
 
 " dark0 + gray
 let g:terminal_color_0 = "#2c4e6c"
-let g:terminal_color_8 = "#305575"
+let g:terminal_color_8 = "#2c4e6c"
 
 " neutral_red + bright_red
-let g:terminal_color_1 = "#a05454"
+let g:terminal_color_1 = "#edabb8"
 let g:terminal_color_9 = "#edabb8"
 
 " neutral_green + bright_green
-let g:terminal_color_2 = "#437f43"
+let g:terminal_color_2 = "#b8edab"
 let g:terminal_color_10 = "#b8edab"
 
 " neutral_yellow + bright_yellow
-let g:terminal_color_3  = "#7f7f43"
+let g:terminal_color_3  = "#ede0ab"
 let g:terminal_color_11 = "#ede0ab"
 
 " neutral_blue + bright_blue
-let g:terminal_color_4 = "#43437f"
+let g:terminal_color_4 = "#abb8ed"
 let g:terminal_color_12 = "#abb8ed"
 
 " neutral_purple + bright_purple
-let g:terminal_color_5 = "#7f437f"
+let g:terminal_color_5 = "#e0abed"
 let g:terminal_color_13 = "#e0abed"
 
 " neutral_aqua + faded_aqua
-let g:terminal_color_6 = "#437f7f"
+let g:terminal_color_6 = "#abede0"
 let g:terminal_color_14 = "#abede0"
 
 " light4 + light1
-let g:terminal_color_7 = "#74a0c7"
+let g:terminal_color_7 = "#ffffff"
 let g:terminal_color_15 = "#ffffff"
