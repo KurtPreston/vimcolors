@@ -40,6 +40,7 @@ let g:colors_name = "mono_sw_red_modified"
 "hi VisualNOS            -- no settings --
 "hi WarningMsg           -- no settings --
 "hi clear                -- no settings --
+hi Conceal               guifg=#ffaf00  guibg=NONE     guisp=NONE     gui=bold            ctermfg=214   ctermbg=NONE  cterm=bold
 hi Boolean               guifg=#bcbcbc  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=250   ctermbg=NONE  cterm=NONE
 hi Character             guifg=#bcbcbc  guibg=#1c1c1c  guisp=#1c1c1c  gui=NONE            ctermfg=250   ctermbg=234   cterm=NONE
 hi Comment               guifg=#444444  guibg=NONE     guisp=NONE     gui=bold,italic     ctermfg=238   ctermbg=NONE  cterm=bold
@@ -62,7 +63,7 @@ hi Exception             guifg=#bcbcbc  guibg=NONE     guisp=NONE     gui=NONE  
 hi Float                 guifg=#d70000  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=160   ctermbg=NONE  cterm=NONE
 hi Folded                guifg=#bcbcbc  guibg=#303030  guisp=#303030  gui=italic          ctermfg=250   ctermbg=236   cterm=italic
 hi Function              guifg=#eeeeee  guibg=NONE     guisp=NONE     gui=bold            ctermfg=255   ctermbg=NONE  cterm=bold
-hi HighlightedyankRegion guifg=#121212  guibg=#ffaf00  guisp=#767676  gui=NONE            ctermfg=214   ctermbg=243   cterm=NONE
+hi HighlightedyankRegion guifg=#121212  guibg=#ffaf00  guisp=#767676  gui=NONE            ctermfg=233   ctermbg=214   cterm=NONE
 hi Identifier            guifg=#bcbcbc  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=250   ctermbg=NONE  cterm=NONE
 hi IncSearch             guifg=#bcbcbc  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=250   ctermbg=NONE  cterm=NONE
 hi Include               guifg=#dadada  guibg=NONE     guisp=NONE     gui=NONE            ctermfg=253   ctermbg=NONE  cterm=NONE

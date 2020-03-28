@@ -11,38 +11,105 @@ if exists("syntax_on")
 endif
 let g:colors_name = "patagonia"
 
-" HELPERS
-" -------
-let s:fg = ' ctermfg='
-let s:bg = ' ctermbg='
-let s:st = ' cterm='
-let s:no = 'none'
+if has("gui_running")
+  "helpers
+  let s:fg = ' guifg='
+  let s:bg = ' guibg='
+  let s:st = ' gui='
+  let s:no = 'NONE'
+  "theme
+  let s:do = '#afafaf' "snow
+  let s:re = '#5f87d7' "blue
+  let s:mi = '#af87d7' "purple
+  let s:fa = '#87d7ff' "lightblue
+  let s:sol = '#5fffaf' "teal
+  let s:la = '#ffd75f' "orange
+  let s:si = '#d7d787' "green-yellow
+  let s:str = '#5fff87' "lightgreen
+  "gray
+  let s:g2 = '#808080'
+  let s:g1 = '#444444'
+  "ui
+  let s:uih = '#eeeeee'  "ui foreground highlight
+  let s:uif = s:g2 "ui foreground normal
+  let s:uib = s:no "ui background
+  "special
+  let s:vf = '#ffffff' "visual foreground
+  let s:vb = s:re "visual background
+  let s:err = '#ff0000' "red
+  let s:wrn = '#d7ff5f' "yellow
+  let s:mp = '#00ff00' "green
+  let s:z0 = 'black'
+  let s:nf = s:si "normal foreground
+  let s:nb = '#151329' "normal background
+elseif &t_Co == 256
+  "helpers
+  let s:fg = ' ctermfg='
+  let s:bg = ' ctermbg='
+  let s:st = ' cterm='
+  let s:no = 'none'
+  "theme
+  let s:do = 145
+  let s:re = 68
+  let s:mi = 140
+  let s:fa = 117
+  let s:sol = 85
+  let s:la = 221
+  let s:si = 186
+  let s:str = 84
+  "gray
+  let s:g2 = 244
+  let s:g1 = 238
+  "ui
+  let s:uih = 255
+  let s:uif = s:g2
+  let s:uib = s:no
+  "special
+  let s:vf = 231
+  let s:vb = s:re
+  let s:err = 196
+  let s:wrn = 191
+  let s:mp = 46
+  let s:z0 = 'black'
+  let s:nf = s:si
+  let s:nb = s:no
+elseif &t_Co >= 16
+  "helpers
+  let s:fg = ' ctermfg='
+  let s:bg = ' ctermbg='
+  let s:st = ' cterm='
+  let s:no = 'none'
+  "theme
+  let s:do = 14
+  let s:re = 4
+  let s:mi = 5
+  let s:fa = 12
+  let s:sol = 6
+  let s:la = 3
+  let s:si = 11
+  let s:str = 10 "NOTE: 9, 10 and 13 are unassigned
+  "gray
+  let s:g2 = 7
+  let s:g1 = 8
+  "ui
+  let s:uih = 15
+  let s:uif = s:g2
+  let s:uib = s:no
+  "special
+  let s:vf = 7
+  let s:vb = s:re
+  let s:err = 1
+  let s:wrn = 3
+  let s:mp = 2
+  let s:z0 = 0
+  let s:nf = s:si
+  let s:nb = 0
+else
+  "TODO 8 colors
+endif
 
-"theme
-let s:do = 145 "snow
-let s:re = 68 "blue
-let s:mi = 140 "purple
-let s:fa = 117 "lightblue
-let s:sol = 85 "teal
-let s:la = 221 "orange
-let s:si = 186 "green-yellow
-"gray
-let s:g2 = 244
-let s:g1 = 238
 "ui
-let s:uih = 255  "ui foreground highlight
-let s:uif = s:g2 "ui foreground normal
-let s:uib = s:no "ui background
-"special
-let s:vf = 231  "visual foreground
-let s:vb = s:re "visual background
-let s:err = 196 "red
-let s:wrn = 191 "yellow
-let s:mp = 46   "green
-let s:z0 = 'black'
-
-"ui
-exe "hi Normal"       .s:fg.s:si  .s:bg.s:no  .s:st.s:no
+exe "hi Normal"       .s:fg.s:nf  .s:bg.s:nb  .s:st.s:no
 exe "hi ColorColumn"  .s:fg.s:err .s:bg.s:no  .s:st.s:no
 exe "hi Comment"      .s:fg.s:g2  .s:bg.s:no  .s:st.s:no
 exe "hi CursorColumn" .s:fg.s:no  .s:bg.s:z0  .s:st.s:no
@@ -87,7 +154,7 @@ exe "hi Macro"        .s:fg.s:do  .s:bg.s:no  .s:st.s:no
 exe "hi PreProc"      .s:fg.s:fa  .s:bg.s:no  .s:st.s:no
 exe "hi Statement"    .s:fg.s:mi  .s:bg.s:no  .s:st.s:no
 exe "hi StorageClass" .s:fg.s:mi  .s:bg.s:no  .s:st.s:no
-exe "hi String"       .s:fg.s:fa  .s:bg.s:no  .s:st.s:no
+exe "hi String"       .s:fg.s:str .s:bg.s:no  .s:st.s:no
 exe "hi Type"         .s:fg.s:sol .s:bg.s:no  .s:st.s:no
 
 "js
