@@ -167,16 +167,21 @@ call s:hifg("rubyMethod"     ,"#DDE93D","Yellow",77) " 191
 highlight StatusLine   guibg=#aabbee guifg=#000000 ctermbg=14 ctermfg=0 cterm=NONE gui=NONE
 highlight StatusLineNC guibg=#aabbee guifg=#000000 ctermbg=14 ctermfg=0 cterm=inverse gui=inverse
 
-highlight MatchParen ctermbg=8 ctermfg=2 cterm=NONE guibg=#333333 guifg=#66FF00 gui=NONE
-highlight CursorLine ctermbg=8 guibg=#333333 cterm=NONE gui=NONE
-highlight VertSplit ctermbg=8 ctermfg=8 guibg=#333333 guifg=#333333
-highlight ColorColumn ctermbg=0 guibg=#000000
-highlight CursorColumn ctermbg=0 guibg=#000000
-highlight SignColumn ctermbg=NONE guibg=NONE
+highlight MatchParen ctermbg=8 ctermfg=2 cterm=NONE guibg=#111111 guifg=#66FF00 gui=NONE
 
-highlight PmenuSel   ctermbg=13 ctermfg=00 guibg=#AA1BF2  guifg=#000000 gui=bold cterm=bold
-highlight Pmenu      ctermbg=00 ctermfg=15 guibg=#000000  guifg=#808080 gui=bold cterm=bold
+" Various columns
+highlight VertSplit ctermbg=8 ctermfg=8 guibg=#111111 guifg=#111111
+highlight ColorColumn ctermbg=8 guibg=#111111
+highlight CursorColumn ctermbg=8 guibg=#111111
+highlight SignColumn ctermbg=NONE guibg=NONE
+highlight CursorLine ctermbg=8 guibg=#111111 cterm=NONE gui=NONE
+
+" Autocompletion
+highlight Pmenu      ctermbg=00 ctermfg=15 guibg=#000000  guifg=#ffffff gui=NONE cterm=NONE
+highlight PmenuSel   ctermbg=05 ctermfg=07 guibg=#AA1BF2  guifg=#ffffff gui=NONE cterm=NONE
 highlight PmenuSbar  ctermbg=07 guibg=#FFFFFF
 highlight PmenuThumb ctermbg=15 guibg=#808080
+
+highlight WhiteSpace ctermfg=15 guifg=#808080
 
 highlight link NERDTreeDir Constant
