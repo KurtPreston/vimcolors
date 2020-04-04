@@ -907,6 +907,25 @@ highlight! link cppSTLexception Red
 " vim-cpp-modern: https://github.com/bfrg/vim-cpp-modern{{{
 highlight! link cppSTLVariable BlueItalic
 " }}}
+" chromatica: https://github.com/arakashic/chromatica.nvim{{{
+highlight! link Member OrangeItalic
+highlight! link Variable Fg
+highlight! link Namespace BlueItalic
+highlight! link EnumConstant OrangeItalic
+highlight! link chromaticaException Red
+highlight! link chromaticaCast Red
+highlight! link OperatorOverload Red
+highlight! link AccessQual Red
+highlight! link Linkage Red
+highlight! link AutoType BlueItalic
+" }}}
+" vim-lsp-cxx-highlight https://github.com/jackguo380/vim-lsp-cxx-highlight{{{
+highlight! link LspCxxHlSkippedRegion Grey
+highlight! link LspCxxHlSkippedRegionBeginEnd Red
+highlight! link LspCxxHlGroupEnumConstant OrangeItalic
+highlight! link LspCxxHlGroupNamespace BlueItalic
+highlight! link LspCxxHlGroupMemberVariable OrangeItalic
+" }}}
 " }}}
 " ObjectiveC: {{{
 " builtin: {{{
@@ -953,6 +972,21 @@ highlight! link pythonException Red
 highlight! link pythonNone OrangeItalic
 highlight! link pythonCoding Grey
 highlight! link pythonDot Grey
+" }}}
+" semshi: https://github.com/numirias/semshi{{{
+call s:HL('semshiUnresolved', s:palette.orange, s:palette.none, 'undercurl')
+highlight! link semshiImported BlueItalic
+highlight! link semshiParameter OrangeItalic
+highlight! link semshiParameterUnused Grey
+highlight! link semshiSelf BlueItalic
+highlight! link semshiGlobal Green
+highlight! link semshiBuiltin Green
+highlight! link semshiAttribute OrangeItalic
+highlight! link semshiLocal Red
+highlight! link semshiFree Red
+highlight! link semshiSelected CocHighlightText
+highlight! link semshiErrorSign ALEErrorSign
+highlight! link semshiErrorChar ALEErrorSign
 " }}}
 " }}}
 " Lua: {{{
