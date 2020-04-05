@@ -719,29 +719,25 @@ call s:HL('ColorColumn', s:palette.none, s:palette.bg2)
 call s:HL('Conceal', s:palette.grey, s:palette.none)
 if s:configuration.cursor ==# 'auto'
   call s:HL('Cursor', s:palette.none, s:palette.none, 'reverse')
-  call s:HL('lCursor', s:palette.none, s:palette.none, 'reverse')
 elseif s:configuration.cursor ==# 'red'
   call s:HL('Cursor', s:palette.bg0, s:palette.red)
-  call s:HL('lCursor', s:palette.bg0, s:palette.red)
 elseif s:configuration.cursor ==# 'orange'
   call s:HL('Cursor', s:palette.bg0, s:palette.orange)
-  call s:HL('lCursor', s:palette.bg0, s:palette.orange)
 elseif s:configuration.cursor ==# 'yellow'
   call s:HL('Cursor', s:palette.bg0, s:palette.yellow)
-  call s:HL('lCursor', s:palette.bg0, s:palette.yellow)
 elseif s:configuration.cursor ==# 'green'
   call s:HL('Cursor', s:palette.bg0, s:palette.green)
-  call s:HL('lCursor', s:palette.bg0, s:palette.green)
 elseif s:configuration.cursor ==# 'aqua'
   call s:HL('Cursor', s:palette.bg0, s:palette.aqua)
-  call s:HL('lCursor', s:palette.bg0, s:palette.aqua)
 elseif s:configuration.cursor ==# 'blue'
   call s:HL('Cursor', s:palette.bg0, s:palette.blue)
-  call s:HL('lCursor', s:palette.bg0, s:palette.blue)
 elseif s:configuration.cursor ==# 'purple'
   call s:HL('Cursor', s:palette.bg0, s:palette.purple)
-  call s:HL('lCursor', s:palette.bg0, s:palette.purple)
 endif
+highlight! link vCursor Cursor
+highlight! link iCursor Cursor
+highlight! link lCursor Cursor
+highlight! link CursorIM Cursor
 if s:configuration.cursor_line_contrast ==# 'lower'
   call s:HL('CursorColumn', s:palette.none, s:palette.bg1)
   call s:HL('CursorLine', s:palette.none, s:palette.bg1)
@@ -811,11 +807,22 @@ elseif s:configuration.visual ==# 'reverse'
   call s:HL('Visual', s:palette.none, s:palette.none, 'reverse')
   call s:HL('VisualNOS', s:palette.none, s:palette.none, 'reverse')
 endif
-call s:HL('CursorIM', s:palette.none, s:palette.none, 'reverse')
-call s:HL('ToolbarLine', s:palette.none, s:palette.bg2)
-call s:HL('ToolbarButton', s:palette.fg1, s:palette.bg5, 'bold')
-call s:HL('QuickFixLine', s:palette.yellow, s:palette.none, 'reverse')
+call s:HL('QuickFixLine', s:palette.purple, s:palette.none, 'bold')
 call s:HL('Debug', s:palette.orange, s:palette.none)
+call s:HL('debugPC', s:palette.bg0, s:palette.green)
+call s:HL('debugBreakpoint', s:palette.bg0, s:palette.red)
+if has('nvim')
+  highlight! link healthError Red
+  highlight! link healthSuccess Green
+  highlight! link healthWarning Yellow
+  highlight! link LspDiagnosticsError Grey
+  highlight! link LspDiagnosticsWarning Grey
+  highlight! link LspDiagnosticInformation Grey
+  highlight! link LspDiagnosticHint Grey
+  highlight! link LspReferenceText CocHighlightText
+  highlight! link LspReferenceRead CocHighlightText
+  highlight! link LspReferenceWrite CocHighlightText
+endif
 " }}}
 " Syntax: {{{
 call s:HL('Boolean', s:palette.purple, s:palette.none)
@@ -1828,6 +1835,20 @@ highlight! link clojureMeta Yellow
 highlight! link clojureDeref Yellow
 " }}}
 " }}}
+" Matlab: {{{
+" builtin: {{{
+highlight! link matlabSemicolon Fg
+highlight! link matlabFunction RedItalic
+highlight! link matlabImplicit GreenBold
+highlight! link matlabDelimiter Fg
+highlight! link matlabOperator GreenBold
+highlight! link matlabArithmeticOperator Orange
+highlight! link matlabArithmeticOperator Orange
+highlight! link matlabRelationalOperator Orange
+highlight! link matlabRelationalOperator Orange
+highlight! link matlabLogicalOperator Orange
+" }}}
+" }}}
 " Shell: {{{
 " builtin: http://www.drchip.org/astronaut/vim/index.html#SYNTAX_SH{{{
 highlight! link shRange Fg
@@ -2031,6 +2052,22 @@ highlight! link diffFile Aqua
 highlight! link diffLine Grey
 highlight! link diffIndexLine Purple
 " }}}
+" Git Commit: {{{
+highlight! link gitcommitSummary Red
+highlight! link gitcommitUntracked Grey
+highlight! link gitcommitDiscarded Grey
+highlight! link gitcommitSelected Grey
+highlight! link gitcommitUnmerged Grey
+highlight! link gitcommitOnBranch Grey
+highlight! link gitcommitArrow Grey
+highlight! link gitcommitFile Green
+" }}}
+" INI: {{{
+call s:HL('dosiniHeader', s:palette.red, s:palette.none, 'bold')
+highlight! link dosiniLabel Yellow
+highlight! link dosiniValue Green
+highlight! link dosiniNumber Green
+" }}}
 " Help: {{{
 call s:HL('helpNote', s:palette.purple, s:palette.none, 'bold')
 call s:HL('helpHeadline', s:palette.red, s:palette.none, 'bold')
@@ -2065,6 +2102,11 @@ highlight! link plugSha Green
 " }}}
 " neoclide/coc.nvim{{{
 call s:HL('CocHoverRange', s:palette.none, s:palette.none, 'bold,underline')
+call s:HL('CocHintHighlight', s:palette.none, s:palette.none, 'undercurl', s:palette.aqua)
+call s:HL('CocErrorFloat', s:palette.red, s:palette.bg3)
+call s:HL('CocWarningFloat', s:palette.yellow, s:palette.bg3)
+call s:HL('CocInfoFloat', s:palette.blue, s:palette.bg3)
+call s:HL('CocHintFloat', s:palette.aqua, s:palette.bg3)
 if s:configuration.current_word ==# 'bold'
   call s:HL('CocHighlightText', s:palette.none, s:palette.none, 'bold')
 elseif s:configuration.current_word ==# 'underline'

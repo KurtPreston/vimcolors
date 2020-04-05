@@ -82,7 +82,7 @@ if s:configuration.style ==# 'default'
           \ 'bg_purple1': ['#f1e5f5',   '183',  'LightMagenta'],
           \ 'bg_purple2': ['#eddaf2',   '183',  'LightMagenta'],
           \ 'fg':         ['#4b505b',   '240',  'Black'],
-          \ 'red':        ['#d15b5b',   '167',  'Red'],
+          \ 'red':        ['#d05858',   '167',  'Red'],
           \ 'yellow':     ['#be7e05',   '172',  'Yellow'],
           \ 'green':      ['#608e32',   '107',  'Green'],
           \ 'cyan':       ['#3a8b84',   '73',   'Cyan'],
@@ -146,7 +146,7 @@ elseif s:configuration.style ==# 'aura'
           \ 'bg_purple1': ['#f1e5f5',   '183',  'LightMagenta'],
           \ 'bg_purple2': ['#eddaf2',   '183',  'LightMagenta'],
           \ 'fg':         ['#4b505b',   '240',  'Black'],
-          \ 'red':        ['#d15b5b',   '167',  'Red'],
+          \ 'red':        ['#d05858',   '167',  'Red'],
           \ 'yellow':     ['#be7e05',   '172',  'Yellow'],
           \ 'green':      ['#608e32',   '107',  'Green'],
           \ 'cyan':       ['#3a8b84',   '73',   'Cyan'],
@@ -210,7 +210,7 @@ elseif s:configuration.style ==# 'neon'
           \ 'bg_purple1': ['#f1e5f5',   '183',  'LightMagenta'],
           \ 'bg_purple2': ['#eddaf2',   '183',  'LightMagenta'],
           \ 'fg':         ['#4b505b',   '240',  'Black'],
-          \ 'red':        ['#d15b5b',   '167',  'Red'],
+          \ 'red':        ['#d05858',   '167',  'Red'],
           \ 'yellow':     ['#be7e05',   '172',  'Yellow'],
           \ 'green':      ['#608e32',   '107',  'Green'],
           \ 'cyan':       ['#3a8b84',   '73',   'Cyan'],
@@ -317,20 +317,19 @@ call s:HL('ColorColumn', s:palette.none, s:palette.bg2)
 call s:HL('Conceal', s:palette.grey, s:palette.none)
 if s:configuration.cursor ==# 'auto'
   call s:HL('Cursor', s:palette.none, s:palette.none, 'reverse')
-  call s:HL('lCursor', s:palette.none, s:palette.none, 'reverse')
 elseif s:configuration.cursor ==# 'red'
   call s:HL('Cursor', s:palette.bg0, s:palette.red)
-  call s:HL('lCursor', s:palette.bg0, s:palette.red)
 elseif s:configuration.cursor ==# 'green'
   call s:HL('Cursor', s:palette.bg0, s:palette.green)
-  call s:HL('lCursor', s:palette.bg0, s:palette.green)
 elseif s:configuration.cursor ==# 'blue'
   call s:HL('Cursor', s:palette.bg0, s:palette.blue)
-  call s:HL('lCursor', s:palette.bg0, s:palette.blue)
 elseif s:configuration.cursor ==# 'purple'
   call s:HL('Cursor', s:palette.bg0, s:palette.purple)
-  call s:HL('lCursor', s:palette.bg0, s:palette.purple)
 endif
+highlight! link vCursor Cursor
+highlight! link iCursor Cursor
+highlight! link lCursor Cursor
+highlight! link CursorIM Cursor
 call s:HL('CursorColumn', s:palette.none, s:palette.bg1)
 call s:HL('CursorLine', s:palette.none, s:palette.bg1)
 call s:HL('LineNr', s:palette.grey, s:palette.none)
@@ -380,11 +379,22 @@ call s:HL('TabLineSel', s:palette.bg0, s:palette.bg_purple)
 call s:HL('VertSplit', s:palette.bg5, s:palette.none)
 call s:HL('Visual', s:palette.none, s:palette.bg4)
 call s:HL('VisualNOS', s:palette.none, s:palette.bg4, 'italic')
-call s:HL('CursorIM', s:palette.none, s:palette.fg)
-call s:HL('ToolbarLine', s:palette.none, s:palette.grey)
-call s:HL('ToolbarButton', s:palette.fg, s:palette.bg0, 'bold')
-call s:HL('QuickFixLine', s:palette.blue, s:palette.bg2)
+call s:HL('QuickFixLine', s:palette.purple, s:palette.none, 'bold')
 call s:HL('Debug', s:palette.yellow, s:palette.none)
+call s:HL('debugPC', s:palette.bg0, s:palette.green)
+call s:HL('debugBreakpoint', s:palette.bg0, s:palette.red)
+if has('nvim')
+  highlight! link healthError Red
+  highlight! link healthSuccess Green
+  highlight! link healthWarning Yellow
+  highlight! link LspDiagnosticsError Grey
+  highlight! link LspDiagnosticsWarning Grey
+  highlight! link LspDiagnosticInformation Grey
+  highlight! link LspDiagnosticHint Grey
+  highlight! link LspReferenceText CocHighlightText
+  highlight! link LspReferenceRead CocHighlightText
+  highlight! link LspReferenceWrite CocHighlightText
+endif
 " }}}
 " Syntax: {{{
 if s:configuration.enable_italic

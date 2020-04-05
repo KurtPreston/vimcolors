@@ -222,17 +222,17 @@ call s:HL('ColorColumn', s:palette.none, s:palette.bg1)
 call s:HL('Conceal', s:palette.grey, s:palette.none)
 if s:configuration.cursor ==# 'auto'
   call s:HL('Cursor', s:palette.none, s:palette.none, 'reverse')
-  call s:HL('lCursor', s:palette.none, s:palette.none, 'reverse')
 elseif s:configuration.cursor ==# 'red'
   call s:HL('Cursor', s:palette.bg0, s:palette.red)
-  call s:HL('lCursor', s:palette.bg0, s:palette.red)
 elseif s:configuration.cursor ==# 'green'
   call s:HL('Cursor', s:palette.bg0, s:palette.green)
-  call s:HL('lCursor', s:palette.bg0, s:palette.green)
 elseif s:configuration.cursor ==# 'blue'
   call s:HL('Cursor', s:palette.bg0, s:palette.blue)
-  call s:HL('lCursor', s:palette.bg0, s:palette.blue)
 endif
+highlight! link vCursor Cursor
+highlight! link iCursor Cursor
+highlight! link lCursor Cursor
+highlight! link CursorIM Cursor
 call s:HL('CursorColumn', s:palette.none, s:palette.bg1)
 call s:HL('CursorLine', s:palette.none, s:palette.bg1)
 call s:HL('LineNr', s:palette.grey, s:palette.none)
@@ -282,11 +282,22 @@ call s:HL('TabLineSel', s:palette.bg0, s:palette.bg_red)
 call s:HL('VertSplit', s:palette.black, s:palette.none)
 call s:HL('Visual', s:palette.none, s:palette.bg3)
 call s:HL('VisualNOS', s:palette.none, s:palette.bg3, 'underline')
-call s:HL('CursorIM', s:palette.none, s:palette.fg)
-call s:HL('ToolbarLine', s:palette.none, s:palette.grey)
-call s:HL('ToolbarButton', s:palette.fg, s:palette.bg0, 'bold')
-call s:HL('QuickFixLine', s:palette.blue, s:palette.bg1)
+call s:HL('QuickFixLine', s:palette.blue, s:palette.none, 'bold')
 call s:HL('Debug', s:palette.yellow, s:palette.none)
+call s:HL('debugPC', s:palette.bg0, s:palette.green)
+call s:HL('debugBreakpoint', s:palette.bg0, s:palette.red)
+if has('nvim')
+  highlight! link healthError Red
+  highlight! link healthSuccess Green
+  highlight! link healthWarning Yellow
+  highlight! link LspDiagnosticsError Grey
+  highlight! link LspDiagnosticsWarning Grey
+  highlight! link LspDiagnosticInformation Grey
+  highlight! link LspDiagnosticHint Grey
+  highlight! link LspReferenceText CocHighlightText
+  highlight! link LspReferenceRead CocHighlightText
+  highlight! link LspReferenceWrite CocHighlightText
+endif
 " }}}
 " Syntax: {{{
 if s:configuration.enable_italic
@@ -1231,6 +1242,20 @@ highlight! link clojureMeta Purple
 highlight! link clojureDeref Purple
 " }}}
 " }}}
+" Matlab: {{{
+" builtin: {{{
+highlight! link matlabSemicolon Fg
+highlight! link matlabFunction RedItalic
+highlight! link matlabImplicit Green
+highlight! link matlabDelimiter Fg
+highlight! link matlabOperator Green
+highlight! link matlabArithmeticOperator Red
+highlight! link matlabArithmeticOperator Red
+highlight! link matlabRelationalOperator Red
+highlight! link matlabRelationalOperator Red
+highlight! link matlabLogicalOperator Red
+" }}}
+" }}}
 " Shell: {{{
 " builtin: http://www.drchip.org/astronaut/vim/index.html#SYNTAX_SH{{{
 highlight! link shRange Fg
@@ -1424,6 +1449,22 @@ highlight! link diffFile Purple
 highlight! link diffLine Grey
 highlight! link diffIndexLine Purple
 " }}}
+" Git Commit: {{{
+highlight! link gitcommitSummary Red
+highlight! link gitcommitUntracked Grey
+highlight! link gitcommitDiscarded Grey
+highlight! link gitcommitSelected Grey
+highlight! link gitcommitUnmerged Grey
+highlight! link gitcommitOnBranch Grey
+highlight! link gitcommitArrow Grey
+highlight! link gitcommitFile Green
+" }}}
+" INI: {{{
+call s:HL('dosiniHeader', s:palette.red, s:palette.none, 'bold')
+highlight! link dosiniLabel Blue
+highlight! link dosiniValue Green
+highlight! link dosiniNumber Green
+" }}}
 " Help: {{{
 call s:HL('helpNote', s:palette.purple, s:palette.none, 'bold')
 call s:HL('helpHeadline', s:palette.red, s:palette.none, 'bold')
@@ -1466,6 +1507,11 @@ elseif s:configuration.current_word ==# 'grey background'
   call s:HL('CocHighlightText', s:palette.none, s:palette.bg1)
 endif
 call s:HL('CocHoverRange', s:palette.none, s:palette.none, 'bold,underline')
+call s:HL('CocHintHighlight', s:palette.none, s:palette.none, 'undercurl', s:palette.green)
+call s:HL('CocErrorFloat', s:palette.red, s:palette.bg2)
+call s:HL('CocWarningFloat', s:palette.yellow, s:palette.bg2)
+call s:HL('CocInfoFloat', s:palette.blue, s:palette.bg2)
+call s:HL('CocHintFloat', s:palette.green, s:palette.bg2)
 if s:configuration.transparent_background
   call s:HL('CocHintSign', s:palette.purple, s:palette.none)
 else
