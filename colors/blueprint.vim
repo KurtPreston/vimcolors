@@ -120,15 +120,15 @@ hi       Statement guifg=#b8edab guibg=none    gui=none
 hi     Conditional guifg=#b8edab guibg=none    gui=none
 hi          Repeat guifg=#b8edab guibg=none    gui=none
 hi           Label guifg=#b8edab guibg=none    gui=none
-hi        Operator guifg=#abede0 guibg=none    gui=none
+hi        Operator guifg=none    guibg=none    gui=none
 hi         Keyword guifg=#b8edab guibg=none    gui=none
-hi       Exception guifg=#b8edab guibg=none    gui=none
+hi       Exception guifg=#ede0ab guibg=none    gui=none
 
 hi         Special guifg=#abede0 guibg=none    gui=none
 hi     SpecialChar guifg=#abede0 guibg=none    gui=none
 hi             Tag guifg=#abede0 guibg=none    gui=none
 hi       Delimiter guifg=#74a0c7 guibg=none    gui=none
-hi  SpecialComment guifg=#abede0 guibg=none    gui=none
+hi  SpecialComment guifg=#74a0c7 guibg=none    gui=none
 hi           Debug guifg=#abede0 guibg=none    gui=none
 
 " ----------
@@ -140,7 +140,7 @@ hi          Define guifg=#b8edab guibg=none    gui=none
 hi           Macro guifg=#b8edab guibg=none    gui=none
 hi       PreCondit guifg=#b8edab guibg=none    gui=none
 
-hi            Type guifg=#b8edab guibg=none    gui=none
+hi            Type guifg=none    guibg=none    gui=none
 hi    StorageClass guifg=#b8edab guibg=none    gui=none
 hi       Structure guifg=#b8edab guibg=none    gui=none
 hi         Typedef guifg=#b8edab guibg=none    gui=none

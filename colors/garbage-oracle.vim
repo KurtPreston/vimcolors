@@ -7,7 +7,7 @@
   let s:shade1 = "#a3829c" " Mauve pink
   let s:shade2 = "#bdaaba" " Lightest mauve pink
   let s:shade3 = "#877184" " Darker mauve pink
-  let s:shade4 = "#a28e9f" " Slightly ligher but darker mauve pink
+  let s:shade4 = "#a28e9f" " Slightly lighter but darker mauve pink
   let s:shade5 = "#52394d" " Slightly lighter but still dark purple
   let s:shade6 = "#d7c6d6" " Light pink
   let s:shade7 = "#f2e2f1" " Lightest pink
@@ -31,7 +31,7 @@
   let s:shade2 = "#d3a1c5" " Mid tone pink
   let s:shade3 = "#c481af" " Slightly darker mid tone pink
   let s:shade4 = "#b5619a" " Darker than the above mid tone pink
-  let s:shade5 = "#a64184" " Magenta
+  let s:shade5 = "#dbadcc" " Muted pink
   let s:shade6 = "#96206e" " Darker magenta
   let s:shade7 = "#870058"  " Dark pink
   let s:accent0 = "#a4303f" " Dark red
@@ -117,7 +117,7 @@
 
   " Default
 
-  exec "hi ColorColumn guibg=".s:accent7
+  exec "hi ColorColumn guibg=".s:shade5
   exec "hi Conceal guifg=".s:shade2
   exec "hi Cursor guifg=".s:shade0." guibg=".s:shade0
   exec "hi CursorColumn guifg=".s:shade0." guibg=".s:shade1
