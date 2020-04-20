@@ -703,6 +703,7 @@ if s:configuration.transparent_background
   call s:HL('FoldColumn', s:palette.grey, s:palette.none)
   call s:HL('Folded', s:palette.grey, s:palette.none)
   call s:HL('SignColumn', s:palette.fg0, s:palette.none)
+  call s:HL('ToolbarLine', s:palette.fg0, s:palette.none)
 else
   call s:HL('Normal', s:palette.fg0, s:palette.bg0)
   call s:HL('Terminal', s:palette.fg0, s:palette.bg0)
@@ -710,6 +711,7 @@ else
   call s:HL('FoldColumn', s:palette.grey, s:palette.bg2)
   call s:HL('Folded', s:palette.grey, s:palette.bg2)
   call s:HL('SignColumn', s:palette.fg0, s:palette.bg2)
+  call s:HL('ToolbarLine', s:palette.fg1, s:palette.bg3)
 endif
 call s:HL('IncSearch', s:palette.bg0, s:palette.bg_red)
 call s:HL('Search', s:palette.bg0, s:palette.bg_green)
@@ -765,7 +767,9 @@ call s:HL('WarningMsg', s:palette.yellow, s:palette.none, 'bold')
 call s:HL('ModeMsg', s:palette.fg0, s:palette.none, 'bold')
 call s:HL('MoreMsg', s:palette.yellow, s:palette.none, 'bold')
 call s:HL('MatchParen', s:palette.none, s:palette.bg4)
-call s:HL('NonText', s:palette.grey, s:palette.none)
+call s:HL('NonText', s:palette.bg5, s:palette.none)
+call s:HL('Whitespace', s:palette.bg5, s:palette.none)
+call s:HL('SpecialKey', s:palette.bg5, s:palette.none)
 call s:HL('Pmenu', s:palette.fg1, s:palette.bg3)
 call s:HL('PmenuSbar', s:palette.none, s:palette.bg3)
 if s:configuration.menu_selection_background ==# 'grey'
@@ -809,6 +813,7 @@ call s:HL('QuickFixLine', s:palette.purple, s:palette.none, 'bold')
 call s:HL('Debug', s:palette.orange, s:palette.none)
 call s:HL('debugPC', s:palette.bg0, s:palette.green)
 call s:HL('debugBreakpoint', s:palette.bg0, s:palette.red)
+call s:HL('ToolbarButton', s:palette.bg0, s:palette.bg_grey1)
 if has('nvim')
   highlight! link healthError Red
   highlight! link healthSuccess Green
@@ -869,7 +874,6 @@ call s:HL('Character', s:palette.green, s:palette.none)
 call s:HL('Constant', s:palette.aqua, s:palette.none)
 call s:HL('Macro', s:palette.aqua, s:palette.none)
 call s:HL('Identifier', s:palette.blue, s:palette.none)
-call s:HL('SpecialKey', s:palette.blue, s:palette.none)
 if s:configuration.disable_italic_comment
   call s:HL('Comment', s:palette.grey, s:palette.none)
   call s:HL('SpecialComment', s:palette.grey, s:palette.none)
