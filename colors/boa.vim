@@ -70,7 +70,7 @@ hi! link FoldColumn Folded
 hi SignColumn guifg=NONE guibg=NONE
 hi IncSearch guifg=#518233 guibg=bg gui=inverse
 " Substitute
-hi NonText guifg=#3d3834 guibg=NONE gui=NONE
+hi NonText guifg=#47423d guibg=NONE gui=NONE
 hi! link LineNr NonText
 hi MatchParen   guifg=#de7621 guibg=NONE    gui=bold
 hi ModeMsg      guifg=#93b329 guibg=NONE gui=bold
@@ -78,9 +78,9 @@ hi ModeMsg      guifg=#93b329 guibg=NONE gui=bold
 hi MsgSeparator    guifg=NONE guibg=#263815 gui=NONE
 hi MoreMsg   guifg=#caa247 guibg=NONE    gui=bold
 hi NormalFloat guifg=NONE guibg=#21261d gui=NONE
-hi NormalNC guifg=#b0a78f guibg=#14110f gui=NONE
+hi NormalNC guifg=#b0a78f guibg=#111314 gui=NONE
 hi! link Question BoaGreen
-hi QuickFixLine guifg=NONE guibg=#3d3834 gui=NONE
+hi QuickFixLine guifg=NONE guibg=#37322d gui=NONE
 hi Search    guifg=#1f1a17 guibg=#826a33 gui=NONE
 hi! link SpecialKey NonText
 hi SpellBad guifg=NONE guibg=NONE gui=underline guisp=#e62922
@@ -109,7 +109,8 @@ hi User3 guifg=#998539 guibg=#0a0707
 hi User4 guifg=#466d87 guibg=#0a0707
 hi User5 guifg=#87517f guibg=#0a0707
 hi User6 guifg=#964b44 guibg=#0a0707
-" qfLineNr
+
+hi! link qfLineNr BoaOrange
 " qfError
 " qfFileName"
 
@@ -490,6 +491,12 @@ hi! link jsonKeyword BoaGreen
 hi! link jsonQuote BoaGreen
 hi! link jsonBraces Normal
 hi! link jsonString Normal
+
+" }}}
+" TOML: {{{
+
+hi! link tomlTable BoaRed
+hi! link tomlTableArray BoaYellow
 
 " }}}
 " Terminal Colors: {{{
