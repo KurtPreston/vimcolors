@@ -27,7 +27,7 @@ if s:configuration.transparent_background
   call gruvbox_material#highlight('Normal', s:palette.fg0, s:palette.none)
   call gruvbox_material#highlight('Terminal', s:palette.fg0, s:palette.none)
   call gruvbox_material#highlight('EndOfBuffer', s:palette.bg0, s:palette.none)
-  call gruvbox_material#highlight('FoldColumn', s:palette.grey1, s:palette.none)
+  call gruvbox_material#highlight('FoldColumn', s:palette.grey0, s:palette.none)
   call gruvbox_material#highlight('Folded', s:palette.grey1, s:palette.none)
   call gruvbox_material#highlight('SignColumn', s:palette.fg0, s:palette.none)
   call gruvbox_material#highlight('ToolbarLine', s:palette.fg0, s:palette.none)
@@ -35,10 +35,15 @@ else
   call gruvbox_material#highlight('Normal', s:palette.fg0, s:palette.bg0)
   call gruvbox_material#highlight('Terminal', s:palette.fg0, s:palette.bg0)
   call gruvbox_material#highlight('EndOfBuffer', s:palette.bg0, s:palette.bg0)
-  call gruvbox_material#highlight('FoldColumn', s:palette.grey1, s:palette.bg2)
   call gruvbox_material#highlight('Folded', s:palette.grey1, s:palette.bg2)
-  call gruvbox_material#highlight('SignColumn', s:palette.fg0, s:palette.bg2)
   call gruvbox_material#highlight('ToolbarLine', s:palette.fg1, s:palette.bg3)
+  if s:configuration.sign_column_background ==# 'default'
+    call gruvbox_material#highlight('SignColumn', s:palette.fg0, s:palette.bg2)
+    call gruvbox_material#highlight('FoldColumn', s:palette.grey0, s:palette.bg2)
+  else
+    call gruvbox_material#highlight('SignColumn', s:palette.fg0, s:palette.none)
+    call gruvbox_material#highlight('FoldColumn', s:palette.grey0, s:palette.none)
+  endif
 endif
 call gruvbox_material#highlight('IncSearch', s:palette.bg0, s:palette.bg_red)
 call gruvbox_material#highlight('Search', s:palette.bg0, s:palette.bg_green)
@@ -53,24 +58,13 @@ highlight! link vCursor Cursor
 highlight! link iCursor Cursor
 highlight! link lCursor Cursor
 highlight! link CursorIM Cursor
-if s:configuration.cursor_line_contrast ==# 'lower'
-  call gruvbox_material#highlight('CursorColumn', s:palette.none, s:palette.bg1)
-  call gruvbox_material#highlight('CursorLine', s:palette.none, s:palette.bg1)
-  call gruvbox_material#highlight('LineNr', s:palette.grey0, s:palette.none)
-  if &relativenumber == 1 && &cursorline == 0
-    call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.none)
-  else
-    call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.bg1)
-  endif
+call gruvbox_material#highlight('CursorColumn', s:palette.none, s:palette.bg1)
+call gruvbox_material#highlight('CursorLine', s:palette.none, s:palette.bg1)
+call gruvbox_material#highlight('LineNr', s:palette.grey0, s:palette.none)
+if (&relativenumber == 1 && &cursorline == 0) || s:configuration.sign_column_background !=# 'default'
+  call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.none)
 else
-  call gruvbox_material#highlight('CursorColumn', s:palette.none, s:palette.bg2)
-  call gruvbox_material#highlight('CursorLine', s:palette.none, s:palette.bg2)
-  call gruvbox_material#highlight('LineNr', s:palette.grey0, s:palette.none)
-  if &relativenumber == 1 && &cursorline == 0
-    call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.none)
-  else
-    call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.bg2)
-  endif
+  call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.bg1)
 endif
 call gruvbox_material#highlight('DiffAdd', s:palette.none, s:palette.bg_diff_green)
 call gruvbox_material#highlight('DiffChange', s:palette.none, s:palette.bg_diff_blue)
@@ -262,7 +256,7 @@ else
   call gruvbox_material#highlight('BlueBold', s:palette.blue, s:palette.none)
   call gruvbox_material#highlight('PurpleBold', s:palette.purple, s:palette.none)
 endif
-if s:configuration.transparent_background
+if s:configuration.transparent_background || s:configuration.sign_column_background !=# 'default'
   call gruvbox_material#highlight('RedSign', s:palette.red, s:palette.none)
   call gruvbox_material#highlight('OrangeSign', s:palette.orange, s:palette.none)
   call gruvbox_material#highlight('YellowSign', s:palette.yellow, s:palette.none)
@@ -1674,14 +1668,14 @@ call gruvbox_material#highlight('MatchWord', s:palette.none, s:palette.none, 'un
 call gruvbox_material#highlight('MatchWordCur', s:palette.none, s:palette.none, 'underline')
 " }}}
 " easymotion/vim-easymotion {{{
-highlight! link EasyMotionTarget Sneak
+highlight! link EasyMotionTarget Search
 highlight! link EasyMotionShade Grey
 " }}}
 " justinmk/vim-sneak {{{
-call gruvbox_material#highlight('Sneak', s:palette.bg0, s:palette.bg_green)
-call gruvbox_material#highlight('SneakLabel', s:palette.bg0, s:palette.bg_green)
 call gruvbox_material#highlight('SneakLabelMask', s:palette.bg_green, s:palette.bg_green)
-call gruvbox_material#highlight('SneakScope', s:palette.bg0, s:palette.grey1)
+highlight! link Sneak Search
+highlight! link SneakLabel Search
+highlight! link SneakScope DiffText
 " }}}
 " terryma/vim-multiple-cursors {{{
 highlight! link multiple_cursors_cursor Cursor
@@ -1762,7 +1756,6 @@ highlight! link WhichKey Red
 highlight! link WhichKeySeperator Green
 highlight! link WhichKeyGroup Yellow
 highlight! link WhichKeyDesc Blue
-highlight! link WhichKeyFloating SignColumn
 " }}}
 " skywind3000/quickmenu.vim {{{
 highlight! link QuickmenuOption Green
