@@ -328,8 +328,7 @@ if exists('g:airline_theme')
 	" Inactive Mode
 	let s:IA = airline#themes#get_highlight('StatusLineNC')
 	let g:airline#themes#laederon#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
-	let g:airline#themes#laederon#palette.inactive_modified = {
-				\ 'airline_c':  ['#4a5d23', s:IA[1],'64',s:IA[3]], \ }
+	let g:airline#themes#laederon#palette.inactive_modified = {'airline_c':  ['#4a5d23', s:IA[1],'64',s:IA[3]]}
 endif
 
 " CtrlP {{{

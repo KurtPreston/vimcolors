@@ -329,22 +329,15 @@ if exists('g:airline_theme')
 	let s:ubc.N3 = [ '#b88853' , '#1c1b1a','137','233']
 	let s:ubc.N4 = [ '#65816d' , '120' ]
 
-	let g:airline#themes#ubaryd#palette.normal =
-	airline#themes#generate_color_map(s:ubc.N1, s:ubc.N2, s:ubc.N3)
-	let g:airline#themes#ubaryd#palette.visual =
-	airline#themes#generate_color_map(s:ubc.V1, s:ubc.V2, s:ubc.V3)
-	let g:airline#themes#ubaryd#palette.insert =
-	airline#themes#generate_color_map(s:ubc.I1, s:ubc.I2, s:ubc.I3)
-	let g:airline#themes#ubaryd#palette.replace =
-	airline#themes#generate_color_map(s:ubc.R1, s:ubc.R2, s:ubc.R3)
+	let g:airline#themes#ubaryd#palette.normal = airline#themes#generate_color_map(s:ubc.N1, s:ubc.N2, s:ubc.N3)
+	let g:airline#themes#ubaryd#palette.visual = airline#themes#generate_color_map(s:ubc.V1, s:ubc.V2, s:ubc.V3)
+	let g:airline#themes#ubaryd#palette.insert = airline#themes#generate_color_map(s:ubc.I1, s:ubc.I2, s:ubc.I3)
+	let g:airline#themes#ubaryd#palette.replace = airline#themes#generate_color_map(s:ubc.R1, s:ubc.R2, s:ubc.R3)
 
 	" Inactive Mode
 	let s:IA = airline#themes#get_highlight('StatusLineNC')
-	let g:airline#themes#ubaryd#palette.inactive =
-	airline#themes#generate_color_map(s:IA, s:IA, s:IA)
-	let g:airline#themes#ubaryd#palette.inactive_modified = {
-				\ 'airline_c':  ['#e1e379', s:IA[1],'226',s:IA[3]],
-				\ }
+	let g:airline#themes#ubaryd#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
+	let g:airline#themes#ubaryd#palette.inactive_modified = {'airline_c':  ['#e1e379', s:IA[1],'226',s:IA[3]]}
 endif
 
 " CtrlP {{{
