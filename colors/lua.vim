@@ -1,3 +1,6 @@
-syn keyword luaLocal local
+if dracula#should_abort('lua')
+    finish
+endif
 
-hi link luaLocal Repeat
+hi! link luaFunc  DraculaCyan
+hi! link luaTable DraculaFg
