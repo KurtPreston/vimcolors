@@ -50,7 +50,7 @@ if &background == 'light'
   hi  TabLine       ctermbg=255
   hi  Type          gui=NONE
   hi  VertSplit     gui=NONE             guibg=Gray
-  hi  Visual        guibg=#ffd32e        gui=NONE
+  hi  Visual        guibg=#ffd32e        gui=NONE            cterm=NONE         ctermbg=45         ctermfg=21
   hi  vimGroup      gui=NONE
   hi  vimGroupName  gui=NONE
 else
