@@ -24,7 +24,7 @@ if &background == 'light'
   hi  DiffDelete    guibg=LightRed       guifg=Black        ctermbg=DarkRed   ctermfg=White
   hi  DiffText      gui=NONE             guibg=LightCyan2   ctermbg=DarkCyan  ctermfg=Yellow
   hi  FileName      gui=NONE             guifg=DarkRed      guibg=White       cterm=NONE      ctermfg=199
-  hi  Folded        gui=NONE guibg=Pink           guifg=DarkBlue     cterm=NONE ctermbg=223       ctermfg=18
+  hi  Folded        gui=NONE             guibg=Pink         guifg=DarkBlue    cterm=NONE      ctermbg=223       ctermfg=18
   hi  Identifier    guifg=#006f6f        ctermfg=028
   hi  IncSearch     guibg=Pink           guifg=DarkGrey     gui=NONE
   hi  LineNr        guibg=#ffdfe6        guifg=Gray30       cterm=NONE        ctermbg=NONE    ctermfg=007
@@ -36,7 +36,7 @@ if &background == 'light'
   hi  PmenuSel      guibg=#6ac4ff        guifg=White
   hi  Pmenuthumb    guifg=#bed4f7
   hi  PreProc       guifg=DarkMagenta
-  hi  Search        guibg=LightGreen     guifg=DarKRed      gui=NONE
+  hi  Search        guibg=LightGreen     guifg=DarKRed      gui=NONE  ctermbg=46  ctermfg=52
   hi  SignColor     guibg=Grey60
   hi  SignColumn    guibg=LightGrey      guifg=LightGrey
   hi  Statement     guifg=DarkRed        ctermfg=DarkRed
