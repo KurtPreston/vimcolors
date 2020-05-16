@@ -3,9 +3,6 @@
 "  | | |____| ____| ___ < ____| __  / |__ \
 " /___\_____|_____|_____/_____|_| \_\_____/
 "
-"  cool-headed perspective for your coding
-"
-"
 " File:       iceberg.vim
 " Maintainer: cocopon <cocopon@me.com>
 " Modified:   {{ modified }}
@@ -16,8 +13,6 @@ if !has('gui_running') && &t_Co < 256
   finish
 endif
 
-set background=dark
-
 hi clear
 if exists('syntax_on')
   syntax reset
@@ -25,13 +20,22 @@ endif
 
 let g:colors_name = 'iceberg'
 
+if &background == 'light'
+  {{ light_rules }}
+  {{ light_links }}
 
-{{ rules }}
-
-{{ links }}
-
-if has('nvim')
-  {{ neovim_term_defs }}
+  if has('nvim')
+    {{ light_neovim_term_defs }}
+  else
+    {{ light_vim_term_defs }}
+  endif
 else
-  {{ vim_term_defs }}
+  {{ dark_rules }}
+  {{ dark_links }}
+
+  if has('nvim')
+    {{ dark_neovim_term_defs }}
+  else
+    {{ dark_vim_term_defs }}
+  endif
 endif

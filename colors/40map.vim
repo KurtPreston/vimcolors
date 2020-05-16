@@ -2,11 +2,14 @@
 " https://github.com/matveyt/vimfiles
 
 " ';' to get to the command line quickly
-noremap ; :| ounmap ;
+nnoremap ; :
+xnoremap ; :
 " ',' to repeat char search forward
-noremap , ;| ounmap ,
+nnoremap , ;
+xnoremap , ;
 " '\,' to repeat char search backward
-noremap <leader>, ,| ounmap <leader>,
+nnoremap <leader>, ,
+xnoremap <leader>, ,
 " improved auto completion: <Tab>, <CR>, <Esc>, <Up>, <Down>, <PageUp>, <PageDown>
 " <C-X><C-F> is now able to expand wildcards
 inoremap <C-X><C-F> <C-R>=misc#complete('[[:fname:]*?]\+', 'file')<CR>
@@ -23,7 +26,7 @@ nnoremap <Space> za
 nnoremap <silent><F8> :<C-U>call misc#switchcolor(v:count1)<CR>
 nnoremap <silent><S-F8> :<C-U>call misc#switchcolor(-v:count1)<CR>
 " <F12> to open terminal
-nnoremap <silent><F12> :terminal<CR>
+nnoremap <expr><silent><F12> has('nvim') ? ":split +terminal\<CR>i" : ":terminal\<CR>"
 " <Ctrl-N> to add new tab
 nnoremap <silent><C-N> :$tabnew<CR>
 " <Ctrl-S> to save file
@@ -32,8 +35,8 @@ nnoremap <silent><C-S> :update<CR>
 noremap! "" ""<Left>
 noremap! '' ''<Left>
 " restore visual selection after an indent
-vnoremap < <gv
-vnoremap > >gv
+xnoremap < <gv
+xnoremap > >gv
 " copy-paste like Windows
 vnoremap <S-Del>    "+d
 vnoremap <C-Insert> "+y
@@ -53,14 +56,18 @@ nnoremap <silent><leader>X :put =eval(input('=', '', 'expression'))<CR>
 " '\h' to show the current highlight group
 nnoremap <silent><leader>h :Highlight!<CR>
 " gc to toggle comments
-noremap <silent><expr>gc oper#mapto('Comment!')| ounmap gc
+nnoremap <expr><silent>gc opera#mapto('Comment!')
+xnoremap <expr><silent>gc opera#mapto('Comment!')
 nnoremap <silent>gcc :Comment!<CR>
-" gs to sort lines
-noremap <silent><expr>gs oper#mapto('sort', v:none, 'sort')| ounmap gs
+" gs to sort selection text
+nnoremap <expr><silent>gs opera#mapto('sort')
+xnoremap <expr><silent>gs opera#mapto('sort')
 nnoremap <silent>gss :sort<CR>
 " gt to trim trailing whitespace
-noremap <silent><expr>gt oper#mapto('Trim')| ounmap gt
+nnoremap <expr><silent>gt opera#mapto('Trim')
+xnoremap <expr><silent>gt opera#mapto('Trim')
 nnoremap <silent>gtt :Trim<CR>
 " gx to execute script
-noremap <silent><expr>gx oper#mapto('Execute')| ounmap gx
+nnoremap <expr><silent>gx opera#mapto('Execute', 'browse')
+xnoremap <expr><silent>gx opera#mapto('Execute', 'browse')
 nnoremap <silent>gxx :Execute<CR>

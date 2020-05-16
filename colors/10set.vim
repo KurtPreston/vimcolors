@@ -16,9 +16,10 @@ endif
 
 " note: move cursor and press 'K' to get help on a particular option
 set autoread backspace=indent,eol,start belloff=all colorcolumn=+1
-set complete=.,w,b,t confirm cursorline display=truncate guioptions-=t
-set guicursor+=a:blinkon0 history=1000 incsearch lazyredraw nrformats-=octal
-set scrolloff=3 splitright ttimeout ttimeoutlen=100 wildmenu
+set complete=.,w,b,t confirm cursorline display=truncate
+set guioptions-=t guioptions+=! guicursor+=a:blinkon0 history=1000
+set incsearch lazyredraw nrformats-=octal scrolloff=3 splitright
+set ttimeout ttimeoutlen=100 wildmenu
 set keymodel=startsel mousemodel=popup selection=exclusive
 set laststatus=2 mouse=ar number showmatch showtabline=2 title
 set nohlsearch nolangremap noruler noshowcmd noshowmode noswapfile nowritebackup
@@ -66,3 +67,4 @@ let g:loaded_getscriptPlugin = 0
 let g:loaded_logiPat = 0
 let g:loaded_netrwPlugin = 0
 let g:loaded_vimballPlugin = 0
+let g:loaded_zipPlugin = 0

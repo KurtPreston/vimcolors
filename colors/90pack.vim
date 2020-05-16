@@ -29,6 +29,7 @@ call minpac#add('lervag/vimtex')
 " call minpac#add('matveyt/vim-drvo')
 " call minpac#add('matveyt/vim-modest')
 " call minpac#add('matveyt/vim-moveit')
+" call minpac#add('matveyt/vim-opera')
 " call minpac#add('matveyt/vim-ranger')
 " call minpac#add('matveyt/vim-scratch')
 " call minpac#add('matveyt/vim-stalin')
@@ -46,6 +47,7 @@ nnoremap <leader>u :UndotreeToggle<CR>
 " plugin-specific variables
 let g:indentLine_bufTypeExclude = ['quickfix', 'help', 'terminal', 'prompt', 'popup']
 let g:indentLine_fileTypeExclude = ['drvo']
+let g:indentLine_autoResetWidth = 0
 let g:indentLine_faster = 1
 let g:signify_vcs_list = ['git']
 let g:signify_disable_by_default = 1

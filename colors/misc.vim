@@ -102,6 +102,7 @@ endfunction
 " custom 'tagfunc' to open URLs as tags
 " set tagfunc=misc#urltags
 " :h tag-function
+if exists('+tagfunc')
 function! misc#urltags(pat, flags, info)
     " may I use cursor context?
     if stridx(a:flags, 'c') >= 0
@@ -131,6 +132,7 @@ function! misc#urltags(pat, flags, info)
         endif
     endif
     " fallback to default
-    " Note: Neovim doesn't like v:null here
+    " Note: Neovim doesn't like v:null
     return taglist(a:pat, get(a:info, 'buf_ffname', ''))
 endfunction
+endif

@@ -25,6 +25,10 @@ command! -range -bar -nargs=+ Copy call misc#copy(<line1>, <line2>, <f-args>)
 command! -range=% -bar -nargs=? Execute
     \   call shebang#execute('%', <line1>, <line2>, <args>)
 command! -bar -bang Highlight
-    \   execute <bang>0 . 'verbose highlight'
+    \   execute <bang>0..'verbose highlight'
     \       misc#or(synIDattr(synID(line('.'), col('.'), 0), 'name'), 'Normal')
-command! -range=% -bar Trim keepj keepp Nomove <line1>,<line2>s/\s\+$//e
+command! -range=% -bar -bang Trim
+    \   keepj keepp Nomove <line1>,<line2>s/\s\+$//e
+    \ | if <bang>0
+    \ |     <line1>,<line2>left
+    \ | endif
