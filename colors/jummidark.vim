@@ -1,5 +1,5 @@
 " Vim color file
-"
+" {{{
 set background=dark
 highlight clear
 
@@ -9,7 +9,7 @@ endif
 
 set t_Co=256
 let g:colors_name = "jummidark"
-
+"}}}
 "    HEX   |256-color| 256-Color | Material Type
 "          |         |  -> HEX   |
 " --------------------------------------------------
@@ -31,12 +31,11 @@ let g:colors_name = "jummidark"
 "  #04dac5 |     044 | #00d7d7   | Secondary 2
 "  #cf6679 |     168 | #d75f87   | Error
 "  #ff4081 |     204 | #ff5f87   | (Special & Diff Delete)
-"  #7CB342 |     107 | #87af5f   | (Diff Add)
 "  #ffdf00 |     220 | #fdd700   | (Diff Change)
 "  #b1951d |     136 | #af8700   | Cursor Highlight
 
 " ============
-"  Primary
+"  Primary    {{{
 " ============
 hi Type ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bb86fc guibg=NONE gui=NONE
 hi Keyword ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bb86fc guibg=NONE gui=NONE
@@ -66,10 +65,10 @@ hi Question ctermfg=44 ctermbg=NONE cterm=NONE guifg=#04dac5 guibg=NONE gui=NONE
 " ============
 hi Special ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff4081 guibg=NONE gui=NONE
 hi SpecialChar ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff4081 guibg=NONE gui=NONE
-hi MatchParen ctermfg=204 ctermbg=NONE cterm=underline guifg=#ff4081 guibg=NONE gui=underline
+hi MatchParen ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff4081 guibg=NONE gui=NONE
 hi Todo ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff4081 guibg=NONE gui=NONE
-hi Search ctermfg=204 ctermbg=NONE cterm=NONE guifg=#ff4081 guibg=NONE gui=NONE
-hi IncSearch ctermfg=204 ctermbg=237 cterm=NONE guifg=#ff4081 guibg=#383838 gui=NONE
+hi Search ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3a3a3a gui=NONE
+hi IncSearch ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3a3a3a gui=NONE
 
 " ============
 "  Error
@@ -102,7 +101,7 @@ hi NonText ctermfg=239 ctermbg=235 cterm=NONE guifg=#4e4e4e guibg=#2a2a2a gui=NO
 " ============
 "  Diff
 " ============
-hi DiffAdd ctermfg=107 ctermbg=235 cterm=NONE guifg=#7CB342 guibg=#2a2a2a gui=NONE
+hi DiffAdd ctermfg=044 ctermbg=235 cterm=NONE guifg=#00d7d7 guibg=#2a2a2a gui=NONE
 hi DiffText ctermfg=220 ctermbg=236 cterm=NONE guifg=#fdd700 guibg=#303030 gui=NONE
 hi DiffChange ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#383838 gui=NONE
 hi DiffDelete ctermfg=204 ctermbg=235 cterm=NONE guifg=#ff4081 guibg=#2a2a2a gui=NONE
@@ -148,7 +147,6 @@ hi SpecialComment ctermfg=240 ctermbg=235 cterm=NONE guifg=#6c6c6c guibg=#2a2a2a
 hi Folded ctermfg=240 ctermbg=236 cterm=NONE guifg=#6c6c6c guibg=#303030 gui=NONE
 hi FoldColumn ctermfg=141 ctermbg=237 cterm=NONE guifg=#bb86fc guibg=#383838 gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#303030 gui=NONE
-" VertSplit
 hi VertSplit ctermfg=236 ctermbg=236 cterm=NONE guifg=#303030 guibg=#303030 gui=NONE
 
 " =================
@@ -162,13 +160,18 @@ hi TabLineSel ctermfg=254 ctermbg=235 cterm=NONE guifg=#e1e1e1 guibg=#2a2a2a gui
 " =================
 "  Menu
 " =================
-hi Pmenu ctermfg=245 ctermbg=234 cterm=NONE guifg=#8a8a8a guibg=#1a1a1a gui=NONE
-hi PmenuSel ctermfg=135 ctermbg=236 cterm=NONE guifg=#b26eff guibg=#303030 gui=NONE
+hi PmenuSel ctermfg=135 ctermbg=234 cterm=NONE guifg=#b26eff guibg=#1a1a1a gui=NONE
+hi Pmenu ctermfg=249 ctermbg=236 cterm=NONE guifg=#b2b2b2 guibg=#303030 gui=NONE
 
 " =================
 "  Link
 " =================
 hi link gitcommitSummary String
+
+" =================
+"  CoC
+" =================
+hi link CocCodeLens Comment
 
 " =================
 "  Language part
@@ -182,3 +185,4 @@ hi htmlArg ctermfg=135 ctermbg=NONE cterm=NONE guifg=#af5fff guibg=NONE gui=NONE
 
 " # Javascript React (jsx)
 hi jsxString ctermfg=135 ctermbg=NONE cterm=NONE guifg=#af5fff guibg=NONE gui=NONE
+"}}}
