@@ -23,6 +23,7 @@ if &background == 'light'
   hi  DiffChange    guibg=Gray90         ctermbg=DarkCyan   ctermfg=White
   hi  DiffDelete    guibg=LightRed       guifg=Black        ctermbg=DarkRed   ctermfg=White
   hi  DiffText      gui=NONE             guibg=LightCyan2   ctermbg=DarkCyan  ctermfg=Yellow
+  hi  ErrorMsg      ctermbg=1            ctermfg=195
   hi  FileName      gui=NONE             guifg=DarkRed      guibg=White       cterm=NONE      ctermfg=199
   hi  Folded        gui=NONE             guibg=Pink         guifg=DarkBlue    cterm=NONE      ctermbg=223       ctermfg=18
   hi  Identifier    guifg=#006f6f        ctermfg=028
@@ -53,6 +54,7 @@ if &background == 'light'
   hi  Visual        guibg=#ffd32e        gui=NONE            cterm=NONE         ctermbg=45         ctermfg=21
   hi  vimGroup      gui=NONE
   hi  vimGroupName  gui=NONE
+
 else
   hi  Normal        guibg=#010b36        guifg=Grey80        ctermfg=7
   hi  NonText       guifg=LavenderBlush  ctermfg=LightMagenta

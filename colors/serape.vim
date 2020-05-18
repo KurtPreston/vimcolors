@@ -161,5 +161,5 @@ hi NERDTreeClosable ctermfg=15      ctermbg=none      cterm=bold
 hi NERDTreeOpenable ctermfg=15      ctermbg=none      cterm=bold
 
 " Terminal
-hi StatusLineTerm  ctermbg=255      ctermbg=235      cterm=bold
-hi StatusLineTermNC ctermbg=245     ctermbg=235      cterm=bold
+hi StatusLineTerm  ctermfg=15       ctermbg=235      cterm=bold
+hi StatusLineTermNC ctermfg=245     ctermbg=235      cterm=bold

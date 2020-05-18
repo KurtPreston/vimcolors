@@ -49,6 +49,12 @@ if v:lang =~? '^ru'
     set iminsert& imsearch&
 endif
 
+" enable 'matchit' plugin
+" Note: Neovim loads 'matchit' by default
+if !has('nvim')
+    packadd! matchit
+endif
+
 " standard plugins config
 let g:asmsyntax = 'fasm'
 let g:c_comment_strings = 1
@@ -62,9 +68,12 @@ let g:vim_indent_cont = shiftwidth()
 let g:vimsyn_embed = 'lpP'
 let g:vimsyn_folding = 'af'
 let g:vimsyn_noerror = 1
-" disable some of standard plugins
+
+" disable some plugins
 let g:loaded_getscriptPlugin = 0
+let g:loaded_gzip = 0
 let g:loaded_logiPat = 0
 let g:loaded_netrwPlugin = 0
+let g:loaded_tarPlugin = 0
 let g:loaded_vimballPlugin = 0
 let g:loaded_zipPlugin = 0

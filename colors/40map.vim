@@ -68,6 +68,6 @@ nnoremap <expr><silent>gt opera#mapto('Trim')
 xnoremap <expr><silent>gt opera#mapto('Trim')
 nnoremap <silent>gtt :Trim<CR>
 " gx to execute script
-nnoremap <expr><silent>gx opera#mapto('Execute', 'browse')
-xnoremap <expr><silent>gx opera#mapto('Execute', 'browse')
+nnoremap <expr><silent>gx opera#mapto('Execute', 'line')
+xnoremap <expr><silent>gx opera#mapto('Execute', 'line')
 nnoremap <silent>gxx :Execute<CR>
