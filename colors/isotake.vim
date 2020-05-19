@@ -37,7 +37,7 @@ if &background == 'light'
   hi  PmenuSel      guibg=#6ac4ff        guifg=White
   hi  Pmenuthumb    guifg=#bed4f7
   hi  PreProc       guifg=DarkMagenta
-  hi  Search        guibg=LightGreen     guifg=DarKRed      gui=NONE  ctermbg=46  ctermfg=52
+  hi  Search        guibg=LightGreen     guifg=DarKRed      gui=NONE  ctermbg=159  ctermfg=52
   hi  SignColor     guibg=Grey60
   hi  SignColumn    guibg=LightGrey      guifg=LightGrey
   hi  Statement     guifg=DarkRed        ctermfg=DarkRed
