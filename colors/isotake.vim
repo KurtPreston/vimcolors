@@ -23,6 +23,7 @@ if &background == 'light'
   hi  DiffChange    guibg=Gray90         ctermbg=DarkCyan   ctermfg=White
   hi  DiffDelete    guibg=LightRed       guifg=Black        ctermbg=DarkRed   ctermfg=White
   hi  DiffText      gui=NONE             guibg=LightCyan2   ctermbg=DarkCyan  ctermfg=Yellow
+  hi  Error         ctermbg=1            ctermfg=195
   hi  ErrorMsg      ctermbg=1            ctermfg=195
   hi  FileName      gui=NONE             guifg=DarkRed      guibg=White       cterm=NONE      ctermfg=199
   hi  Folded        gui=NONE             guibg=Pink         guifg=DarkBlue    cterm=NONE      ctermbg=223       ctermfg=18

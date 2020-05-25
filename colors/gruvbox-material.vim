@@ -21,7 +21,7 @@ endif
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.palette)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Sun 24 May 2020 02:27:50 AM UTC'
+let s:last_modified = 'Mon 25 May 2020 07:24:23 AM UTC'
 " }}}
 " Common Highlight Groups: {{{
 " UI: {{{
@@ -592,6 +592,34 @@ call gruvbox_material#highlight('QuickScopeSecondary', s:palette.blue, s:palette
 " APZelos/blamer.nvim {{{
 highlight! link Blamer Grey
 " }}}
+" cohama/agit.vim {{{
+highlight! link agitTree Grey
+highlight! link agitDate Green
+highlight! link agitRemote Red
+highlight! link agitHead Orange
+highlight! link agitRef Aqua
+highlight! link agitTag Orange
+highlight! link agitStatFile Blue
+highlight! link agitStatRemoved Red
+highlight! link agitStatAdded Green
+highlight! link agitStatMessage Orange
+highlight! link agitDiffRemove Red
+highlight! link agitDiffAdd Green
+highlight! link agitDiffHeader Purple
+" }}}
+" netrw {{{
+" https://www.vim.org/scripts/script.php?script_id=1075
+highlight! link netrwDir Green
+highlight! link netrwClassify Green
+highlight! link netrwLink Grey
+highlight! link netrwSymLink Fg
+highlight! link netrwExe Yellow
+highlight! link netrwComment Grey
+highlight! link netrwList Aqua
+highlight! link netrwHelpCmd Blue
+highlight! link netrwCmdSep Grey
+highlight! link netrwVersion Orange
+" }}}
 " }}}
 " Extended File Types: {{{
 " Note: To ensure that the `s:last_modified` variable is always up to date, you need to copy `.githooks/pre-commit` to `.git/hooks/pre-commit`.
@@ -649,24 +677,17 @@ highlight! link VistaChildrenNr Orange
 highlight! link VistaScope Red
 highlight! link VistaTag Green
 highlight! link VistaPrefix Grey
-highlight! link VistaColon Green
-highlight! link VistaIcon Purple
-highlight! link VistaLineNr Fg
-" }}}
-" ft_begin: netrw {{{
-" https://www.vim.org/scripts/script.php?script_id=1075
-highlight! link netrwDir Green
-highlight! link netrwClassify Green
-highlight! link netrwLink Grey
-highlight! link netrwSymLink Fg
-highlight! link netrwExe Yellow
-highlight! link netrwComment Grey
-highlight! link netrwList Aqua
-highlight! link netrwHelpCmd Blue
-highlight! link netrwCmdSep Grey
-highlight! link netrwVersion Orange
+highlight! link VistaIcon Orange
+highlight! link VistaScopeKind Yellow
+highlight! link VistaColon Grey
+highlight! link VistaLineNr Grey
+highlight! link VistaHeadNr Fg
+highlight! link VistaPublic Green
+highlight! link VistaProtected Yellow
+highlight! link VistaPrivate Red
 " ft_end }}}
 " ft_begin: nerdtree {{{
+" https://github.com/preservim/nerdtree
 highlight! link NERDTreeDir Green
 highlight! link NERDTreeDirSlash Aqua
 highlight! link NERDTreeOpenable Orange
@@ -683,11 +704,13 @@ highlight! link NERDTreeLinkFile Grey
 highlight! link NERDTreeLinkTarget Green
 " ft_end }}}
 " ft_begin: dirvish {{{
+" https://github.com/justinmk/vim-dirvish
 highlight! link DirvishPathTail Aqua
 highlight! link DirvishArg Yellow
 " ft_end }}}
 " ft_begin: startify/quickmenu {{{
 " https://github.com/mhinz/vim-startify
+" https://github.com/skywind3000/quickmenu.vim
 highlight! link StartifyBracket Grey
 highlight! link StartifyFile Fg
 highlight! link StartifyNumber Red
@@ -699,6 +722,7 @@ highlight! link StartifySpecial Grey
 highlight! link StartifyFooter Grey
 " ft_end }}}
 " ft_begin: quickmenu {{{
+" https://github.com/skywind3000/quickmenu.vim
 highlight! link QuickmenuOption Green
 highlight! link QuickmenuNumber Red
 highlight! link QuickmenuBracket Grey
@@ -718,22 +742,6 @@ highlight! link UndotreeHead Yellow
 highlight! link UndotreeBranch Yellow
 highlight! link UndotreeCurrent Aqua
 highlight! link UndotreeSavedSmall Purple
-" ft_end }}}
-" ft_begin: agit {{{
-" https://github.com/cohama/agit.vim
-highlight! link agitTree Grey
-highlight! link agitDate Green
-highlight! link agitRemote Red
-highlight! link agitHead Orange
-highlight! link agitRef Aqua
-highlight! link agitTag Orange
-highlight! link agitStatFile Blue
-highlight! link agitStatRemoved Red
-highlight! link agitStatAdded Green
-highlight! link agitStatMessage Orange
-highlight! link agitDiffRemove diffRemoved
-highlight! link agitDiffAdd diffAdded
-highlight! link agitDiffHeader Purple
 " ft_end }}}
 " ft_begin: markdown {{{
 " builtin: {{{
