@@ -16,7 +16,7 @@ augroup vimStartup | au!
         \ | endif
     " save session on exit
     autocmd VimLeavePre *
-        \   if !empty(v:this_session)
+        \   if !v:dying && !empty(v:this_session)
         \ |     execute 'mksession!' v:this_session
         \ | endif
 augroup end

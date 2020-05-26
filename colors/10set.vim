@@ -75,5 +75,6 @@ let g:loaded_gzip = 0
 let g:loaded_logiPat = 0
 let g:loaded_netrwPlugin = 0
 let g:loaded_tarPlugin = 0
+let g:loaded_tutor_mode_plugin = 0
 let g:loaded_vimballPlugin = 0
 let g:loaded_zipPlugin = 0

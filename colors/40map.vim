@@ -13,20 +13,20 @@ xnoremap <leader>, ,
 " improved auto completion: <Tab>, <CR>, <Esc>, <Up>, <Down>, <PageUp>, <PageDown>
 " <C-X><C-F> is now able to expand wildcards
 inoremap <C-X><C-F> <C-R>=misc#complete('[[:fname:]*?]\+', 'file')<CR>
-inoremap <expr><Tab> search('\v\k{3}%#', 'bn', line('.')) ? "\<C-N>" : "\<Tab>"
-inoremap <expr><CR> pumvisible() ? "\<C-Y>" : "\<CR>"
-inoremap <expr><Esc> pumvisible() ? "\<C-E>" : "\<Esc>"
-inoremap <expr><Up> pumvisible() ? "\<C-P>" : "\<Up>"
-inoremap <expr><Down> pumvisible() ? "\<C-N>" : "\<Down>"
-inoremap <expr><PageUp> pumvisible() ? "\<PageUp>\<C-P>\<C-N>" : "\<PageUp>"
-inoremap <expr><PageDown> pumvisible() ? "\<PageDown>\<C-N>\<C-P>" : "\<PageDown>"
+inoremap <expr><Tab> search('\v\k{3}%#', 'bn', line('.')) ? '<C-N>' : '<Tab>'
+inoremap <expr><CR> pumvisible() ? '<C-Y>' : '<CR>'
+inoremap <expr><Esc> pumvisible() ? '<C-E>' : '<Esc>'
+inoremap <expr><Up> pumvisible() ? '<C-P>' : '<Up>'
+inoremap <expr><Down> pumvisible() ? '<C-N>' : '<Down>'
+inoremap <expr><PageUp> pumvisible() ? '<PageUp><C-P><C-N>' : '<PageUp>'
+inoremap <expr><PageDown> pumvisible() ? '<PageDown><C-N><C-P>' : '<PageDown>'
 " <Space> to toggle fold
 nnoremap <Space> za
 " [count]<F8>/[count]<S-F8> to switch colorscheme
 nnoremap <silent><F8> :<C-U>call misc#switchcolor(v:count1)<CR>
 nnoremap <silent><S-F8> :<C-U>call misc#switchcolor(-v:count1)<CR>
 " <F12> to open terminal
-nnoremap <expr><silent><F12> has('nvim') ? ":split +terminal\<CR>i" : ":terminal\<CR>"
+nnoremap <expr><silent><F12> has('nvim') ? ':split +terminal<CR>i' : ':terminal<CR>'
 " <Ctrl-N> to add new tab
 nnoremap <silent><C-N> :$tabnew<CR>
 " <Ctrl-S> to save file
@@ -44,7 +44,7 @@ vnoremap <S-Insert> "+p
 nnoremap <S-Insert> "+gP
 noremap! <S-Insert> <C-R>+
 " [count]<BS> to open "File Explorer" (vim-drvo)
-nnoremap <expr><silent><BS> ":\<C-U>edit %:p"..repeat(':h', v:count1).."\<CR>"
+nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 " '\=' to cd to the current file's directory
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
 " '\p' to show what function we are in (like 'diff -p')
