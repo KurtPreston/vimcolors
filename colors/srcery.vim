@@ -518,10 +518,9 @@ call s:HL('CtrlPStats', s:yellow, s:xgray2)
 " Plugin specific -------------------------------------------------------------
 " Sneak: {{{
 
-hi! link SneakPluginTarget Search
-hi! link SneakStreakTarget Search
-call s:HL('SneakStreakMask', s:yellow, s:yellow)
-hi! link SneakStreakStatusLine Search
+hi! link Sneak Search
+call s:HL('SneakScope', s:none, s:hard_black)
+hi! link SneakLabel Search
 
 " }}}
 " Rainbow Parentheses: {{{
@@ -595,6 +594,11 @@ hi! link StartifySpecial Comment
 hi! link StartifySection Identifier
 
 " }}}
+" fzf: {{{
+call s:HL('fzf1', s:magenta, s:xgray2)
+call s:HL('fzf2', s:bright_green, s:xgray2)
+call s:HL('fzf3', s:bright_white, s:xgray2)
+"}}}
 
 " Filetype specific -----------------------------------------------------------
 " Diff: {{{

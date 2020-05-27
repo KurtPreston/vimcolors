@@ -2,7 +2,7 @@
 " (https://yeun.github.io/open-color/)
 " Maintainer: Chayoung You <yousbe@gmail.com>
 " URL: https://github.com/yous/vim-open-color
-" Version: 2.6.0
+" Version: 2.7.0
 " License: The MIT License (MIT)
 
 let s:save_cpo = &cpoptions
@@ -160,7 +160,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Error', s:oc['gray'][2], s:oc['red'][7])
 
     " Todo
-    call s:Hi('Todo', s:oc['gray'][9], s:oc['lime'][4])
+    call s:Hi('Todo', s:oc['gray'][2], s:oc['lime'][9])
 
     " set textwidth=80 colorcolumn+=1
     call s:Hi('ColorColumn', '', s:oc['gray'][8])
@@ -232,8 +232,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][9])
 
     " syntax/ruby.vim
-    " .each { |value| ... }
-    call s:Hi('rubyBlockParameter', s:oc['yellow'][2], '')
     " ARGV, $stdout
     call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
 
@@ -387,8 +385,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][1])
 
     " syntax/ruby.vim
-    " .each { |value| ... }
-    call s:Hi('rubyBlockParameter', s:oc['yellow'][7], '')
     " ARGV, $stdout
     call s:Hi('rubyPredefinedIdentifier', s:oc['red'][7], '')
 
