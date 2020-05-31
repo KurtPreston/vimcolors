@@ -408,3 +408,8 @@ highlight PmenuSel ctermbg=Black ctermfg=Cyan
 highlight PmenuSbar ctermbg=Blue
 " PmenuThumb - thumb of the scrollbar
 highlight PmenuThumb ctermbg=Red
+
+" CoC Highlighting
+highlight CocErrorSign   ctermfg=Black ctermbg=Red
+highlight CocWarningSign ctermfg=Black ctermbg=Yellow
+highlight CocInfoSign    ctermfg=Black ctermbg=Cyan
