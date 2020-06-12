@@ -131,9 +131,10 @@ hi SpellRare       ctermfg=51      ctermbg=none     cterm=underline
 " HTML Tags
 hi htmlTag         ctermfg=39      ctermbg=none     cterm=bold
 hi htmlEndTag      ctermfg=39      ctermbg=none     cterm=bold
-hi htmlTagName     ctermfg=77      ctermbg=none
-hi htmlTagN        ctermfg=77      ctermbg=none
+hi htmlTagName     ctermfg=214     ctermbg=none
+hi htmlTagN        ctermfg=214     ctermbg=none
 hi htmlEvent       ctermfg=15      ctermbg=none
+hi htmlSpecialChar ctermfg=77      ctermbg=none
 
 " Javascript
 hi jsFuncName      ctermfg=134     ctermbg=none     cterm=bold

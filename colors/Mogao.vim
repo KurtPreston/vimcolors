@@ -43,6 +43,7 @@ let s:palette.color15 = '#fbf5d9'
 let s:palette.foreground = '#adccc6'
 let s:palette.background = s:palette.color00
 let s:palette.cursorbackground = '#171714'
+let s:palette.pmenubackground = '#1B3D4B'
 
 " Neovim terminal colors
 let g:terminal_color_0  = s:palette.color00
@@ -106,8 +107,8 @@ let s:theme = {
     \   'Normal'                 : ['foreground', 'background'],
     \   'Number'                 : ['color07'],
     \   'Operator'               : ['color14', 'none', 'none'],
-    \   'PMenu'                  : ['color13', 'color05'],
-    \   'PMenuSel'               : ['color08', 'color13', 'bold'],
+    \   'PMenu'                  : ['color10', 'pmenubackground'],
+    \   'PMenuSel'               : ['color15', 'color14', 'bold'],
     \   'Preproc'                : ['color05', 'none', 'none'],
     \   'Question'               : '',
     \   'Repeat'                 : ['color10', 'none', 'none'],

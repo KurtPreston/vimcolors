@@ -4,7 +4,7 @@ if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = 'mr-robot'
+let g:colors_name = 'hacker'
 set background=dark
 
 
@@ -29,16 +29,16 @@ let s:bg = '#000000'
 
 
 " Colors base
-let s:primary       =   '#4d8058'
-let s:secondary     =   '#81b38c'
+let s:primary       =   '#81b38c'
+let s:secondary     =   '#7574a5'
 
-let s:source        =   s:secondary
-let s:keyword       =   s:primary
-let s:structure     =   s:primary
-let s:scalar        =   s:primary
-let s:string        =   s:primary
+let s:source        =   '#bbbbbb'
+let s:keyword       =   s:secondary
+let s:structure     =   s:secondary
+let s:scalar        =   '#c05776'
+let s:string        =   '#a7ecb7'
 
-let s:comment       =   '#26402c'
+let s:comment       =   '#595959'
 
 
 " Syntax highlighting groups
@@ -53,7 +53,7 @@ call s:hi('Float', s:scalar, s:bg, s:none)
 call s:hi('Identifier', s:primary, s:bg, s:none)
 call s:hi('Function', s:primary, s:bg, s:none)
 
-call s:hi('Statement', s:primary, s:bg, s:none)
+call s:hi('Statement', s:secondary, s:bg, s:none)
 call s:hi('Conditional', s:keyword, s:bg, s:none)
 call s:hi('Repeat', s:keyword, s:bg, s:none)
 call s:hi('Label', s:primary, s:bg, s:none)
@@ -67,7 +67,7 @@ call s:hi('Define', s:source, s:bg, s:none)
 call s:hi('Macro', s:source, s:bg, s:none)
 call s:hi('PreCondit', s:primary, s:bg, s:none)
 
-call s:hi('Type', s:source, s:bg, s:none)
+call s:hi('Type', s:secondary, s:bg, s:none)
 call s:hi('StorageClass', s:primary, s:bg, s:none)
 call s:hi('Structure', s:primary, s:bg, s:none)
 call s:hi('Typedef', s:primary, s:bg, s:none)
@@ -86,9 +86,9 @@ call s:hi('WarningMsg', s:primary, s:none, s:none)
 call s:hi('Search', s:bg, s:source, s:none)
 
 call s:hi('Directory', s:string, s:bg, s:none)
-call s:hi('CursorLine', s:none, '#0d0d0d', s:none)
-call s:hi('MatchParen', s:string, '#1d3021', s:none)
-call s:hi('ColorColumn', s:source, '#132016', s:none)
+call s:hi('CursorLine', s:none, '#1a1a1a', s:none)
+call s:hi('MatchParen', s:source, '#333333', s:none)
+call s:hi('ColorColumn', s:source, '#1a1a1a', s:none)
 
 
 " Interface highlighting
@@ -99,9 +99,9 @@ call s:hi('iCursor', s:none, s:bg, s:none)
 call s:hi('LineNr', s:comment, s:bg, s:none)
 call s:hi('NonText', s:comment, s:bg, s:none)
 call s:hi('CursorLineNr', s:source, s:bg, s:none)
-call s:hi('VertSplit', '#0d0d0d', s:bg, s:none)
+call s:hi('VertSplit', '#1a1a1a', s:bg, s:none)
 call s:hi('Title', s:scalar, s:bg, s:none)
-call s:hi('Pmenu', s:source, '#0d0d0d', s:none)
+call s:hi('Pmenu', s:source, '#1a1a1a', s:none)
 call s:hi('PmenuSel', s:bg, s:source, s:none)
 call s:hi('SpecialKey', s:source, s:bg, s:none)
 
@@ -119,8 +119,8 @@ call s:hi('pythonBuiltin', s:primary, s:bg, s:none)
 call s:hi('pythonDecoratorName', s:scalar, s:bg, s:none)
 call s:hi('pythonDecorator', s:scalar, s:bg, s:none)
 call s:hi('pythonOperator', s:primary, s:bg, s:none)
-call s:hi('jinjaStatement', '#a7ecb7', s:bg, s:none)
-call s:hi('jinjaTagDelim', '#a7ecb7', s:bg, s:none)
+call s:hi('jinjaStatement', s:scalar, s:bg, s:none)
+call s:hi('jinjaTagDelim', s:scalar, s:bg, s:none)
 call s:hi('jinjaBlockName', s:source, s:bg, s:none)
 call s:hi('jinjaVariable', s:source, s:bg, s:none)
 call s:hi('jinjaString', s:string, s:bg, s:none)
@@ -128,10 +128,7 @@ call s:hi('jinjaString', s:string, s:bg, s:none)
 " PHP
 call s:hi('phpDefine', s:primary, s:bg, s:none)
 call s:hi('phpIdentifier', s:source, s:bg, s:none)
-call s:hi('bladeKeyword', '#a7ecb7', s:bg, s:none)
-
-" Java
-call s:hi('javaAnnotation', s:primary, s:bg, s:none)
+call s:hi('bladeKeyword', s:scalar, s:bg, s:none)
 
 " Javascript
 call s:hi('javaScriptNull', s:scalar, s:bg, s:none)
@@ -139,22 +136,16 @@ call s:hi('javaScriptBraces', s:source, s:bg, s:none)
 call s:hi('javaScriptNumber', s:scalar, s:bg, s:none)
 call s:hi('jsObjectKey', s:source, s:bg, s:none)
 
-" Json
-call s:hi('jsonString', s:source, s:bg, s:none)
-call s:hi('jsonBoolean', s:source, s:bg, s:none)
-call s:hi('jsonNumber', s:source, s:bg, s:none)
-call s:hi('jsonNull', s:source, s:bg, s:none)
-
 " Typescript
 call s:hi('typescriptBraces', s:source, s:bg, s:none)
-call s:hi('typescriptDecorators', '#ef596f', s:bg, s:none)
+call s:hi('typescriptDecorators', s:scalar, s:bg, s:none)
 call s:hi('typescriptEndColons', s:source, s:bg, s:none)
 
 " HTML
-call s:hi('htmlTagName', s:source, s:bg, s:none)
-call s:hi('htmlTag', s:source, s:bg, s:none)
+call s:hi('htmlTagName', s:primary, s:bg, s:none)
+call s:hi('htmlTag', s:primary, s:bg, s:none)
 call s:hi('Identifier', s:primary, s:bg, s:none)
-call s:hi('htmlArg', s:scalar, s:bg, s:none)
+call s:hi('htmlArg', s:secondary, s:bg, s:none)
 
 " CSS
 call s:hi('cssProp', s:source, s:bg, s:none)
@@ -165,15 +156,11 @@ call s:hi('rubyModule', s:primary, s:bg, s:none)
 call s:hi('rubyDefine', s:primary, s:bg, s:none)
 call s:hi('rubyClass', s:primary, s:bg, s:none)
 call s:hi('rubyFunction', s:source, s:bg, s:none)
-call s:hi('rubyStringDelimiter', s:string, s:bg, s:none)
 
 " Clojure
 call s:hi('clojureSpecial', s:primary, s:bg, s:none)
 call s:hi('clojureDefine', s:primary, s:bg, s:none)
 call s:hi('clojureKeyword', s:source, s:bg, s:none)
-
-" C
-call s:hi('cType', s:primary, s:bg, s:none)
 
 " Vimscript syntax highlighting
 call s:hi('vimOption', s:source, s:bg, s:none)
