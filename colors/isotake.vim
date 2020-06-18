@@ -18,6 +18,7 @@ if &background == 'light'
   hi  ColorColumn   guibg=#fde5fd        cterm=NONE         ctermbg=222       ctermfg=016
   hi  Comment       guifg=#339933        gui=Bold
   hi  Constant      guifg=DeepPink
+  hi  CursorLine    gui=NONE  guibg=LightGreen  cterm=NONE  ctermbg=193
   hi  CursorLineNr  gui=NONE             guibg=#ffdfe6      guifg=Brown       cterm=NONE      ctermbg=NONE  ctermfg=208
   hi  DiffAdd       guibg=LightGreen     ctermbg=DarkGreen  ctermfg=White
   hi  DiffChange    guibg=Gray90         ctermbg=DarkCyan   ctermfg=White
