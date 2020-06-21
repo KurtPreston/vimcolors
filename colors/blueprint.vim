@@ -114,13 +114,13 @@ hi        Function guifg=#abede0 guibg=none    gui=none
 " --------------------------------
 " Language constructs
 " --------------------------------
-hi         Comment guifg=#74a0c7 guibg=none    gui=none
+hi         Comment guifg=#ede0ab guibg=none    gui=italic
 
 hi       Statement guifg=#b8edab guibg=none    gui=none
 hi     Conditional guifg=#b8edab guibg=none    gui=none
 hi          Repeat guifg=#b8edab guibg=none    gui=none
 hi           Label guifg=#b8edab guibg=none    gui=none
-hi        Operator guifg=none    guibg=none    gui=none
+hi        Operator guifg=#abede0 guibg=none    gui=none
 hi         Keyword guifg=#b8edab guibg=none    gui=none
 hi       Exception guifg=#ede0ab guibg=none    gui=none
 
@@ -140,10 +140,10 @@ hi          Define guifg=#b8edab guibg=none    gui=none
 hi           Macro guifg=#b8edab guibg=none    gui=none
 hi       PreCondit guifg=#b8edab guibg=none    gui=none
 
-hi            Type guifg=none    guibg=none    gui=none
-hi    StorageClass guifg=#b8edab guibg=none    gui=none
-hi       Structure guifg=#b8edab guibg=none    gui=none
-hi         Typedef guifg=#b8edab guibg=none    gui=none
+hi            Type guifg=#74a0c7 guibg=none    gui=bold
+hi    StorageClass guifg=#74a0c7 guibg=none    gui=bold
+hi       Structure guifg=#b8edab guibg=none    gui=bold
+hi         Typedef guifg=#b8edab guibg=none    gui=bold
 
 " --------------------------------
 " Diff
