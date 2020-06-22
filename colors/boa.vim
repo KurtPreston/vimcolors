@@ -211,7 +211,7 @@ hi! link diffLine BoaBlue
 hi! link htmlTag BoaBlue
 hi! link htmlEndTag BoaBlue
 
-hi htmlTagName guifg=#70a17c guibg=none gui=bold
+" hi htmlTagName guifg=#70a17c guibg=none gui=bold
 hi! link htmlArg BoaAqua
 
 hi! link htmlScriptTag BoaPurple
@@ -497,6 +497,13 @@ hi! link jsonString Normal
 
 hi! link tomlTable BoaRed
 hi! link tomlTableArray BoaYellow
+
+" }}}
+" Svelte: {{{
+
+hi! svelteRepeat guifg=#caa247 guibg=NONE gui=bold
+hi! link svelteConditional svelteRepeat
+hi! link svelteKeyword BoaPurple
 
 " }}}
 " Terminal Colors: {{{
