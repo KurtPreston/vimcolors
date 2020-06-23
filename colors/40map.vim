@@ -71,3 +71,18 @@ nnoremap <silent>gtt :Trim<CR>
 nnoremap <expr><silent>gx opera#mapto('Execute', 'line')
 xnoremap <expr><silent>gx opera#mapto('Execute', 'line')
 nnoremap <silent>gxx :Execute<CR>
+" my text objects: ae/ie - buffer, al/il - line
+noremap <expr><silent><plug>ae textobj#set_lines(1, '$')
+noremap <expr><silent><plug>ie textobj#set_lines(nextnonblank(1), prevnonblank('$'))
+noremap <expr><silent><plug>al
+    \ textobj#set_chars(textobj#pos('.', 1), textobj#pos('.', col('$') - 1))
+noremap <expr><silent><plug>il
+    \ textobj#set_chars(textobj#pos('.', '^\s*\zs'), textobj#pos('.', '\S\s*$'))
+omap ae <plug>ae
+xmap ae <plug>ae
+omap ie <plug>ie
+xmap ie <plug>ie
+omap al <plug>al
+xmap al <plug>al
+omap il <plug>il
+xmap il <plug>il

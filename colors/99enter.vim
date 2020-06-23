@@ -2,7 +2,7 @@
 " https://github.com/matveyt/vimfiles
 
 if better#gui_running()
-    " font setup
+    " +++++ GUI +++++
     let &guifont = printf('Inconsolata LGC%s14', has('win32') ? ':h' : ' ')
     if has('directx')
         set renderoptions=type:directx
@@ -21,35 +21,21 @@ if better#gui_running()
         call rpcnotify(0, 'Gui', 'Option', 'Popupmenu', 0)
     endif
 elseif &t_Co >= 256
-    " assume we have xterm!
-    set termguicolors
-    if exists('+ttyfast')
-        set ttyfast
-    endif
+    " +++++ TrueColor terminal +++++
+    set termguicolors ttyfast
     if exists('+ttymouse')
         set ttymouse=xterm2
     endif
     silent! colorscheme flattened_dark
 else
-    " minimal colorscheme
+    " +++++ plain terminal +++++
     silent! colorscheme modest
 endif
 
-" initialize my status line
+" setup status line
 silent! let &statusline = stalin#build('mode,buffer,,flags,ruler')
 
-" :DiffOrig stolen from $VIMRUNTIME/defaults.vim
-if exists(':DiffOrig') != 2
-    command -bar DiffOrig
-        \   vnew +set\ buftype=nofile
-        \ | read ++edit #
-        \ | 1delete_
-        \ | diffthis
-        \ | wincmd p
-        \ | diffthis
-endif
-
-" this command is required by 'spellfile' plugin
-if exists(':Nread') != 2
-    command -count=1 -nargs=* Nread Nomove call netrw#NetRead(<count>, <f-args>)
+" if we have not loaded any session yet then show MRU files list
+if empty(v:this_session)
+    MRU
 endif

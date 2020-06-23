@@ -2,7 +2,7 @@
 " https://github.com/matveyt/vimfiles
 
 compiler! gcc
-set fileformats=unix,dos grepprg=grep\ -nH keywordprg=:help
+set fileformats=unix,dos grepprg=grep\ -nH keywordprg=:Man
 set shell=bash shellcmdflag=-c shellredir=>%s\ 2>&1 noshelltemp
 set shellquote= shellxescape= shellxquote=
 if has('win32')
@@ -29,6 +29,9 @@ let &undodir = g:dotvim..'/undo'
 if exists('+inccommand')
     set inccommand=split
 endif
+if exists('+scrollfocus')
+    set scrollfocus
+endif
 if exists('+tagfunc')
     set tagfunc=misc#urltags
 endif
@@ -36,11 +39,11 @@ endif
 " indents and folds
 set autoindent smartindent formatoptions=tcrqj matchpairs+=<:>
 set foldmethod=indent foldcolumn=1 foldlevel=1
-let &fillchars = 'vert: ,fold: ,diff: '
+set fillchars=vert:\ ,fold:\ ,diff:-
 
 " tabs, wraps and case
 set nojoinspaces nowrap ignorecase infercase smartcase
-set expandtab tabstop=4 softtabstop=-1 shiftround shiftwidth=0
+set tabstop& expandtab softtabstop=-1 shiftround shiftwidth=4
 set list listchars=tab:<->,trail:_ textwidth=89
 
 " Russian keyboard and spelling support
@@ -48,33 +51,3 @@ if v:lang =~? '^ru'
     set keymap=russian-jcukenwin spelllang=ru_yo,en
     set iminsert& imsearch&
 endif
-
-" enable 'matchit' plugin
-" Note: Neovim loads 'matchit' by default
-if !has('nvim')
-    packadd! matchit
-endif
-
-" standard plugins config
-let g:asmsyntax = 'fasm'
-let g:c_comment_strings = 1
-let g:c_gnu = 1
-let g:c_no_curly_error = 1
-let g:is_bash = 1
-let g:sh_fold_enabled = 7
-let g:tex_conceal = ''
-let g:tex_flavor = 'latex'
-let g:vim_indent_cont = shiftwidth()
-let g:vimsyn_embed = 'lpP'
-let g:vimsyn_folding = 'af'
-let g:vimsyn_noerror = 1
-
-" disable some plugins
-let g:loaded_getscriptPlugin = 0
-let g:loaded_gzip = 0
-let g:loaded_logiPat = 0
-let g:loaded_netrwPlugin = 0
-let g:loaded_tarPlugin = 0
-let g:loaded_tutor_mode_plugin = 0
-let g:loaded_vimballPlugin = 0
-let g:loaded_zipPlugin = 0

@@ -109,7 +109,7 @@ hi         Boolean guifg=none    guibg=none    gui=none
 hi           Float guifg=none    guibg=none    gui=none
 
 hi      Identifier guifg=none    guibg=none    gui=none
-hi        Function guifg=#b8edab guibg=none    gui=none
+hi        Function guifg=#abede0 guibg=none    gui=none
 
 " --------------------------------
 " Language constructs
@@ -128,7 +128,7 @@ hi         Special guifg=#abede0 guibg=none    gui=none
 hi     SpecialChar guifg=#abede0 guibg=none    gui=none
 hi             Tag guifg=#abede0 guibg=none    gui=none
 hi       Delimiter guifg=#74a0c7 guibg=none    gui=none
-hi  SpecialComment guifg=#74a0c7 guibg=none    gui=none
+hi  SpecialComment guifg=#ede0ab guibg=none    gui=none
 hi           Debug guifg=#abede0 guibg=none    gui=none
 
 " ----------

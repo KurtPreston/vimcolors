@@ -4,9 +4,18 @@
 augroup vimStartup | au!
     " :h restore-cursor
     autocmd BufRead * call setpos('.', getpos("'\""))
+    " auto-conversion to plain text
+    autocmd BufReadCmd,FileReadCmd *.doc,*.rtf
+        \ call s:docread('catdoc <afile>:p:S')
+    autocmd BufReadCmd,FileReadCmd *.docx,*.epub,*.fb2,*.odt
+        \ call s:docread('pandoc -t plain <afile>:p:S')
+    autocmd BufReadCmd,FileReadCmd *.djv,*.djvu
+        \ call s:docread('djvutxt <afile>:p:S')
+    autocmd BufReadCmd,FileReadCmd *.pdf
+        \ call s:docread('pdftotext -layout <afile>:p:S -')
     " 'q' to close a non-modifiable window/buffer (e.g. 'help')
     autocmd BufWinEnter *
-        \   if !&modifiable || &buftype is# 'nofile'
+        \   if !empty(&buftype)
         \ |     execute 'nnoremap <buffer>q <C-W>q'
         \ | endif
     " update timestamp before saving a buffer
@@ -21,18 +30,28 @@ augroup vimStartup | au!
         \ | endif
 augroup end
 
-function s:timestamp(text, format, lines)
+function s:docread(cmd) abort
+    echo 'Please, wait...'
+    let l:empty = line2byte(1) < 0
+    execute "silent '[read !" a:cmd
+    if l:empty
+        keepjumps 1delete_
+        setlocal buftype=nowrite filetype=text
+    endif
+endfunction
+
+function s:timestamp(text, format, lines) abort
     let l:svpos = winsaveview()
+    let l:lc_time = v:lc_time
     try
         call cursor(1, 1)
         if search('\v\C'..a:text..'\s*\S', 'e', a:lines)
-            let l:lc_time = v:lc_time
             language time C
             silent! undojoin
             execute 'normal! "_C'..strftime(a:format)
-            execute 'language time' l:lc_time
         endif
     finally
+        execute 'language time' l:lc_time
         call winrestview(l:svpos)
     endtry
 endfunction
