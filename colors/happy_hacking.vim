@@ -41,7 +41,7 @@ let s:yellow   = "#FAD566"
 let s:blue     = "#81A2C7"
 let s:green    = "#8daf67"
 let s:turqoise = "#B3EBBF"
-let s:orange   = "#FAA166"
+let s:orange   = "#fcb280"
 let s:pink     = "#F77EBD"
 let s:red      = "#F05E48"
 let s:gray1    = "#292929"
@@ -223,6 +223,8 @@ call s:Color("inkoCommentBold", s:gray4, "NONE", s:t_gray4, "NONE", "bold")
 call s:Color("inkoCommentItalic", s:gray4, "NONE", s:t_gray4, "NONE", "italic")
 call s:Color("inkoCommentTitle", s:gray4, "NONE", s:t_gray4, "NONE", "bold")
 call s:Color("inkoCommentInlineUrl", s:turqoise, "NONE", s:t_turqoise, "NONE")
+call s:Color("inkoInstanceVariable", s:blue, "NONE", s:t_blue, "NONE")
+call s:Color("inkoKeywordArgument", s:orange, "NONE", s:t_orange, "NONE")
 
 " Javascript
 hi! link javaScriptBraces     Normal
