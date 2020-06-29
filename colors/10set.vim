@@ -23,7 +23,7 @@ set ttimeout ttimeoutlen=100 wildmenu
 set keymodel=startsel mousemodel=popup selection=exclusive
 set laststatus=2 mouse=ar number showmatch showtabline=2 title
 set nohlsearch nolangremap noruler noshowcmd noshowmode noswapfile nowritebackup
-set sessionoptions=curdir,folds,help,tabpages,winsize,slash,unix
+set sessionoptions=blank,curdir,help,tabpages,winsize,slash,unix
 set switchbuf=usetab,split undofile virtualedit=all
 let &undodir = g:dotvim..'/undo'
 if exists('+inccommand')
@@ -39,7 +39,7 @@ endif
 " indents and folds
 set autoindent smartindent formatoptions=tcrqj matchpairs+=<:>
 set foldmethod=indent foldcolumn=1 foldlevel=1
-set fillchars=vert:\ ,fold:\ ,diff:-
+set fillchars=vert:\ ,fold:\ ,diff:\ 
 
 " tabs, wraps and case
 set nojoinspaces nowrap ignorecase infercase smartcase

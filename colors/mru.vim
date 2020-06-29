@@ -3,7 +3,6 @@
 
 " Show Session & MRU files
 function! mru#show(sesdir, max) abort
-    set shortmess+=I
     if !empty(bufname()) || line('$') > 1 || !empty(getline(1))
         new
     endif

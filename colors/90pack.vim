@@ -11,7 +11,6 @@ endif
 
 " disable a few standard plugins
 let g:loaded_getscriptPlugin = 0
-let g:loaded_gzip = 0
 let g:loaded_logiPat = 0
 let g:loaded_netrwPlugin = 0
 let g:loaded_tarPlugin = 0
@@ -52,7 +51,7 @@ function s:setup_minpac() abort
     call minpac#add('tpope/vim-repeat')
     call minpac#add('tpope/vim-surround')
     call minpac#add('tpope/vim-unimpaired')
-    call minpac#add('Ygdroot/indentLine')
+    call minpac#add('Yggdroot/indentLine')
     call minpac#add('mhinz/vim-signify')
     call minpac#add('majutsushi/tagbar')
     call minpac#add('mbbill/undotree')
@@ -80,6 +79,7 @@ let g:indentLine_bufTypeExclude = ['quickfix', 'help', 'terminal', 'prompt', 'po
 let g:indentLine_fileTypeExclude = ['drvo', 'man']
 let g:indentLine_autoResetWidth = 0
 let g:indentLine_faster = 1
+let g:indentLine_setColors = 0
 let g:signify_vcs_list = ['git']
 let g:signify_disable_by_default = 1
 let g:undotree_WindowLayout = 4
