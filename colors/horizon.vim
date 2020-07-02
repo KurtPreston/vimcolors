@@ -4,7 +4,7 @@
 " Maintainer:   Kien Nguyen-Tuan <kienn2609@gmail.com>
 " Website:      https://ntk148v.github.io/blog
 " License:      Vim License (see `:help license`)
-" Last Updated: Thứ sáu, 01 Tháng 3 Năm 2019 16:06:23 +07
+" Last Updated: Thursday July 2 15:01:35 2020
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running')
       \ && (!exists('&t_Co') || &t_Co < 256)
@@ -51,7 +51,7 @@ hi! MatchParen cterm=NONE gui=NONE ctermbg=237 ctermfg=255 guibg=#3e445e guifg=#
 hi! MoreMsg cterm=NONE gui=NONE ctermfg=48 guifg=#09f7a0
 hi! Normal cterm=NONE gui=NONE ctermbg=233 ctermfg=252 guibg=#1c1e26 guifg=#d5d8da
 hi! Operator cterm=NONE gui=NONE ctermfg=37 guifg=#25b0bc
-hi! Pmenu cterm=NONE gui=NONE ctermbg=NONE ctermfg=NONE guifg=#d5d8da
+hi! Pmenu cterm=NONE gui=NONE ctermbg=233 ctermfg=252 guifg=#1c1e26 guibg=#d5d8da
 hi! PmenuSbar cterm=NONE gui=NONE ctermbg=236 guibg=#3d425b
 hi! PmenuSel cterm=NONE gui=NONE ctermbg=240 ctermfg=255 guibg=#5b6389 guifg=#eff0f4
 hi! PmenuThumb cterm=NONE gui=NONE ctermbg=233 guibg=#1c1e26
