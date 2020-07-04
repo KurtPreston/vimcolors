@@ -230,6 +230,37 @@ if has('nvim')
 endif
 
 " }}}
+" Setup Terminal Colors For Vim with termguicolors: {{{
+
+if exists('*term_setansicolors')
+  let g:terminal_ansi_colors = repeat([0], 16)
+
+  let g:terminal_ansi_colors[0] = s:black[0]
+  let g:terminal_ansi_colors[8] = s:bright_black[0]
+
+  let g:terminal_ansi_colors[1] = s:red[0]
+  let g:terminal_ansi_colors[9] = s:bright_red[0]
+
+  let g:terminal_ansi_colors[2] = s:green[0]
+  let g:terminal_ansi_colors[10] = s:bright_green[0]
+
+  let g:terminal_ansi_colors[3] = s:yellow[0]
+  let g:terminal_ansi_colors[11] = s:bright_yellow[0]
+
+  let g:terminal_ansi_colors[4] = s:blue[0]
+  let g:terminal_ansi_colors[12] = s:bright_blue[0]
+
+  let g:terminal_ansi_colors[5] = s:magenta[0]
+  let g:terminal_ansi_colors[13] = s:bright_magenta[0]
+
+  let g:terminal_ansi_colors[6] = s:cyan[0]
+  let g:terminal_ansi_colors[14] = s:bright_cyan[0]
+
+  let g:terminal_ansi_colors[7] = s:white[0]
+  let g:terminal_ansi_colors[15] = s:bright_white[0]
+endif
+
+" }}}
 
 " Vanilla colorscheme ---------------------------------------------------------
 " General UI: {{{
@@ -507,13 +538,6 @@ if has('terminal')
 endif
 
 " }}}
-" CtrlP: "{{{
-hi! link CtrlPMatch SrceryMagenta
-hi! link CtrlPLinePre SrceryBrightGreen
-call s:HL('CtrlPMode1', s:bright_white, s:xgray3)
-call s:HL('CtrlPMode2', s:bright_white, s:xgray5)
-call s:HL('CtrlPStats', s:yellow, s:xgray2)
-" }}}
 
 " Plugin specific -------------------------------------------------------------
 " Sneak: {{{
@@ -619,7 +643,7 @@ hi! link netrwCmdSep SrceryBrightBlack
 " coc.nvim: {{{
 
 hi! link CocErrorSign SrceryRed
-hi! link CocWarningSign SrceryOrange
+hi! link CocWarningSign SrceryBrightOrange
 hi! link CocInfoSign SrceryYellow
 hi! link CocHintSign SrceryBlue
 hi! link CocErrorFloat SrceryRed
@@ -635,10 +659,17 @@ hi! link CocSelectedText SrceryRed
 hi! link CocCodeLens SrceryWhite
 
 call s:HL('CocErrorHighlight', s:none, s:none, s:undercurl, s:red)
-call s:HL('CocWarningHighlight', s:none, s:none, s:undercurl, s:orange)
+call s:HL('CocWarningHighlight', s:none, s:none, s:undercurl, s:bright_orange)
 call s:HL('CocInfoHighlight', s:none, s:none, s:undercurl, s:yellow)
 call s:HL('CocHintHighlight', s:none, s:none, s:undercurl, s:blue)
 
+" }}}
+" CtrlP: "{{{
+hi! link CtrlPMatch SrceryMagenta
+hi! link CtrlPLinePre SrceryBrightGreen
+call s:HL('CtrlPMode1', s:bright_white, s:xgray3)
+call s:HL('CtrlPMode2', s:bright_white, s:xgray5)
+call s:HL('CtrlPStats', s:yellow, s:xgray2)
 " }}}
 
 " Filetype specific -----------------------------------------------------------
@@ -1038,6 +1069,7 @@ hi! link makeTarget SrceryYellow
 " }}}
 " Misc: {{{
 call s:HL('shParenError', s:bright_white, s:bright_red)
+call s:HL('ExtraWhitespace', s:none, s:red)
 " }}}
 
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker :
