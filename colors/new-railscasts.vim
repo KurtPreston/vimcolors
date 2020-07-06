@@ -214,6 +214,7 @@ hi elixirMapDelimiter      guifg=#D38E39 gui=bold
 hi elixirModuleDefine      guifg=#F47454 gui=bold
 hi elixirOperator          guifg=#FFC66D gui=bold
 hi elixirPrivateDefine     guifg=#F47454 gui=bold,italic
+hi elixirPrivateFunctionDeclaration guifg=#FFC66D gui=bold,italic
 hi elixirPseudoVariable    guifg=#e2ae5f gui=bold
 hi elixirStructDelimiter   guifg=#D38E39 gui=bold
 hi elixirTuple             guifg=#D38E39 gui=bold
