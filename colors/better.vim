@@ -1,11 +1,51 @@
 " This is a part of my vim configuration.
 " https://github.com/matveyt/vimfiles
 
+" better#bufwinid({expr})
+" improved bufwinid():
+"     - prefer current window ID if it matches;
+"     - not confined to the current tab
+function! better#bufwinid(buf)
+    let l:bufnr = bufnr(a:buf)
+    if l:bufnr == -1
+        " invalid buffer
+        return -1
+    elseif l:bufnr == bufnr()
+        " current buffer
+        return win_getid()
+    endif
+    " find in the current tab
+    let l:winid = bufwinid(l:bufnr)
+    if l:winid == -1
+        " find first match
+        let l:winid = get(win_findbuf(l:bufnr), 0, -1)
+    endif
+    return l:winid
+endfunction
+
 " better#gui_running()
 " Vim/Neovim compatibility
 function! better#gui_running()
     return has('gui_running') ||
         \ exists('*nvim_list_uis') && nvim_list_uis()[-1].chan > 0
+endfunction
+
+" better#is_blank_buffer()
+" check if current buffer is blank
+function! better#is_blank_buffer() abort
+    return !&modified && empty(&buftype) && line('$') == 1 && empty(getline(1))
+endfunction
+
+" better#or({expr1} ...)
+" logical or: returns first non-empty argument or the last one
+function! better#or(...)
+    let l:arg = 0
+    for l:arg in a:000
+        if !empty(l:arg)
+            break
+        endif
+    endfor
+    return l:arg
 endfunction
 
 " better#win_execute({id}, {command} [, {silent}])
@@ -29,26 +69,4 @@ function! better#win_execute(id, command, ...)
             call win_gotoid(l:wcurr)
         endif
     endtry
-endfunction
-
-" better#bufwinid({expr})
-" improved bufwinid():
-"     - prefer current window ID if it matches;
-"     - not confined to the current tab
-function! better#bufwinid(buf)
-    let l:bufnr = bufnr(a:buf)
-    if l:bufnr == -1
-        " invalid buffer
-        return -1
-    elseif l:bufnr == bufnr()
-        " current buffer
-        return win_getid()
-    endif
-    " find in the current tab
-    let l:winid = bufwinid(l:bufnr)
-    if l:winid == -1
-        " find first match
-        let l:winid = get(win_findbuf(l:bufnr), 0, -1)
-    endif
-    return l:winid
 endfunction

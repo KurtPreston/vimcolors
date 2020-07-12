@@ -25,18 +25,18 @@ augroup vimStartup | au!
         \ | endif
     " save session on exit
     autocmd VimLeavePre *
-        \   if !v:dying && !empty(v:this_session)
-        \ |     execute 'mksession!' v:this_session
+        \   if !empty(v:this_session) && !v:dying
+        \ |     mksession! `=v:this_session`
         \ | endif
 augroup end
 
 function s:docread(cmd) abort
     echo 'Please, wait...'
-    let l:empty = line2byte(1) < 0
+    let l:blank = better#is_blank_buffer()
     execute "silent '[read !" a:cmd
-    if l:empty
+    if l:blank
         keepjumps 1delete_
-        setlocal buftype=nowrite filetype=text
+        setlocal buftype=nowrite bufhidden=hide filetype=text
     endif
 endfunction
 

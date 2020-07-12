@@ -49,7 +49,7 @@ command! -range -bar -nargs=+ Copy call misc#copy(<line1>, <line2>, <f-args>)
 " show :highlight under cursor
 command! -bar -bang Highlight
     \ execute <bang>0..'verbose highlight'
-    \     misc#or(synIDattr(synID(line('.'), col('.'), 0), 'name'), 'Normal')
+    \     better#or(synIDattr(synID(line('.'), col('.'), 0), 'name'), 'Normal')
 
 " :[range]Trim[!]
 " trim trailing/leading space
@@ -72,4 +72,4 @@ command! -range=% -bar -nargs=? Execute
 " :[count]MRU [sesdir]
 " show MRU and Session files
 command! -count=10 -bar -nargs=? -complete=dir MRU
-    \ call mru#show(misc#or(<q-args>, g:dotvim..'/sessions'), <count>)
+    \ call mru#show(better#or(<q-args>, g:dotvim..'/sessions'), <count>)

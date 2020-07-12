@@ -27,6 +27,7 @@ let g:sh_fold_enabled = 7
 let g:tex_conceal = ''
 let g:tex_flavor = 'latex'
 let g:vim_indent_cont = shiftwidth()
+let g:vim_json_conceal = 0
 let g:vimsyn_embed = 'lpP'
 let g:vimsyn_folding = 'af'
 let g:vimsyn_noerror = 1
@@ -54,6 +55,7 @@ function s:setup_minpac() abort
     call minpac#add('Yggdroot/indentLine')
     call minpac#add('mhinz/vim-signify')
     call minpac#add('majutsushi/tagbar')
+    call minpac#add('wellle/targets.vim')
     call minpac#add('mbbill/undotree')
     call minpac#add('lervag/vimtex')
 
@@ -61,7 +63,7 @@ function s:setup_minpac() abort
     " call minpac#add('matveyt/vim-drvo')
     " call minpac#add('matveyt/vim-jmake')
     " call minpac#add('matveyt/vim-modest')
-    " call minpac#add('matveyt/vim-moveit', {'type': 'opt'})
+    " call minpac#add('matveyt/vim-moveit')
     " call minpac#add('matveyt/vim-opera')
     " call minpac#add('matveyt/vim-ranger', {'type': 'opt'})
     " call minpac#add('matveyt/vim-scratch')
@@ -82,6 +84,7 @@ let g:indentLine_faster = 1
 let g:indentLine_setColors = 0
 let g:signify_vcs_list = ['git']
 let g:signify_disable_by_default = 1
+let g:targets_nl = 'nN'
 let g:undotree_WindowLayout = 4
 let g:vimtex_compiler_method = 'arara'
 let g:vimtex_compiler_arara = {'options': []}

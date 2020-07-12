@@ -3,7 +3,7 @@
 
 " Show Session & MRU files
 function! mru#show(sesdir, max) abort
-    if !empty(bufname()) || line('$') > 1 || !empty(getline(1))
+    if !better#is_blank_buffer()
         new
     endif
 
@@ -24,15 +24,17 @@ END
 
     call setline(1, l:header)
     call s:add_group('Session', glob(l:sesdir..'*.vim', 1, 1), a:max)
-    call s:add_group('MRU', v:oldfiles, a:max)
+    let l:vimhelp = glob2regpat($VIMRUNTIME..'/doc/*.txt')
+    call s:add_group('MRU', filter(copy(v:oldfiles), {_, v -> match(v, l:vimhelp) < 0}),
+        \ a:max)
 
-    setlocal buftype=nofile bufhidden=wipe cursorline matchpairs=
+    setlocal bufhidden=wipe buftype=nofile cursorline matchpairs=
     setlocal nomodifiable nonumber norelativenumber nospell noswapfile nowrap
     syntax match Title /^[^[].*$/
     syntax match Comment /^\[\d\+\] \zs.\+[\/]/
     nnoremap <buffer><expr><silent><CR> <SID>on_enter()
     nnoremap <buffer><expr><silent><2-LeftMouse> <SID>on_enter()
-    nnoremap <buffer><silent>q :try\|close\|catch\|enew\|endtry<CR>
+    nnoremap <buffer><expr><silent>q <SID>on_quit()
 endfunction
 
 function s:add_group(title, items, max) abort
@@ -52,8 +54,11 @@ function s:on_enter() abort
     let l:file = matchstr(getline('.'), '^\[\d\+\] \zs.\+$')
     if empty(l:file)
         return "\<CR>"
-    else
-        return printf(":%s %s\<CR>", search('^MRU$', 'bnW') ? 'edit' : 'source',
-            \ fnameescape(l:file))
     endif
+    return printf(":%s %s\<CR>", search('^MRU$', 'bnW') ? 'edit' : 'source',
+        \ fnameescape(l:file))
+endfunction
+
+function s:on_quit() abort
+    return printf(":%s\<CR>", tabpagenr('$') > 1 || winnr('$') > 1 ? 'close' : 'enew')
 endfunction

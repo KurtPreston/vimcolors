@@ -11,31 +11,39 @@ if better#gui_running()
         " directory/file Unicode glyphs
         let g:drvo_glyph = [0x1F4C2, 0x1F4C4]
     endif
-    " make sure the colors weren't set by a desktop shortcut
-    if !exists('g:colors_name')
-        set background=dark
-        silent! colorscheme flattened_dark
-    endif
-    " disable GUI Popupmenu in Neovim
     if exists('*rpcnotify')
+        " disable GUI Popupmenu in Neovim
         call rpcnotify(0, 'Gui', 'Option', 'Popupmenu', 0)
     endif
 elseif &t_Co >= 256
     " +++++ TrueColor terminal +++++
-    set termguicolors ttyfast
-    if exists('+ttymouse')
-        set ttymouse=xterm2
+    set termguicolors
+    if !has('nvim')
+        set ttyfast
+        if has('mouse_sgr')
+            set ttymouse=sgr
+        endif
+        if $TERM_PROGRAM is# 'mintty'
+            " console cursor shape
+            let &t_EI = "\e[2 q"
+            let &t_SR = "\e[4 q"
+            let &t_SI = "\e[6 q"
+        endif
     endif
-    silent! colorscheme flattened_dark
 else
-    " +++++ plain terminal +++++
+    " +++++ Plain terminal +++++
+endif
+
+" make sure the colors weren't already set up (by a desktop shortcut or such)
+if !exists('g:colors_name')
+    set background=light
     silent! colorscheme modest
 endif
 
 " setup status line
 silent! let &statusline = stalin#build('mode,buffer,,flags,ruler')
 
-" if we have not loaded any session yet then show MRU files list
-if empty(v:this_session)
+" if we have not opened anything yet then show MRU files list
+if !argc() && empty(v:this_session)
     MRU
 endif

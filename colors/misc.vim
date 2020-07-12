@@ -54,17 +54,6 @@ function! misc#copy(line1, line2, ...) abort
     endfor
 endfunction
 
-" Logical or: returns first non-empty argument or the last one
-function! misc#or(...)
-    let l:arg = 0
-    for l:arg in a:000
-        if !empty(l:arg)
-            break
-        endif
-    endfor
-    return l:arg
-endfunction
-
 " Switch colorscheme by 'incr' positions
 function! misc#switchcolor(incr) abort
     let l:colors = getcompletion('', 'color')
@@ -110,7 +99,7 @@ function! misc#urltags(pat, flags, info)
         let l:url = expand(get(g:, 'netrw_gx', '<cfile>'))
         if l:url =~# '^[[:alpha:]][-+.[:alnum:]]*://'
             " found it
-            if has('win32')
+            if has('win32') || has('win32unix')
                 let l:cmd = ['rundll32', 'url.dll,FileProtocolHandler']
             elseif executable('kfmclient')
                 let l:cmd = ['kfmclient', 'openURL']

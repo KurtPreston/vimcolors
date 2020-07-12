@@ -25,6 +25,11 @@ nnoremap <Space> za
 " [count]<F8>/[count]<S-F8> to switch colorscheme
 nnoremap <silent><F8> :<C-U>call misc#switchcolor(v:count1)<CR>
 nnoremap <silent><S-F8> :<C-U>call misc#switchcolor(-v:count1)<CR>
+" [count]<C-kPlus>/[count]<C-kMinus> to increase/decrease font size
+nnoremap <silent><C-kMinus>
+    \ :<C-U>let &gfn = substitute(&gfn, '\d\+', '\=submatch(0)-'..v:count1, '')<CR>
+nnoremap <silent><C-kPlus>
+    \ :<C-U>let &gfn = substitute(&gfn, '\d\+', '\=submatch(0)+'..v:count1, '')<CR>
 " <F12> to open terminal
 nnoremap <expr><silent><F12> has('nvim') ? ':split +terminal<CR>i' : ':terminal<CR>'
 " <Ctrl-N> to add new tab
