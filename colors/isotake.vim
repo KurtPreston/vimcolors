@@ -72,7 +72,7 @@ else
   hi  Type          gui=NONE             guifg=#7f98fa
   hi  Identifier    guifg=Cyan
   hi  Statement     guifg=Brown3         ctermfg=DarkRed
-  hi  Search        guibg=Gold3          ctermfg=White
+  hi  Search        guibg=Gold3          ctermbg=43            ctermfg=15
   hi  Folded        guibg=gray20
   hi  FoldColumn    guibg=gray10
   hi  FileName      gui=NONE             guibg=White           guifg=Blue

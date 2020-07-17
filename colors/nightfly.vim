@@ -151,12 +151,12 @@ exec "highlight PreProc guifg=" . s:watermelon
 " Status, split and tab lines.
 exec "highlight StatusLine cterm=none guibg=" . s:slate_blue . " guifg=" . s:white . " gui=none"
 exec "highlight StatusLineNC cterm=none guibg=" . s:slate_blue . " guifg=" . s:cadet_blue . " gui=none"
-exec "highlight VertSplit guibg=" . s:slate_blue . " guifg=" . s:slate_blue
+exec "highlight VertSplit cterm=none guibg=" . s:slate_blue . " guifg=" . s:slate_blue . " gui=none"
 exec "highlight Tabline cterm=none guibg=" . s:slate_blue . " guifg=" . s:cadet_blue . " gui=none"
 exec "highlight TablineSel cterm=none guibg=" . s:slate_blue . " guifg=" . s:blue . " gui=none"
-exec "highlight TablineFill cterm=none guibg=" . s:slate_blue . " guifg=" . s:slate_blue
-exec "highlight StatusLineTerm guibg=" . s:slate_blue . " guifg=" . s:white . " gui=none"
-exec "highlight StatusLineTermNC guibg=" . s:slate_blue . " guifg=" . s:cadet_blue . " gui=none"
+exec "highlight TablineFill cterm=none guibg=" . s:slate_blue . " guifg=" . s:slate_blue . " gui=none"
+exec "highlight StatusLineTerm cterm=none guibg=" . s:slate_blue . " guifg=" . s:white . " gui=none"
+exec "highlight StatusLineTermNC cterm=none guibg=" . s:slate_blue . " guifg=" . s:cadet_blue . " gui=none"
 
 " case in switch statement.
 exec "highlight Label guifg=" . s:turquoise
@@ -439,7 +439,7 @@ exec "highlight phpClass guifg=" . s:emerald
 exec "highlight phpClasses guifg=" . s:peach
 exec "highlight phpFunction guifg=" . s:blue
 exec "highlight phpParent guifg=fg"
-exec "highlight phpType guifg=" . s:yellow
+exec "highlight phpType guifg=" . s:violet
 
 " PureScript
 exec "highlight purescriptClass guifg=" . s:peach
@@ -474,17 +474,11 @@ exec "highlight rubyMacro guifg=" . s:blue
 exec "highlight rubyModule guifg=" . s:blue
 exec "highlight rubyModuleName guifg=" . s:emerald
 exec "highlight rubyPseudoVariable guifg=" . s:green
-exec "highlight rubyResponse guifg=" . s:turquoise
+exec "highlight rubyResponse guifg=" . s:blue
 exec "highlight rubyRoute guifg=" . s:blue
 exec "highlight rubySharpBang guifg=" . s:cadet_blue
 exec "highlight rubyStringDelimiter guifg=" . s:tan
 exec "highlight rubySymbol guifg=" . s:purple
-augroup NightflyRubyAutocmds
-    autocmd!
-    " Use different colors when in Ruby and eRuby files for 'rubyConstant'.
-    autocmd FileType eruby exec "highlight rubyConstant guifg=" . s:turquoise
-    autocmd FileType ruby exec "highlight rubyConstant guifg=" . s:emerald
-augroup END
 
 " Rust
 exec "highlight rustAssert guifg=" . s:green
