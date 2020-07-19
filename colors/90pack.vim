@@ -11,6 +11,7 @@ endif
 
 " disable a few standard plugins
 let g:loaded_getscriptPlugin = 0
+let g:loaded_gzip = 0
 let g:loaded_logiPat = 0
 let g:loaded_netrwPlugin = 0
 let g:loaded_tarPlugin = 0
