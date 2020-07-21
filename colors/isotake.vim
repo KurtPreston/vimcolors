@@ -58,22 +58,25 @@ if &background == 'light'
   hi  vimGroupName  gui=NONE
 
 else
-  hi  Normal        guibg=#010b36        guifg=Grey80        ctermfg=7
-  hi  NonText       guifg=LavenderBlush  ctermfg=LightMagenta
-  hi  DiffDelete    guibg=DarkRed        guifg=Black           ctermbg=DarkRed   ctermfg=White
-  hi  DiffAdd       guibg=DarkGreen      ctermbg=DarkGreen     ctermfg=White
-  hi  DiffChange    guibg=Gray30         ctermbg=DarkCyan      ctermfg=White
-  hi  DiffText      gui=NONE             guibg=DarkCyan        ctermbg=DarkCyan  ctermfg=Yellow
-  hi  Comment       guifg=LightBlue
-  hi  PreProc       ctermfg=Magenta
-  hi  StatusLine    gui=NONE             guibg=DarkGreen       guifg=White       cterm=NONE      ctermfg=White  ctermbg=DarkGreen
-  hi  StatusLineNC  guifg=Gray
-  hi  VertSplit     guifg=Gray
-  hi  Type          gui=NONE             guifg=#7f98fa
-  hi  Identifier    guifg=Cyan
-  hi  Statement     guifg=Brown3         ctermfg=DarkRed
-  hi  Search        guibg=Gold3          ctermbg=43            ctermfg=15
-  hi  Folded        guibg=gray20
-  hi  FoldColumn    guibg=gray10
-  hi  FileName      gui=NONE             guibg=White           guifg=Blue
+  hi     Comment       guifg=LightBlue
+  hi     DiffAdd       guibg=DarkGreen      ctermbg=DarkGreen     ctermfg=White
+  hi     DiffChange    guibg=Gray30         ctermbg=DarkCyan      ctermfg=White
+  hi     DiffDelete    guibg=DarkRed        guifg=Black           ctermbg=DarkRed   ctermfg=White
+  hi     DiffText      gui=NONE             guibg=DarkCyan        ctermbg=DarkCyan  ctermfg=Yellow
+  hi     FileName      gui=NONE             guibg=White           guifg=Blue
+  hi     FoldColumn    guibg=gray10
+  hi     Folded        guibg=gray20
+  hi     Identifier    guifg=Cyan
+  hi     IncSearch     term=reverse         cterm=reverse         ctermbg=45        gui=reverse
+  hi     NonText       guifg=LavenderBlush  ctermfg=LightMagenta
+  hi     Normal        guibg=#010b36        guifg=Grey80          ctermfg=7
+  hi     PreProc       ctermfg=Magenta
+  hi     Search        guibg=Gold3          ctermbg=43            ctermfg=25
+  hi     SpellBad      ctermbg=213          ctermfg=0
+  hi     SpellCap      ctermbg=12           ctermfg=27
+  hi     Statement     guifg=Brown3         ctermfg=DarkRed
+  hi     StatusLine    guibg=DarkGreen      guifg=White           ctermfg=White     ctermbg=DarkGreen
+  hi     StatusLineNC  guifg=Gray
+  hi     Type          gui=NONE             guifg=#7f98fa
+  hi     VertSplit     guifg=Gray
 endif
