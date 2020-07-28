@@ -80,5 +80,6 @@ else
   hi  StatusLine    cterm=NONE           ctermbg=38
   hi  StatusLineNC  cterm=NONE           ctermbg=159           ctermfg=75
   hi  Type          gui=NONE             guifg=#7f98fa
+  hi  Visual        cterm=NONE           ctermbg=23
   hi  VertSplit     guifg=Gray
 endif
