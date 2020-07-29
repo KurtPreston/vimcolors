@@ -64,6 +64,15 @@ command! -range=% -bar -bang Trim
 command! -range -bar -bang Comment
     \ call comment#toggle(<line1>, <line2>, &preserveindent != <bang>0)
 
+" :[range]FixEncoding [encoding]
+" fix buffer encoding and line-endings
+command! -range=% -bar -nargs=? FixEncoding
+    \   let s:enc = !empty(<q-args>) ? <q-args> : executable('uchardet') ?
+    \       trim(system('uchardet', getline(<line1>, <line2>))) : 'char'
+    \ | keepj keepp Nomove <line1>,<line2>s/\(.\{-}\)\r\?$/\=iconv(submatch(1),
+    \       s:enc, better#or(&fenc, &enc))/
+    \ | unlet s:enc
+
 " :[range]Execute [winnr]
 " execute VimScript or any "shebang"-script
 command! -range=% -bar -nargs=? Execute

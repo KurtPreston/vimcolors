@@ -1,15 +1,17 @@
 " This is a part of my vim configuration.
 " https://github.com/matveyt/vimfiles
 
-" Note: Neovim has this by default
-if !has('nvim')
+if has('nvim')
+    " enable 'neoclip' to access the clipboard
+    packadd! neoclip
+else
     " enable 'matchit' plugin
     packadd! matchit
     " provide :Man command
     runtime! ftplugin/man.vim
 endif
 
-" disable a few standard plugins
+" disable some standard plugins
 let g:loaded_getscriptPlugin = 0
 let g:loaded_gzip = 0
 let g:loaded_logiPat = 0
@@ -20,9 +22,11 @@ let g:loaded_zipPlugin = 0
 
 " standard plugins config
 let g:asmsyntax = 'fasm'
-let g:c_comment_strings = 1
 let g:c_gnu = 1
+let g:c_comment_strings = 1
+let g:c_space_errors = 1
 let g:c_no_curly_error = 1
+let g:c_syntax_for_h = 1
 let g:is_bash = 1
 let g:sh_fold_enabled = 7
 let g:tex_conceal = ''
@@ -61,7 +65,9 @@ function s:setup_minpac() abort
     call minpac#add('lervag/vimtex')
 
     " my own plugins under ~/.vim/pack/bundle are not managed by minpac
+    " call minpac#add('matveyt/neoclip', {'type': 'opt'})
     " call minpac#add('matveyt/vim-drvo')
+    " call minpac#add('matveyt/vim-filters')
     " call minpac#add('matveyt/vim-jmake')
     " call minpac#add('matveyt/vim-modest')
     " call minpac#add('matveyt/vim-moveit')

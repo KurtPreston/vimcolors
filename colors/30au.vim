@@ -4,15 +4,6 @@
 augroup vimStartup | au!
     " :h restore-cursor
     autocmd BufRead * call setpos('.', getpos("'\""))
-    " auto-conversion to plain text
-    autocmd BufReadCmd,FileReadCmd *.doc,*.rtf
-        \ call s:docread('catdoc <afile>:p:S')
-    autocmd BufReadCmd,FileReadCmd *.docx,*.epub,*.fb2,*.odt
-        \ call s:docread('pandoc -t plain <afile>:p:S')
-    autocmd BufReadCmd,FileReadCmd *.djv,*.djvu
-        \ call s:docread('djvutxt <afile>:p:S')
-    autocmd BufReadCmd,FileReadCmd *.pdf
-        \ call s:docread('pdftotext -layout <afile>:p:S -')
     " 'q' to close a non-modifiable window/buffer (e.g. 'help')
     autocmd BufWinEnter *
         \   if !empty(&buftype)
@@ -29,16 +20,6 @@ augroup vimStartup | au!
         \ |     mksession! `=v:this_session`
         \ | endif
 augroup end
-
-function s:docread(cmd) abort
-    echo 'Please, wait...'
-    let l:blank = better#is_blank_buffer()
-    execute "silent '[read !" a:cmd
-    if l:blank
-        keepjumps 1delete_
-        setlocal buftype=nowrite bufhidden=hide filetype=text
-    endif
-endfunction
 
 function s:timestamp(text, format, lines) abort
     let l:svpos = winsaveview()

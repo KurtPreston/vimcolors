@@ -44,6 +44,6 @@ endif
 silent! let &statusline = stalin#build('mode,buffer,,flags,ruler')
 
 " if we have not opened anything yet then show MRU files list
-if !argc() && empty(v:this_session)
+if bufnr('$') == 1 && empty(bufname(1))
     MRU
 endif

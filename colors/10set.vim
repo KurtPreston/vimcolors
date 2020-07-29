@@ -43,7 +43,7 @@ set fillchars=vert:\ ,fold:\ ,diff:\
 
 " tabs, wraps and case
 set nojoinspaces nowrap ignorecase infercase smartcase
-set tabstop& expandtab softtabstop=-1 shiftround shiftwidth=4
+set tabstop& expandtab smarttab softtabstop=-1 shiftround shiftwidth=4
 set list listchars=tab:<->,trail:_ textwidth=89
 
 " Russian keyboard and spelling support
