@@ -2,7 +2,7 @@
 " https://github.com/matveyt/vimfiles
 
 " term_start() compatibility wrapper
-function! term#start(cmd, ...)
+function! term#start(cmd, ...) abort
     let l:opt = get(a:, 1, {})
     if exists('*term_start')
         return term_start(a:cmd, l:opt)
@@ -19,8 +19,8 @@ function! term#start(cmd, ...)
 endfunction
 
 " Check if buffer indeed is running a terminal process
-function! term#running(buf)
-    return getbufvar(a:buf, '&buftype') !=# 'terminal' ? 0 :
+function! term#running(buf) abort
+    return getbufvar(a:buf, '&buftype') isnot# 'terminal' ? 0 :
         \ has('terminal') ? term_getstatus(a:buf) =~# 'running' :
         \ has('nvim') ? jobwait([getbufvar(a:buf, '&channel')], 0)[0] == -1 :
         \ 0

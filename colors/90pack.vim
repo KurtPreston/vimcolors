@@ -79,13 +79,14 @@ endfunction
 
 " plugin-specific mappings
 nnoremap <leader>g :SignifyToggle<CR>
-nnoremap <leader>s :split +Scratch<CR>
+nnoremap <expr><leader>s printf(':%sScratch<CR>',
+    \ better#is_blank_buffer() ? '' : 'split +')
 nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
 " plugin-specific variables
 let g:indentLine_bufTypeExclude = ['quickfix', 'help', 'terminal', 'prompt', 'popup']
-let g:indentLine_fileTypeExclude = ['drvo', 'man']
+let g:indentLine_fileTypeExclude = ['drvo', 'man', 'xxd']
 let g:indentLine_autoResetWidth = 0
 let g:indentLine_faster = 1
 let g:indentLine_setColors = 0

@@ -68,7 +68,7 @@ endfunction
 " custom complete function
 " inoremap <C-X><C-F> <C-R>=misc#complete('[[:fname:]*?]\+', 'file')<CR>
 " :h ins-completion
-function! misc#complete(pat, type, ...)
+function! misc#complete(pat, type, ...) abort
     let l:filtered = get(a:, 1)
     let [_, l:lnum, l:col; _] = getcurpos()
     " find 'word' preceding cursor position
@@ -92,7 +92,7 @@ endfunction
 " set tagfunc=misc#urltags
 " :h tag-function
 if exists('+tagfunc')
-function! misc#urltags(pat, flags, info)
+function! misc#urltags(pat, flags, info) abort
     " may I use cursor context?
     if stridx(a:flags, 'c') >= 0
         " support :h g:netrw_gx

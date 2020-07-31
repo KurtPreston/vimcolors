@@ -3,7 +3,7 @@
 
 " preprocess VimScript to allow
 " :h line-continuation and :h line-continuation-comment
-function s:preprocess(script)
+function s:preprocess(script) abort
     if stridx(&cpo, 'C') < 0
         let [l:curr, l:last] = [1, len(a:script) - 1]
         while l:curr <= l:last
@@ -14,7 +14,7 @@ function s:preprocess(script)
                 let l:curr += 1
             else
                 " join line-continuation
-                if l:cont[1] ==# '\'
+                if l:cont[1] is# '\'
                     let a:script[l:curr - 1] .= l:cont[2]
                 endif
                 unlet a:script[l:curr]
@@ -25,7 +25,7 @@ function s:preprocess(script)
     return a:script
 endfunction
 
-function s:command(shebang, dosource, ...)
+function s:command(shebang, dosource, ...) abort
     let l:cmd = matchlist(a:shebang, '\v^#!\s*(\S+)\s*(.*)')[1:2]
     if empty(l:cmd)
         return
@@ -34,8 +34,8 @@ function s:command(shebang, dosource, ...)
         unlet l:cmd[1]
     endif
     " Note: even if we're running under plain Windows
-    " there can be Cygwin/MSYS out there
-    if l:cmd[0][0] ==# '/' && !has('unix')
+    " there can be MSYS/Cygwin out there
+    if l:cmd[0][0] is# '/' && !has('unix')
         " prepend 'env'
         call insert(l:cmd, 'env')
     endif
@@ -49,7 +49,7 @@ function! shebang#execute(buf, line1, line2, ...) abort
     " get buffer info
     let l:bufnr = bufnr(a:buf)
     if l:bufnr == -1 || !bufloaded(l:bufnr)
-        throw 'Invalid buffer ' . a:buf
+        throw 'Invalid buffer '..a:buf
     endif
     let l:fname = bufname(l:bufnr)
     " can we source a whole file?
@@ -60,7 +60,7 @@ function! shebang#execute(buf, line1, line2, ...) abort
     if !l:dosource
         let l:script = getbufline(l:bufnr, a:line1, a:line2)
         if empty(l:script)
-            throw 'Invalid line range ' . a:line1 . ',' . a:line2
+            throw 'Invalid line range: '..a:line1..','..a:line2
         endif
     endif
     " go to target Window

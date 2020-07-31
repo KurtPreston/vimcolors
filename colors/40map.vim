@@ -31,7 +31,9 @@ nnoremap <silent><C-kMinus>
 nnoremap <silent><C-kPlus>
     \ :<C-U>let &gfn = substitute(&gfn, '\d\+', '\=submatch(0)+'..v:count1, '')<CR>
 " <F12> to open terminal
-nnoremap <expr><silent><F12> has('nvim') ? ':split +terminal<CR>i' : ':terminal<CR>'
+nnoremap <expr><F12> printf(':%sterminal<CR>%s',
+    \ has('nvim') && !better#is_blank_buffer() ? 'split +' : '',
+    \ has('nvim') ? 'i' : '')
 " <Ctrl-N> to add new tab
 nnoremap <silent><C-N> :$tabnew<CR>
 " <Ctrl-S> to save file
