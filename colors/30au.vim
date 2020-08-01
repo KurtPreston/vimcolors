@@ -14,6 +14,10 @@ augroup vimStartup | au!
         \   if &modified && &modeline && &modelines > 0
         \ |     call s:timestamp('(Last Change|Date):', '%Y %b %d', &modelines)
         \ | endif
+    " highlight a selection on yank (see :h lua-highlight)
+    if has('nvim')
+        autocmd TextYankPost * lua vim.highlight.on_yank()
+    endif
     " save session on exit
     autocmd VimLeavePre *
         \   if !empty(v:this_session) && !v:dying
