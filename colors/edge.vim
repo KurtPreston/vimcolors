@@ -21,7 +21,7 @@ endif
 let s:configuration = edge#get_configuration()
 let s:palette = edge#get_palette(s:configuration.style)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Mon 29 Jun 2020 10:07:19 AM UTC'
+let s:last_modified = 'Mon 03 Aug 2020 03:45:05 AM UTC'
 let g:edge_loaded_file_types = []
 " }}}
 " Common Highlight Groups: {{{
@@ -134,13 +134,13 @@ if s:configuration.enable_italic
   call edge#highlight('Structure', s:palette.red, s:palette.none, 'italic')
   call edge#highlight('StorageClass', s:palette.red, s:palette.none, 'italic')
   call edge#highlight('Identifier', s:palette.cyan, s:palette.none, 'italic')
-  call edge#highlight('Constant', s:palette.cyan, s:palette.none, 'italic')
+  call edge#highlight('Constant', s:palette.yellow, s:palette.none, 'italic')
 else
   call edge#highlight('Type', s:palette.red, s:palette.none)
   call edge#highlight('Structure', s:palette.red, s:palette.none)
   call edge#highlight('StorageClass', s:palette.red, s:palette.none)
   call edge#highlight('Identifier', s:palette.cyan, s:palette.none)
-  call edge#highlight('Constant', s:palette.cyan, s:palette.none)
+  call edge#highlight('Constant', s:palette.yellow, s:palette.none)
 endif
 call edge#highlight('PreProc', s:palette.purple, s:palette.none)
 call edge#highlight('PreCondit', s:palette.purple, s:palette.none)
@@ -165,7 +165,7 @@ call edge#highlight('Float', s:palette.yellow, s:palette.none)
 call edge#highlight('Function', s:palette.blue, s:palette.none)
 call edge#highlight('Operator', s:palette.purple, s:palette.none)
 call edge#highlight('Title', s:palette.purple, s:palette.none, 'bold')
-call edge#highlight('Tag', s:palette.cyan, s:palette.none)
+call edge#highlight('Tag', s:palette.yellow, s:palette.none)
 call edge#highlight('Delimiter', s:palette.fg, s:palette.none)
 if s:configuration.disable_italic_comment
   call edge#highlight('Comment', s:palette.grey, s:palette.none)
@@ -280,12 +280,12 @@ endif
 highlight! link TSPunctDelimiter Grey
 highlight! link TSPunctBracket Fg
 highlight! link TSPunctSpecial Fg
-highlight! link TSConstant CyanItalic
-highlight! link TSConstBuiltin CyanItalic
+highlight! link TSConstant YellowItalic
+highlight! link TSConstBuiltin YellowItalic
 highlight! link TSConstMacro Cyan
 highlight! link TSString Green
-highlight! link TSStringRegex Blue
-highlight! link TSStringEscape Blue
+highlight! link TSStringRegex Yellow
+highlight! link TSStringEscape Yellow
 highlight! link TSCharacter Green
 highlight! link TSNumber Yellow
 highlight! link TSBoolean Yellow
@@ -696,21 +696,21 @@ highlight! link UndotreeSavedSmall Red
 " ft_begin: markdown {{{
 " builtin: {{{
 call edge#highlight('markdownH1', s:palette.purple, s:palette.none, 'bold')
-call edge#highlight('markdownH2', s:palette.cyan, s:palette.none, 'bold')
-call edge#highlight('markdownH3', s:palette.green, s:palette.none, 'bold')
-call edge#highlight('markdownH4', s:palette.blue, s:palette.none, 'bold')
-call edge#highlight('markdownH5', s:palette.red, s:palette.none, 'bold')
-call edge#highlight('markdownH6', s:palette.yellow, s:palette.none, 'bold')
-call edge#highlight('markdownUrl', s:palette.red, s:palette.none, 'underline')
+call edge#highlight('markdownH2', s:palette.red, s:palette.none, 'bold')
+call edge#highlight('markdownH3', s:palette.blue, s:palette.none, 'bold')
+call edge#highlight('markdownH4', s:palette.yellow, s:palette.none, 'bold')
+call edge#highlight('markdownH5', s:palette.green, s:palette.none, 'bold')
+call edge#highlight('markdownH6', s:palette.cyan, s:palette.none, 'bold')
+call edge#highlight('markdownUrl', s:palette.green, s:palette.none, 'underline')
 call edge#highlight('markdownItalic', s:palette.none, s:palette.none, 'italic')
 call edge#highlight('markdownBold', s:palette.none, s:palette.none, 'bold')
 call edge#highlight('markdownItalicDelimiter', s:palette.grey, s:palette.none, 'italic')
-highlight! link markdownCode Blue
-highlight! link markdownCodeBlock Blue
-highlight! link markdownCodeDelimiter Blue
+highlight! link markdownCode Green
+highlight! link markdownCodeBlock Green
+highlight! link markdownCodeDelimiter Green
 highlight! link markdownBlockquote Grey
-highlight! link markdownListMarker Purple
-highlight! link markdownOrdepurpleListMarker Purple
+highlight! link markdownListMarker Red
+highlight! link markdownOrdepurpleListMarker Red
 highlight! link markdownRule Yellow
 highlight! link markdownHeadingRule Grey
 highlight! link markdownUrlDelimiter Grey
@@ -724,14 +724,15 @@ highlight! link markdownBoldDelimiter Grey
 highlight! link markdownId Green
 " }}}
 " vim-markdown: https://github.com/gabrielelana/vim-markdown{{{
-call edge#highlight('mkdURL', s:palette.red, s:palette.none, 'underline')
-call edge#highlight('mkdInlineURL', s:palette.red, s:palette.none, 'underline')
+call edge#highlight('mkdURL', s:palette.green, s:palette.none, 'underline')
+call edge#highlight('mkdInlineURL', s:palette.green, s:palette.none, 'underline')
 call edge#highlight('mkdItalic', s:palette.grey, s:palette.none, 'italic')
-highlight! link mkdCodeDelimiter Blue
+highlight! link mkdCodeDelimiter Green
+highlight! link mkdCode Green
 highlight! link mkdBold Grey
 highlight! link mkdLink Purple
 highlight! link mkdHeading Grey
-highlight! link mkdListItem Purple
+highlight! link mkdListItem Red
 highlight! link mkdRule Yellow
 highlight! link mkdDelimiter Grey
 highlight! link mkdId Green
@@ -747,9 +748,11 @@ call edge#highlight('rstHyperlinkTarget', s:palette.red, s:palette.none, 'underl
 highlight! link rstSubstitutionReference Red
 highlight! link rstInterpretedTextOrHyperlinkReference Blue
 highlight! link rstTableLines Grey
-highlight! link rstInlineLiteral Blue
-highlight! link rstLiteralBlock Blue
-highlight! link rstQuotedLiteralBlock Blue
+highlight! link rstInlineLiteral Green
+highlight! link rstLiteralBlock Green
+highlight! link rstQuotedLiteralBlock Green
+highlight! link rstExplicitMarkup Red
+highlight! link rstDirective Red
 " }}}
 " ft_end }}}
 " ft_begin: tex {{{
@@ -769,11 +772,11 @@ highlight! link texInputFile Blue
 " ft_begin: html/markdown/javascriptreact/typescriptreact {{{
 " builtin: https://notabug.org/jorgesumle/vim-html-syntax{{{
 call edge#highlight('htmlH1', s:palette.purple, s:palette.none, 'bold')
-call edge#highlight('htmlH2', s:palette.cyan, s:palette.none, 'bold')
-call edge#highlight('htmlH3', s:palette.green, s:palette.none, 'bold')
-call edge#highlight('htmlH4', s:palette.blue, s:palette.none, 'bold')
-call edge#highlight('htmlH5', s:palette.red, s:palette.none, 'bold')
-call edge#highlight('htmlH6', s:palette.yellow, s:palette.none, 'bold')
+call edge#highlight('htmlH2', s:palette.red, s:palette.none, 'bold')
+call edge#highlight('htmlH3', s:palette.blue, s:palette.none, 'bold')
+call edge#highlight('htmlH4', s:palette.yellow, s:palette.none, 'bold')
+call edge#highlight('htmlH5', s:palette.green, s:palette.none, 'bold')
+call edge#highlight('htmlH6', s:palette.cyan, s:palette.none, 'bold')
 call edge#highlight('htmlLink', s:palette.none, s:palette.none, 'underline')
 call edge#highlight('htmlBold', s:palette.none, s:palette.none, 'bold')
 call edge#highlight('htmlBoldUnderline', s:palette.none, s:palette.none, 'bold,underline')
@@ -782,22 +785,22 @@ call edge#highlight('htmlBoldUnderlineItalic', s:palette.none, s:palette.none, '
 call edge#highlight('htmlUnderline', s:palette.none, s:palette.none, 'underline')
 call edge#highlight('htmlUnderlineItalic', s:palette.none, s:palette.none, 'underline,italic')
 call edge#highlight('htmlItalic', s:palette.none, s:palette.none, 'italic')
-highlight! link htmlTag Blue
-highlight! link htmlEndTag Red
+highlight! link htmlTag Purple
+highlight! link htmlEndTag Purple
 highlight! link htmlTagN PurpleItalic
 highlight! link htmlTagName PurpleItalic
 highlight! link htmlArg Red
-highlight! link htmlScriptTag Yellow
+highlight! link htmlScriptTag Blue
 highlight! link htmlSpecialTagName PurpleItalic
-highlight! link htmlString Blue
+highlight! link htmlString Green
 " }}}
 " ft_end }}}
 " ft_begin: xml {{{
 " builtin: https://github.com/chrisbra/vim-xml-ftplugin{{{
-highlight! link xmlTag Blue
-highlight! link xmlEndTag Red
+highlight! link xmlTag Purple
+highlight! link xmlEndTag Purple
 highlight! link xmlTagName PurpleItalic
-highlight! link xmlEqual Cyan
+highlight! link xmlEqual Blue
 highlight! link xmlAttrib Red
 highlight! link xmlEntity Purple
 highlight! link xmlEntityPunct Purple
@@ -805,13 +808,13 @@ highlight! link xmlDocTypeDecl Grey
 highlight! link xmlDocTypeKeyword PurpleItalic
 highlight! link xmlCdataStart Grey
 highlight! link xmlCdataCdata Yellow
-highlight! link xmlString Blue
+highlight! link xmlString Green
 " }}}
 " ft_end }}}
 " ft_begin: css/scss/sass/less {{{
 " builtin: https://github.com/JulesWang/css.vim{{{
-highlight! link cssStringQ Blue
-highlight! link cssStringQQ Blue
+highlight! link cssStringQ Green
+highlight! link cssStringQQ Green
 highlight! link cssAttrComma Grey
 highlight! link cssBraces Grey
 highlight! link cssTagName Yellow
@@ -821,20 +824,20 @@ highlight! link cssFunctionName Cyan
 highlight! link cssAttr Blue
 highlight! link cssCommonAttr Blue
 highlight! link cssProp Red
-highlight! link cssPseudoClassId Green
-highlight! link cssPseudoClassFn Blue
-highlight! link cssPseudoClass Green
+highlight! link cssPseudoClassId Blue
+highlight! link cssPseudoClassFn Cyan
+highlight! link cssPseudoClass Blue
 highlight! link cssImportant Purple
 highlight! link cssSelectorOp Cyan
 highlight! link cssSelectorOp2 Cyan
-highlight! link cssColor Blue
-highlight! link cssUnitDecorators Blue
-highlight! link cssValueLength Blue
-highlight! link cssValueInteger Blue
-highlight! link cssValueNumber Blue
-highlight! link cssValueAngle Blue
-highlight! link cssValueTime Blue
-highlight! link cssValueFrequency Blue
+highlight! link cssColor Green
+highlight! link cssUnitDecorators Green
+highlight! link cssValueLength Green
+highlight! link cssValueInteger Green
+highlight! link cssValueNumber Green
+highlight! link cssValueAngle Green
+highlight! link cssValueTime Green
+highlight! link cssValueFrequency Green
 highlight! link cssVendor Grey
 highlight! link cssNoise Grey
 " }}}
@@ -844,8 +847,8 @@ highlight! link cssNoise Grey
 highlight! link scssMixinName Cyan
 highlight! link scssSelectorChar Grey
 highlight! link scssSelectorName Purple
-highlight! link scssInterpolationDelimiter Green
-highlight! link scssVariableValue Blue
+highlight! link scssInterpolationDelimiter Blue
+highlight! link scssVariableValue Green
 highlight! link scssNull Yellow
 highlight! link scssBoolean Yellow
 highlight! link scssVariableAssignment Grey
@@ -864,7 +867,7 @@ highlight! link lessFunction Cyan
 " ft_end }}}
 " ft_begin: javascript/javascriptreact {{{
 " builtin: http://www.fleiner.com/vim/syntax/javascript.vim{{{
-highlight! link javaScriptNull CyanItalic
+highlight! link javaScriptNull YellowItalic
 highlight! link javaScriptIdentifier RedItalic
 highlight! link javaScriptParens Fg
 highlight! link javaScriptBraces Fg
@@ -879,11 +882,11 @@ highlight! link Noise Fg
 highlight! link jsParens Fg
 highlight! link jsBrackets Fg
 highlight! link jsObjectBraces Fg
-highlight! link jsThis RedItalic
-highlight! link jsUndefined CyanItalic
-highlight! link jsNull CyanItalic
-highlight! link jsNan CyanItalic
-highlight! link jsSuper CyanItalic
+highlight! link jsThis YellowItalic
+highlight! link jsUndefined YellowItalic
+highlight! link jsNull YellowItalic
+highlight! link jsNan YellowItalic
+highlight! link jsSuper YellowItalic
 highlight! link jsPrototype CyanItalic
 highlight! link jsFunction Purple
 highlight! link jsGlobalNodeObjects RedItalic
@@ -931,7 +934,7 @@ highlight! link javascriptTemplateSB Yellow
 highlight! link javascriptNodeGlobal RedItalic
 highlight! link javascriptDocTags PurpleItalic
 highlight! link javascriptDocNotation Red
-highlight! link javascriptClassSuper CyanItalic
+highlight! link javascriptClassSuper YellowItalic
 highlight! link javascriptClassName RedItalic
 highlight! link javascriptClassSuperName RedItalic
 highlight! link javascriptOperator Purple
@@ -1111,7 +1114,7 @@ highlight! link typescriptTemplateSB Yellow
 highlight! link typescriptExceptions Purple
 highlight! link typescriptCastKeyword Purple
 highlight! link typescriptOptionalMark Purple
-highlight! link typescriptNull CyanItalic
+highlight! link typescriptNull YellowItalic
 highlight! link typescriptMappedIn Purple
 highlight! link typescriptFuncTypeArrow Purple
 highlight! link typescriptTernaryOp Purple
@@ -1299,7 +1302,7 @@ highlight! link pythonOperator Purple
 highlight! link pythonConditional Purple
 highlight! link pythonRepeat Purple
 highlight! link pythonException Purple
-highlight! link pythonNone CyanItalic
+highlight! link pythonNone YellowItalic
 highlight! link pythonCoding Grey
 highlight! link pythonDot Grey
 " }}}
@@ -1378,7 +1381,7 @@ highlight! link scalaKeywordModifier Purple
 " ft_begin: go {{{
 " builtin: https://github.com/google/vim-ft-go{{{
 highlight! link goDirective Purple
-highlight! link goConstants CyanItalic
+highlight! link goConstants YellowItalic
 highlight! link goDeclType Purple
 " }}}
 " polyglot: {{{
@@ -1395,8 +1398,8 @@ highlight! link rustStructure Purple
 highlight! link rustIdentifier CyanItalic
 highlight! link rustModPath RedItalic
 highlight! link rustModPathSep Grey
-highlight! link rustSelf CyanItalic
-highlight! link rustSuper CyanItalic
+highlight! link rustSelf YellowItalic
+highlight! link rustSuper YellowItalic
 highlight! link rustDeriveTrait Yellow
 highlight! link rustEnumVariant Yellow
 highlight! link rustMacroVariable CyanItalic
@@ -1437,7 +1440,7 @@ highlight! link phpFunction Blue
 highlight! link phpMethod Blue
 highlight! link phpClass RedItalic
 highlight! link phpSuperglobals RedItalic
-highlight! link phpNullValue CyanItalic
+highlight! link phpNullValue YellowItalic
 " }}}
 " ft_end }}}
 " ft_begin: ruby {{{
@@ -1552,7 +1555,7 @@ highlight! link lispFunc Blue
 " builtin: https://github.com/guns/vim-clojure-static{{{
 highlight! link clojureMacro Purple
 highlight! link clojureFunc Blue
-highlight! link clojureConstant CyanItalic
+highlight! link clojureConstant YellowItalic
 highlight! link clojureSpecial Purple
 highlight! link clojureDefine Purple
 highlight! link clojureKeyword Red
@@ -1741,7 +1744,7 @@ highlight! link cmakeKWwrite_file Blue
 " ft_end }}}
 " ft_begin: json {{{
 highlight! link jsonKeyword Purple
-highlight! link jsonString Blue
+highlight! link jsonString Green
 highlight! link jsonBoolean Red
 highlight! link jsonNoise Grey
 highlight! link jsonQuote Grey
@@ -1750,19 +1753,19 @@ highlight! link jsonBraces Fg
 " ft_begin: yaml {{{
 highlight! link yamlKey Purple
 highlight! link yamlConstant RedItalic
-highlight! link yamlString Blue
+highlight! link yamlString Green
 " ft_end }}}
 " ft_begin: toml {{{
-call edge#highlight('tomlTable', s:palette.yellow, s:palette.none, 'bold')
-highlight! link tomlKey Purple
-highlight! link tomlBoolean Red
-highlight! link tomlString Blue
+call edge#highlight('tomlTable', s:palette.purple, s:palette.none, 'bold')
+highlight! link tomlKey Red
+highlight! link tomlBoolean Yellow
+highlight! link tomlString Green
 highlight! link tomlTableArray tomlTable
 " ft_end }}}
 " ft_begin: diff/git {{{
-highlight! link diffAdded Blue
-highlight! link diffRemoved Purple
-highlight! link diffChanged Red
+highlight! link diffAdded Green
+highlight! link diffRemoved Red
+highlight! link diffChanged Blue
 highlight! link diffOldFile Green
 highlight! link diffNewFile Cyan
 highlight! link diffFile Yellow
