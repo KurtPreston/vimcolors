@@ -155,3 +155,10 @@ hi link diffNoEOL          WarningMsg
 hi link diffOnly           WarningMsg
 hi link diffRemoved        WarningMsg
 hi link diffAdded          String
+
+call matchadd('Todo', 'IDEA')
+call matchadd('Todo', 'NOTE')
+call matchadd('Todo', 'MAGIC')
+call matchadd('Todo', 'AUTHOR')
+call matchadd('Todo', 'EXAMPLE')
+call matchadd('Todo', 'QUESTION')
