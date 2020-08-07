@@ -72,6 +72,7 @@ else
   hi  IncSearch     term=reverse         cterm=reverse         ctermbg=45        gui=reverse
   hi  NonText       guifg=LavenderBlush  ctermfg=LightMagenta
   hi  Normal        guibg=#010b36        guifg=Grey80          ctermfg=7
+  hi  PmenuSel      ctermbg=38           ctermfg=22
   hi  PreProc       ctermfg=Magenta
   hi  Search        guibg=Gold3          ctermbg=43            ctermfg=25
   hi  SpellBad      ctermbg=213          ctermfg=0

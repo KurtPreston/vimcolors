@@ -3,14 +3,11 @@
 
 if better#gui_running()
     " +++++ GUI +++++
-    let &guifont = printf('Inconsolata LGC%s14', has('win32') ? ':h' : ' ')
+    let &guifont = printf('Inconsolata LGC%s14', has('gui_gtk') ? ' ' : ':h')
     if has('directx')
         set renderoptions=type:directx
     endif
-    if has('win32')
-        " directory/file Unicode glyphs
-        let g:drvo_glyph = [0x1F4C2, 0x1F4C4]
-    endif
+    let g:drvo_glyph = [0x1F4C2, 0x1F4C4]
     if exists('*rpcnotify')
         " disable GUI Popupmenu in Neovim
         call rpcnotify(0, 'Gui', 'Option', 'Popupmenu', 0)
