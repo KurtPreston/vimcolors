@@ -4,7 +4,9 @@
 " :DiffOrig
 " stolen from $VIMRUNTIME/defaults.vim
 command! -bar DiffOrig
-    \   vnew +set\ buftype=nofile
+    \   vnew +setlocal\ bufhidden=wipe\ buftype=nofile\ noswapfile
+    \ | let &filetype = getbufvar(0, '&filetype')
+    \ | execute 'nnoremap <buffer>q <C-W>q'
     \ | read ++edit #
     \ | 1delete_
     \ | diffthis

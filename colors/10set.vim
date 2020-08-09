@@ -2,12 +2,13 @@
 " https://github.com/matveyt/vimfiles
 
 compiler! gcc
-set fileformats=unix,dos grepprg=grep\ -nH keywordprg=:Man
+
 set shell=bash shellcmdflag=-c shellredir=>%s\ 2>&1 noshelltemp
 set shellquote= shellxescape= shellxquote=
 if has('win32')
-    " prevent MSYS apps (Git etc.) from expanding wildcards on their own
+    " prevent MSYS/Cygwin apps (Git etc.) from expanding wildcards
     let $MSYS = 'noglob'
+    let $CYGWIN = 'noglob'
     if !has('nvim')
         " needed for Vim on Windows
         set shellxquote=\"
@@ -17,6 +18,7 @@ endif
 " note: move cursor and press 'K' to get help on a particular option
 set autoread backspace=indent,eol,start belloff=all colorcolumn=+1
 set complete=.,w,b,t confirm cursorline display=truncate
+set fileformats=unix,dos grepformat=%f:%l:%c:%m keywordprg=:Man
 set guioptions-=t guioptions+=! guicursor+=a:blinkon0 history=1000
 set incsearch lazyredraw nrformats-=octal scrolloff=3 splitright
 set ttimeout ttimeoutlen=100 wildmenu
@@ -25,6 +27,7 @@ set laststatus=2 mouse=ar number showmatch showtabline=2 title
 set nohlsearch nolangremap noruler noshowcmd noshowmode noswapfile nowritebackup
 set sessionoptions=blank,curdir,help,tabpages,winsize,slash,unix
 set switchbuf=usetab,split undofile virtualedit=all
+let &grepprg = executable('ag') ? 'ag --vimgrep' : 'internal'
 let &undodir = g:dotvim..'/undo'
 if exists('+inccommand')
     set inccommand=split

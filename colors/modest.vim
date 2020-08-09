@@ -1,6 +1,6 @@
 " Vim color file
 " Maintainer:   matveyt
-" Last Change:  2020 Jul 29
+" Last Change:  2020 Aug 09
 " License:      VIM License
 " URL:          https://github.com/matveyt/vim-modest
 
@@ -17,14 +17,14 @@ let g:colors_name = 'modest'
 let s:palette = {}
 let s:palette.Eigengrau     = ['#16161d', 234, 'Black']
 let s:palette.Grey19        = ['#272733', 236, 'NONE']
-let s:palette.GreyGreen     = ['#5e716a', 242, 'DarkGrey']
+let s:palette.GreyGreen     = ['#5e716a', 242, has('nvim') ? 8 : 'DarkGrey']
 let s:palette.AshGrey       = ['#b2beb5', 250, 'LightGrey']
 let s:palette.Grey85        = ['#e6e6cf', 187, 'NONE']
 let s:palette.Beige         = ['#f5f5dc', 230, 'White']
 let s:palette.EgyptianBlue  = ['#1034a6',  19, 'DarkBlue']
 let s:palette.LightSeaGreen = ['#20b2aa',  37, 'DarkCyan']
 let s:palette.Mantis        = ['#74c365',  77, 'DarkGreen']
-let s:palette.DarkChestnut  = ['#986960',  95, 'Brown']
+let s:palette.DarkChestnut  = ['#986960',  95, 'DarkYellow']
 
 function s:hilite(group, fg, bg, ...) abort
     if !a:0
@@ -36,10 +36,15 @@ function s:hilite(group, fg, bg, ...) abort
     endif
     let l:fg = get(s:palette, a:fg, [a:fg, a:fg, a:fg])
     let l:bg = get(s:palette, a:bg, [a:bg, a:bg, a:bg])
+    if exists('g:colors_8bit')
+        let l:ict = g:colors_8bit ? 1 : 2
+    else
+        let l:ict = (&t_Co >= 256) ? 1 : 2
+    endif
+    let l:ctermfg = 'ctermfg='..l:fg[l:ict]
+    let l:ctermbg = 'ctermbg='..l:bg[l:ict]
     let l:guifg = 'guifg='..l:fg[0]
     let l:guibg = 'guibg='..l:bg[0]
-    let l:ctermfg = 'ctermfg='..l:fg[1 + (&t_Co<256)]
-    let l:ctermbg = 'ctermbg='..l:bg[1 + (&t_Co<256)]
     execute 'hi' a:group l:term l:ctermfg l:ctermbg l:guifg l:guibg
 endfunction
 
@@ -65,7 +70,7 @@ function s:setansicolors(...) abort
     endfor
 endfunction
 
-if &bg is# 'dark'
+if &background is# 'dark'
     call s:hilite('Normal', 'AshGrey', 'Eigengrau')
     call s:hilite('Statement', 'Mantis', 'NONE', 'NONE')
     call s:hilite('CursorLine', 'NONE', 'Grey19', 'NONE')

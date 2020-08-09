@@ -84,7 +84,7 @@ noremap <expr><silent><plug>ie textobj#set_lines(nextnonblank(1), prevnonblank('
 noremap <expr><silent><plug>al
     \ textobj#set_chars(textobj#pos('.', 1), textobj#pos('.', col('$') - 1))
 noremap <expr><silent><plug>il
-    \ textobj#set_chars(textobj#pos('.', '^\s*\zs'), textobj#pos('.', '\S\s*$'))
+    \ textobj#set_chars(textobj#pos('.', '\S'), textobj#pos('.', '\S\s*$'))
 omap ae <plug>ae
 xmap ae <plug>ae
 omap ie <plug>ie
