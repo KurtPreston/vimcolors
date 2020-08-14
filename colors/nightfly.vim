@@ -130,7 +130,7 @@ exec "highlight Boolean guifg=" . s:watermelon
 " Identifiers.
 exec "highlight Identifier guifg=" . s:turquoise
 
-" Color of titles, e.g in HTML files and Tagbar.
+" Color of titles.
 exec "highlight Title guifg=" . s:orange . " gui=none"
 
 " const, static.
@@ -365,6 +365,12 @@ exec "highlight haskellType guifg=" . s:blue
 exec "highlight haskellWhere guifg=" . s:violet
 
 " HTML
+exec "highlight htmlH1 guifg=" . s:violet
+exec "highlight htmlH2 guifg=" . s:violet
+exec "highlight htmlH3 guifg=" . s:violet
+exec "highlight htmlH4 guifg=" . s:violet
+exec "highlight htmlH5 guifg=" . s:violet
+exec "highlight htmlH6 guifg=" . s:violet
 exec "highlight htmlArg guifg=" . s:blue
 exec "highlight htmlLink guifg=" . s:green
 exec "highlight htmlEndTag guifg=" . s:purple
@@ -433,6 +439,15 @@ highlight link mkdLineBreak NormalNC
 exec "highlight mkdDelimiter guifg=" . s:white
 exec "highlight mkdListItem guifg=" . s:blue
 exec "highlight mkdURL guifg=" . s:purple
+augroup NightflyMarkdown
+    autocmd!
+    autocmd FileType markdown exec "highlight htmlH1 guifg=" . s:orange
+    autocmd FileType markdown exec "highlight htmlH2 guifg=" . s:orange
+    autocmd FileType markdown exec "highlight htmlH3 guifg=" . s:orange
+    autocmd FileType markdown exec "highlight htmlH4 guifg=" . s:orange
+    autocmd FileType markdown exec "highlight htmlH5 guifg=" . s:orange
+    autocmd FileType markdown exec "highlight htmlH6 guifg=" . s:orange
+augroup END
 
 " PHP
 exec "highlight phpClass guifg=" . s:emerald
@@ -647,6 +662,8 @@ exec "highlight vimfilerROFile guifg=" . s:grey_blue
 " fern.vim plugin
 exec "highlight FernBranchSymbol guifg=" . s:green
 exec "highlight FernBranchText guifg=" . s:blue
+exec "highlight FernMarkedLine guifg=" . s:orange
+exec "highlight FernMarkedText guifg=" . s:orange
 exec "highlight FernRootSymbol guifg=" . s:purple
 exec "highlight FernRootText guifg=" . s:purple
 
