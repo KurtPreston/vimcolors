@@ -26,8 +26,8 @@ endfunction
 " better#gui_running()
 " Vim/Neovim compatibility
 function! better#gui_running() abort
-    return has('gui_running') ||
-        \ exists('*nvim_list_uis') && nvim_list_uis()[-1].chan > 0
+    return has('gui_running') || exists('*nvim_list_uis') &&
+        \ !empty(nvim_list_uis()) && nvim_list_uis()[-1].chan > 0
 endfunction
 
 " better#is_blank_buffer()
