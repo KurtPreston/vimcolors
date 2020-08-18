@@ -98,8 +98,8 @@ let s:cdDiffRedLightLight = {'gui': '#FB0101', 'cterm': s:cterm08, 'cterm256': '
 let s:cdDiffGreenDark = {'gui': '#373D29', 'cterm': s:cterm0B, 'cterm256': '237'}
 let s:cdDiffGreenLight = {'gui': '#4B5632', 'cterm': s:cterm09, 'cterm256': '58'}
 
-let s:cdSearchCurrent = {'gui': '#49545F', 'cterm': s:cterm09, 'cterm256': '236'}
-let s:cdSearch = {'gui': '#4C4E50', 'cterm': s:cterm0A, 'cterm256': '236'}
+let s:cdSearchCurrent = {'gui': '#4B5632', 'cterm': s:cterm09, 'cterm256': '58'} 
+let s:cdSearch = {'gui': '#264F78', 'cterm': s:cterm03, 'cterm256': '24'}
 
 " Syntax colors:
 
@@ -158,9 +158,6 @@ call <sid>hi('PmenuThumb', {}, s:cdPopupFront, 'none', {})
 call <sid>hi('Question', s:cdBlue, s:cdBack, 'none', {})
 call <sid>hi('Search', s:cdNone, s:cdSearch, 'none', {})
 call <sid>hi('SpecialKey', s:cdBlue, s:cdNone, 'none', {})
-call <sid>hi('SpellBad', s:cdNone, s:cdNone, 'undercurl', {})
-call <sid>hi('SpellCap', s:cdNone, s:cdNone, 'undercurl', {})
-call <sid>hi('SpellLocal', s:cdNone, s:cdNone, 'undercurl', {})
 call <sid>hi('StatusLine', s:cdFront, s:cdLeftMid, 'none', {})
 call <sid>hi('StatusLineNC', s:cdFront, s:cdLeftDark, 'none', {})
 call <sid>hi('TabLine', s:cdFront, s:cdTabOther, 'none', {})
@@ -203,7 +200,7 @@ call <sid>hi('StorageClass', s:cdBlue, {}, 'none', {})
 call <sid>hi('Structure', s:cdBlue, {}, 'none', {})
 call <sid>hi('Typedef', s:cdBlue, {}, 'none', {})
 
-call <sid>hi('Special', s:cdFront, {}, 'none', {})
+call <sid>hi('Special', s:cdYellowOrange, {}, 'none', {})
 call <sid>hi('SpecialChar', s:cdFront, {}, 'none', {})
 call <sid>hi('Tag', s:cdFront, {}, 'none', {})
 call <sid>hi('Delimiter', s:cdFront, {}, 'none', {})
@@ -218,6 +215,11 @@ call <sid>hi('Ignore', s:cdFront, {}, 'none', {})
 call <sid>hi('Error', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 
 call <sid>hi('Todo', s:cdNone, s:cdLeftMid, 'none', {})
+
+call <sid>hi('SpellBad', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellCap', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellRare', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellLocal', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 
 " Markdown:
 call <sid>hi('markdownBold', s:cdBlue, {}, 'bold', {})
@@ -244,6 +246,16 @@ call <sid>hi('htmlTagName', s:cdBlue, {}, 'none', {})
 call <sid>hi('htmlSpecialTagName', s:cdBlue, {}, 'none', {})
 call <sid>hi('htmlArg', s:cdLightBlue, {}, 'none', {})
 
+" PHP:
+call <sid>hi('phpStaticClasses', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('phpMethod', s:cdYellow, {}, 'none', {})
+call <sid>hi('phpClass', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('phpFunction', s:cdYellow, {}, 'none', {})
+call <sid>hi('phpInclude', s:cdBlue, {}, 'none', {})
+call <sid>hi('phpUseClass', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('phpRegion', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('phpMethodsVar', s:cdLightBlue, {}, 'none', {})
+
 " CSS:
 call <sid>hi('cssBraces', s:cdFront, {}, 'none', {})
 call <sid>hi('cssInclude', s:cdPink, {}, 'none', {})
@@ -264,10 +276,13 @@ call <sid>hi('cssVendor', s:cdOrange, {}, 'none', {})
 call <sid>hi('cssValueNumber', s:cdOrange, {}, 'none', {})
 call <sid>hi('cssValueLength', s:cdOrange, {}, 'none', {})
 call <sid>hi('cssUnitDecorators', s:cdOrange, {}, 'none', {})
+call <sid>hi('cssStyle', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('cssImportant', s:cdBlue, {}, 'none', {})
 
 " JavaScript:
 call <sid>hi('jsVariableDef', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('jsFuncArgs', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('jsFuncBlock', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('jsRegexpString', s:cdLightRed, {}, 'none', {})
 call <sid>hi('jsThis', s:cdBlue, {}, 'none', {})
 call <sid>hi('jsOperatorKeyword', s:cdBlue, {}, 'none', {})
@@ -283,6 +298,10 @@ call <sid>hi('jsFuncCall', s:cdYellow, {}, 'none', {})
 call <sid>hi('jsObjectValue', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('jsParen', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('jsObjectProp', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('jsIfElseBlock', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('jsParenIfElse', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('jsSpreadOperator', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('jsSpreadExpression', s:cdLightBlue, {}, 'none', {})
 
 " Typescript:
 call <sid>hi('typescriptLabel', s:cdLightBlue, {}, 'none', {})
@@ -430,6 +449,17 @@ call <sid>hi('luaFuncArgName', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('luaFuncKeyword', s:cdPink, {}, 'none', {})
 call <sid>hi('luaLocal', s:cdPink, {}, 'none', {})
 call <sid>hi('luaBuiltIn', s:cdBlue, {}, 'none', {})
+
+" SH:
+call <sid>hi('shDeref', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('shVariable', s:cdLightBlue, {}, 'none', {})
+
+" SQL:
+call <sid>hi('sqlKeyword', s:cdPink, {}, 'none', {})
+call <sid>hi('sqlFunction', s:cdYellowOrange, {}, 'none', {})
+call <sid>hi('sqlOperator', s:cdPink, {}, 'none', {})
+
 " YAML:
 call <sid>hi('yamlKey', s:cdBlue, {}, 'none', {})
 call <sid>hi('yamlConstant', s:cdBlue, {}, 'none', {})
+
