@@ -76,10 +76,10 @@ hi       IncSearch guifg=#2c4e6c guibg=#ffffff gui=none
 hi      StatusLine guifg=#74a0c7 guibg=#2c4e6c gui=none
 hi    StatusLineNC guifg=#74a0c7 guibg=#2c4e6c gui=none
 hi        WildMenu guifg=#74a0c7 guibg=#2c4e6c gui=none
-hi        Question guifg=#b8edab guibg=none    gui=none
-hi           Title guifg=none    guibg=none    gui=none
-hi         ModeMsg guifg=none    guibg=none    gui=none
-hi         MoreMsg guifg=none    guibg=none    gui=none
+hi        Question guifg=#ede0ab guibg=none    gui=none
+hi           Title guifg=#ede0ab guibg=none    gui=none
+hi         ModeMsg guifg=#ede0ab guibg=none    gui=none
+hi         MoreMsg guifg=#ede0ab guibg=none    gui=none
 
 " --------------
 " - Visual aid -
@@ -122,14 +122,14 @@ hi          Repeat guifg=#b8edab guibg=none    gui=none
 hi           Label guifg=#b8edab guibg=none    gui=none
 hi        Operator guifg=#abede0 guibg=none    gui=none
 hi         Keyword guifg=#b8edab guibg=none    gui=none
-hi       Exception guifg=#ede0ab guibg=none    gui=none
+hi       Exception guifg=#b8edab guibg=none    gui=none
 
 hi         Special guifg=#abede0 guibg=none    gui=none
 hi     SpecialChar guifg=#abede0 guibg=none    gui=none
 hi             Tag guifg=#abede0 guibg=none    gui=none
 hi       Delimiter guifg=#74a0c7 guibg=none    gui=none
 hi  SpecialComment guifg=#ede0ab guibg=none    gui=none
-hi           Debug guifg=#abede0 guibg=none    gui=none
+hi           Debug guifg=#ede0ab guibg=none    gui=none
 
 " ----------
 " - C like -
@@ -140,8 +140,8 @@ hi          Define guifg=#b8edab guibg=none    gui=none
 hi           Macro guifg=#b8edab guibg=none    gui=none
 hi       PreCondit guifg=#b8edab guibg=none    gui=none
 
-hi            Type guifg=none    guibg=none    gui=none
-hi    StorageClass guifg=none    guibg=none    gui=none
+hi            Type guifg=#74a0c7 guibg=none    gui=none
+hi    StorageClass guifg=#74a0c7 guibg=none    gui=none
 hi       Structure guifg=#b8edab guibg=none    gui=none
 hi         Typedef guifg=#b8edab guibg=none    gui=none
 
