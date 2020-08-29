@@ -54,3 +54,6 @@ if v:lang =~? '^ru'
     set keymap=russian-jcukenwin spelllang=ru_yo,en
     set iminsert& imsearch&
 endif
+
+" 256-color terminals w/o TrueColor
+let g:term256only = ['Apple_Terminal']

@@ -9,12 +9,15 @@ if better#gui_running()
     endif
     let g:drvo_glyph = [0x1F4C2, 0x1F4C4]
     if exists('*rpcnotify')
-        " disable GUI Popupmenu in Neovim
+        " disable GUI Popupmenu in Neovim-Qt
         call rpcnotify(0, 'Gui', 'Option', 'Popupmenu', 0)
     endif
 elseif &t_Co >= 256
-    " +++++ TrueColor terminal +++++
-    set termguicolors
+    " +++++ 256-color terminal +++++
+    if index(g:term256only, $TERM_PROGRAM) < 0
+        " TrueColor support
+        set termguicolors
+    endif
     if !has('nvim')
         set ttyfast
         if has('mouse_sgr')
