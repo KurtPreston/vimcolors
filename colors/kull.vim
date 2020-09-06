@@ -10,7 +10,7 @@ set background=dark
 hi Normal           ctermfg=grey  ctermbg=none cterm=none
 
 hi Cursor           ctermfg=white ctermbg=none cterm=none
-hi IncSearch        ctermfg=235   ctermbg=131  cterm=none
+hi IncSearch        ctermfg=235   ctermbg=187  cterm=none
 hi Search           ctermfg=235   ctermbg=187  cterm=none
 hi Visual           ctermfg=110   ctermbg=235  cterm=reverse
 hi VisualNOS        ctermfg=white ctermbg=none cterm=reverse
@@ -30,6 +30,7 @@ hi DiffDelete       ctermfg=grey  ctermbg=none cterm=none
 hi DiffText         ctermfg=grey  ctermbg=none cterm=none
 hi Directory        ctermfg=grey  ctermbg=none cterm=none
 hi Error            ctermfg=grey  ctermbg=none cterm=none
+hi ErrorMsg         ctermfg=0
 hi Folded           ctermfg=grey  ctermbg=none cterm=none
 hi Function         ctermfg=grey  ctermbg=none cterm=bold
 hi Identifier       ctermfg=grey  ctermbg=none cterm=none
@@ -68,12 +69,12 @@ hi htmlTagN         ctermfg=grey  ctermbg=none cterm=bold
 hi rubySymbol       ctermfg=grey  ctermbg=none cterm=none
 hi vimHiTerm        ctermfg=grey  ctermbg=none cterm=none
 hi vimGroupName     ctermfg=grey  ctermbg=none cterm=none
-hi CurrentWordTwins ctermfg=grey  ctermbg=22   cterm=none
+hi CurrentWordTwins ctermfg=grey  ctermbg=240  cterm=none
 hi Delimiter        ctermfg=grey  ctermbg=none cterm=none
 hi Conceal          ctermfg=108   ctermbg=none cterm=bold
 
-hi goParamName   ctermfg=grey  ctermbg=none cterm=bold,italic
-hi goParamType   ctermfg=grey  ctermbg=none cterm=none
+hi goParamName      ctermfg=grey  ctermbg=none cterm=bold,italic
+hi goParamType      ctermfg=grey  ctermbg=none cterm=none
 hi goFunctionCall   ctermfg=grey  ctermbg=none cterm=none
 
 hi texSpecialChar   ctermfg=243   ctermbg=none cterm=none
