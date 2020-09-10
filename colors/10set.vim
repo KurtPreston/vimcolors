@@ -20,8 +20,8 @@ set autoread backspace=indent,eol,start belloff=all colorcolumn=+1
 set complete=.,w,b,t confirm cursorline display=truncate
 set fileformats=unix,dos grepformat=%f:%l:%c:%m keywordprg=:Man
 set guioptions-=t guioptions+=! guicursor+=a:blinkon0 history=1000
-set incsearch lazyredraw nrformats-=octal scrolloff=3 splitright
-set ttimeout ttimeoutlen=100 wildmenu
+set incsearch lazyredraw nrformats=alpha,bin,hex pyxversion=3
+set scrolloff=2 splitright ttimeout ttimeoutlen=100 wildmenu
 set keymodel=startsel mousemodel=popup selection=exclusive
 set laststatus=2 mouse=ar number showmatch showtabline=2 title
 set nohlsearch nolangremap noruler noshowcmd noshowmode noswapfile nowritebackup
@@ -41,7 +41,7 @@ endif
 
 " indents and folds
 set autoindent smartindent formatoptions=tcrqj matchpairs+=<:>
-set foldmethod=indent foldcolumn=1 foldlevel=1
+set foldmethod=indent foldcolumn=1 foldlevel=3
 set fillchars=vert:\ ,fold:\ ,diff:\ 
 
 " tabs, wraps and case
