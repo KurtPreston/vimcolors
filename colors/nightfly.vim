@@ -142,6 +142,9 @@ exec "highlight Type guifg=" . s:emerald . " gui=none"
 " Numbers.
 exec "highlight Constant guifg=" . s:orange
 
+" Character constants.
+exec "highlight Character guifg=" . s:purple
+
 " Exceptions.
 exec "highlight Exception guifg=" . s:watermelon
 
@@ -215,10 +218,8 @@ endif
 
 " Neovim Treesitter.
 exec "highlight TSAnnotation guifg=" . s:violet
-exec "highlight TSBoolean guifg=" . s:purple
 exec "highlight TSConstBuiltin guifg=" . s:green
 exec "highlight TSConstMacro guifg=" . s:violet
-exec "highlight TSConstant guifg=" . s:purple
 exec "highlight TSConstructor guifg=" . s:emerald
 exec "highlight TSError guibg=bg guifg=" . s:red
 exec "highlight TSFuncBuiltin guifg=" . s:blue
@@ -227,10 +228,18 @@ exec "highlight TSInclude guifg=" . s:watermelon
 exec "highlight TSParameter guifg=" . s:white
 exec "highlight TSPunctSpecial guifg=" . s:watermelon
 exec "highlight TSVariableBuiltin guifg=" . s:green
-augroup MoonflyTreesitter
+augroup NightflyColorsTreesitter
     autocmd!
+    " Defaults.
+    autocmd FileType * exec "highlight TSConstant guifg=" . s:purple
+    autocmd FileType * exec "highlight TSPunctBracket guifg=" . s:white
+    autocmd FileType * exec "highlight TSType guifg=" . s:emerald
+    autocmd FileType * exec "highlight TSVariable guifg=" . s:white
+    " File type overrides.
+    autocmd FileType sh   exec "highlight TSConstant guifg=" . s:turquoise
+    autocmd FileType html exec "highlight TSPunctBracket guifg=" . s:lime
     autocmd FileType html exec "highlight TSType guifg=" . s:blue
-    autocmd FileType html exec "highlight TSPunctBracket guifg=" . s:green
+    autocmd FileType sh   exec "highlight TSVariable guifg=" . s:turquoise
 augroup END
 
 " Misc.
@@ -277,7 +286,6 @@ exec "highlight cPreCondit guifg=" . s:violet
 exec "highlight cStatement guifg=" . s:violet
 exec "highlight cStructure guifg=" . s:orange
 exec "highlight cppAccess guifg=" . s:green
-exec "highlight cppBoolean guifg=" . s:yellow
 exec "highlight cppCast guifg=" . s:turquoise
 exec "highlight cppCustomClass guifg=" . s:turquoise
 exec "highlight cppExceptions guifg=" . s:green
@@ -385,12 +393,6 @@ exec "highlight haskellType guifg=" . s:blue
 exec "highlight haskellWhere guifg=" . s:violet
 
 " HTML
-exec "highlight htmlH1 guifg=" . s:violet
-exec "highlight htmlH2 guifg=" . s:violet
-exec "highlight htmlH3 guifg=" . s:violet
-exec "highlight htmlH4 guifg=" . s:violet
-exec "highlight htmlH5 guifg=" . s:violet
-exec "highlight htmlH6 guifg=" . s:violet
 exec "highlight htmlArg guifg=" . s:blue
 exec "highlight htmlLink guifg=" . s:green
 exec "highlight htmlEndTag guifg=" . s:purple
@@ -409,6 +411,23 @@ else
     exec "highlight htmlItalic guifg=" . s:cadet_blue " gui=none"
     exec "highlight htmlUnderlineItalic guibg=" . s:black . " guifg=" . s:cadet_blue
 endif
+augroup NightflyColorsHTML
+    autocmd!
+    " Defaults.
+    autocmd FileType html highlight! link htmlH1 Statement
+    autocmd FileType html highlight! link htmlH2 Statement
+    autocmd FileType html highlight! link htmlH3 Statement
+    autocmd FileType html highlight! link htmlH4 Statement
+    autocmd FileType html highlight! link htmlH5 Statement
+    autocmd FileType html highlight! link htmlH5 Statement
+    " File type overrides.
+    autocmd FileType markdown highlight! link htmlH1 Title
+    autocmd FileType markdown highlight! link htmlH2 Title
+    autocmd FileType markdown highlight! link htmlH3 Title
+    autocmd FileType markdown highlight! link htmlH4 Title
+    autocmd FileType markdown highlight! link htmlH5 Title
+    autocmd FileType markdown highlight! link htmlH6 Title
+augroup END
 
 " Java
 exec "highlight javaAnnotation guifg=" . s:green
@@ -459,15 +478,6 @@ highlight link mkdLineBreak NormalNC
 exec "highlight mkdDelimiter guifg=" . s:white
 exec "highlight mkdListItem guifg=" . s:blue
 exec "highlight mkdURL guifg=" . s:purple
-augroup NightflyMarkdown
-    autocmd!
-    autocmd FileType markdown exec "highlight htmlH1 guifg=" . s:orange
-    autocmd FileType markdown exec "highlight htmlH2 guifg=" . s:orange
-    autocmd FileType markdown exec "highlight htmlH3 guifg=" . s:orange
-    autocmd FileType markdown exec "highlight htmlH4 guifg=" . s:orange
-    autocmd FileType markdown exec "highlight htmlH5 guifg=" . s:orange
-    autocmd FileType markdown exec "highlight htmlH6 guifg=" . s:orange
-augroup END
 
 " PHP
 exec "highlight phpClass guifg=" . s:emerald
@@ -802,3 +812,8 @@ endif
 exec "highlight MatchWordCur guibg=bg"
 exec "highlight Cheat40Header guifg=" . s:blue
 exec "highlight Beacon guibg=" . s:white
+
+augroup NightflyColorsEvents
+    autocmd!
+    autocmd ColorScheme * if g:colors_name != "nightfly" | silent augroup! NightflyColorsTreesitter | silent augroup! NightflyColorsHTML | endif
+augroup END
