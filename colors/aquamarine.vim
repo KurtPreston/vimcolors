@@ -28,6 +28,8 @@ hi Identifier                                 guifg=LightGreen
 hi Comment                                    guifg=CornFlowerBlue
 hi NonText                                    guifg=CornFlowerBlue
 hi SpecialKey                                 guifg=CornFlowerBlue
+"" TODO, FIXME
+hi Todo              guibg=Black              guifg=CornFlowerBlue    gui=bold,underline
 
 "" Constants
 hi Constant                                   guifg=LightSeaGreen
@@ -56,7 +58,6 @@ hi LineNr                                     guifg=DimGray
 
 "" Errors
 hi Error             guibg=Red                guifg=White
-hi Todo              guibg=Red                guifg=White
 
 "" Search
 hi IncSearch         guibg=White              guifg=MediumSlateBlue
