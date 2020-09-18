@@ -15,10 +15,10 @@ hi Search           ctermfg=235   ctermbg=187  cterm=none
 hi Visual           ctermfg=110   ctermbg=235  cterm=reverse
 hi VisualNOS        ctermfg=231   ctermbg=none cterm=reverse
 
-hi Constant         ctermfg=114   ctermbg=none cterm=bold
-hi DiffAdd          ctermfg=114   ctermbg=none cterm=none
-hi Number           ctermfg=114   ctermbg=none cterm=bold
-hi String           ctermfg=114   ctermbg=none cterm=bold
+hi Constant         ctermfg=157   ctermbg=none cterm=bold
+hi DiffAdd          ctermfg=157   ctermbg=none cterm=none
+hi Number           ctermfg=157   ctermbg=none cterm=bold
+hi String           ctermfg=157   ctermbg=none cterm=bold
 
 hi CursorColumn     ctermfg=231   ctermbg=none cterm=none
 hi CursorLine       ctermfg=231   ctermbg=none cterm=none
@@ -41,7 +41,7 @@ hi MatchParen       ctermfg=229   ctermbg=241  cterm=none
 hi ModeMsg          ctermfg=255   ctermbg=none cterm=none
 hi MoreMsg          ctermfg=255   ctermbg=none cterm=none
 hi NonText          ctermfg=240   ctermbg=none cterm=none
-hi Pmenu            ctermfg=114   ctermbg=none cterm=none
+hi Pmenu            ctermfg=157   ctermbg=none cterm=none
 hi PmenuSbar        ctermfg=255   ctermbg=none cterm=none
 hi PmenuSel         ctermfg=255   ctermbg=none cterm=bold
 hi PmenuThumb       ctermfg=255   ctermbg=none cterm=none
@@ -71,7 +71,7 @@ hi vimHiTerm        ctermfg=255   ctermbg=none cterm=none
 hi vimGroupName     ctermfg=255   ctermbg=none cterm=none
 hi CurrentWordTwins ctermfg=255   ctermbg=242  cterm=none
 hi Delimiter        ctermfg=grey  ctermbg=none cterm=none
-hi Conceal          ctermfg=114   ctermbg=none cterm=bold
+hi Conceal          ctermfg=157   ctermbg=none cterm=bold
 
 hi goParamName      ctermfg=255   ctermbg=none cterm=bold,italic
 hi goParamType      ctermfg=255   ctermbg=none cterm=none
@@ -79,9 +79,9 @@ hi goFunctionCall   ctermfg=255   ctermbg=none cterm=none
 
 hi texSpecialChar   ctermfg=243   ctermbg=none cterm=none
 hi texStatement     ctermfg=255   ctermbg=none cterm=none
-hi texMath          ctermfg=114   ctermbg=none cterm=bold,italic
-hi texSuperscript   ctermfg=114   ctermbg=none cterm=bold,italic
-hi texSubscript     ctermfg=114   ctermbg=none cterm=bold,italic
+hi texMath          ctermfg=157   ctermbg=none cterm=bold,italic
+hi texSuperscript   ctermfg=157   ctermbg=none cterm=bold,italic
+hi texSubscript     ctermfg=157   ctermbg=none cterm=bold,italic
 
 hi clear SignColumn
 
