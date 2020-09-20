@@ -134,7 +134,7 @@ exe "hi TabLine"      .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi TabLineFill"  .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi TabLineSel"   .s:fg.s:uih .s:bg.s:no  .s:st.s:no
 exe "hi Title"        .s:fg.s:no  .s:bg.s:no  .s:st.s:no
-exe "hi Todo"         .s:fg.s:wrn .s:bg.s:no  .s:st.'reverse'
+exe "hi Todo"         .s:fg.s:wrn .s:bg.s:no  .s:st.s:no
 exe "hi VertSplit"    .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi Visual"       .s:fg.s:vf  .s:bg.s:vb  .s:st.s:no
 "exe hi Question
