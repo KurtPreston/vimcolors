@@ -2,13 +2,13 @@
 " https://github.com/matveyt/vimfiles
 
 if has('nvim')
-    " enable 'neoclip' to access the clipboard
+    " enable 'neoclip' to access clipboard
     packadd! neoclip
 else
-    " enable 'matchit' plugin
+    " enable 'matchit'
     packadd! matchit
     " provide :Man command
-    runtime! ftplugin/man.vim
+    runtime ftplugin/man.vim
 endif
 
 " disable some standard plugins
@@ -43,8 +43,6 @@ let g:indentLine_bufTypeExclude = ['quickfix', 'help', 'terminal', 'prompt', 'po
 let g:indentLine_fileTypeExclude = ['drvo', 'man', 'xxd']
 let g:indentLine_autoResetWidth = 0
 let g:indentLine_faster = 1
-let g:signify_disable_by_default = 1
-let g:signify_skip = {'vcs': {'allow': ['git']}}
 let g:targets_nl = 'nN'
 let g:undotree_WindowLayout = 4
 let g:vimtex_compiler_method = 'arara'
@@ -59,10 +57,8 @@ else
 endif
 
 " plugin-specific mappings
-nnoremap <leader>g :SignifyToggle<CR>
 nnoremap <expr><leader>s printf(':%sScratch<CR>',
     \ better#is_blank_buffer() ? '' : 'split +')
-nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
 " plugin manager setup
@@ -91,22 +87,19 @@ function s:setup_minpac() abort
 
     " 3rd party plugins
     call minpac#add('romainl/flattened')
-    call minpac#add('w0ng/vim-hybrid', {'frozen': 1})
     call minpac#add('tpope/vim-repeat')
     call minpac#add('tpope/vim-surround')
     call minpac#add('tpope/vim-unimpaired')
     call minpac#add('Yggdroot/indentLine')
-    call minpac#add('mhinz/vim-signify')
-    call minpac#add('majutsushi/tagbar', {'type': 'opt'})
     call minpac#add('wellle/targets.vim')
     call minpac#add('mbbill/undotree')
-    call minpac#add('lervag/vimtex', {'type': 'opt'})
+    call minpac#add('lervag/vimtex')
 
     " my own plugins under ~/.vim/pack/bundle are not managed by minpac
     " call minpac#add('matveyt/neoclip', {'type': 'opt'})
     " call minpac#add('matveyt/vim-drvo')
     " call minpac#add('matveyt/vim-filters')
-    " call minpac#add('matveyt/vim-jmake', {'type': 'opt'})
+    " call minpac#add('matveyt/vim-jmake')
     " call minpac#add('matveyt/vim-modest')
     " call minpac#add('matveyt/vim-moveit', {'type': 'opt'})
     " call minpac#add('matveyt/vim-opera')

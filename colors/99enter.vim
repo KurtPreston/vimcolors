@@ -3,19 +3,23 @@
 
 if better#gui_running()
     " +++++ GUI +++++
-    let &guifont = printf('Inconsolata LGC%s14', has('gui_gtk') ? ' ' : ':h')
+    let g:fontheight = get(g:, 'fontheight', 14)
+    let g:fontlist = get(g:, 'fontlist', ['Apercu Pro', 'Cascadia Code PL',
+        \ 'Inconsolata LGC', 'Liberation Mono', 'Noto Mono', 'Operator Mono Book',
+        \ 'Pragmata Pro Mono', 'PT Mono', 'TeXGyreCursor', 'Ubuntu Mono'])
+    Font PT Mono
+    let g:drvo_glyph = [0x1F4C2, 0x1F4C4]
     if has('directx')
         set renderoptions=type:directx
     endif
-    let g:drvo_glyph = [0x1F4C2, 0x1F4C4]
-    if exists('*rpcnotify')
-        " disable GUI Popupmenu in Neovim-Qt
-        call rpcnotify(0, 'Gui', 'Option', 'Popupmenu', 0)
+    if exists(':GuiPopupmenu') == 2
+        GuiPopupmenu 0
     endif
 elseif &t_Co >= 256
     " +++++ 256-color terminal +++++
+    let g:term256only = get(g:, 'term256only', ['Apple_Terminal'])
     if index(g:term256only, $TERM_PROGRAM) < 0
-        " TrueColor support
+        " TrueColor terminal
         set termguicolors
     endif
     if !has('nvim')
@@ -34,7 +38,7 @@ else
     " +++++ Plain terminal +++++
 endif
 
-" make sure the colors weren't already set up (by a desktop shortcut or such)
+" make sure the colors weren't already set (e.g. by a desktop shortcut)
 if !exists('g:colors_name')
     set background=light
     silent! colorscheme modest

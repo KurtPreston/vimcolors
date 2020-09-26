@@ -25,11 +25,11 @@ nnoremap <Space> za
 " [count]<F8>/[count]<S-F8> to switch colorscheme
 nnoremap <silent><F8> :<C-U>call misc#switchcolor(v:count1)<CR>
 nnoremap <silent><S-F8> :<C-U>call misc#switchcolor(-v:count1)<CR>
-" [count]<C-kPlus>/[count]<C-kMinus> to increase/decrease font size
-nnoremap <silent><C-kMinus>
-    \ :<C-U>let &gfn = substitute(&gfn, '\d\+', '\=submatch(0)-'..v:count1, '')<CR>
-nnoremap <silent><C-kPlus>
-    \ :<C-U>let &gfn = substitute(&gfn, '\d\+', '\=submatch(0)+'..v:count1, '')<CR>
+" <F9> to choose new &guifont
+" [count]<C-F9>/[count]<S-F9> to change font size
+nnoremap <silent><F9> :call better#choose('Font %s', g:fontlist)<CR>
+nnoremap <silent><C-F9> :<C-U>call better#guifont(v:null, v:count1)<CR>
+nnoremap <silent><S-F9> :<C-U>call better#guifont(v:null, -v:count1)<CR>
 " <F12> to open terminal
 nnoremap <expr><F12> printf(':%sterminal<CR>%s',
     \ has('nvim') && !better#is_blank_buffer() ? 'split +' : '',

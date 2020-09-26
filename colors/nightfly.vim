@@ -46,8 +46,7 @@ let g:nightflyUnderlineMatchParen = get(g:, 'nightflyUnderlineMatchParen', 0)
 " with termguicolors set.
 let g:nightflyUndercurls = get(g:, 'nightflyUndercurls', 1)
 
-" By default do use italics in GUI versions of Vim, including terminal Vim
-" with termguicolors set.
+" By default do use italics in GUI versions of Vim.
 let g:nightflyItalics = get(g:, 'nightflyItalics', 1)
 
 " Background and foreground

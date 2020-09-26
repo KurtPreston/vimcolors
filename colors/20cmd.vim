@@ -2,16 +2,20 @@
 " https://github.com/matveyt/vimfiles
 
 " :DiffOrig
-" stolen from $VIMRUNTIME/defaults.vim
+" show diff with original file or HEAD
 command! -bar DiffOrig
     \   vnew +setlocal\ bufhidden=wipe\ buftype=nofile\ noswapfile
-    \ | let &filetype = getbufvar(0, '&filetype')
     \ | execute 'nnoremap <buffer>q <C-W>q'
-    \ | read ++edit #
+    \ | let &filetype = getbufvar(0, '&filetype')
+    \ | execute 'read ++edit' getbufvar(0, '&modified') ? '#' : '!git show HEAD:./#'
     \ | 1delete_
     \ | diffthis
     \ | wincmd p
     \ | diffthis
+
+" :[count]Font [typeface]
+" set &guifont
+command! -count -nargs=? Font call better#guifont(<q-args>, <count>)
 
  " :[mods]Nomove {cmd}
  " save/restore cursor "quasi-modifier"
