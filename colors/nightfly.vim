@@ -286,6 +286,7 @@ exec 'highlight NightflyEmeraldAlert guibg=bg guifg=' . s:emerald
 
 " Neovim Treesitter
 highlight! link TSAnnotation NightflyViolet
+highlight! link TSAttribute NightflyBlue
 highlight! link TSConstant NightflyPurple
 highlight! link TSConstBuiltin NightflyGreen
 highlight! link TSConstMacro NightflyViolet
@@ -507,8 +508,8 @@ highlight! link pythonRun NightflyBlue
 highlight! link pythonStatement NightflyViolet
 
 " Ruby
+exec 'highlight rspecGroupMethods guifg=' . s:blue
 highlight! link erubyDelimiter NightflyWatermelon
-highlight! link rspecGroupMethods NightflyBlue
 highlight! link rubyAccess NightflyYellow
 highlight! link rubyAssertion NightflyBlue
 highlight! link rubyAttribute NightflyBlue
