@@ -8,7 +8,11 @@ else
     " enable 'matchit'
     packadd! matchit
     " provide :Man command
-    runtime ftplugin/man.vim
+    source $VIMRUNTIME/ftplugin/man.vim
+    " customize menu bar
+    unlet g:did_install_syntax_menu
+    let g:do_no_lazyload_menus = 1
+    let g:no_buffers_menu = 1
 endif
 
 " disable some standard plugins
@@ -17,6 +21,7 @@ let g:loaded_gzip = 0
 let g:loaded_logiPat = 0
 let g:loaded_netrwPlugin = 0
 let g:loaded_python_provider = 0
+let g:loaded_shada_plugin = 0
 let g:loaded_tarPlugin = 0
 let g:loaded_vimballPlugin = 0
 let g:loaded_zipPlugin = 0
@@ -77,7 +82,7 @@ function s:setup_minpac() abort
     let l:local = g:dotvim..'/pack/minpac/opt/minpac'
     if !isdirectory(l:local)
         echomsg 'Cloning into' l:local
-        call system('git clone --depth=1 '..l:remote..' '..shellescape(l:local))
+        silent call system('git clone --depth=1 '..l:remote..' '..shellescape(l:local))
     endif
 
     " initialize minpac

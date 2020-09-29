@@ -23,7 +23,7 @@ function! mru#show(sesdir, max) abort
 END
 
     call setline(1, l:header)
-    call s:add_group('Session', glob(l:sesdir..'*.vim', v:true, v:true), a:max)
+    call s:add_group('Session', glob(l:sesdir..'*.vim', 0, 1), a:max)
     let l:vimhelp = glob2regpat($VIMRUNTIME..'/doc/*.txt')
     call s:add_group('MRU', filter(copy(v:oldfiles), {_, v -> match(v, l:vimhelp) < 0}),
         \ a:max)

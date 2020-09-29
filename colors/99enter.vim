@@ -3,11 +3,9 @@
 
 if better#gui_running()
     " +++++ GUI +++++
-    let g:fontheight = get(g:, 'fontheight', 14)
-    let g:fontlist = get(g:, 'fontlist', ['Apercu Pro', 'Cascadia Code PL',
-        \ 'Inconsolata LGC', 'Liberation Mono', 'Noto Mono', 'Operator Mono Book',
-        \ 'Pragmata Pro Mono', 'PT Mono', 'TeXGyreCursor', 'Ubuntu Mono'])
-    Font PT Mono
+    14Font PT Mono
+    let g:fontlist = get(g:, 'fontlist', ['Cascadia Code PL', 'Inconsolata LGC',
+        \ 'InputMono', 'Liberation Mono', 'PT Mono', 'Ubuntu Mono'])
     let g:drvo_glyph = [0x1F4C2, 0x1F4C4]
     if has('directx')
         set renderoptions=type:directx

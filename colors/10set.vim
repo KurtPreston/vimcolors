@@ -3,6 +3,7 @@
 
 compiler! gcc
 
+set encoding=utf-8
 set shell=bash shellcmdflag=-c shellredir=>%s\ 2>&1 noshelltemp
 set shellquote= shellxescape= shellxquote=
 if has('win32')

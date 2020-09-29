@@ -23,18 +23,6 @@ function! better#bufwinid(buf) abort
     return l:winid
 endfunction
 
-" better#guifont(typeface, height)
-" set &guifont
-function! better#guifont(typeface, height) abort
-    let l:fonts = split(better#or(a:typeface, &guifont), ',')
-    let l:height = (a:height >= 10) ? a:height : g:fontheight + a:height
-    let l:prefix = has('gui_gtk') ? ' ' : ':h'
-    call map(l:fonts, {_, v -> substitute(trim(v), '\v('..l:prefix..'(\d+))?$',
-        \ printf('\=%s..%d', string(l:prefix), l:height), '')})
-    silent! let &guifont = join(l:fonts, ',')
-    let g:fontheight = l:height
-endfunction
-
 " better#gui_running()
 " Vim/Neovim compatibility
 function! better#gui_running() abort
@@ -42,10 +30,26 @@ function! better#gui_running() abort
         \ !empty(nvim_list_uis()) && nvim_list_uis()[-1].chan > 0
 endfunction
 
+" better#guifont(typeface, height)
+" set &guifont
+function! better#guifont(typeface, height) abort
+    if empty(a:typeface) && empty(a:height)
+        echo has('nvim') ? &guifont : getfontname()
+        return
+    endif
+    let l:fonts = split(better#or(a:typeface, &guifont), ',')
+    let l:height = (a:height >= 10) ? a:height : get(g:, 'fontheight', 10) + a:height
+    let l:prefix = has('gui_gtk') ? ' ' : ':h'
+    call map(l:fonts, {_, v -> substitute(trim(v), '\v('..l:prefix..'(\d+))?$',
+        \ printf('\=%s..%d', string(l:prefix), l:height), '')})
+    silent! let &guifont = join(l:fonts, ',')
+    let g:fontheight = l:height
+endfunction
+
 " better#inputlist(prompt, textlist, Action)
 " choose item from {textist} and invoke {Action} afterwards
 function! better#inputlist(prompt, textlist, Action) abort
-    function! s:callback(_, result) abort closure
+    function! s:callback(id, result) abort closure
         if a:result >= 1 && a:result <= len(a:textlist)
             call a:Action(a:textlist[a:result - 1])
         endif
@@ -56,14 +60,14 @@ function! better#inputlist(prompt, textlist, Action) abort
     else
         let l:list = insert(map(copy(a:textlist), {k, v -> printf('%d) %s', k + 1, v)}),
             \ a:prompt)
-        call s:callback(v:null, inputlist(l:list))
+        call s:callback(0, inputlist(l:list))
     endif
 endfunction
 
 " better#choose(cmd, values)
 " interactively choose one of {values} and then execute {cmd}
 function! better#choose(cmd, values) abort
-    call better#inputlist('Choose item', a:values, {v -> execute(printf(a:cmd, v))})
+    call better#inputlist('Choose item', a:values, {v -> execute(printf(a:cmd, v), '')})
 endfunction
 
 " better#is_blank_buffer()

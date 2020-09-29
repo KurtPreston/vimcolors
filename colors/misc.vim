@@ -39,6 +39,39 @@ function! misc#change(line1, line2, ...) abort
         \ -1])
 endfunction
 
+" misc#comment({line1}, {line2} [, {preserveindent}])
+" (Un)Comment line range
+function! misc#comment(line1, line2, ...) abort
+    " lines to (un)comment
+    let l:text = getline(a:line1, a:line2)
+    if empty(l:text)
+        return
+    endif
+    " preserve indent
+    let l:pi = get(a:, 1, &preserveindent)
+    " comment regex
+    let l:r_cmt = '^' . printf(escape(&cms, '^$.*~[]\'), '\zs.*\ze') . '$'
+    " process all lines
+    for l:lnum in range(len(l:text))
+        " split into [indent][body]
+        let [l:body, l:indent; _] = matchlist(l:text[l:lnum], '^\(\s*\)\zs.*')
+        if empty(l:body)
+            " [indent]/**/ or /*[indent]*/
+            let l:text[l:lnum] = (l:pi ? l:indent : '') .
+                \ printf(&cms, l:pi ? '' : l:indent)
+        else
+            " do we uncomment?
+            let [l:cmt, l:cpos, _] = matchstrpos(l:body, l:r_cmt)
+            " [indent][cmt] or [indent]/*[body]*/ or /*[indent][body]*/
+            let l:text[l:lnum] = (l:cpos >= 0) ? l:indent . l:cmt :
+                \ l:pi ? l:indent . printf(&cms, l:body) :
+                \ printf(&cms, l:text[l:lnum])
+        endif
+    endfor
+    " set (un)commented text
+    call setline(a:line1 > 1 ? a:line1 : 1, l:text)
+endfunction
+
 " misc#copy({line1}, {line2} [, {address1} ...])
 " :copy to multiple destinations
 " Note: all :h {address} formats are supported
@@ -52,16 +85,6 @@ function! misc#copy(line1, line2, ...) abort
     for l:lnum in l:lines
         call append(l:lnum, l:text)
     endfor
-endfunction
-
-" Switch colorscheme by 'incr' positions
-function! misc#switchcolor(incr) abort
-    let l:colors = getcompletion('', 'color')
-    let l:next = index(l:colors, get(g:, 'colors_name')) + a:incr
-    execute 'colorscheme' l:colors[l:next % len(l:colors)]
-    setlocal statusline=%!get(g:,'colors_name','n/a')
-    redrawstatus | sleep
-    setlocal statusline=
 endfunction
 
 " misc#complete({pat}, {type} [, {filtered}])

@@ -22,13 +22,12 @@ inoremap <expr><PageUp> pumvisible() ? '<PageUp><C-P><C-N>' : '<PageUp>'
 inoremap <expr><PageDown> pumvisible() ? '<PageDown><C-N><C-P>' : '<PageDown>'
 " <Space> to toggle fold
 nnoremap <Space> za
-" [count]<F8>/[count]<S-F8> to switch colorscheme
-nnoremap <silent><F8> :<C-U>call misc#switchcolor(v:count1)<CR>
-nnoremap <silent><S-F8> :<C-U>call misc#switchcolor(-v:count1)<CR>
+" <F8> to choose colorscheme
+nnoremap <silent><F8> :call better#choose('colo %s', getcompletion('', 'color'))<CR>
 " <F9> to choose new &guifont
-" [count]<C-F9>/[count]<S-F9> to change font size
+" [count]<A-F9>/[count]<S-F9> to change font size
 nnoremap <silent><F9> :call better#choose('Font %s', g:fontlist)<CR>
-nnoremap <silent><C-F9> :<C-U>call better#guifont(v:null, v:count1)<CR>
+nnoremap <silent><A-F9> :<C-U>call better#guifont(v:null, v:count1)<CR>
 nnoremap <silent><S-F9> :<C-U>call better#guifont(v:null, -v:count1)<CR>
 " <F12> to open terminal
 nnoremap <expr><F12> printf(':%sterminal<CR>%s',
@@ -54,14 +53,17 @@ noremap! <S-Insert> <C-R>+
 nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 " '\=' to cd to the current file's directory
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
+" edit '\b' - buffer; '\f' - file
+nnoremap <silent><leader>b :call better#choose('e %s', getcompletion('', 'buffer'))<CR>
+nnoremap <silent><leader>f :call better#choose('e %s', getcompletion('', 'file'))<CR>
+" '\h' to show the current highlight group
+nnoremap <silent><leader>h :Highlight!<CR>
 " '\p' to show what function we are in (like 'diff -p')
 nnoremap <leader>p :echo getline(search('^[[:alpha:]$_]', 'bcnW'))<CR>
 " '\x' to execute command and put output into a buffer
 " '\X' to eval expression and put result into a buffer
 nnoremap <silent><leader>x :put =trim(execute(input(':', '', 'command')))<CR>
 nnoremap <silent><leader>X :put =eval(input('=', '', 'expression'))<CR>
-" '\h' to show the current highlight group
-nnoremap <silent><leader>h :Highlight!<CR>
 " gc to toggle comments
 nnoremap <expr><silent>gc opera#mapto('Comment!')
 xnoremap <expr><silent>gc opera#mapto('Comment!')
