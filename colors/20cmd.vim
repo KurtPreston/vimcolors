@@ -68,7 +68,15 @@ command! -range=% -bar -nargs=? FixEncoding
 
 " :[count]Font [typeface]...
 " set &guifont
-command! -count -nargs=? Font call better#guifont(<q-args>, <count>)
+function s:fontcomplete(A, L, P) abort
+    return join(g:fontlist, "\n")
+endfunction
+command! -count -nargs=* -complete=custom,s:fontcomplete Font
+    \   if !<count> && empty(<q-args>)
+    \ |     echo &guifont
+    \ | else
+    \ |     call better#guifont(<q-args>, <count>)
+    \ | endif
 
 " :Highlight[!]
 " show :highlight under cursor

@@ -23,6 +23,13 @@ function! better#bufwinid(buf) abort
     return l:winid
 endfunction
 
+" better#command(cmd [, {values}])
+" complete and execute {cmd}
+function! better#command(cmd, ...) abort
+    let l:values = a:0 ? a:1 : getcompletion(a:cmd..' ', 'cmdline')
+    call better#inputlist(a:cmd, l:values, {v -> execute(a:cmd..' '..v, '')})
+endfunction
+
 " better#gui_running()
 " Vim/Neovim compatibility
 function! better#gui_running() abort
@@ -33,10 +40,6 @@ endfunction
 " better#guifont(typeface, height)
 " set &guifont
 function! better#guifont(typeface, height) abort
-    if empty(a:typeface) && empty(a:height)
-        echo has('nvim') ? &guifont : getfontname()
-        return
-    endif
     let l:fonts = split(better#or(a:typeface, &guifont), ',')
     let l:height = (a:height >= 10) ? a:height : get(g:, 'fontheight', 10) + a:height
     let l:prefix = has('gui_gtk') ? ' ' : ':h'
@@ -62,12 +65,6 @@ function! better#inputlist(prompt, textlist, Action) abort
             \ a:prompt)
         call s:callback(0, inputlist(l:list))
     endif
-endfunction
-
-" better#choose(cmd, values)
-" interactively choose one of {values} and then execute {cmd}
-function! better#choose(cmd, values) abort
-    call better#inputlist('Choose item', a:values, {v -> execute(printf(a:cmd, v), '')})
 endfunction
 
 " better#is_blank_buffer()

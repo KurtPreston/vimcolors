@@ -22,11 +22,11 @@ inoremap <expr><PageUp> pumvisible() ? '<PageUp><C-P><C-N>' : '<PageUp>'
 inoremap <expr><PageDown> pumvisible() ? '<PageDown><C-N><C-P>' : '<PageDown>'
 " <Space> to toggle fold
 nnoremap <Space> za
-" <F8> to choose colorscheme
-nnoremap <silent><F8> :call better#choose('colo %s', getcompletion('', 'color'))<CR>
-" <F9> to choose new &guifont
+" <F8> to set colorscheme
+nnoremap <silent><F8> :call better#command('colorscheme')<CR>
+" <F9> to set new &guifont
 " [count]<A-F9>/[count]<S-F9> to change font size
-nnoremap <silent><F9> :call better#choose('Font %s', g:fontlist)<CR>
+nnoremap <silent><F9> :call better#command('Font', g:fontlist)<CR>
 nnoremap <silent><A-F9> :<C-U>call better#guifont(v:null, v:count1)<CR>
 nnoremap <silent><S-F9> :<C-U>call better#guifont(v:null, -v:count1)<CR>
 " <F12> to open terminal
@@ -54,8 +54,8 @@ nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 " '\=' to cd to the current file's directory
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
 " edit '\b' - buffer; '\f' - file
-nnoremap <silent><leader>b :call better#choose('e %s', getcompletion('', 'buffer'))<CR>
-nnoremap <silent><leader>f :call better#choose('e %s', getcompletion('', 'file'))<CR>
+nnoremap <silent><leader>b :call better#command('buffer')<CR>
+nnoremap <silent><leader>f :call better#command('edit')<CR>
 " '\h' to show the current highlight group
 nnoremap <silent><leader>h :Highlight!<CR>
 " '\p' to show what function we are in (like 'diff -p')
