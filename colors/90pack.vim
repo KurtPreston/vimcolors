@@ -10,7 +10,6 @@ else
     " provide :Man command
     source $VIMRUNTIME/ftplugin/man.vim
     " customize menu bar
-    unlet g:did_install_syntax_menu
     let g:do_no_lazyload_menus = 1
     let g:no_buffers_menu = 1
 endif
@@ -91,7 +90,6 @@ function s:setup_minpac() abort
     call minpac#add(l:remote, {'type': 'opt'})
 
     " 3rd party plugins
-    call minpac#add('romainl/flattened')
     call minpac#add('tpope/vim-repeat')
     call minpac#add('tpope/vim-surround')
     call minpac#add('tpope/vim-unimpaired')
