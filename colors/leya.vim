@@ -12,7 +12,7 @@ let colors_name="leya"
 
 " Code syntax groups (:h group-name) {{{1
 hi Boolean guifg=#2aa198 guibg=NONE gui=NONE ctermfg=164 ctermbg=NONE cterm=NONE
-hi Comment guifg=#cb4b16 guibg=NONE gui=italic ctermfg=130 ctermbg=NONE cterm=italic
+hi Comment guifg=#cb4b16 guibg=NONE gui=NONE ctermfg=130 ctermbg=NONE cterm=NONE
 hi Constant guifg=#009900 guibg=NONE gui=NONE ctermfg=28 ctermbg=NONE cterm=NONE
 hi Error guifg=#FFFFFF guibg=#FF0000 gui=NONE ctermfg=231 ctermbg=196 cterm=NONE
 hi Identifier guifg=NONE guibg=NONE gui=NONE ctermfg=236 ctermbg=NONE cterm=NONE
@@ -90,6 +90,11 @@ hi diffAdded guifg=#008000 guibg=NONE gui=NONE ctermfg=28 ctermbg=NONE cterm=NON
 hi link gitcommitSelectedType Statement
 hi link gitcommitSelectedFile Normal
 
+" GraphQL {{{1
+hi link graphqlStructure Statement
+hi link graphqlBraces Normal
+hi link graphqlOperator Special
+
 " Statusline {{{1
 hi link User1 Error
 
@@ -161,6 +166,7 @@ hi link jsThis Special
 " TypeScript {{{1
 hi link tsxAttrib Normal
 hi link typescriptArrowFunc Normal
+hi link typescriptBOM Normal
 hi link typescriptBOMHistoryProp Normal
 hi link typescriptBOMWindowProp Special
 hi link typescriptCall Normal
@@ -241,6 +247,9 @@ hi markdownError ctermfg=red ctermbg=NONE cterm=none
 highlight ExtraWhitespace guibg=#ff0000 ctermbg=red
 highlight NifflerCursorLine guifg=#000000 guibg=#FFD700 gui=bold ctermfg=16 ctermbg=220
 hi ALEWarningSign ctermfg=red ctermbg=NONE cterm=NONE
+highlight GitGutterAdd    guifg=#009900 ctermfg=34
+highlight GitGutterChange guifg=#bbbb00 ctermfg=93
+highlight GitGutterDelete guifg=#ff2222 ctermfg=196
 
 " Makefiles {{{1
 hi link makeTarget Type
