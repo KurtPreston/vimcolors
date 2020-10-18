@@ -207,6 +207,10 @@ hi! link gitcommitDiscardedArrow gitcommitDiscardedFile
 hi! link gitcommitSelectedArrow  gitcommitSelectedFile
 hi! link gitcommitUnmergedArrow  gitcommitUnmergedFile
 
+hi! GitGutterAdd     guifg=#437f43 guibg=#437f43 
+hi! GitGutterChange  guifg=#7f7f43 guibg=#7f7f43 
+hi! GitGutterDelete  guifg=#a05454 guibg=#a05454 
+
 let g:terminal_color_background = "#335b7e"
 let g:terminal_color_foreground = "#ffffff"
 
