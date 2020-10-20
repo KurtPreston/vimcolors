@@ -9,7 +9,7 @@ let s:colors.deepgrey    = ['#1c1c1c', 234]
 let s:colors.darkgrey    = ['#262626', 235]
 let s:colors.grey        = ['#808080', 244]
 let s:colors.faint       = ['#eeeeee', 255]
-let s:colors.white       = ['#ffffff', 231]
+let s:colors.white       = ['#ffffff', 'NONE']
 let s:colors.rose        = ['#ff5f87', 204]
 let s:colors.blue        = ['#0087af', 32]
 let s:colors.corn	 = ['#ffffd7', 230]
@@ -48,7 +48,8 @@ function! s:setLight()
   set background=light
   " Base colors.
   call s:highlight('Normal', 'deepgrey', 'white')
-  call s:highlight('NonText', 'darkgrey')
+  call s:highlight('NonText', 'white')
+  call s:highlight('EndOfBuffer', 'white')
   call s:highlight('comment', 'grey')
   call s:highlight('constant', 'black', 'white', 'bold')
   call s:highlight('string', 'grey')
@@ -82,9 +83,9 @@ function! s:setLight()
   call s:highlight('CursorColumn', 'blue', 'blue')
 
   " Status line
-  call s:highlight('StatusLine', 'faint', 'black')
-  call s:highlight('StatusLineNC', 'faint', 'grey')
-
+  call s:highlight('StatusLine', 'black', 'white')
+  call s:highlight('StatusLineNC', 'grey', 'white')
+  
   " Windows
   call s:highlight('VertSplit', 'white', 'white')
 
