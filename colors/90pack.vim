@@ -43,10 +43,6 @@ let g:vimsyn_folding = 'afl'
 let g:vimsyn_noerror = 1
 
 " plugin-specific variables
-let g:indentLine_bufTypeExclude = ['quickfix', 'help', 'terminal', 'prompt', 'popup']
-let g:indentLine_fileTypeExclude = ['drvo', 'man', 'xxd']
-let g:indentLine_autoResetWidth = 0
-let g:indentLine_faster = 1
 let g:targets_nl = 'nN'
 let g:undotree_WindowLayout = 4
 let g:vimtex_compiler_method = 'arara'
@@ -86,27 +82,27 @@ function s:setup_minpac() abort
 
     " initialize minpac
     packadd minpac
-    call minpac#init({'progress_open': 'vertical'})
+    call minpac#init({'dir': g:dotvim, 'progress_open': 'vertical'})
     call minpac#add(l:remote, {'type': 'opt'})
 
     " 3rd party plugins
     call minpac#add('tpope/vim-repeat')
     call minpac#add('tpope/vim-surround')
     call minpac#add('tpope/vim-unimpaired')
-    call minpac#add('Yggdroot/indentLine')
     call minpac#add('wellle/targets.vim')
     call minpac#add('mbbill/undotree')
     call minpac#add('lervag/vimtex')
 
     " my own plugins under ~/.vim/pack/bundle are not managed by minpac
-    " call minpac#add('matveyt/neoclip', {'type': 'opt'})
-    " call minpac#add('matveyt/vim-drvo')
-    " call minpac#add('matveyt/vim-filters')
-    " call minpac#add('matveyt/vim-jmake')
-    " call minpac#add('matveyt/vim-modest')
-    " call minpac#add('matveyt/vim-moveit', {'type': 'opt'})
-    " call minpac#add('matveyt/vim-opera')
-    " call minpac#add('matveyt/vim-ranger', {'type': 'opt'})
-    " call minpac#add('matveyt/vim-scratch')
-    " call minpac#add('matveyt/vim-stalin')
+    "call minpac#add('matveyt/neoclip', {'type': 'opt'})
+    "call minpac#add('matveyt/vim-drvo')
+    "call minpac#add('matveyt/vim-filters')
+    "call minpac#add('matveyt/vim-guidedspace')
+    "call minpac#add('matveyt/vim-jmake')
+    "call minpac#add('matveyt/vim-modest')
+    "call minpac#add('matveyt/vim-moveit', {'type': 'opt'})
+    "call minpac#add('matveyt/vim-opera')
+    "call minpac#add('matveyt/vim-ranger', {'type': 'opt'})
+    "call minpac#add('matveyt/vim-scratch')
+    "call minpac#add('matveyt/vim-stalin')
 endfunction

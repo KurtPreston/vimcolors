@@ -23,12 +23,12 @@ inoremap <expr><PageDown> pumvisible() ? '<PageDown><C-N><C-P>' : '<PageDown>'
 " <Space> to toggle fold
 nnoremap <Space> za
 " <F8> to set colorscheme
-nnoremap <silent><F8> :call better#command('colorscheme')<CR>
+nnoremap <silent><F8> :call misc#command('colorscheme')<CR>
 " <F9> to set new &guifont
 " [count]<A-F9>/[count]<S-F9> to change font size
-nnoremap <silent><F9> :call better#command('Font', g:fontlist)<CR>
-nnoremap <silent><A-F9> :<C-U>call better#guifont(v:null, v:count1)<CR>
-nnoremap <silent><S-F9> :<C-U>call better#guifont(v:null, -v:count1)<CR>
+nnoremap <silent><F9> :call misc#command('Font', g:fontlist)<CR>
+nnoremap <silent><A-F9> :<C-U>call misc#guifont(v:null, v:count1)<CR>
+nnoremap <silent><S-F9> :<C-U>call misc#guifont(v:null, -v:count1)<CR>
 " <F12> to open terminal
 nnoremap <expr><F12> printf(':%sterminal<CR>%s',
     \ has('nvim') && !better#is_blank_buffer() ? 'split +' : '',
@@ -40,7 +40,7 @@ nnoremap <silent><C-S> :update<CR>
 " move cursor inside quotes while typing
 noremap! "" ""<Left>
 noremap! '' ''<Left>
-" restore visual selection after an indent
+" restore visual selection after shift
 xnoremap < <gv
 xnoremap > >gv
 " copy-paste like Windows
@@ -49,13 +49,16 @@ vnoremap <C-Insert> "+y
 vnoremap <S-Insert> "+p
 nnoremap <S-Insert> "+gP
 noremap! <S-Insert> <C-R>+
+" [count]gp / gP to put register and flip its type (linewise / charwise)
+nnoremap <silent>gp :<C-U>call misc#putregv('p')<CR>
+nnoremap <silent>gP :<C-U>call misc#putregv('P')<CR>
 " [count]<BS> to open "File Explorer" (vim-drvo)
 nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 " '\=' to cd to the current file's directory
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
 " edit '\b' - buffer; '\f' - file
-nnoremap <silent><leader>b :call better#command('buffer')<CR>
-nnoremap <silent><leader>f :call better#command('edit')<CR>
+nnoremap <silent><leader>b :call misc#command('buffer')<CR>
+nnoremap <silent><leader>f :call misc#command('find')<CR>
 " '\h' to show the current highlight group
 nnoremap <silent><leader>h :Highlight!<CR>
 " '\p' to show what function we are in (like 'diff -p')

@@ -21,7 +21,6 @@ function! mru#show(sesdir, max) abort
  \/  \/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/   \___/|_|_| |_| |_(_)
 
 END
-
     call setline(1, l:header)
     call s:add_group('Session', glob(l:sesdir..'*.vim', 0, 1), a:max)
     let l:vimhelp = glob2regpat($VIMRUNTIME..'/doc/*.txt')

@@ -39,6 +39,13 @@ function! misc#change(line1, line2, ...) abort
         \ -1])
 endfunction
 
+" misc#command(cmd [, {values}])
+" complete and execute {cmd}
+function! misc#command(cmd, ...) abort
+    let l:values = a:0 ? copy(a:1) : getcompletion(a:cmd..' ', 'cmdline')
+    call better#inputlist(a:cmd, sort(l:values), {v -> execute(a:cmd..' '..v, '')})
+endfunction
+
 " misc#comment({line1}, {line2} [, {preserveindent}])
 " (Un)Comment line range
 function! misc#comment(line1, line2, ...) abort
@@ -72,6 +79,29 @@ function! misc#comment(line1, line2, ...) abort
     call setline(a:line1 > 1 ? a:line1 : 1, l:text)
 endfunction
 
+" misc#complete({pat}, {type} [, {filtered}])
+" custom complete function
+" inoremap <C-X><C-F> <C-R>=misc#complete('[[:fname:]*?]\+', 'file')<CR>
+" :h ins-completion
+function! misc#complete(pat, type, ...) abort
+    let l:filtered = get(a:, 1)
+    let [l:lnum, l:col] = getcurpos()[1:2]
+    " find 'word' preceding cursor position
+    " Note: respect multibyte!
+    let l:start = searchpos(a:pat..'\v%#', 'bn', l:lnum)[1]
+    let l:end = searchpos('\v.%#', 'bn', l:lnum)[1]
+    if 1 <= l:start && l:start <= l:end
+        " complete [l:start .. l:end]
+        let l:word = getline(l:lnum)[l:start - 1 : l:end - 1]
+        call complete(l:start, getcompletion(l:word, a:type, l:filtered))
+    else
+        " complete empty string just before cursor
+        call complete(l:col, getcompletion('', a:type, l:filtered))
+    endif
+    " must return empty string to show popup menu
+    return ''
+endfunction
+
 " misc#copy({line1}, {line2} [, {address1} ...])
 " :copy to multiple destinations
 " Note: all :h {address} formats are supported
@@ -87,27 +117,25 @@ function! misc#copy(line1, line2, ...) abort
     endfor
 endfunction
 
-" misc#complete({pat}, {type} [, {filtered}])
-" custom complete function
-" inoremap <C-X><C-F> <C-R>=misc#complete('[[:fname:]*?]\+', 'file')<CR>
-" :h ins-completion
-function! misc#complete(pat, type, ...) abort
-    let l:filtered = get(a:, 1)
-    let [_, l:lnum, l:col; _] = getcurpos()
-    " find 'word' preceding cursor position
-    " Note: respect multibyte!
-    let l:start = searchpos(a:pat..'\v%#', 'bn', l:lnum)[1]
-    let l:end = searchpos('\v.%#', 'bn', l:lnum)[1]
-    if 1 <= l:start && l:start <= l:end
-        " complete [l:start .. l:end]
-        let l:word = getline(l:lnum)[l:start - 1 : l:end - 1]
-        call complete(l:start, getcompletion(l:word, a:type, l:filtered))
-    else
-        " complete empty string just before cursor
-        call complete(l:col, getcompletion('', a:type, l:filtered))
-    endif
-    " must return empty string to show popup menu
-    return ''
+" misc#guifont(typeface, height)
+" set &guifont
+function! misc#guifont(typeface, height) abort
+    let l:fonts = split(better#or(a:typeface, &guifont), ',')
+    let l:height = (a:height >= 10) ? a:height : get(g:, 'fontheight', 10) + a:height
+    let l:prefix = has('gui_gtk') ? ' ' : ':h'
+    call map(l:fonts, {_, v -> substitute(trim(v), '\v('..l:prefix..'(\d+))?$',
+        \ printf('\=%s..%d', string(l:prefix), l:height), '')})
+    silent! let &guifont = join(l:fonts, ',')
+    let g:fontheight = l:height
+endfunction
+
+" misc#putregv({put})
+" put v:register while flipping charwise/linewise type
+function! misc#putregv(put) abort
+    let [l:reg, l:body, l:type] = [v:register, getreg(), getregtype()]
+    call setreg(l:reg, trim(l:body, "\r\n"), l:type is# 'v' ? 'V' : 'v')
+    execute printf('normal! "%s%d%s', l:reg, v:count1, a:put)
+    call setreg(l:reg, l:body, l:type)
 endfunction
 
 " misc#urltags({pat}, {flags}, {info})

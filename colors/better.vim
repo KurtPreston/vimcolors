@@ -23,30 +23,11 @@ function! better#bufwinid(buf) abort
     return l:winid
 endfunction
 
-" better#command(cmd [, {values}])
-" complete and execute {cmd}
-function! better#command(cmd, ...) abort
-    let l:values = a:0 ? a:1 : getcompletion(a:cmd..' ', 'cmdline')
-    call better#inputlist(a:cmd, l:values, {v -> execute(a:cmd..' '..v, '')})
-endfunction
-
 " better#gui_running()
 " Vim/Neovim compatibility
 function! better#gui_running() abort
     return has('gui_running') || exists('*nvim_list_uis') &&
         \ !empty(nvim_list_uis()) && nvim_list_uis()[-1].chan > 0
-endfunction
-
-" better#guifont(typeface, height)
-" set &guifont
-function! better#guifont(typeface, height) abort
-    let l:fonts = split(better#or(a:typeface, &guifont), ',')
-    let l:height = (a:height >= 10) ? a:height : get(g:, 'fontheight', 10) + a:height
-    let l:prefix = has('gui_gtk') ? ' ' : ':h'
-    call map(l:fonts, {_, v -> substitute(trim(v), '\v('..l:prefix..'(\d+))?$',
-        \ printf('\=%s..%d', string(l:prefix), l:height), '')})
-    silent! let &guifont = join(l:fonts, ',')
-    let g:fontheight = l:height
 endfunction
 
 " better#inputlist(prompt, textlist, Action)

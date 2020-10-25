@@ -25,10 +25,10 @@ set incsearch lazyredraw nrformats=alpha,bin,hex shortmess=filnxoOtTI
 set pyxversion=3 scrolloff=2 splitright ttimeout ttimeoutlen=100 wildmenu
 set keymodel=startsel mousemodel=popup selection=exclusive
 set laststatus=2 mouse=ar number showmatch showtabline=2 title
-set nohlsearch nolangremap noruler noshowcmd noshowmode nostartofline
-set nofsync noswapfile nowritebackup
+set nofsync nohlsearch nolangremap noruler noshowcmd noshowmode nostartofline
+set noswapfile nowritebackup
 set sessionoptions=blank,curdir,help,slash,tabpages,unix,winsize
-set switchbuf=useopen,split undofile viminfo+=! virtualedit=all wildoptions=
+set switchbuf=useopen undofile viminfo+=! virtualedit=all wildoptions=
 let &grepprg = executable('ag') ? 'ag --vimgrep' : 'internal'
 let &undodir = g:dotvim..'/undo'
 if exists('+inccommand')
