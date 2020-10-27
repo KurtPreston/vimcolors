@@ -43,7 +43,7 @@ if !exists('g:colors_name')
 endif
 
 " setup status line
-silent! let &statusline = stalin#build('mode,branch,buffer,,flags,ruler')
+silent! let &statusline = stalin#build('mode,buffer,,flags,ruler')
 
 " if we have not opened anything yet then show MRU files list
 if bufnr('$') == 1 && empty(bufname(1))

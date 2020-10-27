@@ -18,7 +18,7 @@ endif
 
 " note: move cursor and press 'K' to get help on particular option
 set autoread backspace=indent,eol,start belloff=all complete=.,w,b,t
-set confirm cursorline diffopt+=vertical display=truncate
+set confirm cursorline diffopt+=vertical fillchars=vert:\ ,fold:\ ,diff:\ 
 set fileformats=unix,dos grepformat=%f:%l:%c:%m history=1000 keywordprg=:Man
 set guioptions-=t guioptions+=! guicursor+=a:blinkon0
 set incsearch lazyredraw nrformats=alpha,bin,hex shortmess=filnxoOtTI
@@ -36,9 +36,6 @@ if exists('+inccommand')
 endif
 if exists('+scrollfocus')
     set scrollfocus
-endif
-if exists('+tagfunc')
-    set tagfunc=misc#urltags
 endif
 
 " indents and folds

@@ -279,16 +279,8 @@ if v:version >= 700
   " Screen column that the cursor is
   hi! link CursorColumn CursorLine
 
-
-  if g:srcery_transparent_background == 1 && !has('gui_running')
-    " Tab pages line filler
-    call s:HL('TabLineFill', s:green, s:none)
-    " Active tab page label
-    call s:HL('TabLineSel', s:red, s:none, s:bold)
-  else
-    call s:HL('TabLineFill', s:green, s:black)
-    call s:HL('TabLineSel', s:red, s:black, s:bold)
-  endif
+  call s:HL('TabLineFill', s:bright_black, s:xgray2)
+  call s:HL('TabLineSel', s:bright_white, s:xgray5)
 
   " Not active tab page label
   hi! link TabLine TabLineFill
@@ -627,13 +619,13 @@ call s:HL('fzf3', s:bright_white, s:xgray2)
 "}}}
 " Netrw: {{{
 
-hi! link netrwDir SrceryCyan
+hi! link netrwDir SrceryBlue
 hi! link netrwClassify SrceryCyan
 hi! link netrwLink SrceryBrightBlack
-hi! link netrwSymLink SrceryWhite
+hi! link netrwSymLink SrceryCyan
 hi! link netrwExe SrceryYellow
 hi! link netrwComment SrceryBrightBlack
-hi! link netrwList SrceryBlue
+hi! link netrwList SrceryBrightBlue
 hi! link netrwTreeBar SrceryBrightBlack
 hi! link netrwHelpCmd SrceryCyan
 hi! link netrwVersion SrceryGreen
