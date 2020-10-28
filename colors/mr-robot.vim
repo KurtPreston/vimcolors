@@ -36,7 +36,7 @@ let s:source        =   s:secondary
 let s:keyword       =   s:primary
 let s:structure     =   s:primary
 let s:scalar        =   s:primary
-let s:string        =   s:secondary
+let s:string        =   s:primary
 
 let s:comment       =   '#26402c'
 
@@ -87,6 +87,7 @@ call s:hi('Search', s:bg, s:source, s:none)
 
 call s:hi('Directory', s:string, s:bg, s:none)
 call s:hi('CursorLine', s:none, '#132016', s:none)
+call s:hi('CursorColumn', '#81b38c', '#1d3021', s:none)
 call s:hi('MatchParen', s:string, '#1d3021', s:none)
 call s:hi('ColorColumn', s:source, '#132016', s:none)
 
