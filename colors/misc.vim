@@ -1,7 +1,8 @@
 " This is a part of my vim configuration.
 " https://github.com/matveyt/vimfiles
 
-" Wipe all deleted (unloaded & unlisted) or all unloaded buffers
+" misc#bwipeout({listed})
+" wipe all deleted (unloaded & unlisted) or all unloaded buffers
 function! misc#bwipeout(listed) abort
     let l:buffers = filter(getbufinfo(), {_, v -> !v.loaded && (!v.listed || a:listed)})
     if !empty(l:buffers)
@@ -9,7 +10,7 @@ function! misc#bwipeout(listed) abort
     endif
 endfunction
 
-" change({line1}, {line2} [, {reg} [, {autoindent}]])
+" misc#change({line1}, {line2} [, {reg} [, {autoindent}]])
 " non-interactive :change
 " Note: the replaced text is put in the unnamed register as in :h put-Visual-mode
 function! misc#change(line1, line2, ...) abort
