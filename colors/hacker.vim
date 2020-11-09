@@ -57,7 +57,7 @@ call s:hi('Statement', s:primary, s:bg, s:none)
 call s:hi('Conditional', s:keyword, s:bg, s:none)
 call s:hi('Repeat', s:keyword, s:bg, s:none)
 call s:hi('Label', s:primary, s:bg, s:none)
-call s:hi('Operator', s:source, s:bg, s:none)
+call s:hi('Operator', s:secondary, s:bg, s:none)
 call s:hi('Keyword', s:primary, s:bg, s:none)
 call s:hi('Exception', s:primary, s:bg, s:none)
 
@@ -114,34 +114,40 @@ call s:hi('GitGutterChangeDelete', s:source, s:bg, s:none)
 call s:hi('SignColumn', s:source, s:bg, s:none)
 
 " Python syntax highlighting
-call s:hi('pythonFunction', s:primary, s:bg, s:none)
-call s:hi('pythonBuiltin', s:primary, s:bg, s:none)
+call s:hi('pythonBuiltin', s:scalar, s:bg, s:none)
 call s:hi('pythonDecoratorName', s:scalar, s:bg, s:none)
 call s:hi('pythonDecorator', s:scalar, s:bg, s:none)
-call s:hi('pythonOperator', s:secondary, s:bg, s:none)
-call s:hi('jinjaStatement', s:scalar, s:bg, s:none)
+call s:hi('pythonOperator', s:primary, s:bg, s:none)
 call s:hi('jinjaTagDelim', s:scalar, s:bg, s:none)
+call s:hi('jinjaVarBlock', s:scalar, s:bg, s:none)
+call s:hi('jinjaStatement', s:scalar, s:bg, s:none)
 call s:hi('jinjaBlockName', s:source, s:bg, s:none)
 call s:hi('jinjaVariable', s:source, s:bg, s:none)
 call s:hi('jinjaString', s:string, s:bg, s:none)
+call s:hi('jinjaOperator', s:primary, s:bg, s:none)
 
 " PHP
 call s:hi('phpDefine', s:primary, s:bg, s:none)
 call s:hi('phpIdentifier', s:source, s:bg, s:none)
+call s:hi('phpVarSelector', s:source, s:bg, s:none)
 call s:hi('bladeKeyword', s:scalar, s:bg, s:none)
 
 " Javascript
 call s:hi('jsNull', s:scalar, s:bg, s:none)
 call s:hi('jsUndefined', s:scalar, s:bg, s:none)
-call s:hi('jsFuncName', s:source, s:bg, s:none)
-
-" Java
-call s:hi('javaAnnotation', s:secondary, s:bg, s:none)
+call s:hi('jsFunction', s:primary, s:bg, s:none)
+call s:hi('jsFuncName', s:secondary, s:bg, s:none)
+call s:hi('jsArrowFunction', s:primary, s:bg, s:none)
+call s:hi('jsonKeyword', s:source, s:bg, s:none)
 
 " Typescript
 call s:hi('typescriptBraces', s:source, s:bg, s:none)
-call s:hi('typescriptDecorators', s:scalar, s:bg, s:none)
-call s:hi('typescriptEndColons', s:source, s:bg, s:none)
+call s:hi('typescriptDecorator', s:secondary, s:bg, s:none)
+call s:hi('typescriptImport', s:primary, s:bg, s:none)
+call s:hi('typescriptExport', s:primary, s:bg, s:none)
+
+" Java
+call s:hi('javaAnnotation', s:secondary, s:bg, s:none)
 
 " HTML
 call s:hi('htmlTagName', s:primary, s:bg, s:none)
@@ -176,7 +182,6 @@ hi CursorLine cterm=none
 hi Identifier cterm=none
 
 if has("gui_win32")
-    call s:hi('CursorLine', s:source, '#1a1a1a', s:none)
     call s:hi('Cursor', s:bg, s:string, s:none)
 endif
 
