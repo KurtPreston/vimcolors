@@ -74,7 +74,7 @@ function s:setup_minpac() abort
 
     " git-clone minpac itself
     let l:remote = 'https://github.com/k-takata/minpac.git'
-    let l:local = g:dotvim..'/pack/minpac/opt/minpac'
+    let l:local = better#rtp('pack/minpac/opt/minpac')
     if !isdirectory(l:local)
         echomsg 'Cloning into' l:local
         silent call system('git clone --depth=1 '..l:remote..' '..shellescape(l:local))
@@ -82,7 +82,7 @@ function s:setup_minpac() abort
 
     " initialize minpac
     packadd minpac
-    call minpac#init({'dir': g:dotvim, 'progress_open': 'vertical'})
+    call minpac#init({'dir': better#rtp(), 'progress_open': 'vertical'})
     call minpac#add(l:remote, {'type': 'opt'})
 
     " 3rd party plugins

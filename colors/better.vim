@@ -66,6 +66,17 @@ function! better#or(...) abort
     return l:arg
 endfunction
 
+" better#rtp([{subdir}])
+" return full path to {subdir} under Vim config dir
+function! better#rtp(...) abort
+    let l:path = exists('*stdpath') ? stdpath('config') : strpart(&rtp, 0,
+        \ stridx(&rtp, ','))
+    if a:0
+        let l:path .= '/' . a:1
+    endif
+    return exists('+shellslash') && &shellslash ? tr(l:path, '\', '/') : l:path
+endfunction
+
 " better#win_execute({id}, {command} [, {silent}])
 " Vim/Neovim compatibility
 " Note: Neovim doesn't have win_execute()

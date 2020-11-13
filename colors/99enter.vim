@@ -1,6 +1,12 @@
 " This is a part of my vim configuration.
 " https://github.com/matveyt/vimfiles
 
+" delay until VimEnter
+if !v:vim_did_enter
+    autocmd VimEnter * ++once ++nested source <sfile>
+    finish
+endif
+
 if better#gui_running()
     " +++++ GUI +++++
     14Font PT Mono

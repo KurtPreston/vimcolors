@@ -87,7 +87,7 @@ command! -bar -bang Highlight
 " :[count]MRU [sesdir]
 " show MRU and Session files
 command! -count=10 -bar -nargs=? -complete=dir MRU
-    \ call mru#show(better#or(<q-args>, g:dotvim..'/sessions'), <count>)
+    \ call mru#show(better#or(<q-args>, better#rtp('sessions')), <count>)
 
 " :[range]Trim[!]
 " trim trailing/leading space
