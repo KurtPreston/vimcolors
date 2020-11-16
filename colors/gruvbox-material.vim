@@ -21,7 +21,7 @@ endif
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.palette)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Mon 29 Jun 2020 10:07:19 AM UTC'
+let s:last_modified = 'Mon Nov 16 03:41:27 AM UTC 2020'
 let g:gruvbox_material_loaded_file_types = []
 " }}}
 " Common Highlight Groups: {{{
@@ -62,9 +62,15 @@ highlight! link iCursor Cursor
 highlight! link lCursor Cursor
 highlight! link CursorIM Cursor
 call gruvbox_material#highlight('CursorColumn', s:palette.none, s:palette.bg1)
-call gruvbox_material#highlight('CursorLine', s:palette.none, s:palette.bg1)
+if &diff
+  call gruvbox_material#highlight('CursorLine', s:palette.none, s:palette.none, 'underline')
+else
+  call gruvbox_material#highlight('CursorLine', s:palette.none, s:palette.bg1)
+endif
 call gruvbox_material#highlight('LineNr', s:palette.grey0, s:palette.none)
-if (&relativenumber == 1 && &cursorline == 0) || s:configuration.sign_column_background !=# 'default'
+if &diff
+  call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.none, 'underline')
+elseif (&relativenumber == 1 && &cursorline == 0) || s:configuration.sign_column_background !=# 'default'
   call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.none)
 else
   call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.bg1)
@@ -144,6 +150,7 @@ if has('nvim')
   call gruvbox_material#highlight('LspDiagnosticsFloatingWarning', s:palette.yellow, s:palette.bg3)
   call gruvbox_material#highlight('LspDiagnosticsFloatingInformation', s:palette.blue, s:palette.bg3)
   call gruvbox_material#highlight('LspDiagnosticsFloatingHint', s:palette.aqua, s:palette.bg3)
+  call gruvbox_material#highlight('Substitute', s:palette.bg0, s:palette.yellow)
   highlight! link LspDiagnosticsDefaultError ErrorLine
   highlight! link LspDiagnosticsDefaultWarning WarningLine
   highlight! link LspDiagnosticsDefaultInformation InfoLine
@@ -160,7 +167,6 @@ if has('nvim')
   highlight! link LspDiagnosticsSignWarning YellowSign
   highlight! link LspDiagnosticsSignInformation BlueSign
   highlight! link LspDiagnosticsSignHint AquaSign
-  call gruvbox_material#highlight('Substitute', s:palette.bg0, s:palette.yellow)
   highlight! link TermCursor Cursor
   highlight! link healthError Red
   highlight! link healthSuccess Green

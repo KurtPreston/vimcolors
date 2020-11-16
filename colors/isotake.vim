@@ -58,6 +58,7 @@ if &background == 'light'
   hi  vimGroupName  gui=NONE
 
 else
+  " backgroung=dark
   hi  Comment       guifg=LightBlue
   hi  CursorLine    cterm=NONE           ctermbg=26
   hi  DiffAdd       guibg=DarkGreen      ctermbg=DarkGreen    ctermfg=White
@@ -81,8 +82,8 @@ else
   hi  SpellBad      ctermbg=213          ctermfg=0
   hi  SpellCap      ctermbg=12           ctermfg=27
   hi  Statement     ctermfg=208
-  hi  StatusLine    cterm=NONE           ctermbg=38
-  hi  StatusLineNC  cterm=NONE           ctermbg=159          ctermfg=75
+  hi  StatusLine    cterm=NONE           ctermbg=38           ctermfg=237
+  hi  StatusLineNC  cterm=NONE           ctermbg=26           ctermfg=75
   hi  Type          gui=NONE             guifg=#7f98fa
   hi  Visual        cterm=NONE           ctermbg=23
   hi  VertSplit     guifg=Gray
