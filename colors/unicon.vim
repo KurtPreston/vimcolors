@@ -2,7 +2,7 @@
 " URL:      https://github.com/andbar-ru/vim-unicon
 " License:  MIT
 " Last Change: 2017-12-05
-" Version: 1.2
+" Version: 2.2.0
 " Descrition: Uniform contrast vim light/dark color scheme for gui and
 "             256-color and true-color terminals
 
@@ -157,7 +157,7 @@ call s:HL('DiffAdd', s:base6, s:pale_green)
 call s:HL('DiffChange', s:base6, s:pale_yellow)
 call s:HL('DiffDelete', s:base6, s:pale_red)
 call s:HL('DiffText', s:base6, s:pale_blue)
-call s:HL('SignColumn', s:base5)
+call s:HL('SignColumn', s:base4, s:base2)
 call s:HL('Conceal', s:green)
 call s:HL('SpellBad', s:none, s:none, 'undercurl', s:red)
 call s:HL('SpellCap', s:none, s:none, 'undercurl', s:violet)
