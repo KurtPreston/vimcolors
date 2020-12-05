@@ -14,16 +14,20 @@ else
     let g:no_buffers_menu = 1
 endif
 
-" disable some standard plugins
+" disable standard plugins
 let g:loaded_getscriptPlugin = 0
 let g:loaded_gzip = 0
 let g:loaded_logiPat = 0
 let g:loaded_netrwPlugin = 0
-let g:loaded_python_provider = 0
 let g:loaded_shada_plugin = 0
 let g:loaded_tarPlugin = 0
 let g:loaded_vimballPlugin = 0
 let g:loaded_zipPlugin = 0
+" disable Neovim providers
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
 
 " standard plugins config
 let g:asmsyntax = 'fasm'
@@ -86,9 +90,6 @@ function s:setup_minpac() abort
     call minpac#add(l:remote, {'type': 'opt'})
 
     " 3rd party plugins
-    call minpac#add('tpope/vim-repeat')
-    call minpac#add('tpope/vim-surround')
-    call minpac#add('tpope/vim-unimpaired')
     call minpac#add('wellle/targets.vim')
     call minpac#add('mbbill/undotree')
     call minpac#add('lervag/vimtex')

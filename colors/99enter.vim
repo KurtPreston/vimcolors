@@ -42,7 +42,7 @@ else
     " +++++ Plain terminal +++++
 endif
 
-" make sure the colors weren't already set (e.g. by a desktop shortcut)
+" if colorscheme wasn't set yet
 if !exists('g:colors_name')
     set background=light
     silent! colorscheme modest

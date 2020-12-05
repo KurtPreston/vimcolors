@@ -4,12 +4,9 @@
 " ';' to get to the command line quickly
 nnoremap ; :
 xnoremap ; :
-" ',' to repeat char search forward
-nnoremap , ;
-xnoremap , ;
-" '\,' to repeat char search backward
-nnoremap <leader>, ,
-xnoremap <leader>, ,
+" '\;' to repeat char search forward
+nnoremap <leader>; ;
+xnoremap <leader>; ;
 " improved auto completion: <Tab>, <CR>, <Esc>, <Up>, <Down>, <PageUp>, <PageDown>
 " <C-X><C-F> is now able to expand wildcards
 inoremap <C-X><C-F> <C-R>=misc#complete('[[:fname:]*?]\+', 'file')<CR>
@@ -44,14 +41,11 @@ noremap! '' ''<Left>
 xnoremap < <gv
 xnoremap > >gv
 " copy-paste like Windows
-vnoremap <S-Del>    "+d
-vnoremap <C-Insert> "+y
-vnoremap <S-Insert> "+p
-nnoremap <S-Insert> "+gP
+xnoremap <S-Del>    "+d
+xnoremap <C-Insert> "+y
+xnoremap <S-Insert> "+p
+xnoremap <S-Insert> "+gP
 noremap! <S-Insert> <C-R>+
-" [count]gp / gP to put register and flip its type (linewise / charwise)
-nnoremap <silent>gp :<C-U>call misc#putregv('p')<CR>
-nnoremap <silent>gP :<C-U>call misc#putregv('P')<CR>
 " [count]<BS> to open "File Explorer" (vim-drvo)
 nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 " '\=' to cd to the current file's directory
@@ -75,14 +69,15 @@ nnoremap <silent>gcc :Comment!<CR>
 nnoremap <expr><silent>gs opera#mapto('sort')
 xnoremap <expr><silent>gs opera#mapto('sort')
 nnoremap <silent>gss :sort<CR>
-" gt to trim trailing whitespace
-nnoremap <expr><silent>gt opera#mapto('Trim')
-xnoremap <expr><silent>gt opera#mapto('Trim')
-nnoremap <silent>gtt :Trim<CR>
 " gx to execute script
 nnoremap <expr><silent>gx opera#mapto('Execute', 'line')
 xnoremap <expr><silent>gx opera#mapto('Execute', 'line')
 nnoremap <silent>gxx :Execute<CR>
+" g<Space> to trim trailing whitespace
+nnoremap <expr><silent>g<Space> opera#mapto('Trim')
+xnoremap <expr><silent>g<Space> opera#mapto('Trim')
+nnoremap <silent>g<Space><Space> :Trim<CR>
+
 " my text objects: ae/ie - buffer, al/il - line
 noremap <expr><silent><plug>ae textobj#set_lines(1, '$')
 noremap <expr><silent><plug>ie textobj#set_lines(nextnonblank(1), prevnonblank('$'))
@@ -98,3 +93,6 @@ omap al <plug>al
 xmap al <plug>al
 omap il <plug>il
 xmap il <plug>il
+
+" partial emulation of vim-unimpaired and vim-surround
+call unimpaired#emulate()

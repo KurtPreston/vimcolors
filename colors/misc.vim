@@ -129,12 +129,3 @@ function! misc#guifont(typeface, height) abort
     silent! let &guifont = join(l:fonts, ',')
     let g:fontheight = l:height
 endfunction
-
-" misc#putregv({put})
-" put v:register while flipping charwise/linewise type
-function! misc#putregv(put) abort
-    let [l:reg, l:body, l:type] = [v:register, getreg(), getregtype()]
-    call setreg(l:reg, trim(l:body, "\r\n"), l:type is# 'v' ? 'V' : 'v')
-    execute printf('normal! "%s%d%s', l:reg, v:count1, a:put)
-    call setreg(l:reg, l:body, l:type)
-endfunction

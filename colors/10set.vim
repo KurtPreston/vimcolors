@@ -23,8 +23,9 @@ set keymodel=startsel mousemodel=popup selection=exclusive selectmode=
 set laststatus=2 mouse=ar number showmatch showtabline=2 title
 set nofsync nohlsearch nolangremap noruler noshowcmd noshowmode nostartofline
 set nobackup nowritebackup noswapfile
+set switchbuf=useopen undofile virtualedit=all wildoptions=
 set sessionoptions=blank,curdir,help,slash,tabpages,unix,winsize
-set switchbuf=useopen undofile viminfo+=! virtualedit=all wildoptions=
+set viminfo=!,'100,<1000,s100,h
 let &grepprg = executable('ag') ? 'ag --vimgrep' : 'internal'
 let &undodir = better#rtp('undo')
 if exists('+inccommand')

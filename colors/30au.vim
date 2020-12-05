@@ -4,7 +4,7 @@
 augroup vimStartup | au!
     " :h restore-cursor
     autocmd BufRead * call setpos('.', getpos("'\""))
-    " 'q' to close a non-modifiable window/buffer (e.g. 'help')
+    " 'q' to close special windows/buffers (e.g. 'help')
     autocmd BufWinEnter *
         \   if !empty(&buftype)
         \ |     execute 'nnoremap <buffer>q <C-W>q'
@@ -14,6 +14,8 @@ augroup vimStartup | au!
         \   if &modified && &modeline && &modelines > 0
         \ |     call s:timestamp('(Last Change|Date):', '%Y %b %d', &modelines)
         \ | endif
+    " prettify man buffer
+    autocmd FileType man setlocal colorcolumn& list&
     " save session on exit
     autocmd VimLeavePre *
         \   if !empty(v:this_session) && !v:dying
