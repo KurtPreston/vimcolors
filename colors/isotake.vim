@@ -20,10 +20,10 @@ if &background == 'light'
   hi  Constant      guifg=DeepPink
   hi  CursorLine    gui=NONE  guibg=LightGreen  cterm=NONE  ctermbg=193
   hi  CursorLineNr  gui=NONE             guibg=#ffdfe6      guifg=Brown       cterm=NONE      ctermbg=NONE  ctermfg=208
-  hi  DiffAdd       guibg=LightGreen     ctermbg=DarkGreen  ctermfg=White
-  hi  DiffChange    guibg=Gray90         ctermbg=DarkCyan   ctermfg=White
-  hi  DiffDelete    guibg=LightRed       guifg=Black        ctermbg=DarkRed   ctermfg=White
-  hi  DiffText      gui=NONE             guibg=LightCyan2   ctermbg=DarkCyan  ctermfg=Yellow
+  hi  DiffAdd       ctermbg=114          ctermfg=28
+  hi  DiffChange    ctermbg=123          ctermfg=33
+  hi  DiffDelete    ctermbg=218          ctermfg=206
+  hi  DiffText      ctermbg=117          ctermfg=33
   hi  Error         ctermbg=1            ctermfg=195
   hi  ErrorMsg      ctermbg=1            ctermfg=195
   hi  FileName      gui=NONE             guifg=DarkRed      guibg=White       cterm=NONE      ctermfg=199
