@@ -9,7 +9,8 @@ let s:colors.deepgrey    = ['#1c1c1c', 234]
 let s:colors.darkgrey    = ['#262626', 235]
 let s:colors.grey        = ['#808080', 244]
 let s:colors.faint       = ['#eeeeee', 255]
-let s:colors.white       = ['#ffffff', 'NONE']
+let s:colors.null        = ['#ffffff', 'NONE']
+let s:colors.white       = ['#ffffff', 256]
 let s:colors.rose        = ['#ff5f87', 204]
 let s:colors.blue        = ['#0087af', 32]
 let s:colors.corn	 = ['#ffffd7', 230]
@@ -47,18 +48,18 @@ endfunction
 function! s:setLight()
   set background=light
   " Base colors.
-  call s:highlight('Normal', 'deepgrey', 'white')
-  call s:highlight('NonText', 'white')
-  call s:highlight('EndOfBuffer', 'white')
+  call s:highlight('Normal', 'deepgrey', 'null')
+  call s:highlight('NonText', 'null')
+  call s:highlight('EndOfBuffer', 'null')
   call s:highlight('comment', 'grey')
-  call s:highlight('constant', 'black', 'white', 'bold')
+  call s:highlight('constant', 'black', 'null', 'bold')
   call s:highlight('string', 'grey')
-  call s:highlight('identifier', 'black', 'white')
-  call s:highlight('statement', 'black', 'white', 'bold')
+  call s:highlight('identifier', 'black', 'null')
+  call s:highlight('statement', 'black', 'null', 'bold')
   call s:highlight('define', 'black')
-  call s:highlight('preproc', 'rose', 'white', 'bold')
+  call s:highlight('preproc', 'rose', 'null', 'bold')
   call s:highlight('type', 'rose')
-  call s:highlight('special', 'rose', 'white', 'bold')
+  call s:highlight('special', 'rose', 'null', 'bold')
   call s:highlight('Underlined', 'darkgrey')
   call s:highlight('label', 'darkgrey')
   call s:highlight('operator', 'rose')
@@ -66,28 +67,28 @@ function! s:setLight()
 
   " End of Buffer
   " Removes ~~~ marks denoting the end of a buffer.
-  call s:highlight('EndOfBuffer', 'white', 'white')
+  call s:highlight('EndOfBuffer', 'white', 'null')
 
   " Inline notifications.
-  call s:highlight('Todo', 'black', 'white', 'bold')
-  call s:highlight('Search', 'white', 'deepgrey')
-  call s:highlight('IncSearch', 'white', 'deepgrey')
+  call s:highlight('Todo', 'black', 'null', 'bold')
+  call s:highlight('Search', 'faint', 'deepgrey')
+  call s:highlight('IncSearch', 'faint', 'deepgrey')
   call s:highlight('title', 'darkgrey')
 
   " CursorLine
   " Do not alter styles on the current cursor line.
   hi clear CursorLine
-  call s:highlight('CursorLineNr', 'blue', 'white', 'bold')
+  call s:highlight('CursorLineNr', 'rose', 'faint', 'bold')
 
   " CursorColumn
   call s:highlight('CursorColumn', 'blue', 'blue')
 
   " Status line
-  call s:highlight('StatusLine', 'black', 'white')
-  call s:highlight('StatusLineNC', 'grey', 'white')
+  call s:highlight('StatusLine', 'black', 'null')
+  call s:highlight('StatusLineNC', 'grey', 'null')
   
   " Windows
-  call s:highlight('VertSplit', 'white', 'white')
+  call s:highlight('VertSplit', 'black', 'black')
 
   " Diff
   call s:highlight('DiffChange', 'black', 'corn')
@@ -96,41 +97,42 @@ function! s:setLight()
   call s:highlight('DiffDelete', 'rose', 'rose')
 
   " Folds
-  call s:highlight('Folded', 'blue', 'white')
-  call s:highlight('FoldColumn', 'blue', 'white')
+  call s:highlight('Folded', 'blue', 'null')
+  call s:highlight('FoldColumn', 'blue', 'null')
 
   " Visual
-  call s:highlight('Visual', 'red', 'white', 'underline')
+  call s:highlight('Visual', 'red', 'null', 'underline')
 
   " Line Numbers
-  call s:highlight('LineNr', 'black', 'white')
+  call s:highlight('LineNr', 'black', 'null')
 
   " Sign Column
-  call s:highlight('SignColumn', 'rose', 'white')
+  call s:highlight('SignColumn', 'rose', 'null')
 
   " Command window
-  call s:highlight('ErrorMsg', 'rose', 'white')
-  call s:highlight('WarningMsg', 'rose', 'white')
-  call s:highlight('ModeMsg', 'deepgrey', 'white')
-  call s:highlight('MoreMsg', 'darkgrey', 'white')
-  call s:highlight('Error', 'rose', 'white')
+  call s:highlight('ErrorMsg', 'rose', 'null')
+  call s:highlight('WarningMsg', 'rose', 'null')
+  call s:highlight('ModeMsg', 'deepgrey', 'null')
+  call s:highlight('MoreMsg', 'darkgrey', 'null')
+  call s:highlight('Error', 'rose', 'null')
 
   " Spelling
-  call s:highlight('SpellLocal', 'black', 'white', 'italic')
-  call s:highlight('SpellBad', 'spell', 'white', 'underline')
-  call s:highlight('SpellCap', 'black', 'white', 'underline')
+  call s:highlight('SpellLocal', 'black', 'null', 'italic')
+  call s:highlight('SpellBad', 'spell', 'null', 'underline')
+  call s:highlight('SpellCap', 'black', 'null', 'underline')
 
   " Markdown
   call s:highlight('markdownLinkText', 'blue', '', 'underline')
-  call s:highlight('markdownHeadingDelimiter', 'black', '', 'bold')
+  call s:highlight('markdownHeadingDelimiter', 'deepgrey', 'null', 'bold,underline')
   call s:highlight('markdownListMarker', 'black', '', 'bold')
-  call s:highlight('markdownCodeDelimiter', 'black', '', 'bold')
-  call s:highlight('markdownH1', 'deepgrey', '', 'bold')
-  call s:highlight('markdownH2', 'deepgrey', '', 'bold')
-  call s:highlight('markdownH3', 'deepgrey', '', 'bold')
-  call s:highlight('markdownH4', 'deepgrey', '', 'bold')
-  call s:highlight('markdownH5', 'deepgrey', '', 'bold')
-  call s:highlight('markdownH6', 'deepgrey', '', 'bold')
+  call s:highlight('markdownCodeDelimiter', 'rose', 'null', 'bold')
+  call s:highlight('markdownItalic', 'null', '', 'NONE')
+  call s:highlight('markdownH1', 'deepgrey', 'null', 'bold,underline')
+  call s:highlight('markdownH2', 'deepgrey', 'null', 'bold,underline')
+  call s:highlight('markdownH3', 'deepgrey', 'null', 'bold,underline')
+  call s:highlight('markdownH4', 'deepgrey', 'null', 'bold,underline')
+  call s:highlight('markdownH5', 'deepgrey', 'null', 'bold,underline')
+  call s:highlight('markdownH6', 'deepgrey', 'null', 'bold,underline')
 
 endfunction
 
