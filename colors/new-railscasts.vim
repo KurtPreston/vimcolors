@@ -95,6 +95,9 @@ hi Title       guifg=#E9E1D7 guibg=NONE
 hi Todo        guifg=#D38E39 guibg=NONE gui=bold,italic
 hi Type        guifg=#F47454 guibg=NONE gui=NONE
 hi WarningMsg  guifg=#DA4939 guibg=NONE gui=NONE
+hi TabLineFill guifg=#2D2720 guibg=#2d2d2d
+hi TabLine     guifg=#E4E4E4 guibg=#606060 gui=NONE
+hi TabLineSel  guifg=#3e4249 guibg=#A5C261 gui=italic,bold
 
 " Indentation
 hi IndentGuidesOdd  ctermbg=239 guibg=#282828
