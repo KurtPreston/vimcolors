@@ -159,6 +159,7 @@ function! s:HL(group, fg, ...)
 
   execute join(l:histring, ' ')
 endfunction
+
 "}}}
 " Srcery Hi Groups: {{{
 
@@ -457,7 +458,11 @@ hi! link Number SrceryBrightMagenta
 hi! link Float SrceryBrightMagenta
 
 " Generic type
-hi! link Type SrceryBrightBlue
+if get(g:, 'srcery_italic_types', 0) == 1
+  call s:HL('Type', s:bright_blue, s:none, s:italic)
+else
+  hi! link Type SrceryBrightBlue
+end
 " static, register, volatile, etc
 hi! link StorageClass SrceryOrange
 " struct, union, enum, etc.
@@ -470,6 +475,9 @@ if g:srcery_dim_lisp_paren == 1
 else
   hi! link Delimiter SrceryBrightBlack
 endif
+
+" Treesitter
+call s:HL('TSParameter', s:cyan, s:none, s:italic)
 
 " }}}
 " Completion Menu: {{{
@@ -657,11 +665,13 @@ call s:HL('CocHintHighlight', s:none, s:none, s:undercurl, s:blue)
 
 " }}}
 " CtrlP: "{{{
+"
 hi! link CtrlPMatch SrceryMagenta
 hi! link CtrlPLinePre SrceryBrightGreen
 call s:HL('CtrlPMode1', s:bright_white, s:xgray3)
 call s:HL('CtrlPMode2', s:bright_white, s:xgray5)
 call s:HL('CtrlPStats', s:yellow, s:xgray2)
+
 " }}}
 " NERDTree: "{{{
 
@@ -677,6 +687,15 @@ hi! link NERDTreeHelp SrceryCyan
 hi! link NERDTreeFlags SrceryCyan
 hi! link NERDTreeLinkFile SrceryBrightBlack
 hi! link NERDTreeLinkTarget SrceryBrightBlack
+
+" }}}
+" Telescope: "{{{
+
+call s:HL('TelescopeNormal', s:white, s:none)
+call s:HL('TelescopeSelection', s:green, s:none, s:bold)
+call s:HL('TelescopeMatching', s:magenta)
+call s:HL('TelescopeSelectionCaret', s:magenta)
+call s:HL('TelescopePromptPrefix', s:bright_yellow)
 
 " }}}
 
@@ -728,7 +747,6 @@ else
   call s:HL('htmlItalic', s:bright_white, s:black, s:italic)
 endif
 
-
 " }}}
 " Xml: {{{
 
@@ -753,6 +771,7 @@ hi! link xmlAttribPunct SrceryBrightBlack
 
 hi! link xmlEntity SrceryYellow
 hi! link xmlEntityPunct SrceryYellow
+
 " }}}
 " Vim: {{{
 
@@ -768,6 +787,7 @@ hi! link vimContinue SrceryBrightWhite
 
 " }}}
 " Lisp dialects: {{{
+
 if g:srcery_dim_lisp_paren == 1
   hi! link schemeParentheses SrceryXgray6
   hi! link clojureParen SrceryXgray6
@@ -801,6 +821,7 @@ hi! link clojureMeta SrceryYellow
 hi! link clojureDeref SrceryYellow
 hi! link clojureQuote SrceryYellow
 hi! link clojureUnquote SrceryYellow
+
 " }}}
 " C: {{{
 
@@ -1029,13 +1050,13 @@ hi! link markdownIdDeclaration markdownLinkText
 " hi! link haskellOperators SrceryYellow
 " hi! link haskellConditional SrceryCyan
 " hi! link haskellLet SrceryYellow
-"
+
 hi! link haskellType SrceryBlue
 hi! link haskellIdentifier SrceryBlue
 hi! link haskellSeparator SrceryBlue
 hi! link haskellDelimiter SrceryBrightWhite
 hi! link haskellOperators SrceryBlue
-"
+
 hi! link haskellBacktick SrceryYellow
 hi! link haskellStatement SrceryYellow
 hi! link haskellConditional SrceryYellow
@@ -1066,18 +1087,24 @@ hi! link jsonString SrceryBlue
 
 " }}}
 " Rust: {{{
+
 "https://github.com/rust-lang/rust.vim/blob/master/syntax/rust.vim
 hi! link rustCommentLineDoc SrceryGreen
 hi! link rustModPathSep SrceryBrightBlack
+
 " }}}
 " Make: {{{
+
 hi! link makePreCondit SrceryRed
 hi! link makeCommands SrceryBrightWhite
 hi! link makeTarget SrceryYellow
+
 " }}}
 " Misc: {{{
+
 call s:HL('shParenError', s:bright_white, s:bright_red)
 call s:HL('ExtraWhitespace', s:none, s:red)
+
 " }}}
 
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker :
