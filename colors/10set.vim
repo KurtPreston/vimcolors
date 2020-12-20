@@ -12,14 +12,14 @@ if has('win32')
     let $MSYS = 'noglob'
 endif
 
-" note: move cursor and press 'K' to get help on particular option
+" note: move cursor and press 'K' to get help on option
 set autoread backspace=indent,eol,start belloff=all complete=.,w,b,t
 set confirm cursorline diffopt+=vertical fillchars=vert:\ ,fold:\ ,diff:\ 
 set fileformats=unix,dos grepformat=%f:%l:%c:%m history=1000 keywordprg=:Man
 set guioptions-=t guioptions+=! guicursor+=a:blinkon0
 set incsearch lazyredraw nrformats=alpha,bin,hex shortmess=filnxoOtTI
 set pyxversion=3 scrolloff=2 splitright ttimeout ttimeoutlen=100 wildmenu
-set keymodel=startsel mousemodel=popup selection=exclusive selectmode=
+set keymodel=startsel mousemodel=extend selection=exclusive selectmode=
 set laststatus=2 mouse=ar number showmatch showtabline=2 title
 set nofsync nohlsearch nolangremap noruler noshowcmd noshowmode nostartofline
 set nobackup nowritebackup noswapfile
@@ -28,9 +28,6 @@ set sessionoptions=blank,curdir,help,slash,tabpages,unix,winsize
 set viminfo=!,'100,<1000,s100,h
 let &grepprg = executable('ag') ? 'ag --vimgrep' : 'internal'
 let &undodir = better#rtp('undo')
-if exists('+inccommand')
-    set inccommand=split
-endif
 if exists('+scrollfocus')
     set scrollfocus
 endif
