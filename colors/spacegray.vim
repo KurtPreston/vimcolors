@@ -1,16 +1,22 @@
-" SpaceGray.vim -- Vim colorscheme.
+" Spacegray.vim -- Vim colorscheme
 " Maintainer: Akshay Hegde (github.com/ajh17)
-" Version: 1.4
-" A colorscheme loosely modeled after the spacegray theme for Xcode.
-" This colorscheme is 256color and up only.
+" Version: 1.5
+" Description: A colorscheme loosely modeled after the spacegray theme for Xcode
+" Note: This colorscheme is 256color and up only
+" Last Change: 2020 Dec 23
 
 " Setup {{{1
 hi clear
+
+if has("gui_running") && &background !=# 'dark'
+  set background=dark
+endif
 
 if exists('syntax_on')
   syntax reset
 endif
 
+" Options {{{1
 if !exists('g:spacegray_underline_search')
   let g:spacegray_underline_search = 0
 endif
@@ -23,41 +29,19 @@ if !exists('g:spacegray_low_contrast')
   let g:spacegray_low_contrast = 0
 endif
 
-let g:terminal_ansi_colors = [
-            \ '#3A3E42',
-            \ '#BF6262',
-            \ '#A2A565',
-            \ '#E9A96F',
-            \ '#789BAD',
-            \ '#9F7AA5',
-            \ '#638E8A',
-            \ '#737673',
-            \ '#5D6369',
-            \ '#BF6262',
-            \ '#A5A76E',
-            \ '#E9A96F',
-            \ '#789BAD',
-            \ '#9F7AA5',
-            \ '#9F7AA5',
-            \ '#E3E8E3'
-            \ ]
-
-set background=dark
-let colors_name = 'spacegray'
+let g:colors_name = 'spacegray'
 
 " Colorscheme definitions {{{1
 if g:spacegray_low_contrast
   hi Normal        ctermbg=235  ctermfg=250    guibg=#262626  guifg=#B3B8C4  cterm=NONE      gui=NONE
-  hi Terminal      ctermbg=235  ctermfg=250    guibg=#262626  guifg=#B3B8C4  cterm=NONE      gui=NONE
 else
-  hi Normal        ctermbg=234  ctermfg=250    guibg=#111314  guifg=#B3B8C4  cterm=NONE      gui=NONE
-  hi Terminal      ctermbg=234  ctermfg=250    guibg=#111314  guifg=#B3B8C4  cterm=NONE      gui=NONE
+  hi Normal        ctermbg=233  ctermfg=250    guibg=#111314  guifg=#B3B8C4  cterm=NONE      gui=NONE
 endif
 
 if g:spacegray_use_italics
-  hi Comment       ctermbg=NONE ctermfg=59     guibg=NONE     guifg=#515F6A  cterm=italic    gui=italic
+  hi Comment       ctermbg=NONE ctermfg=242    guibg=NONE     guifg=#657785  cterm=italic    gui=italic
 else
-  hi Comment       ctermbg=NONE ctermfg=59     guibg=NONE     guifg=#515F6A  cterm=NONE      gui=NONE
+  hi Comment       ctermbg=NONE ctermfg=242    guibg=NONE     guifg=#657785  cterm=NONE      gui=NONE
 endif
 
 hi Conceal         ctermbg=NONE ctermfg=250    guibg=NONE     guifg=#B3B8C4  cterm=NONE      gui=NONE
@@ -73,7 +57,7 @@ hi Statement       ctermbg=NONE ctermfg=13     guibg=NONE     guifg=#A57A9E  cte
 hi String          ctermbg=NONE ctermfg=107    guibg=NONE     guifg=#95B47B  cterm=NONE      gui=NONE
 hi Type            ctermbg=NONE ctermfg=179    guibg=NONE     guifg=#E5C078  cterm=NONE      gui=NONE
 
-hi Cursor          ctermbg=NONE ctermfg=NONE   guibg=#6C6C6C  guifg=NONE     cterm=NONE      gui=NONE
+hi Cursor          ctermbg=fg   ctermfg=bg     guibg=fg       guifg=bg       cterm=NONE      gui=NONE
 hi CursorColumn    ctermbg=0    ctermfg=NONE   guibg=#303030  guifg=NONE     cterm=NONE      gui=NONE
 hi CursorLine      ctermbg=0    ctermfg=NONE   guibg=#303030  guifg=NONE     cterm=NONE      gui=NONE
 hi ColorColumn     ctermbg=235  ctermfg=NONE   guibg=#303537  guifg=NONE     cterm=NONE      gui=NONE
@@ -188,6 +172,8 @@ hi link SpecialChar         Special
 hi link SpecialComment      Special
 hi link Tag                 Special
 
+hi link Terminal            Normal
+
 " HTML
 hi link htmlEndTag          htmlTagName
 hi link htmlLink            Function
@@ -204,3 +190,22 @@ hi link rubyRailsARClassMethod        Statement
 " Diff
 hi link diffAdded           String
 hi link diffRemoved         Function
+
+let g:terminal_ansi_colors = [
+            \ '#3A3E42',
+            \ '#BF6262',
+            \ '#A2A565',
+            \ '#E9A96F',
+            \ '#789BAD',
+            \ '#9F7AA5',
+            \ '#638E8A',
+            \ '#737673',
+            \ '#5D6369',
+            \ '#BF6262',
+            \ '#A5A76E',
+            \ '#E9A96F',
+            \ '#789BAD',
+            \ '#9F7AA5',
+            \ '#9F7AA5',
+            \ '#E3E8E3'
+            \ ]
