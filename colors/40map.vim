@@ -51,7 +51,8 @@ nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 " '\=' to cd to the current file's directory
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
 " edit '\b' - buffer; '\f' - file
-nnoremap <silent><leader>b :call misc#command('buffer')<CR>
+nnoremap <silent><leader>b :call misc#command('buffer', map(filter(getbufinfo(),
+    \ {_, v -> v.listed && empty(v.windows)}), {_, v -> v.name}))<CR>
 nnoremap <silent><leader>f :call misc#command('find')<CR>
 " '\h' to show the current highlight group
 nnoremap <silent><leader>h :Highlight!<CR>

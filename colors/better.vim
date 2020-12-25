@@ -39,7 +39,7 @@ function! better#inputlist(prompt, textlist, Action) abort
         endif
     endfunction
     if has('popupwin')
-        call popup_menu(a:textlist, {'title': a:prompt,
+        call popup_menu(a:textlist, {'title': printf('[%s]', a:prompt),
             \ 'callback': funcref('s:callback')})
     else
         let l:list = insert(map(copy(a:textlist), {k, v -> printf('%d) %s', k + 1, v)}),

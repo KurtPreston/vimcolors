@@ -1,7 +1,7 @@
 " This is a part of my vim configuration.
 " https://github.com/matveyt/vimfiles
 
-" Show Session & MRU files
+" Show Session, Marks & MRU files
 function! mru#show(sesdir, max) abort
     if !better#is_blank_buffer()
         new
@@ -22,40 +22,50 @@ function! mru#show(sesdir, max) abort
 
 END
     call setline(1, l:header)
-    call s:add_group('Session', glob(l:sesdir..'*.vim', 0, 1), a:max)
+    call s:add_group('Session', glob(l:sesdir..'*.vim', 0, 1))
+    if exists('*getmarklist')
+        call s:add_group('Mark', getmarklist())
+    endif
     let l:vimhelp = glob2regpat($VIMRUNTIME..'/doc/*.txt')
-    call s:add_group('MRU', filter(copy(v:oldfiles), {_, v -> match(v, l:vimhelp) < 0}),
-        \ a:max)
+    call s:add_group('MRU', filter(v:oldfiles[:],
+        \ {_, v -> match(v, l:vimhelp) < 0})[0 : a:max - 1])
 
     setlocal bufhidden=wipe buftype=nofile cursorline matchpairs=
     setlocal nomodifiable nonumber norelativenumber nospell noswapfile nowrap
     syntax match Title /^[^[].*$/
-    syntax match Comment /^\[\d\+\] \zs.\+[\/]/
+    syntax match Comment /^\[[0-9A-Z]\+\] \zs.\+[\/]/
     nnoremap <buffer><expr><silent><CR> <SID>on_enter()
     nnoremap <buffer><expr><silent><2-LeftMouse> <SID>on_enter()
     nnoremap <buffer><expr><silent>q <SID>on_quit()
 endfunction
 
-function s:add_group(title, items, max) abort
+function s:add_group(title, items) abort
     if !empty(a:items)
         call append('$', ['', a:title])
-        for l:num in range(a:max)
-            let l:item = get(a:items, l:num)
-            if empty(l:item)
-                break
+        let l:num = 0
+        for l:item in a:items
+            if type(l:item) == v:t_string
+                call append('$', printf('[%d] %s', l:num, l:item))
+            else
+                call append('$', printf('[%s] %s:%d', l:item.mark[1:],
+                    \ l:item.file, l:item.pos[1]))
             endif
-            call append('$', printf('[%d] %s', l:num, l:item))
+            let l:num += 1
         endfor
     endif
 endfunction
 
 function s:on_enter() abort
-    let l:file = matchstr(getline('.'), '^\[\d\+\] \zs.\+$')
-    if empty(l:file)
+    let l:group = getline(search('^\a\+$', 'bnW'))
+    let l:item = matchlist(getline('.'), '^\[\([0-9A-Z]\+\)\] \(\f\+\)')
+    if empty(l:group) || empty(l:item)
         return "\<CR>"
+    elseif l:group is# 'Mark'
+        return '`' . l:item[1]
+    else
+        return printf(":%s %s\<CR>", l:group is# 'Session' ? 'source' : 'edit',
+            \ fnameescape(l:item[2]))
     endif
-    return printf(":%s %s\<CR>", search('^MRU$', 'bnW') ? 'edit' : 'source',
-        \ fnameescape(l:file))
 endfunction
 
 function s:on_quit() abort
