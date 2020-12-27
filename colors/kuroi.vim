@@ -77,11 +77,11 @@ let s:palette.cterm.aqua         = { 'dark' : "110"              , 'light' : "23
 let s:palette.cterm.blue         = { 'dark' : "75"               , 'light' : "17"  }
 let s:palette.cterm.purple       = { 'dark' : "105"              , 'light' : "53"  }
 let s:palette.cterm.darkcolumn   = { 'dark' : "234"              , 'light' : "244" }
-let s:palette.cterm.addbg        = { 'dark' : "65"               , 'light' : "194" }
+let s:palette.cterm.addbg        = { 'dark' : "78"               , 'light' : "194" }
 let s:palette.cterm.addfg        = { 'dark' : "193"              , 'light' : "22"  }
-let s:palette.cterm.changebg     = { 'dark' : "61"               , 'light' : "189" }
+let s:palette.cterm.changebg     = { 'dark' : "172"               , 'light' : "189" }
 let s:palette.cterm.changefg     = { 'dark' : "189"              , 'light' : "53"  }
-let s:palette.cterm.delbg        = { 'dark' : "167"              , 'light' : "224" }
+let s:palette.cterm.delbg        = { 'dark' : "168"              , 'light' : "224" }
 let s:palette.cterm.darkblue     = { 'dark' : "17"               , 'light' : "194" }
 let s:palette.cterm.darkcyan     = { 'dark' : "24"               , 'light' : "22"  }
 let s:palette.cterm.darkred      = { 'dark' : "52"               , 'light' : "189" }
@@ -229,7 +229,7 @@ exe "hi! SignColumn"    .s:fg_none        .s:bg_background  .s:fmt_none
 "   Incsearch"
 exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_none
-exe "hi! MatchParen"    .s:fg_background  .s:bg_changebg    .s:fmt_none
+exe "hi! MatchParen"    .s:fg_foreground  .s:bg_purple      .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_selection   .s:bg_none        .s:fmt_none
