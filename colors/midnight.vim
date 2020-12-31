@@ -62,6 +62,7 @@ hi def link javaScriptBraces Normal
 hi def link jsGlobalObjects Identifier
 hi def link jsObjectProp Identifier
 hi def link jsUndefined Keyword
+hi def link jsNull Keyword
 hi def link jsOperatorKeyword Keyword
 
 
