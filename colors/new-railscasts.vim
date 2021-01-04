@@ -115,6 +115,7 @@ hi diffAdded         guifg=#519F50 gui=bold
 hi diffFile          guifg=#EAE3D9 guibg=NONE gui=bold
 hi diffNewFile       guifg=#EAE3D9 guibg=NONE gui=bold
 hi diffRemoved       guifg=#F47454 gui=italic
+hi gitblame          guifg=#775e3e guibg=NONE gui=italic,bold
 
 " Ruby https://github.com/vim-ruby/vim-ruby
 hi rspecMatchers             guifg=#FFC66D guibg=NONE
