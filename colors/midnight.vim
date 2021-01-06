@@ -65,6 +65,10 @@ hi def link jsUndefined Keyword
 hi def link jsNull Keyword
 hi def link jsOperatorKeyword Keyword
 
+" TypeScript
+hi def link typescriptMethodAccessor Keyword
+hi def link typescriptCall Identifier
+
 
 " Coc
 hi CocInfoFloat ctermfg=0
