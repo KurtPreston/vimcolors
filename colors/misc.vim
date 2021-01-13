@@ -44,7 +44,7 @@ endfunction
 " complete and execute {cmd}
 function! misc#command(cmd, ...) abort
     let l:values = a:0 ? copy(a:1) : getcompletion(a:cmd..' ', 'cmdline')
-    call better#inputlist(a:cmd, sort(l:values), {v -> execute(a:cmd..' '..v, '')})
+    call better#inputlist(a:cmd, sort(l:values), {_, v -> execute(a:cmd..' '..v, '')})
 endfunction
 
 " misc#comment({line1}, {line2} [, {preserveindent}])

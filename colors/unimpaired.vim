@@ -22,8 +22,8 @@ function! unimpaired#emulate() abort
     nnoremap <silent>]<Space> :<C-U>put =repeat(\"\n\", v:count1)<Bar>'[-<CR>
     nnoremap <expr><silent>[e printf(":<C-U>move --%d<CR>", v:count1)
     nnoremap <expr><silent>]e printf(":<C-U>move +%d<CR>", v:count1)
-    xnoremap <expr><silent>[e printf(":move '<--%d<CR>", v:count1)
-    xnoremap <expr><silent>]e printf(":move '>+%d<CR>", v:count1)
+    xnoremap <expr><silent>[e printf(":move '<--%d<CR>gv", v:count1)
+    xnoremap <expr><silent>]e printf(":move '>+%d<CR>gv", v:count1)
 
     " unimpaired-toggling
     call unimpaired#toggle('b', 'bg', 'light', 'dark')

@@ -11,7 +11,7 @@ if better#gui_running()
     " +++++ GUI +++++
     14Font PT Mono
     let g:fontlist = get(g:, 'fontlist', ['Cascadia Code PL', 'Inconsolata LGC',
-        \ 'Liberation Mono', 'PT Mono', 'Ubuntu Mono'])
+        \ 'JetBrains Mono', 'Liberation Mono', 'PT Mono', 'SF Mono', 'Ubuntu Mono'])
     let g:drvo_glyph = get(g:, 'drvo_glyph', [0x1F4C2, 0x1F4C4])
     if has('directx')
         set renderoptions=type:directx

@@ -96,3 +96,20 @@ command! -range=% -bar -bang Trim
     \ | if <bang>0
     \ |     <line1>,<line2>left
     \ | endif
+
+" :Zoom
+" maximize current window
+function s:zoom() abort
+    if winnr('$') == 1
+        return
+    elseif &winwidth < 999
+        let t:wrcmd = winrestcmd()
+        set winwidth=999 winheight=999
+    else
+        let l:wrcmd = get(t:, 'wrcmd', "normal! \<C-W>=")
+        unlet! t:wrcmd
+        set winwidth& winheight&
+        execute l:wrcmd
+    endif
+endfunction
+command! -bar Zoom call s:zoom()

@@ -35,7 +35,7 @@ endfunction
 function! better#inputlist(prompt, textlist, Action) abort
     function! s:callback(id, result) abort closure
         if a:result >= 1 && a:result <= len(a:textlist)
-            call a:Action(a:textlist[a:result - 1])
+            call a:Action(a:result - 1, a:textlist[a:result - 1])
         endif
     endfunction
     if has('popupwin')

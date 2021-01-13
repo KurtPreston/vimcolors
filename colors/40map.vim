@@ -17,14 +17,16 @@ inoremap <expr><Up> pumvisible() ? '<C-P>' : '<Up>'
 inoremap <expr><Down> pumvisible() ? '<C-N>' : '<Down>'
 inoremap <expr><PageUp> pumvisible() ? '<PageUp><C-P><C-N>' : '<PageUp>'
 inoremap <expr><PageDown> pumvisible() ? '<PageDown><C-N><C-P>' : '<PageDown>'
+" Q to zoom current window
+nnoremap <silent>Q :Zoom<CR>
 " <Space> to toggle fold
 nnoremap <Space> za
 " <F8> to set colorscheme
 nnoremap <silent><F8> :call misc#command('colorscheme')<CR>
 " <F9> to set new &guifont
-" [count]<A-F9>/[count]<S-F9> to change font size
+" [count]<C-F9>/[count]<S-F9> to change font size
 nnoremap <silent><F9> :call misc#command('Font', g:fontlist)<CR>
-nnoremap <silent><A-F9> :<C-U>call misc#guifont(v:null, v:count1)<CR>
+nnoremap <silent><C-F9> :<C-U>call misc#guifont(v:null, v:count1)<CR>
 nnoremap <silent><S-F9> :<C-U>call misc#guifont(v:null, -v:count1)<CR>
 " <F12> to open terminal
 nnoremap <expr><F12> printf(':%sterminal<CR>%s',
@@ -52,7 +54,7 @@ nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
 " edit '\b' - buffer; '\f' - file
 nnoremap <silent><leader>b :call misc#command('buffer', map(filter(getbufinfo(),
-    \ {_, v -> v.listed && empty(v.windows)}), {_, v -> v.name}))<CR>
+    \ {_, v -> v.listed && !empty(v.name) && empty(v.windows)}), {_, v -> v.name}))<CR>
 nnoremap <silent><leader>f :call misc#command('find')<CR>
 " '\h' to show the current highlight group
 nnoremap <silent><leader>h :Highlight!<CR>
