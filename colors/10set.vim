@@ -46,3 +46,53 @@ if v:lang =~? '^ru'
     set keymap=russian-jcukenwin spelllang=ru_yo,en
     set iminsert& imsearch&
 endif
+
+" disable standard plugins
+let g:loaded_getscriptPlugin = 0
+let g:loaded_gzip = 0
+let g:loaded_logiPat = 0
+let g:loaded_netrwPlugin = 0
+let g:loaded_tarPlugin = 0
+let g:loaded_vimballPlugin = 0
+let g:loaded_zipPlugin = 0
+if has('nvim')
+    let g:loaded_node_provider = 0
+    let g:loaded_perl_provider = 0
+    let g:loaded_python_provider = 0
+    let g:loaded_ruby_provider = 0
+    let g:loaded_shada_plugin = 0
+elseif has('gui_running')
+    let g:do_no_lazyload_menus = 1
+    let g:no_buffers_menu = 1
+endif
+
+" ftplugin config
+let g:asmsyntax = 'fasm'
+let g:c_gnu = 1
+let g:c_comment_strings = 1
+let g:c_space_errors = 1
+let g:c_no_curly_error = 1
+let g:c_syntax_for_h = 1
+let g:is_bash = 1
+let g:sh_fold_enabled = 7
+let g:tex_conceal = ''
+let g:tex_flavor = 'latex'
+let g:vim_indent_cont = shiftwidth()
+let g:vim_json_conceal = 0
+let g:vimsyn_embed = 'l'
+let g:vimsyn_folding = 'afl'
+let g:vimsyn_noerror = 1
+
+" misc. plugin config
+let g:targets_nl = 'nN'
+let g:undotree_WindowLayout = 4
+let g:vimtex_compiler_method = 'arara'
+let g:vimtex_compiler_arara = {'options': []}
+if executable('zathura')
+    let g:vimtex_view_method = 'zathura'
+else
+    let g:vimtex_view_method = 'general'
+    let g:vimtex_view_general_viewer = (has('win32') ? 'E:' : '/e') .
+        \ '/Misc/SumatraPDF/SumatraPDF'
+    let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
+endif

@@ -60,6 +60,11 @@ nnoremap <silent><leader>f :call misc#command('find')<CR>
 nnoremap <silent><leader>h :Highlight!<CR>
 " '\p' to show what function we are in (like 'diff -p')
 nnoremap <leader>p :echo getline(search('^[[:alpha:]$_]', 'bcnW'))<CR>
+" '\s' to open scratch buffer
+nnoremap <expr><leader>s printf(':%sScratch<CR>',
+    \ better#is_blank_buffer() ? '' : 'split +')
+" '\u' to toggle undotree
+nnoremap <leader>u :UndotreeToggle<CR>
 " '\x' to execute command and put output into a buffer
 " '\X' to eval expression and put result into a buffer
 nnoremap <silent><leader>x :put =trim(execute(input(':', '', 'command')))<CR>

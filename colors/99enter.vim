@@ -10,9 +10,9 @@ endif
 if better#gui_running()
     " +++++ GUI +++++
     14Font PT Mono
-    let g:fontlist = get(g:, 'fontlist', ['Cascadia Code PL', 'Inconsolata LGC',
-        \ 'JetBrains Mono', 'Liberation Mono', 'PT Mono', 'SF Mono', 'Ubuntu Mono'])
-    let g:drvo_glyph = get(g:, 'drvo_glyph', [0x1F4C2, 0x1F4C4])
+    let g:fontlist = ['Cascadia Code PL', 'Inconsolata LGC', 'JetBrains Mono',
+        \ 'Liberation Mono', 'PT Mono', 'SF Mono', 'Ubuntu Mono']
+    let g:drvo_glyph = [0x1F4C2, 0x1F4C4]
     if has('directx')
         set renderoptions=type:directx
     endif
@@ -21,9 +21,7 @@ if better#gui_running()
     endif
 elseif &t_Co >= 256
     " +++++ 256-color terminal +++++
-    let g:term256only = get(g:, 'term256only', ['Apple_Terminal'])
-    if index(g:term256only, $TERM_PROGRAM) < 0
-        " TrueColor terminal
+    if $TERM_PROGRAM !=# 'Apple_Terminal'
         set termguicolors
     endif
     if !has('nvim')
@@ -31,8 +29,7 @@ elseif &t_Co >= 256
         if has('mouse_sgr')
             set ttymouse=sgr
         endif
-        if $TERM_PROGRAM is# 'mintty'
-            " console cursor shape
+        if $TERM_PROGRAM ==# 'mintty'
             let &t_EI = "\e[2 q"
             let &t_SR = "\e[4 q"
             let &t_SI = "\e[6 q"

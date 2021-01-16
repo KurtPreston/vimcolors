@@ -66,13 +66,13 @@ function! better#or(...) abort
     return l:arg
 endfunction
 
-" better#rtp([{subdir}])
-" return full path to {subdir} under Vim config dir
+" better#rtp([{subdir} ...])
+" return full path to {subdir} under Vim config directory
 function! better#rtp(...) abort
-    let l:path = exists('*stdpath') ? stdpath('config') : strpart(&rtp, 0,
-        \ stridx(&rtp, ','))
+    let l:path = !exists('*stdpath') ? strpart(&rtp, 0, stridx(&rtp, ',')) :
+        \ stdpath('config')
     if a:0
-        let l:path .= '/' . a:1
+        let l:path .= '/' . call('printf', a:000)
     endif
     return exists('+shellslash') && &shellslash ? tr(l:path, '\', '/') : l:path
 endfunction

@@ -98,18 +98,13 @@ command! -range=% -bar -bang Trim
     \ | endif
 
 " :Zoom
-" maximize current window
-function s:zoom() abort
-    if winnr('$') == 1
-        return
-    elseif &winwidth < 999
-        let t:wrcmd = winrestcmd()
-        set winwidth=999 winheight=999
-    else
-        let l:wrcmd = get(t:, 'wrcmd', "normal! \<C-W>=")
-        unlet! t:wrcmd
-        set winwidth& winheight&
-        execute l:wrcmd
-    endif
-endfunction
-command! -bar Zoom call s:zoom()
+" toggle current window maximized
+command! -bar Zoom
+    \   if winnr('$') > 1 && &winwidth < 999
+    \ |     let t:wrcmd = winrestcmd()
+    \ |     set winwidth=999 winheight=999
+    \ | else
+    \ |     set winwidth& winheight&
+    \ |     execute get(t:, 'wrcmd', 'normal! <C-W>=')
+    \ |     unlet! t:wrcmd
+    \ | endif
