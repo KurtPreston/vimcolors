@@ -33,7 +33,7 @@ if exists('+scrollfocus')
 endif
 
 " indents and folds
-set autoindent smartindent formatoptions=tcrqj matchpairs+=<:>
+set autoindent nosmartindent formatoptions=tcroqj matchpairs+=<:>
 set foldmethod=indent foldcolumn=1 foldlevel=3
 
 " tabs, wraps and case

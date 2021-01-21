@@ -50,7 +50,7 @@ function s:pack_setup() abort
     " 3rd party plugins
     call s:pack_add('wellle/targets.vim')
     call s:pack_add('mbbill/undotree')
-    call s:pack_add('lervag/vimtex')
+    call s:pack_add('lervag/vimtex', {'type': 'opt'})
 
     " my own plugins under ~/.vim/pack/bundle are managed manually
     "call s:pack_add('matveyt/neoclip', {'type': 'opt'})
@@ -58,6 +58,7 @@ function s:pack_setup() abort
     "call s:pack_add('matveyt/vim-filters')
     "call s:pack_add('matveyt/vim-guidedspace')
     "call s:pack_add('matveyt/vim-jmake')
+    "call s:pack_add('matveyt/vim-qmake', {'type': 'opt'})
     "call s:pack_add('matveyt/vim-modest')
     "call s:pack_add('matveyt/vim-moveit', {'type': 'opt'})
     "call s:pack_add('matveyt/vim-opera')
