@@ -78,6 +78,11 @@ command! -count -nargs=* -complete=custom,s:fontcomplete Font
     \ |     call misc#guifont(<q-args>, <count>)
     \ | endif
 
+" :GccInclude
+" set local &path to GCC include dirs
+command! -bar GccInclude
+    \ let &l:path = join(['.'] + misc#gcc_include('gcc', &ft) + [','], ',')
+
 " :Highlight[!]
 " show :highlight under cursor
 command! -bar -bang Highlight

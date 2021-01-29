@@ -50,34 +50,14 @@ endfunction
 " misc#comment({line1}, {line2} [, {preserveindent}])
 " (Un)Comment line range
 function! misc#comment(line1, line2, ...) abort
-    " lines to (un)comment
-    let l:text = getline(a:line1, a:line2)
-    if empty(l:text)
-        return
+    let l:pat = printf('^\(\s*\)\(%s\)$', printf(escape(&cms, '^$.*~[]\'), '\(.*\)'))
+    let l:sub = '\=empty(submatch(2)) ? submatch(0) : submatch(1)..submatch(3)'
+    if getline(a:line1) !~ l:pat
+        let l:pat = get(a:, 1, &pi) ? '^\s*\zs.*' : '.*'
+        let l:sub = printf(escape(&cms, '&\'), '&')
     endif
-    " preserve indent
-    let l:pi = get(a:, 1, &preserveindent)
-    " comment regex
-    let l:r_cmt = '^' . printf(escape(&cms, '^$.*~[]\'), '\zs.*\ze') . '$'
-    " process all lines
-    for l:lnum in range(len(l:text))
-        " split into [indent][body]
-        let [l:body, l:indent; _] = matchlist(l:text[l:lnum], '^\(\s*\)\zs.*')
-        if empty(l:body)
-            " [indent]/**/ or /*[indent]*/
-            let l:text[l:lnum] = (l:pi ? l:indent : '') .
-                \ printf(&cms, l:pi ? '' : l:indent)
-        else
-            " do we uncomment?
-            let [l:cmt, l:cpos, _] = matchstrpos(l:body, l:r_cmt)
-            " [indent][cmt] or [indent]/*[body]*/ or /*[indent][body]*/
-            let l:text[l:lnum] = (l:cpos >= 0) ? l:indent . l:cmt :
-                \ l:pi ? l:indent . printf(&cms, l:body) :
-                \ printf(&cms, l:text[l:lnum])
-        endif
-    endfor
-    " set (un)commented text
-    call setline(a:line1 > 1 ? a:line1 : 1, l:text)
+    call setline(a:line1, map(getline(a:line1, a:line2),
+        \ {_, v -> substitute(v, l:pat, l:sub, '')}))
 endfunction
 
 " misc#complete({pat}, {type} [, {filtered}])
@@ -116,6 +96,24 @@ function! misc#copy(line1, line2, ...) abort
     for l:lnum in l:lines
         call append(l:lnum, l:text)
     endfor
+endfunction
+
+" misc#gcc_include(gcc, ft [, force])
+" get GCC include dirs
+function! misc#gcc_include(gcc, ft, ...) abort
+    if !exists('s:gcc_include_'..a:ft) || get(a:, 1)
+        " $INCLUDE
+        let s:gcc_include_{a:ft} = split($INCLUDE, has('win32') ? ';' : ':')
+        " builtin dirs
+        let l:cmd = printf('%s -x%s -v -E -', a:gcc, a:ft is# 'cpp' ? 'c++' : a:ft)
+        let l:include = map(systemlist(l:cmd, []), 'trim(v:val)')
+        let l:ix1 = match(l:include, '#include <\.\.\.>') + 1
+        let l:ix2 = match(l:include, '\.$', l:ix1) - 1
+        if l:ix1 <= l:ix2
+            let s:gcc_include_{a:ft} += map(l:include[l:ix1 : l:ix2], 'simplify(v:val)')
+        endif
+    endif
+    return s:gcc_include_{a:ft}
 endfunction
 
 " misc#guifont(typeface, height)

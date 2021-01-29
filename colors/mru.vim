@@ -3,15 +3,6 @@
 
 " Show Session, Marks & MRU files
 function! mru#show(sesdir, max) abort
-    if !better#is_blank_buffer()
-        new
-    endif
-
-    if empty(a:sesdir) || !isdirectory(a:sesdir)
-        let l:sesdir = expand('~/')
-    else
-        let l:sesdir = fnamemodify(a:sesdir, ':p')
-    endif
     let l:header =<< END
  _    _      _                            _          _   _ _           _
 | |  | |    | |                          | |        | | | (_)         | |
@@ -21,6 +12,11 @@ function! mru#show(sesdir, max) abort
  \/  \/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/   \___/|_|_| |_| |_(_)
 
 END
+    let l:sesdir = fnamemodify(better#or(a:sesdir, '~'), ':p')
+
+    if !better#is_blank_buffer()
+        new
+    endif
     call setline(1, l:header)
     call s:add_group('Session', glob(l:sesdir..'*.vim', 0, 1))
     if exists('*getmarklist')
