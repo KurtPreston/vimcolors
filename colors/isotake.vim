@@ -16,8 +16,8 @@ hi CursorIM gui=NONE guibg=#67db57
 
 if &background == 'light'
 
-  hi  ColorColumn       guibg=#fde5fd        cterm=NONE        ctermbg=222     ctermfg=016
-  hi  Comment           guifg=#339933        gui=Bold
+  hi  ColorColumn       ctermbg=222     ctermfg=016
+  hi  Comment           ctermfg=32
   hi  Constant          guifg=DeepPink
   hi  CursorLine        guibg=LightGreen  cterm=NONE      ctermbg=193
   hi  CursorLineNr      guibg=#ffdfe6     guifg=Brown     cterm=NONE    ctermbg=NONE  ctermfg=208
@@ -34,7 +34,7 @@ if &background == 'light'
   hi  LineNr            guibg=#ffdfe6        guifg=Gray30      cterm=NONE      ctermbg=NONE  ctermfg=007
   hi  MatchParen        guibg=turquoise
   hi  NonText           guibg=LavenderBlush  guifg=Gray30
-  hi  Normal            guibg=Seashell       ctermfg=0
+  hi  Normal            ctermfg=18
   hi  Pmenu             guibg=LightGrey      guifg=DarkBlue
   hi  PmenuSbar         guibg=Grey70
   hi  PmenuSel          guibg=#6ac4ff        guifg=White
