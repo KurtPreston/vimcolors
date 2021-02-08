@@ -41,7 +41,7 @@ let g:colors_name="blueprint"
 " Editor settings
 " --------------------------------
 hi          Normal guifg=#ffffff guibg=#335b7e gui=none
-hi          Cursor guifg=#ede0ab guibg=#335b7e gui=standout
+hi          Cursor guifg=#305575 guibg=#ede0ab gui=none
 hi      CursorLine guifg=none    guibg=#2c4e6c gui=none
 hi          LineNr guifg=#74a0c7 guibg=none    gui=none
 hi    CursorLineNR guifg=none    guibg=none    gui=none
@@ -128,6 +128,7 @@ hi         Special guifg=#abede0 guibg=none    gui=none
 hi     SpecialChar guifg=#abede0 guibg=none    gui=none
 hi             Tag guifg=#abede0 guibg=none    gui=none
 hi       Delimiter guifg=#74a0c7 guibg=none    gui=none
+hi           Noise guifg=#74a0c7 guibg=none    gui=none
 hi  SpecialComment guifg=#ede0ab guibg=none    gui=none
 hi           Debug guifg=#ede0ab guibg=none    gui=none
 
