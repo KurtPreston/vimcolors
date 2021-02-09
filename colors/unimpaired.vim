@@ -81,8 +81,8 @@ function! unimpaired#emulate() abort
     xnoremap <expr><silent>gy opera#mapto('call <SID>surround(1)')
     nnoremap <expr><silent>gz opera#mapto('call <SID>surround(0)')
     xnoremap <expr><silent>gz opera#mapto('call <SID>surround(0)')
-    nnoremap <expr><silent>gZ opera#mapto('call <SID>surround()')
-    xnoremap <expr><silent>gZ opera#mapto('call <SID>surround()')
+    nnoremap <expr><silent>gZ opera#mapto('call <SID>surround(-1)')
+    xnoremap <expr><silent>gZ opera#mapto('call <SID>surround(-1)')
 endfunction
 
 " unimpaired#nextprev({letter}, {prefix})
@@ -160,11 +160,10 @@ function s:putreg(how, ...) abort
     endtry
 endfunction
 
-" s:surround([{oper}])
+" s:surround({oper})
 " add(1)/delete(0)/change(-1) surround
-function s:surround(...) range abort
-    let l:oper = get(a:, 1, -1)
-    if l:oper != 0
+function s:surround(oper) range abort
+    if a:oper != 0
         " add or replace - need to input surrounding character
         call inputsave()
         let l:chr1 = nr2char(getchar())
@@ -186,11 +185,11 @@ function s:surround(...) range abort
     endif
 
     let l:line = getline(a:firstline)
-    if l:oper != 1
+    if a:oper < 1
         " delete or replace - delete the first char
         let l:line = strcharpart(l:line, 1)
     endif
-    if l:oper != 0
+    if a:oper != 0
         " add or replace - prepend surrounding char
         let l:line = l:chr1..l:line
     endif
@@ -199,11 +198,11 @@ function s:surround(...) range abort
         call setline(a:firstline, l:line)
         let l:line = getline(a:lastline)
     endif
-    if l:oper != 1
+    if a:oper < 1
         " delete or replace - delete the last char
         let l:line = strcharpart(l:line, 0, strchars(l:line) - 1)
     endif
-    if l:oper != 0
+    if a:oper != 0
         " add or replace - append surrounding char
         let l:line .= l:chr2
     endif

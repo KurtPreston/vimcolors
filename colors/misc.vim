@@ -40,11 +40,17 @@ function! misc#change(line1, line2, ...) abort
         \ -1])
 endfunction
 
-" misc#command(cmd [, {values}])
+" misc#command({cmd} [, {values}])
 " complete and execute {cmd}
 function! misc#command(cmd, ...) abort
-    let l:values = a:0 ? copy(a:1) : getcompletion(a:cmd..' ', 'cmdline')
-    call better#inputlist(a:cmd, sort(l:values), {_, v -> execute(a:cmd..' '..v, '')})
+    function! s:callback(id, result) abort closure
+        if a:result >= 1 && a:result <= len(l:values)
+            execute a:cmd l:values[a:result - 1]
+        endif
+    endfunction
+    let l:values = a:0 ? a:1 : getcompletion(a:cmd..' ', 'cmdline')
+    call popup#menu(l:values, {'title': printf('[%s]', a:cmd), 'maxheight': &lines / 3,
+        \ 'callback': funcref('s:callback')})
 endfunction
 
 " misc#comment({line1}, {line2} [, {preserveindent}])
@@ -87,21 +93,20 @@ endfunction
 " :copy to multiple destinations
 " Note: all :h {address} formats are supported
 function! misc#copy(line1, line2, ...) abort
-    " save the text to be copied
+    " get text to copy
     let l:text = getline(a:line1, a:line2)
-    " reverse sort line numbers to prevent overlapping
-    let l:lines = reverse(sort(filter(map(copy(a:000),
-        \ 'trim(execute(v:val.."="))'), '!empty(v:val)'), 'N'))
-    " now make all copies
-    for l:lnum in l:lines
+    " evaluate line numbers
+    let l:lines = filter(map(a:000[:], 'trim(execute(v:val.."="))'), '!empty(v:val)')
+    " reverse line numbers to prevent overlapping
+    for l:lnum in reverse(sort(l:lines, 'N'))
         call append(l:lnum, l:text)
     endfor
 endfunction
 
-" misc#gcc_include(gcc, ft [, force])
+" misc#gcc_include(gcc, ft, force)
 " get GCC include dirs
-function! misc#gcc_include(gcc, ft, ...) abort
-    if !exists('s:gcc_include_'..a:ft) || get(a:, 1)
+function! misc#gcc_include(gcc, ft, force) abort
+    if a:force || !has_key(s:, 'gcc_include_' . a:ft)
         " $INCLUDE
         let s:gcc_include_{a:ft} = split($INCLUDE, has('win32') ? ';' : ':')
         " builtin dirs

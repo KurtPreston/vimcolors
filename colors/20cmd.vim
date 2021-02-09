@@ -71,17 +71,17 @@ command! -range=% -bar -nargs=? FixEncoding
 function s:fontcomplete(A, L, P) abort
     return join(g:fontlist, "\n")
 endfunction
-command! -count -nargs=* -complete=custom,s:fontcomplete Font
+command! -count -nargs=? -complete=custom,s:fontcomplete Font
     \   if !<count> && empty(<q-args>)
     \ |     echo &guifont
     \ | else
     \ |     call misc#guifont(<q-args>, <count>)
     \ | endif
 
-" :GccInclude
+" :GccInclude[!] [/path/to/gcc]
 " set local &path to GCC include dirs
-command! -bar GccInclude
-    \ let &l:path = join(['.'] + misc#gcc_include('gcc', &ft) + [','], ',')
+command! -bar -bang -nargs=? -complete=file GccInclude let &l:path = join(['.'] +
+    \ misc#gcc_include(better#or(<q-args>, 'gcc'), &ft, <bang>0) + [','], ',')
 
 " :Highlight[!]
 " show :highlight under cursor
@@ -110,6 +110,5 @@ command! -bar Zoom
     \ |     set winwidth=999 winheight=999
     \ | else
     \ |     set winwidth& winheight&
-    \ |     execute get(t:, 'wrcmd', 'normal! <C-W>=')
-    \ |     unlet! t:wrcmd
+    \ |     execute has_key(t:, 'wrcmd') ? remove(t:, 'wrcmd') : 'wincmd='
     \ | endif

@@ -13,8 +13,8 @@ if has('win32')
 endif
 
 " note: move cursor and press 'K' to get help on option
-set autoread backspace=indent,eol,start belloff=all complete=.,w,b,t
-set confirm cursorline diffopt+=vertical fillchars=vert:\ ,fold:\ ,diff:\ 
+set autoread backspace=indent,eol,start belloff=all complete=.,w,b,t confirm cursorline
+set diffopt+=vertical display=lastline,uhex fillchars=vert:\ ,fold:\ ,diff:\ 
 set fileformats=unix,dos grepformat=%f:%l:%c:%m history=1000 keywordprg=:Man
 set guioptions-=t guioptions+=! guicursor+=a:blinkon0
 set incsearch lazyredraw nrformats=alpha,bin,hex shortmess=filnxoOtTI
@@ -22,9 +22,9 @@ set pyxversion=3 scrolloff=2 splitright ttimeout ttimeoutlen=100 wildmenu
 set keymodel=startsel mousemodel=extend selection=exclusive selectmode=
 set laststatus=2 mouse=ar number showmatch showtabline=2 title
 set nofsync nohlsearch nolangremap noruler noshowcmd noshowmode nostartofline
-set nobackup nowritebackup noswapfile
-set switchbuf=useopen undofile virtualedit=all wildoptions=
+set nobackup nowritebackup noswapfile switchbuf=useopen undofile virtualedit=all
 set sessionoptions=blank,curdir,help,slash,tabpages,unix,winsize
+set viewoptions=folds,cursor,curdir,slash,unix wildoptions=
 set viminfo=!,'100,<1000,s100,h
 let &grepprg = executable('ag') ? 'ag --vimgrep' : 'internal'
 let &undodir = better#rtp('undo')
@@ -38,7 +38,7 @@ set foldmethod=indent foldcolumn=1 foldlevel=3
 
 " tabs, wraps and case
 set nojoinspaces nowrap ignorecase infercase smartcase
-set tabstop& expandtab smarttab softtabstop=-1 shiftround shiftwidth=4
+set tabstop& expandtab nosmarttab softtabstop=-1 shiftround shiftwidth=4
 set list listchars=tab:<->,trail:_ textwidth=89 colorcolumn=+1
 
 " Russian keyboard and spelling support
@@ -75,6 +75,7 @@ let g:c_space_errors = 1
 let g:c_no_curly_error = 1
 let g:c_syntax_for_h = 1
 let g:is_bash = 1
+let g:no_pdf_maps = 1
 let g:sh_fold_enabled = 7
 let g:tex_conceal = ''
 let g:tex_flavor = 'latex'

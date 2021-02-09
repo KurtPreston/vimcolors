@@ -14,6 +14,8 @@ augroup vimStartup | au!
         \   if &modified && &modeline && &modelines > 0
         \ |     call s:timestamp('(Last Change|Date):', '%Y %b %d', &modelines)
         \ | endif
+    " never italicize comments
+    autocmd ColorScheme * hi Comment cterm=NONE gui=NONE
     " prettify man buffer
     autocmd FileType man setlocal colorcolumn& list&
     " save session on exit

@@ -7,9 +7,9 @@ xnoremap ; :
 " '\;' to repeat char search forward
 nnoremap <leader>; ;
 xnoremap <leader>; ;
-" improved auto completion: <Tab>, <CR>, <Esc>, <Up>, <Down>, <PageUp>, <PageDown>
-" <C-X><C-F> is now able to expand wildcards
+" <C-X><C-F> is able to expand wildcards
 inoremap <C-X><C-F> <C-R>=misc#complete('[[:fname:]*?]\+', 'file')<CR>
+" improved auto completion: <Tab>, <CR>, <Esc>, <Up>, <Down>, <PageUp>, <PageDown>
 inoremap <expr><Tab> search('\v\k{3}%#', 'bn', line('.')) ? '<C-N>' : '<Tab>'
 inoremap <expr><CR> pumvisible() ? '<C-Y>' : '<CR>'
 inoremap <expr><Esc> pumvisible() ? '<C-E>' : '<Esc>'
@@ -52,10 +52,11 @@ noremap! <S-Insert> <C-R>+
 nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 " '\=' to cd to the current file's directory
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
-" edit '\b' - buffer; '\f' - file
+" edit '\b' - buffer; '\f' - find; '\o' - oldfiles
 nnoremap <silent><leader>b :call misc#command('buffer', map(filter(getbufinfo(),
     \ {_, v -> v.listed && !empty(v.name) && empty(v.windows)}), {_, v -> v.name}))<CR>
 nnoremap <silent><leader>f :call misc#command('find')<CR>
+nnoremap <silent><leader>o :<C-U>call misc#command('edit', better#oldfiles(v:count))<CR>
 " '\h' to show the current highlight group
 nnoremap <silent><leader>h :Highlight!<CR>
 " '\p' to show what function we are in (like 'diff -p')

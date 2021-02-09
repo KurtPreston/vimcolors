@@ -30,28 +30,17 @@ function! better#gui_running() abort
         \ !empty(nvim_list_uis()) && nvim_list_uis()[-1].chan > 0
 endfunction
 
-" better#inputlist(prompt, textlist, Action)
-" choose item from {textist} and invoke {Action} afterwards
-function! better#inputlist(prompt, textlist, Action) abort
-    function! s:callback(id, result) abort closure
-        if a:result >= 1 && a:result <= len(a:textlist)
-            call a:Action(a:result - 1, a:textlist[a:result - 1])
-        endif
-    endfunction
-    if has('popupwin')
-        call popup_menu(a:textlist, {'title': printf('[%s]', a:prompt),
-            \ 'callback': funcref('s:callback')})
-    else
-        let l:list = insert(map(copy(a:textlist), {k, v -> printf('%d) %s', k + 1, v)}),
-            \ a:prompt)
-        call s:callback(0, inputlist(l:list))
-    endif
-endfunction
-
 " better#is_blank_buffer()
 " check if current buffer is blank
 function! better#is_blank_buffer() abort
     return !&modified && empty(&buftype) && line('$') == 1 && empty(getline(1))
+endfunction
+
+" better#oldfiles(max)
+" get some of v:oldfiles
+function! better#oldfiles(max) abort
+    let l:vimhelp = glob2regpat($VIMRUNTIME..'/doc/*.txt')
+    return filter(v:oldfiles[:], {_, v -> match(v, l:vimhelp) < 0})[: a:max - 1]
 endfunction
 
 " better#or({expr1} ...)

@@ -29,7 +29,7 @@ endfunction
 const s:pack_add = funcref('s:pack_call', ['add'])
 
 function s:pack_setup() abort
-    if exists('g:loaded_' . tr(s:pack.name, '-', '_'))
+    if has_key(g:, 'loaded_' . tr(s:pack.name, '-', '_'))
         return
     endif
 

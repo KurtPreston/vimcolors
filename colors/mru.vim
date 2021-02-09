@@ -22,9 +22,7 @@ END
     if exists('*getmarklist')
         call s:add_group('Mark', getmarklist())
     endif
-    let l:vimhelp = glob2regpat($VIMRUNTIME..'/doc/*.txt')
-    call s:add_group('MRU', filter(v:oldfiles[:],
-        \ {_, v -> match(v, l:vimhelp) < 0})[0 : a:max - 1])
+    call s:add_group('MRU', better#oldfiles(a:max))
 
     setlocal bufhidden=wipe buftype=nofile cursorline matchpairs=
     setlocal nomodifiable nonumber norelativenumber nospell noswapfile nowrap
@@ -53,7 +51,7 @@ endfunction
 
 function s:on_enter() abort
     let l:group = getline(search('^\a\+$', 'bnW'))
-    let l:item = matchlist(getline('.'), '^\[\([0-9A-Z]\+\)\] \(\f\+\)')
+    let l:item = matchlist(getline('.'), '^\[\([0-9A-Z]\+\)\] \(.*\)')
     if empty(l:group) || empty(l:item)
         return "\<CR>"
     elseif l:group is# 'Mark'
