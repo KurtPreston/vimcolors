@@ -12,14 +12,14 @@ function! popup#menu(what, options) abort
     " get lines as List
     if type(a:what) == v:t_list
         let l:lines = copy(a:what)
-    elseif type(a:what) = v:t_string && stridx(a:what, "\n") >= 0
-        let l:lines = split(a:what, "\n", 1)
+    elseif type(a:what) == v:t_string && stridx(a:what, "\n") >= 0
+        let l:lines = split(a:what, "\n")
     else
         let l:lines = getbufline(a:what, 1, '$')
     endif
 
     " fallback implementation using inputlist()
-    if !exists('*nvim_open_win')
+    if !has('nvim')
         call insert(map(l:lines, {k, v -> printf('%d) %s', k + 1, v)}),
             \ get(a:options, 'title', 'Choose item:'))
         return call(a:options.callback, [0, inputlist(l:lines)])
@@ -32,44 +32,40 @@ function! popup#menu(what, options) abort
     let l:height = max([l:height, get(a:options, 'minheight', 1)])
     let l:width = min([l:width, get(a:options, 'maxwidth', &co - 4)])
     let l:height = min([l:height, get(a:options, 'maxheight', &lines - 2 - &ch)])
-
-    " setup floatwin config
-    let l:config = {
-        \ 'style': 'minimal', 'relative': 'editor', 'focusable': v:false,
-        \ 'width': l:width + 4, 'height': l:height + 2,
-        \ 'col': (&co - 4 - l:width) / 2, 'row': (&lines - 2 - &ch - l:height) / 2,
-        \ }
-
-    " get buffers
-    let l:items = s:get_buffer('popup_state', {})
-    let l:state = getbufvar(l:items, 'popup_state')
-    let l:state.box = s:get_buffer('popup_box', v:true)
-    let l:state.callback = a:options.callback
-    let l:state.result = -1
+    " floatwin config
+    let l:config = { 'style': 'minimal', 'relative': 'editor', 'focusable': v:false,
+        \ 'width': l:width + 4, 'height': l:height + 2, 'col': (&co - 4 - l:width) / 2,
+        \ 'row': (&lines - 2 - &ch - l:height) / 2 }
 
     " show menu box
-    call nvim_buf_set_lines(l:state.box, 0, -1, 1,
-        \ s:draw_box(l:config.width, l:config.height, a:options))
-    call nvim_open_win(l:state.box, 0, l:config)
+    let l:box = s:get_buffer('popup_box', v:true)
+    call s:set_lines(l:box, s:draw_box(l:config.width, l:config.height, a:options))
+    call nvim_open_win(l:box, 0, l:config)
 
     " shift menu items inside the box
+    let l:config.focusable = v:true
     let l:config.width -= 4
     let l:config.height -= 2
     let l:config.col += 2
     let l:config.row += 1
 
     " show menu items
-    call nvim_buf_set_lines(l:items, 0, -1, 1, l:lines)
+    let l:items = s:get_buffer('popup_state', {})
+    call s:set_lines(l:items, l:lines)
     call nvim_open_win(l:items, 1, l:config)
 
     " setup menu items buffer
+    let b:popup_state.box = l:box
+    let b:popup_state.callback = a:options.callback
+    let b:popup_state.result = -1
     setlocal cursorline scrolloff=0 winhighlight=CursorLine:PMenuSel nowrap
+    autocmd! BufLeave <buffer> call s:bufleave(str2nr(expand('<abuf>')))
     nnoremap <buffer><expr><CR> <SID>end_dialog(1)
     nnoremap <buffer><expr><Space> <SID>end_dialog(1)
+    nnoremap <buffer><expr><2-LeftMouse> <SID>end_dialog(1)
     nnoremap <buffer><expr>x <SID>end_dialog(0)
     nnoremap <buffer><expr><Esc> <SID>end_dialog(0)
     nnoremap <buffer><expr><C-C> <SID>end_dialog(0)
-    autocmd! BufLeave <buffer> call s:bufleave(str2nr(expand('<abuf>')))
 endfunction
 
 " the rest for Neovim only
@@ -98,6 +94,12 @@ function s:get_buffer(varname, value) abort
     return l:buf
 endfunction
 
+function s:set_lines(buf, lines) abort
+    call nvim_buf_set_option(a:buf, 'modifiable', v:true)
+    call nvim_buf_set_lines(a:buf, 0, -1, 1, a:lines)
+    call nvim_buf_set_option(a:buf, 'modifiable', v:false)
+endfunction
+
 function s:draw_box(width, height, options) abort
     " get options
     let l:title = get(a:options, 'title', '')
@@ -111,18 +113,16 @@ function s:draw_box(width, height, options) abort
     endif
 
     " draw empty box
-    let l:lines = repeat([printf('%s%*s%s', l:bch[3], a:width - 2, '', l:bch[1])],
+    let l:contents = repeat([printf('%s%*s%s', l:bch[3], a:width - 2, '', l:bch[1])],
         \ a:height - 2)
-    call insert(l:lines, printf('%s%s%s%s', l:bch[4], l:title,
+    call insert(l:contents, printf('%s%s%s%s', l:bch[4], l:title,
         \ repeat(l:bch[0], a:width - 2 - strlen(l:title)), l:bch[5]))
-    call add(l:lines, printf('%s%s%s', l:bch[7], repeat(l:bch[2], a:width - 2),
+    call add(l:contents, printf('%s%s%s', l:bch[7], repeat(l:bch[2], a:width - 2),
         \ l:bch[6]))
 
-    " return lines
-    return l:lines
+    return l:contents
 endfunction
 
-" called upon BufLeave event
 function s:bufleave(buf) abort
     let l:state = getbufvar(a:buf, 'popup_state')
     execute bufwinnr(a:buf) 'hide'
@@ -132,7 +132,6 @@ function s:bufleave(buf) abort
     autocmd BufEnter * ++once ++nested call call(remove(s:, 'popup_callback'), [])
 endfunction
 
-" set result and close menu
 function s:end_dialog(ok) abort
     let b:popup_state.result = a:ok ? line('.') : -1
     return "\<C-W>c"
