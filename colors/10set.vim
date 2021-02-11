@@ -14,7 +14,7 @@ endif
 
 " note: move cursor and press 'K' to get help on option
 set autoread backspace=indent,eol,start belloff=all complete=.,w,b,t confirm cursorline
-set diffopt+=vertical display=lastline,uhex fillchars=vert:\ ,fold:\ ,diff:\ 
+set diffopt+=vertical display+=lastline fillchars=vert:\ ,fold:\ ,diff:\ 
 set fileformats=unix,dos grepformat=%f:%l:%c:%m history=1000 keywordprg=:Man
 set guioptions-=t guioptions+=! guicursor+=a:blinkon0
 set incsearch lazyredraw nrformats=alpha,bin,hex shortmess=filnxoOtTI

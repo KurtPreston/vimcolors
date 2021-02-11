@@ -26,7 +26,7 @@ function! popup#menu(what, options) abort
     endif
 
     " calc width and height
-    let l:width = max(map(l:lines[:], 'nvim_strwidth(v:val)'))
+    let l:width = max(map(l:lines[:], 'strwidth(v:val)'))
     let l:height = len(l:lines)
     let l:width = max([l:width, get(a:options, 'minwidth', 6)])
     let l:height = max([l:height, get(a:options, 'minheight', 1)])

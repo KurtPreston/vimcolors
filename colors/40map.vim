@@ -52,11 +52,14 @@ noremap! <S-Insert> <C-R>+
 nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 " '\=' to cd to the current file's directory
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
-" edit '\b' - buffer; '\f' - find; '\o' - oldfiles
+" edit '\b' - buffer; '\f' - find; \n' - scriptnames; '\o' - oldfiles'
 nnoremap <silent><leader>b :call misc#command('buffer', map(filter(getbufinfo(),
     \ {_, v -> v.listed && !empty(v.name) && empty(v.windows)}), {_, v -> v.name}))<CR>
 nnoremap <silent><leader>f :call misc#command('find')<CR>
-nnoremap <silent><leader>o :<C-U>call misc#command('edit', better#oldfiles(v:count))<CR>
+nnoremap <silent><leader>n :call misc#command('scriptnames',
+    \ map(split(execute('scriptnames'), "\n"), 'trim(v:val)'), 'scriptnames %1')<CR>
+nnoremap <silent><leader>o :<C-U>call misc#command('oldfiles', better#oldfiles(v:count),
+    \ 'edit %2')<CR>
 " '\h' to show the current highlight group
 nnoremap <silent><leader>h :Highlight!<CR>
 " '\p' to show what function we are in (like 'diff -p')
