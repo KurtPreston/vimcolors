@@ -12,17 +12,17 @@ if has('win32')
     let $MSYS = 'noglob'
 endif
 
-" note: move cursor and press 'K' to get help on option
-set autoread backspace=indent,eol,start belloff=all complete=.,w,b,t confirm cursorline
+" move cursor and press 'K' to get help on option
+set autoread backspace=indent,eol,start belloff=all complete=.,w,b,t confirm
 set diffopt+=vertical display+=lastline fillchars=vert:\ ,fold:\ ,diff:\ 
 set fileformats=unix,dos grepformat=%f:%l:%c:%m history=1000 keywordprg=:Man
-set guioptions-=t guioptions+=! guicursor+=a:blinkon0
-set incsearch lazyredraw nrformats=alpha,bin,hex shortmess=filnxoOtTI
-set pyxversion=3 scrolloff=2 splitright ttimeout ttimeoutlen=100 wildmenu
+set guioptions-=t guioptions+=! guicursor+=a:blinkon0 incsearch nohlsearch
+set lazyredraw nrformats=alpha,bin,hex shortmess=filnxoOtTI pyxversion=3
+set scrolloff=2 sidescroll=1 splitright ttimeout ttimeoutlen=50 wildmenu
 set keymodel=startsel mousemodel=extend selection=exclusive selectmode=
-set laststatus=2 mouse=ar number showmatch showtabline=2 title
-set nofsync nohlsearch nolangremap noruler noshowcmd noshowmode nostartofline
-set nobackup nowritebackup noswapfile switchbuf=useopen undofile virtualedit=all
+set cursorline laststatus=2 mouse=ar number showmatch showtabline=2 title
+set nobackup nowritebackup nofsync nolangremap noruler noshowcmd noshowmode
+set nostartofline noswapfile switchbuf=useopen undofile virtualedit=all
 set sessionoptions=blank,curdir,help,slash,tabpages,unix,winsize
 set viewoptions=folds,cursor,curdir,slash,unix wildoptions=
 set viminfo=!,'100,<1000,s100,h

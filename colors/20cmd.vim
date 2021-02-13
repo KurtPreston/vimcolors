@@ -40,17 +40,9 @@ command! -range -bar -bang Comment
 " :copy to multiple addresses
 command! -range -bar -nargs=+ Copy call misc#copy(<line1>, <line2>, <f-args>)
 
-" :DiffOrig
-" show diff with original file or HEAD
-command! -bar DiffOrig
-    \   vnew +setlocal\ bufhidden=wipe\ buftype=nofile\ noswapfile
-    \ | execute 'nnoremap <buffer>q <C-W>q'
-    \ | let &filetype = getbufvar(0, '&filetype')
-    \ | execute 'read ++edit' getbufvar(0, '&modified') ? '#' : '!git show HEAD:./#'
-    \ | 1delete_
-    \ | diffthis
-    \ | wincmd p
-    \ | diffthis
+" :Diff[!]
+" show diff with original file or git HEAD
+command! -bar -bang Diff call misc#diff(<bang>0 || !&modified)
 
 " :[range]Execute [winnr]
 " execute VimScript or any "shebang"-script
@@ -77,6 +69,15 @@ command! -count -nargs=? -complete=custom,s:fontcomplete Font
     \ | else
     \ |     call misc#guifont(<q-args>, <count>)
     \ | endif
+
+" :Git [args]
+" invoke the stupid content tracker
+function s:gitcomplete(A, L, P) abort
+    return join(['add', 'branch', 'checkout', 'clean', 'clone', 'commit', 'config',
+        \ 'diff', 'fetch', 'help', 'init', 'log', 'merge', 'mv', 'pull', 'push',
+        \ 'remote', 'reset', 'rm', 'show', 'status', 'submodule'], "\n")
+endfunction
+command! -nargs=* -complete=custom,s:gitcomplete Git !git -C %:p:h:S <args>
 
 " :GccInclude[!] [/path/to/gcc]
 " set local &path to GCC include dirs

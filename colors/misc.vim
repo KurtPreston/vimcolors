@@ -104,7 +104,23 @@ function! misc#copy(line1, line2, ...) abort
     endfor
 endfunction
 
-" misc#gcc_include(gcc, ft, force)
+" misc#diff({head})
+" for better implementation of :DiffOrig
+function! misc#diff(head) abort
+    execute matchstr(&diffopt, 'vertical') 'new'
+    setlocal bufhidden=wipe buftype=nofile noswapfile
+    let &l:filetype = getbufvar(0, '&filetype')
+    nnoremap <buffer>q <C-W>q
+    execute printf('silent file (%s)', a:head ? 'HEAD' : 'ORIG')
+    execute 'silent read ++edit' a:head ? printf('!git -C %s show @:./%s',
+        \ expand('#:p:h:S'), expand('#:t:S')) : '#'
+    1delete_
+    diffthis
+    wincmd p
+    diffthis
+endfunction
+
+" misc#gcc_include({gcc}, {ft}, {force})
 " get GCC include dirs
 function! misc#gcc_include(gcc, ft, force) abort
     if a:force || !has_key(s:, 'gcc_include_' . a:ft)
@@ -122,7 +138,7 @@ function! misc#gcc_include(gcc, ft, force) abort
     return s:gcc_include_{a:ft}
 endfunction
 
-" misc#guifont(typeface, height)
+" misc#guifont({typeface}, {height})
 " set &guifont
 function! misc#guifont(typeface, height) abort
     let l:fonts = split(better#or(a:typeface, &guifont), ',')

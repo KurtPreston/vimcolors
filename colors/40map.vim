@@ -28,8 +28,8 @@ nnoremap <silent><F8> :call misc#command('colorscheme')<CR>
 nnoremap <silent><F9> :call misc#command('Font', g:fontlist)<CR>
 nnoremap <silent><C-F9> :<C-U>call misc#guifont(v:null, v:count1)<CR>
 nnoremap <silent><S-F9> :<C-U>call misc#guifont(v:null, -v:count1)<CR>
-" <F12> to open terminal
-nnoremap <expr><F12> printf(':%sterminal<CR>%s',
+" <F11> to open terminal
+nnoremap <expr><F11> printf(':%sterminal<CR>%s',
     \ has('nvim') && !better#is_blank_buffer() ? 'split +' : '',
     \ has('nvim') ? 'i' : '')
 " <Ctrl-N> to add new tab
@@ -52,7 +52,7 @@ noremap! <S-Insert> <C-R>+
 nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 " '\=' to cd to the current file's directory
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
-" edit '\b' - buffer; '\f' - find; \n' - scriptnames; '\o' - oldfiles'
+" edit '\b' - buffer; '\f' - find; '\n' - scriptnames; '\o' - oldfiles
 nnoremap <silent><leader>b :call misc#command('buffer', map(filter(getbufinfo(),
     \ {_, v -> v.listed && !empty(v.name) && empty(v.windows)}), {_, v -> v.name}))<CR>
 nnoremap <silent><leader>f :call misc#command('find')<CR>

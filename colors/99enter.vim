@@ -40,7 +40,7 @@ else
 endif
 
 " if colorscheme wasn't set yet
-if !has_key(g:, 'colors_name')
+if !exists('g:colors_name')
     set background=light
     silent! colorscheme modest
 endif

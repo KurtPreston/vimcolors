@@ -9,7 +9,7 @@ else
 endif
 
 " package manager setup
-const s:pack = {'site': 'https://github.com',
+let s:pack = {'site': 'https://github.com',
     \ 'name': 'minpac', 'author': 'k-takata',
     "\ 'name': 'vim-packager', 'author': 'kristijanhusak',
     \ }
@@ -26,10 +26,10 @@ endfunction
 function s:pack_call(func, ...) abort
     return call(printf('%s#%s', s:pack_byname(), a:func), a:000)
 endfunction
-const s:pack_add = funcref('s:pack_call', ['add'])
+let s:pack_add = funcref('s:pack_call', ['add'])
 
 function s:pack_setup() abort
-    if has_key(g:, 'loaded_' . tr(s:pack.name, '-', '_'))
+    if exists('g:loaded_' . tr(s:pack.name, '-', '_'))
         return
     endif
 
