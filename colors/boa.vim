@@ -68,7 +68,7 @@ hi VertSplit guifg=#0a0707 guibg=NONE gui=NONE
 hi Folded     guifg=#817466 guibg=#2b2927    gui=NONE
 hi! link FoldColumn Folded
 hi SignColumn guifg=NONE guibg=NONE
-hi IncSearch guifg=#518233 guibg=bg gui=inverse
+hi IncSearch guifg=#518233 guibg=bg gui=inverse,bold
 " Substitute
 hi NonText guifg=#47423d guibg=NONE gui=NONE
 hi! link LineNr NonText
@@ -81,7 +81,7 @@ hi NormalFloat guifg=NONE guibg=#21261d gui=NONE
 hi NormalNC guifg=#b0a78f guibg=#111314 gui=NONE
 hi! link Question BoaGreen
 hi QuickFixLine guifg=NONE guibg=#37322d gui=NONE
-hi Search    guifg=#1f1a17 guibg=#826a33 gui=NONE
+hi Search    guifg=#1f1a17 guibg=#826a33 gui=bold
 hi! link SpecialKey NonText
 hi SpellBad guifg=NONE guibg=NONE gui=underline guisp=#e62922
 hi SpellCap guifg=NONE guibg=NONE gui=underline guisp=#a0b82e
@@ -138,25 +138,6 @@ hi! link netrwList BoaBlue
 hi! link netrwHelpCmd BoaAqua
 hi! link netrwCmdSep Normal
 hi! link netrwVersion BoaGreen
-
-" }}}
-" NERDTree: {{{
-
-hi! link NERDTreeDir BoaAqua
-hi! link NERDTreeDirSlash BoaAqua
-
-hi! link NERDTreeOpenable BoaOrange
-hi! link NERDTreeClosable BoaOrange
-
-hi! link NERDTreeFile Normal
-hi! link NERDTreeExecFile BoaYellow
-
-hi! link NERDTreeUp BoaGray
-hi! link NERDTreeCWD BoaGreen
-hi! link NERDTreeHelp Normal
-
-hi! link NERDTreeToggleOn BoaGreen
-hi! link NERDTreeToggleOff BoaRed
 
 " }}}
 " Coc: {{{
