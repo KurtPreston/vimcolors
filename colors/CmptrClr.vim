@@ -22,14 +22,15 @@ if &compatible
   echohl warningMsg | echomsg "This plugin requires 'nocompatible' to be set."
   echohl None | finish | endif
 
-if !has('termguicolors')
-  echohl error | echomsg "This plugin requires the feature 'termguicolors'."
-  echohl None | finish | endif
+if !has("gui_running")
+  if !has('termguicolors')
+    echohl error | echomsg "This plugin requires the feature 'termguicolors'."
+    echohl None | finish | endif
 
-if !(&termguicolors)
-  echohl error | echomsg "This plugin requires 'termguicolors' to be set."
-  echohl None | finish | endif
-
+  if !(&termguicolors)
+    echohl error | echomsg "This plugin requires 'termguicolors' to be set."
+    echohl None | finish | endif
+endif
 let g:CmptrClr_use_default_hl = get(g:, 'CmptrClr_use_default_hl', {})
 
 " TODO Create a variable for each language.  I have tested this using 'execute'

@@ -63,6 +63,7 @@ if g:CmptrClr_use_default_hl[&ft]
 
   hi! link csUnspecifiedKeyword  statement
   hi! link csUnspecifiedStatement  statement
+  hi! link csUsing                  csNamespace
   hi! link csXmlComment             csComment
   hi! link csXmlCommentLeader       cCommentStart
   hi! link csXmlTag     xmlTagName
