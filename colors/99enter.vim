@@ -9,9 +9,9 @@ endif
 
 if better#gui_running()
     " +++++ GUI +++++
+    let g:fontlist = ['Inconsolata LGC', 'JetBrains Mono', 'Liberation Mono',
+        \ 'PT Mono', 'SF Mono', 'Ubuntu Mono']
     14Font PT Mono
-    let g:fontlist = ['Cascadia Code PL', 'Inconsolata LGC', 'JetBrains Mono',
-        \ 'Liberation Mono', 'PT Mono', 'SF Mono', 'Ubuntu Mono']
     let g:drvo_glyph = [0x1F4C2, 0x1F4C4]
     if has('directx')
         set renderoptions=type:directx

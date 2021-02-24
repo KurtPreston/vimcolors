@@ -73,9 +73,8 @@ command! -count -nargs=? -complete=custom,s:fontcomplete Font
 " :Git [args]
 " invoke the stupid content tracker
 function s:gitcomplete(A, L, P) abort
-    return join(['add', 'branch', 'checkout', 'clean', 'clone', 'commit', 'config',
-        \ 'diff', 'fetch', 'help', 'init', 'log', 'merge', 'mv', 'pull', 'push',
-        \ 'remote', 'reset', 'rm', 'show', 'status', 'submodule'], "\n")
+    return join(['add', 'branch', 'checkout', 'clone', 'commit', 'diff', 'init', 'log',
+        \ 'pull', 'push', 'remote', 'status'], "\n")
 endfunction
 command! -nargs=* -complete=custom,s:gitcomplete Git !git -C %:p:h:S <args>
 
