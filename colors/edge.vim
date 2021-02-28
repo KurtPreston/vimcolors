@@ -10,7 +10,7 @@
 let s:configuration = edge#get_configuration()
 let s:palette = edge#get_palette(s:configuration.style)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Sun Feb 14 02:12:21 AM UTC 2021'
+let s:last_modified = 'Sun Feb 28 11:20:26 AM UTC 2021'
 let g:edge_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'edge' && s:configuration.better_performance)
@@ -501,10 +501,26 @@ call edge#highlight('Lf_hl_match2', s:palette.purple, s:palette.none, 'bold')
 call edge#highlight('Lf_hl_match3', s:palette.red, s:palette.none, 'bold')
 call edge#highlight('Lf_hl_match4', s:palette.yellow, s:palette.none, 'bold')
 call edge#highlight('Lf_hl_matchRefine', s:palette.cyan, s:palette.none, 'bold')
+call edge#highlight('Lf_hl_popup_normalMode', s:palette.bg0, s:palette.green, 'bold')
+call edge#highlight('Lf_hl_popup_inputMode', s:palette.bg0, s:palette.blue, 'bold')
+call edge#highlight('Lf_hl_popup_category', s:palette.fg, s:palette.bg4)
+call edge#highlight('Lf_hl_popup_nameOnlyMode', s:palette.fg, s:palette.bg3)
+call edge#highlight('Lf_hl_popup_fullPathMode', s:palette.fg, s:palette.bg3)
+call edge#highlight('Lf_hl_popup_fuzzyMode', s:palette.fg, s:palette.bg3)
+call edge#highlight('Lf_hl_popup_regexMode', s:palette.fg, s:palette.bg3)
+call edge#highlight('Lf_hl_popup_lineInfo', s:palette.purple, s:palette.bg4)
+call edge#highlight('Lf_hl_popup_total', s:palette.bg0, s:palette.purple)
+call edge#highlight('Lf_hl_popup_cursor', s:palette.bg0, s:palette.green)
 highlight! link Lf_hl_cursorline Fg
 highlight! link Lf_hl_selection DiffAdd
 highlight! link Lf_hl_rgHighlight Visual
 highlight! link Lf_hl_gtagsHighlight Visual
+highlight! link Lf_hl_popup_inputText Pmenu
+highlight! link Lf_hl_popup_window Pmenu
+highlight! link Lf_hl_popup_prompt Green
+highlight! link Lf_hl_popup_cwd Pmenu
+highlight! link Lf_hl_popup_blank Lf_hl_popup_window
+highlight! link Lf_hl_popup_spin Yellow
 " }}}
 " liuchengxu/vim-clap {{{
 call edge#highlight('ClapSelected', s:palette.red, s:palette.bg2, 'bold')
@@ -553,6 +569,12 @@ let g:fzf_colors = {
       \ 'spinner': ['fg', 'Yellow'],
       \ 'header': ['fg', 'Blue']
       \ }
+" }}}
+" nvim-telescope/telescope.nvim {{{
+call edge#highlight('TelescopeMatching', s:palette.green, s:palette.none, 'bold')
+highlight! link TelescopeBorder Grey
+highlight! link TelescopePromptPrefix Purple
+highlight! link TelescopeSelection DiffAdd
 " }}}
 " Shougo/denite.nvim{{{
 call edge#highlight('deniteMatchedChar', s:palette.green, s:palette.none, 'bold')
@@ -668,22 +690,20 @@ highlight! link agitDiffRemove Red
 highlight! link agitDiffAdd Green
 highlight! link agitDiffHeader Purple
 " }}}
-" netrw {{{
-" https://www.vim.org/scripts/script.php?script_id=1075
-highlight! link netrwDir Green
-highlight! link netrwClassify Green
-highlight! link netrwLink Grey
-highlight! link netrwSymLink Fg
-highlight! link netrwExe Red
-highlight! link netrwComment Grey
-highlight! link netrwList Cyan
-highlight! link netrwHelpCmd Blue
-highlight! link netrwCmdSep Grey
-highlight! link netrwVersion Purple
-" }}}
 " }}}
 " Extended File Types: {{{
-" Note: To ensure that the `s:last_modified` variable is always up to date, you need to copy `.githooks/pre-commit` to `.git/hooks/pre-commit`.
+" Whitelist: {{{ File type optimizations that will always be loaded.
+" diff {{{
+highlight! link diffAdded Green
+highlight! link diffRemoved Red
+highlight! link diffChanged Blue
+highlight! link diffOldFile Green
+highlight! link diffNewFile Cyan
+highlight! link diffFile Yellow
+highlight! link diffLine Grey
+highlight! link diffIndexLine Yellow
+" }}}
+" }}}
 " Generate the `after/ftplugin` directory based on the comment tags in this file.
 " For example, the content between `ft_begin: sh/zsh` and `ft_end` will be placed in `after/ftplugin/sh/edge.vim` and `after/ftplugin/zsh/edge.vim`.
 if edge#ft_exists(s:path) " If the ftplugin exists.
@@ -767,6 +787,19 @@ highlight! link NERDTreeLinkTarget Green
 " https://github.com/justinmk/vim-dirvish
 highlight! link DirvishPathTail Blue
 highlight! link DirvishArg Green
+" ft_end }}}
+" ft_begin: netrw {{{
+" https://www.vim.org/scripts/script.php?script_id=1075
+highlight! link netrwDir Green
+highlight! link netrwClassify Green
+highlight! link netrwLink Grey
+highlight! link netrwSymLink Fg
+highlight! link netrwExe Red
+highlight! link netrwComment Grey
+highlight! link netrwList Cyan
+highlight! link netrwHelpCmd Blue
+highlight! link netrwCmdSep Grey
+highlight! link netrwVersion Purple
 " ft_end }}}
 " ft_begin: startify/quickmenu {{{
 " https://github.com/mhinz/vim-startify
@@ -1894,16 +1927,6 @@ highlight! link tomlKey Red
 highlight! link tomlBoolean Yellow
 highlight! link tomlString Green
 highlight! link tomlTableArray tomlTable
-" ft_end }}}
-" ft_begin: diff/git/gitcommit {{{
-highlight! link diffAdded Green
-highlight! link diffRemoved Red
-highlight! link diffChanged Blue
-highlight! link diffOldFile Green
-highlight! link diffNewFile Cyan
-highlight! link diffFile Yellow
-highlight! link diffLine Grey
-highlight! link diffIndexLine Yellow
 " ft_end }}}
 " ft_begin: gitcommit {{{
 highlight! link gitcommitSummary Purple

@@ -10,7 +10,7 @@
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.palette)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Sun Feb 14 02:08:09 AM UTC 2021'
+let s:last_modified = 'Sun Feb 28 11:18:33 AM UTC 2021'
 let g:gruvbox_material_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'gruvbox-material' && s:configuration.better_performance)
@@ -561,10 +561,26 @@ call gruvbox_material#highlight('Lf_hl_match2', s:palette.blue, s:palette.none, 
 call gruvbox_material#highlight('Lf_hl_match3', s:palette.purple, s:palette.none, 'bold')
 call gruvbox_material#highlight('Lf_hl_match4', s:palette.orange, s:palette.none, 'bold')
 call gruvbox_material#highlight('Lf_hl_matchRefine', s:palette.red, s:palette.none, 'bold')
+call gruvbox_material#highlight('Lf_hl_popup_normalMode', s:palette.bg0, s:palette.grey2, 'bold')
+call gruvbox_material#highlight('Lf_hl_popup_inputMode', s:palette.bg0, s:palette.grey2, 'bold')
+call gruvbox_material#highlight('Lf_hl_popup_category', s:palette.bg0, s:palette.grey1)
+call gruvbox_material#highlight('Lf_hl_popup_nameOnlyMode', s:palette.fg1, s:palette.bg_statusline3)
+call gruvbox_material#highlight('Lf_hl_popup_fullPathMode', s:palette.fg1, s:palette.bg_statusline3)
+call gruvbox_material#highlight('Lf_hl_popup_fuzzyMode', s:palette.bg0, s:palette.grey0)
+call gruvbox_material#highlight('Lf_hl_popup_regexMode', s:palette.fg1, s:palette.bg_statusline3)
+call gruvbox_material#highlight('Lf_hl_popup_lineInfo', s:palette.bg0, s:palette.green)
+call gruvbox_material#highlight('Lf_hl_popup_total', s:palette.bg0, s:palette.yellow)
+call gruvbox_material#highlight('Lf_hl_popup_cursor', s:palette.bg0, s:palette.green)
+call gruvbox_material#highlight('Lf_hl_popup_inputText', s:palette.green, s:palette.bg3)
 highlight! link Lf_hl_cursorline Fg
 highlight! link Lf_hl_selection DiffAdd
 highlight! link Lf_hl_rgHighlight Visual
 highlight! link Lf_hl_gtagsHighlight Visual
+highlight! link Lf_hl_popup_window Pmenu
+highlight! link Lf_hl_popup_prompt Orange
+highlight! link Lf_hl_popup_cwd Pmenu
+highlight! link Lf_hl_popup_blank Lf_hl_popup_window
+highlight! link Lf_hl_popup_spin Purple
 " }}}
 " liuchengxu/vim-clap {{{
 call gruvbox_material#highlight('ClapSelected', s:palette.red, s:palette.bg3, 'bold')
@@ -614,6 +630,12 @@ let g:fzf_colors = {
       \ 'spinner': ['fg', 'Yellow'],
       \ 'header':  ['fg', 'Grey']
       \ }
+" }}}
+" nvim-telescope/telescope.nvim {{{
+call gruvbox_material#highlight('TelescopeMatching', s:palette.green, s:palette.none, 'bold')
+highlight! link TelescopeBorder Grey
+highlight! link TelescopePromptPrefix Orange
+highlight! link TelescopeSelection DiffAdd
 " }}}
 " Shougo/denite.nvim {{{
 call gruvbox_material#highlight('deniteMatchedChar', s:palette.green, s:palette.none, 'bold')
@@ -751,22 +773,20 @@ highlight! link agitDiffRemove Red
 highlight! link agitDiffAdd Green
 highlight! link agitDiffHeader Purple
 " }}}
-" netrw {{{
-" https://www.vim.org/scripts/script.php?script_id=1075
-highlight! link netrwDir Green
-highlight! link netrwClassify Green
-highlight! link netrwLink Grey
-highlight! link netrwSymLink Fg
-highlight! link netrwExe Yellow
-highlight! link netrwComment Grey
-highlight! link netrwList Aqua
-highlight! link netrwHelpCmd Blue
-highlight! link netrwCmdSep Grey
-highlight! link netrwVersion Orange
-" }}}
 " }}}
 " Extended File Types: {{{
-" Note: To ensure that the `s:last_modified` variable is always up to date, you need to copy `.githooks/pre-commit` to `.git/hooks/pre-commit`.
+" Whitelist: {{{ File type optimizations that will always be loaded.
+" diff {{{
+highlight! link diffAdded Green
+highlight! link diffRemoved Red
+highlight! link diffChanged Blue
+highlight! link diffOldFile Yellow
+highlight! link diffNewFile Orange
+highlight! link diffFile Aqua
+highlight! link diffLine Grey
+highlight! link diffIndexLine Purple
+" }}}
+" }}}
 " Generate the `after/ftplugin` directory based on the comment tags in this file.
 " For example, the content between `ft_begin: sh/zsh` and `ft_end` will be placed in `after/ftplugin/sh/gruvbox_material.vim` and `after/ftplugin/zsh/gruvbox_material.vim`.
 if gruvbox_material#ft_exists(s:path) " If the ftplugin exists.
@@ -851,6 +871,19 @@ highlight! link NERDTreeLinkTarget Green
 " https://github.com/justinmk/vim-dirvish
 highlight! link DirvishPathTail Aqua
 highlight! link DirvishArg Yellow
+" ft_end }}}
+" ft_begin: netrw {{{
+" https://www.vim.org/scripts/script.php?script_id=1075
+highlight! link netrwDir Green
+highlight! link netrwClassify Green
+highlight! link netrwLink Grey
+highlight! link netrwSymLink Fg
+highlight! link netrwExe Yellow
+highlight! link netrwComment Grey
+highlight! link netrwList Aqua
+highlight! link netrwHelpCmd Blue
+highlight! link netrwCmdSep Grey
+highlight! link netrwVersion Orange
 " ft_end }}}
 " ft_begin: startify/quickmenu {{{
 " https://github.com/mhinz/vim-startify
@@ -2016,16 +2049,6 @@ call gruvbox_material#highlight('tomlTable', s:palette.purple, s:palette.none, '
 highlight! link tomlKey Orange
 highlight! link tomlBoolean Aqua
 highlight! link tomlTableArray tomlTable
-" ft_end }}}
-" ft_begin: diff/git/gitcommit {{{
-highlight! link diffAdded Green
-highlight! link diffRemoved Red
-highlight! link diffChanged Blue
-highlight! link diffOldFile Yellow
-highlight! link diffNewFile Orange
-highlight! link diffFile Aqua
-highlight! link diffLine Grey
-highlight! link diffIndexLine Purple
 " ft_end }}}
 " ft_begin: gitcommit {{{
 highlight! link gitcommitSummary Red
