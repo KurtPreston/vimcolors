@@ -21,11 +21,11 @@ set lazyredraw nrformats=alpha,bin,hex shortmess=filnxoOtTI pyxversion=3
 set scrolloff=2 sidescroll=1 splitright ttimeout ttimeoutlen=50 wildmenu
 set keymodel=startsel mousemodel=extend selection=exclusive selectmode=
 set cursorline laststatus=2 mouse=ar number showmatch showtabline=2 title
+set switchbuf=useopen undofile virtualedit=all whichwrap+=<,>,[,]
 set nobackup nowritebackup nofsync nolangremap noruler noshowcmd noshowmode
-set nostartofline noswapfile switchbuf=useopen undofile virtualedit=all
+set nostartofline noswapfile viminfo=!,'100,<1000,s100,h
 set sessionoptions=blank,curdir,help,slash,tabpages,unix,winsize
 set viewoptions=folds,cursor,curdir,slash,unix wildoptions=
-set viminfo=!,'100,<1000,s100,h
 let &grepprg = executable('ag') ? 'ag --vimgrep' : 'internal'
 let &undodir = better#rtp('undo')
 if exists('+scrollfocus')
@@ -47,22 +47,8 @@ if v:lang =~? '^ru'
     set iminsert& imsearch&
 endif
 
-" disable standard plugins
-let g:loaded_getscriptPlugin = 0
-let g:loaded_gzip = 0
-let g:loaded_logiPat = 0
-let g:loaded_netrwPlugin = 0
-let g:loaded_tarPlugin = 0
-let g:loaded_vimballPlugin = 0
-let g:loaded_zipPlugin = 0
-if has('nvim')
-    let g:loaded_node_provider = 0
-    let g:loaded_perl_provider = 0
-    let g:loaded_python_provider = 0
-    let g:loaded_python3_provider = 0
-    let g:loaded_ruby_provider = 0
-    let g:loaded_shada_plugin = 0
-elseif has('gui_running')
+" GVim menu bar
+if has('gui_running')
     let g:do_no_lazyload_menus = 1
     let g:no_buffers_menu = 1
 endif

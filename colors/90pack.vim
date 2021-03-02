@@ -8,6 +8,18 @@ else
     source $VIMRUNTIME/ftplugin/man.vim
 endif
 
+" disable standard plugins
+let [g:loaded_2html_plugin, g:loaded_getscriptPlugin, g:loaded_gzip, g:loaded_logiPat,
+    \ g:loaded_netrwPlugin, g:loaded_spellfile_plugin, g:loaded_tarPlugin,
+    \ g:loaded_vimballPlugin, g:loaded_zipPlugin; _] = repeat([0], 10)
+if has('nvim')
+    let [g:loaded_node_provider, g:loaded_perl_provider, g:loaded_python_provider,
+        \ g:loaded_python3_provider, g:loaded_ruby_provider, g:loaded_remote_plugins,
+        \ g:loaded_shada_plugin, g:loaded_tutor_mode_plugin; _] = repeat([0], 10)
+else
+    let g:loaded_rrhelper = 0
+endif
+
 " package manager setup
 let s:pack = {'site': 'https://github.com',
     \ 'name': 'minpac', 'author': 'k-takata',
