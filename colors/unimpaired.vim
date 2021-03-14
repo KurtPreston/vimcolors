@@ -138,10 +138,10 @@ endfunction
 
 " s:putreg({how} [, {flip}])
 " put v:register linewise or flip
-function s:putreg(how, ...) abort
+function s:putreg(how, flip = 0) abort
     let l:cmd = printf('normal! "%s%d%s', v:register, v:count1, a:how)
     let l:type = getregtype()
-    if l:type is# 'V' && !get(a:, 1)
+    if l:type is# 'V' && !a:flip
         " put as is
         execute l:cmd
         return

@@ -1,6 +1,32 @@
 " This is a part of my vim configuration.
 " https://github.com/matveyt/vimfiles
 
+" misc#autocomplete({chars})
+" show completion menu after {chars} or more symbols typed
+function! misc#autocomplete(chars) abort
+    let l:cch = 0
+    let l:tid = -1
+
+    function! s:trigger(key) abort closure
+        if l:tid != -1
+            call timer_stop(l:tid)
+            let l:tid = -1
+        endif
+        let l:cch = a:key ? l:cch + 1 : 0
+        if l:cch >= a:chars && !pumvisible()
+            let l:tid = timer_start(&tm, {_ -> feedkeys("\<C-N>", 'n')})
+        endif
+    endfunction
+
+    augroup autocomplete | au!
+        if a:chars > 0
+            set completeopt+=menuone,noinsert
+            autocmd InsertCharPre * call s:trigger(v:char =~ '\k')
+            autocmd InsertLeave * call s:trigger(0)
+        endif
+    augroup end
+endfunction
+
 " misc#bwipeout({listed})
 " wipe all deleted (unloaded & unlisted) or all unloaded buffers
 function! misc#bwipeout(listed) abort
@@ -13,12 +39,9 @@ endfunction
 " misc#change({line1}, {line2} [, {reg} [, {autoindent}]])
 " non-interactive :change
 " Note: the replaced text is put in the unnamed register as in :h put-Visual-mode
-function! misc#change(line1, line2, ...) abort
-    " parse args
-    let l:reg = get(a:, 1, v:register)
-    let l:how = get(a:, 2, &autoindent) ? '[P' : 'P'
+function! misc#change(line1, line2, reg = v:register, ai = &autoindent) abort
     " split {reg} to deal with ={expr}
-    let [l:reg, l:expr] = [strcharpart(l:reg, 0, 1), strcharpart(l:reg, 1)]
+    let [l:reg, l:expr] = [strcharpart(a:reg, 0, 1), strcharpart(a:reg, 1)]
     if !empty(l:expr)
         if l:reg isnot# '='
             " {expr} is allowed only for expression register
@@ -35,7 +58,7 @@ function! misc#change(line1, line2, ...) abort
     call setreg(9, getreg(l:reg), 'l')
     " put & delete & move to the last edited line
     call execute([
-        \ printf('%dnormal! "9%s', a:line1, l:how),
+        \ printf('%dnormal! "9%s', a:line1, a:ai ? '[P' : 'P'),
         \ printf('keepjumps '']+,'']++%d delete', a:line2 - a:line1),
         \ -1])
 endfunction
@@ -56,38 +79,15 @@ endfunction
 
 " misc#comment({line1}, {line2} [, {preserveindent}])
 " (Un)Comment line range
-function! misc#comment(line1, line2, ...) abort
+function! misc#comment(line1, line2, pi = &preserveindent) abort
     let l:pat = printf('^\(\s*\)\(%s\)$', printf(escape(&cms, '^$.*~[]\'), '\(.*\)'))
     let l:sub = '\=empty(submatch(2)) ? submatch(0) : submatch(1)..submatch(3)'
     if getline(a:line1) !~ l:pat
-        let l:pat = get(a:, 1, &pi) ? '^\s*\zs.*' : '.*'
+        let l:pat = a:pi ? '^\s*\zs.*' : '.*'
         let l:sub = printf(escape(&cms, '&\'), '&')
     endif
     call setline(a:line1, map(getline(a:line1, a:line2),
         \ {_, v -> substitute(v, l:pat, l:sub, '')}))
-endfunction
-
-" misc#complete({pat}, {type} [, {filtered}])
-" custom complete function
-" inoremap <C-X><C-F> <C-R>=misc#complete('[[:fname:]*?]\+', 'file')<CR>
-" :h ins-completion
-function! misc#complete(pat, type, ...) abort
-    let l:filtered = get(a:, 1)
-    let [l:lnum, l:col] = getcurpos()[1:2]
-    " find 'word' preceding cursor position
-    " Note: respect multibyte!
-    let l:start = searchpos(a:pat..'\v%#', 'bn', l:lnum)[1]
-    let l:end = searchpos('\v.%#', 'bn', l:lnum)[1]
-    if 1 <= l:start && l:start <= l:end
-        " complete [l:start .. l:end]
-        let l:word = getline(l:lnum)[l:start - 1 : l:end - 1]
-        call complete(l:start, getcompletion(l:word, a:type, l:filtered))
-    else
-        " complete empty string just before cursor
-        call complete(l:col, getcompletion('', a:type, l:filtered))
-    endif
-    " must return empty string to show popup menu
-    return ''
 endfunction
 
 " misc#copy({line1}, {line2} [, {address1} ...])
@@ -104,16 +104,16 @@ function! misc#copy(line1, line2, ...) abort
     endfor
 endfunction
 
-" misc#diff({head})
-" for better implementation of :DiffOrig
-function! misc#diff(head) abort
+" misc#diff({orig})
+" improved implementation of :DiffOrig
+function! misc#diff(orig) abort
     execute matchstr(&diffopt, 'vertical') 'new'
     setlocal bufhidden=wipe buftype=nofile noswapfile
     let &l:filetype = getbufvar(0, '&filetype')
     nnoremap <buffer>q <C-W>q
-    execute printf('silent file (%s)', a:head ? 'HEAD' : 'ORIG')
-    execute 'silent read ++edit' a:head ? printf('!git -C %s show @:./%s',
-        \ expand('#:p:h:S'), expand('#:t:S')) : '#'
+    execute printf('silent file (%s)', a:orig ? 'ORIG' : 'HEAD')
+    execute 'silent read ++edit' a:orig ? '#' : printf('!git -C %s show @:./%s',
+        \ expand('#:p:h:S'), expand('#:t:S'))
     1delete_
     diffthis
     wincmd p

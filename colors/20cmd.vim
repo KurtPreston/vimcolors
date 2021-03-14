@@ -26,15 +26,15 @@ command! -count=1 -nargs=* Nread Nomove call netrw#NetRead(<count>, <f-args>)
 " wipe all deleted/unloaded buffers
 command! -bar -bang Bwipeout call misc#bwipeout(<bang>0)
 
-" :[range]Change [reg]
+" :[range]Change[!] [reg]
 " non-interactive :change
 command! -range -bar -bang -nargs=? Change
-    \ call misc#change(<line1>, <line2>, <q-args>, &autoindent != <bang>0)
+    \ call misc#change(<line1>, <line2>, <q-args>, <bang>&autoindent)
 
 " :[range]Comment[!]
 " toggle comments
 command! -range -bar -bang Comment
-    \ call misc#comment(<line1>, <line2>, &preserveindent != <bang>0)
+    \ call misc#comment(<line1>, <line2>, <bang>&preserveindent)
 
 " :[range]Copy {address1}...
 " :copy to multiple addresses
@@ -42,7 +42,7 @@ command! -range -bar -nargs=+ Copy call misc#copy(<line1>, <line2>, <f-args>)
 
 " :Diff[!]
 " show diff with original file or git HEAD
-command! -bar -bang Diff call misc#diff(<bang>0 || !&modified)
+command! -bar -bang Diff call misc#diff(<bang>&modified)
 
 " :[range]Execute [winnr]
 " execute VimScript or any "shebang"-script

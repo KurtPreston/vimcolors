@@ -7,16 +7,6 @@ xnoremap ; :
 " '\;' to repeat char search forward
 nnoremap <leader>; ;
 xnoremap <leader>; ;
-" <C-X><C-F> is able to expand wildcards
-inoremap <C-X><C-F> <C-R>=misc#complete('[[:fname:]*?]\+', 'file')<CR>
-" improved auto completion: <Tab>, <CR>, <Esc>, <Up>, <Down>, <PageUp>, <PageDown>
-inoremap <expr><Tab> search('\v\k{3}%#', 'bn', line('.')) ? '<C-N>' : '<Tab>'
-inoremap <expr><CR> pumvisible() ? '<C-Y>' : '<CR>'
-inoremap <expr><Esc> pumvisible() ? '<C-E>' : '<Esc>'
-inoremap <expr><Up> pumvisible() ? '<C-P>' : '<Up>'
-inoremap <expr><Down> pumvisible() ? '<C-N>' : '<Down>'
-inoremap <expr><PageUp> pumvisible() ? '<PageUp><C-P><C-N>' : '<PageUp>'
-inoremap <expr><PageDown> pumvisible() ? '<PageDown><C-N><C-P>' : '<PageDown>'
 " Q to zoom current window
 nnoremap <silent>Q :Zoom<CR>
 " <Space> to toggle fold
@@ -105,6 +95,3 @@ for _ in ['ae', 'ie', 'al', 'il', 'ai', 'ii', 'aI', 'iI']
     execute printf('omap %s <plug>%s', _, _)
     execute printf('xmap %s <plug>%s', _, _)
 endfor
-
-" partial emulation of vim-unimpaired and vim-surround
-call unimpaired#emulate()

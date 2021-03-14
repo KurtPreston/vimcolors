@@ -45,10 +45,11 @@ if !exists('g:colors_name')
     silent! colorscheme modest
 endif
 
-" setup status line
-silent! let &statusline = stalin#build('mode,buffer,,flags,ruler')
-
 " if we have not opened anything yet then show MRU files list
 if bufnr('$') == 1 && empty(bufname(1))
     MRU
 endif
+
+silent! let &statusline = stalin#build('mode,buffer,,flags,ruler')
+call unimpaired#emulate()
+call misc#autocomplete(3)
