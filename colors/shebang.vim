@@ -25,7 +25,7 @@ function s:preprocess(script) abort
     return a:script
 endfunction
 
-function s:command(shebang, dosource, ...) abort
+function s:command(shebang, fname) abort
     let l:cmd = matchlist(a:shebang, '\v^#!\s*(\S+)\s*(.*)')[1:2]
     if empty(l:cmd)
         return
@@ -40,12 +40,12 @@ function s:command(shebang, dosource, ...) abort
         call insert(l:cmd, 'env')
     endif
     " script file name
-    return add(l:cmd, a:dosource ? fnamemodify(a:1, ':p:S') : '-')
+    return add(l:cmd, a:fname)
 endfunction
 
 " shebang#execute({buf}, {line1}, {line2} [, {win}])
 " Execute script from a buffer
-function! shebang#execute(buf, line1, line2, ...) abort
+function! shebang#execute(buf, line1, line2, win = 0) abort
     " get buffer info
     let l:bufnr = bufnr(a:buf)
     if l:bufnr == -1 || !bufloaded(l:bufnr)
@@ -64,12 +64,7 @@ function! shebang#execute(buf, line1, line2, ...) abort
         endif
     endif
     " go to target Window
-    let l:winid = get(a:, 1)
-    if l:winid <= 0
-        let l:winid = 0
-    elseif l:winid < 1000
-        let l:winid = win_getid(l:winid)
-    endif
+    let l:winid = (a:win <= 0) ? 0 : (a:win < 1000) ? win_getid(a:win) : a:win
     call win_gotoid(l:winid)
 
     if getbufvar(l:bufnr, '&filetype') is# 'vim' ||
@@ -80,16 +75,16 @@ function! shebang#execute(buf, line1, line2, ...) abort
         " parse shebang line
         let l:shebang = getbufline(l:bufnr, 1)[0]
         if l:shebang !~# '^#!'
-            throw 'No shebang in ' . (empty(l:fname) ? 'buffer '..l:bufnr : l:fname)
+            throw 'No shebang in ' . (empty(l:fname) ? 'buffer #'..l:bufnr : l:fname)
         endif
-        let l:cmd = s:command(l:shebang, l:dosource, l:fname)
+        let l:cmd = s:command(l:shebang, l:dosource ? l:fname : '-')
         if empty(l:cmd)
             return
         endif
         call term#start(l:cmd)
         if !l:dosource
             " send script through stdin
-            call term#sendkeys('%', add(l:script, "\<C-D>"))
+            call term#sendkeys('%', add(l:script, has('win32') ? "\<C-Z>" : "\<C-D>"))
         endif
     endif
 endfunction

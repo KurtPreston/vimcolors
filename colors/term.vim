@@ -2,17 +2,16 @@
 " https://github.com/matveyt/vimfiles
 
 " term_start() compatibility wrapper
-function! term#start(cmd, ...) abort
-    let l:opt = get(a:, 1, {})
+function! term#start(cmd, opt = {}) abort
     if exists('*term_start')
-        return term_start(a:cmd, l:opt)
+        return term_start(a:cmd, a:opt)
     elseif exists('*termopen')
         try
-            execute get(l:opt, 'curwin') ? 'enew' :
-                \ get(l:opt, 'vertical') ? 'vnew' : 'new'
-            call termopen(a:cmd, l:opt)
-            execute 'resize' get(l:opt, 'term_rows', '+0')
-            execute 'vertical resize' get(l:opt, 'term_cols', '+0')
+            execute get(a:opt, 'curwin') ? 'enew' :
+                \ get(a:opt, 'vertical') ? 'vnew' : 'new'
+            call termopen(a:cmd, a:opt)
+            execute 'resize' get(a:opt, 'term_rows', '+0')
+            execute 'vertical resize' get(a:opt, 'term_cols', '+0')
             return bufnr()
         catch | endtry
     endif

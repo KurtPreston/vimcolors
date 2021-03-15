@@ -18,10 +18,6 @@ command! -bang -nargs=1 -complete=command Sorted
     \ echo join(sort(split(execute(<q-mods>..' '..<q-args>), "\n"),
     \     {s1, s2 -> <bang>(s1 ># s2) - <bang>(s1 <# s2)}), "\n")
 
-" :[count]Nread [netfile]...
-" required by 'spellfile' plugin
-command! -count=1 -nargs=* Nread Nomove call netrw#NetRead(<count>, <f-args>)
-
 " :Bwipeout[!]
 " wipe all deleted/unloaded buffers
 command! -bar -bang Bwipeout call misc#bwipeout(<bang>0)
@@ -81,7 +77,7 @@ command! -nargs=* -complete=custom,s:gitcomplete Git !git -C %:p:h:S <args>
 " :GccInclude[!] [/path/to/gcc]
 " set local &path to GCC include dirs
 command! -bar -bang -nargs=? -complete=file GccInclude let &l:path = join(['.'] +
-    \ misc#gcc_include(better#or(<q-args>, 'gcc'), &ft, <bang>0) + [','], ',')
+    \ misc#gcc_include(better#or(<q-args>, 'gcc'), <bang>0) + [','], ',')
 
 " :Highlight[!]
 " show :highlight under cursor
@@ -92,7 +88,7 @@ command! -bar -bang Highlight
 " :[count]MRU [sesdir]
 " show MRU and Session files
 command! -count=10 -bar -nargs=? -complete=dir MRU
-    \ call mru#show(better#or(<q-args>, better#rtp('sessions')), <count>)
+    \ call mru#show(better#or(<q-args>, better#stdpath('data', 'sessions')), <count>)
 
 " :[range]Trim[!]
 " trim trailing/leading space

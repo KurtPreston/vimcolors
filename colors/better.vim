@@ -61,11 +61,11 @@ function! better#or(...) abort
     return l:arg
 endfunction
 
-" better#rtp([{subdir} ...])
-" return full path to {subdir} under Vim config directory
-function! better#rtp(...) abort
-    let l:path = !exists('*stdpath') ? strpart(&rtp, 0, stridx(&rtp, ',')) :
-        \ stdpath('config')
+" better#stdpath({what}, [{subdir} ...])
+" return full path to {subdir} under Vim/Neovim stdpath()
+function! better#stdpath(what, ...) abort
+    let l:path = exists('*stdpath') ? stdpath(a:what) :
+        \ strpart(&rtp, 0, stridx(&rtp, ','))
     if a:0
         let l:path .= '/' . call('printf', a:000)
     endif
@@ -75,11 +75,10 @@ endfunction
 " better#win_execute({id}, {command} [, {silent}])
 " Vim/Neovim compatibility
 " Note: Neovim doesn't have win_execute()
-function! better#win_execute(id, command, ...) abort
+function! better#win_execute(id, command, silent = 'silent') abort
     " call win_execute() if possible
-    let l:silent = get(a:, 1, 'silent')
     if exists('*win_execute')
-        return win_execute(a:id, a:command, l:silent)
+        return win_execute(a:id, a:command, a:silent)
     endif
     " try to switch the window
     let l:wcurr = win_getid()
@@ -87,7 +86,7 @@ function! better#win_execute(id, command, ...) abort
         return
     endif
     " execute command and switch window back after that
-    try | return execute(a:command, l:silent)
+    try | return execute(a:command, a:silent)
     finally
         if a:id != l:wcurr
             call win_gotoid(l:wcurr)

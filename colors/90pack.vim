@@ -47,7 +47,8 @@ function s:pack_setup() abort
 
     " git-clone package manager
     let l:remote = printf('%s/%s/%s', s:pack.site, s:pack.author, s:pack.name)
-    let l:local = better#rtp('pack/%s/opt/%s', s:pack_byname(), s:pack.name)
+    let l:local = better#stdpath('config', 'pack/%s/opt/%s', s:pack_byname(),
+        \ s:pack.name)
     if !isdirectory(l:local)
         echomsg 'Cloning into' l:local
         silent call system(printf('git clone --depth=1 %s.git %s',

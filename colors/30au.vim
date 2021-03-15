@@ -18,6 +18,11 @@ augroup vimStartup | au!
     autocmd ColorScheme * hi Comment cterm=NONE gui=NONE
     " prettify man buffer
     autocmd FileType man setlocal colorcolumn& list&
+    " :h spell-SpellFileMissing
+    autocmd SpellFileMissing * call misc#wget(
+        \ get(g:, 'spellfile_URL', 'https://ftp.nluug.nl/pub/vim/runtime/spell'),
+        \ better#stdpath('config', 'spell'),
+        \ map(['spl', 'sug'], 'printf("%s.%s.%s", expand("<amatch>"), &enc, v:val)'))
     " save session on exit
     autocmd VimLeavePre *
         \   if !empty(v:this_session) && !v:dying

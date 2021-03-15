@@ -29,7 +29,7 @@ endfunction
 
 " misc#bwipeout({listed})
 " wipe all deleted (unloaded & unlisted) or all unloaded buffers
-function! misc#bwipeout(listed) abort
+function! misc#bwipeout(listed = 0) abort
     let l:buffers = filter(getbufinfo(), {_, v -> !v.loaded && (!v.listed || a:listed)})
     if !empty(l:buffers)
         execute 'bwipeout' join(map(l:buffers, {_, v -> v.bufnr}))
@@ -120,9 +120,9 @@ function! misc#diff(orig) abort
     diffthis
 endfunction
 
-" misc#gcc_include({gcc}, {ft}, {force})
+" misc#gcc_include([{gcc} [, {force} [, {ft}]]])
 " get GCC include dirs
-function! misc#gcc_include(gcc, ft, force) abort
+function! misc#gcc_include(gcc = 'gcc', force = 0, ft = &filetype) abort
     if a:force || !has_key(s:, 'gcc_include_' . a:ft)
         " $INCLUDE
         let s:gcc_include_{a:ft} = split($INCLUDE, has('win32') ? ';' : ':')
@@ -148,4 +148,11 @@ function! misc#guifont(typeface, height) abort
         \ printf('\=%s..%d', string(l:prefix), l:height), '')})
     silent! let &guifont = join(l:fonts, ',')
     let g:fontheight = l:height
+endfunction
+
+" misc#wget({url}, {destdir}, {files})
+" wget some files
+function! misc#wget(url, destdir, files) abort
+    echomsg system(printf('wget -bqNP %s %s/%s', shellescape(a:destdir), a:url,
+        \ join(a:files, printf(' %s/', a:url))))
 endfunction

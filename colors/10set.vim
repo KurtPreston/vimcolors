@@ -27,7 +27,9 @@ set nostartofline noswapfile viminfo=!,'100,<1000,s100,h
 set sessionoptions=blank,curdir,help,slash,tabpages,unix,winsize
 set viewoptions=folds,cursor,curdir,slash,unix wildoptions=
 let &grepprg = executable('ag') ? 'ag --vimgrep' : 'internal'
-let &undodir = better#rtp('undo')
+if &undodir is# '.'
+    let &undodir = better#stdpath('data', 'undo')
+endif
 if exists('+scrollfocus')
     set scrollfocus
 endif
