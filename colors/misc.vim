@@ -14,7 +14,7 @@ function! misc#autocomplete(chars) abort
         endif
         let l:cch = a:key ? l:cch + 1 : 0
         if l:cch >= a:chars && !pumvisible()
-            let l:tid = timer_start(&tm, {_ -> feedkeys("\<C-N>", 'n')})
+            let l:tid = timer_start(&tm, {-> feedkeys("\<C-N>", 'n')})
         endif
     endfunction
 
