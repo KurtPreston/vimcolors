@@ -64,12 +64,14 @@ endfunction
 " better#stdpath({what}, [{subdir} ...])
 " return full path to {subdir} under Vim/Neovim stdpath()
 function! better#stdpath(what, ...) abort
-    let l:path = exists('*stdpath') ? stdpath(a:what) :
-        \ strpart(&rtp, 0, stridx(&rtp, ','))
+    let l:path = exists('*stdpath') ? stdpath(a:what) : strpart(&pp, 0, stridx(&pp, ','))
     if a:0
         let l:path .= '/' . call('printf', a:000)
     endif
-    return exists('+shellslash') && &shellslash ? tr(l:path, '\', '/') : l:path
+    if exists('+shellslash') && &shellslash
+        let l:path = tr(l:path, '\', '/')
+    endif
+    return l:path
 endfunction
 
 " better#win_execute({id}, {command} [, {silent}])
