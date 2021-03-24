@@ -9,20 +9,22 @@ endif
 let g:loaded_falcon=1
 
 " Required as colors will come from terminal without
-let g:fzf_colors=
-  \ { 'fg':      ['fg', 'Comment'],
-    \ 'bg':      ['bg', 'NormalFloat'],
-    \ 'hl':      ['fg', 'Normal'],
-    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-    \ 'bg+':     ['bg', 'NormalFloat', 'NormalFloat'],
-    \ 'hl+':     ['fg', 'Keyword'],
-    \ 'info':    ['fg', 'PreProc'],
-    \ 'border':  ['fg', 'Ignore'],
-    \ 'prompt':  ['fg', 'Conditional'],
-    \ 'pointer': ['fg', 'Question'],
-    \ 'marker':  ['fg', 'Directory'],
-    \ 'spinner': ['fg', 'Label'],
-    \ 'header':  ['fg', 'Comment'] }
+if !exists('g:fzf_colors')
+  let g:fzf_colors=
+    \ { 'fg':      ['fg', 'Comment'],
+      \ 'bg':      ['bg', 'PMenu'],
+      \ 'hl':      ['fg', 'Normal'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'PMenu', 'PMenu'],
+      \ 'hl+':     ['fg', 'Keyword'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Question'],
+      \ 'marker':  ['fg', 'Directory'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
+endif
 
 function s:HandleInactiveBackground()
   " NeoVim has support for changing background colour depending on active or not
@@ -46,15 +48,16 @@ function s:HandleInactiveBackground()
   if exists('+winhighlight') && g:falcon_inactive == 1
     hi ActiveWindow guibg=NONE
     hi InactiveWindow guibg=#151521
-    set winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+
+    return
+  endif
+
+  if g:falcon_background == 1
+    hi ActiveWindow guibg=#020221
+    hi InactiveWindow guibg=#151521
   else
-    if g:falcon_background == 1
-      hi ActiveWindow guibg=#020221
-      hi InactiveWindow guibg=#151521
-    else
-      hi ActiveWindow guibg=NONE
-      hi InactiveWindow guibg=NONE
-    endif
+    hi ActiveWindow guibg=NONE
+    hi InactiveWindow guibg=NONE
   endif
 endfunction
 

@@ -1,37 +1,93 @@
 " This is a part of my vim configuration.
 " https://github.com/matveyt/vimfiles
 
-" popup#menu({what}, {options})
-" popup_menu() compatibility wrapper
-" Options supported:
-"   line, col, pos, {max,min}{height,width}, title, wrap, highlight, padding, border,
-"   borderchars, time, cursorline, callback
+" Supported options:
+"   line, col, pos, {max,min}{height,width}, firstline, title, wrap, close, highlight,
+"   padding, border, borderchars, time, cursorline, filter, filtermode, callback
+
+function! popup#create(what, options) abort
+    if has('popupwin')
+        return popup_create(a:what, a:options)
+    elseif has('nvim')
+        return s:floatwin(s:to_list(a:what), s:options(#{}, a:options))
+    endif
+endfunction
+
+function! popup#dialog(what, options) abort
+    if has('popupwin')
+        return popup_dialog(a:what, a:options)
+    elseif has('nvim')
+        return s:floatwin(s:to_list(a:what), s:options(#{pos: 'center', zindex: 200,
+            \ drag: v:true, border: [], padding: [], mapping: v:false}, a:options))
+    endif
+endfunction
+
 function! popup#menu(what, options) abort
-    " do we have :h popupwin?
     if has('popupwin')
         return popup_menu(a:what, a:options)
+    elseif has('nvim')
+        return s:floatwin(s:to_list(a:what), s:options(#{pos: 'center', zindex: 200,
+            \ drag: v:true, wrap: v:false, border: [], cursorline: v:true,
+            \ padding: [0, 1, 0, 1], filter: 'popup_filter_menu', mapping: v:false},
+            \ a:options))
     endif
+endfunction
 
-    " get lines as List
-    if type(a:what) == v:t_number
-        let l:lines = getbufline(a:what, 1, '$')
-    elseif type(a:what) == v:t_list
-        let l:lines = copy(a:what)
-    else
-        let l:lines = [a:what]
+function! popup#notification(what, options) abort
+    if has('popupwin')
+        return popup_notification(a:what, a:options)
+    elseif has('nvim')
+        return s:floatwin(s:to_list(a:what), s:options(#{line: 1, col: 10, minwidth: 20,
+            \ time: 3000, tabpage: -1, zindex: 300, drag: v:true,
+            \ highlight: 'WarningMsg', border: [], close: 'click',
+            \ padding: [0, 1, 0, 1]}, a:options))
     endif
+endfunction
 
-    " :h api-floatwin
-    if has('nvim')
-        return s:floatwin(l:lines, s:default_options(a:options))
+function! popup#clear(force = v:false) abort
+    if has('popupwin')
+        return popup_clear(a:force)
+    elseif has('nvim')
+        for l:id in popup#list()
+            call popup#setoptions(l:id, #{callback: v:null})
+            call nvim_win_close(l:id, v:true)
+        endfor
     endif
+endfunction
 
-    " fallback implementation using :h inputlist()
-    call insert(map(l:lines, {k, v -> printf('%d) %s', k + 1, v)}),
-        \ get(a:options, 'title', 'Choose item:'))
-    let l:choice = inputlist(l:lines)
-    if has_key(a:options, 'callback')
-        return call(a:options.callback, [0, l:choice])
+function! popup#close(id, result = 0) abort
+    if has('popupwin')
+        call popup_close(a:id, a:result)
+    elseif has('nvim')
+        call popup#setoptions(a:id, #{result: a:result})
+        call nvim_win_close(a:id, v:true)
+    endif
+endfunction
+
+function! popup#getoptions(id) abort
+    if has('popupwin')
+        return popup_getoptions(a:id)
+    elseif has('nvim')
+        return getbufvar(winbufnr(a:id), 'popup_options', {})
+    endif
+endfunction
+
+function! popup#setoptions(id, options) abort
+    if has('popupwin')
+        return popup_setoptions(a:id, a:options)
+    elseif has('nvim')
+        call setbufvar(winbufnr(a:id), 'popup_options',
+            \ extend(popup#getoptions(a:id), a:options))
+    endif
+endfunction
+
+function! popup#list() abort
+    if has('popupwin')
+        return popup_list()
+    elseif has('nvim')
+        return map(filter(getwininfo(),
+            \ {_, v -> type(getbufvar(v.bufnr, 'popup_options')) == v:t_dict}),
+            \ {_, v -> v.winid})
     endif
 endfunction
 
@@ -40,40 +96,76 @@ if !has('nvim')
     finish
 endif
 
-function s:default_options(options) abort
-    let l:opts = extend(copy(a:options), #{
-        \ line: 0, col: 0, pos: 'center', maxheight: 999, minheight: 1, maxwidth: 999,
-        \ minwidth: 1, title: '', wrap: v:false, highlight: '', padding: [0, 1, 0, 1],
-        \ border: [], borderchars: [], time: 0, cursorline: v:true, callback: '',
+function s:options(opts, useropts) abort
+    call extend(extend(a:opts, a:useropts), #{
+        \ line: 0, col: 0, pos: 'topleft', posinvert: v:true, textprop: '',
+        \ textpropwin: 0, textpropid: 0, fixed: v:false, flip: v:true, maxheight: 999,
+        \ minheight: &winminheight, maxwidth: 999, minwidth: &winminwidth, firstline: 0,
+        \ hidden: v:false, tabpage: 0, title: '', wrap: v:true, drag: v:false,
+        \ resize: v:false, close: 'none', highlight: '', padding: [0, 0, 0, 0],
+        \ border: [0, 0, 0, 0], borderhighlight: [], borderchars: [], scrollbar: v:true,
+        \ scrollbarhighlight: '', thumbhighlight: '', zindex: 50, mask: [], time: 0,
+        \ moved: [0, 0, 0], mousemoved: [0, 0, 0], cursorline: v:false, filter: {},
+        \ mapping: v:true, filtermode: 'a', callback: v:null, box: 0, result: 0
         \ }, 'keep')
-    if l:opts.pos is# 'center'
-        let l:opts.line = 0
-        let l:opts.col = 0
+
+    " set defaults suitable for Neovim
+    if a:opts.pos is# 'center'
+        let a:opts.line = 0
+        let a:opts.col = 0
     endif
-    let l:opts.padding += [1, 1, 1, 1]
-    let l:opts.border += [1, 1, 1, 1]
-    if len(l:opts.borderchars) == 1
-        let l:opts.borderchars = repeat(l:opts.borderchars, 8)
-    elseif len(l:opts.borderchars) == 2
-        let l:opts.borderchars = repeat(l:opts.borderchars[0:0], 4) +
-            \ repeat(l:opts.borderchars[1:1], 4)
-    elseif len(l:opts.borderchars) < 8
-        let l:opts.borderchars += [nr2char(0x2550), nr2char(0x2551), nr2char(0x2550),
+    let a:opts.highlight = empty(a:opts.highlight) ?
+        \ 'EndOfBuffer:,CursorLine:PMenuSel' :
+        \ printf('NormalFloat:%s,EndOfBuffer:,CursorLine:PMenuSel', a:opts.highlight)
+    let a:opts.padding += [1, 1, 1, 1]
+    let a:opts.border += [1, 1, 1, 1]
+    if len(a:opts.borderchars) == 1
+        let a:opts.borderchars = repeat(a:opts.borderchars, 8)
+    elseif len(a:opts.borderchars) == 2
+        let a:opts.borderchars = repeat(a:opts.borderchars[0:0], 4) +
+            \ repeat(a:opts.borderchars[1:1], 4)
+    elseif len(a:opts.borderchars) < 8
+        let a:opts.borderchars += [nr2char(0x2550), nr2char(0x2551), nr2char(0x2550),
             \ nr2char(0x2551), nr2char(0x2554), nr2char(0x2557), nr2char(0x255D),
-            \ nr2char(0x255A)][len(l:opts.borderchars) : ]
+            \ nr2char(0x255A)][len(a:opts.borderchars) : ]
     endif
-    return l:opts
+    if a:opts.filter is# 'popup_filter_menu'
+        let a:opts.filter = {'<Space>': '.', '<Enter>': '.', '<2-LeftMouse>': '.',
+            \ 'x': -1, '<Esc>': -1, '<C-C>': -1}
+    elseif a:opts.filter is# 'popup_filter_yesno'
+        let a:opts.filter = {'y': 1, 'Y': 1, 'n': 0, 'N': 0, 'x': 0, '<Esc>': 0,
+            \ '<C-C>': -1}
+    elseif type(a:opts.filter) != v:t_dict
+        let a:opts.filter = {}
+    endif
+    if a:opts.filtermode is# 'a'
+        let a:opts.filtermode = ''
+    endif
+    if a:opts.close is# 'button'
+        let a:opts.borderchars[5] = 'X'
+    elseif a:opts.close is# 'click'
+        let a:opts.filter['<LeftMouse>'] = -2
+    endif
+
+    return a:opts
+endfunction
+
+function s:to_list(what) abort
+    if type(a:what) == v:t_number
+        return getbufline(a:what, 1, '$')
+    elseif type(a:what) == v:t_list
+        return copy(a:what)
+    else
+        return [a:what]
+    endif
 endfunction
 
 function s:floatwin(lines, opts) abort
+    " extra vertical and horizontal space for menu box
     let l:extraV = a:opts.border[0] + a:opts.padding[0] +
         \ a:opts.padding[2] + a:opts.border[2]
     let l:extraH = a:opts.border[3] + a:opts.padding[3] +
         \ a:opts.padding[1] + a:opts.border[1]
-    let l:winhl = 'EndOfBuffer:,CursorLine:PMenuSel'
-    if !empty(a:opts.highlight)
-        let l:winhl .= ',NormalFloat:' . a:opts.highlight
-    endif
 
     " calc height and width
     let l:height = max([len(a:lines), a:opts.minheight])
@@ -94,10 +186,10 @@ function s:floatwin(lines, opts) abort
         \ l:config.anchor[1] is# 'E')
 
     " show menu box
-    let l:box = s:get_buffer('popup_box', v:true)
-    call s:set_lines(l:box, s:draw_box(l:config.height, l:config.width, a:opts))
-    call nvim_open_win(l:box, 0, l:config)
-    call s:set_winopts(bufwinid(l:box), {'winhighlight': l:winhl})
+    let a:opts.box = s:get_buffer('popup_box', v:true)
+    call s:set_lines(a:opts.box, s:draw_box(l:config.height, l:config.width, a:opts))
+    call nvim_open_win(a:opts.box, 0, l:config)
+    call s:set_winopts(bufwinid(a:opts.box), {'winhighlight': a:opts.highlight})
 
     " shift menu items inside the box
     let l:config.focusable = v:true
@@ -105,55 +197,38 @@ function s:floatwin(lines, opts) abort
     let [l:config.row, l:config.col] += s:shift_inside(l:config.anchor, a:opts)
 
     " show menu items
-    let l:items = s:get_buffer('popup_items',
-        \ {'box': l:box, 'callback': a:opts.callback, 'result': 0})
+    let l:items = s:get_buffer('popup_options', a:opts)
     call s:set_lines(l:items, a:lines)
-    call nvim_open_win(l:items, 1, l:config)
-    call s:set_winopts(0, {'cursorline': a:opts.cursorline, 'scrolloff': 0,
-        \ 'sidescrolloff': 0, 'winhighlight': l:winhl, 'wrap': a:opts.wrap})
-    call s:set_keymaps(0, {'<CR>': 'end_dialog()', '<Space>': 'end_dialog()',
-        \ '<2-LeftMouse>': 'end_dialog()', 'x': 'end_dialog(-1)',
-        \ '<Esc>': 'end_dialog(-1)', '<C-C>': 'end_dialog(-1)'})
+    let l:id = nvim_open_win(l:items, 1, l:config)
+    mapclear <buffer>
     autocmd! BufLeave <buffer> call s:bufleave(str2nr(expand('<abuf>')))
-
-    " start timer
-    if a:opts.time > 0
-        call timer_start(a:opts.time,
-            \ {-> bufnr() == l:items && nvim_win_close(0, v:true)})
+    call s:set_winopts(l:id, {'cursorline': a:opts.cursorline, 'scrolloff': 0,
+        \ 'sidescrolloff': 0, 'winhighlight': a:opts.highlight, 'wrap': a:opts.wrap})
+    call s:set_keymaps(l:id, a:opts.filtermode, a:opts.filter)
+    if a:opts.firstline
+        call nvim_win_set_cursor(l:id, [a:opts.firstline, 0])
     endif
-endfunction
-
-function s:shift_inside(anchor, opts) abort
-    if a:anchor is# 'NE'
-        return [a:opts.border[0] + a:opts.padding[0],
-            \ -a:opts.border[1] - a:opts.padding[1]]
-    elseif a:anchor is# 'SE'
-        return [-a:opts.border[2] - a:opts.padding[2],
-            \ -a:opts.border[1] - a:opts.padding[1]]
-    elseif a:anchor is# 'SW'
-        return [-a:opts.border[2] - a:opts.padding[2],
-            \ a:opts.border[3] + a:opts.padding[3]]
-    else "NW
-        return [a:opts.border[0] + a:opts.padding[0],
-            \ a:opts.border[3] + a:opts.padding[3]]
+    if a:opts.time
+        call timer_start(a:opts.time, {-> win_getid() == l:id && popup#close(l:id)})
     endif
+
+    return l:id
 endfunction
 
-" find hidden buffer by looking up variable
-" create new if not found
-function s:get_buffer(varname, value) abort
-    let l:match = filter(getbufinfo({'bufloaded': 1}),
-        \ {_, v -> empty(v.windows) && has_key(v.variables, a:varname) &&
-        \ type(v.variables[a:varname]) == type(a:value)})
-    let l:buf = empty(l:match) ? nvim_create_buf(v:false, v:true) : l:match[0].bufnr
-    call setbufvar(l:buf, a:varname, a:value)
-    return l:buf
+function s:bufleave(buf) abort
+    let l:opts = getbufvar(a:buf, 'popup_options')
+    if !empty(l:opts.callback)
+        " delay callback until another buffer entered
+        let s:callback = function(l:opts.callback, [bufwinid(a:buf),
+            \ type(l:opts.result) == v:t_string ? line(l:opts.result) : l:opts.result])
+        autocmd BufEnter * ++once ++nested call call(remove(s:, 'callback'), [])
+    endif
+    execute bufwinnr(a:buf) 'hide'
+    execute bufwinnr(l:opts.box) 'hide'
 endfunction
 
-function s:set_lines(buf, lines) abort
-    call nvim_buf_set_option(a:buf, 'modifiable', v:true)
-    call nvim_buf_set_lines(a:buf, 0, -1, 1, a:lines)
-    call nvim_buf_set_option(a:buf, 'modifiable', v:false)
+function s:centered(size, total, far) abort
+    return (a:far ? a:total + a:size : a:total - a:size) / 2
 endfunction
 
 function s:draw_box(height, width, opts) abort
@@ -178,8 +253,30 @@ function s:draw_box(height, width, opts) abort
     return l:contents
 endfunction
 
-function s:centered(part, total, far) abort
-    return (a:far ? a:total + a:part : a:total - a:part) / 2
+" find hidden buffer by looking up variable
+" create new if not found
+function s:get_buffer(varname, value) abort
+    let l:match = filter(getbufinfo({'bufloaded': v:true}),
+        \ {_, v -> empty(v.windows) && has_key(v.variables, a:varname) &&
+        \ type(v.variables[a:varname]) == type(a:value)})
+    let l:buf = empty(l:match) ? nvim_create_buf(v:false, v:true) : l:match[0].bufnr
+    call nvim_buf_set_option(l:buf, 'undolevels', -1)
+    call setbufvar(l:buf, a:varname, a:value)
+    return l:buf
+endfunction
+
+function s:set_keymaps(window, mode, keymaps) abort
+    for [l:lhs, l:result] in items(a:keymaps)
+        call nvim_buf_set_keymap(winbufnr(a:window), a:mode, l:lhs,
+            \ printf('<Cmd>call popup#close(%d, %s)<CR>', a:window, string(l:result)),
+            \ {'noremap': v:true, 'nowait': v:true})
+    endfor
+endfunction
+
+function s:set_lines(buf, lines) abort
+    call nvim_buf_set_option(a:buf, 'modifiable', v:true)
+    call nvim_buf_set_lines(a:buf, 0, -1, 1, a:lines)
+    call nvim_buf_set_option(a:buf, 'modifiable', v:false)
 endfunction
 
 function s:set_winopts(window, winopts) abort
@@ -188,25 +285,18 @@ function s:set_winopts(window, winopts) abort
     endfor
 endfunction
 
-function s:set_keymaps(buffer, keymaps) abort
-    for [l:lhs, l:rhs] in items(a:keymaps)
-        call nvim_buf_set_keymap(a:buffer, 'n', l:lhs, '<SID>'..l:rhs,
-            \ {'noremap': v:true, 'expr': v:true})
-    endfor
-endfunction
-
-function s:bufleave(buf) abort
-    let l:state = getbufvar(a:buf, 'popup_items')
-    execute bufwinnr(a:buf) 'hide'
-    execute bufwinnr(l:state.box) 'hide'
-    if !empty(l:state.callback)
-        " delay callback until another buffer entered
-        let s:callback = function(l:state.callback, [0, l:state.result])
-        autocmd BufEnter * ++once ++nested call call(remove(s:, 'callback'), [])
+function s:shift_inside(anchor, opts) abort
+    if a:anchor is# 'NE'
+        return [a:opts.border[0] + a:opts.padding[0],
+            \ -a:opts.border[1] - a:opts.padding[1]]
+    elseif a:anchor is# 'SE'
+        return [-a:opts.border[2] - a:opts.padding[2],
+            \ -a:opts.border[1] - a:opts.padding[1]]
+    elseif a:anchor is# 'SW'
+        return [-a:opts.border[2] - a:opts.padding[2],
+            \ a:opts.border[3] + a:opts.padding[3]]
+    else "NW
+        return [a:opts.border[0] + a:opts.padding[0],
+            \ a:opts.border[3] + a:opts.padding[3]]
     endif
-endfunction
-
-function s:end_dialog(result = line('.')) abort
-    let b:popup_items.result = a:result
-    return "\<C-W>c"
 endfunction

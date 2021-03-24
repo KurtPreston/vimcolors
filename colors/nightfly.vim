@@ -29,6 +29,7 @@ else " Vim
         finish
     elseif !has('gui_running') && !&termguicolors
         echomsg 'The termguicolors option must be set'
+        echomsg 'Be aware macOS default Vim is broken, use Homebrew Vim instead'
         finish
     endif
 endif
@@ -254,7 +255,7 @@ exec 'highlight QuickFixLine guibg=' . s:deep_blue
 exec 'highlight Delimiter guifg=' . s:white
 
 " Neovim only highlight groups
-exec 'highlight Whitespace guifg=' . s:regal_blue
+exec 'highlight Whitespace guifg=' . s:deep_blue
 exec 'highlight TermCursor guibg=' . s:cadet_blue . ' guifg=bg gui=none'
 
 " Color column (after line 80)
@@ -826,6 +827,14 @@ highlight! link GitGutterDelete NightflyRedAlert
 highlight! link SignifySignAdd NightflyEmeraldAlert
 highlight! link SignifySignChange NightflyPurpleAlert
 highlight! link SignifySignDelete NightflyRedAlert
+
+" gitsigns.nvim plugin
+highlight! link GitSignsAdd NightflyEmeraldAlert
+highlight! link GitSignsChange NightflyPurpleAlert
+highlight! link GitSignsChangeNr NightflyPurpleAlert
+highlight! link GitSignsChangeLn NightflyPurpleAlert
+highlight! link GitSignsChangeDelete NightflyOrangeAlert
+highlight! link GitSignsDelete NightflyRedAlert
 
 " FZF plugin
 exec 'highlight fzf1 guifg=' . s:watermelon . ' guibg=' . s:slate_blue

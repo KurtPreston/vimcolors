@@ -103,8 +103,8 @@ command! -range=% -bar -bang Trim
 command! -bar Zoom
     \   if winnr('$') > 1 && &winwidth < 999
     \ |     let t:wrcmd = winrestcmd()
-    \ |     set winwidth=999 winheight=999
+    \ |     set winwidth=999 winheight=999 winminwidth=0 winminheight=0
     \ | else
-    \ |     set winwidth& winheight&
+    \ |     set winwidth& winheight& winminwidth& winminheight&
     \ |     execute has_key(t:, 'wrcmd') ? remove(t:, 'wrcmd') : 'wincmd='
     \ | endif
