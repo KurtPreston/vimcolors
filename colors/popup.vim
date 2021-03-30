@@ -100,10 +100,10 @@ function s:options(opts, useropts) abort
     call extend(extend(a:opts, a:useropts), #{
         \ line: 0, col: 0, pos: 'topleft', posinvert: v:true, textprop: '',
         \ textpropwin: 0, textpropid: 0, fixed: v:false, flip: v:true, maxheight: 999,
-        \ minheight: &winminheight, maxwidth: 999, minwidth: &winminwidth, firstline: 0,
-        \ hidden: v:false, tabpage: 0, title: '', wrap: v:true, drag: v:false,
-        \ resize: v:false, close: 'none', highlight: '', padding: [0, 0, 0, 0],
-        \ border: [0, 0, 0, 0], borderhighlight: [], borderchars: [], scrollbar: v:true,
+        \ minheight: 0, maxwidth: 999, minwidth: 0, firstline: 0, hidden: v:false,
+        \ tabpage: 0, title: '', wrap: v:true, drag: v:false, resize: v:false,
+        \ close: 'none', highlight: '', padding: [0, 0, 0, 0], border: [0, 0, 0, 0],
+        \ borderhighlight: [], borderchars: [], scrollbar: v:true,
         \ scrollbarhighlight: '', thumbhighlight: '', zindex: 50, mask: [], time: 0,
         \ moved: [0, 0, 0], mousemoved: [0, 0, 0], cursorline: v:false, filter: {},
         \ mapping: v:true, filtermode: 'a', callback: v:null, box: 0, result: 0
@@ -188,18 +188,19 @@ function s:floatwin(lines, opts) abort
     " show menu box
     let a:opts.box = s:get_buffer('popup_box', v:true)
     call s:set_lines(a:opts.box, s:draw_box(l:config.height, l:config.width, a:opts))
-    call nvim_open_win(a:opts.box, 0, l:config)
+    call nvim_open_win(a:opts.box, v:false, l:config)
     call s:set_winopts(bufwinid(a:opts.box), {'winhighlight': a:opts.highlight})
 
     " shift menu items inside the box
     let l:config.focusable = v:true
     let [l:config.height, l:config.width] -= [l:extraV, l:extraH]
+    " NOTE: height can be zero!
     let [l:config.row, l:config.col] += s:shift_inside(l:config.anchor, a:opts)
 
     " show menu items
     let l:items = s:get_buffer('popup_options', a:opts)
     call s:set_lines(l:items, a:lines)
-    let l:id = nvim_open_win(l:items, 1, l:config)
+    let l:id = nvim_open_win(l:items, v:true, l:config)
     mapclear <buffer>
     autocmd! BufLeave <buffer> call s:bufleave(str2nr(expand('<abuf>')))
     call s:set_winopts(l:id, {'cursorline': a:opts.cursorline, 'scrolloff': 0,

@@ -47,9 +47,9 @@ nnoremap <silent><leader>b :call misc#command('buffer', map(filter(getbufinfo(),
     \ {_, v -> v.listed && !empty(v.name) && empty(v.windows)}), {_, v -> v.name}))<CR>
 nnoremap <silent><leader>f :call misc#command('find')<CR>
 nnoremap <silent><leader>n :call misc#command('scriptnames',
-    \ map(split(execute('scriptnames'), "\n"), 'trim(v:val)'), 'scriptnames %1')<CR>
+    \ map(split(execute('scriptnames'), "\n"), 'trim(v:val)'), '${cmd} ${result}')<CR>
 nnoremap <silent><leader>o :<C-U>call misc#command('oldfiles', better#oldfiles(v:count),
-    \ 'edit %2')<CR>
+    \ 'edit ${items[result - 1]}')<CR>
 " '\h' to show the current highlight group
 nnoremap <silent><leader>h :Highlight!<CR>
 " '\p' to show what function we are in (like 'diff -p')

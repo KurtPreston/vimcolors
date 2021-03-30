@@ -63,17 +63,19 @@ function! misc#change(line1, line2, reg = v:register, ai = &autoindent) abort
         \ -1])
 endfunction
 
-" misc#command({cmd} [, {values} [, {format}]])
+" misc#command({cmd} [, {items} [, {fmt}]])
 " complete and execute {cmd}
 function! misc#command(cmd, ...) abort
     function! s:callback(id, result) abort closure
-        if a:result >= 1 && a:result <= len(l:values)
-            execute better#format(l:format, a:result, l:values[a:result - 1])
+        if a:result >= 1 && a:result <= len(l:items)
+            let [l:cmd, l:id, l:result] = [a:cmd, a:id, a:result]
+            execute substitute(l:fmt, '${\([^}]\+\)}', '\=eval(submatch(1))', 'g')
         endif
     endfunction
-    let l:values = (a:0 > 0) ? a:1 : getcompletion(a:cmd..' ', 'cmdline')
-    let l:format = (a:0 > 1) ? a:2 : a:cmd..' %2'
-    call popup#menu(l:values, {'title': printf('[%s]', a:cmd), 'maxheight': &lines / 3,
+    let l:items = a:0 ? a:1 : getcompletion(a:cmd..' ', 'cmdline')
+    let l:fmt = get(a:, 2, '${cmd} ${items[result - 1]}')
+    call popup#menu(l:items, {'title': printf('[%s]', a:cmd),
+        \ 'maxheight': &pumheight ? &pumheight : &lines / 2, 'minwidth': &pumwidth,
         \ 'callback': funcref('s:callback')})
 endfunction
 

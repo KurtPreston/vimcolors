@@ -23,12 +23,6 @@ function! better#bufwinid(buf) abort
     return l:winid
 endfunction
 
-" better#format({fmt}, ...)
-" format string by positional arguments
-function! better#format(fmt, ...) abort
-    return substitute(a:fmt, '%\(\d\d\?\)', '\=get(a:, submatch(1), v:null)', 'g')
-endfunction
-
 " better#gui_running()
 " Vim/Neovim compatibility
 function! better#gui_running() abort
