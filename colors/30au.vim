@@ -7,7 +7,7 @@ augroup vimStartup | au!
     " 'q' to close special windows/buffers (e.g. 'help')
     autocmd BufWinEnter *
         \   if !empty(&buftype)
-        \ |     execute 'nnoremap <buffer>q <C-W>q'
+        \ |     execute 'nnoremap <buffer>q <C-W>c'
         \ | endif
     " update timestamp before saving a buffer
     autocmd BufWrite *

@@ -46,7 +46,7 @@ if !exists('g:colors_name')
 endif
 
 " if we have not opened anything yet then show MRU files list
-if bufnr('$') == 1 && empty(bufname(1))
+if bufnr('$') == 1 && better#is_blank_buffer()
     MRU
 endif
 
