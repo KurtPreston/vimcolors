@@ -43,11 +43,12 @@ nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 " '\=' to cd to the current file's directory
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
 " edit '\b' - buffer; '\f' - find; '\n' - scriptnames; '\o' - oldfiles
-nnoremap <silent><leader>b :call misc#command('buffer', map(filter(getbufinfo(),
-    \ {_, v -> v.listed && !empty(v.name) && empty(v.windows)}), {_, v -> v.name}))<CR>
+nnoremap <silent><leader>b :call misc#command('buffer', map(getbufinfo({'buflisted': 1}),
+    \ {_, v -> printf('%2d %s', v.bufnr, empty(v.name) ? '[No Name]' :
+    \ fnamemodify(v.name, ':t'))}), '${cmd} ${split(items[result - 1])[0]}')<CR>
 nnoremap <silent><leader>f :call misc#command('find')<CR>
 nnoremap <silent><leader>n :call misc#command('scriptnames',
-    \ map(split(execute('scriptnames'), "\n"), 'trim(v:val)'), '${cmd} ${result}')<CR>
+    \ map(split(execute('scriptnames'), "\n"), 'v:val[1:]'), '${cmd} ${result}')<CR>
 nnoremap <silent><leader>o :<C-U>call misc#command('oldfiles', better#oldfiles(v:count),
     \ 'edit ${items[result - 1]}')<CR>
 " '\h' to show the current highlight group

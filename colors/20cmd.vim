@@ -83,7 +83,7 @@ command! -bar -bang -nargs=? -complete=file GccInclude let &l:path = join(['.'] 
 " show :highlight under cursor
 command! -bar -bang Highlight
     \ execute <bang>0..'verbose highlight'
-    \     better#or(synIDattr(synID(line('.'), col('.'), 0), 'name'), 'Normal')
+    \     better#or(synIDattr(synID(line('.'), col('.'), 1), 'name'), 'Normal')
 
 " :[count]MRU [sesdir]
 " show MRU and Session files
