@@ -55,6 +55,25 @@ function! better#or(...) abort
     return l:arg
 endfunction
 
+" better#safe({what} [, {cond}])
+" execute command or set option safely
+function! better#safe(what, ...) abort
+    if a:0
+        let l:cond = a:1
+    else
+        let [l:str, _, l:end] = matchstrpos(a:what, '\a\+')
+        if l:str is# 'set' || l:str =~# '^setl\%[ocal]$' || l:str =~# '^setg\%[lobal]$'
+            let l:str = matchstr(a:what, '\a\+', l:end + 1)
+            let l:cond = exists('+'..substitute(l:str, '^\C\%(inv\|no\)', '', ''))
+        else
+            let l:cond = exists(':'..l:str) == 2
+        endif
+    endif
+    if l:cond
+        execute a:what
+    endif
+endfunction
+
 " better#stdpath({what}, [{subdir} ...])
 " return full path to {subdir} under Vim/Neovim stdpath()
 function! better#stdpath(what, ...) abort

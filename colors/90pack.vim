@@ -61,12 +61,12 @@ function s:pack_setup() abort
     call s:pack_add(l:remote, {'type': 'opt'})
 
     " 3rd party plugins
+    call s:pack_add('tpope/vim-surround')
     call s:pack_add('wellle/targets.vim')
     call s:pack_add('mbbill/undotree')
 
     " my own plugins under ~/.vim/pack/bundle are managed manually
     "call s:pack_add('matveyt/neoclip', {'type': 'opt'})
-    "call s:pack_add('matveyt/popup.vim')
     "call s:pack_add('matveyt/vim-drvo')
     "call s:pack_add('matveyt/vim-filters')
     "call s:pack_add('matveyt/vim-guidedspace')

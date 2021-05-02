@@ -36,7 +36,6 @@ function s:command(shebang, fname) abort
     " Note: even if we're running under plain Windows
     " there can be MSYS/Cygwin out there
     if l:cmd[0][0] is# '/' && !has('unix')
-        " prepend 'env'
         call insert(l:cmd, 'env')
     endif
     " script file name
@@ -60,7 +59,7 @@ function! shebang#execute(buf, line1, line2, win = 0) abort
     if !l:dosource
         let l:script = getbufline(l:bufnr, a:line1, a:line2)
         if empty(l:script)
-            throw 'Invalid line range: '..a:line1..','..a:line2
+            throw printf('Invalid range (%d, %d)', a:line1, a:line2)
         endif
     endif
     " go to target Window
@@ -75,16 +74,15 @@ function! shebang#execute(buf, line1, line2, win = 0) abort
         " parse shebang line
         let l:shebang = getbufline(l:bufnr, 1)[0]
         if l:shebang !~# '^#!'
-            throw 'No shebang in ' . (empty(l:fname) ? 'buffer #'..l:bufnr : l:fname)
+            throw 'No shebang in buffer #' . l:bufnr
         endif
         let l:cmd = s:command(l:shebang, l:dosource ? l:fname : '-')
-        if empty(l:cmd)
-            return
-        endif
-        call term#start(l:cmd)
-        if !l:dosource
-            " send script through stdin
-            call term#sendkeys('%', add(l:script, has('win32') ? "\<C-Z>" : "\<C-D>"))
+        if !empty(l:cmd)
+            call term#start(l:cmd)
+            if !l:dosource
+                " send script through stdin
+                call term#sendkeys('', l:script)
+            endif
         endif
     endif
 endfunction

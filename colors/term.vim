@@ -2,16 +2,18 @@
 " https://github.com/matveyt/vimfiles
 
 " term_start() compatibility wrapper
-function! term#start(cmd, opt = {}) abort
+function! term#start(cmd = v:null, opts = {}) abort
+    let l:cmd = empty(a:cmd) ? [&shell] : a:cmd
     if exists('*term_start')
-        return term_start(a:cmd, a:opt)
+        return term_start(l:cmd, a:opts)
     elseif exists('*termopen')
         try
-            execute get(a:opt, 'curwin') ? 'enew' :
-                \ get(a:opt, 'vertical') ? 'vnew' : 'new'
-            call termopen(a:cmd, a:opt)
-            execute 'resize' get(a:opt, 'term_rows', '+0')
-            execute 'vertical resize' get(a:opt, 'term_cols', '+0')
+            execute get(a:opts, 'curwin') ? 'enew' :
+                \ get(a:opts, 'vertical') ? 'vnew' : 'new'
+            call termopen(l:cmd, a:opts)
+            execute 'resize' get(a:opts, 'term_rows', '+0')
+            execute 'vertical resize' get(a:opts, 'term_cols', '+0')
+            startinsert
             return bufnr()
         catch | endtry
     endif
@@ -33,7 +35,7 @@ function! term#sendkeys(buf, keys) abort
     endif
     let l:winid = better#bufwinid(a:buf)
     " accept List too
-    let l:keys = (type(a:keys) == v:t_list) ? join(a:keys, "\r") : a:keys
+    let l:keys = (type(a:keys) == v:t_list) ? join(a:keys, "\r") . "\r" : a:keys
     if exists('*chansend')
         " Neovim has chansend()
         call chansend(getbufvar(a:buf, '&channel'), l:keys)

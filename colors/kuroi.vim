@@ -58,7 +58,7 @@ let s:palette.gui.changefg     = { 'dark' : "#f7e7cc"        }
 let s:palette.gui.delbg        = { 'dark' : s:gui_red        }
 let s:palette.gui.darkblue     = { 'dark' : "#00005f"        }
 let s:palette.gui.darkcyan     = { 'dark' : "#005f5f"        }
-let s:palette.gui.darkred      = { 'dark' : "#E31C25"        }
+let s:palette.gui.darkred      = { 'dark' : "#e84118"        }
 let s:palette.gui.darkpurple   = { 'dark' : "#5f005f"        }
 let s:palette.gui.gray         = { 'dark' : "#262626"        }
 let s:palette.gui.statusline   = { 'dark' : "#6c6c6c"        }
@@ -262,7 +262,7 @@ exe "hi! InfoPopup"     .s:fg_foreground  .s:bg_selection   .s:fmt_none
 exe "hi! Question"          .s:fg_green       .s:bg_none          .s:fmt_none
 exe "hi! Search"            .s:fg_background  .s:bg_yellow        .s:fmt_none
 exe "hi! SpecialKey"        .s:fg_selection   .s:bg_none          .s:fmt_none
-exe "hi! SpellCap"          .s:fg_blue        .s:bg_darkblue      .s:fmt_undr
+exe "hi! SpellCap"          .s:fg_blue        .s:bg_none          .s:fmt_undr
 exe "hi! SpellLocal"        .s:fg_aqua        .s:bg_darkcyan      .s:fmt_undr
 exe "hi! SpellBad"          .s:fg_darkred     .s:bg_none          .s:fmt_undr
 exe "hi! SpellRare"         .s:fg_purple      .s:bg_darkpurple    .s:fmt_undr

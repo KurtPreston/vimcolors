@@ -194,7 +194,6 @@ function s:floatwin(lines, opts) abort
     " shift menu items inside the box
     let l:config.focusable = v:true
     let [l:config.height, l:config.width] -= [l:extraV, l:extraH]
-    " NOTE: height can be zero!
     let [l:config.row, l:config.col] += s:shift_inside(l:config.anchor, a:opts)
 
     " show menu items

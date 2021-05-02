@@ -22,19 +22,10 @@ command! -bang -nargs=1 -complete=command Sorted
 " wipe all deleted/unloaded buffers
 command! -bar -bang Bwipeout call misc#bwipeout(<bang>0)
 
-" :[range]Change[!] [reg]
-" non-interactive :change
-command! -range -bar -bang -nargs=? Change
-    \ call misc#change(<line1>, <line2>, <q-args>, <bang>&autoindent)
-
 " :[range]Comment[!]
 " toggle comments
 command! -range -bar -bang Comment
     \ call misc#comment(<line1>, <line2>, <bang>&preserveindent)
-
-" :[range]Copy {address1}...
-" :copy to multiple addresses
-command! -range -bar -nargs=+ Copy call misc#copy(<line1>, <line2>, <f-args>)
 
 " :Diff[!]
 " show diff with original file or git HEAD
@@ -45,32 +36,23 @@ command! -bar -bang Diff call misc#diff(<bang>&modified)
 command! -range=% -bar -nargs=? Execute
     \ call shebang#execute('%', <line1>, <line2>, <args>)
 
-" :[range]FixEncoding [encoding]
-" fix buffer encoding and line-endings
-command! -range=% -bar -nargs=? FixEncoding
-    \   let s:enc = !empty(<q-args>) ? <q-args> : executable('uchardet') ?
-    \       trim(system('uchardet', getline(<line1>, <line2>))) : 'char'
-    \ | keepj keepp Nomove <line1>,<line2>s/\(.\{-}\)\r\?$/\=iconv(submatch(1),
-    \       s:enc, better#or(&fenc, &enc))/
-    \ | unlet s:enc
-
 " :[count]Font [typeface]...
 " set &guifont
 function s:fontcomplete(A, L, P) abort
     return join(g:fontlist, "\n")
 endfunction
 command! -count -nargs=? -complete=custom,s:fontcomplete Font
-    \   if !<count> && empty(<q-args>)
-    \ |     echo &guifont
-    \ | else
+    \   if <count> || !empty(<q-args>)
     \ |     call misc#guifont(<q-args>, <count>)
+    \ | else
+    \ |     echo &guifont
     \ | endif
 
 " :Git [args]
 " invoke the stupid content tracker
 function s:gitcomplete(A, L, P) abort
     return join(['add', 'branch', 'checkout', 'clone', 'commit', 'diff', 'init', 'log',
-        \ 'pull', 'push', 'remote', 'status'], "\n")
+        \ 'merge', 'pull', 'push', 'remote', 'status'], "\n")
 endfunction
 command! -nargs=* -complete=custom,s:gitcomplete Git !git -C %:p:h:S <args>
 
@@ -103,8 +85,8 @@ command! -range=% -bar -bang Trim
 command! -bar Zoom
     \   if winnr('$') > 1 && &winwidth < 999
     \ |     let t:wrcmd = winrestcmd()
-    \ |     set winwidth=999 winheight=999 winminwidth=0 winminheight=0
+    \ |     set winminwidth=0 winminheight=0 winwidth=999 winheight=999
     \ | else
-    \ |     set winwidth& winheight& winminwidth& winminheight&
+    \ |     set winminwidth& winminheight& winwidth& winheight&
     \ |     execute has_key(t:, 'wrcmd') ? remove(t:, 'wrcmd') : 'wincmd='
     \ | endif

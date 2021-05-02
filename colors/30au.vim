@@ -21,8 +21,8 @@ augroup vimStartup | au!
     " :h spell-SpellFileMissing
     autocmd SpellFileMissing * call misc#wget(
         \ get(g:, 'spellfile_URL', 'https://ftp.nluug.nl/pub/vim/runtime/spell'),
-        \ better#stdpath('config', 'spell'),
-        \ map(['spl', 'sug'], 'printf("%s.%s.%s", expand("<amatch>"), &enc, v:val)'))
+        \ map(['spl', 'sug'], 'printf("%s.%s.%s", expand("<amatch>"), &enc, v:val)'),
+        \ better#stdpath('config', 'spell'))
     " save session on exit
     autocmd VimLeavePre *
         \   if !empty(v:this_session) && !v:dying

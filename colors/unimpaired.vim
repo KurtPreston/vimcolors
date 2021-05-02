@@ -4,7 +4,7 @@
 " unimpaired#emulate()
 " emulating vim-unimpaired plugin
 function! unimpaired#emulate() abort
-    " unimpaired-next (except <C-T>)
+    " unimpaired-next
     call unimpaired#nextprev('a', '')
     call unimpaired#nextprev('b', 'b')
     call unimpaired#nextprev('l', 'l')
@@ -42,8 +42,8 @@ function! unimpaired#emulate() abort
 
     " unimpaired-pasting
     " [P and ]P to flip(!) linewise / charwise
-    nnoremap <silent>[P :<C-U>call <SID>putreg('P', 1)<CR>
-    nnoremap <silent>]P :<C-U>call <SID>putreg('p', 1)<CR>
+    nnoremap <silent>[P :<C-U>call <SID>putreg('P', v:true)<CR>
+    nnoremap <silent>]P :<C-U>call <SID>putreg('p', v:true)<CR>
     " [p and ]p to adjust indent and put linewise
     nnoremap <silent>[p :<C-U>call <SID>putreg('[p')<CR>
     nnoremap <silent>]p :<C-U>call <SID>putreg(']p')<CR>
@@ -75,14 +75,6 @@ function! unimpaired#emulate() abort
     nnoremap <expr><silent>]y opera#mapto('call <SID>c_decode()')
     xnoremap <expr><silent>]y opera#mapto('call <SID>c_decode()')
     nnoremap <silent>]yy :call <SID>c_decode()<CR>
-
-    " mappings to add/delete/change surround
-    nnoremap <expr><silent>gy opera#mapto('call <SID>surround(1)')
-    xnoremap <expr><silent>gy opera#mapto('call <SID>surround(1)')
-    nnoremap <expr><silent>gz opera#mapto('call <SID>surround(0)')
-    xnoremap <expr><silent>gz opera#mapto('call <SID>surround(0)')
-    nnoremap <expr><silent>gZ opera#mapto('call <SID>surround(-1)')
-    xnoremap <expr><silent>gZ opera#mapto('call <SID>surround(-1)')
 endfunction
 
 " unimpaired#nextprev({letter}, {prefix})
@@ -99,6 +91,11 @@ function! unimpaired#nextprev(letter, prefix) abort
             \ 'printf(":<C-U>%d'..a:prefix..'pfile<CR>", v:count1)'
         execute 'nnoremap <expr><silent>]<C-'..a:letter..'>'
             \ 'printf(":<C-U>%d'..a:prefix..'nfile<CR>", v:count1)'
+    elseif exists(':p'..a:prefix..'previous') == 2
+        execute 'nnoremap <expr><silent>[<C-'..a:letter..'>'
+            \ 'printf(":<C-U>%dp'..a:prefix..'previous<CR>", v:count1)'
+        execute 'nnoremap <expr><silent>]<C-'..a:letter..'>'
+            \ 'printf(":<C-U>%dp'..a:prefix..'next<CR>", v:count1)'
     endif
 endfunction
 
@@ -138,7 +135,7 @@ endfunction
 
 " s:putreg({how} [, {flip}])
 " put v:register linewise or flip
-function s:putreg(how, flip = 0) abort
+function s:putreg(how, flip = v:false) abort
     let l:cmd = printf('normal! "%s%d%s', v:register, v:count1, a:how)
     let l:type = getregtype()
     if l:type is# 'V' && !a:flip
@@ -158,56 +155,6 @@ function s:putreg(how, flip = 0) abort
     try | execute l:cmd
     finally | call setreg(l:reg, l:value, l:type)
     endtry
-endfunction
-
-" s:surround({oper})
-" add(1)/delete(0)/change(-1) surround
-function s:surround(oper) range abort
-    if a:oper != 0
-        " add or replace - need to input surrounding character
-        call inputsave()
-        let l:chr1 = nr2char(getchar())
-        call inputrestore()
-        silent! undojoin
-        if l:chr1 !~# '\p'
-            return
-        endif
-
-        " find character pair by scanning 'matchpairs'
-        let l:pos = stridx(&mps, l:chr1)
-        if l:pos < 0
-            let l:chr2 = l:chr1
-        elseif &mps[l:pos + 1] is# ':'
-            let l:chr2 = &mps[l:pos + 2]
-        else
-            let [l:chr1, l:chr2] = [&mps[l:pos - 2], l:chr1]
-        endif
-    endif
-
-    let l:line = getline(a:firstline)
-    if a:oper < 1
-        " delete or replace - delete the first char
-        let l:line = strcharpart(l:line, 1)
-    endif
-    if a:oper != 0
-        " add or replace - prepend surrounding char
-        let l:line = l:chr1..l:line
-    endif
-    if a:firstline != a:lastline
-        " output the first line and read in the last one
-        call setline(a:firstline, l:line)
-        let l:line = getline(a:lastline)
-    endif
-    if a:oper < 1
-        " delete or replace - delete the last char
-        let l:line = strcharpart(l:line, 0, strchars(l:line) - 1)
-    endif
-    if a:oper != 0
-        " add or replace - append surrounding char
-        let l:line .= l:chr2
-    endif
-    " output the last line
-    call setline(a:lastline, l:line)
 endfunction
 
 " C string encode/decode

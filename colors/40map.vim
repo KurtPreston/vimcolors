@@ -19,9 +19,7 @@ nnoremap <silent><F9> :call misc#command('Font', g:fontlist)<CR>
 nnoremap <silent><C-F9> :<C-U>call misc#guifont(v:null, v:count1)<CR>
 nnoremap <silent><S-F9> :<C-U>call misc#guifont(v:null, -v:count1)<CR>
 " <F11> to open terminal
-nnoremap <expr><F11> printf(':%sterminal<CR>%s',
-    \ has('nvim') && !better#is_blank_buffer() ? 'split +' : '',
-    \ has('nvim') ? 'i' : '')
+nnoremap <silent><F11> :call term#start()<CR>
 " <Ctrl-N> to add new tab
 nnoremap <silent><C-N> :$tabnew<CR>
 " <Ctrl-S> to save file
@@ -56,8 +54,7 @@ nnoremap <silent><leader>h :Highlight!<CR>
 " '\p' to show what function we are in (like 'diff -p')
 nnoremap <leader>p :echo getline(search('^[[:alpha:]$_]', 'bcnW'))<CR>
 " '\s' to open scratch buffer
-nnoremap <expr><leader>s printf(':%sScratch<CR>',
-    \ better#is_blank_buffer() ? '' : 'split +')
+nnoremap <silent><leader>s :split +Scratch<CR>
 " '\u' to toggle undotree
 nnoremap <leader>u :UndotreeToggle<CR>
 " '\x' to execute command and put output into a buffer
@@ -96,3 +93,6 @@ for _ in ['ae', 'ie', 'al', 'il', 'ai', 'ii', 'aI', 'iI']
     execute printf('omap %s <plug>%s', _, _)
     execute printf('xmap %s <plug>%s', _, _)
 endfor
+
+" mappings like in tpope/vim-unimpaired
+call unimpaired#emulate()
