@@ -164,6 +164,7 @@ hi link rustAttribute Include
 hi link rustDerive Include
 hi link rustDeriveTrait Include
 hi link rustFuncName Constant
+hi link rustSigil Special
 "}}}
 " vim-gitgutter"{{{
 hi GitGutterAdd ctermfg=156 ctermbg=NONE cterm=bold guifg=#AEEA00 guibg=NONE gui=bold
@@ -172,4 +173,8 @@ hi GitGutterDelete ctermfg=168 ctermbg=NONE cterm=bold guifg=#EF5350 guibg=NONE 
 "}}}
 " coc{{{
 hi CocHintSign ctermfg=136 guifg=#A57400
+"}}}
+" markdown{{{
+hi def link markdownItalic NONE
+hi def link markdownBoldItalic NONE
 "}}}

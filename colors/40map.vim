@@ -40,19 +40,30 @@ noremap! <S-Insert> <C-R>+
 nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
 " '\=' to cd to the current file's directory
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
-" edit '\b' - buffer; '\f' - find; '\n' - scriptnames; '\o' - oldfiles
+" edit (a)rglist, (b)uffer, (f)ind, script(n)ames, (o)ldfiles, (w)indows
+nnoremap <silent><leader>a :call misc#command('args', argv(), 'argument ${result}')<CR>
 nnoremap <silent><leader>b :call misc#command('buffer', map(getbufinfo({'buflisted': 1}),
-    \ {_, v -> printf('%2d %s', v.bufnr, empty(v.name) ? '[No Name]' :
-    \ fnamemodify(v.name, ':t'))}), '${cmd} ${split(items[result - 1])[0]}')<CR>
+    \ {_, v -> printf('%2d %s', v.bufnr, better#or(fnamemodify(bufname(v.bufnr), ':t'),
+    \ '[No Name]'))}), '${cmd} ${split(items[result - 1])[0]}')<CR>
 nnoremap <silent><leader>f :call misc#command('find')<CR>
 nnoremap <silent><leader>n :call misc#command('scriptnames',
     \ map(split(execute('scriptnames'), "\n"), 'v:val[1:]'), '${cmd} ${result}')<CR>
 nnoremap <silent><leader>o :<C-U>call misc#command('oldfiles', better#oldfiles(v:count),
     \ 'edit ${items[result - 1]}')<CR>
+nnoremap <silent><leader>w :call misc#command('windows', map(sort(getwininfo(),
+    \ {w1, w2 -> w1.winid - w2.winid}), {_, v -> printf('%d %s', v.winid,
+    \ better#or(fnamemodify(bufname(v.bufnr), ':t'), '#'..v.bufnr))}),
+    \ 'call win_gotoid(${split(items[result - 1])[0]})')<CR>
 " '\h' to show the current highlight group
 nnoremap <silent><leader>h :Highlight!<CR>
 " '\p' to show what function we are in (like 'diff -p')
 nnoremap <leader>p :echo getline(search('^[[:alpha:]$_]', 'bcnW'))<CR>
+" '\l' to toggle location list
+nnoremap <expr><silent><leader>l printf(":l%s\<CR>",
+    \ getloclist(0, {'winid': 0}).winid ? 'close' : 'open')
+" '\q' to toggle quickfix
+nnoremap <expr><silent><leader>q printf(":c%s\<CR>",
+    \ getqflist({'winid': 0}).winid ? 'close' : 'open')
 " '\s' to open scratch buffer
 nnoremap <silent><leader>s :split +Scratch<CR>
 " '\u' to toggle undotree
@@ -94,5 +105,5 @@ for _ in ['ae', 'ie', 'al', 'il', 'ai', 'ii', 'aI', 'iI']
     execute printf('xmap %s <plug>%s', _, _)
 endfor
 
-" mappings like in tpope/vim-unimpaired
+" extra mappings like in tpope/vim-unimpaired
 call unimpaired#emulate()

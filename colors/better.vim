@@ -37,10 +37,10 @@ function! better#is_blank_buffer() abort
 endfunction
 
 " better#oldfiles(max)
-" get some of v:oldfiles
+" get filtered v:oldfiles
 function! better#oldfiles(max) abort
-    let l:vimhelp = glob2regpat($VIMRUNTIME..'/doc/*.txt')
-    return filter(v:oldfiles[:], {_, v -> match(v, l:vimhelp) < 0})[: a:max - 1]
+    let l:skip = glob2regpat($VIMRUNTIME..'/doc/*.txt')..'\|\~$'
+    return filter(v:oldfiles[:], {_, v -> match(v, l:skip) < 0})[: a:max - 1]
 endfunction
 
 " better#or({expr1} ...)
