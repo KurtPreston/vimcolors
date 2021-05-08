@@ -31,13 +31,13 @@ noremap! '' ''<Left>
 xnoremap < <gv
 xnoremap > >gv
 " copy-paste like Windows
-xnoremap <S-Del>    "+d
-xnoremap <C-Insert> "+y
-xnoremap <S-Insert> "+p
-xnoremap <S-Insert> "+gP
+vnoremap <S-Del>    "+d
+vnoremap <C-Insert> "+y
+vnoremap <S-Insert> "+p
+nnoremap <S-Insert> "+gP
 noremap! <S-Insert> <C-R>+
 " [count]<BS> to open "File Explorer" (vim-drvo)
-nnoremap <expr><silent><BS> ':<C-U>edit %:p'..repeat(':h', v:count1)..'<CR>'
+nnoremap <silent><BS> :<C-U>edit %:p<C-R>=repeat(':h', v:count1)<CR><CR>
 " '\=' to cd to the current file's directory
 nnoremap <leader>= :lcd %:p:h <Bar> pwd<CR>
 " edit (a)rglist, (b)uffer, (f)ind, script(n)ames, (o)ldfiles, (w)indows
