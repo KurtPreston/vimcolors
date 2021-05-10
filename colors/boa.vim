@@ -72,7 +72,7 @@ hi IncSearch guifg=#518233 guibg=bg gui=inverse,bold
 " Substitute
 hi NonText guifg=#47423d guibg=NONE gui=NONE
 hi! link LineNr NonText
-hi MatchParen   guifg=#de7621 guibg=NONE    gui=bold
+hi MatchParen   guifg=#de7621 guibg=#0f0a0a    gui=bold
 hi ModeMsg      guifg=#93b329 guibg=NONE gui=bold
 " MsgArea
 hi MsgSeparator    guifg=NONE guibg=#263815 gui=NONE
@@ -117,15 +117,6 @@ hi! link qfLineNr BoaOrange
 " }}}
 
 " Plugin specific -------------------------------------------------------------
-" EasyMotion: {{{
-
-" hi! link EasyMotionTarget Search
-hi EasyMotionTarget guifg=#e04c38 guibg=NONE gui=bold
-hi! link EasyMotionTarget2First EasyMotionTarget
-hi EasyMotionTarget2Second guifg=#9eb339 guibg=NONE gui=bold
-hi! link EasyMotionShade Comment
-
-" }}}
 " Netrw: {{{
 
 hi! link netrwDir BoaAqua
@@ -364,26 +355,6 @@ hi! link typeScriptOpSymbols Normal
 hi! link typeScriptHtmlElemProperties Normal
 hi! link typeScriptNull BoaPurple
 hi! link typeScriptInterpolationDelimiter BoaAqua
-
-" }}}
-" PureScript: {{{
-
-hi! link purescriptModuleKeyword BoaAqua
-hi! link purescriptModuleName Normal
-hi! link purescriptWhere BoaAqua
-hi! link purescriptDelimiter Normal
-hi! link purescriptType Normal
-hi! link purescriptImportKeyword BoaAqua
-hi! link purescriptHidingKeyword BoaAqua
-hi! link purescriptAsKeyword BoaAqua
-hi! link purescriptStructure BoaAqua
-hi! link purescriptOperator BoaBlue
-
-hi! link purescriptTypeVar Normal
-hi! link purescriptConstructor Normal
-hi! link purescriptFunction Normal
-hi! link purescriptConditional BoaOrange
-hi! link purescriptBacktick BoaOrange
 
 " }}}
 " Go: {{{
