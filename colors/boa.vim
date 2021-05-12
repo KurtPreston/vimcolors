@@ -72,7 +72,7 @@ hi IncSearch guifg=#518233 guibg=bg gui=inverse,bold
 " Substitute
 hi NonText guifg=#47423d guibg=NONE gui=NONE
 hi! link LineNr NonText
-hi MatchParen   guifg=#de7621 guibg=#0f0a0a    gui=bold
+hi MatchParen   guifg=#de7621 guibg=NONE gui=bold
 hi ModeMsg      guifg=#93b329 guibg=NONE gui=bold
 " MsgArea
 hi MsgSeparator    guifg=NONE guibg=#263815 gui=NONE
