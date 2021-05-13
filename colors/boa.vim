@@ -72,7 +72,7 @@ hi IncSearch guifg=#518233 guibg=bg gui=inverse,bold
 " Substitute
 hi NonText guifg=#47423d guibg=NONE gui=NONE
 hi! link LineNr NonText
-hi MatchParen   guifg=#de7621 guibg=NONE gui=bold
+hi MatchParen   guifg=#de7621 guibg=NONE gui=bold,underline
 hi ModeMsg      guifg=#93b329 guibg=NONE gui=bold
 " MsgArea
 hi MsgSeparator    guifg=NONE guibg=#263815 gui=NONE
@@ -115,6 +115,24 @@ hi! link qfLineNr BoaOrange
 " qfFileName"
 
 " }}}
+" NeovimLSP: {{{
+
+hi LspDiagnosticsUnderlineError guifg=NONE guibg=NONE gui=underline guisp=#d33e2a
+hi LspDiagnosticsUnderlineWarning guifg=NONE guibg=NONE gui=underline guisp=#dea91d
+hi LspDiagnosticsUnderlineInfo guifg=NONE guibg=NONE gui=underline guisp=#71cc2f
+hi LspDiagnosticsUnderlineHint guifg=NONE guibg=NONE gui=underline guisp=#40af92
+
+hi LspDiagnosticsSignError guifg=#ed4e3a guibg=NONE gui=NONE
+hi LspDiagnosticsSignWarning guifg=#dea91d guibg=NONE gui=NONE
+hi LspDiagnosticsSignInfo guifg=#71cc2f guibg=NONE gui=NONE
+hi LspDiagnosticsSignHint guifg=#40af92 guibg=NONE gui=NONE
+
+hi LspDiagnosticsVirtualTextError guifg=#ed4e3a guibg=#342220 gui=NONE
+hi LspDiagnosticsVirtualTextWarning guifg=#dea91d guibg=#2c2c1e gui=NONE
+hi LspDiagnosticsVirtualTextInfo guifg=#71cc2f guibg=#202b20 gui=NONE
+hi LspDiagnosticsVirtualTextHint guifg=#40af92 guibg=#20282b gui=NONE
+
+" }}}
 
 " Plugin specific -------------------------------------------------------------
 " Netrw: {{{
@@ -131,37 +149,20 @@ hi! link netrwCmdSep Normal
 hi! link netrwVersion BoaGreen
 
 " }}}
-" Coc: {{{
-
-hi! link CocErrorSign BoaRed
-hi! link CocWarningSign BoaYellow
-hi! link CocInfoSign BoaGreen
-hi! link CocHintSign BoaAqua
-hi! CocHighlightText guifg=NONE guibg=#363D45 gui=NONE
-hi! CocHoverRange guifg=NONE guibg=#2F3829 gui=NONE
-hi! link CocCursorRange CocHoverRange
-hi! link HighlightedyankRegion CocHoverRange
-hi! link CocFloating NormalFloat
-hi! link CocOutlineName Normal
-hi! link CocListPath StatusLineNC
-hi CocListMode guifg=#748c20 guibg=#0a0707 gui=bold
-hi CocErrorHighlight guifg=NONE guibg=NONE gui=underline guisp=#d33e2a
-hi CocWarningHighlight guifg=NONE guibg=NONE gui=underline guisp=#dea91d
-hi CocInfoHighlight guifg=NONE guibg=NONE gui=underline guisp=#9dcc1f
-hi CocHintHighlight guifg=NONE guibg=NONE gui=underline guisp=#50bf7b
-hi CocGitRemovedSign guifg=#d35b4b guibg=NONE gui=bold
-hi CocGitTopRemovedSign guifg=#d35b4b guibg=NONE gui=bold
-hi CocGitChangedSign guifg=#70a17c guibg=NONE gui=bold
-hi CocGitChangeRemovedSign guifg=#70a17c guibg=NONE gui=bold
-hi CocGitAddedSign guifg=#8f9e44 guibg=NONE gui=bold
-
-" }}}
 " GitGutter: {{{
 
 hi! link GitGutterAdd BoaGreen
 hi! link GitGutterChange BoaAqua
 hi! link GitGutterDelete BoaRed
 hi! link GitGutterChangeDelete BoaAqua
+
+" }}}
+" Hop: {{{
+
+hi HopNextKey guifg=#f2119c guibg=NONE gui=bold
+hi HopNextKey1 guifg=#11eb9c guibg=NONE gui=bold
+hi HopNextKey2 guifg=#1b8da3 guibg=NONE gui=NONE
+hi HopUnmatched guifg=#49423f guibg=NONE gui=NONE
 
 " }}}
 
