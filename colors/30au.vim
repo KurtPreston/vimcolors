@@ -15,14 +15,15 @@ augroup vimStartup | au!
         \ |     call s:timestamp('(Last Change|Date):', '%Y %b %d', &modelines)
         \ | endif
     " never italicize comments
-    autocmd ColorScheme * hi Comment cterm=NONE gui=NONE
+    autocmd ColorScheme * hi Comment gui=NONE
     " prettify some buffers
     autocmd FileType man,qf setlocal colorcolumn& cursorline& list&
     " :h spell-SpellFileMissing
-    autocmd SpellFileMissing * call misc#wget(
-        \ get(g:, 'spellfile_URL', 'https://ftp.nluug.nl/pub/vim/runtime/spell'),
-        \ map(['spl', 'sug'], 'printf("%s.%s.%s", expand("<amatch>"), &enc, v:val)'),
-        \ better#stdpath('config', 'spell'))
+    autocmd SpellFileMissing * execute '!curl -OO --create-dirs --output-dir'
+        \ shellescape(better#stdpath('config', 'spell'), v:true)
+        \ shellescape(printf('%s/%s.%s.{spl,sug}',
+        \   get(g:, 'spellfile_URL', 'https://ftp.nluug.nl/pub/vim/runtime/spell'),
+        \   expand('<amatch>'), &encoding), v:true)
     " save session on exit
     autocmd VimLeavePre *
         \   if !empty(v:this_session) && !v:dying

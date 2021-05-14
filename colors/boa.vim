@@ -109,6 +109,7 @@ hi User3 guifg=#998539 guibg=#0a0707
 hi User4 guifg=#466d87 guibg=#0a0707
 hi User5 guifg=#87517f guibg=#0a0707
 hi User6 guifg=#964b44 guibg=#0a0707
+hi YankedText guifg=NONE guibg=#2F3829 gui=NONE
 
 hi! link qfLineNr BoaOrange
 " qfError

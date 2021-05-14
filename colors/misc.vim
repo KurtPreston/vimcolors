@@ -30,17 +30,17 @@ endfunction
 " (un)comment line range
 function! misc#comment(line1, line2, pi = &preserveindent) abort
     let l:lnum = nextnonblank(a:line1)
-    if l:lnum == 0 || l:lnum > a:line2
-        return
+    let l:end = type(a:line2) == v:t_number ? a:line2 : line(a:line2)
+    if l:lnum >= 1 && l:lnum <= l:end
+        let l:pat = printf('^\(\s*\)\(%s\)$', printf(escape(&cms, '^$.*~[]\'), '\(.*\)'))
+        let l:sub = '\=empty(submatch(2)) ? submatch(0) : submatch(1)..submatch(3)'
+        if getline(l:lnum) !~# l:pat
+            let l:pat = a:pi ? '^\s*\zs.*' : '.*'
+            let l:sub = printf(escape(&cms, '&\'), '&')
+        endif
+        call setline(l:lnum, map(getline(l:lnum, l:end), {_, v -> empty(v) ? v :
+            \ substitute(v, l:pat, l:sub, '')}))
     endif
-    let l:pat = printf('^\(\s*\)\(%s\)$', printf(escape(&cms, '^$.*~[]\'), '\(.*\)'))
-    let l:sub = '\=empty(submatch(2)) ? submatch(0) : submatch(1)..submatch(3)'
-    if getline(l:lnum) !~# l:pat
-        let l:pat = a:pi ? '^\s*\zs.*' : '.*'
-        let l:sub = printf(escape(&cms, '&\'), '&')
-    endif
-    call setline(l:lnum, map(getline(l:lnum, a:line2),
-        \ {_, v -> empty(v) ? v : substitute(v, l:pat, l:sub, '')}))
 endfunction
 
 " misc#diff({orig})
@@ -88,11 +88,4 @@ function! misc#guifont(typeface, height) abort
         \ printf('\=%s..%d', string(l:prefix), l:height), '')})
     silent! let &guifont = join(l:fonts, ',')
     let s:fontheight = l:height
-endfunction
-
-" misc#wget({url}, {files} [, {destdir}])
-" wget some files
-function! misc#wget(url, files, destdir = '.') abort
-    echomsg system(printf('wget -bqNP %s %s/%s', shellescape(a:destdir), a:url,
-        \ join(a:files, printf(' %s/', a:url))))
 endfunction
