@@ -120,17 +120,17 @@ hi! link qfLineNr BoaOrange
 
 hi LspDiagnosticsUnderlineError guifg=NONE guibg=NONE gui=underline guisp=#d33e2a
 hi LspDiagnosticsUnderlineWarning guifg=NONE guibg=NONE gui=underline guisp=#dea91d
-hi LspDiagnosticsUnderlineInfo guifg=NONE guibg=NONE gui=underline guisp=#71cc2f
+hi LspDiagnosticsUnderlineInformation guifg=NONE guibg=NONE gui=underline guisp=#6ec62f
 hi LspDiagnosticsUnderlineHint guifg=NONE guibg=NONE gui=underline guisp=#40af92
 
-hi LspDiagnosticsSignError guifg=#ed4e3a guibg=NONE gui=NONE
-hi LspDiagnosticsSignWarning guifg=#dea91d guibg=NONE gui=NONE
-hi LspDiagnosticsSignInfo guifg=#71cc2f guibg=NONE gui=NONE
-hi LspDiagnosticsSignHint guifg=#40af92 guibg=NONE gui=NONE
+hi LspDiagnosticsDefaultError guifg=#ed4e3a guibg=NONE gui=NONE
+hi LspDiagnosticsDefaultWarning guifg=#dea91d guibg=NONE gui=NONE
+hi LspDiagnosticsDefaultInformation guifg=#6ec62f guibg=NONE gui=NONE
+hi LspDiagnosticsDefaultHint guifg=#40af92 guibg=NONE gui=NONE
 
 hi LspDiagnosticsVirtualTextError guifg=#ed4e3a guibg=#342220 gui=NONE
 hi LspDiagnosticsVirtualTextWarning guifg=#dea91d guibg=#2c2c1e gui=NONE
-hi LspDiagnosticsVirtualTextInfo guifg=#71cc2f guibg=#202b20 gui=NONE
+hi LspDiagnosticsVirtualTextInformation guifg=#6ec62f guibg=#202b20 gui=NONE
 hi LspDiagnosticsVirtualTextHint guifg=#40af92 guibg=#20282b gui=NONE
 
 " }}}
