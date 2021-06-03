@@ -130,8 +130,8 @@ function s:options(opts, useropts) abort
             \ nr2char(0x255A)][len(a:opts.borderchars) : ]
     endif
     if a:opts.filter is# 'popup_filter_menu'
-        let a:opts.filter = {'<Space>': '.', '<Enter>': '.', '<2-LeftMouse>': '.',
-            \ 'x': -1, '<Esc>': -1, '<C-C>': -1}
+        let a:opts.filter = {'<Space>': '.', '<CR>': '.', '<kEnter>': '.',
+            \ '<2-LeftMouse>': '.', 'x': -1, '<Esc>': -1, '<C-C>': -1}
     elseif a:opts.filter is# 'popup_filter_yesno'
         let a:opts.filter = {'y': 1, 'Y': 1, 'n': 0, 'N': 0, 'x': 0, '<Esc>': 0,
             \ '<C-C>': -1}
