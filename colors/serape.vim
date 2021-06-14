@@ -93,10 +93,10 @@ hi Debug           ctermfg=214     ctermbg=none
 
 " C like
 hi PreProc         ctermfg=196     ctermbg=none     cterm=bold
-hi Include         ctermfg=196     ctermbg=none     cterm=bold
+hi Include         ctermfg=196     ctermbg=none     cterm=none
 hi Define          ctermfg=196     ctermbg=none     cterm=bold
 hi Macro           ctermfg=196     ctermbg=none     cterm=bold
-hi PreCondit       ctermfg=196     ctermbg=none
+hi PreCondit       ctermfg=196     ctermbg=none     cterm=bold
 
 hi Type            ctermfg=104     ctermbg=none     cterm=bold
 hi StorageClass    ctermfg=104     ctermbg=none     cterm=bold
