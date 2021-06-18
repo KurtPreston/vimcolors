@@ -38,6 +38,7 @@ hi StatusLine      guifg=#313633 guibg=#ccdc90
 hi StatusLineNC    guifg=#2e3330 guibg=#88b090
 hi String          guifg=#09b509
 hi Structure       guifg=#c94242
+hi TabLine         guifg=NavajoWhite gui=bold,underline guibg=LightSlateGray
 hi Tag             guifg=#30b6b6 gui=bold
 hi Title           guifg=#efefef gui=bold
 hi Todo            guifg=#30b6b6 guibg=bg gui=bold
