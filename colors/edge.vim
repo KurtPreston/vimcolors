@@ -10,7 +10,7 @@
 let s:configuration = edge#get_configuration()
 let s:palette = edge#get_palette(s:configuration.style)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Thu Jul  1 12:43:10 AM UTC 2021'
+let s:last_modified = 'Wed Jul  7 01:57:49 AM UTC 2021'
 let g:edge_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'edge' && s:configuration.better_performance)
@@ -396,6 +396,50 @@ highlight! link TSVariableBuiltin CyanItalic
 " }}}
 " neoclide/coc.nvim {{{
 call edge#highlight('CocHoverRange', s:palette.none, s:palette.none, 'bold,underline')
+highlight! link CocSem_angle TSTagDelimiter
+highlight! link CocSem_attribute TSAttribute
+highlight! link CocSem_bitwise TSOperator
+highlight! link CocSem_boolean TSBoolean
+highlight! link CocSem_brace TSPunctBracket
+highlight! link CocSem_bracket TSPunctBracket
+highlight! link CocSem_builtinAttribute TSAttribute
+highlight! link CocSem_builtinType TSTypeBuiltin
+highlight! link CocSem_character TSCharacter
+highlight! link CocSem_class TSType
+highlight! link CocSem_colon TSPunctDelimiter
+highlight! link CocSem_comma TSPunctDelimiter
+highlight! link CocSem_comment TSComment
+highlight! link CocSem_comparison TSOperator
+highlight! link CocSem_constParameter TSParameter
+highlight! link CocSem_dependent TSInclude
+highlight! link CocSem_dot TSOperator
+highlight! link CocSem_enum TSType
+highlight! link CocSem_enumMember TSProperty
+highlight! link CocSem_escapeSequence TSStringEscape
+highlight! link CocSem_formatSpecifier TSStringEscape
+highlight! link CocSem_function TSFunction
+highlight! link CocSem_interface TSType
+highlight! link CocSem_keyword TSKeyword
+highlight! link CocSem_label TSLabel
+highlight! link CocSem_logical TSOperator
+highlight! link CocSem_macro TSConstMacro
+highlight! link CocSem_method TSMethod
+highlight! link CocSem_namespace TSNamespace
+highlight! link CocSem_number TSNumber
+highlight! link CocSem_operator TSOperator
+highlight! link CocSem_parameter TSParameter
+highlight! link CocSem_parenthesis TSPunctBracket
+highlight! link CocSem_property TSProperty
+highlight! link CocSem_punctuation TSPunctDelimiter
+highlight! link CocSem_regexp TSStringRegex
+highlight! link CocSem_selfKeyword TSConstBuiltin
+highlight! link CocSem_semicolon TSPunctDelimiter
+highlight! link CocSem_string TSString
+highlight! link CocSem_struct TSStructure
+highlight! link CocSem_type TSType
+highlight! link CocSem_typeAlias TSType
+highlight! link CocSem_typeParameter TSType
+highlight! link CocSem_variable TSVariable
 highlight! link CocErrorFloat ErrorFloat
 highlight! link CocWarningFloat WarningFloat
 highlight! link CocInfoFloat InfoFloat
@@ -1456,23 +1500,23 @@ highlight! link cppSTLexception Purple
 highlight! link cppSTLVariable RedItalic
 " }}}
 " chromatica: https://github.com/arakashic/chromatica.nvim{{{
-highlight! link Member CyanItalic
-highlight! link Variable Fg
-highlight! link Namespace RedItalic
-highlight! link EnumConstant Yellow
-highlight! link chromaticaException Purple
-highlight! link chromaticaCast Purple
-highlight! link OperatorOverload Purple
-highlight! link AccessQual Purple
-highlight! link Linkage Purple
-highlight! link AutoType RedItalic
+highlight! link Member TSProperty
+highlight! link Variable TSVariable
+highlight! link Namespace TSNamespace
+highlight! link EnumConstant TSType
+highlight! link chromaticaException TSException
+highlight! link chromaticaCast TSLabel
+highlight! link OperatorOverload TSOperator
+highlight! link AccessQual TSOperator
+highlight! link Linkage TSOperator
+highlight! link AutoType TSType
 " }}}
 " vim-lsp-cxx-highlight https://github.com/jackguo380/vim-lsp-cxx-highlight{{{
 highlight! link LspCxxHlSkippedRegion Grey
-highlight! link LspCxxHlSkippedRegionBeginEnd Purple
-highlight! link LspCxxHlGroupEnumConstant Yellow
-highlight! link LspCxxHlGroupNamespace RedItalic
-highlight! link LspCxxHlGroupMemberVariable CyanItalic
+highlight! link LspCxxHlSkippedRegionBeginEnd TSKeyword
+highlight! link LspCxxHlGroupEnumConstant TSType
+highlight! link LspCxxHlGroupNamespace TSNamespace
+highlight! link LspCxxHlGroupMemberVariable TSProperty
 " }}}
 " ft_end }}}
 " ft_begin: objc {{{
@@ -1524,18 +1568,18 @@ highlight! link pythonDot Grey
 " }}}
 " semshi: https://github.com/numirias/semshi{{{
 call edge#highlight('semshiUnresolved', s:palette.cyan, s:palette.none, 'undercurl')
-highlight! link semshiImported RedItalic
-highlight! link semshiParameter CyanItalic
+highlight! link semshiImported TSInclude
+highlight! link semshiParameter TSParameter
 highlight! link semshiParameterUnused Grey
-highlight! link semshiSelf RedItalic
-highlight! link semshiGlobal Blue
-highlight! link semshiBuiltin Blue
-highlight! link semshiAttribute Yellow
-highlight! link semshiLocal Purple
-highlight! link semshiFree Purple
-highlight! link semshiSelected CocHighlightText
-highlight! link semshiErrorSign ALEErrorSign
-highlight! link semshiErrorChar ALEErrorSign
+highlight! link semshiSelf TSVariableBuiltin
+highlight! link semshiGlobal TSType
+highlight! link semshiBuiltin TSTypeBuiltin
+highlight! link semshiAttribute TSAttribute
+highlight! link semshiLocal TSKeyword
+highlight! link semshiFree TSKeyword
+highlight! link semshiSelected CurrentWord
+highlight! link semshiErrorSign RedSign
+highlight! link semshiErrorChar RedSign
 " }}}
 " ft_end }}}
 " ft_begin: lua {{{
