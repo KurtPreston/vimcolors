@@ -10,7 +10,7 @@
 let s:configuration = sonokai#get_configuration()
 let s:palette = sonokai#get_palette(s:configuration.style)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Fri Jul  9 04:58:29 AM UTC 2021'
+let s:last_modified = 'Sat Jul 10 05:41:33 AM UTC 2021'
 let g:sonokai_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'sonokai' && s:configuration.better_performance)
@@ -38,7 +38,6 @@ if s:configuration.transparent_background
   endif
   call sonokai#highlight('Folded', s:palette.grey, s:palette.none)
   call sonokai#highlight('ToolbarLine', s:palette.fg, s:palette.none)
-  call sonokai#highlight('SignColumn', s:palette.fg, s:palette.none)
   call sonokai#highlight('FoldColumn', s:palette.grey, s:palette.none)
 else
   call sonokai#highlight('Normal', s:palette.fg, s:palette.bg0)
@@ -50,14 +49,9 @@ else
   endif
   call sonokai#highlight('Folded', s:palette.grey, s:palette.bg1)
   call sonokai#highlight('ToolbarLine', s:palette.fg, s:palette.bg2)
-  if s:configuration.sign_column_background ==# 'default'
-    call sonokai#highlight('SignColumn', s:palette.fg, s:palette.bg1)
-    call sonokai#highlight('FoldColumn', s:palette.grey, s:palette.bg1)
-  else
-    call sonokai#highlight('SignColumn', s:palette.fg, s:palette.none)
-    call sonokai#highlight('FoldColumn', s:palette.grey, s:palette.none)
-  endif
+  call sonokai#highlight('FoldColumn', s:palette.grey, s:palette.none)
 endif
+call sonokai#highlight('SignColumn', s:palette.fg, s:palette.none)
 call sonokai#highlight('IncSearch', s:palette.bg0, s:palette.bg_red)
 call sonokai#highlight('Search', s:palette.bg0, s:palette.bg_green)
 call sonokai#highlight('ColorColumn', s:palette.none, s:palette.bg1)
@@ -81,10 +75,8 @@ endif
 call sonokai#highlight('LineNr', s:palette.grey, s:palette.none)
 if &diff
   call sonokai#highlight('CursorLineNr', s:palette.fg, s:palette.none, 'underline')
-elseif (&relativenumber == 1 && &cursorline == 0) || s:configuration.sign_column_background !=# 'default'
-  call sonokai#highlight('CursorLineNr', s:palette.fg, s:palette.none)
 else
-  call sonokai#highlight('CursorLineNr', s:palette.fg, s:palette.bg1)
+  call sonokai#highlight('CursorLineNr', s:palette.fg, s:palette.none)
 endif
 call sonokai#highlight('DiffAdd', s:palette.none, s:palette.diff_green)
 call sonokai#highlight('DiffChange', s:palette.none, s:palette.diff_blue)
@@ -237,21 +229,12 @@ else
   call sonokai#highlight('BlueItalic', s:palette.blue, s:palette.none)
   call sonokai#highlight('PurpleItalic', s:palette.purple, s:palette.none)
 endif
-if s:configuration.transparent_background || s:configuration.sign_column_background !=# 'default'
-  call sonokai#highlight('RedSign', s:palette.red, s:palette.none)
-  call sonokai#highlight('OrangeSign', s:palette.orange, s:palette.none)
-  call sonokai#highlight('YellowSign', s:palette.yellow, s:palette.none)
-  call sonokai#highlight('GreenSign', s:palette.green, s:palette.none)
-  call sonokai#highlight('BlueSign', s:palette.blue, s:palette.none)
-  call sonokai#highlight('PurpleSign', s:palette.purple, s:palette.none)
-else
-  call sonokai#highlight('RedSign', s:palette.red, s:palette.bg1)
-  call sonokai#highlight('OrangeSign', s:palette.orange, s:palette.bg1)
-  call sonokai#highlight('YellowSign', s:palette.yellow, s:palette.bg1)
-  call sonokai#highlight('GreenSign', s:palette.green, s:palette.bg1)
-  call sonokai#highlight('BlueSign', s:palette.blue, s:palette.bg1)
-  call sonokai#highlight('PurpleSign', s:palette.purple, s:palette.bg1)
-endif
+call sonokai#highlight('RedSign', s:palette.red, s:palette.none)
+call sonokai#highlight('OrangeSign', s:palette.orange, s:palette.none)
+call sonokai#highlight('YellowSign', s:palette.yellow, s:palette.none)
+call sonokai#highlight('GreenSign', s:palette.green, s:palette.none)
+call sonokai#highlight('BlueSign', s:palette.blue, s:palette.none)
+call sonokai#highlight('PurpleSign', s:palette.purple, s:palette.none)
 if s:configuration.diagnostic_text_highlight
   call sonokai#highlight('ErrorText', s:palette.none, s:palette.diff_red, 'undercurl', s:palette.red)
   call sonokai#highlight('WarningText', s:palette.none, s:palette.diff_yellow, 'undercurl', s:palette.yellow)
@@ -372,8 +355,8 @@ highlight! link TSNamespace BlueItalic
 highlight! link TSNone Fg
 highlight! link TSNumber Purple
 highlight! link TSOperator Red
-highlight! link TSParameter OrangeItalic
-highlight! link TSParameterReference OrangeItalic
+highlight! link TSParameter Fg
+highlight! link TSParameterReference Fg
 highlight! link TSProperty Green
 highlight! link TSPunctBracket Grey
 highlight! link TSPunctDelimiter Grey
@@ -382,7 +365,7 @@ highlight! link TSRepeat Red
 highlight! link TSString Yellow
 highlight! link TSStringEscape Green
 highlight! link TSStringRegex Green
-highlight! link TSStructure BlueItalic
+highlight! link TSStructure OrangeItalic
 highlight! link TSSymbol Fg
 highlight! link TSTag BlueItalic
 highlight! link TSTagDelimiter Red
@@ -398,6 +381,7 @@ highlight! link TSVariableBuiltin OrangeItalic
 " neoclide/coc.nvim {{{
 call sonokai#highlight('CocHoverRange', s:palette.none, s:palette.none, 'bold,underline')
 highlight! link CocSem_angle TSTagDelimiter
+highlight! link CocSem_annotation TSOperator
 highlight! link CocSem_attribute TSAttribute
 highlight! link CocSem_bitwise TSOperator
 highlight! link CocSem_boolean TSBoolean
@@ -414,8 +398,8 @@ highlight! link CocSem_comparison TSOperator
 highlight! link CocSem_constParameter TSParameter
 highlight! link CocSem_dependent TSInclude
 highlight! link CocSem_dot TSOperator
-highlight! link CocSem_enum TSType
-highlight! link CocSem_enumMember TSProperty
+highlight! link CocSem_enum TSStructure
+highlight! link CocSem_enumMember TSVariable
 highlight! link CocSem_escapeSequence TSStringEscape
 highlight! link CocSem_event TSType
 highlight! link CocSem_formatSpecifier TSStringEscape
@@ -432,13 +416,13 @@ highlight! link CocSem_number TSNumber
 highlight! link CocSem_operator TSOperator
 highlight! link CocSem_parameter TSParameter
 highlight! link CocSem_parenthesis TSPunctBracket
-highlight! link CocSem_property TSProperty
+highlight! link CocSem_property TSVariable
 highlight! link CocSem_punctuation TSOperator
 highlight! link CocSem_regexp TSStringRegex
 highlight! link CocSem_selfKeyword TSConstBuiltin
 highlight! link CocSem_semicolon TSPunctDelimiter
 highlight! link CocSem_string TSString
-highlight! link CocSem_struct TSConstMacro
+highlight! link CocSem_struct TSStructure
 highlight! link CocSem_type TSType
 highlight! link CocSem_typeAlias TSType
 highlight! link CocSem_typeParameter TSType
@@ -734,6 +718,26 @@ if get(g:, 'indent_guides_auto_colors', 1) == 0
   call sonokai#highlight('IndentGuidesOdd', s:palette.bg0, s:palette.bg1)
   call sonokai#highlight('IndentGuidesEven', s:palette.bg0, s:palette.bg2)
 endif
+" }}}
+" thiagoalessio/rainbow_levels.vim {{{
+highlight! link RainbowLevel0 Red
+highlight! link RainbowLevel1 Orange
+highlight! link RainbowLevel2 Yellow
+highlight! link RainbowLevel3 Green
+highlight! link RainbowLevel4 Blue
+highlight! link RainbowLevel5 Purple
+highlight! link RainbowLevel6 Yellow
+highlight! link RainbowLevel7 Green
+highlight! link RainbowLevel8 Blue
+" }}}
+" p00f/nvim-ts-rainbow {{{
+highlight! link rainbowcol1 Red
+highlight! link rainbowcol2 Orange
+highlight! link rainbowcol3 Yellow
+highlight! link rainbowcol4 Green
+highlight! link rainbowcol5 Blue
+highlight! link rainbowcol6 Purple
+highlight! link rainbowcol7 Green
 " }}}
 " kshenoy/vim-signature {{{
 highlight! link SignatureMarkText BlueSign
@@ -1504,10 +1508,10 @@ highlight! link cppSTLexception Red
 highlight! link cppSTLVariable BlueItalic
 " }}}
 " chromatica: https://github.com/arakashic/chromatica.nvim{{{
-highlight! link Member TSProperty
+highlight! link Member TSVariable
 highlight! link Variable TSVariable
 highlight! link Namespace TSNamespace
-highlight! link EnumConstant TSType
+highlight! link EnumConstant TSStructure
 highlight! link chromaticaException TSException
 highlight! link chromaticaCast TSLabel
 highlight! link OperatorOverload TSOperator
@@ -1518,9 +1522,9 @@ highlight! link AutoType TSType
 " vim-lsp-cxx-highlight https://github.com/jackguo380/vim-lsp-cxx-highlight{{{
 highlight! link LspCxxHlSkippedRegion Grey
 highlight! link LspCxxHlSkippedRegionBeginEnd TSKeyword
-highlight! link LspCxxHlGroupEnumConstant TSType
+highlight! link LspCxxHlGroupEnumConstant TSStructure
 highlight! link LspCxxHlGroupNamespace TSNamespace
-highlight! link LspCxxHlGroupMemberVariable TSProperty
+highlight! link LspCxxHlGroupMemberVariable TSVariable
 " }}}
 " ft_end }}}
 " ft_begin: objc {{{

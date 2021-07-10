@@ -10,7 +10,7 @@
 let s:configuration = everforest#get_configuration()
 let s:palette = everforest#get_palette(s:configuration.background)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Thu Jul  8 01:22:48 AM UTC 2021'
+let s:last_modified = 'Sat Jul 10 05:41:13 AM UTC 2021'
 let g:everforest_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'everforest' && s:configuration.better_performance)
@@ -386,7 +386,7 @@ highlight! link TSRepeat Red
 highlight! link TSString Aqua
 highlight! link TSStringEscape Green
 highlight! link TSStringRegex Green
-highlight! link TSStructure Yellow
+highlight! link TSStructure BlueItalic
 highlight! link TSSymbol Fg
 highlight! link TSTag Orange
 highlight! link TSTagDelimiter Green
@@ -402,6 +402,7 @@ highlight! link TSVariableBuiltin BlueItalic
 " neoclide/coc.nvim {{{
 call everforest#highlight('CocHoverRange', s:palette.none, s:palette.none, 'bold,underline')
 highlight! link CocSem_angle TSTagDelimiter
+highlight! link CocSem_annotation TSOperator
 highlight! link CocSem_attribute TSAttribute
 highlight! link CocSem_bitwise TSOperator
 highlight! link CocSem_boolean TSBoolean
@@ -418,8 +419,8 @@ highlight! link CocSem_comparison TSOperator
 highlight! link CocSem_constParameter TSParameter
 highlight! link CocSem_dependent TSInclude
 highlight! link CocSem_dot TSOperator
-highlight! link CocSem_enum TSType
-highlight! link CocSem_enumMember TSProperty
+highlight! link CocSem_enum TSStructure
+highlight! link CocSem_enumMember TSVariable
 highlight! link CocSem_escapeSequence TSStringEscape
 highlight! link CocSem_event TSType
 highlight! link CocSem_formatSpecifier TSStringEscape
@@ -436,13 +437,13 @@ highlight! link CocSem_number TSNumber
 highlight! link CocSem_operator TSOperator
 highlight! link CocSem_parameter TSParameter
 highlight! link CocSem_parenthesis TSPunctBracket
-highlight! link CocSem_property TSProperty
+highlight! link CocSem_property TSVariable
 highlight! link CocSem_punctuation TSOperator
 highlight! link CocSem_regexp TSStringRegex
 highlight! link CocSem_selfKeyword TSConstBuiltin
 highlight! link CocSem_semicolon TSPunctDelimiter
 highlight! link CocSem_string TSString
-highlight! link CocSem_struct TSConstMacro
+highlight! link CocSem_struct TSStructure
 highlight! link CocSem_type TSType
 highlight! link CocSem_typeAlias TSType
 highlight! link CocSem_typeParameter TSType
@@ -740,6 +741,26 @@ if get(g:, 'indent_guides_auto_colors', 1) == 0
   call everforest#highlight('IndentGuidesOdd', s:palette.bg0, s:palette.bg1)
   call everforest#highlight('IndentGuidesEven', s:palette.bg0, s:palette.bg2)
 endif
+" }}}
+" thiagoalessio/rainbow_levels.vim {{{
+highlight! link RainbowLevel0 Red
+highlight! link RainbowLevel1 Orange
+highlight! link RainbowLevel2 Yellow
+highlight! link RainbowLevel3 Green
+highlight! link RainbowLevel4 Aqua
+highlight! link RainbowLevel5 Blue
+highlight! link RainbowLevel6 Purple
+highlight! link RainbowLevel7 Yellow
+highlight! link RainbowLevel8 Green
+" }}}
+" p00f/nvim-ts-rainbow {{{
+highlight! link rainbowcol1 Red
+highlight! link rainbowcol2 Orange
+highlight! link rainbowcol3 Yellow
+highlight! link rainbowcol4 Green
+highlight! link rainbowcol5 Aqua
+highlight! link rainbowcol6 Blue
+highlight! link rainbowcol7 Purple
 " }}}
 " luochen1990/rainbow {{{
 if !exists('g:rbpt_colorpairs')
@@ -1558,10 +1579,10 @@ highlight! link cppSTLexception Purple
 highlight! link cppSTLVariable Aqua
 " }}}
 " chromatica: https://github.com/arakashic/chromatica.nvim {{{
-highlight! link Member TSProperty
+highlight! link Member TSVariable
 highlight! link Variable TSVariable
 highlight! link Namespace TSNamespace
-highlight! link EnumConstant TSType
+highlight! link EnumConstant TSStructure
 highlight! link chromaticaException TSException
 highlight! link chromaticaCast TSLabel
 highlight! link OperatorOverload TSOperator
@@ -1572,9 +1593,9 @@ highlight! link AutoType TSType
 " vim-lsp-cxx-highlight https://github.com/jackguo380/vim-lsp-cxx-highlight {{{
 highlight! link LspCxxHlSkippedRegion Grey
 highlight! link LspCxxHlSkippedRegionBeginEnd TSKeyword
-highlight! link LspCxxHlGroupEnumConstant TSType
+highlight! link LspCxxHlGroupEnumConstant TSStructure
 highlight! link LspCxxHlGroupNamespace TSNamespace
-highlight! link LspCxxHlGroupMemberVariable TSProperty
+highlight! link LspCxxHlGroupMemberVariable TSVariable
 " }}}
 " ft_end }}}
 " ft_begin: objc {{{
