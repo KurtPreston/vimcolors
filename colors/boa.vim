@@ -68,11 +68,11 @@ hi VertSplit guifg=#0a0707 guibg=NONE gui=NONE
 hi Folded     guifg=#817466 guibg=#2b2927    gui=NONE
 hi! link FoldColumn Folded
 hi SignColumn guifg=NONE guibg=NONE
-hi IncSearch guifg=#518233 guibg=bg gui=inverse,bold
+hi IncSearch guifg=#1f1a17 guibg=#518233 gui=bold
 " Substitute
 hi NonText guifg=#47423d guibg=NONE gui=NONE
 hi! link LineNr NonText
-hi MatchParen   guifg=#de7621 guibg=NONE gui=bold,underline
+hi MatchParen   guifg=#eb3a75 guibg=NONE gui=bold
 hi ModeMsg      guifg=#93b329 guibg=NONE gui=bold
 " MsgArea
 hi MsgSeparator    guifg=NONE guibg=#263815 gui=NONE
@@ -81,7 +81,7 @@ hi NormalFloat guifg=NONE guibg=#21261d gui=NONE
 hi NormalNC guifg=#b0a78f guibg=#111314 gui=NONE
 hi! link Question BoaGreen
 hi QuickFixLine guifg=NONE guibg=#37322d gui=NONE
-hi Search    guifg=#1f1a17 guibg=#826a33 gui=bold
+hi Search guifg=#1f1a17 guibg=#826a33 gui=bold
 hi! link SpecialKey NonText
 hi SpellBad guifg=NONE guibg=NONE gui=underline guisp=#e62922
 hi SpellCap guifg=NONE guibg=NONE gui=underline guisp=#a0b82e
@@ -109,6 +109,7 @@ hi User3 guifg=#998539 guibg=#0a0707
 hi User4 guifg=#466d87 guibg=#0a0707
 hi User5 guifg=#87517f guibg=#0a0707
 hi User6 guifg=#964b44 guibg=#0a0707
+hi User7 guifg=#ca4141 guibg=#0a0707 gui=bold
 hi YankedText guifg=NONE guibg=#2F3829 gui=NONE
 
 hi! link qfLineNr BoaOrange
@@ -252,6 +253,16 @@ hi! link vimCommentString vimComment
 
 hi! link cOperator BoaPurple
 hi! link cStructure BoaOrange
+
+" }}}
+" Fennel: {{{
+
+hi link FennelSpecialForm BoaRed
+hi link FennelSymbol Normal
+hi link FennelParen BoaDarkBlue
+hi link FennelKeyword BoaYellow
+hi link FennelStringEscape BoaOrange
+hi link FennelError Error
 
 " }}}
 " Python: {{{
