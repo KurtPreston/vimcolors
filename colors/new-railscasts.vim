@@ -146,6 +146,10 @@ hi link rubyInstanceVariable        rubyBlockParameter
 hi link rubyLocalVariableOrMethod   rubyBlockParameter
 hi link rubyDefine                  rubyClass
 hi link rubyGemfileMethod           rubyClass
+hi link rubyCurlyBlock rubyCurlyBlockDelimiter
+" Ruby nvim-treesitter
+hi link rubyTSSymbol rubySymbol   
+hi link rubyTSPunctBracket rubyCurlyBlockDelimiter
 " Javascript https://github.com/pangloss/vim-javascript
 hi jsArrowFunction       guifg=#FFA78D gui=bold
 hi jsBrackets            guifg=#D38E39 gui=bold
@@ -302,3 +306,9 @@ hi checkboxNotDone     guifg=#005FDF guibg=NONE gui=BOLD
 hi PMVname        guifg=#79AFD7 guibg=NONE gui=bold,italic
 hi PMVstring      guifg=#74D155 guibg=NONE gui=bold
 hi PMVvalueNumber guifg=#FFC66D guibg=NONE gui=italic
+
+" generic nvim-treesitter
+hi link TSSymbol rubySymbol
+hi link TSPunctDelimiter rubyCurlyBlockDelimiter
+hi link TSBracket rubyCurlyBlockDelimiter
+hi link TSPunctBracket rubyCurlyBlockDelimiter
