@@ -72,7 +72,7 @@ hi Boolean         ctermfg=32      ctermbg=none
 hi Float           ctermfg=38      ctermbg=none     cterm=bold
 
 hi Identifier      ctermfg=15      ctermbg=none     cterm=bold
-hi Function        ctermfg=4       ctermbg=none     cterm=none
+hi Function        ctermfg=12       ctermbg=none     cterm=none
 
 " Language construct
 hi Statement       ctermfg=202     ctermbg=none     cterm=bold
@@ -119,18 +119,18 @@ hi DiffIndexLine   ctermfg=202     ctermbg=none     cterm=bold
 
 " Completion menu
 hi Pmenu           ctermfg=15      ctermbg=235
-hi PmenuSel        ctermfg=235     ctermbg=229      cterm=bold
-hi PmenuSbar       ctermfg=229     ctermbg=229
-hi PmenuThumb      ctermfg=none    ctermbg=235
+hi PmenuSel        ctermfg=0       ctermbg=15       cterm=bold
+hi PmenuSbar       ctermfg=none    ctermbg=235
+hi PmenuThumb      ctermfg=none    ctermbg=15
 
 " Spelling
-hi SpellBad        ctermfg=9       ctermbg=none     cterm=underline
-hi SpellCap        ctermfg=51      ctermbg=none     cterm=underline
-hi SpellLocal      ctermfg=9       ctermbg=none     cterm=underline
-hi SpellRare       ctermfg=51      ctermbg=none     cterm=underline
+hi SpellBad        ctermfg=9       ctermbg=none
+hi SpellCap        ctermfg=51      ctermbg=none
+hi SpellLocal      ctermfg=9       ctermbg=none
+hi SpellRare       ctermfg=51      ctermbg=none
 
 " Git Commit
-hi GitCommitSummary ctermfg=4      ctermbg=none     cterm=bold
+hi GitCommitSummary ctermfg=12     ctermbg=none     cterm=bold
 hi GitCommitType   ctermfg=15      ctermbg=none
 
 " HTML Tags
