@@ -127,8 +127,9 @@ hi rubyConstant              guifg=#FC623B guibg=NONE gui=bold
 hi rubyMethodName            guifg=#FFC66D guibg=NONE gui=bold
 hi rubyPredefinedConstant    guifg=#F47454 guibg=NONE
 hi rubyPseudoVariable        guifg=#DD75C9 guibg=NONE gui=italic,bold
-hi rubyStringDelimiter       guifg=#87AF5F guibg=NONE
+hi rubyStringDelimiter       guifg=#87AF5F guibg=NONE gui=bold
 hi rubyHeredocDelimiter      guifg=#519F50 guibg=NONE gui=italic,bold
+hi rubyInterpolationDelimiter guifg=#519F50 guibg=NONE gui=bold
 hi rubySymbol                guifg=#6D9CBE guibg=NONE gui=bold
 hi rubyCurlyBlockDelimiter   guifg=#D38E39 guibg=NONE gui=bold
 hi rubyInterpolation         guifg=#f9f3d6 guibg=NONE guibg=#2d2d2d
@@ -138,8 +139,11 @@ hi link rubyLambdaOperator   rubyCurlyBlockDelimiter
 hi link rubyPercentSymbolDelimiter  rubyCurlyBlockDelimiter
 hi link rubyPercentStringDelimiter  rubyCurlyBlockDelimiter
 hi link rubyPercentRegexpDelimiter  rubyCurlyBlockDelimiter
+hi link rubyScopeOperator  rubyCurlyBlockDelimiter
 hi link rubySuperClassOperator      rubyMethodName
 hi link rubyProcOperator            rubyMethodName
+hi link rubyAssignmentOperator      rubyMethodName
+hi link rubyBitwiseOperator      rubyMethodName
 hi link rubyDotOperator             rspecMatchers
 hi link rubyBlockParameterList      rubyBlockParameter
 hi link rubyInstanceVariable        rubyBlockParameter

@@ -7,7 +7,6 @@
 " License: MIT (https://opensource.org/licenses/MIT)
 
 highlight clear
-set background=dark
 if exists('syntax_on')
     syntax reset
 endif
@@ -122,6 +121,36 @@ else
     exec 'highlight Normal guibg=' . s:black . ' guifg=' . s:white
 endif
 
+" Custom nightfly highlight groups
+exec 'highlight NightflyReset guifg=fg'
+exec 'highlight NightflyWhite guifg=' . s:white
+exec 'highlight NightflySlateBlue guifg=' . s:slate_blue
+exec 'highlight NightflyRegalBlue guifg=' . s:regal_blue
+exec 'highlight NightflySteelBlue guifg=' . s:steel_blue
+exec 'highlight NightflyCadetBlue guifg=' . s:cadet_blue
+exec 'highlight NightflyGreyBlue guifg=' . s:grey_blue
+exec 'highlight NightflyYellow guifg=' . s:yellow
+exec 'highlight NightflyPeach guifg=' . s:peach
+exec 'highlight NightflyTan guifg=' . s:tan
+exec 'highlight NightflyOrange guifg=' . s:orange
+exec 'highlight NightflyRed guifg=' . s:red
+exec 'highlight NightflyWatermelon guifg=' . s:watermelon
+exec 'highlight NightflyViolet guifg=' . s:violet
+exec 'highlight NightflyPurple guifg=' . s:purple
+exec 'highlight NightflyBlue guifg=' . s:blue
+exec 'highlight NightflyIndigo guifg=' . s:indigo
+exec 'highlight NightflyTurquoise guifg=' . s:turquoise
+exec 'highlight NightflyEmerald guifg=' . s:emerald
+exec 'highlight NightflyGreen guifg=' . s:green
+exec 'highlight NightflyWhiteAlert guibg=bg guifg=' . s:white
+exec 'highlight NightflyCadetBlueAlert guibg=bg guifg=' . s:cadet_blue
+exec 'highlight NightflyYellowAlert guibg=bg guifg=' . s:yellow
+exec 'highlight NightflyOrangeAlert guibg=bg guifg=' . s:orange
+exec 'highlight NightflyRedAlert guibg=bg guifg=' . s:red
+exec 'highlight NightflyPurpleAlert guibg=bg guifg=' . s:purple
+exec 'highlight NightflyBlueAlert guibg=bg guifg=' . s:blue
+exec 'highlight NightflyEmeraldAlert guibg=bg guifg=' . s:emerald
+
 " Color of mode text, -- INSERT --
 exec 'highlight ModeMsg guifg=' . s:cadet_blue . ' gui=none'
 
@@ -133,37 +162,62 @@ else
 endif
 
 " Functions
-exec 'highlight Function guifg=' . s:blue
+highlight! link Function NightflyBlue
 
 " Strings
-exec 'highlight String guifg=' . s:tan
+highlight! link String NightflyTan
 
 " Booleans
-exec 'highlight Boolean guifg=' . s:watermelon
+highlight! link Boolean NightflyWatermelon
 
 " Identifiers
-exec 'highlight Identifier guifg=' . s:turquoise
+highlight! link Identifier NightflyTurquoise
 
 " Color of titles
 exec 'highlight Title guifg=' . s:orange . ' gui=none'
 
 " const, static
-exec 'highlight StorageClass guifg=' . s:orange
+highlight! link StorageClass NightflyOrange
 
 " void, intptr_t
 exec 'highlight Type guifg=' . s:emerald . ' gui=none'
 
 " Numbers
-exec 'highlight Constant guifg=' . s:orange
+highlight! link Constant NightflyOrange
 
 " Character constants
-exec 'highlight Character guifg=' . s:purple
+highlight! link Character NightflyPurple
 
 " Exceptions
-exec 'highlight Exception guifg=' . s:watermelon
+highlight! link Exception NightflyWatermelon
 
 " ifdef/endif
-exec 'highlight PreProc guifg=' . s:watermelon
+highlight! link PreProc NightflyWatermelon
+
+" case in switch statement
+highlight! link Label NightflyTurquoise
+
+" end-of-line '$', end-of-file '~'
+exec 'highlight NonText guifg=' . s:orange . ' gui=none'
+
+" sizeof
+highlight! link Operator NightflyWatermelon
+
+" for, while
+highlight! link Repeat NightflyViolet
+
+" Search
+exec 'highlight Search guibg=bg guifg=' . s:orange . ' gui=reverse'
+exec 'highlight IncSearch guibg=bg guifg=' . s:peach
+
+" '\n' sequences
+highlight! link Special NightflyWatermelon
+
+" if, else
+exec 'highlight Statement guifg=' . s:violet . ' gui=none'
+
+" struct, union, enum, typedef
+highlight! link Structure NightflyIndigo
 
 " Status, split and tab lines
 exec 'highlight StatusLine cterm=none guibg=' . s:slate_blue . ' guifg=' . s:white . ' gui=none'
@@ -175,28 +229,6 @@ exec 'highlight TablineFill cterm=none guibg=' . s:slate_blue . ' guifg=' . s:sl
 exec 'highlight StatusLineTerm cterm=none guibg=' . s:slate_blue . ' guifg=' . s:white . ' gui=none'
 exec 'highlight StatusLineTermNC cterm=none guibg=' . s:slate_blue . ' guifg=' . s:cadet_blue . ' gui=none'
 
-" case in switch statement
-exec 'highlight Label guifg=' . s:turquoise
-
-" end-of-line '$', end-of-file '~'
-exec 'highlight NonText guifg=' . s:orange . ' gui=none'
-
-" sizeof
-exec 'highlight Operator guifg=' . s:watermelon
-
-" for, while
-exec 'highlight Repeat guifg=' . s:violet
-
-" Search
-exec 'highlight Search guibg=bg guifg=' . s:orange . ' gui=reverse'
-exec 'highlight IncSearch guibg=bg guifg=' . s:peach
-
-" '\n' sequences
-exec 'highlight Special guifg=' . s:watermelon
-
-" if, else
-exec 'highlight Statement guifg=' . s:violet . ' gui=none'
-
 " Visual selection
 exec 'highlight Visual guibg=' . s:regal_blue
 exec 'highlight VisualNOS guibg=' . s:regal_blue . ' guifg=fg gui=none'
@@ -206,9 +238,6 @@ exec 'highlight VisualInDiff guibg=' . s:regal_blue . ' guifg=' . s:white
 exec 'highlight Error guibg=bg guifg=' . s:red
 exec 'highlight ErrorMsg guibg=bg guifg=' . s:red
 exec 'highlight WarningMsg guibg=bg guifg=' . s:orange
-
-" struct, union, enum, typedef
-exec 'highlight Structure guifg=' . s:indigo
 
 " Auto-text-completion menu
 exec 'highlight Pmenu guibg=' . s:deep_blue . ' guifg=fg'
@@ -258,68 +287,41 @@ exec 'highlight Underlined guifg=' . s:green . ' gui=none'
 exec 'highlight QuickFixLine guibg=' . s:deep_blue
 exec 'highlight Delimiter guifg=' . s:white
 
-" Neovim only highlight groups
-exec 'highlight Whitespace guifg=' . s:deep_blue
-exec 'highlight TermCursor guibg=' . s:cadet_blue . ' guifg=bg gui=none'
-if g:nightflyNormalFloat
-    exec 'highlight NormalFloat guibg=bg guifg=' . s:cadet_blue
-endif
-exec 'highlight FloatBorder guibg=bg guifg=' . s:slate_blue
-
 " Color column (after line 80)
 exec 'highlight ColorColumn guibg=' . s:black_blue
 
 " Conceal color, as used by indentLine plugin
 exec 'highlight Conceal guibg=NONE guifg=' . s:deep_blue
 
-" Custom nightfly highlight groups
-exec 'highlight NightflyReset guifg=fg'
-exec 'highlight NightflyWhite guifg=' . s:white
-exec 'highlight NightflyRegalBlue guifg=' . s:regal_blue
-exec 'highlight NightflySteelBlue guifg=' . s:steel_blue
-exec 'highlight NightflyCadetBlue guifg=' . s:cadet_blue
-exec 'highlight NightflyGreyBlue guifg=' . s:grey_blue
-exec 'highlight NightflyYellow guifg=' . s:yellow
-exec 'highlight NightflyPeach guifg=' . s:peach
-exec 'highlight NightflyTan guifg=' . s:tan
-exec 'highlight NightflyOrange guifg=' . s:orange
-exec 'highlight NightflyRed guifg=' . s:red
-exec 'highlight NightflyWatermelon guifg=' . s:watermelon
-exec 'highlight NightflyViolet guifg=' . s:violet
-exec 'highlight NightflyPurple guifg=' . s:purple
-exec 'highlight NightflyBlue guifg=' . s:blue
-exec 'highlight NightflyIndigo guifg=' . s:indigo
-exec 'highlight NightflyTurquoise guifg=' . s:turquoise
-exec 'highlight NightflyEmerald guifg=' . s:emerald
-exec 'highlight NightflyGreen guifg=' . s:green
-exec 'highlight NightflyWhiteAlert guibg=bg guifg=' . s:white
-exec 'highlight NightflyCadetBlueAlert guibg=bg guifg=' . s:cadet_blue
-exec 'highlight NightflyYellowAlert guibg=bg guifg=' . s:yellow
-exec 'highlight NightflyOrangeAlert guibg=bg guifg=' . s:orange
-exec 'highlight NightflyRedAlert guibg=bg guifg=' . s:red
-exec 'highlight NightflyPurpleAlert guibg=bg guifg=' . s:purple
-exec 'highlight NightflyBlueAlert guibg=bg guifg=' . s:blue
-exec 'highlight NightflyEmeraldAlert guibg=bg guifg=' . s:emerald
+" Neovim only highlight groups
+if has('nvim')
+    exec 'highlight Whitespace guifg=' . s:deep_blue
+    exec 'highlight TermCursor guibg=' . s:cadet_blue . ' guifg=bg gui=none'
+    if g:nightflyNormalFloat
+        exec 'highlight NormalFloat guibg=bg guifg=' . s:cadet_blue
+    endif
+    exec 'highlight FloatBorder guibg=bg guifg=' . s:slate_blue
 
-" Neovim Treesitter
-highlight! link TSAnnotation NightflyViolet
-highlight! link TSAttribute NightflyBlue
-highlight! link TSConstant NightflyTurquoise
-highlight! link TSConstBuiltin NightflyGreen
-highlight! link TSConstMacro NightflyViolet
-highlight! link TSConstructor NightflyEmerald
-highlight! link TSFuncBuiltin NightflyBlue
-highlight! link TSFuncMacro NightflyBlue
-highlight! link TSInclude NightflyWatermelon
-highlight! link TSKeywordOperator NightflyViolet
-highlight! link TSNamespace NightflyIndigo
-highlight! link TSParameter NightflyWhite
-highlight! link TSPunctSpecial NightflyWatermelon
-highlight! link TSSymbol NightflyPurple
-highlight! link TSTag NightflyBlue
-highlight! link TSTagDelimiter NightflyGreen
-highlight! link TSVariableBuiltin NightflyGreen
-highlight! link bashTSParameter NightflyTurquoise
+    " Neovim Treesitter
+    highlight! link TSAnnotation NightflyViolet
+    highlight! link TSAttribute NightflyBlue
+    highlight! link TSConstant NightflyTurquoise
+    highlight! link TSConstBuiltin NightflyGreen
+    highlight! link TSConstMacro NightflyViolet
+    highlight! link TSConstructor NightflyEmerald
+    highlight! link TSFuncBuiltin NightflyBlue
+    highlight! link TSFuncMacro NightflyBlue
+    highlight! link TSInclude NightflyWatermelon
+    highlight! link TSKeywordOperator NightflyViolet
+    highlight! link TSNamespace NightflyIndigo
+    highlight! link TSParameter NightflyWhite
+    highlight! link TSPunctSpecial NightflyWatermelon
+    highlight! link TSSymbol NightflyPurple
+    highlight! link TSTag NightflyBlue
+    highlight! link TSTagDelimiter NightflyGreen
+    highlight! link TSVariableBuiltin NightflyGreen
+    highlight! link bashTSParameter NightflyTurquoise
+endif
 
 " C/C++
 highlight! link cDefine NightflyViolet
@@ -335,10 +337,12 @@ highlight! link cppOperator NightflyGreen
 highlight! link cppSTLconstant NightflyIndigo
 highlight! link cppSTLnamespace NightflyIndigo
 highlight! link cppStatement NightflyTurquoise
+highlight! link cppStructure NightflyViolet
 
 " C#
 highlight! link csModifier NightflyGreen
 highlight! link csPrecondit NightflyViolet
+highlight! link csStorage NightflyViolet
 highlight! link csXmlTag NightflyBlue
 
 " Clojure
@@ -533,14 +537,12 @@ highlight! link pythonRun NightflyBlue
 highlight! link pythonStatement NightflyViolet
 
 " Ruby
-exec 'highlight rspecGroupMethods guifg=' . s:blue
 highlight! link erubyDelimiter NightflyWatermelon
 highlight! link rubyAccess NightflyYellow
 highlight! link rubyAssertion NightflyBlue
 highlight! link rubyAttribute NightflyBlue
 highlight! link rubyBlockParameter NightflyGreen
 highlight! link rubyCallback NightflyBlue
-highlight! link rubyClass NightflyOrange
 highlight! link rubyClassName NightflyEmerald
 highlight! link rubyDefine NightflyViolet
 highlight! link rubyEntities NightflyBlue
@@ -588,7 +590,7 @@ highlight! link rustStructure NightflyViolet
 highlight! link rustTrait NightflyEmerald
 highlight! link rustType NightflyEmerald
 
-" Scala, note link highlighting does not work (I don't know why)
+" Scala (note, link highlighting does not work, I don't know why)
 exec 'highlight scalaCapitalWord guifg=' . s:blue
 exec 'highlight scalaCommentCodeBlock guifg=' . s:cadet_blue
 exec 'highlight scalaInstanceDeclaration guifg=' . s:turquoise
@@ -715,14 +717,6 @@ highlight! link NERDTreeGitStatusRenamed NightflyBlue
 highlight! link NERDTreeGitStatusStaged NightflyBlue
 highlight! link NERDTreeGitStatusUntracked NightflyRed
 
-" vimfiler plugin
-highlight! link vimfilerClosedFile NightflyBlue
-highlight! link vimfilerMarkedFile NightflyOrange
-highlight! link vimfilerNonMark NightflyGreen
-highlight! link vimfilerNormalFile NightflyWhite
-highlight! link vimfilerOpenedFile NightflyBlue
-highlight! link vimfilerROFile NightflyGreyBlue
-
 " fern.vim plugin
 highlight! link FernBranchSymbol NightflyGreen
 highlight! link FernBranchText NightflyBlue
@@ -767,23 +761,6 @@ exec 'highlight DiffChange guibg=' . s:slate_blue
 exec 'highlight DiffDelete guibg=' . s:slate_blue . ' guifg=' . s:watermelon ' gui=none'
 exec 'highlight DiffText guibg=' . s:blue . ' guifg=bg gui=none'
 
-" Neomake plugin
-if g:nightflyUndercurls
-    exec 'highlight NeomakeError guibg=bg gui=undercurl guisp=' . s:red
-    exec 'highlight NeomakeWarning guibg=bg gui=undercurl guisp=' . s:yellow
-    exec 'highlight NeomakeInfo guibg=bg gui=undercurl guisp=' . s:blue
-    exec 'highlight NeomakeMessage guibg=bg gui=undercurl guisp=' . s:white
-else
-    exec 'highlight NeomakeError guibg=bg'
-    exec 'highlight NeomakeWarning guibg=bg'
-    exec 'highlight NeomakeInfo guibg=bg'
-    exec 'highlight NeomakeMessage guibg=bg'
-endif
-highlight! link NeomakeErrorSign NightflyRedAlert
-highlight! link NeomakeWarningSign NightflyYellowAlert
-highlight! link NeomakeInfoSign NightflyBlueAlert
-highlight! link NeomakeMessageSign NightflyWhiteAlert
-
 " ALE plugin
 if g:nightflyUndercurls
     exec 'highlight ALEError guibg=bg gui=undercurl guisp=' . s:red
@@ -801,32 +778,6 @@ highlight! link ALEWarningSign NightflyYellowAlert
 highlight! link ALEVirtualTextInfo NightflySteelBlue
 highlight! link ALEInfoSign NightflyBlueAlert
 
-" Neovim LSP diagnostics
-if g:nightflyUndercurls
-    exec 'highlight LspDiagnosticsUnderlineError guibg=bg gui=undercurl guisp=' . s:red
-    exec 'highlight LspDiagnosticsUnderlineWarning guibg=bg gui=undercurl guisp=' . s:yellow
-    exec 'highlight LspDiagnosticsUnderlineInformation guibg=bg gui=undercurl guisp=' . s:blue
-    exec 'highlight LspDiagnosticsUnderlineHint guibg=bg gui=undercurl guisp=' . s:white
-else
-    exec 'highlight LspDiagnosticsUnderlineError guibg=bg gui=underline guisp=' . s:red
-    exec 'highlight LspDiagnosticsUnderlineWarning guibg=bg gui=underline guisp=' . s:yellow
-    exec 'highlight LspDiagnosticsUnderlineInformation guibg=bg gui=underline guisp=' . s:blue
-    exec 'highlight LspDiagnosticsUnderlineHint guibg=bg gui=underline guisp=' . s:white
-endif
-highlight! link LspDiagnosticsVirtualTextError NightflySteelBlue
-highlight! link LspDiagnosticsSignError NightflyRedAlert
-highlight! link LspDiagnosticsFloatingError NightflyRed
-highlight! link LspDiagnosticsVirtualTextWarning NightflySteelBlue
-highlight! link LspDiagnosticsSignWarning NightflyYellowAlert
-highlight! link LspDiagnosticsFloatingWarning NightflyYellow
-highlight! link LspDiagnosticsVirtualTextInformation NightflySteelBlue
-highlight! link LspDiagnosticsSignInformation NightflyBlueAlert
-highlight! link LspDiagnosticsFloatingInformation NightflyBlue
-highlight! link LspDiagnosticsVirtualTextHint NightflySteelBlue
-highlight! link LspDiagnosticsSignHint NightflyWhiteAlert
-highlight! link LspDiagnosticsFloatingHint NightflyWhite
-highlight! link LspSignatureActiveParameter NightflyRegalBlue
-
 " GitGutter plugin
 highlight! link GitGutterAdd NightflyEmeraldAlert
 highlight! link GitGutterChange NightflyYellowAlert
@@ -837,14 +788,6 @@ highlight! link GitGutterDelete NightflyRedAlert
 highlight! link SignifySignAdd NightflyEmeraldAlert
 highlight! link SignifySignChange NightflyYellowAlert
 highlight! link SignifySignDelete NightflyRedAlert
-
-" gitsigns.nvim plugin
-highlight! link GitSignsAdd NightflyEmeraldAlert
-highlight! link GitSignsChange NightflyYellowAlert
-highlight! link GitSignsChangeNr NightflyYellowAlert
-highlight! link GitSignsChangeLn NightflyYellowAlert
-highlight! link GitSignsChangeDelete NightflyOrangeAlert
-highlight! link GitSignsDelete NightflyRedAlert
 
 " FZF plugin
 exec 'highlight fzf1 guifg=' . s:watermelon . ' guibg=' . s:slate_blue
@@ -878,13 +821,64 @@ exec 'highlight User5 guibg=' . s:slate_blue . ' guifg=' . s:blue       . ' gui=
 exec 'highlight User6 guibg=' . s:slate_blue . ' guifg=' . s:watermelon . ' gui=none'
 exec 'highlight User7 guibg=' . s:slate_blue . ' guifg=' . s:blue       . ' gui=none'
 
-" barbar.nvim plugin
-exec 'highlight BufferCurrent      guibg=' . s:dark_blue . '  guifg=' . s:white
-exec 'highlight BufferCurrentMod   guibg=' . s:dark_blue . '  guifg=' . s:tan
-exec 'highlight BufferCurrentSign  guibg=' . s:dark_blue . '  guifg=' . s:blue
-exec 'highlight BufferVisible      guibg=' . s:dark_blue . '  guifg=' . s:grey_blue
-exec 'highlight BufferVisibleMod   guibg=' . s:dark_blue . '  guifg=' . s:tan
-exec 'highlight BufferVisibleSign  guibg=' . s:dark_blue . '  guifg=' . s:grey_blue
-exec 'highlight BufferInactive     guibg=' . s:slate_blue . ' guifg=' . s:grey_blue
-exec 'highlight BufferInactiveMod  guibg=' . s:slate_blue . ' guifg=' . s:tan
-exec 'highlight BufferInactiveSign guibg=' . s:slate_blue . ' guifg=' . s:cadet_blue
+" Neovim only plugins
+if has('nvim')
+    " Neovim LSP diagnostics
+    if g:nightflyUndercurls
+        exec 'highlight LspDiagnosticsUnderlineError guibg=bg gui=undercurl guisp=' . s:red
+        exec 'highlight LspDiagnosticsUnderlineWarning guibg=bg gui=undercurl guisp=' . s:yellow
+        exec 'highlight LspDiagnosticsUnderlineInformation guibg=bg gui=undercurl guisp=' . s:blue
+        exec 'highlight LspDiagnosticsUnderlineHint guibg=bg gui=undercurl guisp=' . s:white
+    else
+        exec 'highlight LspDiagnosticsUnderlineError guibg=bg gui=underline guisp=' . s:red
+        exec 'highlight LspDiagnosticsUnderlineWarning guibg=bg gui=underline guisp=' . s:yellow
+        exec 'highlight LspDiagnosticsUnderlineInformation guibg=bg gui=underline guisp=' . s:blue
+        exec 'highlight LspDiagnosticsUnderlineHint guibg=bg gui=underline guisp=' . s:white
+    endif
+    highlight! link LspDiagnosticsVirtualTextError NightflySteelBlue
+    highlight! link LspDiagnosticsSignError NightflyRedAlert
+    highlight! link LspDiagnosticsFloatingError NightflyRed
+    highlight! link LspDiagnosticsVirtualTextWarning NightflySteelBlue
+    highlight! link LspDiagnosticsSignWarning NightflyYellowAlert
+    highlight! link LspDiagnosticsFloatingWarning NightflyYellow
+    highlight! link LspDiagnosticsVirtualTextInformation NightflySteelBlue
+    highlight! link LspDiagnosticsSignInformation NightflyBlueAlert
+    highlight! link LspDiagnosticsFloatingInformation NightflyBlue
+    highlight! link LspDiagnosticsVirtualTextHint NightflySteelBlue
+    highlight! link LspDiagnosticsSignHint NightflyWhiteAlert
+    highlight! link LspDiagnosticsFloatingHint NightflyWhite
+    highlight! link LspSignatureActiveParameter NightflyRegalBlue
+
+    " nvim-tree.lua plugin
+    highlight! link NvimTreeFolderIcon NightflyCadetBlue
+    highlight! link NvimTreeFolderName NightflyBlue
+    highlight! link NvimTreeIndentMarker NightflyCadetBlue
+    highlight! link NvimTreeRootFolder NightflyPurple
+    highlight! link NvimTreeSpecialFile NightflyYellow
+
+    " telescope.nvim plugin
+    highlight! link TelescopeBorder NightflySlateBlue
+    highlight! link TelescopeMatching NightflyOrange
+    highlight! link TelescopePromptPrefix NightflyBlue
+
+    " gitsigns.nvim plugin
+    highlight! link GitSignsAdd NightflyEmeraldAlert
+    highlight! link GitSignsChange NightflyYellowAlert
+    highlight! link GitSignsChangeNr NightflyYellowAlert
+    highlight! link GitSignsChangeLn NightflyYellowAlert
+    highlight! link GitSignsChangeDelete NightflyOrangeAlert
+    highlight! link GitSignsDelete NightflyRedAlert
+
+    " barbar.nvim plugin
+    exec 'highlight BufferCurrent      guibg=' . s:dark_blue . '  guifg=' . s:white
+    exec 'highlight BufferCurrentMod   guibg=' . s:dark_blue . '  guifg=' . s:tan
+    exec 'highlight BufferCurrentSign  guibg=' . s:dark_blue . '  guifg=' . s:blue
+    exec 'highlight BufferVisible      guibg=' . s:dark_blue . '  guifg=' . s:grey_blue
+    exec 'highlight BufferVisibleMod   guibg=' . s:dark_blue . '  guifg=' . s:tan
+    exec 'highlight BufferVisibleSign  guibg=' . s:dark_blue . '  guifg=' . s:grey_blue
+    exec 'highlight BufferInactive     guibg=' . s:slate_blue . ' guifg=' . s:grey_blue
+    exec 'highlight BufferInactiveMod  guibg=' . s:slate_blue . ' guifg=' . s:tan
+    exec 'highlight BufferInactiveSign guibg=' . s:slate_blue . ' guifg=' . s:cadet_blue
+endif
+
+set background=dark
