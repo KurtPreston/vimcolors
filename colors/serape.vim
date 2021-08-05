@@ -119,7 +119,7 @@ hi DiffIndexLine   ctermfg=202     ctermbg=none     cterm=bold
 
 " Completion menu
 hi Pmenu           ctermfg=15      ctermbg=235
-hi PmenuSel        ctermfg=0       ctermbg=15       cterm=bold
+hi PmenuSel        ctermfg=0       ctermbg=15
 hi PmenuSbar       ctermfg=none    ctermbg=235
 hi PmenuThumb      ctermfg=none    ctermbg=15
 

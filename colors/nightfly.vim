@@ -376,12 +376,21 @@ highlight! link crystalSharpBang NightflyCadetBlue
 highlight! link crystalStringDelimiter NightflyTan
 
 " CSS/SCSS
+highlight! link cssAtRule NightflyViolet
 highlight! link cssAttr NightflyTurquoise
-highlight! link cssClassName NightflyBlue
+highlight! link cssBraces NightflyReset
+highlight! link cssClassName NightflyEmerald
+highlight! link cssClassNameDot NightflyViolet
 highlight! link cssColor NightflyTurquoise
-highlight! link cssIdentifier NightflyPeach
+highlight! link cssIdentifier NightflyBlue
 highlight! link cssProp NightflyTurquoise
-highlight! link cssValueNumber NightflyViolet
+highlight! link cssTagName NightflyBlue
+highlight! link cssUnitDecorators NightflyTan
+highlight! link cssValueLength NightflyPurple
+highlight! link cssValueNumber NightflyPurple
+highlight! link sassId NightflyBlue
+highlight! link sassIdChar NightflyViolet
+highlight! link sassMedia NightflyViolet
 highlight! link scssSelectorName NightflyBlue
 
 " Dart
@@ -650,12 +659,14 @@ highlight! link typescriptXHRMethod NightflyBlue
 
 " Vimscript
 highlight! link vimBracket NightflyBlue
-highlight! link vimCommand NightflyOrange
+highlight! link vimCommand NightflyViolet
 highlight! link vimCommentTitle NightflyViolet
 highlight! link vimEnvvar NightflyWatermelon
 highlight! link vimFuncName NightflyBlue
 highlight! link vimFuncSID NightflyBlue
 highlight! link vimFunction NightflyBlue
+highlight! link vimHighlight NightflyBlue
+highlight! link vimNotFunc NightflyViolet
 highlight! link vimNotation NightflyBlue
 highlight! link vimOption NightflyTurquoise
 highlight! link vimParenSep NightflyWhite
