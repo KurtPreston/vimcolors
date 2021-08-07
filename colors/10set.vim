@@ -71,6 +71,6 @@ let g:vimsyn_embed = 'l'
 let g:vimsyn_folding = 'afl'
 let g:vimsyn_noerror = 1
 
-" other plugin config
+" other plugins config
 let g:targets_nl = 'nN'
 let g:undotree_WindowLayout = 4

@@ -27,9 +27,9 @@ command! -bar -bang Bwipeout call misc#bwipeout(<bang>0)
 command! -range -bar -bang Comment
     \ call misc#comment(<line1>, <line2>, <bang>&preserveindent)
 
-" :Diff[!]
-" show diff with original file or git HEAD
-command! -bar -bang Diff call misc#diff(<bang>&modified)
+" :Diff [spec]
+" show diff with original file or git object
+command! -nargs=? Diff call misc#diff(<q-args>)
 
 " :[range]Execute [winnr]
 " execute VimScript or any "shebang"-script

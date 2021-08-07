@@ -67,9 +67,7 @@ function s:pack_setup() abort
     call s:pack_add('chrisbra/unicode.vim', {'type': 'opt'})
 
     " color schemes
-    call s:pack_add('romainl/flattened', {'type': 'opt'})
     call s:pack_add('w0ng/vim-hybrid', {'type': 'opt', 'frozen': 1})
-    call s:pack_add('cocopon/iceberg.vim', {'type': 'opt'})
     call s:pack_add('vim-scripts/Liquid-Carbon', {'type': 'opt', 'frozen': 1})
     call s:pack_add('KeitaNakamura/neodark.vim', {'type': 'opt'})
     call s:pack_add('haishanh/night-owl.vim', {'type': 'opt'})

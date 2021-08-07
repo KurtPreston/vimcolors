@@ -14,7 +14,7 @@ if better#gui_running()
     call better#safe('GuiScrollBar 1')
     call better#safe('GuiTabline 1')
     call better#safe('GuiPopupmenu 0')
-    call better#safe('GuiRenderLigatures 0')
+    call better#safe('GuiRenderLigatures 1')
     call better#safe('GuiWindowOpacity 1.0')
     call better#safe('set renderoptions=type:directx', has('directx'))
     let g:drvo_glyph = [0x1F4C2, 0x1F4C4]

@@ -43,16 +43,17 @@ function! misc#comment(line1, line2, pi = &preserveindent) abort
     endif
 endfunction
 
-" misc#diff({orig})
+" misc#diff({spec})
 " improved implementation of :DiffOrig
-function! misc#diff(orig) abort
+function! misc#diff(spec) abort
+    let [l:org, l:spec] = empty(a:spec) ? [&modified, 'HEAD'] : [v:false, a:spec]
     execute matchstr(&diffopt, 'vertical') 'new'
     setlocal bufhidden=wipe buftype=nofile noswapfile
     let &l:filetype = getbufvar(0, '&filetype')
     nnoremap <buffer>q <C-W>q
-    execute printf('silent file (%s)', a:orig ? 'ORIG' : 'HEAD')
-    execute 'silent read ++edit' a:orig ? '#' : printf('!git -C %s show @:./%s',
-        \ expand('#:p:h:S'), expand('#:t:S'))
+    execute 'silent file' l:org ? 'ORG' : l:spec
+    execute 'silent read ++edit' l:org ? '#' : printf('!git -C %s show %s:./%s',
+        \ shellescape(expand('#:p:h'), 1), l:spec, shellescape(expand('#:t'), 1))
     1delete_
     diffthis
     wincmd p
