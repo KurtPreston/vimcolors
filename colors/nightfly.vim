@@ -52,6 +52,9 @@ let g:nightflyItalics = get(g:, 'nightflyItalics', 1)
 " By default do not use a transparent background in GUI versions of Vim.
 let g:nightflyTransparent = get(g:, 'nightflyTransparent', 0)
 
+" By default do display vertical split columns.
+let g:nightflyVertSplits = get(g:, 'nightflyVertSplits', 1)
+
 " By default do not use a customized 'NormalFloat' highlight group (for Neovim
 " floating windows).
 let g:nightflyNormalFloat = get(g:, 'nightflyNormalFloat', 0)
@@ -95,7 +98,7 @@ if g:nightflyTerminalColors
         let g:terminal_color_4  = s:blue
         let g:terminal_color_5  = s:violet
         let g:terminal_color_6  = s:turquoise
-        let g:terminal_color_7  = s:cadet_blue
+        let g:terminal_color_7  = s:white
         let g:terminal_color_8  = s:grey_blue
         let g:terminal_color_9  = s:watermelon
         let g:terminal_color_10 = s:emerald
@@ -107,7 +110,7 @@ if g:nightflyTerminalColors
     else
         let g:terminal_ansi_colors = [
                     \ s:regal_blue, s:red, s:green, s:yellow,
-                    \ s:blue, s:violet, s:turquoise, s:cadet_blue,
+                    \ s:blue, s:violet, s:turquoise, s:white,
                     \ s:grey_blue, s:watermelon, s:emerald, s:tan,
                     \ s:blue, s:purple, s:turquoise, s:white_blue
                     \]
@@ -219,15 +222,19 @@ exec 'highlight Statement guifg=' . s:violet . ' gui=none'
 " struct, union, enum, typedef
 highlight! link Structure NightflyIndigo
 
-" Status, split and tab lines
+" Statusline, splits and tab lines
 exec 'highlight StatusLine cterm=none guibg=' . s:slate_blue . ' guifg=' . s:white . ' gui=none'
 exec 'highlight StatusLineNC cterm=none guibg=' . s:slate_blue . ' guifg=' . s:cadet_blue . ' gui=none'
-exec 'highlight VertSplit cterm=none guibg=' . s:slate_blue . ' guifg=' . s:slate_blue . ' gui=none'
 exec 'highlight Tabline cterm=none guibg=' . s:slate_blue . ' guifg=' . s:cadet_blue . ' gui=none'
 exec 'highlight TablineSel cterm=none guibg=' . s:slate_blue . ' guifg=' . s:blue . ' gui=none'
 exec 'highlight TablineFill cterm=none guibg=' . s:slate_blue . ' guifg=' . s:slate_blue . ' gui=none'
 exec 'highlight StatusLineTerm cterm=none guibg=' . s:slate_blue . ' guifg=' . s:white . ' gui=none'
 exec 'highlight StatusLineTermNC cterm=none guibg=' . s:slate_blue . ' guifg=' . s:cadet_blue . ' gui=none'
+if g:nightflyVertSplits
+    exec 'highlight VertSplit cterm=none guibg=' . s:slate_blue . ' guifg=' . s:slate_blue . ' gui=none'
+else
+    exec 'highlight VertSplit cterm=none guibg=' . s:black . ' guifg=' . s:black . ' gui=none'
+end
 
 " Visual selection
 exec 'highlight Visual guibg=' . s:regal_blue
@@ -517,6 +524,8 @@ highlight! link markdownCode NightflyTan
 highlight! link markdownCodeDelimiter NightflyTan
 highlight! link markdownError NormalNC
 highlight! link markdownH1 NightflyOrange
+highlight! link markdownHeadingRule NightflyBlue
+highlight! link markdownItalic NightflyViolet
 highlight! link markdownUrl NightflyPurple
 
 " Markdown, 'plasticboy/vim-markdown' plugin
@@ -864,13 +873,17 @@ if has('nvim')
     highlight! link NvimTreeFolderIcon NightflyCadetBlue
     highlight! link NvimTreeFolderName NightflyBlue
     highlight! link NvimTreeIndentMarker NightflyCadetBlue
+    highlight! link NvimTreeOpenedFolderName NightflyBlue
     highlight! link NvimTreeRootFolder NightflyPurple
     highlight! link NvimTreeSpecialFile NightflyYellow
+    highlight! link NvimTreeWindowPicker DiffText
 
     " telescope.nvim plugin
     highlight! link TelescopeBorder NightflySlateBlue
     highlight! link TelescopeMatching NightflyOrange
+    highlight! link TelescopeMultiSelection NightflyWatermelon
     highlight! link TelescopePromptPrefix NightflyBlue
+    highlight! link TelescopeSelectionCaret NightflyWatermelon
 
     " gitsigns.nvim plugin
     highlight! link GitSignsAdd NightflyEmeraldAlert
