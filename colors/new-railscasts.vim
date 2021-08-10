@@ -120,9 +120,8 @@ hi gitblame          guifg=#775e3e guibg=NONE gui=italic,bold
 " Ruby https://github.com/vim-ruby/vim-ruby
 hi rspecMatchers             guifg=#FFC66D guibg=NONE
 hi rubyBlockParameter        guifg=#D7B0FC guibg=NONE
-hi rubyClass                 guifg=#F47454 guibg=NONE gui=bold
+hi rubyClass                 guifg=#FC623B guibg=NONE
 hi rubyClassName      guifg=#F47454 gui=italic,bold
-hi rubyModuleDeclaration     guifg=#F47454 gui=italic
 hi rubyConstant              guifg=#FC623B guibg=NONE gui=bold
 hi rubyMethodName            guifg=#FFC66D guibg=NONE gui=bold
 hi rubyPredefinedConstant    guifg=#F47454 guibg=NONE
@@ -150,6 +149,7 @@ hi link rubyInstanceVariable        rubyBlockParameter
 hi link rubyLocalVariableOrMethod   rubyBlockParameter
 hi link rubyDefine                  rubyClass
 hi link rubyGemfileMethod           rubyClass
+hi link rubyModuleName           rubyClassName
 " Ruby nvim-treesitter
 hi link rubyTSSymbol rubySymbol   
 hi link rubyTSPunctBracket rubyCurlyBlockDelimiter
