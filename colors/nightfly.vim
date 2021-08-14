@@ -6,9 +6,12 @@
 " URL:     github.com/bluz71/vim-nightfly-guicolors
 " License: MIT (https://opensource.org/licenses/MIT)
 
-highlight clear
-if exists('syntax_on')
-    syntax reset
+" Clear highlights and reset syntax only when changing colorschemes.
+if exists('g:colors_name')
+    highlight clear
+    if exists('syntax_on')
+        syntax reset
+    endif
 endif
 let g:colors_name='nightfly'
 
@@ -614,7 +617,6 @@ exec 'highlight scalaCapitalWord guifg=' . s:blue
 exec 'highlight scalaCommentCodeBlock guifg=' . s:cadet_blue
 exec 'highlight scalaInstanceDeclaration guifg=' . s:turquoise
 exec 'highlight scalaKeywordModifier guifg=' . s:green
-exec 'highlight scalaSpecial guifg=' . s:turquoise
 exec 'highlight scalaSpecial guifg=' . s:watermelon
 
 " Shell scripts
