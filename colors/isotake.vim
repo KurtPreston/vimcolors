@@ -35,10 +35,10 @@ if &background == 'light'
   hi  MatchParen        guibg=turquoise
   hi  NonText           guibg=LavenderBlush  guifg=Gray30
   hi  Normal            ctermfg=18
-  hi  Pmenu             guibg=LightGrey      guifg=DarkBlue
-  hi  PmenuSbar         guibg=Grey70
-  hi  PmenuSel          guibg=#6ac4ff        guifg=White
-  hi  Pmenuthumb        guifg=#bed4f7
+  hi  Pmenu             ctermfg=18           ctermbg=195
+  hi  PmenuSbar         ctermbg=159
+  hi  PmenuSel          ctermfg=21           ctermbg=153
+  hi  PmenuThumb        ctermbg=45
   hi  PreProc           guifg=DarkMagenta
   hi  Search            guibg=LightGreen     guifg=DarKRed     ctermbg=159   ctermfg=52
   hi  SignColor         guibg=Grey60
