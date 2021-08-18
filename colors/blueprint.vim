@@ -215,6 +215,9 @@ hi! GitGutterDelete  guifg=#a05454 guibg=#a05454
 hi! link LspDiagnosticsUnderlineError Underlined
 hi! link LspDiagnosticsUnderlineWarning Underlined
 
+hi   LspDiagnosticsVirtualTextError guifg=#edabb8 guibg=#2c4e6c gui=none
+hi LspDiagnosticsVirtualTextWarning guifg=#ede0ab guibg=#2c4e6c gui=none
+
 let g:terminal_color_background = "#335b7e"
 let g:terminal_color_foreground = "#ffffff"
 
